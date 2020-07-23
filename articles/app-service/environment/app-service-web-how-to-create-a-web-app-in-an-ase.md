@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701828"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220692"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
 
@@ -34,7 +34,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
 ## <a name="create-a-web-app"></a>Créer une application web
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource > Web + Mobile > Application web**. 
    
-    ![][1]
+    ![Capture d’écran montrant où créer une application web dans le Portail Azure.][1]
 2. Sélectionnez votre abonnement.  
    
     Si vous disposez de plusieurs abonnements, n’oubliez pas que pour créer une application dans votre environnement App Service, vous devez utiliser le même abonnement que celui utilisé lors de la création de l’environnement. 
@@ -47,7 +47,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
    
     Vous pouvez identifier les plans App Service dans votre environnement App Service en examinant l’emplacement indiqué sous le nom du plan.  
    
-    ![][5]
+    ![Capture d’écran montrant où voir les plans de App Service dans votre App Service Environment.][5]
    
     Si vous souhaitez utiliser un plan App Service existant dans votre environnement App Service, sélectionnez ce plan. Si vous souhaitez créer un plan App Service, consultez la section suivante de ce didacticiel : [Créer un plan App Service dans un environnement App Service](#createplan).
 5. Entrez le nom de votre application web, puis cliquez sur **Créer**. 
@@ -69,18 +69,18 @@ Les instructions suivantes indiquent comment créer un plan App Service lors de 
    
     Un environnement App Service étant essentiellement un emplacement de déploiement privé, il s’affiche sous Emplacement. 
    
-    ![][2]
+    ![Capture d’écran montrant le sélecteur d’emplacement pour la sélection de l’ASE de votre choix.][2]
    
     Après la sélection d’un environnement ASE dans le sélecteur d’emplacements, l’interface utilisateur de création de plan App Service se met à jour.  L’emplacement affiche désormais le nom du système ASE et la région dans laquelle il se trouve, et le sélecteur de plans de tarification est remplacé par un sélecteur de pool de travail.  
    
-    ![][3]
+    ![Capture d’écran montrant les détails du système ASE après avoir sélectionné l’ASE dans le sélecteur d’emplacement.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Sélection d’un pool de travail
 Normalement, dans Azure App Service et en dehors d’un environnement App Service, il existe 3 tailles de calcul disponibles avec la sélection d’un plan de tarification dédié.  De la même manière, pour un ASE, vous pouvez définir jusqu’à 3 pools de travaux et spécifier la taille de calcul utilisée pour ce pool de travail.  Pour les clients de l’ASE, cela signifie que, au lieu de sélectionner un plan de tarification avec une taille de calcul pour votre plan App Service, vous sélectionnez ce qu’on appelle un *pool de travail*.  
 
 L’interface utilisateur de sélection du pool de travaux affiche la taille de calcul utilisée pour le pool de travaux sous le nom.  La quantité disponible fait référence au nombre d’instances de calcul disponibles pour une utilisation dans le pool.  Le pool total peut avoir plus d’instances que ce nombre, mais la valeur fait simplement référence à ceux qui ne sont pas en cours d’utilisation.  Si vous avez besoin d’ajuster votre environnement App Service pour ajouter des ressources de calcul, consultez [Configuration de votre environnement App Service](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Capture d’écran montrant le volet Worker Pool dans lequel vous pouvez sélectionner Worker Pools pour l’ASE.][4]
 
 Dans cet exemple, vous constatez que seuls deux pools de travaux sont disponibles. La raison en est que l’administrateur de l’ASE n’a alloué les hôtes qu’à ces deux pools de travaux.  Le troisième apparaît lorsque des machines virtuelles lui ont été attribuées.  
 

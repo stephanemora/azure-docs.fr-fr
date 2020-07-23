@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308776"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257833"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gérer des certificats sur un appareil IoT Edge
 
@@ -47,6 +47,9 @@ Vous devez utiliser votre propre autorité de certification pour créer les fich
 * Clé privée d’autorité de certification d’appareil
 
 Dans cet article, l’*autorité de certification racine* à laquelle nous faisons référence n’est pas l’autorité de certification la plus élevée pour une organisation. Il s’agit de l’autorité de certification la plus élevée pour le scénario IoT Edge, que le module du hub IoT Edge, les modules utilisateur et tous les appareils en aval utilisent pour établir une relation de confiance entre eux.
+
+> [!NOTE]
+> Actuellement, une limitation dans libiothsm empêche l’utilisation de certificats qui expirent le 1er janvier 2050 ou après cette date.
 
 Pour voir un exemple de ces certificats, passez en revue les scripts qui créent des certificats de démonstration dans [Gestion de certificats d’autorité de certification de test pour des exemples et tutoriels](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -120,6 +123,9 @@ certificates:
   trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
   auto_generated_ca_lifetime_days: <value>
 ```
+
+> [!NOTE]
+> Actuellement, une limitation dans libiothsm empêche l’utilisation de certificats qui expirent le 1er janvier 2050 ou après cette date.
 
 Si vous avez fourni vos propres certificats d’autorité de certification d’appareil, cette valeur s’applique toujours au certificat de l’autorité de certification de la charge de travail, à condition que la valeur de durée de vie définie par vos soins soit inférieure à la durée de vie du certificat de l’autorité de certification.
 

@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081114"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230755"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure
 
@@ -43,12 +43,12 @@ Il existe différents [niveaux tarifaires](https://azure.microsoft.com/pricing/d
 
 |  | De base | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Nombre maximal de réplicas par service |3 |12 |12 |12 |12 |
-| Nombre maximal de partitions par service |1 |12 |12 |12 |3 |
-| Nombre maximal d’unités de recherche (réplicas*partitions) par service |3 |36 |36 |36 |36 (3 partitions max.) |
-| Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
-| Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
-| Nombre maximal d’index par service |5 |50 |200 |200 |3000 (1 000 index max. par partition) |
+| **Nombre maximal de réplicas par service** |3 |12 |12 |12 |12 |
+| **Nombre maximal de partitions par service** |1 |12 |12 |12 |3 |
+| **Nombre maximal d’unités de recherche (réplicas*partitions) par service** |3 |36 |36 |36 |36 (3 partitions max.) |
+| **Stockage maximal par service** |2 Go |300 Go |1,2 To |2,4 To |600 Go |
+| **Stockage maximal par partition** |2 Go |25 Go |100 Go |200 Go |200 Go |
+| **Nombre maximal d’index par service** |5 |50 |200 |200 |3000 (1 000 index max. par partition) |
 
 #### <a name="s3-high-density"></a>Haute densité S3
 Dans le niveau tarifaire S3 de Recherche cognitive Azure, il existe une option pour le mode haute densité (HD) conçu spécifiquement pour les scénarios mutualisés. Dans de nombreux cas, il est nécessaire de prendre en charge un grand nombre de clients plus petits sous un seul service pour tirer parti des avantages de simplicité et de rentabilité.

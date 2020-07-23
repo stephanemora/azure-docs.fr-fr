@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f953b21a221967c2310b2fc70056d48863149821
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75530729"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220046"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Envoi de notifications Push de manière sécurisée à partir d’Azure Notification Hubs
 
@@ -94,7 +94,7 @@ L’étape suivante consiste à créer le composant en arrière-plan pour les no
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nœud de niveau supérieur de la solution (**Solution SecurePush** dans le cas présent). Cliquez ensuite sur **Ajouter**, puis sur **Nouveau projet**.
 2. Développez **Applications du Windows Store** et cliquez sur **Applications Windows Phone**, puis sur **Composant Windows Runtime (Windows Phone)** . Nommez le projet **PushBackgroundComponent**, puis cliquez sur **OK** pour créer le projet.
 
-    ![][12]
+    ![Capture d’écran de la boîte de dialogue Ajouter un nouveau projet avec l’option Visual C# (Windows Phone) de Windows Runtime Component en surbrillance.][12]
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **PushBackgroundComponent (Windows Phone 8.1)** . Cliquez ensuite sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe `PushBackgroundTask.cs`. Cliquez sur **Ajouter** pour générer la classe.
 4. Remplacez l’ensemble du contenu de la définition de l’espace de noms `PushBackgroundComponent` par le code ci-après en remplaçant l’espace réservé `{back-end endpoint}` par le point de terminaison du serveur principal obtenu lors du déploiement de votre serveur principal :
 
@@ -162,12 +162,12 @@ L’étape suivante consiste à créer le composant en arrière-plan pour les no
 11. Dans l’Explorateur de solutions, dans le projet **NotifyUserWindowsPhone (Windows Phone 8.1)** , cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence...** . Dans la boîte de dialogue Gestionnaire de références, cochez la case en regard de **PushBackgroundComponent**, puis cliquez sur **OK**.
 12. Dans l’Explorateur de solutions, double-cliquez sur **Package.appxmanifest** dans le projet **NotifyUserWindowsPhone (Windows Phone 8.1)** . Sous **Notifications**, définissez **Compatible toast** sur **Oui**.
 
-    ![][3]
+    ![Capture d’écran de la fenêtre de l’Explorateur de solutions qui se concentre sur le Package. appxmanifest avec l’option de compatibilité Toast définie sur Oui soulignée en rouge.][3]
 13. Toujours dans **Package.appxmanifest**, cliquez en haut sur le menu **Déclarations**. Dans la liste déroulante **Déclarations disponibles**, cliquez sur **Tâches en arrière-plan**, puis cliquez sur **Ajouter**.
 14. Dans **Package.appxmanifest**, sous **Propriétés**, cochez **Notification Push**.
 15. Dans **Package.appxmanifest**, sous **Paramètres de l’application**, tapez **PushBackgroundComponent.PushBackgroundTask** dans le champ **Point d’entrée**.
 
-    ![][13]
+    ![Capture d’écran de la fenêtre de l’Explorateur de solutions qui se concentre sur le Package. appxmanifest avec les déclarations disponibles, les déclarations prises en charge, les notifications Push et les options de point d’entrée présentées en rouge.][13]
 16. Dans le menu **Fichier**, cliquez sur **Enregistrer tout**.
 
 ## <a name="run-the-application"></a>Exécution de l’application

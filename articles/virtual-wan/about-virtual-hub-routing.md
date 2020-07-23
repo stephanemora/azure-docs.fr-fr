@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147390"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259178"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
@@ -63,6 +63,9 @@ Une **table de routage None** est également disponible pour chaque hub virtuel.
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configuration de routes statiques dans une connexion de réseau virtuel
 
 La configuration de routes statiques fournit un mécanisme pour diriger le trafic par le biais d’une adresse IP de tronçon suivant, qui peut être celle d’une appliance virtuelle réseau provisionnée dans un réseau virtuel spoke attaché à un hub virtuel. La route statique se compose d’un nom de route, d’une liste de préfixes de destination et d’une adresse IP de tronçon suivant.
+
+## <a name="reset-hub"></a><a name="route"></a>Réinitialiser le hub
+Disponible uniquement dans le portail Azure, cette option offre à l’utilisateur un moyen de ramener les ressources qui ont échoué, telles que les tables de routage, le routeur de hub ou les ressource de hub virtuel à leur état d’approvisionnement légitime. Il s’agit d’une option supplémentaire que l’utilisateur doit prendre en compte avant de contacter Microsoft pour obtenir de l’aide. Cette opération ne réinitialise aucune passerelle de hub virtuel. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Tables de routage dans les réseaux étendus virtuels De base et Standard avant l’ensemble des fonctionnalités d’association et de propagation
 

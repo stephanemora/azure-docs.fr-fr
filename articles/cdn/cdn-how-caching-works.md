@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253711"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201795"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -112,11 +112,11 @@ Lorsque le cache est périmé, les validateurs de cache HTTP sont utilisés pour
 
 Toutes les ressources ne peuvent pas être mises en cache. Le tableau suivant montre quelles ressources peuvent être mises en cache, en fonction du type de réponse HTTP. Les ressources fournies avec des réponses HTTP ne remplissant pas toutes ces conditions ne peuvent pas être mises en cache. Dans le cas **d’Azure CDN Premium de Verizon** uniquement, il est possible d’utiliser le moteur de règles pour personnaliser certaines de ces conditions.
 
-|                   | Azure CDN de Microsoft          | Azure CDN de Verizon | Azure CDN d’Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| Codes d’état HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| Méthodes HTTP      | GET, HEAD                         | GET                    | GET                          |
-| Limites de taille de fichiers  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
+|                       | Azure CDN de Microsoft          | Azure CDN de Verizon | Azure CDN d’Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **Codes d’état HTTP** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **Méthodes HTTP**      | GET, HEAD                         | GET                    | GET                          |
+| **Limites de taille de fichiers**  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
 
 Pour permettre l’activation de la mise en cache d’**Azure CDN Standard de Microsoft** sur une ressource, le serveur d’origine doit prendre en charge les requêtes HTTP HEAD et GET et les valeurs content-length doivent être identiques pour l’ensemble des réponses HTTP HEAD et GET associées à la ressource. Dans le cas d’une requête HEAD, le serveur d’origine doit prendre en charge la requête et répondre avec les en-têtes qu’il aurait utilisé s’il avait reçu une requête GET.
 

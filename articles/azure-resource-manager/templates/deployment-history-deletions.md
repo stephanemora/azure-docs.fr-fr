@@ -2,13 +2,13 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981654"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248977"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
@@ -23,16 +23,18 @@ Azure Resource Manager commencera bientôt à supprimer automatiquement les dép
 
 ## <a name="when-deployments-are-deleted"></a>Lors de la suppression des déploiements
 
-Les déploiements sont supprimés de votre historique de déploiement lorsque vous approchez la limite des 790 déploiements. Azure Resource Manager supprime une petite série des déploiements les plus anciens pour libérer de l’espace pour les déploiements futurs. La majeure partie de votre historique reste inchangée. Les déploiements les plus anciens sont toujours supprimés en premier.
+Les déploiements sont supprimés de votre historique lorsque vous approchez la limite des 775 déploiements ou plus. Azure Resource Manager supprime les déploiements jusqu’à ce que l’historique soit à 750. Les déploiements les plus anciens sont toujours supprimés en premier.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Suppressions de l’historique de déploiement":::
+
+> [!NOTE]
+> Le nombre de départ (775) et le nombre de fin (750) sont susceptibles d’être modifiés.
+>
+> Si votre groupe de ressources est déjà à la limite de 800, le prochain déploiement échoue avec une erreur. Le processus de suppression automatique démarre immédiatement. Vous pouvez réessayer votre déploiement après une brève attente.
 
 En plus des déploiements, vous déclenchez également des suppressions lorsque vous exécutez l’[opération de simulation](template-deploy-what-if.md) ou validez un déploiement.
 
 Lorsque vous donnez à un déploiement le même nom qu’un autre dans l’historique, vous réinitialisez sa place dans l’historique. Le déploiement passe au rang le plus récent dans l’historique. Vous pouvez également réinitialiser le rang d’un déploiement lorsque vous [restaurer ce déploiement](rollback-on-error.md) après une erreur.
-
-> [!NOTE]
-> Si votre groupe de ressources est déjà à la limite de 800, le prochain déploiement échoue avec une erreur. Le processus de suppression automatique démarre immédiatement. Vous pouvez réessayer votre déploiement après une brève attente.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Refuser les suppressions automatiques
 

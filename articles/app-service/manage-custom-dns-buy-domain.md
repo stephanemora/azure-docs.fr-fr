@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535704"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220718"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -78,11 +78,11 @@ Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous avec votr
 ### <a name="launch-buy-domains"></a>Lancer Acheter des domaines
 Sous l’onglet **App Services**, cliquez sur le nom de votre application, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
    
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Capture d’écran montrant Domaines personnalisés mis en surbrillance.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Sur la page **Domaines personnalisés**, cliquez sur **Acheter un domaine**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+![Capture d’écran montrant Acheter domaines personnalisés mis en surbrillance.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
 > Si vous ne voyez pas la section **Domaines App Service**, vous devez supprimer la limite de dépenses de votre compte Azure (voir [Conditions préalables](#prerequisites)).
@@ -93,7 +93,7 @@ Sur la page **Domaines personnalisés**, cliquez sur **Acheter un domaine**.
 
 Sur la page **Domaine App Service**, dans la zone **Recherche de domaine**, tapez le nom de domaine que vous souhaitez acheter et tapez `Enter`. Les domaines disponibles proposés s'affichent juste en dessous de la zone de texte. Sélectionnez un ou plusieurs domaines que vous souhaitez acheter.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+![Capture d’écran montrant la zone de recherche Rechercher un domaine.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
 > Les [domaines de niveau supérieur](https://wikipedia.org/wiki/Top-level_domain) suivants sont pris en charge par les domaines App Service : _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ et _co.in_.
@@ -122,19 +122,19 @@ Cliquez sur **Mentions légales** pour consulter les mentions et les frais, puis
 
 Retournez sur la page **Domaine App Service**, puis cliquez sur **OK**. Pendant que l’opération, vous voyez apparaître les notifications suivantes :
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+![Capture d’écran montrant le message de validation en cours.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+![Capture d’écran montrant la notification de réussite de l’achat.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
 ### <a name="test-the-hostnames"></a>Test des noms d’hôte
 
 Si vous avez attribué des noms d’hôte par défaut à votre application, vous voyez également une notification de réussite pour chaque nom d’hôte choisi.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Capture d’écran montrant la notification de réussite pour chaque nom d’hôte sélectionné.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte personnalisés**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![Capture d’écran montrant les noms d’hôte sélectionnés dans la section Noms d’hôtes personnalisés de la page Domaines personnalisés.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
 > Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat TLS/SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour configurer une liaison TLS/SSL, consultez [Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service](configure-ssl-bindings.md).
@@ -154,11 +154,11 @@ Vous pouvez également attribuer des noms d’hôte dans le domaine App Service 
 ### <a name="launch-add-hostname"></a>Lancer Ajouter un nom d’hôte
 Sur la page **App Services**, sélectionnez le nom de l’application à laquelle vous souhaitez attribuer des noms d’hôte, puis **Paramètres**, et **Domaines personnalisés**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Capture d’écran montrant Domaines personnalisés mis en surbrillance.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Vérifiez que votre domaine acheté est répertorié dans la section **Domaines App Service**, mais ne le sélectionnez pas. 
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Capture d’écran montrant votre domaine acheté dans la section Domaines App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
 > Tous les domaines App Service du même abonnement sont affichés sur la page **Domaines personnalisés** de l’application. Si votre domaine est inclus dans l’abonnement de l’application, mais qu’il ne s’affiche pas sur la page **Domaines personnalisés** de l’application, ouvrez à nouveau la page **Domaines personnalisés** ou actualisez la page web. Vérifiez également la cloche de notification en haut du portail Azure pour savoir s’il y a des échecs lors de la création ou de la progression.
@@ -180,14 +180,14 @@ Sélectionnez **Ajouter un nom d’hôte**.
 
 Une fois l’opération terminée, vous voyez une notification de réussite concernant le nom d’hôte attribué.  
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Capture d’écran montrant la notification de réussite pour le nom d’hôte attribué.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Fermer Ajouter un nom d’hôte
 Sur la page **Ajouter un nom d’hôte**, attribuez le nom d’hôte de votre choix à votre application. Lorsque vous avez terminé, fermez la page **Ajouter un nom d’hôte**.
 
 Vous devez maintenant voir le ou les noms d’hôte nouvellement attribués sur la page **Domaines personnalisés** de l’application web.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+![Capture d’écran montrant le ou les noms d’hôte nouvellement attribués sur la page Domaines personnalisés de votre application.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### <a name="test-the-hostnames"></a>Test des noms d’hôte
 
@@ -201,15 +201,15 @@ Si vous souhaitez désactiver le renouvellement automatique ou renouveler manuel
 
 Sous l’onglet **App Services**, cliquez sur le nom de votre application, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Capture d’écran montrant Domaines personnalisés mis en surbrillance.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Dans la section **Domaines App Service**, sélectionnez le domaine que vous souhaitez configurer.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Capture d’écran montrant votre domaine acheté dans la section Domaines App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement de domaine**. Pour arrêter automatiquement le renouvellement de votre domaine, sélectionnez **Désactivé**, puis **Enregistrer**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+![Capture d’écran montrant l’option de renouvellement automatique de votre domaine.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Cependant, ce bouton n'est actif que [90 jours avant l'expiration du domaine](#when-domain-expires).
 
@@ -237,7 +237,7 @@ Dans Azure, les enregistrements DNS d’un domaine App Service sont gérés à l
 
 Dans le portail Azure, dans le menu de gauche, sélectionnez **Tous les services** > **Domaines App Service**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Capture d’écran montrant où accéder aux Domaines App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Sélectionnez le domaine à gérer. 
 
@@ -245,7 +245,7 @@ Sélectionnez le domaine à gérer.
 
 Dans le menu de gauche du domaine, sélectionnez **Zone DNS**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+![Capture d’écran montrant où sélectionner la zone DNS.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 Cette action ouvre la page [Zone DNS](../dns/dns-zones-records.md) de votre domaine App Service dans Azure DNS. Pour savoir comment modifier des enregistrements DNS, consultez [Gérer des zones DNS dans le portail Azure](../dns/dns-operations-dnszones-portal.md).
 
@@ -257,7 +257,7 @@ Après avoir acheté le domaine App Service, vous disposez de cinq jours pour an
 
 Dans le portail Azure, dans le menu de gauche, sélectionnez **Tous les services** > **Domaines App Service**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Capture d’écran montrant où accéder aux Domaines App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Sélectionnez le domaine que vous souhaitez annuler ou supprimer. 
 
@@ -265,13 +265,13 @@ Sélectionnez le domaine que vous souhaitez annuler ou supprimer.
 
 Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**. Les liaisons de nom d’hôte de tous les services Azure sont répertoriées ici.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+![Capture d’écran montrant la page de liaisons de nom d’hôte.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 Vous ne pouvez pas supprimer le domaine App Service avant d’avoir supprimé toutes les liaisons de nom d’hôte.
 
 Supprimez chaque liaison de nom d’hôte en sélectionnant **...**  > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+![Capture d’écran montrant où supprimer les liaisons de nom d’hôte.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>Annuler ou supprimer
 
@@ -279,7 +279,7 @@ Dans le menu de gauche du domaine, sélectionnez **Vue d’ensemble**.
 
 Si la période d’annulation pour domaine acheté n’est pas écoulée, sélectionnez **Annuler l’achat**. Dans le cas contraire, vous verrez le bouton **Supprimer**. Pour supprimer le domaine sans remboursement, sélectionnez **Supprimer**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+![Capture d’écran montrant où supprimer ou annuler un domaine acheté.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
 Pour confirmer l'opération, sélectionnez **Oui**.
 

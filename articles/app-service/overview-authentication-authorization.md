@@ -3,15 +3,15 @@ title: Authentification et autorisation
 description: Renseignez-vous sur la prise en charge de l’authentification et de l’autorisation intégrées dans Azure App Service et Azure Functions, et découvrez en quoi elle peut vous aider à protéger votre application contre tout accès non autorisé.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196432"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206744"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
@@ -35,7 +35,7 @@ Pour plus d’informations sur les applications mobiles natives en particulier, 
 
 Le module d’authentification et d’autorisation s’exécute dans le même bac à sable que le code de l’application. Lorsqu’il est activé, chaque requête HTTP entrante le traverse avant d’être géré par le code de l’application.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Un diagramme d’architecture montrant les demandes interceptées par un processus dans le bac à sable de site qui interagit avec les fournisseurs d’identité avant d’autoriser le trafic vers le site déployé](media/app-service-authentication-overview/architecture.png)
 
 Ce module gère plusieurs choses pour votre application :
 
@@ -82,8 +82,11 @@ App Service utilise [l’identité fédérée](https://en.wikipedia.org/wiki/Fed
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Tout fournisseur [OpenID Connect](https://openid.net/connect/) (préversion) | `/.auth/login/<providerName>` |
 
-Lorsque l’authentification et l’autorisation sont activées avec un de ces fournisseurs, son point de terminaison de connexion est accessible à des fins d’authentification de l’utilisateur et de validation des jetons d’authentification provenant du fournisseur. Vous pouvez proposer à vos utilisateurs toutes les options de connexion que vous souhaitez parmi celles-ci, en toute simplicité. Vous avez également la possibilité d’intégrer un autre fournisseur d’identité ou [votre propre solution d’identité personnalisée][custom-auth].
+Lorsque l’authentification et l’autorisation sont activées avec un de ces fournisseurs, son point de terminaison de connexion est accessible à des fins d’authentification de l’utilisateur et de validation des jetons d’authentification provenant du fournisseur. Vous pouvez proposer à vos utilisateurs toutes les options de connexion que vous souhaitez parmi celles-ci, en toute simplicité.
+
+Un [« legacy extensibility path »][custom-auth] permet l’intégration d’autres fournisseurs d’identité ou d’une solution d’authentification personnalisée, mais cela n’est pas recommandé. Au lieu de cela, envisagez d’utiliser le support OpenID Connect.
 
 ## <a name="authentication-flow"></a>Flux d’authentification
 
@@ -113,7 +116,7 @@ Dans le cas des navigateurs clients, App Service peut diriger automatiquement to
 
 Sur le [Portail Azure](https://portal.azure.com), vous pouvez configurer l’autorisation App Service avec différents comportements lorsque la requête entrante n’est pas authentifiée.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![Capture d’écran montrant la liste déroulante « Action à entreprendre quand la requête n’est pas authentifiée ».](media/app-service-authentication-overview/authorization-flow.png)
 
 Les titres suivants décrivent les options possibles.
 
@@ -151,13 +154,14 @@ Guides pratiques propres à chaque fournisseur :
 * [Comment configurer votre application pour utiliser une connexion Google][Google]
 * [Comment configurer votre application pour utiliser une connexion par compte Microsoft][MSA]
 * [Comment configurer votre application pour utiliser une connexion Twitter][Twitter]
-* [Procédure : Utiliser l’authentification personnalisée pour votre application][custom-auth]
+* [Comment configurer votre application pour utiliser un fournisseur OpenID Connect pour la connexion (préversion)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264031"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223599"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guide architectural des notifications Push d’entreprise
 
@@ -37,7 +37,7 @@ Voici l’architecture générale de la solution (généralisée pour plusieurs 
 
 ## <a name="architecture"></a>Architecture
 
-![][1]
+![Diagramme de l’architecture d’entreprise montrant le flux dans les événements, les abonnements et les messages de transmission de type push.][1]
 
 L'élément clé de ce diagramme architectural est Azure Service Bus, qui fournit un modèle de programmation des rubriques/abonnements (la page [Programmation Service Bus Pub/Sub]apporte plus d'informations à ce sujet). Le récepteur, dans ce cas le serveur principal Mobile (généralement [Azure Mobile Service], qui initie une transmission de type push vers les applications mobiles), ne reçoit pas directement les messages des systèmes principaux mais d'une couche d'abstraction intermédiaire fournie par [Azure Service Bus] qui permet au serveur principal Mobile de recevoir des messages d'un ou plusieurs systèmes principaux. Une rubrique Service Bus doit être créée pour chacun des systèmes principaux, par exemple Comptabilité, RH, Finance, qui sont essentiellement des « rubriques » d’intérêt qui génèrent des messages à envoyer en tant que notification Push. Les systèmes principaux envoient les messages à ces rubriques. Un service principal Mobile peut s’abonner à une ou plusieurs de ces rubriques en créant un abonnement Service Bus. Cela autorise le serveur principal mobile à recevoir une notification du système principal correspondant. Le serveur principal mobile continue à écouter les messages sur ses abonnements et dès qu’un message arrive, il le reprend et l’envoie sous forme de notification à son hub de notification. Pour finir, les hubs de notification remettent ensuite le message à l’application mobile. Voici la liste des composants clés :
 
@@ -228,15 +228,17 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
     e. Pour publier cette application sous forme de **travail web**, cliquez avec le bouton droit sur la solution dans Visual Studio et sélectionnez **Publier en tant que travail web**
 
-    ![][2]
+    ![Capture d’écran des options de clic droit affichées avec la fonction Publier sous forme de tâche web Azure en rouge.][2]
 
     f. Sélectionnez votre profil de publication et créez un site web Azure s’il n’existe pas déjà : il héberge ce travail web. Quand vous disposez du site web, utilisez **Publier**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Capture d’écran montrant le flux de travail pour créer un site sur Azure.":::
+    Capture d’écran de la boîte de dialogue Publier le site Web avec l’option sites Web Microsoft Azure sélectionnée, une flèche verte pointant vers la boîte de dialogue Sélectionner un site Web existant avec la nouvelle option en rouge, et une flèche verte pointant vers la boîte de dialogue Créer un site sur Microsoft Azure avec le nom du site et les options de création présentées en rouge.
+    :::image-end:::
 
     g. Configurez le travail sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [Azure portal], vous devriez voir ce qui suit :
 
-    ![][4]
+    ![Capture d’écran du portail Azure avec les tâches web principales de transmission de type push d’entreprise affichées et les valeurs Name, Planification et Journaux d'activité en rouge.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -270,11 +272,11 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 2. Exécutez **EnterprisePushMobileApp**, qui démarre l’application Windows Store.
 3. Exécutez l’application console **EnterprisePushBackendSystem** qui simule le serveur principal métier et envoie des messages. Vous devez voir apparaître des notifications toast similaires à l’image suivante :
 
-    ![][5]
+    ![Capture d’écran d’une console exécutant l’application système principal push d’entreprise et le message envoyé par l’application.][5]
 
 4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux d’activité WebJob pour confirmer le traitement quand vous accédez au lien Journaux d’activité dans le [Azure portal] pour votre tâche Web :
 
-    ![][6]
+    ![Capture d’écran de la boîte de dialogue Détails de tâche web continue avec le message envoyé en rouge.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

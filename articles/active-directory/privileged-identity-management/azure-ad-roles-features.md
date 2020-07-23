@@ -1,27 +1,25 @@
 ---
-title: Gérer les rôles Azure AD dans Privileged Identity Management (PIM) | Microsoft Docs
+title: Fonctionnalités des rôles Azure AD dans Privileged Identity Management | Microsoft Docs
 description: Guide pratique pour gérer les rôles Azure AD afin de les attribuer dans Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742859"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256626"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Fonctionnalités de gestion des rôles Azure AD dans Privileged Identity Management
 
@@ -29,28 +27,30 @@ L’expérience de gestion des rôles Azure AD dans Privileged Identity Manageme
 
 Dans le cadre de la mise à jour en cours de déploiement, nous fusionnons les deux en une expérience de gestion unique offrant les mêmes fonctionnalités pour les rôles Azure AD que pour les rôles de ressources Azure. Cet article vous informe des fonctionnalités mises à jour et des conditions requises.
 
-
 ## <a name="time-bound-assignments"></a>Attributions limitées dans le temps
 
-Dans Privileged Identity Management pour les rôles Azure AD, les attributions de rôles comportaient deux états possibles : *éligible* et *permanente*. Il est maintenant possible de définir une heure de début et de fin pour chaque type d’attribution. Cet ajout donne quatre états possibles pour une attribution :
+Auparavant, il existait deux états possibles pour les attributions de rôles : *éligible* et *permanent*. Il est désormais également possible de définir une heure de début et de fin pour chaque type d’attribution. Cet ajout vous offre quatre états possibles pour une attribution :
 
 - Éligible de façon permanente
 - Active de façon permanente
-- Éligible, avec les dates de début/fin spécifiées pour l’attribution
-- Active, avec les dates de début/fin spécifiées pour l’attribution
+- Éligible, avec les dates de début et de fin spécifiées pour l’attribution
+- Active, avec les dates de début et de fin spécifiées pour l’attribution
 
 Dans la plupart des cas, même si vous ne souhaitez pas que les utilisateurs aient une attribution éligible et activent les rôles à chaque fois, vous pouvez protéger votre organisation Azure AD en définissant un délai d’expiration des affectations. Si, par exemple, vous avez des utilisateurs temporaires éligibles, définissez une date d’expiration afin de les supprimer automatiquement de l’attribution de rôle lorsque leur travail est terminé.
 
 ## <a name="new-role-settings"></a>Nouveaux paramètres de rôle
 
-Nous ajoutons également de nouveaux paramètres pour les rôles Azure AD. Auparavant, les paramètres d’activation (par exemple, les exigences d’authentification multifacteur et de ticket d’incident/de demande) ne pouvaient être configurés que rôle par rôle. Autrement dit, ils étaient appliqués à tous les utilisateurs éligibles pour un rôle spécifié. Il est maintenant possible de configurer si un utilisateur individuel doit effectuer une authentification multifacteur pour pouvoir activer un rôle. En outre, vous pouvez exercer un contrôle avancé de vos e-mails Privileged Identity Management relatifs à des rôles spécifiques.
+Nous ajoutons également de nouveaux paramètres pour les rôles Azure AD.
+
+- **Auparavant**, les paramètres d’activation ne pouvaient être configurés que rôle par rôle. Autrement dit, ils étaient appliqués à tous les utilisateurs éligibles pour un rôle spécifié.
+- Il est **maintenant** possible de configurer si un utilisateur individuel doit effectuer une authentification multifacteur pour pouvoir activer un rôle. En outre, vous pouvez exercer un contrôle avancé de vos e-mails Privileged Identity Management relatifs à des rôles spécifiques.
 
 ## <a name="extend-and-renew-assignments"></a>Étendre et renouveler les attributions
 
 La première question qui se pose avec les attributions limitées dans le temps est la suivante : que se passe-t-il si un rôle expire ? Dans cette nouvelle version, nous proposons deux options pour ce scénario :
 
-- Étendre : quand une attribution de rôle arrive à expiration, l’utilisateur peut utiliser Privileged Identity Management pour demander une extension de cette attribution de rôle.
-- Renouveler : quand une attribution de rôle est expirée, l’utilisateur peut utiliser Privileged Identity Management pour demander un renouvellement de cette attribution de rôle.
+- **Étendre** : lorsqu’une attribution de rôle arrive à expiration, l’utilisateur peut utiliser Privileged Identity Management pour demander une extension de cette attribution de rôle.
+- **Renouveler** : lorsqu’une attribution de rôle est expirée, l’utilisateur peut utiliser Privileged Identity Management pour demander un renouvellement de cette attribution de rôle.
 
 Ces deux actions utilisateur exigent l’approbation d’un Administrateur général ou d’un Administrateur de rôle privilégié. Les administrateurs n’ont plus besoin d’être spécialisés dans la gestion de ces expirations. Il leur suffit d’attendre les demandes d’extension ou de renouvellement et de les approuver si elles sont valides.
 
@@ -67,6 +67,6 @@ Pour les clients qui l’utilisent pour les rôles Azure AD, le module PowerShel
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle personnalisé Azure AD](azure-ad-custom-roles-assign.md)
-- [Supprimer ou mettre à jour une attribution de rôle personnalisée Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Supprimer ou mettre à jour une attribution de rôle personnalisé Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurer une attribution de rôle Azure AD personnalisée](azure-ad-custom-roles-configure.md)
 - [Définitions de rôles dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

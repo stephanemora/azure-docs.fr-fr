@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561194"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220063"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 
@@ -383,7 +383,7 @@ L’exécution de votre code Python produit normalement une notification qui app
 
 Quand vous activez l’indicateur de débogage pendant l’initialisation de la classe NotificationHub, vous voyez un vidage détaillé des requêtes et réponses HTTP ainsi que NotificationOutcome, comme suit, où vous pouvez comprendre quels en-têtes HTTP sont transmis dans la demande et quelle réponse HTTP a été reçue à partir du hub de notification :
 
-![][1]
+![Capture d’écran d’une console avec les détails de la sauvegarde de requête et réponse HTTP, et des messages de résultat de notification en rouge.][1]
 
 Vous voyez un résultat détaillé de hub de notification, par exemple
 
@@ -404,7 +404,7 @@ Notez les en-têtes qui sont envoyés lorsque vous envoyez une notification toas
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus et les valeurs de type X W N S entourées en rouge.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Envoyer une notification indiquant une balise (ou une expression de balise)
 
@@ -414,7 +414,7 @@ Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exe
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, les balises de notification Service Bus et les valeurs de type X W N S entourées en rouge.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Envoyer une notification spécifiant plusieurs balises
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Capture d’écran d’une console avec les détails de la requête HTTP et le format de notification Service Bus, les balises de notification Service Bus et les valeurs de type X W N S entourées en rouge.][4]
 
 ### <a name="templated-notification"></a>Notification avec modèle
 
@@ -444,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Capture d’écran d’une console avec les détails de la requête HTTP et du type de contenu, et valeurs de format de notification Service Bus entourées en rouge.][5]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

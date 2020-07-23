@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041725"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199879"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -220,21 +220,21 @@ Les paramètres suivants vous permettent de configurer votre expérience de mach
 
 | |SDK Python|L’expérience web Studio|
 ----|:----:|:----:
-Division des données en jeux d’entraînement/de validation| ✓|✓
-Prise en charge des tâches de Machine Learning : classification, régression et prévision| ✓| ✓
-Optimisation basée sur une métrique principale| ✓| ✓
-Prise en charge du calcul AML en tant que cible de calcul | ✓|✓
-Configuration de l’horizon de prévision, des décalages de cibles et de la fenêtre dynamique|✓|✓
-Définition des critères de sortie |✓|✓ 
-Définition des itérations simultanées| ✓|✓
-Supprimer des colonnes| ✓|✓
-Blocage des algorithmes|✓|✓
-Validation croisée |✓|✓
-Prise en charge de l’entraînement sur les clusters Azure Databricks| ✓|
-Affichage des noms de caractéristiques traités|✓|
-Résumé de la caractérisation| ✓|
-Caractérisation des congés|✓|
-Niveaux de verbosité des fichiers journaux| ✓|
+|**Division des données en jeux d’entraînement/de validation**| ✓|✓
+|**Prise en charge des tâches de Machine Learning : classification, régression et prévision**| ✓| ✓
+|**Optimisation basée sur une métrique principale**| ✓| ✓
+|**Prise en charge du calcul AML en tant que cible de calcul** | ✓|✓
+|**Configuration de l’horizon de prévision, des décalages de cibles et de la fenêtre dynamique**|✓|✓
+|**Définition des critères de sortie** |✓|✓ 
+|**Définition des itérations simultanées**| ✓|✓
+|**Suppression de colonnes**| ✓|✓
+|**Blocage des algorithmes**|✓|✓
+|**Validation croisée** |✓|✓
+|**Prise en charge de la formation sur les clusters Azure Databricks**| ✓|
+|**Affichage des noms de caractéristiques traités**|✓|
+|**Résumé de la caractérisation**| ✓|
+|**Caractérisation des congés**|✓|
+|**Niveaux de verbosité des fichiers journaux**| ✓|
 
 ### <a name="model-settings"></a>Paramètres du modèle
 
@@ -242,11 +242,11 @@ Ces paramètres peuvent être appliqués au meilleur modèle à la suite de votr
 
 | |SDK Python|L’expérience web Studio|
 |----|:----:|:----:|
-|Inscription, déploiement et description du meilleur modèle| ✓|✓|
-|Activation des modèles de l’ensemble de vote et de l’ensemble d’empilement| ✓|✓|
-|Affichage du meilleur modèle selon une métrique non principale|✓||
-|Activation/désactivation de la compatibilité du modèle ONNX|✓||
-|Tester le modèle | ✓| |
+|**Inscription, déploiement et description du meilleur modèle**| ✓|✓|
+|**Activation des modèles de l’ensemble de vote et de l’ensemble d’empilement**| ✓|✓|
+|**Affichage du meilleur modèle selon une métrique non principale**|✓||
+|**Activation/désactivation de la compatibilité du modèle ONNX**|✓||
+|**Tester le modèle** | ✓| |
 
 ### <a name="run-control-settings"></a>Paramètres de contrôle d’exécution
 
@@ -254,10 +254,10 @@ Ces paramètres vous permettent d’examiner et de contrôler les exécutions de
 
 | |SDK Python|L’expérience web Studio|
 |----|:----:|:----:|
-|Exécuter le tableau récapitulatif| ✓|✓|
-|Annuler les exécutions et les exécutions enfants| ✓|✓|
-|Obtenir des garde-fous| ✓|✓|
-|Mettre en pause et reprendre les exécutions| ✓| |
+|**Exécuter le tableau récapitulatif**| ✓|✓|
+|**Annuler les exécutions et les exécutions enfants**| ✓|✓|
+|**Obtenir des garde-fous**| ✓|✓|
+|**Mettre en pause et reprendre les exécutions**| ✓| |
 
 <a name="use-with-onnx"></a>
 

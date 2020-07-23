@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884267"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223786"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Suppression réversible pour le Stockage Blob
 
@@ -54,7 +54,7 @@ La suppression réversible préserve vos données dans les nombreux cas où les 
 
 Quand un objet blob est remplacé à l’aide d’une des commandes **Put Blob**, **Put Block List**, ou **Copy Blob**, une version ou un instantané de l’état de l’objet blob avant l’opération d’écriture est générée automatiquement. Cet objet est invisible, sauf si les objets supprimés de manière réversible sont répertoriés de façon explicite. Pour savoir comment répertorier des objets supprimés de manière réversible, voir la section [Récupération](#recovery).
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Diagramme montrant comment les captures instantanées d’objets blob sont stockées lorsqu’elles sont remplacées à l’aide de Placer Blob, Placer une liste de blocage ou Copier le Blob.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Les données supprimées de manière réversible s’affichent en gris, et les données actives en bleu. Les données écrites plus récemment s’affichent sous les données plus anciennes. Si B0 est remplacé par B1, un instantané d’objet blob supprimé de manière réversible de B0 est généré. Si B1 est remplacé par B2, un instantané d’objet blob supprimé de manière réversible de B1 est généré.*
 
@@ -66,13 +66,13 @@ Quand un objet blob est remplacé à l’aide d’une des commandes **Put Blob**
 
 Lors de l’appel de la commande **Delete Blob** sur un instantané, celui-ci est marqué comme supprimé de manière réversible. Aucun nouvel instantané n’est généré.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Diagramme montrant comment les captures instantanées d’objets blob sont supprimées de manière réversible en utilisant Supprimer le blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Les données supprimées de manière réversible s’affichent en gris, et les données actives en bleu. Les données écrites plus récemment s’affichent sous les données plus anciennes. Lors de l’appel de la commande **Snapshot Blob**, B0 devient un instantané et B1 est l’état actif de l’objet blob. Quand l’instantané B0 est supprimé, il est marqué comme supprimé de manière réversible.*
 
 Lors de l’appel de la commande **Delete Blob** sur un objet blob de base (tout objet blob qui est pas un instantané), celui-ci est marqué comme supprimé de manière réversible. Conformément au comportement précédent, l’appel de la commande **Delete Blob** sur un objet blob ayant des instantanés actifs renvoie une erreur. L’appel de la commande **Delete Blob** sur un objet blob ayant un instantané d’objet blob supprimé de manière réversible ne retourne pas d’erreur. Quand la suppression réversible est activée, vous pouvez toujours supprimer un objet blob et tous ses instantanés en une seule opération. Cela a pour effet de marquer l’objet blob de base et les instantanés comme étant supprimés de manière réversible.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Diagramme montrant ce qu’il se passe lorsque l’option Supprimer le blog est appelée sur un objet blob de base.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Les données supprimées de manière réversible s’affichent en gris, et les données actives en bleu. Les données écrites plus récemment s’affichent sous les données plus anciennes. Ici, un appel de la commande **Delete Blob** est effectué pour supprimer B2 et tous les instantanés qui y sont associés. L’objet blob actif, B2, ainsi que tous les instantanés associés à celui-ci, sont marqués comme étant supprimés de manière réversible.*
 
@@ -105,7 +105,7 @@ L’appel de l’opération [Undelete Blob](/rest/api/storageservices/undelete-b
 
 Pour restaurer un objet blob en instantané d’objet blob supprimé de manière réversible, vous pouvez appeler la commande **Undelete Blob** sur l’objet blob de base. Ensuite, vous pouvez copier l’instantané sur l’objet blob ainsi activé. Vous pouvez également copier l’instantané vers un nouvel objet blob.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Diagramme montrant ce qu’il se passe lorsque l’opération Annulation de la suppression d’un objet blob est utilisée.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Les données supprimées de manière réversible s’affichent en gris, et les données actives en bleu. Les données écrites plus récemment s’affichent sous les données plus anciennes. Ici, la commande **Undelete Blob** est appelée sur l’objet blob B, ce qui a pour effet de restaurer comme actifs l’objet blob de base B1 ainsi que tous les instantanés qui y sont associés, en l’occurrence uniquement B0. Dans la deuxième étape, B0 est copié sur l’objet blob de base. Cette opération de copie génère un instantané supprimé de manière réversible de B1.*
 

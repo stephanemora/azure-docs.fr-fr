@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970958"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206111"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utiliser des identités managées affectées par le système pour accéder aux données Azure Cosmos DB
 
@@ -53,6 +53,8 @@ Dans cette étape, vous allez attribuer un rôle à l’identité managée affec
 
 Dans ce scénario, l’application de fonction lira la température de l’aquarium, puis mettra à jour ces données dans un conteneur d’Azure Cosmos DB. Étant donné que l’application de fonction doit écrire les données, vous devez attribuer le rôle **Contributeur de compte DocumentDB**. 
 
+### <a name="assign-the-role-using-azure-portal"></a>Assigner le rôle à l’aide du Portail Azure
+
 1. Connectez-vous au Portail Azure et accédez à votre compte Azure Cosmos DB. Ouvrez le volet **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôle** :
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Capture d’écran montrant le volet Contrôle d’accès et l’onglet Attributions de rôles.":::
@@ -70,6 +72,18 @@ Dans ce scénario, l’application de fonction lira la température de l’aquar
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Capture d’écran montrant le volet Ajouter une attribution de rôle rempli avec des exemples.":::
 
 1. Après avoir sélectionné votre application de fonction, sélectionnez **Enregistrer**.
+
+### <a name="assign-the-role-using-azure-cli"></a>Assigner le rôle à l’aide de l’Interface de ligne de commande Azure
+
+Pour assigner le rôle à l’aide d’Azure CLI, utilisez les commandes suivantes :
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Accéder par programme aux clés d’Azure Cosmos DB
 

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856004"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230823"
 ---
 # <a name="key-vault-versions"></a>Versions de Key Vault
 
@@ -58,13 +58,13 @@ Nouvelles fonctionnalités mises en production cette année :
 - Gestion de certificats. Ajoutée en tant que fonctionnalité à la version GA 2015-06-01 le 26 septembre 2016.
 
 La disponibilité générale (version 2015-06-01) a été annoncée le 24 juin 2015. Les modifications suivantes ont été apportées à cette version : 
-- Suppression d’une clé (champ « use » supprimé).
-- Obtention des informations sur une clé (champ « use » supprimé).
-- Importation d’une clé dans un coffre (champ « use » supprimé).
-- Restauration d’une clé (champ « use » supprimé).     
+- Suppression d’une clé - champ « use » supprimé.
+- Obtention des informations sur une clé - champ « use » supprimé.
+- Importation d’une clé dans un coffre - champ « use » supprimé.
+- Restauration d’une clé - champ « use » supprimé.     
 - Remplacement de « RSA_OAEP » par « RSA-OAEP » dans les algorithmes RSA. Voir [Présentation des clés, des secrets et des certificats](about-keys-secrets-certificates.md).    
  
-La deuxième préversion (version 2015-02-01-preview) a été annoncée le 20 avril 2015. Pour plus d’informations, consultez le billet de blog [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) (Mise à jour de l’API REST). Les tâches suivantes ont été mises à jour :
+La deuxième préversion (version 2015-02-01-preview) a été annoncée le 20 avril 2015. Pour plus d’informations, consultez le billet de blog [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) (Mise à jour de l’API REST). Les tâches suivantes ont été mises à jour :
  
 - Liste des clés d’un coffre (ajout de la prise en charge de la pagination à l’opération).
 - Liste des versions d’une clé (ajout de l’opération pour dresser la liste des versions d’une clé).  

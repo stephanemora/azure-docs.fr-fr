@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203560"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205772"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -51,7 +51,7 @@ Les niveaux **De base**, **Standard** et **Premium** sont des niveaux de product
 
 Le niveau **Premium** vous permet de distribuer une seule instance du service Gestion des API Azure sur n’importe quel nombre de régions Azure. Quand vous créez un service Gestion des API Azure, l’instance contient une seule unité et se trouve dans une seule région Azure. La région initiale est désignée comme la région **principale**. D’autres régions peuvent être facilement ajoutées. Lorsque vous ajoutez une région, vous spécifiez le nombre d’unités que vous souhaitez allouer. Par exemple, vous pouvez avoir une unité dans la région **principale** et cinq unités, dans une autre région. Vous pouvez adapter le nombre d’unités au trafic dans chaque région. Pour en savoir plus, découvrez [comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure](api-management-howto-deploy-multi-region.md).
 
-Vous pouvez passer au niveau supérieur ou inférieur de votre choix, quel qu’il soit. Le passage à un niveau supérieur ou inférieur peut entraîner la suppression de certaines fonctionnalités, comme les réseaux virtuels ou les déploiements multirégions, notamment lors du passage du niveau Premium au niveau Standard ou De base.
+Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe quel niveau. Le passage à un niveau supérieur ou inférieur peut entraîner la suppression de certaines fonctionnalités, comme les réseaux virtuels ou les déploiements multirégions, notamment lors du passage du niveau Premium au niveau Standard ou De base.
 
 > [!NOTE]
 > Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous recevez une notification lorsque le processus est terminé.
@@ -84,3 +84,4 @@ Si vous effectuez une mise à l’échelle à partir de ou vers le niveau dével
 
 - [Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure](api-management-howto-deploy-multi-region.md)
 - [Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](api-management-howto-autoscale.md)
+- [Optimiser et réduire vos coûts de cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

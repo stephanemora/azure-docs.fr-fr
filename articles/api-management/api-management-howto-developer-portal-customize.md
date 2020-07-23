@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224889"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206240"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accéder au portail des développeurs et le personnaliser
 
@@ -131,6 +131,7 @@ Une fois publié, le portail est accessible à la même URL que le panneau d’a
 Vous devez activer CORS (cross-origin resource sharing) sur vos API pour permettre aux visiteurs de votre portail de tester les API via la console interactive intégrée. Pour plus d’informations, consultez [cet article de la documentation](api-management-howto-developer-portal.md#cors).
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Optimiser et réduire les dépenses liées au cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Pour plus d’informations sur le portail des développeurs :
 

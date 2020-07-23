@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013566"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245345"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -684,12 +684,7 @@ Remplacez les variables [proxy-server] et [proxy-port] par le nom de votre serve
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Comment savoir que l'agent d'approvisionnement est en mesure de communiquer avec le locataire Azure AD et qu'aucun pare-feu ne bloque les ports requis par l'agent ?
 
-Vous pouvez également vérifier si tous les ports requis sont ouverts par le biais de l’[outil de test des ports du connecteur](https://aadap-portcheck.connectorporttest.msappproxy.net/) à partir de votre réseau local. Un nombre plus élevé de coches vertes signifie une résilience accrue.
-
-Pour vous assurer que l’outil fournit des résultats corrects, veillez à :
-
-* ouvrir l'outil dans un navigateur du serveur sur lequel vous avez installé l'agent d'approvisionnement ;
-* vérifier que les proxys ou pare-feu applicables à votre agent d'approvisionnement sont également appliqués à cette page. Cela peut être fait dans Internet Explorer. Pour cela, accédez à **Paramètres -> Options Internet -> Connexions -> Paramètres de réseau local**. Cette page comporte un champ « Utiliser un serveur proxy pour votre réseau local ». Cochez cette case et entrez l'adresse proxy dans le champ « Adresse ».
+Vous pouvez également vérifier si tous les [ports requis](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) sont ouverts.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Un agent d'approvisionnement peut-il être configuré pour approvisionner plusieurs domaines AD ?
 

@@ -1,5 +1,5 @@
 ---
-title: Évaluer l’impartialité des modèles Machine Learning dans Python
+title: Évaluer l’impartialité des modèles Machine Learning dans Python (version préliminaire)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment évaluer l’impartialité de vos modèles dans Azure Machine Learning
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 9e88b87a7f6471f6c7344cc5548c37e947f18791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85656733"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206732"
 ---
-# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning  
+# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

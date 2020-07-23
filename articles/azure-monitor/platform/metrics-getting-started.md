@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696981"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276428"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -39,7 +39,7 @@ Pour créer un graphique de métrique, à partir de votre ressource, groupe de r
 
     > ![Sélectionner une métrique](./media/metrics-getting-started/metric-picker.png)
 
-4. Vous pouvez également, si vous le souhaitez, modifier l’agrégation des métriques. Par exemple, vous souhaiterez peut-être que votre graphique représente les valeurs minimale, maximale ou moyenne de la métrique.
+4. Vous pouvez également, si vous le souhaitez, [modifier l’agrégation des métriques](metrics-charts.md#changing-aggregation). Par exemple, vous souhaiterez peut-être que votre graphique représente les valeurs minimale, maximale ou moyenne de la métrique.
 
 > [!NOTE]
 > Utilisez le bouton **Ajouter une métrique** et répétez ces étapes si vous souhaitez afficher plusieurs métriques tracées dans le même graphique. Pour plusieurs graphiques dans une même vue, sélectionnez le bouton **Ajouter un graphique** en haut.
