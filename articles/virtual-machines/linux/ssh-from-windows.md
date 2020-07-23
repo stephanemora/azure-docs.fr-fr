@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fc411d3833fcd47477e7e0fe11c6da9e2114143
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390225"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502025"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -26,7 +26,7 @@ Cet article décrit plusieurs méthodes de génération et d’utilisation de cl
 ## <a name="windows-packages-and-ssh-clients"></a>Packages Windows et clients SSH
 Vous vous connectez à des machines virtuelles Linux et gérez ces machines dans Azure à l’aide d’un *client SSH*. Les ordinateurs qui exécutent Linux ou macOS ont généralement une suite de commandes SSH pour générer et gérer les clés SSH et établir les connexions SSH. 
 
-Les ordinateurs Windows n’ont pas toujours des commandes SSH comparables installées. Les versions récentes de Windows 10 sont dotées de [commandes client OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) permettant de créer et de gérer des clés SSH, ainsi que d’établir des connexions SSH à partir d’une invite de commandes. Les versions récentes de Windows 10 intègrent également le [sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/about), afin d’exécuter des utilitaires et d’y accéder, comme un client SSH intégré nativement dans un interpréteur de commandes Bash. 
+Les ordinateurs Windows n’ont pas toujours des commandes SSH comparables installées. Les versions récentes de Windows 10 sont dotées de [commandes client OpenSSH](https://devblogs.microsoft.com/commandline/windows10v1803/) permettant de créer et de gérer des clés SSH, ainsi que d’établir des connexions SSH à partir d’une invite de commandes. Les versions récentes de Windows 10 intègrent également le [sous-système Windows pour Linux](/windows/wsl/about), afin d’exécuter des utilitaires et d’y accéder, comme un client SSH intégré nativement dans un interpréteur de commandes Bash. 
 
 Voici une liste des packages d’autres clients SSH Windows courants que vous pouvez installer localement :
 
@@ -123,4 +123,4 @@ Si vous avez installé le [package de téléchargement de PuTTY](https://www.chi
 
 * Vous pouvez également utiliser PowerShell dans Azure Cloud Shell pour générer des clés SSH et établir des connexions SSH sur des machines virtuelles Linux. Consultez [Démarrage rapide de PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* Si vous avez des difficultés à utiliser SSH pour vous connecter à vos machines virtuelles Linux, consultez [Résoudre les problèmes de connexion SSH à une machine virtuelle Linux Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Si vous avez des difficultés à utiliser SSH pour vous connecter à vos machines virtuelles Linux, consultez [Résoudre les problèmes de connexion SSH à une machine virtuelle Linux Azure](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

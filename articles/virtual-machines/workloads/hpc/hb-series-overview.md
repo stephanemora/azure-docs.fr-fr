@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67707777"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508030"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Vue d’ensemble des machines virtuelles série HB
 
@@ -65,6 +65,6 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les tailles de machines virtuelles HPC pour [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) et [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) dans Azure.
+* En savoir plus sur les tailles de machines virtuelles HPC pour [Linux](../../sizes-hpc.md) et [Windows](../../sizes-hpc.md) dans Azure.
 
-* En savoir plus sur [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) dans Azure.
+* En savoir plus sur [HPC](/azure/architecture/topics/high-performance-computing/) dans Azure.

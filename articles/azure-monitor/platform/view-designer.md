@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505088"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -52,7 +52,7 @@ Les options sont décrites dans le tableau suivant :
 | Option | Description |
 |:--|:--|
 | Actualiser   | Actualise la vue avec les données les plus récentes. | 
-| Journaux d’activité      | Ouvre [Log Analytics](../log-query/portals.md) pour analyser des données avec des requêtes de journal. |
+| Journaux d’activité      | Ouvre [Log Analytics](../log-query/log-query-overview.md) pour analyser des données avec des requêtes de journal. |
 | Modifier       | Ouvre la vue dans le Concepteur de vues pour modifier son contenu et sa configuration.  |
 | Clone      | Crée une vue et l’ouvre dans le Concepteur de vues. Le nom de la nouvelle vue est identique à celui de la vue d’origine, avec le mot *Copy* ajouté à la fin. |
 | Plage de dates | Définissez un filtre de date et d’heure pour les données incluses dans la vue. Cette plage de dates est appliquée avant les plages de dates définies dans les requêtes dans la vue.  |

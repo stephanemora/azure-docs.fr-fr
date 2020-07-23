@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045754"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494511"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Désactiver ou supprimer l’agent Linux des machines virtuelles et des images
 
 Avant de supprimer l’agent Linux, vous devez comprendre ce que la machine virtuelle ne sera pas en mesure de faire après la suppression de l’agent Linux.
 
-Les [extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Les extensions sont installées et managées par le plan de contrôle Azure. Il s’agit de la tâche de l’[Agent Linux Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) pour traiter les commandes d’extension de plateforme et garantir l’état correct de l’extension dans la machine virtuelle.
+Les [extensions](../extensions/overview.md) de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Les extensions sont installées et managées par le plan de contrôle Azure. Il s’agit de la tâche de l’[Agent Linux Azure](../extensions/agent-linux.md) pour traiter les commandes d’extension de plateforme et garantir l’état correct de l’extension dans la machine virtuelle.
 
 La plateforme Azure héberge de nombreuses extensions, notamment des applications de monitoring, de sécurité, d’utilitaire et de configuration de machine virtuelle. Il existe un choix important d’extensions internes et tierces ainsi que des exemples de scénarios clés utilisés pour les extensions :
 * Prise en charge des services Azure internes, tels qu’Azure Backup, Monitoring, Disk Encryption, Security, Site Replication, etc.
@@ -31,7 +31,7 @@ La plateforme Azure héberge de nombreuses extensions, notamment des application
 
 ## <a name="disabling-extension-processing"></a>Désactivation du traitement des extensions
 
-Il existe plusieurs façons de désactiver le traitement des extensions, en fonction de vos besoins, mais avant de continuer, vous **devez** supprimer toutes les extensions déployées sur la machine virtuelle, par exemple à l’aide de l’interface AZ CLI, vous pouvez [lister](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) et [supprimer](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete) :
+Il existe plusieurs façons de désactiver le traitement des extensions, en fonction de vos besoins, mais avant de continuer, vous **devez** supprimer toutes les extensions déployées sur la machine virtuelle, par exemple à l’aide de l’interface AZ CLI, vous pouvez [lister](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) et [supprimer](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete) :
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ Lorsque vous créez la machine virtuelle à partir de l’image sans agent Linux
 > 
 > Si vous n’effectuez pas cette opération, la plateforme essaiera d’envoyer la configuration et le délai d’expiration de l’extension après 40 min.
 
-Pour déployer la machine virtuelle avec des extensions désactivées, vous pouvez utiliser l’interface CLI Azure avec [--enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Pour déployer la machine virtuelle avec des extensions désactivées, vous pouvez utiliser l’interface CLI Azure avec [--enable-agent](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

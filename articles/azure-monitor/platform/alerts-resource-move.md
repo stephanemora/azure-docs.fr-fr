@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830058"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505480"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Guide pratique pour mettre à jour des règles d’alerte ou des règles d’action quand la ressource cible est déplacée vers une autre région Azure
 
-Cet article explique pourquoi les [règles d’alerte](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) et [règles d’action](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) existantes peuvent être affectées quand vous déplacez d’autres ressources Azure entre des régions, et comment identifier et résoudre ces problèmes. Pour plus d’informations sur les cas où le déplacement des ressources entre les régions est utile et pour obtenir une liste de vérification de la conception d’un processus de déplacement, consultez la [documentation principale relative au déplacement de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region).
+Cet article explique pourquoi les [règles d’alerte](./alerts-overview.md) et [règles d’action](./alerts-action-rules.md) existantes peuvent être affectées quand vous déplacez d’autres ressources Azure entre des régions, et comment identifier et résoudre ces problèmes. Pour plus d’informations sur les cas où le déplacement des ressources entre les régions est utile et pour obtenir une liste de vérification de la conception d’un processus de déplacement, consultez la [documentation principale relative au déplacement de ressources](../../azure-resource-manager/management/move-region.md).
 
 ## <a name="why-the-problem-exists"></a>Pourquoi le problème existe-il ?
 
-Les règles d’alerte et les règles d’action référencent d’autres ressources Azure, par exemple, des [machines virtuelles Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate), [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-move-resources-across-regions) et [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-move). Quand vous déplacez les ressources auxquelles ces règles font référence, les règles risquent de cesser de fonctionner correctement, car elles ne peuvent pas trouver les ressources qu’elles référencent.
+Les règles d’alerte et les règles d’action référencent d’autres ressources Azure, par exemple, des [machines virtuelles Azure](../../site-recovery/azure-to-azure-tutorial-migrate.md), [Azure SQL](../../azure-sql/database/move-resources-across-regions.md) et [Stockage Azure](../../storage/common/storage-account-move.md). Quand vous déplacez les ressources auxquelles ces règles font référence, les règles risquent de cesser de fonctionner correctement, car elles ne peuvent pas trouver les ressources qu’elles référencent.
 
 Il existe deux raisons principales pour lesquelles vos règles peuvent cesser de fonctionner après le déplacement des ressources cibles :
 
@@ -94,20 +94,20 @@ Si **seules certaines ressources** de l’étendue ont été déplacées, vous d
 
 ### <a name="change-scope-of-a-rule-using-rest-api"></a>Modifier l’étendue d’une règle à l’aide de l’API REST
 
-1. Récupérez la règle existante ([alertes de métrique](https://docs.microsoft.com/rest/api/monitor/metricalerts/get), [alertes de journal d’activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/get)).
-2. Modifiez l’étendue ([alertes de journal d’activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/update)).
-3. Redéployez la règle ([alertes de métrique](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [alertes de journal d’activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/createorupdate)).
+1. Récupérez la règle existante ([alertes de métrique](/rest/api/monitor/metricalerts/get), [alertes de journal d’activité](/rest/api/monitor/activitylogalerts/get)).
+2. Modifiez l’étendue ([alertes de journal d’activité](/rest/api/monitor/activitylogalerts/update)).
+3. Redéployez la règle ([alertes de métrique](/rest/api/monitor/metricalerts/createorupdate), [alertes de journal d’activité](/rest/api/monitor/activitylogalerts/createorupdate)).
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>Modifier l’étendue d’une règle à l’aide de PowerShell
 
-1. Récupérez la règle existante ([alertes de métrique](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2), [alertes de journal d’activité](https://docs.microsoft.com/powershell/module/az.monitor/get-azactivitylogalert), [règles d’action](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Get-AzActionRule)).
+1. Récupérez la règle existante ([alertes de métrique](/powershell/module/az.monitor/get-azmetricalertrulev2), [alertes de journal d’activité](/powershell/module/az.monitor/get-azactivitylogalert), [règles d’action](/powershell/module/az.alertsmanagement/get-azactionrule)).
 2. Modifiez l’étendue. Si nécessaire, fractionnez en deux règles (pertinent pour certains cas d’alertes de métrique, comme indiqué ci-dessus).
-3. Redéployez la règle ([alertes de métrique](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [alertes de journal d’activité](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [règles d’action](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Redéployez la règle ([alertes de métrique](/powershell/module/az.monitor/add-azmetricalertrulev2), [alertes de journal d’activité](/powershell/module/az.monitor/enable-azactivitylogalert), [règles d’action](/powershell/module/az.alertsmanagement/set-azactionrule)).
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modifier l’étendue d’une règle à l’aide d’Azure CLI
 
-1.  Récupérez la règle existante ([alertes de métrique](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertes de journal d’activité](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Mettez directement à jour l’étendue de la règle ([alertes de métrique](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertes de journal d’activité](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)).
+1.  Récupérez la règle existante ([alertes de métrique](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Mettez directement à jour l’étendue de la règle ([alertes de métrique](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert/scope)).
 3.  Si nécessaire, fractionnez en deux règles (pertinent pour certains cas d’alertes de métrique, comme indiqué ci-dessus).
 
 ## <a name="next-steps"></a>Étapes suivantes

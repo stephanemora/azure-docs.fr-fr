@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 74d43f8c200fad5caf152d24df6c8544074916ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 49a9cfca1c1f3a76c85dfac98cafea00df1d5ff0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120026"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504884"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vidéos de procédures sur le portail Azure
 
@@ -30,10 +30,9 @@ Dans cette vidéo, nous vous montrons comment vous connecter à un compte de sto
 
 Visionnez ces vidéos récentes que vous avez peut-être manquées :
 
-|   |   |   |
+| [Nouvelle expérience Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg)  | [Déploiement de votre application Web à l’aide de GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Utilisation des cartes d’informations de service](https://www.youtube.com/watch?v=u00TU531qsQ)  |
 | ------| ------ | ------ |
 | [![Image de la vidéo YouTube sur la nouvelle expérience Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Image de la vidéo YouTube de déploiement de votre application Web à l’aide de GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Image de la vidéo YouTube sur l’utilisation des cartes d’informations de service](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
-| [Nouvelle expérience Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Déploiement de votre application Web à l’aide de GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Utilisation des cartes d’informations de service](https://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## <a name="video-playlist"></a>Sélection vidéo
 

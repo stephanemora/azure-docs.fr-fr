@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506024"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Traitement des événements fiables Azure Functions
 
@@ -70,7 +70,7 @@ L’introduction de bibliothèques de gestion des erreurs dans vos fonctions vou
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) est un exemple de bibliothèque de résilience et de gestion des erreurs temporaires pour les applications C#.
 
-Quand vous utilisez des bibliothèques de classes C# précompilées, des [filtres d’exception](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) vous permettent d’exécuter du code chaque fois qu’une exception non gérée se produit.
+Quand vous utilisez des bibliothèques de classes C# précompilées, des [filtres d’exception](/dotnet/csharp/language-reference/keywords/try-catch) vous permettent d’exécuter du code chaque fois qu’une exception non gérée se produit.
 
 Des exemples d’utilisation de filtres d’exception sont disponibles dans le dépôt du [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 

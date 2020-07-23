@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919411"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508863"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
 
@@ -34,7 +34,7 @@ Pour plus d’informations sur les groupes à haute disponibilité, consultez [G
 
 ## <a name="resource-health-information"></a>Informations sur Resource Health
 
-Azure Resource Health est un service qui expose l’intégrité des ressources Azure individuelles et fournit des conseils applicables permettant de résoudre les problèmes. Dans un environnement cloud où il est impossible d’accéder directement aux serveurs ou aux éléments d’infrastructure, Resource Health vise à réduire le temps passé à résoudre des problèmes. L’objectif est notamment de réduire le temps passé à déterminer si la cause du problème est liée à l’application ou à un événement interne à la plateforme Azure. Pour plus d’informations, consultez la section [Understand and use Resource Health](../../resource-health/resource-health-overview.md) (Comprendre et utiliser Resource Health).
+Azure Resource Health est un service qui expose l’intégrité des ressources Azure individuelles et fournit des conseils applicables permettant de résoudre les problèmes. Dans un environnement cloud où il est impossible d’accéder directement aux serveurs ou aux éléments d’infrastructure, Resource Health vise à réduire le temps passé à résoudre des problèmes. L’objectif est notamment de réduire le temps passé à déterminer si la cause du problème est liée à l’application ou à un événement interne à la plateforme Azure. Pour plus d’informations, consultez la section [Understand and use Resource Health](../../service-health/resource-health-overview.md) (Comprendre et utiliser Resource Health).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Actions et événements pouvant entraîner le redémarrage de la machine virtuelle
 
@@ -46,8 +46,8 @@ Toutefois, certaines mises à jour nécessitent un redémarrage. Dans ce cas, le
 
 Découvrez en quoi consiste la maintenance planifiée Azure et son incidence possible sur la disponibilité de vos machines virtuelles Linux en consultant les articles ci-dessous. Ces articles fournissent des informations sur le processus de maintenance planifiée Azure et sa planification afin de réduire davantage l’impact.
 
-- [Maintenance planifiée des machines virtuelles dans Azure](../windows/planned-maintenance.md)
-- [Planification d’une maintenance planifiée sur des machines virtuelles Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Maintenance planifiée des machines virtuelles dans Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Planification d’une maintenance planifiée sur des machines virtuelles Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Mises à jour de préservation de la mémoire
 
@@ -72,7 +72,7 @@ Plusieurs actions de modification de la configuration peuvent également entraî
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center et Windows Update
 
-Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (Windows Server Update Services), selon le service configuré sur les machines virtuelles Windows. Security Center recherche également les dernières mises à jour pour les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle, Security Center vous recommande de l’appliquer. L’application de ces mises à jour du système est contrôlée par Security Center sur le portail Azure. L’application de certaines mises à jour peut nécessiter un redémarrage des machines virtuelles. Pour en savoir plus, consultez [Appliquer les mises à jour système dans Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (Windows Server Update Services), selon le service configuré sur les machines virtuelles Windows. Security Center recherche également les dernières mises à jour pour les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle, Security Center vous recommande de l’appliquer. L’application de ces mises à jour du système est contrôlée par Security Center sur le portail Azure. L’application de certaines mises à jour peut nécessiter un redémarrage des machines virtuelles. Pour en savoir plus, consultez [Appliquer les mises à jour système dans Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
 
 Comme pour les serveurs locaux, Azure n’envoie pas les mises à jour de Windows Update à des machines virtuelles Windows, car ces machines doivent être gérées par l’utilisateur. Cependant, vous êtes invité à maintenir la configuration automatique de Windows Update activée. L’installation automatique des mises à jour de Windows Update peut également entraîner des redémarrages une fois les mises à jour appliquées. Pour plus d’informations, consultez [Windows Update : Forum Aux Questions](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -115,7 +115,7 @@ La durée de l’arrêt peut être de cinq minutes ou beaucoup plus longue. Voic
 
 **Dépassement des limites d’E/S**
 
-Il se peut que les machines virtuelles soient temporairement arrêtées lorsque les demandes d’E/S sont constamment limitées en raison d’un volume d’opérations d’E/S par seconde dépassant les limites d’E/S du disque. (Stockage de disque standard limité à 500 E/S par seconde.) Pour atténuer ce problème, utilisez l’entrelacement de disques ou configurez l’espace de stockage au sein de la machine virtuelle invitée en fonction de la charge de travail. Pour en savoir plus, consultez [Configuration de machines virtuelles Azure pour des performances de stockage optimales](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Il se peut que les machines virtuelles soient temporairement arrêtées lorsque les demandes d’E/S sont constamment limitées en raison d’un volume d’opérations d’E/S par seconde dépassant les limites d’E/S du disque. (Stockage de disque standard limité à 500 E/S par seconde.) Pour atténuer ce problème, utilisez l’entrelacement de disques ou configurez l’espace de stockage au sein de la machine virtuelle invitée en fonction de la charge de travail. 
 
 ### <a name="other-incidents"></a>Autres incidents
 

@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373877"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505534"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour VM Scale Sets
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
 
 > [!NOTE]
-> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Pour paramétrer de façon simple un scale-in/out d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) et [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](../../api-management/api-management-key-concepts.md) Pour paramétrer de façon simple un scale-in/out d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) et [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
@@ -195,7 +195,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
             }
           }
     ```
-    Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](https://msdn.microsoft.com/library/azure/dn931928.aspx). Votre paramètre de mise à l’échelle automatique contient à présent les trois profils expliqués précédemment.
+    Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](/rest/api/monitor/autoscalesettings). Votre paramètre de mise à l’échelle automatique contient à présent les trois profils expliqués précédemment.
 
 7. Examinons pour finir la section **notification** de la mise à l’échelle automatique. Les notifications de mise à l’échelle automatique permettent de faire trois choses au moment du déclenchement d’une action de diminution ou d’augmentation de la taille des instances.
    - Avertir l’administrateur et les co-administrateurs de votre abonnement
@@ -243,9 +243,9 @@ Suivez ces liens pour en savoir plus sur la mise à l’échelle automatique.
 
 [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](autoscale-best-practices.md)
 
-[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gérer les paramètres de mise à l’échelle automatique à l’aide de la CLI](cli-samples.md#autoscale)
+[Gérer les paramètres de mise à l’échelle automatique à l’aide de la CLI](../samples/cli-samples.md#autoscale)
 
 [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](autoscale-webhook-email.md)
 

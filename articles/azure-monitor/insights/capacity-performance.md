@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499543"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 
@@ -44,7 +44,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
 | [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non    | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
-| [Compte Azure Storage](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
+| [Compte Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -109,7 +109,7 @@ Cliquez sur la vignette Capacité et performances pour ouvrir le tableau de bord
 
 Les environnements informatiques de production varient considérablement d’une organisation à l’autre. En outre, les charges de travail de capacité et de performance peuvent dépendre du mode d’exécution de vos machines virtuelles et de ce que vous considérez normal. Des procédures spécifiques pour vous aider à mesurer les performances ne seraient probablement pas applicables à votre environnement. Des conseils plus généraux sont donc mieux appropriés pour vous aider. Microsoft publie de nombreux articles regroupant des conseils pour vous aider à mesurer les performances.
 
-En résumé, la solution collecte les données de capacité et de performances à partir de nombreuses sources, notamment les compteurs de performances. Utilisez ces données de capacité et de performances, qui sont présentées dans différentes surfaces dans la solution et comparez vos résultats à ceux de l’article [Measuring Performance on Hyper-V (Mesure des performances sur Hyper-V)](https://msdn.microsoft.com/library/cc768535.aspx). Même si cet article a été publié il y a quelque temps, les mesures, les remarques à prendre en compte et les instructions restent valides. Cet article contient des liens vers d’autres ressources utiles.
+En résumé, la solution collecte les données de capacité et de performances à partir de nombreuses sources, notamment les compteurs de performances. Utilisez ces données de capacité et de performances, qui sont présentées dans différentes surfaces dans la solution et comparez vos résultats à ceux de l’article [Measuring Performance on Hyper-V (Mesure des performances sur Hyper-V)](https://www.microsoft.com/en-us/download/details.aspx?id=56495). Même si cet article a été publié il y a quelque temps, les mesures, les remarques à prendre en compte et les instructions restent valides. Cet article contient des liens vers d’autres ressources utiles.
 
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux

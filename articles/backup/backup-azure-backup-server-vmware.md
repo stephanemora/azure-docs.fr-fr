@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde 
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081058"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497911"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -24,7 +24,7 @@ Cet article explique comment :
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- Veillez à exécuter une version de vCenter/ESXi prise en charge pour la sauvegarde. Reportez-vous au tableau de prise en charge [ici](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+- Veillez à exécuter une version de vCenter/ESXi prise en charge pour la sauvegarde. Reportez-vous au tableau de prise en charge [ici](./backup-mabs-protection-matrix.md).
 - Assurez-vous que vous avez configuré le serveur de sauvegarde Azure. Dans le cas contraire, [effectuez cette opération](backup-azure-microsoft-azure-backup.md) avant de commencer. Vous devez exécuter le serveur de sauvegarde Azure avec les dernières mises à jour.
 - Vérifiez que les ports réseau suivants sont ouverts :
   - TCP 443 entre MABS et vCenter
@@ -41,7 +41,7 @@ Par défaut, le serveur de sauvegarde Azure communique avec les serveurs VMware 
 - Il est important de comprendre comment le serveur de sauvegarde Azure gère les sauvegardes.
   - Dans un premier temps, le serveur de sauvegarde Azure sauvegarde les données dans le stockage sur disque local. Le serveur de sauvegarde Azure utilise un pool de stockage, un ensemble de disques et de volumes sur lequel il stocke les points de récupération de disque pour ses données protégées. Il peut s’agir d’un stockage en attachement direct (DAS), un SAN Fibre Channel, ou un appareil de stockage ou SAN iSCSI. Il est important de vérifier que vous disposez de suffisamment de stockage pour la sauvegarde locale de vos données de machines virtuelles VMware.
   - Le serveur de sauvegarde Azure effectue ensuite la sauvegarde à partir du stockage de disque local vers Azure.
-  - [Obtenez de l’aide](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) pour déterminer la quantité d’espace de stockage dont vous avez besoin. Ces informations concernent DPM, mais elles peuvent être utilisées pour le serveur de sauvegarde Azure.
+  - [Obtenez de l’aide](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) pour déterminer la quantité d’espace de stockage dont vous avez besoin. Ces informations concernent DPM, mais elles peuvent être utilisées pour le serveur de sauvegarde Azure.
 
 ### <a name="set-up-the-certificate"></a>Configurer le certificat
 

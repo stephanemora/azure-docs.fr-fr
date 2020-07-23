@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698510"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494783"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extension DSC pour Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) est une plateforme de gestion que vous pouvez utiliser pour gérer votre infrastructure informatique et de développement avec la configuration en tant que code.
 
 > [!NOTE]
-> L’extension DSC pour Linux et l’[extension de machine virtuelle Azure Monitor pour Linux](/azure/virtual-machines/extensions/oms-linux) sont actuellement en conflit et ne sont pas prises en charge dans une configuration côte à côte. N’utilisez pas les deux solutions sur la même machine virtuelle.
+> L’extension DSC pour Linux et l’[extension de machine virtuelle Azure Monitor pour Linux](./oms-linux.md) sont actuellement en conflit et ne sont pas prises en charge dans une configuration côte à côte. N’utilisez pas les deux solutions sur la même machine virtuelle.
 
 L’extension DSCForLinux est publiée et prise en charge par Microsoft. L’extension installe l’agent DSC et OMI sur des machines virtuelles Azure. L’extension DSC peut également effectuer les actions suivantes :
 
@@ -42,7 +42,7 @@ L’extension DSCForLinux est publiée et prise en charge par Microsoft. L’ext
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L'extension DSC Linux prend en charge toutes les [distributions Linux approuvées sur Azure](/azure/virtual-machines/linux/endorsed-distros), à l'exception des suivantes :
+L'extension DSC Linux prend en charge toutes les [distributions Linux approuvées sur Azure](../linux/endorsed-distros.md), à l'exception des suivantes :
 
 | Distribution | Version |
 |---|---|

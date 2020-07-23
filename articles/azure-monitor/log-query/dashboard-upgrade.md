@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833534"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505769"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Mise à niveau de vos visualisations de tableau de bord Log Analytics
 
@@ -25,7 +25,7 @@ Cette nouvelle technologie de visualisation ouvre la voie à des expériences no
 
 Les tableaux de bord Azure sont un moyen de visualiser l’état de toute votre surface d’exposition Azure. Ils sont conçus pour fournir un volet unique et transparent sur l’état de votre patrimoine Azure et vous permettent d’utiliser un large éventail de raccourcis vers des actions courantes. 
 
-Pour plus d’informations, consultez [Tableaux de bord Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards).
+Pour plus d’informations, consultez [Tableaux de bord Azure](../../azure-portal/azure-portal-dashboards.md).
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Mise à niveau des mosaïques du tableau de bord Log Analytics

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503283"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
@@ -340,14 +340,13 @@ L’API de détection des anomalies est une solution efficace pour un large éve
 
 Grâce à des outils qui vous permettent de détecter le Shadow IT, d’évaluer les risques, d’appliquer des stratégies, d’examiner les activités et d’arrêter les menaces, votre organisation est en mesure de migrer en toute sécurité vers le cloud tout en conservant le contrôle sur ses données critiques.
 
-| | |
-|---|---|
+| Category | Description |
+| -------- | ----------- |
 | Découvrez | Découvrez le Shadow IT grâce à Cloud App Security. Bénéficiez d’une meilleure visibilité grâce à une détection des applications, des activités, des utilisateurs, des données et des fichiers dans votre environnement cloud. Détectez les applications tierces connectées à votre cloud.|
 |Examiner | Examinez vos applications cloud à l’aide d’outils d’investigation cloud conçus pour explorer en profondeur les applications à risque, les utilisateurs spécifiques et les fichiers de votre réseau. Recherchez des modèles parmi les données collectées à partir de votre cloud. Générez des rapports pour surveiller votre cloud. |
 | Control | Limitez les risques en définissant des stratégies et des alertes de manière à accentuer le contrôle sur le trafic réseau cloud. Utilisez Cloud App Security pour migrer vos utilisateurs vers d’autres solutions cloud sécurisées et approuvées. |
 | Protéger | Utilisez Cloud App Security pour approuver ou interdire des applications, appliquer des mesures de prévention des fuites de données, contrôler les autorisations et le partage, et générer des alertes et des rapports personnalisés. |
 | Control | Limitez les risques en définissant des stratégies et des alertes de manière à accentuer le contrôle sur le trafic réseau cloud. Utilisez Cloud App Security pour migrer vos utilisateurs vers d’autres solutions cloud sécurisées et approuvées. |
-| | |
 
 
 ![Diagramme Cloud App Security](./media/threat-detection/azure-threat-detection-fig14.png)

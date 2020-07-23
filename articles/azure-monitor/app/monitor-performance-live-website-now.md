@@ -3,17 +3,17 @@ title: Surveiller une application web ASP.NET active avec Azure Application Insi
 description: Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement ou dans des machines virtuelles.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166380"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499526"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
 
 > [!IMPORTANT]
-> L’utilisation de Status Monitor n’est plus recommandée ; **à partir du 1er juin 2021**, cette version de Status Monitor ne sera plus prise en charge. Il a été remplacé par Azure Monitor Application Insights Agent (anciennement appelé Status Monitor v2). Consultez notre documentation sur les [déploiements de serveurs locaux](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou sur les [déploiements de machines virtuelles et de groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> L’utilisation de Status Monitor n’est plus recommandée ; **à partir du 1er juin 2021**, cette version de Status Monitor ne sera plus prise en charge. Il a été remplacé par Azure Monitor Application Insights Agent (anciennement appelé Status Monitor v2). Consultez notre documentation sur les [déploiements de serveurs locaux](./status-monitor-v2-overview.md) ou sur les [déploiements de machines virtuelles et de groupes de machines virtuelles identiques Azure](./azure-vm-vmss-apps.md).
 
 Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Cette opération nécessite un abonnement [Microsoft Azure](https://azure.com) .
 
@@ -97,7 +97,7 @@ Voici quelques étapes à suivre pour vérifier que votre installation a réussi
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Si vous devez vérifier qu’Application Insights est correctement attaché, vous pouvez exécuter [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) dans une fenêtre Commande pour vous assurer que applicationinsights.dll a été chargé par IIS.
+- Si vous devez vérifier qu’Application Insights est correctement attaché, vous pouvez exécuter [Sysinternals Handle](/sysinternals/downloads/handle) dans une fenêtre Commande pour vous assurer que applicationinsights.dll a été chargé par IIS.
 
   ```console
   handle.exe /p w3wp.exe
@@ -145,7 +145,7 @@ Ce problème est suivi [ici](https://github.com/Microsoft/ApplicationInsights-Ho
 * Pour disposer de journaux d’activité détaillés, modifiez le fichier de configuration : `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` et ajoutez `<add key="TraceLevel" value="All" />` au `appsettings`.
 Redémarrez ensuite Status Monitor.
 
-* Status Monitor est une application .NET, vous pouvez donc également activer [le traçage .NET en ajoutant les diagnostics appropriés au fichier config](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Par exemple, dans certains scénarios, il peut être utile de voir ce qu’il se passe au niveau du réseau en [configurant le traçage réseau](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing).
+* Status Monitor est une application .NET, vous pouvez donc également activer [le traçage .NET en ajoutant les diagnostics appropriés au fichier config](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Par exemple, dans certains scénarios, il peut être utile de voir ce qu’il se passe au niveau du réseau en [configurant le traçage réseau](/dotnet/framework/network-programming/how-to-configure-network-tracing).
 
 ### <a name="insufficient-permissions"></a>Autorisations insuffisantes
   
@@ -311,7 +311,7 @@ Pour les applications déjà instrumentées au moment de la compilation :
 
 ## <a name="download-status-monitor"></a><a name="download"></a>Télécharger Status Monitor
 
-- Utiliser le nouveau [module PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Utiliser le nouveau [module PowerShell](./status-monitor-v2-overview.md)
 - Téléchargez et exécutez le [programme d’installation Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648).
 - Ou exécutez [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) et recherchez-y Application Insights Status Monitor.
 
@@ -321,7 +321,7 @@ Affichez vos données de télémétrie :
 
 * [Explorez les mesures](../../azure-monitor/platform/metrics-charts.md) pour surveiller les performances et l’utilisation
 * [Effectuez des recherches dans les événements et les journaux][diagnostic] pour diagnostiquer les problèmes
-* [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées
+* [Utilisez la fonctionnalité Analytics](../log-query/log-query-overview.md) pour des requêtes plus élaborées
 
 Ajoutez des données de télémétrie :
 
@@ -336,6 +336,6 @@ Ajoutez des données de télémétrie :
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

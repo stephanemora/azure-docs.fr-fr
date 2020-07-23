@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498914"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorer Azure Monitor pour Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Sélectionnez **Défaillances** en haut de la page et la portion **Défaillances
 | `201 Created` | Une opération POST pour créer une ressource a réussi. |
 | `404 Not Found` | L’opération tente d’agir sur une ressource qui n’existe plus. Par exemple, la ressource peut déjà avoir été supprimée. |
 
-Pour obtenir la liste complète des codes d’état, consultez l’article [Codes d'état HTTP d’Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Pour obtenir la liste complète des codes d’état, consultez l’article [Codes d'état HTTP d’Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacité
 
@@ -98,7 +98,7 @@ Par conséquent, dans l’exemple ci-dessous, vous constatez que `eastus-billing
 
 ## <a name="pin-export-and-expand"></a>Épingler, exporter et développer
 
-Vous pouvez épingler une des sections métriques à un [tableau de bord Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) en sélectionnant l’icône de punaise en haut à droite de la section.
+Vous pouvez épingler une des sections métriques à un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md) en sélectionnant l’icône de punaise en haut à droite de la section.
 
 ![Exemple d’épinglage de section de métrique au tableau de bord](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Pour obtenir des conseils sur la résolution des problèmes, consultez l’[arti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Configurez les [alertes de métriques](../platform/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications.md) pour configurer l’alerte automatisée afin de faciliter la détection des problèmes.
+* Configurez les [alertes de métriques](../platform/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications-portal.md) pour configurer l’alerte automatisée afin de faciliter la détection des problèmes.
 
 * Découvrez les scénarios que les classeurs sont conçus pour prendre en charge, comment créer et personnaliser des rapports existants, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md).

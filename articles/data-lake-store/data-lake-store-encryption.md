@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60878392"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497180"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Chiffrement des données dans Azure Data Lake Storage Gen1
 
@@ -52,8 +52,8 @@ Dans ces deux modes, la clé de chiffrement principale est sécurisée en la sto
 
 Voici une brève comparaison des fonctionnalités fournies par les deux modes de gestion des MEK.
 
-|  | Clés gérées par le service | Clés gérées par le client |
-| --- | --- | --- |
+| Question | Clés gérées par le service | Clés gérées par le client |
+| -------- | -------------------- | --------------------- |
 |Comment les données sont stockées ?|Toujours chiffrées avant d’être stockées.|Toujours chiffrées avant d’être stockées.|
 |Où est stockée la clé de chiffrement principale ?|Key Vault|Key Vault|
 |Des clés de chiffrement sont-elles stockées en dehors de Key Vault ? |Non|Non|
@@ -107,7 +107,7 @@ Le schéma suivant illustre ces concepts :
 
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Storage Gen1 avec des clés gérées par le client, voir [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Au moment où vous avez configuré le compte Data Lake Storage Gen1, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 

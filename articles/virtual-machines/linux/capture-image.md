@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494460"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -25,7 +25,7 @@ Pour créer une image managée, vous devez supprimer les informations personnell
 
 Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux spécialisé à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée](upload-vhd.md).  
 
-Vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure (préversion publique)** pour créer votre image personnalisée ; il suffit de fournir une configuration d’image et le Générateur créera l’image (inutile d’apprendre à utiliser tous les outils, ou de configurer les pipelines de build). Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure (préversion publique)** pour créer votre image personnalisée ; il suffit de fournir une configuration d’image et le Générateur créera l’image (inutile d’apprendre à utiliser tous les outils, ou de configurer les pipelines de build). Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](./image-builder-overview.md).
 
 Vous avez besoin des éléments suivants avant de créer une image :
 
@@ -137,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour créer, stocker et partager des images à grande échelle, consultez [Galeries d’images partagées](shared-images.md).
+Pour créer, stocker et partager des images à grande échelle, consultez [Galeries d’images partagées](../shared-images-cli.md).

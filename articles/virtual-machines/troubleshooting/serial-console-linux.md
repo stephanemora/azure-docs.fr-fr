@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509016"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -26,7 +26,7 @@ La console série du Portail Azure permet aux machines virtuelles et aux instanc
 
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
-Pour en savoir plus sur la console série Windows, consultez [Console série Windows](../windows/serial-console.md).
+Pour en savoir plus sur la console série Windows, consultez [Console série Windows](./serial-console-windows.md).
 
 > [!NOTE]
 > La console série est généralement disponible dans les régions Azure Mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
@@ -38,7 +38,7 @@ Pour en savoir plus sur la console série Windows, consultez [Console série Win
 
 - Le compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et le compte de stockage des [diagnostics de démarrage](boot-diagnostics.md)
 
-- Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit avoir une authentification de l’utilisateur par mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
+- Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit avoir une authentification de l’utilisateur par mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](../extensions/vmaccess.md#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 
 - Les [diagnostics de démarrage](boot-diagnostics.md) de votre machine virtuelle ou instance de groupe de machines virtuelles identiques doivent être activés.
 
@@ -50,11 +50,11 @@ Pour en savoir plus sur la console série Windows, consultez [Console série Win
 
 
 > [!NOTE]
-> La console série nécessite la configuration d’un utilisateur local avec mot de passe. Les machines virtuelles ou groupes de machines virtuelles identiques configurés uniquement avec une clé publique SSH ne peuvent pas se connecter à la console série. Pour créer un utilisateur local avec mot de passe, utilisez [Extension VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), disponible dans le portail par le biais de l’option **Réinitialiser le mot de passe** du portail Azure, puis créez un utilisateur local avec mot de passe.
+> La console série nécessite la configuration d’un utilisateur local avec mot de passe. Les machines virtuelles ou groupes de machines virtuelles identiques configurés uniquement avec une clé publique SSH ne peuvent pas se connecter à la console série. Pour créer un utilisateur local avec mot de passe, utilisez [Extension VMAccess](../extensions/vmaccess.md), disponible dans le portail par le biais de l’option **Réinitialiser le mot de passe** du portail Azure, puis créez un utilisateur local avec mot de passe.
 > Vous pouvez également réinitialiser le mot de passe administrateur de votre compte en [utilisant le GRUB pour démarrer en mode mono-utilisateur](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Disponibilité de distributions Linux pour la console série
-Afin de permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Sélectionnez **Console série** dans la section **Support + dépannage** du portail Azure pour accéder à la console série.
+Afin de permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](../linux/endorsed-distros.md) présentent la console série configurée par défaut. Sélectionnez **Console série** dans la section **Support + dépannage** du portail Azure pour accéder à la console série.
 
 > [!NOTE]
 > Si vous ne voyez rien dans la console série, vérifiez que les diagnostics de démarrage sont activés sur votre machine virtuelle. Le fait de cliquer sur **Entrée** permet généralement de corriger les problèmes à cause desquels rien ne s’affiche dans la console série.
@@ -83,7 +83,7 @@ Scénario          | Actions à effectuer dans la console série
 Fichier *FSTAB* endommagé | Appuyez sur la touche **Entrée** pour continuer, puis utilisez un éditeur de texte pour réparer le fichier *FSTAB*. Vous devrez peut-être activer le mode mono-utilisateur pour ce faire. Pour en savoir plus, consultez les sections [Résoudre les incidents fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md) de la console série.
 Règles de pare-feu incorrectes |  Si vous avez configuré iptables pour bloquer la connectivité SSH, vous pouvez utiliser la console série pour interagir avec votre machine virtuelle sans avoir besoin de SSH. Vous trouverez plus d’informations sur la [page du manuel des tables d’adresses IP](https://linux.die.net/man/8/iptables).<br>De même, si votre pare-feu bloque l’accès SSH, vous pouvez accéder à la machine virtuelle via la console série et reconfigurer le pare-feu. Pour plus d’informations, consultez la [documentation sur le pare-feu](https://firewalld.org/documentation/).
 Contrôle de la corruption du système de fichiers | Consultez la section [Azure Linux VM cannot start because of file system errors](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) (La machine virtuelle Azure Linux ne peut pas démarrer en raison d’erreurs du système de fichiers) de la console série pour obtenir plus d’informations sur la résolution des problèmes des systèmes de fichiers endommagés à l’aide de la console série.
-Problèmes de configuration SSH | Accédez à la console série et modifiez les paramètres. La console série peut être utilisée quelle que soit la configuration SSH d’une machine virtuelle. La machine virtuelle ne nécessite pas de connectivité réseau pour fonctionner. Un guide de résolution des problèmes est disponible sous [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Pour en savoir plus, consultez la page [Étapes détaillées supplémentaires de résolution des problèmes SSH pour la connexion à une machine virtuelle Linux dans Azure](./detailed-troubleshoot-ssh-connection.md)
+Problèmes de configuration SSH | Accédez à la console série et modifiez les paramètres. La console série peut être utilisée quelle que soit la configuration SSH d’une machine virtuelle. La machine virtuelle ne nécessite pas de connectivité réseau pour fonctionner. Un guide de résolution des problèmes est disponible sous [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](./troubleshoot-ssh-connection.md). Pour en savoir plus, consultez la page [Étapes détaillées supplémentaires de résolution des problèmes SSH pour la connexion à une machine virtuelle Linux dans Azure](./detailed-troubleshoot-ssh-connection.md)
 Interaction avec le chargeur de démarrage | Redémarrez votre machine virtuelle à partir du panneau de la console série pour accéder au GRUB sur votre machine virtuelle Linux. Pour en savoir plus et obtenir des informations spécifiques sur la distribution, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Désactiver la console série
@@ -99,7 +99,7 @@ L’accès à la console série est limité aux utilisateurs disposant d’un r�
 Toutes les données envoyées sur les canaux sont chiffrées.
 
 ### <a name="audit-logs"></a>Journaux d’audit
-Tous les accès à la console série sont journalisés dans les journaux d’activité [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux d’activité est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
+Tous les accès à la console série sont journalisés dans les journaux d’activité [Diagnostics de démarrage](./boot-diagnostics.md) de la machine virtuelle. L’accès à ces journaux d’activité est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
 
 > [!CAUTION]
 > Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux d’activité Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux d’activité sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Si vous entrez des données ou des commandes qui contiennent des secrets ou des informations d’identification personnelle, nous vous recommandons d’utiliser SSH à Moins que la console série soit absolument nécessaire.
@@ -171,6 +171,5 @@ R. Oui. Comme la console série ne nécessite pas de clés SSH, il vous suffit d
 * Utilisez la console série pour [accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 * Utilisez la console série pour les [appels SysRq et NMI](serial-console-nmi-sysrq.md).
 * Découvrez comment utiliser la console série pour [activer GRUB dans plusieurs distributions](serial-console-grub-proactive-configuration.md)
-* La console série est également disponible pour les [machines virtuelles Windows](../windows/serial-console.md).
+* La console série est également disponible pour les [machines virtuelles Windows](./serial-console-windows.md).
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md).
-

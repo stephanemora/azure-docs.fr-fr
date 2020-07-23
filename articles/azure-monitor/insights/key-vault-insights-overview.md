@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945458"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498948"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault (préversion)
 Azure Monitor pour Key Vault (préversion) offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
@@ -24,7 +24,7 @@ Avant de vous lancer dans cette expérience, vous devez comprendre comment cette
 -   **Analyse approfondie** d’un coffre de clés particulier pour effectuer une analyse détaillée.
 -    **Personnalisable** en vous permettant de modifier les métriques que vous souhaitez voir, modifier ou définir des seuils qui s’alignent sur vos limites et enregistrer votre propre classeur. Les graphiques du classeur peuvent être épinglés aux tableaux de bord Azure.
 
-Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. Tous les utilisateurs peuvent accéder aux données de surveillance basées sur les métriques. Toutefois, l’inclusion de visualisations basées sur les journaux peut obliger les utilisateurs à [activer la journalisation de leur coffre de clés Azure](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. Tous les utilisateurs peuvent accéder aux données de surveillance basées sur les métriques. Toutefois, l’inclusion de visualisations basées sur les journaux peut obliger les utilisateurs à [activer la journalisation de leur coffre de clés Azure](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuration de vos coffres de clés pour l’analyse
 
@@ -39,7 +39,7 @@ Azure Monitor pour Key Vault combine les journaux d’activité et les métrique
 
 3. Une fois les paramètres de diagnostic enregistrés, vous serez en mesure de consulter tous les graphiques et visualisations basés sur les journaux sous la rubrique Insights Key Vault. Veuillez noter que cela peut prendre de quelques minutes à quelques heures pour commencer à alimenter les journaux.
 
-4. Pour obtenir une aide supplémentaire sur l’activation des journaux de diagnostic pour votre service Key Vault, consultez le [guide complet](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Pour obtenir une aide supplémentaire sur l’activation des journaux de diagnostic pour votre service Key Vault, consultez le [guide complet](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Voir à partir d’Azure Monitor
 
@@ -75,7 +75,7 @@ Il existe des codes de couleur conditionnels ou des cartes thermiques pour les c
 
 Le classeur affiche les réussites (codes d’état 2xx), les erreurs d’authentification (codes d’état 401/403), la limitation (codes d’état 429) et d’autres échecs (codes d’état 4xx).
 
-Pour mieux comprendre ce que chaque code d’état représente, nous vous recommandons de lire la documentation relative aux[codes d’état et de réponse d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Pour mieux comprendre ce que chaque code d’état représente, nous vous recommandons de lire la documentation relative aux[codes d’état et de réponse d’Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Classeur Opérations et latence
 
@@ -120,7 +120,7 @@ Le classeur Operations permet aux utilisateurs d’approfondir les détails de t
 Les utilisateurs peuvent également définir des vues basées sur des types spécifiques de transactions dans le tableau du haut, ce qui met à jour dynamiquement le tableau du bas, où les utilisateurs peuvent voir les détails complets des opérations dans un volet contextuel.
 
 >[!NOTE]
-> Notez que les paramètres de diagnostic des utilisateurs doivent être activés pour afficher ce classeur. Pour en savoir plus sur l’activation des paramètres de diagnostic, lisez la section relative à la [journalisation d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Notez que les paramètres de diagnostic des utilisateurs doivent être activés pour afficher ce classeur. Pour en savoir plus sur l’activation des paramètres de diagnostic, lisez la section relative à la [journalisation d’Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Épingler et exporter
 
@@ -164,7 +164,7 @@ Cette section est destinée à vous aider à diagnostiquer et résoudre certains
 
 ### <a name="resolving-performance-issues-or-failures"></a>Résolution des problèmes de performances ou des échecs
 
-Pour résoudre les problèmes liés aux coffres de clés que vous identifiez auprès d’Azure Monitor pour Key Vault (préversion), consultez le [documentation d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Pour résoudre les problèmes liés aux coffres de clés que vous identifiez auprès d’Azure Monitor pour Key Vault (préversion), consultez le [documentation d’Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Pourquoi je ne vois pas plus de 200 coffres de clés ?
 
@@ -208,4 +208,4 @@ Vous pouvez modifier le classeur existant, en utilisant le mode d’édition, pu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les scénarios que les classeurs sont conçus pour prendre en charge, comment créer et personnaliser des rapports existants, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Découvrez les scénarios que les classeurs sont conçus pour prendre en charge, comment créer et personnaliser des rapports existants, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md).

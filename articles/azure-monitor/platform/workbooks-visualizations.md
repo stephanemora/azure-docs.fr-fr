@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658028"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504935"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualisations de classeurs Azure Monitor
 
@@ -51,7 +51,7 @@ Les classeurs prennent en charge les graphiques pour les journaux et les sources
 1. Basculez le classeur en mode d’édition en cliquant sur l’élément **Modifier** de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur.
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
-4. Utiliser l’éditeur de requête pour saisir le [KQL](https://docs.microsoft.com/azure/kusto/query/) pour votre analyse (par exemple, la tendance des requêtes).
+4. Utiliser l’éditeur de requête pour saisir le [KQL](/azure/kusto/query/) pour votre analyse (par exemple, la tendance des requêtes).
 5. Définissez la visualisation sur un des éléments suivants : **Zones**, **Barres**, **Bar (catégorie)** , **Courbes**, **Secteurs**, **Nuage de points** ou **Temps**.
 6. Définissez d’autres paramètres si nécessaire, comme la plage de temps, la visualisation, la taille, la palette de couleurs et la légende.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: eeb43247253386d6dd58a4c35ef0cba15a991b9e
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 9ad1c3bfd7a7bb3dba36790d8dae0f503ba938c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086196"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508625"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tailles de machine virtuelle compatibles avec des processeurs virtuels restreints
 
@@ -24,12 +24,11 @@ ms.locfileid: "82086196"
 
 
 ## <a name="other-sizes"></a>Autres tailles
-- [Optimisé pour le calcul](../windows/sizes-compute.md)
-- [Mémoire optimisée](sizes-memory.md)
-- [Optimisé pour le stockage](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Calcul haute performance](sizes-hpc.md)
+- [Optimisé pour le calcul](../sizes-compute.md)
+- [Mémoire optimisée](../sizes-memory.md)
+- [Optimisé pour le stockage](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Calcul haute performance](../sizes-hpc.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
-
+Lisez-en davantage sur les [Unités de calcul Azure (ACU)](../acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

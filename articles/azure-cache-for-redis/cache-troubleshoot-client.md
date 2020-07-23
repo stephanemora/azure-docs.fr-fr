@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829667"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506432"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Résoudre les problèmes côté client liés à Azure Cache pour Redis
 
@@ -84,12 +84,14 @@ Une demande/réponse volumineuse peut entraîner des délais d’expiration. Par
 
 Dans l’exemple suivant, les requêtes A et B sont envoyées rapidement au serveur. Le serveur commence rapidement à envoyer les réponses A et B. En raison des temps de transfert de données, la réponse B doit attendre l’expiration de la réponse A, même si le serveur a répondu rapidement.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
-         |-------- 1 Second Timeout (B) ----------|
-         |-Request B-|
-                |- Read Response A --------|
-                                           |- Read Response B-| (**TIMEOUT**)
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
 
 Cette demande/réponse est difficile à mesurer. Vous pouvez instrumenter votre code client pour suivre les requêtes et les réponses volumineuses.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 8ca16c8f114cf1732bcfb1c8a7d9ae85414d70e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d15db9c9ef6e1cd637d9585fe07be269346f161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79232001"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502275"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestion de la disponibilité des machines virtuelles Linux
 
@@ -21,5 +21,4 @@ Découvrez comment configurer et gérer plusieurs machines virtuelles afin de ga
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur l’équilibrage de charge de vos machines virtuelles, consultez la rubrique concernant [l’équilibrage de charge des machines virtuelles](../virtual-machines-linux-load-balance.md).
-
+Pour en savoir plus sur l’équilibrage de charge de vos machines virtuelles, consultez la rubrique concernant [l’équilibrage de charge des machines virtuelles](../../load-balancer/load-balancer-overview.md).

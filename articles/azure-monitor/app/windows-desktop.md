@@ -3,12 +3,12 @@ title: Analyse des performances et de l’utilisation pour les applications de b
 description: Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718782"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499186"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
@@ -73,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 Par défaut, ce kit de développement logiciel (SDK) collecte et stocke le nom d’ordinateur du système émettant la télémétrie.
 
-Le nom de l’ordinateur est utilisé par le [niveau de prix Entreprise existant (par nœud)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) Application Insights pour des besoins de facturation interne. Par défaut, si vous utilisez un initialiseur de télémétrie pour remplacer `telemetry.Context.Cloud.RoleInstance`, une propriété distincte `ai.internal.nodeName` sera envoyée, qui contiendra encore la valeur de nom de l’ordinateur. Cette valeur ne sera pas stockée avec vos données de télémétrie Application Insights, mais elle sera utilisée en interne au moment de l’ingestion pour permettre une compatibilité descendante avec le modèle de facturation existant basé sur les nœuds.
+Le nom de l’ordinateur est utilisé par le [niveau de prix Entreprise existant (par nœud)](./pricing.md#legacy-enterprise-per-node-pricing-tier) Application Insights pour des besoins de facturation interne. Par défaut, si vous utilisez un initialiseur de télémétrie pour remplacer `telemetry.Context.Cloud.RoleInstance`, une propriété distincte `ai.internal.nodeName` sera envoyée, qui contiendra encore la valeur de nom de l’ordinateur. Cette valeur ne sera pas stockée avec vos données de télémétrie Application Insights, mais elle sera utilisée en interne au moment de l’ingestion pour permettre une compatibilité descendante avec le modèle de facturation existant basé sur les nœuds.
 
-Si vous êtes au [niveau de prix Entreprise existant (par nœud)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) et que vous avez simplement besoin de remplacer le stockage du nom de l’ordinateur, utilisez un initialiseur de télémétrie :
+Si vous êtes au [niveau de prix Entreprise existant (par nœud)](./pricing.md#legacy-enterprise-per-node-pricing-tier) et que vous avez simplement besoin de remplacer le stockage du nom de l’ordinateur, utilisez un initialiseur de télémétrie :
 
 **Écrire un initialiseur TelemetryInitializer personnalisé comme ci-dessous.**
 
@@ -116,7 +116,7 @@ Instanciez l’initialiseur dans la méthode `Program.cs` `Main()` ci-dessous, e
 
 ## <a name="override-transmission-of-computer-name"></a>Remplacer la transmission du nom de l’ordinateur
 
-Si vous n’êtes pas au [niveau de prix Entreprise existant (par nœud)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) et que vous souhaitez empêcher complètement l’envoi de données de télémétrie contenant le nom de l’ordinateur, vous devez utiliser un processeur de télémétrie.
+Si vous n’êtes pas au [niveau de prix Entreprise existant (par nœud)](./pricing.md#legacy-enterprise-per-node-pricing-tier) et que vous souhaitez empêcher complètement l’envoi de données de télémétrie contenant le nom de l’ordinateur, vous devez utiliser un processeur de télémétrie.
 
 ### <a name="telemetry-processor"></a>Processeur de télémétrie
 
@@ -172,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Bien qu’il soit possible techniquement d’utiliser un processeur de télémétrie comme décrit précédemment, même avec un [niveau de prix Entreprise existant (par nœud)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), vous vous exposez à un risque de surfacturation du fait de l’incapacité à distinguer correctement les nœuds soumis à un tarif par nœud.
+> Bien qu’il soit possible techniquement d’utiliser un processeur de télémétrie comme décrit précédemment, même avec un [niveau de prix Entreprise existant (par nœud)](./pricing.md#legacy-enterprise-per-node-pricing-tier), vous vous exposez à un risque de surfacturation du fait de l’incapacité à distinguer correctement les nœuds soumis à un tarif par nœud.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Création d’un tableau de bord](../../azure-monitor/app/overview-dashboard.md)
 * [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md)
 * [Exploration des mesures](../../azure-monitor/platform/metrics-charts.md)
-* [Écriture de requêtes Analytics](../../azure-monitor/app/analytics.md)
-
+* [Écriture de requêtes Analytics](../log-query/log-query-overview.md)

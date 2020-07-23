@@ -6,12 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505446"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure classique avec un modèle Resource Manager
 > [!WARNING]
@@ -176,7 +176,7 @@ Pour créer une alerte à l’aide d’un modèle Resource Manager, vous créez 
 }
 ```
 
-Une explication du schéma et des propriétés pour une règle d’alerte [est disponible ici](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Une explication du schéma et des propriétés pour une règle d’alerte [est disponible ici](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modèle Resource Manager pour une ressource avec une alerte de métrique classique
 Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la création d’une alerte pendant la création d’une ressource. Par exemple, vous pourriez souhaiter vous assurer qu’une règle « processeur > 80 % » est définie chaque fois que vous déployez une machine virtuelle. Pour ce faire, vous ajoutez la règle d’alerte en tant que ressource dans le tableau des ressources pour votre modèle de machine virtuelle et ajoutez une dépendance à l’aide de la propriété `dependsOn` de l’ID de ressource de machine virtuelle. Voici un exemple complet qui crée une machine virtuelle Windows et ajoute une alerte qui avertit les administrateurs d’abonnement lorsque l’utilisation du processeur dépasse 80 %.
@@ -402,4 +402,3 @@ Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la 
 * [En savoir plus sur les alertes](alerts-overview.md)
 * [Ajout de paramètres de diagnostic](../../azure-monitor/platform/diagnostic-settings-template.md) à votre modèle Resource Manager
 * Pour les propriétés et la syntaxe JSON, consultez la référence de modèle [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
-

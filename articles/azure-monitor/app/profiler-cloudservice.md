@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eba250f3ca6a7af8480d24a99e6c3e8278009b82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671662"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499441"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiler des services cloud Azure en production avec Application Insights
 
@@ -23,7 +23,7 @@ Vous pouvez également déployer Application Insights Profiler sur les services 
 Application Insights Profiler est installé avec l’extension Diagnostics Azure. Vous devez simplement configurer Diagnostics Azure pour installer Profiler et envoyer des profils à votre ressource Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Activer Profiler pour Azure Cloud Services
-1. Veillez à utiliser [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou une version plus récente. Si vous utilisez la famille OS 4, vous devez installer .NET Framework 4.6.1 ou une version plus récente avec une [tâche de démarrage](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). La famille OS 5 comprend une version compatible de .NET Framework par défaut. 
+1. Veillez à utiliser [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou une version plus récente. Si vous utilisez la famille OS 4, vous devez installer .NET Framework 4.6.1 ou une version plus récente avec une [tâche de démarrage](../../cloud-services/cloud-services-dotnet-install-dotnet.md). La famille OS 5 comprend une version compatible de .NET Framework par défaut. 
 
 1. Ajoutez le [SDK Application Insights à Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
@@ -37,11 +37,11 @@ Application Insights Profiler est installé avec l’extension Diagnostics Azure
 
 1. Configurez l'extension Diagnostics Azure pour activer Profiler :
 
-    a. Recherchez le fichier [diagnostics.wadcfgx](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de *Diagnostics Azure* pour votre rôle d’application, comme indiqué ici :  
+    a. Recherchez le fichier [diagnostics.wadcfgx](../platform/diagnostics-extension-overview.md) de *Diagnostics Azure* pour votre rôle d’application, comme indiqué ici :  
 
       ![Recherche du fichier config de diagnostics](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      Si vous ne trouvez pas le fichier, consultez [Configurer les diagnostics pour les services Azure Cloud Services et Machines virtuelles](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+      Si vous ne trouvez pas le fichier, consultez [Configurer les diagnostics pour les services Azure Cloud Services et Machines virtuelles](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
     b. Ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg` :  
 

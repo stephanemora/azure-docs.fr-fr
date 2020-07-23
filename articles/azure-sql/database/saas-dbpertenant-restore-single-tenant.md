@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027900"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504326"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous allez découvrir deux modèles de récupération des d
 > * Restaurer une base de données dans une base de données parallèle (côte à côte).
 > * Restaurer une base de données sur place en remplaçant la base de données existante.
 
-|||
+| Modèle | Description |
 |:--|:--|
 | Restaurer dans une base de données parallèle | Ce modèle peut être utilisé pour des tâches telles que la révision, l’audit et la conformité, afin d’autoriser un locataire à inspecter ses données à partir d’un point antérieur. La base de données actuelle du locataire reste inchangée et en ligne. |
 | Restaurer sur place | Ce modèle est généralement utilisé pour récupérer un locataire à un point antérieur dans le temps, après la suppression ou la corruption accidentelle des données. La base de données d’origine est mise hors connexion et remplacée par la base de données restaurée. |

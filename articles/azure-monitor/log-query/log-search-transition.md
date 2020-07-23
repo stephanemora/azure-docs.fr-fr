@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505803"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Passer de la recherche dans les journaux d’activité Log Analytics aux journaux d’activité Azure Monitor
 La recherche dans les journaux d’activité Log Analytics vient d’être remplacée par une nouvelle expérience d’analyse des journaux d’activité Azure Monitor. Actuellement, la page de recherche dans les journaux d’activité est toujours accessible par le biais de l’élément de menu **Journaux d’activité (classiques)** de la page **Espaces de travail Log Analytics** dans le portail Azure, mais elle sera supprimée le 15 février 2019. Cet article décrit les différences entre les deux expériences pour vous aider à remplacer la recherche dans les journaux. 
@@ -58,7 +58,7 @@ Dans les journaux d’activité Azure Monitor, vous devez modifier la requête p
 ![Examen approfondi des journaux d’activité Azure Monitor](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Effectuer une action
-Avec la recherche dans les journaux, vous pouvez [démarrer un runbook](take-action.md) à partir d’un résultat de recherche en sélectionnant **Effectuer une action**.
+Avec la recherche dans les journaux, vous pouvez [démarrer un runbook](../platform/action-groups.md) à partir d’un résultat de recherche en sélectionnant **Effectuer une action**.
 
 ![Effectuer une action](media/log-search-transition/take-action-log-search.png)
 

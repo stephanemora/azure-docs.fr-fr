@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: a8041f2514f59ac2511fcd64eeb0283565a0e07a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249238"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506143"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
@@ -238,7 +238,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Journalisation
 
-Pour consigner la sortie dans vos journaux d’activité de streaming en C#, ajoutez un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions.
+Pour consigner la sortie dans vos journaux d’activité de streaming en C#, ajoutez un argument de type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -252,7 +252,7 @@ public static void Run(string myBlob, ILogger log)
 
 ## <a name="async"></a>Async
 
-Pour rendre une fonction [asynchrone](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), utilisez le mot clé `async` et retournez un objet `Task`.
+Pour rendre une fonction [asynchrone](/dotnet/csharp/programming-guide/concepts/async/), utilisez le mot clé `async` et retournez un objet `Task`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(

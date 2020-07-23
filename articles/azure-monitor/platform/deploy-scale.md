@@ -4,12 +4,12 @@ description: Déployez les fonctionnalités Azure Monitor à la bonne échelle �
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505208"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy
 Même si certaines fonctionnalités Azure Monitor sont configurées une fois pour toutes ou un nombre de fois limité, pour d’autres, l’opération doit être répétée pour chacune des ressources que vous voulez superviser. Cet article décrit des méthodes pour implémenter Azure Monitor à la bonne échelle avec Azure Policy et garantir une configuration cohérente et précise de la supervision pour toutes vos ressources Azure.
@@ -31,7 +31,7 @@ Azure Policy comporte les objets présents dans le tableau suivant. Pour obtenir
 | Affectation | Une définition ou une initiative de stratégie ne prend pas effet tant qu’elle n’est pas affectée à une étendue. Par exemple, affectez une stratégie à un groupe de ressources pour l’appliquer à toutes les ressources créées dans cette ressource, ou appliquez-la à un abonnement pour l’appliquer à toutes les ressources de cet abonnement.  Pour plus d’informations, consultez [Structure d’attribution Azure Policy](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Définitions de stratégie intégrées pour Azure Monitor
-Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](../policy-samples.md).
+Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](../samples/policy-samples.md).
 
 Pour consulter les définitions de stratégie intégrées en rapport avec la supervision, procédez comme suit :
 
@@ -60,7 +60,7 @@ Pour les types de ressource qui n’ont pas de stratégie intégrée, vous devez
 Le script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) crée des fichiers de stratégie pour un type de ressource déterminé que vous pouvez installer via PowerShell ou l’interface CLI. Pour créer une définition de stratégie personnalisée pour des paramètres de diagnostic, utilisez la procédure suivante.
 
 
-1. Vérifiez qu’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) est installé.
+1. Vérifiez qu’[Azure PowerShell](/powershell/azure/install-az-ps) est installé.
 2. Installez le script avec la commande suivante :
   
     ```azurepowershell

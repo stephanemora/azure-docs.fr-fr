@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793038"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507667"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé CloudSimple pour l’installation d’Oracle RAC
 
@@ -169,7 +169,7 @@ Pour déployer un cluster vSphere sur votre cloud privé, effectuez les étapes 
 
 Les stratégies vSAN définissent les défaillances à tolérer et l’entrelacement de disques pour les données stockées sur les disques de machines virtuelles.  La stratégie de stockage créée doit être appliquée sur les disques de machines virtuelles lors de la création de la machine virtuelle.
 
-1. [Connectez-vous au client vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) de votre cloud privé.
+1. [Connectez-vous au client vSphere](./vcenter-access.md) de votre cloud privé.
 2. Dans le menu supérieur, sélectionnez **Policies and Profiles** (Stratégies et profils).
 3. Dans le menu de gauche, sélectionnez **VM Storage Policies** (Stratégies de stockage de machines virtuelles), puis **Create a VM storage Policy** (Créer une stratégie de stockage de machines virtuelles).
 4. Entrez un nom explicite pour la stratégie, puis cliquez sur **NEXT**.

@@ -4,12 +4,12 @@ description: Découvrir comment l’agent MARS prend en charge les scénarios de
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134970"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497945"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>À propos de l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -40,10 +40,10 @@ L’agent MARS prend en charge les scénarios de restauration suivants :
 ## <a name="backup-process"></a>Processus de sauvegarde
 
 1. Dans le portail Azure, créez un [coffre Recovery Services](install-mars-agent.md#create-a-recovery-services-vault) et choisissez des fichiers, des dossiers et l’état du système dans les **objectifs de sauvegarde**.
-2. [Téléchargez les informations d’identification du coffre Recovery Services et le programme d’installation de l’agent](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) sur une machine locale.
+2. [Téléchargez les informations d’identification du coffre Recovery Services et le programme d’installation de l’agent](./install-mars-agent.md#download-the-mars-agent) sur une machine locale.
 
-3. [Installez l’agent](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) et utilisez les informations d’identification du coffre téléchargées pour inscrire la machine auprès du coffre Recovery Services.
-4. Dans la console de l’agent sur le client, [configurez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) pour spécifier ce que vous voulez sauvegarder, le moment de la sauvegarde (planification), la durée de conservation les sauvegardes dans Azure (stratégie de rétention) et démarrer la protection.
+3. [Installez l’agent](./install-mars-agent.md#install-and-register-the-agent) et utilisez les informations d’identification du coffre téléchargées pour inscrire la machine auprès du coffre Recovery Services.
+4. Dans la console de l’agent sur le client, [configurez la sauvegarde](./backup-windows-with-mars-agent.md#create-a-backup-policy) pour spécifier ce que vous voulez sauvegarder, le moment de la sauvegarde (planification), la durée de conservation les sauvegardes dans Azure (stratégie de rétention) et démarrer la protection.
 
 ![Diagramme de l’agent Sauvegarde Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ L’agent MARS prend en charge les scénarios de restauration suivants :
 
 ### <a name="additional-scenarios"></a>Autres cas de figure
 
-- **Sauvegarder des fichiers et des dossiers spécifiques au sein de machines virtuelles Azure** : la méthode principale pour sauvegarder des machines virtuelles Azure consiste à utiliser une extension Sauvegarde Azure sur la machine virtuelle. L’extension sauvegarde la totalité de la machine virtuelle. Si vous souhaitez sauvegarder des fichiers et des dossiers spécifiques au sein d’une machine virtuelle, vous pouvez installer l’agent MARS sur les machines virtuelles Azure. Pour plus d’informations, consultez [Architecture : Sauvegarde de machine virtuelle Azure prédéfinie](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- **Sauvegarder des fichiers et des dossiers spécifiques au sein de machines virtuelles Azure** : la méthode principale pour sauvegarder des machines virtuelles Azure consiste à utiliser une extension Sauvegarde Azure sur la machine virtuelle. L’extension sauvegarde la totalité de la machine virtuelle. Si vous souhaitez sauvegarder des fichiers et des dossiers spécifiques au sein d’une machine virtuelle, vous pouvez installer l’agent MARS sur les machines virtuelles Azure. Pour plus d’informations, consultez [Architecture : Sauvegarde de machine virtuelle Azure prédéfinie](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Amorçage hors connexion** : les sauvegardes complètes initiales des données dans Azure transfèrent généralement de grandes quantités de données et nécessitent plus de bande passante réseau. Les sauvegardes suivantes transfèrent uniquement le volume de données delta (ou incrémentiel). La sauvegarde Azure compresse les sauvegardes initiales. Par l’intermédiaire du processus d’*amorçage hors connexion*, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure. Pour plus d’informations, consultez [Sauvegarde Azure hors connexion avec Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Matrice de prise en charge de l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Matrice de prise en charge de l’agent MARS](./backup-support-matrix-mars-agent.md)
 
-[Forum aux questions sur l’agent MARS](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Forum aux questions sur l’agent MARS](./backup-azure-file-folder-backup-faq.md)

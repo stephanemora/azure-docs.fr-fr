@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847394"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505293"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Pour préserver vos investissements existants dans [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offrent les journaux d’activité d’Azure Monitor tout en continuant à utiliser Operations Manager pour :
+Pour préserver vos investissements existants dans [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offrent les journaux d’activité d’Azure Monitor tout en continuant à utiliser Operations Manager pour :
 
 * Surveiller l’intégrité de vos services informatiques avec Operations Manager
 * Conserver l’intégration avec vos solutions ITSM pour la gestion des incidents et des problèmes
@@ -154,7 +154,7 @@ Si votre serveur proxy requiert une authentification, procédez comme suit pour 
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration** .
 1. Sous **Configuration d’identification**, sélectionnez **Profils**.
 1. Ouvrez le profil **Proxy d'identification de System Center Advisor** .
-1. Dans l’Assistant Profil d’identification, cliquez sur Ajouter pour utiliser un compte d’identification. Vous pouvez créer un [compte d’identification](https://technet.microsoft.com/library/hh321655.aspx) ou utiliser un compte existant. Ce compte doit disposer des autorisations suffisantes pour franchir le serveur proxy.
+1. Dans l’Assistant Profil d’identification, cliquez sur Ajouter pour utiliser un compte d’identification. Vous pouvez créer un [compte d’identification](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) ou utiliser un compte existant. Ce compte doit disposer des autorisations suffisantes pour franchir le serveur proxy.
 1. Pour définir le compte à gérer, choisissez **Une classe, un groupe ou un objet sélectionné(e)** , cliquez sur **Sélectionner...** puis sur **Groupe...** Pour ouvrir la boîte de dialogue **Recherche de groupes**.
 1. Recherchez le **groupe Microsoft System Center Advisor Monitoring Server**, puis sélectionnez-le. Une fois le groupe sélectionné, cliquez sur **OK** pour fermer la zone **Recherche de groupes**.
 1. Cliquez sur **OK** pour fermer la zone **Ajouter un compte d’identification**.
@@ -173,7 +173,7 @@ Au terme de la configuration, le groupe d'administration Operations Manager éta
 * **Microsoft.SystemCenter.Advisor.MPUpdate** : met à jour les packs d'administration Azure Monitor de base. S’exécute toutes les 12 heures par défaut.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : met à jour les packs d’administration de solution activés dans votre espace de travail. Par défaut, elle s’exécute toutes les cinq (5) minutes.
 
-Vous pouvez désactiver ces deux règles pour empêcher le téléchargement automatique, ou modifier la fréquence de la synchronisation du serveur d’administration avec Azure Monitor pour déterminer si un nouveau pack d’administration est disponible et doit être téléchargé. Suivez les étapes de la [procédure de remplacement d’une règle ou d’une analyse](https://technet.microsoft.com/library/hh212869.aspx) pour modifier la valeur en secondes du paramètre **Fréquence** afin de changer la fréquence de synchronisation, ou pour modifier le paramètre **Activé** afin de désactiver les règles. Pour le remplacement, ciblez tous les objets de la classe Groupe d’administration Operations Manager.
+Vous pouvez désactiver ces deux règles pour empêcher le téléchargement automatique, ou modifier la fréquence de la synchronisation du serveur d’administration avec Azure Monitor pour déterminer si un nouveau pack d’administration est disponible et doit être téléchargé. Suivez les étapes de la [procédure de remplacement d’une règle ou d’une analyse](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) pour modifier la valeur en secondes du paramètre **Fréquence** afin de changer la fréquence de synchronisation, ou pour modifier le paramètre **Activé** afin de désactiver les règles. Pour le remplacement, ciblez tous les objets de la classe Groupe d’administration Operations Manager.
 
 Pour continuer à suivre votre processus habituel de contrôle des modifications pour contrôler les versions du pack d’administration dans votre groupe d’administration de production, vous pouvez désactiver les règles et les activer à des heures auxquelles les mises à jour sont autorisées. Si votre environnement dispose d’un groupe d’administration du développement ou de l’assurance qualité connecté à Internet, vous pouvez configurer ce groupe d’administration avec un espace de travail Log Analytics de façon à ce qu’il prenne en charge ce scénario. Ainsi, vous pourrez examiner et évaluer les versions itératives des packs d'administration Azure Monitor avant de les introduire dans votre groupe d'administration de production.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691814"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498608"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modification des noms et de la terminologie d’Azure Monitor
 Des modifications significatives ont récemment été apportées à Azure Monitor, différents services étant en cours de consolidation afin de simplifier la surveillance pour les clients Azure. Cet article décrit les dernières évolutions des noms et de la terminologie de la documentation d’Azure Monitor.
@@ -59,4 +59,4 @@ Operations Management Suite (OMS) était un regroupement des services de gestion
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez la [vue d’ensemble d’Azure Monitor](overview.md), qui décrit ses différents composants et fonctionnalités.
-- En savoir plus sur la [transition du portail OMS](../log-analytics/log-analytics-oms-portal-transition.md).
+- En savoir plus sur la [transition du portail OMS](./platform/oms-portal-transition.md).

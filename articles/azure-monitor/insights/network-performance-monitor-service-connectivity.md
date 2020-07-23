@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690012"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498863"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -57,7 +57,7 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 
     * Sélectionnez **Web** pour surveiller la connectivité à un service qui répond à des requêtes HTTP/S, comme outlook.office365.com ou bing.com.<br>
     * Sélectionnez **Réseau** pour surveiller la connectivité à un service qui répond à des requêtes TCP, mais pas à des requêtes HTTP/S, comme un serveur SQL, un serveur FTP ou un port SSH. 
-    * Par exemple : Pour créer un test web dans un compte de stockage blob, sélectionnez **Web** et entrez la cible en tant que *yourstorageaccount*.blob.core.windows.net. De même, vous pouvez créer des tests pour d’autres stockages de tables, de files d’attente et Azure Files en utilisant [ce lien.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Par exemple : Pour créer un test web dans un compte de stockage blob, sélectionnez **Web** et entrez la cible en tant que *yourstorageaccount*.blob.core.windows.net. De même, vous pouvez créer des tests pour d’autres stockages de tables, de files d’attente et Azure Files en utilisant [ce lien.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Si vous ne souhaitez pas effectuer de mesures sur le réseau, telles que la latence du réseau, la perte de paquets et la découverte des topologies, désactivez la case pour **effectuer des mesures sur un réseau**. Cochez-la pour profiter pleinement de la fonctionnalité. 
 5. Dans le champ **Cible**, entrez l’adresse IP, le nom de domaine complet sur lesquels porte la surveillance de la connectivité réseau.
 6. Dans le champ **Numéro de port**, entrez le numéro de port du service cible. 

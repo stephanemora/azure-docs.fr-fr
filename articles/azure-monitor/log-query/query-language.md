@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631796"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505735"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
 
@@ -27,7 +27,7 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 ## <a name="concepts"></a>Concepts
 
 - [Analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) donne une vue d’ensemble synthétique des requêtes de journal et décrit la structure des données de journal Azure Monitor.
-- [Afficher et analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/portals.md) décrit les portails permettant de créer et d’exécuter des requêtes de journal.
+- [Afficher et analyser les données de journal dans Azure Monitor](./log-query-overview.md) décrit les portails permettant de créer et d’exécuter des requêtes de journal.
 
 ## <a name="reference"></a>Informations de référence
 

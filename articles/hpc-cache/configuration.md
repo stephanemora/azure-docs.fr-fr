@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505305"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497197"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurer des paramètres Azure HPC Cache supplémentaires
 
@@ -51,7 +51,7 @@ Lorsque le squash racine est activé, les utilisateurs racine d’un client sont
 
 Si le squash racine est désactivé, une requête de l’utilisateur racine client (UID 0) est transmise à un système de stockage NFS principal en tant que racine. Cette configuration peut permettre un accès inapproprié aux fichiers.
 
-La définition du squash racine sur le cache peut aider à compenser le paramètre ``no_root_squash`` requis sur les systèmes NAS utilisés comme cibles de stockage. (En savoir plus sur la [configuration requise pour les cibles de stockage NFS](hpc-cache-prereqs.md#nfs-storage-requirements).) Il peut également améliorer la sécurité lorsqu’il est utilisé avec des cibles de stockage Blob Azure.
+La définition du squash racine sur le cache peut aider à compenser le paramètre ``no_root_squash`` requis sur les systèmes NAS utilisés comme cibles de stockage. (En savoir plus sur la [configuration requise pour les cibles de stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Il peut également améliorer la sécurité lorsqu’il est utilisé avec des cibles de stockage Blob Azure.
 
 Le paramètre par défaut est **Oui**. (Les caches créés avant avril 2020 peuvent avoir le paramètre par défaut **Non**.)
 

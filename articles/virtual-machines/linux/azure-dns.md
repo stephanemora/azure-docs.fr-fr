@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494732"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure
 Azure fournit une résolution des noms DNS par défaut pour toutes les machines virtuelles d’un même réseau virtuel. Vous pouvez implémenter votre propre solution de résolution de noms DNS en configurant vos propres services DNS sur vos machines virtuelles hébergées sur Azure. Les scénarios suivants vous aideront à choisir la solution qui fonctionne dans votre situation.
@@ -121,7 +121,7 @@ Le transfert DNS permet aussi la résolution DNS entre des réseaux virtuels et 
 
 Quand vous utilisez la résolution de noms fournie par Azure, le suffixe DNS interne est fourni à chaque machine virtuelle via DHCP. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS. Pour référencer des machines par le nom de domaine complet ou pour configurer le suffixe sur vos machines virtuelles, vous pouvez utiliser PowerShell ou l’API pour déterminer le suffixe :
 
-* Pour les réseaux virtuels gérés par Azure Resource Manager, le suffixe est disponible via la ressource de [carte réseau](https://msdn.microsoft.com/library/azure/mt163668.aspx). Vous pouvez également exécuter la commande `azure network public-ip show <resource group> <pip name>` pour afficher les détails de votre adresse IP publique, qui inclut le nom de domaine complet de la carte réseau.
+* Pour les réseaux virtuels gérés par Azure Resource Manager, le suffixe est disponible via la ressource de [carte réseau](/rest/api/virtualnetwork/networkinterfaces). Vous pouvez également exécuter la commande `azure network public-ip show <resource group> <pip name>` pour afficher les détails de votre adresse IP publique, qui inclut le nom de domaine complet de la carte réseau.
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS.  Votre solution DNS doit :
 
@@ -131,6 +131,6 @@ Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir vot
 * Être protégée contre tout accès à partir d’Internet, pour atténuer les menaces posées par les agents externes.
 
 > [!NOTE]
-> Pour de meilleures performances, quand vous utilisez des machines virtuelles sur des serveurs DNS Azure, désactivez IPv6 et affectez une [adresse IP publique de niveau instance](../../virtual-network/virtual-networks-instance-level-public-ip.md) à chaque machine virtuelle du serveur DNS.  
+> Pour de meilleures performances, quand vous utilisez des machines virtuelles sur des serveurs DNS Azure, désactivez IPv6 et affectez une [adresse IP publique de niveau instance](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) à chaque machine virtuelle du serveur DNS.  
 >
 >

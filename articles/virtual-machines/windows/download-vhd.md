@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500427"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 
@@ -22,7 +22,7 @@ Dans cet article, vous apprendrez à télécharger un fichier de disque dur virt
 
 ## <a name="optional-generalize-the-vm"></a>Facultatif : Généraliser la machine virtuelle
 
-Si vous souhaitez utiliser le disque dur virtuel (VHD) en tant qu’[image](tutorial-custom-images.md) pour créer d’autres machines virtuelles, vous devez utiliser [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation. 
+Si vous souhaitez utiliser le disque dur virtuel (VHD) en tant qu’[image](tutorial-custom-images.md) pour créer d’autres machines virtuelles, vous devez utiliser [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation. 
 
 Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, généralisez la machine virtuelle.
 
@@ -45,7 +45,7 @@ Il n’est pas possible de télécharger un disque VHD associé à une machine v
 
 ## <a name="generate-download-url"></a>Générer l’URL de téléchargement
 
-Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
+Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
 
 1. Sur la page de la machine virtuelle, cliquez sur **Disques** dans le menu de gauche.
 1. Sélectionnez le disque du système d’exploitation de la machine virtuelle.
@@ -68,4 +68,3 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 - Découvrez comment [charger un fichier de VHD sur Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Créez des disques managés à partir de disques non managés dans un compte de stockage](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Gérez des disques Azure avec PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

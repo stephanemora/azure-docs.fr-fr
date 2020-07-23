@@ -7,28 +7,28 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a7d12a2be7f2e3d3556d6c8c3303b2ddb8b8738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744041"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503487"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
 La ligne de base de sécurité Azure pour Sauvegarde Azure contient des recommandations qui vous aideront à améliorer la posture de sécurité de votre déploiement.
 
-La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
+La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](../security/benchmarks/overview.md), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
-Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : sécurité réseau](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1 : Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
-**Aide** : Non applicable ; vous ne pouvez pas associer un réseau virtuel, un sous-réseau ou un groupe de sécurité réseau à un coffre Recovery Services. Lors de la sauvegarde d’une machine virtuelle Azure, les données sont transférées sur le réseau principal Azure. Lors de la sauvegarde à partir d’un ordinateur local, un tunnel chiffré est créé avec un point de terminaison spécifique dans Azure, et les informations d’identification sont utilisées pour préchiffrer les données avant leur envoi via le tunnel chiffré.
+**Conseils** : Non applicable ; vous ne pouvez pas associer un réseau virtuel, un sous-réseau ou un groupe de sécurité réseau à un coffre Recovery Services. Lors de la sauvegarde d’une machine virtuelle Azure, les données sont transférées sur le réseau principal Azure. Lors de la sauvegarde à partir d’un ordinateur local, un tunnel chiffré est créé avec un point de terminaison spécifique dans Azure, et les informations d’identification sont utilisées pour préchiffrer les données avant leur envoi via le tunnel chiffré.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -36,7 +36,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2 : Surveiller et consigner la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**Aide** : Non applicable ; vous ne pouvez pas associer un réseau virtuel, un sous-réseau ou un groupe de sécurité réseau à un coffre Recovery Services. Lors de la sauvegarde d’une machine virtuelle Azure, les données sont transférées sur le réseau principal Azure. Lors de la sauvegarde à partir d’un ordinateur local, un tunnel chiffré est créé avec un point de terminaison spécifique dans Azure, et les informations d’identification sont utilisées pour préchiffrer les données avant leur envoi via le tunnel chiffré.
+**Conseils** : Non applicable ; vous ne pouvez pas associer un réseau virtuel, un sous-réseau ou un groupe de sécurité réseau à un coffre Recovery Services. Lors de la sauvegarde d’une machine virtuelle Azure, les données sont transférées sur le réseau principal Azure. Lors de la sauvegarde à partir d’un ordinateur local, un tunnel chiffré est créé avec un point de terminaison spécifique dans Azure, et les informations d’identification sont utilisées pour préchiffrer les données avant leur envoi via le tunnel chiffré.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Les points de terminaison utilisés par Sauvegarde Azure (y compris l’agent Microsoft Azure Recovery Services) sont tous gérés par Microsoft. Vous êtes responsable de tous les contrôles supplémentaires que vous souhaitez déployer sur vos systèmes locaux.
 
-- [Présentation de la prise en charge de la mise en réseau et de l’accès pour l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [Présentation de la prise en charge de la mise en réseau et de l’accès pour l’agent MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Les points de terminaison utilisés par Sauvegarde Azure (y compris l’agent Microsoft Azure Recovery Services) sont tous gérés par Microsoft. Vous êtes responsable de tous les contrôles supplémentaires que vous souhaitez déployer sur vos systèmes locaux.
 
-- [Présentation de la prise en charge de la mise en réseau et de l’accès pour l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [Présentation de la prise en charge de la mise en réseau et de l’accès pour l’agent MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Conseils** : Si vous utilisez l’agent MARS sur une machine virtuelle Azure, utilisez la balise de service AzureBackup sur votre groupe de sécurité réseau ou votre Pare-feu Azure pour autoriser l’accès sortant vers Sauvegarde Azure.
 
-- [Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms)
+- [Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure](./backup-sql-server-database-azure-vms.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -116,9 +116,9 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Si vous utilisez l’agent MARS sur une machine virtuelle Azure protégée par un NSG ou un Pare-feu Azure, utilisez le journal d’activité Azure pour surveiller la configuration du groupe de sécurité réseau ou du Pare-feu. Vous pouvez créer des alertes dans Azure Monitor qui se déclenchent lorsque des modifications sont apportées à ces ressources.
 
-- [Afficher et récupérer les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Afficher et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -126,7 +126,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
@@ -142,25 +142,25 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 Ingérez également les journaux via Azure Monitor pour agréger les données de sécurité générées par Sauvegarde Azure. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, puis utilisez les comptes de stockage pour le stockage à long terme/d’archivage. Vous pouvez également activer et intégrer des données dans Azure Sentinel ou une solution SIEM (Security Information and Event Management) tierce.
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
-- [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
+- [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](./backup-azure-diagnostic-events.md)
 
-- [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
-**Conseils** : Pour la journalisation d’audit du plan de contrôle, activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos ressources Azure.
+**Aide** : Pour la journalisation d’audit du plan de contrôle, activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos ressources Azure.
 
 En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent être collectés et utilisés à des fins d’analyse, d’alerte et de création de rapports. Vous pouvez configurer les paramètres de diagnostic d’un coffre Recovery Services via le Portail Azure. Vous pouvez envoyer un ou plusieurs événements de diagnostic à un compte de stockage, un Event Hub ou un espace de travail Log Analytics.
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
-- [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
+- [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](./backup-azure-diagnostic-events.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -178,7 +178,7 @@ En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent êt
 
 **Aide** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos coffres Recovery Services conformément aux réglementations de conformité de votre organisation.
 
-- [Définition des paramètres de rétention des journaux](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Définition des paramètres de rétention des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -190,11 +190,11 @@ En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent êt
 
 Activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux à un espace de travail Log Analytics. Exécutez des requêtes dans Log Analytics pour rechercher des termes, identifier des tendances, analyser des modèles et fournir de nombreuses autres informations basées sur les données du journal d’activité qui ont pu être collectées pour les coffres Recovery Services.
 
-- [Surveillance des charges de travail de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)
+- [Surveillance des charges de travail de Sauvegarde Azure](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -208,11 +208,11 @@ Les alertes sont principalement des scénarios dans le cadre desquels les utilis
 
 Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sentinel, car cela fournit une solution d’orchestration, d’automatisation et de réponse aux incidents de sécurité informatique (Security Orchestration Automated Response, SOAR). Cela permet de créer des playbooks (solutions automatisées) utilisables pour corriger des problèmes de sécurité. En outre, vous pouvez créer des alertes de journal personnalisées dans votre espace de travail Log Analytics à l’aide d’Azure Monitor.
 
-- [Surveillance des charges de travail de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)
+- [Surveillance des charges de travail de Sauvegarde Azure](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -222,7 +222,7 @@ Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sen
 
 **Aide** : Non applicable ; Sauvegarde Azure ne traite pas ni ne produit de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -230,7 +230,7 @@ Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sen
 
 **Aide** : Non applicable ; Sauvegarde Azure ne traite pas ni ne produit de journaux liés au DNS.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -244,7 +244,7 @@ Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sen
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -252,17 +252,17 @@ Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sen
 
 Documents associés :
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
+**Conseils** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -270,13 +270,13 @@ Documents associés :
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Aide** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
+**Conseils** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
 
 En outre, pour vous aider à suivre les comptes d’administration dédiés, vous pouvez utiliser des recommandations d’Azure Security Center ou des stratégies Azure intégrées, telles que les suivantes : Plus d’un propriétaire doit être assigné à votre abonnement. Les comptes déconseillés possédant des autorisations de propriétaire doivent être supprimés de votre abonnement. Les comptes externes possédant des autorisations de propriétaire doivent être supprimés de votre abonnement.
 
-- [Utilisation d’Azure Security Center pour superviser l’identité et l’accès (préversion)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Utilisation d’Azure Security Center pour superviser l’identité et l’accès (préversion)](../security-center/security-center-identity-access.md)
 
-- [Utilisation d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -286,11 +286,11 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Aide** : Utilisez une inscription d’application Azure (principal du service) afin de récupérer un jeton qui peut être utilisé pour interagir avec vos coffres Recovery Services via des appels d’API.
 
-- [Appels d’API REST Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+- [Appels d’API REST Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-- [Inscription de votre application cliente (principal du service) à l’aide d’Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [Inscription de votre application cliente (principal du service) à l’aide d’Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informations sur l’API Azure Recovery Services](https://docs.microsoft.com/rest/api/recoveryservices/)
+- [Informations sur l’API Azure Recovery Services](/rest/api/recoveryservices/)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -300,9 +300,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Conseils** : Lorsque vous effectuez des opérations critiques dans Sauvegarde Azure, vous devez entrer un code PIN de sécurité, disponible sur le Portail Azure. L’activation de la fonctionnalité Azure Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
 
-- [Multi-Factor Authentication dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)
+- [Multi-Factor Authentication dans Sauvegarde Azure](./backup-azure-security-feature.md)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -312,9 +312,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Conseils** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure Multi-Factor Authentication (MFA) configuré pour vous connecter à vos ressources compatibles avec Sauvegarde Azure et les configurer.
 
-- [Stations de travail d’accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -322,13 +322,13 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes depuis les comptes d’administration
 
-**Conseils** : Utilisez Azure Active Directory (AD) Privileged Identity Management pour générer des journaux et des alertes quand des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement.
+**Aide** : Utilisez Azure Active Directory (AD) Privileged Identity Management pour générer des journaux et des alertes quand des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement.
 
 Utilisez également les détections de risque Azure AD pour visualiser les alertes et des rapports sur les comportements à risque des utilisateurs.
 
-- [Déploiement de Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Déploiement de Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Présentation des détections de risques Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -338,7 +338,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Aide** : Utilisez des emplacements nommés avec accès conditionnel pour autoriser l’accès au Portail Azure uniquement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
-- [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -348,9 +348,9 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Aide** : Utilisez Azure Active Directory (AD) comme système central d’authentification et d’autorisation pour vos instances Sauvegarde Azure. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
-- [Configuration de Sauvegarde Azure pour utiliser la connexion Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Configuration de Sauvegarde Azure pour utiliser la connexion Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Guide pratique pour créer et configurer une instance AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Guide pratique pour créer et configurer une instance AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -358,11 +358,11 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Conseils** : Azure Active Directory (AD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les utilisateurs appropriés continuent de bénéficier d’un accès.
+**Aide** : Azure Active Directory (AD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les utilisateurs appropriés continuent de bénéficier d’un accès.
 
-- [Présentation des rapports Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Comment utiliser les révisions d’accès des identités Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -376,9 +376,9 @@ Vous avez accès aux activités de connexion Azure AD et aux sources des journau
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes de journal souhaitées dans un espace de travail Log Analytics.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Procédure d’intégration d’Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Procédure d’intégration d’Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -388,13 +388,13 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide** : Utilisez Azure Active Directory (AD) comme système central d’authentification et d’autorisation pour vos coffres Recovery Services. Pour les écarts du comportement de connexion au compte sur le plan de contrôle (le Portail Azure), utilisez Azure AD Identity Protection et les fonctionnalités de détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. Vous pouvez également ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
-- [Configuration de Sauvegarde Azure pour utiliser la connexion Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Configuration de Sauvegarde Azure pour utiliser la connexion Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Guide pratique pour afficher une connexion risquée Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Guide pratique pour afficher une connexion risquée Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -404,23 +404,23 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide** : Actuellement non disponible ; Customer Lockbox n’est pas encore pris en charge pour Sauvegarde Azure.
 
-- [Liste des services pris en charge pour Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
 **Conseils** : Utilisez des étiquettes pour faciliter le suivi des ressources Azure qui stockent ou traitent des informations sensibles.
 
-- [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -432,13 +432,13 @@ Implémentez des abonnements ou des groupes d’administration distincts pour le
 
 Documents associés :
 
-- [Vue d’ensemble d’Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
+- [Vue d’ensemble d’Azure Backup](./backup-overview.md)
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
 
-- [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -450,9 +450,9 @@ Documents associés :
 
 Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implémenté des contrôles stricts pour empêcher la perte ou la divulgation des données des clients.
 
-- [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -460,7 +460,7 @@ Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implém
 
 **Conseils** : Le trafic de sauvegarde des serveurs vers le coffre Recovery Services est transféré via une liaison HTTPS sécurisée et chiffré à l’aide de l’algorithme Advanced Encryption Standard (AES) 256 lorsqu’il est stocké dans le coffre.
 
-- [Présentation du chiffrement au repos dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
+- [Présentation du chiffrement au repos dans Sauvegarde Azure](./backup-encryption.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -472,9 +472,9 @@ Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implém
 
 Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implémenté des contrôles stricts pour empêcher la perte ou la divulgation des données des clients.
 
-- [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : actuellement non disponible
 
@@ -484,11 +484,11 @@ Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implém
 
 Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les opérations de gestion des sauvegardes : Contributeur de sauvegarde, Opérateur de sauvegarde et Lecteur de sauvegarde. Vous pouvez mapper les rôles intégrés de Sauvegarde à différentes actions de gestion des sauvegardes.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Utilisation du contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)
+- [Utilisation du contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure](./backup-rbac-rs-vault.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -496,9 +496,9 @@ Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les 
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul. Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implémenté des contrôles stricts pour empêcher la perte ou la divulgation des données des clients.
 
-- [Protection des données client Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Protection des données client Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -508,7 +508,7 @@ Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les 
 
 Lorsque vous sauvegardez avec l’agent MARS ou à l’aide d’un coffre Recovery Services chiffré avec une clé gérée par le client, vous seul avez accès à la clé de chiffrement. Microsoft ne conserve jamais de copie de la clé de chiffrement et n’y a pas accès. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-- [Présentation du chiffrement au repos dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
+- [Présentation du chiffrement au repos dans Sauvegarde Azure](./backup-encryption.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -518,7 +518,7 @@ Lorsque vous sauvegardez avec l’agent MARS ou à l’aide d’un coffre Recove
 
 **Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des coffres Azure Recovery Services en production et d’autres ressources cruciales ou associées.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -526,7 +526,7 @@ Lorsque vous sauvegardez avec l’agent MARS ou à l’aide d’un coffre Recove
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
@@ -534,9 +534,9 @@ Lorsque vous sauvegardez avec l’agent MARS ou à l’aide d’un coffre Recove
 
 La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez les contrôles de sécurité disponibles pour Sauvegarde Azure afin de réduire les vulnérabilités liées à la configuration du service.
 
-- [Comprendre les contrôles de sécurité disponibles pour Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-security-controls)
+- [Comprendre les contrôles de sécurité disponibles pour Sauvegarde Azure](./backup-security-controls.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -568,7 +568,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 **Aide** : Actuellement non disponible ; les configurations de sécurité pour Sauvegarde Azure ne sont pas encore prises en charge dans Azure Security Center.
 
-- [Liste des services PaaS pris en charge par Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Liste des services PaaS pris en charge par Azure Security Center](../security-center/features-paas.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -576,7 +576,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
@@ -584,11 +584,11 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
-- [Guide pratique pour créer des requêtes avec Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
-- [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -598,7 +598,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-- [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -610,11 +610,11 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients à l’aide des définitions de stratégie intégrées suivantes : Types de ressources non autorisés et Types de ressources autorisés.
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
 
-- [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -630,15 +630,15 @@ En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements.  Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -670,9 +670,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes : Types de ressources non autorisés et Types de ressources autorisés.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -690,9 +690,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Configurez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
-- [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -708,29 +708,29 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour votre coffre Recovery Services à l’aide d’Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées permettant d’auditer vos coffres Recovery Services ou d’appliquer leur configuration.
 
-- [Affichage des alias Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -740,9 +740,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -760,9 +760,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -772,15 +772,15 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Aide** : Utilisez les définitions Azure Policy intégrées ainsi que des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Conseils** : Utilisez les définitions Azure Policy intégrées ainsi que des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -798,17 +798,17 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Utilisez les définitions Azure Policy intégrées ainsi que des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez une stratégie Azure Policy [auditer], [refuser] et [déployer s’il n’existe pas] afin d’appliquer automatiquement des configurations pour vos ressources Azure.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -816,9 +816,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Lors de la configuration de l’agent MARS, stockez votre phrase secrète de chiffrement dans Azure Key Vault.
 
-- [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-- [Fournir une authentification Key Vault avec une identité managée](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Fournir une authentification Key Vault avec une identité managée](../key-vault/general/managed-identity.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -828,9 +828,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable ; les identités managées ne sont pas prises en charge pour Sauvegarde Azure.
 
-- [Services prenant en charge les identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+- [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -846,13 +846,13 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
 **Aide** : Non applicable ; cette recommandation est destinée aux ressources de calcul. Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Sauvegarde Azure), mais il ne s’exécute pas sur le contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -864,9 +864,9 @@ Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcu
 
 Utilisez la détection des menaces pour les services de données dans Azure Security Center pour détecter les programmes malveillants chargés sur les comptes de stockage.
 
-- [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md)
 
-- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](../security-center/threat-protection.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -874,7 +874,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -882,7 +882,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 ## <a name="data-recovery"></a>Récupération des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : récupération de données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : récupération de données](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
@@ -898,13 +898,13 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
-- [Vue d’ensemble d’Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
+- [Vue d’ensemble d’Azure Backup](./backup-overview.md)
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Présentation du chiffrement dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
+- [Présentation du chiffrement dans Sauvegarde Azure](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -912,7 +912,7 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 **Aide** : Testez la restauration des clés gérées par le client sauvegardées.
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -922,7 +922,7 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 **Aide** : Pour la sauvegarde sur site, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure. Pour les machines virtuelles Azure, les données sont chiffrées au repos à l’aide de Storage Service Encryption (SSE). Vous pouvez activer la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Activation de la suppression réversible dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Supervision Azure Security Center** : Oui
 
@@ -930,13 +930,13 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
 **Conseils** : Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
 
-- [Comment configurer des automatisations de workflow dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Comment configurer des automatisations de workflow dans Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -944,7 +944,7 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 - [Vous pouvez également tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -964,7 +964,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -972,7 +972,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
-- [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -982,11 +982,11 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Conseils** : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour diffuser la sentinelle des alertes.
 
-- [Comment configurer l’exportation continue](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Comment configurer l’exportation continue](../security-center/continuous-export.md)
 
-- [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -994,7 +994,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 **Conseils** : Utilisez la fonctionnalité d’automatisation du workflow dans Azure Security Center pour déclencher automatiquement des réponses via « Logic Apps » sur les alertes et recommandations de sécurité.
 
-- [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Comment configurer l’automatisation des workflows et Logic Apps](../security-center/workflow-automation.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1002,7 +1002,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1 : Procédez régulièrement à des tests d’intrusion de vos ressources Azure et veillez à résoudre tous les problèmes de sécurité critiques détectés dans un délai de 60 jours
 
@@ -1016,5 +1016,5 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consultez le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
+- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

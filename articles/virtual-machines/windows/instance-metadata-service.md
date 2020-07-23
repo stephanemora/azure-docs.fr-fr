@@ -11,21 +11,21 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 102808d716c080102cce4c02921637101da9fab7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553086"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500410"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
 Le service Instance Metadata Service fournit des informations sur les instances de machine virtuelle actuellement en cours d’exécution, et peut être utilisé pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour obtenir la liste complète des données disponibles, consultez [API de métadonnées](#metadata-apis).
-Instance Metadata Service est disponible à la fois pour les instances de machine virtuelle et de groupe de machines virtuelles identiques. Le service est uniquement disponible pour l’exécution de machines virtuelles créées/gérées à l’aide [d’Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Instance Metadata Service est disponible à la fois pour les instances de machine virtuelle et de groupe de machines virtuelles identiques. Le service est uniquement disponible pour l’exécution de machines virtuelles créées/gérées à l’aide [d’Azure Resource Manager](/rest/api/resources/).
 
 Le service IMDS d’Azure est un point de terminaison REST disponible sur une adresse IP non routable bien connue (`169.254.169.254`) ; il est accessible uniquement à partir de la machine virtuelle. La communication entre la machine virtuelle et IMDS ne quitte jamais l’hôte.
-Nous vous recommandons de faire en sorte que vos clients HTTP contournent les proxys web au sein de la machine virtuelle lors de l’interrogation d’IMDS et traitent `169.254.169.254` de la même façon que [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Nous vous recommandons de faire en sorte que vos clients HTTP contournent les proxys web au sein de la machine virtuelle lors de l’interrogation d’IMDS et traitent `169.254.169.254` de la même façon que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## <a name="security"></a>Sécurité
 
@@ -39,7 +39,7 @@ Toute demande doit contenir un en-tête `Metadata: true` garantissant que la dem
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Accéder à Azure Instance Metadata Service
 
-Pour accéder à Instance Metadata Service, créez une machine virtuelle à partir d’[Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou du [Portail Azure](https://portal.azure.com), puis suivez les exemples ci-dessous.
+Pour accéder à Instance Metadata Service, créez une machine virtuelle à partir d’[Azure Resource Manager](/rest/api/resources/) ou du [Portail Azure](https://portal.azure.com), puis suivez les exemples ci-dessous.
 Vous trouverez d’avantage d’exemples sur la façon d’interroger IMDS dans [Exemples Azure Instance Metadata](https://github.com/microsoft/azureimds).
 
 Vous trouverez l’exemple de code permettant de récupérer toutes les métadonnées d’une instance ci-dessous, pour accéder à une source de données spécifique, consultez la section [API de métadonnées](#metadata-apis). 
@@ -246,14 +246,14 @@ name | Nom de la machine virtuelle | 2017-04-02
 offer | Fournit des informations pour l’image de machine virtuelle et ne sont présentes que pour les images déployées à partir de la galerie d’images Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
-Plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
+Plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
 platformUpdateDomain |  [Domaine de mise à jour](manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
 platformFaultDomain | [Domaine par défaut](manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
 provider | Fournisseur de la machine virtuelle | 2018-10-01
-publicKeys | [Collection de clés publiques](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
+publicKeys | [Collection de clés publiques](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
 publisher | Éditeur de l’image de machine virtuelle | 2017-04-02
 resourceGroupName | [Groupe de ressources](../../azure-resource-manager/management/overview.md) de votre machine virtuelle | 2017-08-01
-resourceId | L’ID [complet](https://docs.microsoft.com/rest/api/resources/resources/getbyid) de la ressource | 2019-03-11
+resourceId | L’ID [complet](/rest/api/resources/resources/getbyid) de la ressource | 2019-03-11
 sku | Référence (SKU) spécifique pour l’image de machine virtuelle | 2017-04-02
 storageProfile | Consultez [Profil de stockage](#storage-metadata) | 2019-06-01
 subscriptionId | Abonnement Azure pour la machine virtuelle | 2017-08-01
@@ -261,7 +261,7 @@ tags | [Étiquettes](../../azure-resource-manager/management/tag-resources.md) d
 tagsList | Balises mises en forme en tant que tableau JSON pour faciliter l’analyse programmatique  | 2019-06-04
 version | Version de l’image de machine virtuelle | 2017-04-02
 vmId | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2017-04-02
-vmScaleSetName | [Nom du groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
+vmScaleSetName | [Nom du groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
 vmSize | [Taille de la machine virtuelle](sizes.md) | 2017-04-02
 zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01
 
@@ -686,7 +686,7 @@ Le document contient les champs suivants :
 Données | Description
 -----|------------
 nonce | Chaîne qui peut être éventuellement fournie avec la requête. Si aucune valeur nonce n’a été fournie, l’horodatage UTC actuel est utilisé.
-plan | [Plan d’image de la Place de marché Azure](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contient l’ID de plan (name), l’image de produit ou l’offre (product) et l’ID d’éditeur (publisher).
+plan | [Plan d’image de la Place de marché Azure](/rest/api/compute/virtualmachines/createorupdate#plan). Contient l’ID de plan (name), l’image de produit ou l’offre (product) et l’ID d’éditeur (publisher).
 timestamp/createdOn | Horodatage UTC de création du document signé.
 timestamp/expiresOn | Horodatage UTC d’expiration du document signé.
 vmId |  [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle
@@ -852,7 +852,7 @@ Code d’état HTTP | Motif
 1. Je ne vois pas toutes les données renseignées pour la nouvelle version
    * Pour les machines virtuelles créées après septembre 2016, ajoutez une [balise](../../azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Pour une machine virtuelle plus ancienne (créée avant septembre 2016), ajoutez/supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
 1. Pourquoi l’erreur `500 Internal Server Error` ou `410 Resource Gone` s’affiche-t-elle ?
-   * Réessayez votre requête en fonction du système d’interruption exponentielle ou d’autres méthodes décrites dans [Gestion des erreurs temporaires](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). Si le problème persiste, créez un ticket de support dans le portail Azure pour la machine virtuelle.
+   * Réessayez votre requête en fonction du système d’interruption exponentielle ou d’autres méthodes décrites dans [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults). Si le problème persiste, créez un ticket de support dans le portail Azure pour la machine virtuelle.
 1. Cela fonctionne-t-il pour des instances de groupes de machines virtuelles identiques ?
    * Oui, le service de métadonnées est disponible pour les instances de groupes identiques.
 1. J’ai mis à jour les balises des groupes de machines virtuelles identiques, mais elles ne s’affichent pas dans les instances, contrairement aux machines virtuelles à instance unique.
@@ -894,7 +894,7 @@ Code d’état HTTP | Motif
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau/adresse IP principale en examinant la configuration du réseau dans le portail Azure ou en la recherchant [avec Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Notez les adresses IP publiques et privées (et l’adresse MAC si vous utilisez l’interface CLI). Exemple CLI PowerShell :
+        1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau/adresse IP principale en examinant la configuration du réseau dans le portail Azure ou en la recherchant [avec Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Notez les adresses IP publiques et privées (et l’adresse MAC si vous utilisez l’interface CLI). Exemple CLI PowerShell :
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'

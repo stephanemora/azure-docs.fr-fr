@@ -3,20 +3,20 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195704"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498047"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 
-La solution de reporting fournie par la Sauvegarde Azure s’appuie sur Log Analytics (LA). Pour que les données d’un coffre donné soient envoyées à Log Analytics, il faut créer un [paramètre de diagnostic](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) pour ce coffre.
+La solution de reporting fournie par la Sauvegarde Azure s’appuie sur Log Analytics (LA). Pour que les données d’un coffre donné soient envoyées à Log Analytics, il faut créer un [paramètre de diagnostic](./backup-azure-diagnostic-events.md) pour ce coffre.
 
 Il est souvent fastidieux d’ajouter manuellement un paramètre de diagnostic par coffre. Par ailleurs, il faut activer les paramètres de diagnostic de chaque nouveau coffre créé pour pouvoir afficher ses rapports.
 
-Pour simplifier la création de paramètres de diagnostic à grande échelle (avec Log Analytics comme destination), la Sauvegarde Azure fournit une stratégie [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) intégrée. Cette stratégie ajoute un paramètre de diagnostic Log Analytics à tous les coffres d’un abonnement ou d’un groupe de ressources donné. Les sections suivantes donnent des instructions relatives à l’utilisation de cette stratégie.
+Pour simplifier la création de paramètres de diagnostic à grande échelle (avec Log Analytics comme destination), la Sauvegarde Azure fournit une stratégie [Azure Policy](../governance/policy/index.yml) intégrée. Cette stratégie ajoute un paramètre de diagnostic Log Analytics à tous les coffres d’un abonnement ou d’un groupe de ressources donné. Les sections suivantes donnent des instructions relatives à l’utilisation de cette stratégie.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -70,7 +70,7 @@ La tâche de correction s’applique aux coffres non conformes selon la définit
 * Le coffre ne comporte aucun paramètre de diagnostic.
 * Le coffre comporte des paramètres de diagnostic, mais aucun des deux n’a **tous** les événements propres à une ressource activés avec Log Analytics comme destination ni **Propre à une ressource** sélectionné sur le bouton bascule.
 
-Ainsi, même si l’utilisateur dispose d’un coffre pour lequel l’événement AzureBackupReport est activé en mode AzureDiagnostics (ce qui est pris en charge par les rapports de sauvegarde), la tâche de correction s’applique malgré tout à ce coffre, puisque le mode propre à une ressource est [à l’avenir](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) recommandé pour créer des paramètres de diagnostic.
+Ainsi, même si l’utilisateur dispose d’un coffre pour lequel l’événement AzureBackupReport est activé en mode AzureDiagnostics (ce qui est pris en charge par les rapports de sauvegarde), la tâche de correction s’applique malgré tout à ce coffre, puisque le mode propre à une ressource est [à l’avenir](./backup-azure-diagnostic-events.md#legacy-event) recommandé pour créer des paramètres de diagnostic.
 
 De plus, si seulement une partie des six événements propres à une ressource sont activés sur le coffre de l’utilisateur, la tâche de correction s’appliquera à ce coffre, puisque les rapports de sauvegarde ne fonctionnent comme prévu que si les six événements propres à une ressource sont activés.
 
@@ -84,6 +84,6 @@ De plus, si seulement une partie des six événements propres à une ressource s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur l’utilisation des rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports)
-* [En savoir plus sur Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-* [Utilisation d’Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles d’une étendue](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [En savoir plus sur l’utilisation des rapports de sauvegarde](./configure-reports.md)
+* [En savoir plus sur Azure Policy](../governance/policy/index.yml)
+* [Utilisation d’Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles d’une étendue](./backup-azure-auto-enable-backup.md)

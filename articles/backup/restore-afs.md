@@ -3,16 +3,16 @@ title: Restaurer des partages de fichiers Azure
 description: Découvrez comment utiliser le portail Azure pour restaurer un partage de fichiers entier ou des fichiers spécifiques à partir d’un point de restauration créé par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503640"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurer des partages de fichiers Azure
 
-Cet article explique comment utiliser le portail Azure pour restaurer l’intégralité d’un partage de fichiers ou des fichiers spécifiques à partir d’un point de restauration créé par le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Cet article explique comment utiliser le portail Azure pour restaurer l’intégralité d’un partage de fichiers ou des fichiers spécifiques à partir d’un point de restauration créé par le service [Sauvegarde Azure](./backup-overview.md).
 
 Dans cet article, vous allez apprendre à :
 

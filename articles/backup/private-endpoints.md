@@ -3,16 +3,16 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124253"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503759"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
-Le service Sauvegarde Azure vous permet de sauvegarder vos données dans vos coffres Recovery Services pour les restaurer ultérieurement en toute sécurité en utilisant des [points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Les points de terminaison privés utilisent une adresse IP privée de votre réseau virtuel (ou « VNet »), plaçant de fait le service dans votre réseau virtuel.
+Le service Sauvegarde Azure vous permet de sauvegarder vos données dans vos coffres Recovery Services pour les restaurer ultérieurement en toute sécurité en utilisant des [points de terminaison privés](../private-link/private-endpoint-overview.md). Les points de terminaison privés utilisent une adresse IP privée de votre réseau virtuel (ou « VNet »), plaçant de fait le service dans votre réseau virtuel.
 
 Cet article vous aidera à comprendre le processus de création de points de terminaison privés pour le service Sauvegarde Azure et les scénarios dans lesquels l’utilisation de points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 
@@ -45,7 +45,7 @@ Cette section décrit les étapes de création et d’utilisation des points de 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Consultez [cette section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) pour savoir comment créer un coffre à l’aide du client Azure Resource Manager. Cela crée un coffre dont l’identité managée est déjà activée. [En savoir plus](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) sur les coffres Recovery Services.
+Consultez [cette section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) pour savoir comment créer un coffre à l’aide du client Azure Resource Manager. Cela crée un coffre dont l’identité managée est déjà activée. [En savoir plus](./backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Activer une identité managée sur votre machine virtuelle
 
@@ -111,9 +111,9 @@ Si vous souhaitez créer une zone DNS privée distincte dans Azure, vous pouvez 
 
 Pour les conventions d'affectation de noms d'URL dans les régions nationales :
 
-- [Chine](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [Gouvernement des États-Unis](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
+- [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Liaison de zones DNS privées avec votre réseau virtuel
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 15118c9c3d2d1a528c62b539ab7bdd8f174c19de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080096"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503215"
 ---
 # <a name="sentiment-cognitive-skill"></a>Compétence cognitive Sentiment
 
@@ -36,7 +36,7 @@ La taille maximale d’un enregistrement est de 5 000 caractères selon [`Strin
 
 Les paramètres respectent la casse.
 
-| Nom du paramètre |                      |
+| Nom du paramètre | Description |
 |----------------|----------------------|
 | `defaultLanguageCode` | (Facultatif) Code de langue à appliquer aux documents qui ne spécifient pas explicitement la langue. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/text-analytics/text-analytics-supported-languages.md). |
 

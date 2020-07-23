@@ -3,12 +3,13 @@ title: Vue d’ensemble de la sauvegarde hors connexion
 description: En savoir plus sur les composants de la sauvegarde hors connexion. Ils incluent la sauvegarde hors connexion basée sur Azure Data Box et la sauvegarde hors connexion basée sur le service Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503623"
 ---
 # <a name="overview-of-offline-backup"></a>Vue d’ensemble de la sauvegarde hors connexion
 
@@ -44,7 +45,7 @@ Pour utiliser la sauvegarde hors connexion basée sur Azure Data Box, consultez 
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Sauvegarde hors connexion basée sur le service Azure Import/Export
 
-Cette option est prise en charge par le serveur de sauvegarde Microsoft Azure (MABS), System Center Data Protection Manager (DPM) DPM-A et l’agent MARS. Elle utilise le [service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Vous pouvez transférer des données de sauvegarde initiales vers Azure à l’aide de vos propres disques et connecteurs compatibles avec Azure. Cette approche nécessite l’approvisionnement d’un stockage temporaire appelé « emplacement intermédiaire » et l’emploi d’utilitaires prédéfinis pour formater et copier les données de sauvegarde sur les disques appartenant au client.
+Cette option est prise en charge par le serveur de sauvegarde Microsoft Azure (MABS), System Center Data Protection Manager (DPM) DPM-A et l’agent MARS. Elle utilise le [service Azure Import/Export](../storage/common/storage-import-export-service.md). Vous pouvez transférer des données de sauvegarde initiales vers Azure à l’aide de vos propres disques et connecteurs compatibles avec Azure. Cette approche nécessite l’approvisionnement d’un stockage temporaire appelé « emplacement intermédiaire » et l’emploi d’utilitaires prédéfinis pour formater et copier les données de sauvegarde sur les disques appartenant au client.
 
 Une architecture décrivant le déplacement des données de sauvegarde avec cette option est illustrée ici.
 
@@ -58,9 +59,9 @@ Voici un résumé de l’architecture :
 4. Dans le centre de données Azure, les données stockées sur les disques sont copiées vers un compte de stockage Azure.
 5. Sauvegarde Azure copie les données de sauvegarde à partir du compte de stockage vers le coffre Recovery Services. Des sauvegardes incrémentielles sont planifiées.
 
-Pour utiliser la sauvegarde hors connexion basée sur le service Azure Import/Export avec l’agent MARS, consultez [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Pour utiliser la sauvegarde hors connexion basée sur le service Azure Import/Export avec l’agent MARS, consultez [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](./backup-azure-backup-import-export.md).
 
-Pour utiliser la même option avec MABS ou DPM-A, consultez [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+Pour utiliser la même option avec MABS ou DPM-A, consultez [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](./backup-azure-backup-server-import-export.md).
 
 ## <a name="offline-backup-support-summary"></a>Résumé de la prise en charge de la sauvegarde hors connexion
 
@@ -69,10 +70,10 @@ Le tableau suivant compare les deux options disponibles pour vous aider à faire
 | **Considération**                                            | **Sauvegarde hors connexion basée sur Azure Data Box**                     | **Sauvegarde hors connexion basée sur le service Azure Import/Export**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Modèles de déploiement Sauvegarde Azure                              | Agent MARS (préversion)                                              | Agent MARS, MABS, DPM-A                                           |
-| Nombre maximal de données de sauvegarde par serveur (MARS) ou par groupe de protection (MABS, DPM-A) | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) : 7,2 To <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) : 80 To       | 80 To (jusqu’à 10 disques de 8 To chacun)                          |
-| Sécurité (données, appareil et service)                           | [Données](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) : chiffrement AES 256 bits <br> [Appareil](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) : boîtier robuste, interface propriétaire basées sur des informations d’identification pour copier les données <br> [Service](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) : protégé par les fonctionnalités de sécurité Azure | Données : chiffrement BitLocker                                 |
+| Nombre maximal de données de sauvegarde par serveur (MARS) ou par groupe de protection (MABS, DPM-A) | [Azure Data Box Disk](../databox/data-box-disk-overview.md) : 7,2 To <br> [Azure Data Box](../databox/data-box-overview.md) : 80 To       | 80 To (jusqu’à 10 disques de 8 To chacun)                          |
+| Sécurité (données, appareil et service)                           | [Données](../databox/data-box-security.md#data-box-data-protection) : chiffrement AES 256 bits <br> [Appareil](../databox/data-box-security.md#data-box-device-protection) : boîtier robuste, interface propriétaire basées sur des informations d’identification pour copier les données <br> [Service](../databox/data-box-security.md#data-box-service-protection) : protégé par les fonctionnalités de sécurité Azure | Données : chiffrement BitLocker                                 |
 | Approvisionnement d’un emplacement intermédiaire temporaire                     | Non requis                                                | Supérieur ou égal à la taille estimée des données de sauvegarde        |
-| Régions prises en charge                                           | [Régions des disques Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Régions Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Régions du service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Régions prises en charge                                           | [Régions des disques Azure Data Box](../databox/data-box-disk-overview.md#region-availability) <br> [Régions Azure Data Box](../databox/data-box-disk-overview.md#region-availability) | [Régions du service Azure Import/Export](../storage/common/storage-import-export-service.md#region-availability) |
 | Expédition internationale                                     | Non pris en charge  <br>    L’adresse source et le centre de données Azure de destination doivent se trouver dans le même pays/la même région.* | Prise en charge                                                    |
 | Logistique du transfert (livraison, transport, enlèvement)           | Entièrement gérée par Microsoft                                     | Managée par le client                                            |
 | Tarifs                                                      | [Tarifs Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Tarifs des disques Azure Data Box](https://azure.microsoft.com/pricing/details/databox/disk/) | [Tarifs du service Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |

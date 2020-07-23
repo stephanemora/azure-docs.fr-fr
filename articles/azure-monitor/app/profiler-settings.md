@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205717"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499407"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -41,7 +41,7 @@ Sessions de profilage récentes | Affiche des informations sur les sessions de p
 ## <a name="profile-now"></a>Profiler maintenant
 Cette option vous permet de démarrer une session de profilage à la demande. Quand vous cliquez sur ce lien, tous les agents du profileur qui envoient des données à cette instance d’Application Insights commencent à capturer un profil. Après 5 à 10 minutes, la session de profilage s’affiche dans la liste ci-dessous.
 
-Pour déclencher manuellement une session du profileur, l’utilisateur doit au moins disposer d’un accès en « écriture » au composant Application Insights. Dans la plupart des cas, vous bénéficiez automatiquement de cet accès et vous n’avez rien d’autre à faire. En cas de problème, le rôle d’étendue d’abonnement à ajouter est « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d'accès par rôle avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Pour déclencher manuellement une session du profileur, l’utilisateur doit au moins disposer d’un accès en « écriture » au composant Application Insights. Dans la plupart des cas, vous bénéficiez automatiquement de cet accès et vous n’avez rien d’autre à faire. En cas de problème, le rôle d’étendue d’abonnement à ajouter est « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d'accès par rôle avec Azure Monitor](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Paramètres de déclencheur
 ![Boîte de dialogue Paramètres de déclencheur][trigger-settings-flyout]

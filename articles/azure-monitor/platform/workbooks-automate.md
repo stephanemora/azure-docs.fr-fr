@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982137"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504918"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gérer programmatiquement des classeurs
 
@@ -78,7 +78,7 @@ Il existe deux types de ressources de classeur qui peuvent être gérés par pro
     }
     ```
 1. Dans l’objet `galleries`, renseignez les clés `name` et `category` avec vos valeurs. Apprenez-en davantage sur les [paramètres](#parameters) dans la section suivante.
-2. Déployez ce modèle Azure Resource Manager à l’aide du [Portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), de l’[interface de ligne de commande](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+2. Déployez ce modèle Azure Resource Manager à l’aide du [Portail Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), de l’[interface de ligne de commande](../../azure-resource-manager/templates/deploy-cli.md), de [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), etc.
 3. Ouvrez le portail Azure et accédez à la galerie de classeurs choisie dans le modèle Azure Resource Manager. Dans l’exemple de modèle, accédez à la galerie de classeurs Azure Monitor :
     1. Ouvrez le portail Azure, puis accédez à Azure Monitor.
     2. Ouvrez `Workbooks` à partir de la table des matières.
