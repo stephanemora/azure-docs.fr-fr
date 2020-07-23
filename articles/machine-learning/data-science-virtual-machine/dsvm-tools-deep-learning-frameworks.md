@@ -11,19 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557480"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520559"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Infrastructures de Deep learning et d’intelligence artificielle pour Azure Data Science Virtual Machine
 Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) sont répertoriées ci-dessous.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | |
 | Éditions DSVM prises en charge      | Linux (Ubuntu)     |
@@ -32,7 +32,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | |
 | Éditions DSVM prises en charge      | Linux (Ubuntu)     |
@@ -41,7 +41,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 5.2 |
 | Éditions DSVM prises en charge      | Linux (Ubuntu)     |
@@ -50,7 +50,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[Pilote CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 10.0.130|
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -60,7 +60,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 0.16.1|
 | Éditions DSVM prises en charge      | Linux (Ubuntu)   |
@@ -69,7 +69,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 2.2.4 |
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -78,7 +78,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 2.5.1 |
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -86,7 +86,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 | Comment l’exécuter      | Terminal : Activez l’environnement approprié, puis exécutez Python. <br/>Jupyter : Connectez-vous à [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), puis ouvrez le répertoire CNTK pour obtenir des exemples. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.3.0 |
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -95,7 +95,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.0.1 |
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -104,7 +104,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge |  |
 | Éditions DSVM prises en charge      | Windows et Linux   |
@@ -114,7 +114,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.2.0 (Ubuntu 16.04, Windows 2016), 1.4.0 (Ubuntu 18.04, Windows 2019) |
 | Éditions DSVM prises en charge      | Linux |
@@ -123,7 +123,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.13 |
 | Éditions DSVM prises en charge      | Windows, Linux |
@@ -132,7 +132,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.12 |
 | Éditions DSVM prises en charge      | Linux |
@@ -142,7 +142,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.0.3 |
 | Éditions DSVM prises en charge      | Linux |

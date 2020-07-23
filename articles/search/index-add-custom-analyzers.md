@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555246"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511396"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs personnalisés à des champs de chaîne dans l’index de Recherche cognitive Azure
 
@@ -200,16 +200,16 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 #### <a name="predefined-analyzers"></a>Analyseurs prédéfinis
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Type de l’analyseur provenant de la liste des analyseurs pris en charge. Consultez la colonne **type_analyseur** dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un analyseur prédéfini listées dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 
 #### <a name="custom-analyzers"></a>Analyseurs personnalisés
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Doit être « #Microsoft.Azure.Search.CustomAnalyzer ».|  
 |CharFilters|Défini sur un des filtres de caractères prédéfinis listés dans le tableau [Filtres de caractères](#char-filters-reference) ou sur un filtre de caractères personnalisé spécifié dans la définition d’index.|  
@@ -225,8 +225,8 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
  Un filtre de caractères est utilisé pour préparer le texte en entrée avant son traitement par le générateur de jetons. Par exemple, il peut remplacer certains caractères ou certains symboles. Vous pouvez avoir plusieurs filtres de caractères dans un analyseur personnalisé. Les filtres de caractères s’exécutent dans l’ordre où ils sont listés.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- | 
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Type de filtre de caractères provenant de la liste des filtres de caractères pris en charge. Consultez la colonne **type_filtre_caractères** dans le tableau [Filtres de caractères](#char-filters-reference) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un type de [Filtre de caractères](#char-filters-reference) donné.|  
@@ -238,8 +238,8 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
  Vous pouvez spécifier un seul générateur de jetons par analyseur personnalisé. Si vous avez besoin de plusieurs générateurs de jetons, vous pouvez créer plusieurs analyseurs personnalisés et les affecter champ par champ dans votre schéma d’index.  
 Un analyseur personnalisé peut utiliser un générateur de jetons prédéfini avec des options personnalisées ou par défaut.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- | 
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Nom du générateur de jetons provenant de la liste des générateurs de jetons pris en charge. Consultez la colonne **type_générateur_jetons** dans le tableau [Générateurs de jetons](#Tokenizers) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un type de générateur de jetons donné listé dans le tableau [Générateurs de jetons](#Tokenizers) ci-dessous.|  
@@ -249,8 +249,8 @@ Un analyseur personnalisé peut utiliser un générateur de jetons prédéfini a
  Un filtre de jetons est utilisé pour filtrer ou modifier les jetons générés par un générateur de jetons. Par exemple, vous pouvez spécifier un filtre lowercase qui convertit tous les caractères en minuscules.   
 Vous pouvez avoir plusieurs filtres de jetons dans un analyseur personnalisé. Les filtres de jetons s’exécutent dans l’ordre où ils sont listés.  
 
-|||  
-|-|-|  
+| Type | Description |
+| ---- | ----------- |  
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Nom du filtre de jetons provenant de la liste des filtres de jetons pris en charge. Consultez la colonne **type_filtre_jetons** dans le tableau [Filtres de jetons](#TokenFilters) ci-dessous.|  
 |Options|Il doit s’agir de [Filtres de jeton](#TokenFilters) d’un type de filtre de jetons donné.|  

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768120"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515646"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
@@ -153,7 +153,7 @@ Pour définir la réservation de capacité, destinée à l’ingestion de donné
    >* « name » : « CapacityReservation » :
    >* « capacityReservationLevel » : 100
 
-2. Modifiez le modèle en fonction de vos besoins. Envisagez de créer un [fichier de paramètres Resource Manager](../../azure-resource-manager/templates/parameter-files.md) au lieu de passer des paramètres en tant que valeurs inline. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
+2. Modifiez le modèle en fonction de vos besoins. Envisagez de créer un [fichier de paramètres Resource Manager](../../azure-resource-manager/templates/parameter-files.md) au lieu de passer des paramètres en tant que valeurs inline. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.
 

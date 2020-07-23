@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: fc4e8766f77a41a3a53e3db3098a6d9cefd628d6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 306983e612793eb92dd95fe57e7177da17874893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964224"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525430"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor pour solutions SAP (préversion)
 
 ## <a name="overview"></a>Vue d’ensemble  
 
-Azure Monitor pour les solutions SAP est un produit de surveillance Azure natif pour les clients qui exécutent leurs paysages SAP sur Azure. Le produit fonctionne avec [SAP sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started) et [SAP sur des instances volumineuses Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+Azure Monitor pour les solutions SAP est un produit de surveillance Azure natif pour les clients qui exécutent leurs paysages SAP sur Azure. Le produit fonctionne avec [SAP sur des machines virtuelles Azure](./hana-get-started.md) et [SAP sur des instances volumineuses Azure](./hana-overview-architecture.md).  
 Avec Azure Monitor pour les solutions SAP, les clients peuvent collecter des données de télémétrie à partir de l’infrastructure Azure et des bases de données dans un emplacement central et établir une corrélation visuelle entre les données de télémétrie pour accélérer le dépannage.  
 
 Les solutions Azure Monitor pour SAP sont proposées via la place de marché Azure. Elles offrent une expérience d’installation simple et intuitive et il suffit de quelques clics pour déployer la ressource pour Azure Monitor pour les solutions SAP (appelée **Ressources d’analyse SAP**).  
@@ -42,7 +42,7 @@ Bases de données prises en charge :
 - Base de données SAP HANA 
 - Microsoft SQL Server  
 
-Les solutions Azure Monitor pour solutions SAP tirent parti de la puissance des fonctionnalités [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) existantes, telles que l’analytique des journaux d'activité et les [classeurs](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) pour fournir des fonctionnalités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) et créer des [alertes personnalisées](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
+Les solutions Azure Monitor pour solutions SAP tirent parti de la puissance des fonctionnalités [Azure Monitor](../../../azure-monitor/overview.md) existantes, telles que l’analytique des journaux d'activité et les [classeurs](../../../azure-monitor/platform/workbooks-overview.md) pour fournir des fonctionnalités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](../../../azure-monitor/platform/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](../../../azure-monitor/log-query/get-started-portal.md) et créer des [alertes personnalisées](../../../azure-monitor/learn/tutorial-response.md) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quelles sont les données collectées par Azure Monitor pour solutions SAP ?
 
@@ -87,11 +87,11 @@ Les composants clés de l’architecture sont les suivants :
 - Ressource Azure Monitor pour solutions SAP : un emplacement d’arrivée pour que les clients affichent la télémétrie de surveillance 
 - Groupe de ressources managées : déployé automatiquement dans le cadre d’Azure Monitor pour le déploiement de ressources pour solutions SAP. Les ressources déployées dans le groupe de ressources managées aident à collecter des données de télémétrie. Les ressources clés déployées et leurs objectifs sont les suivantes :  
    - Machine virtuelle Azure : Également appelée *machine virtuelle du collecteur*. Il s’agit d’une machine virtuelle Standard_B2ms. L’objectif principal de cette machine virtuelle est d’héberger la *charge utile de surveillance*. La charge utile de surveillance fait référence à la logique de la télémétrie de collecte des données à partir des systèmes sources et du transfert des données collectées vers l’infrastructure de surveillance. Dans le diagramme ci-dessus, la charge utile de surveillance contient la logique permettant la connexion à la base de données SAP HANA via le port SQL.
-   - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts) : cette ressource est déployée pour conserver en toute sécurité les informations d’identification de la base de données SAP HANA et pour stocker des informations sur les [fournisseurs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers).  
+   - [Azure Key Vault](../../../key-vault/general/basic-concepts.md) : cette ressource est déployée pour conserver en toute sécurité les informations d’identification de la base de données SAP HANA et pour stocker des informations sur les [fournisseurs](./azure-monitor-providers.md).  
    - Espace de travail Log Analytics : destination où résident les données de télémétrie.  
-      - La visualisation est basée sur la télémétrie dans Log Analytics à l’aide de [classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Les clients peuvent personnaliser la visualisation. Les clients peuvent également épingler leurs classeurs ou une visualisation spécifique des classeurs dans le tableau de bord Azure pour une fonctionnalité d’actualisation automatique avec une granularité minimale de 30 minutes.  
+      - La visualisation est basée sur la télémétrie dans Log Analytics à l’aide de [classeurs Azure](../../../azure-monitor/platform/workbooks-overview.md). Les clients peuvent personnaliser la visualisation. Les clients peuvent également épingler leurs classeurs ou une visualisation spécifique des classeurs dans le tableau de bord Azure pour une fonctionnalité d’actualisation automatique avec une granularité minimale de 30 minutes.  
       - Les clients peuvent utiliser leur espace de travail existant dans le même abonnement que la ressource de surveillance SAP en choisissant cette option au moment du déploiement. 
-      - Les clients peuvent utiliser le langage de requête Kusto (KQL) pour exécuter des [requêtes](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) par rapport aux tables brutes dans l’espace de travail Log Analytics. Examinons les *journaux d’activité personnalisés*.  
+      - Les clients peuvent utiliser le langage de requête Kusto (KQL) pour exécuter des [requêtes](../../../azure-monitor/log-query/log-query-overview.md) par rapport aux tables brutes dans l’espace de travail Log Analytics. Examinons les *journaux d’activité personnalisés*.  
 
 > [!Note]
 > Les clients sont responsables de la mise à jour corrective et de la maintenance de la machine virtuelle déployée dans le groupe de ressources managées.  
@@ -113,5 +113,5 @@ Azure Monitor pour solutions SAP est un produit gratuit (pas de frais de licence
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les fournisseurs et créer votre première ressource Azure Monitor pour solutions SAP.
- - En savoir plus sur les [fournisseurs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers)
- - Avez-vous des questions sur Azure Monitor pour solutions SAP ? Consultez la section [FAQ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+ - En savoir plus sur les [fournisseurs](./azure-monitor-providers.md)
+ - Avez-vous des questions sur Azure Monitor pour solutions SAP ? Consultez la section [FAQ](./azure-monitor-faq.md)

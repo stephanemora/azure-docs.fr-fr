@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516139"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
 Le journal d’activité est un [journal de plateforme](platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
@@ -43,9 +43,9 @@ Si des modifications ont été apportées à l’événement, la liste des modif
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Autres méthodes pour récupérer les événements du journal d’activité
 Vous pouvez également accéder aux événements du journal d’activité à l’aide des méthodes suivantes.
 
-- Utilisez la cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) pour récupérer le journal d’activité à partir de PowerShell. Consultez [Exemples PowerShell Azure Monitor](../samples/powershell-samples.md#retrieve-activity-log).
-- Utilisez [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) pour récupérer le journal d’activité à partir de l’interface CLI.  Consultez les [exemples d’interface de ligne de commande Azure Monitor](../samples/cli-samples.md#view-activity-log).
-- Utilisez l'[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) pour récupérer le journal d’activité à partir d’un client REST. 
+- Utilisez la cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) pour récupérer le journal d’activité à partir de PowerShell. Consultez [Exemples PowerShell Azure Monitor](../samples/powershell-samples.md#retrieve-activity-log).
+- Utilisez [az monitor activity-log](/cli/azure/monitor/activity-log) pour récupérer le journal d’activité à partir de l’interface CLI.  Consultez les [exemples d’interface de ligne de commande Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Utilisez l'[API REST Azure Monitor](/rest/api/monitor/) pour récupérer le journal d’activité à partir d’un client REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Envoyer à l’espace de travail Log Analytics
@@ -58,9 +58,9 @@ Vous pouvez également accéder aux événements du journal d’activité à l�
 - Stocker les entrées du journal d’activité au-delà de 90 jours.
 - Aucune ingestion des données ni aucuns frais de rétention pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
 
-[Créez un paramètre de diagnostic](diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](/azure/lighthouse).
+[Créez un paramètre de diagnostic](diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](../../lighthouse/index.yml).
 
-Les données du journal d’activité d’un espace de travail Log Analytics sont stockées dans une table appelée *AzureActivity* que vous pouvez récupérer à l’aide d’une [requête de journal](../log-query/log-query-overview.md) dans [Log Analytics](../log-query/get-started-portal.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-schema.md). Pour obtenir une description des propriétés de la table, consultez la [référence des données d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Les données du journal d’activité d’un espace de travail Log Analytics sont stockées dans une table appelée *AzureActivity* que vous pouvez récupérer à l’aide d’une [requête de journal](../log-query/log-query-overview.md) dans [Log Analytics](../log-query/get-started-portal.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-schema.md). Pour obtenir une description des propriétés de la table, consultez la [référence des données d’Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Par exemple, pour afficher le nombre d’enregistrements du journal d’activité pour chaque catégorie, utilisez la requête suivante.
 
@@ -281,7 +281,7 @@ Les colonnes de la table suivante ont été dépréciées dans le schéma mis à
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> Dans certains cas, les valeurs de ces colonnes peuvent être en majuscules. Si vous avez une requête qui inclut ces colonnes, vous devez utiliser l’[opérateur =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) pour effectuer une comparaison non sensible à la casse.
+> Dans certains cas, les valeurs de ces colonnes peuvent être en majuscules. Si vous avez une requête qui inclut ces colonnes, vous devez utiliser l’[opérateur =~](/azure/kusto/query/datatypes-string-operators) pour effectuer une comparaison non sensible à la casse.
 
 La colonne suivante a été ajoutée à *AzureActivity* dans le schéma mis à jour :
 

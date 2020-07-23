@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247382"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511175"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Pour obtenir la liste des scénarios pris en charge, reportez-vous à la [matric
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 
-Sauvegarde Azure prend en charge les balises de groupe de sécurité réseau, le déploiement d’un serveur proxy ou les plages d’adresses IP répertoriées. Pour plus d’informations sur chaque méthode, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
+Sauvegarde Azure prend en charge les balises de groupe de sécurité réseau, le déploiement d’un serveur proxy ou les plages d’adresses IP répertoriées. Pour plus d’informations sur chaque méthode, consultez cet [article](../../backup/backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -102,7 +102,7 @@ Nous vous recommandons d'ajouter l'extension AzureBackupWindowsWorkload à une m
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
-Pour ce faire, vous devez inscrire la machine virtuelle Azure qui contient l’application SQL avec un coffre Recovery Services. Lors de l’inscription, l'extension AzureBackupWindowsWorkload est installée sur la machine virtuelle. Utilisez la cmdlet  [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) pour inscrire la machine virtuelle.
+Pour ce faire, vous devez inscrire la machine virtuelle Azure qui contient l’application SQL avec un coffre Recovery Services. Lors de l’inscription, l'extension AzureBackupWindowsWorkload est installée sur la machine virtuelle. Utilisez la cmdlet  [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) pour inscrire la machine virtuelle.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -113,5 +113,5 @@ La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’ét
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) sur les instructions de résolution des problèmes liés à la sauvegarde de la machine virtuelle Azure SQL Server
-- [Questions courantes](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service Sauvegarde Azure.
+- [En savoir plus](../../backup/backup-sql-server-azure-troubleshoot.md) sur les instructions de résolution des problèmes liés à la sauvegarde de la machine virtuelle Azure SQL Server
+- [Questions courantes](../../backup/faq-backup-sql-server.md) sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service Sauvegarde Azure.

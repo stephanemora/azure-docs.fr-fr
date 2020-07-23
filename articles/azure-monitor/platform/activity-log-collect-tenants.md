@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055737"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516343"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory (méthode héritée)
 
 > [!NOTE]
-> Cet article décrit la méthode héritée pour la configuration du journal des activités Windows Azure entre les locataires Azure à collecter dans un espace de travail Log Analytics.  Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md).
+> Cet article décrit la méthode héritée pour la configuration du journal des activités Windows Azure entre les locataires Azure à collecter dans un espace de travail Log Analytics.  Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](./activity-log.md).
 
 
 Cet article décrit une méthode permettant de collecter les journaux d’activité Azure dans un espace de travail Log Analytics dans Azure Monitor à l’aide du connecteur Azure Log Analytics Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux d’activité à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
 
-Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md) pour collecter les journaux d’activité Azure.
+Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](./activity-log.md) pour collecter les journaux d’activité Azure.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -90,17 +90,17 @@ Vous pouvez utiliser un espace de noms Event Hub situé dans un abonnement diff�
 
 11. Cliquez sur **OK**, puis sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont immédiatement appliqués à votre abonnement.
 
-<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
+<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](./activity-log.md#legacy-collection-methods) to configure a log profile that writes activity logs to an event hub. -->
 
 ## <a name="step-3---create-logic-app"></a>Étape 3 : Créer une application logique
 
 Une fois que les journaux d’activité écrivent à l’Event Hub, vous créez une application logique pour collecter les journaux d’activité à partir de l’Event Hub et les écrire dans l’espace de travail Log Analytics.
 
 L’application logique contient les éléments suivants :
-- Un déclencheur [Connecteur Event Hub](https://docs.microsoft.com/connectors/eventhubs/) pour lire à partir de l’Event Hub.
+- Un déclencheur [Connecteur Event Hub](/connectors/eventhubs/) pour lire à partir de l’Event Hub.
 - Une [action Analyser JSON](../../logic-apps/logic-apps-content-type.md) pour extraire les événements JSON.
 - Une [action Composer](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) pour convertir l’événement JSON en objet.
-- Un [connecteur d’envoi de données Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) pour publier les données dans l’espace de travail Log Analytics.
+- Un [connecteur d’envoi de données Log Analytics](/connectors/azureloganalyticsdatacollector/) pour publier les données dans l’espace de travail Log Analytics.
 
    ![image de l’ajout d’un déclencheur event hub dans logic apps](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -284,7 +284,7 @@ L’action [Composer](../../logic-apps/logic-apps-workflow-actions-triggers.md#c
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Ajouter une action Envoyer des données Log Analytics
-L’action [Collecteur de données Azure Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) prend l’objet de l’action Composer et l’envoie à un espace de travail Log Analytics.
+L’action [Collecteur de données Azure Log Analytics](/connectors/azureloganalyticsdatacollector/) prend l’objet de l’action Composer et l’envoie à un espace de travail Log Analytics.
 
 1. Cliquez sur **Nouvelle étape** > **Ajouter une action**
 2. Entrez *Log Analytics* comme filtre et sélectionnez l’action **Collecteur de données Azure Log Analytics - Envoyer des données**.
@@ -330,7 +330,7 @@ La dernière étape consiste à consulter l’espace de travail Log Analytics po
 > Lors du premier envoi d’un nouveau journal personnalisé à l’espace de travail Log Analytics, il peut être nécessaire d’attendre jusqu’à une heure pour qu’il puisse faire l’objet d’une recherche.
 
 >[!NOTE]
-> Les journaux d’activité sont écrits dans une table personnalisée et ne s’affichent pas dans la [solution Activity Log](./activity-log-collect.md).
+> Les journaux d’activité sont écrits dans une table personnalisée et ne s’affichent pas dans la [solution Activity Log](./activity-log.md).
 
 
 ![Tester l’application logique](media/collect-activity-logs-subscriptions/log-analytics-results.png)

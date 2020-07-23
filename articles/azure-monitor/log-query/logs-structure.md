@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516190"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.
@@ -29,7 +29,7 @@ L’illustration suivante présente des exemples de sources de données qui écr
 ![Tables](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
-Toutes les données collectées dans les journaux Azure Monitor à l’exception des données d’Application Insights sont stockées dans un [espace de travail Log Analytics](../platform/manage-access.md). Vous pouvez créer un ou plusieurs espaces de travail selon vos besoins spécifiques. Des [sources de données](../platform/data-sources.md), comme les journaux d’activité et les journaux de ressources issus de ressources Azure, les agents sur les machines virtuelles et les données d’insights et de solutions de supervision, écrivent les données dans un ou plusieurs espaces de travail que vous configurez dans le cadre de leur intégration. D’autres services tels qu’[Azure Security Center](/azure/security-center/) et [Azure Sentinel](/azure/sentinel/) utilisent également un espace de travail Log Analytics pour stocker leurs données afin que celles-ci puissent être analysées à l’aide de requêtes de journal en même temps que des données de surveillance provenant d’autres sources.
+Toutes les données collectées dans les journaux Azure Monitor à l’exception des données d’Application Insights sont stockées dans un [espace de travail Log Analytics](../platform/manage-access.md). Vous pouvez créer un ou plusieurs espaces de travail selon vos besoins spécifiques. Des [sources de données](../platform/data-sources.md), comme les journaux d’activité et les journaux de ressources issus de ressources Azure, les agents sur les machines virtuelles et les données d’insights et de solutions de supervision, écrivent les données dans un ou plusieurs espaces de travail que vous configurez dans le cadre de leur intégration. D’autres services tels qu’[Azure Security Center](../../security-center/index.yml) et [Azure Sentinel](../../sentinel/index.yml) utilisent également un espace de travail Log Analytics pour stocker leurs données afin que celles-ci puissent être analysées à l’aide de requêtes de journal en même temps que des données de surveillance provenant d’autres sources.
 
 Les différents types de données sont stockés dans des tables distinctes au sein de l’espace de travail, et chaque table possède un ensemble unique de propriétés. Un ensemble standard de tables est ajouté à un espace de travail lors de sa création, et de nouvelles tables sont ajoutées pour différentes sources de données, solutions et services au fur et à mesure de leur intégration. Vous pouvez également créer des tables personnalisées à l’aide de l’[API Collecteur de données](../platform/data-collector-api.md).
 
@@ -45,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Consultez la documentation de chaque source de données pour plus de détails sur les tables créées. Par exemple, des articles sont disponibles sur les [sources de données d’agent](../platform/agent-data-sources.md), les [journaux de ressources](../platform/diagnostic-logs-schema.md) et les [solutions de supervision](../insights/solutions-inventory.md).
+Consultez la documentation de chaque source de données pour plus de détails sur les tables créées. Par exemple, des articles sont disponibles sur les [sources de données d’agent](../platform/agent-data-sources.md), les [journaux de ressources](../platform/resource-logs-schema.md) et les [solutions de supervision](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Autorisations d’espace de travail
 Consultez [Conception d’un déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md) pour comprendre la stratégie de contrôle d’accès et les recommandations liées à la fourniture de l’accès aux données dans un espace de travail. En plus de l’accès à l’espace de travail proprement dit, vous pouvez limiter l’accès à des certaines tables en appliquant un [contrôle d’accès en fonction du rôle (RBAC) au niveau des tables](../platform/manage-access.md#table-level-rbac).
@@ -88,5 +88,5 @@ Alors que chaque table dans les journaux Azure Monitor a son propre schéma, il 
 | _BilledSize   |            | Spécifie la taille en octets des données qui seront facturées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Apprenez à utiliser [l’analytique des journaux d’activité pour créer et modifier des recherches dans les journaux](../log-query/portals.md).
+- Apprenez à utiliser [l’analytique des journaux d’activité pour créer et modifier des recherches dans les journaux](./log-query-overview.md).
 - Consultez un [didacticiel sur l’écriture de requêtes](../log-query/get-started-queries.md) à l’aide du nouveau langage de requête.

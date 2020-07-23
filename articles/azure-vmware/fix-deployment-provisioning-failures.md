@@ -3,12 +3,12 @@ title: Obtenir de l’aide pour les échecs d’approvisionnement ou de déploie
 description: Comment obtenir les informations dont vous avez besoin auprès de votre cloud privé Azure VMware Solution (AVS) afin de traiter une demande de service pour les échecs de déploiement ou d’approvisionnement d’AVS.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986892"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514575"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenir de l’aide pour les échecs d’approvisionnement ou de déploiement d’Azure VMware Solution
 
@@ -72,7 +72,7 @@ Collez l’ID ExpressRoute dans le champ approprié de la nouvelle demande de su
 
 ## <a name="create-your-support-request"></a>Créer votre demande de support
 
-Pour obtenir des conseils généraux sur la création d’une demande de support, consultez [Comment créer une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Pour obtenir des conseils généraux sur la création d’une demande de support, consultez [Comment créer une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Voici des conseils supplémentaires spécifiques à la création d’une demande de service pour les échecs d’approvisionnement ou de déploiement de l’AVS.
 

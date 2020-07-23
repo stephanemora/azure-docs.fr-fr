@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c854a503e3c949be0165d9dda046e0169686c67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434143"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517295"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
@@ -21,7 +21,7 @@ Le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 3. [Créer une ressource de Créateur](how-to-manage-creator.md)
 4. Téléchargez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).

@@ -4,12 +4,12 @@ description: Référence d’Azure Monitor Comprendre les services et le schéma
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515391"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
@@ -712,6 +712,6 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur les journaux de ressources](../../azure-monitor/platform/platform-logs-overview.md)
-* [Diffuser en continu les journaux de ressource vers **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Modifier les paramètres de diagnostic de journal de ressource à l’aide de l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analyser les journaux d’activité du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Diffuser en continu les journaux de ressource vers **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
+* [Modifier les paramètres de diagnostic de journal de ressource à l’aide de l’API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
+* [Analyser les journaux d’activité du stockage Azure avec Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

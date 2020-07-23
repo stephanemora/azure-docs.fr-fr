@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509356"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure
 
@@ -79,7 +79,7 @@ Si vous utilisez des zones de disponibilité, essayez une autre zone de la même
 
 Si votre demande d’allocation est importante (plus de 500 cœurs), suivez les instructions des sections suivantes pour fractionner la demande en plusieurs petits déploiements.
 
-Essayez de [redéployer la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Le redéploiement de la machine virtuelle alloue la machine virtuelle à un nouveau cluster dans la région.
+Essayez de [redéployer la machine virtuelle](./redeploy-to-new-node-windows.md). Le redéploiement de la machine virtuelle alloue la machine virtuelle à un nouveau cluster dans la région.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Échecs d’allocation pour les anciennes tailles de machine virtuelle (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
@@ -94,7 +94,7 @@ Essayez de [redéployer la machine virtuelle](https://docs.microsoft.com/azure/v
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Échecs d’allocation pour les déploiements de grande échelle (plus de 500 cœurs)
 
-Réduisez le nombre d’instances de la taille de machine virtuelle demandée, puis recommencez le déploiement. De plus, pour les déploiements plus importants, vous pouvez évaluer les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Le nombre d’instances de machines virtuelles peut augmenter ou diminuer automatiquement en réponse à la demande ou au calendrier défini. L’allocation a donc plus de chances de réussir, puisque les déploiements peuvent être répartis sur plusieurs clusters. 
+Réduisez le nombre d’instances de la taille de machine virtuelle demandée, puis recommencez le déploiement. De plus, pour les déploiements plus importants, vous pouvez évaluer les [groupes de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/index.yml). Le nombre d’instances de machines virtuelles peut augmenter ou diminuer automatiquement en réponse à la demande ou au calendrier défini. L’allocation a donc plus de chances de réussir, puisque les déploiements peuvent être répartis sur plusieurs clusters. 
 
 ## <a name="background-information"></a>Informations contextuelles
 ### <a name="how-allocation-works"></a>Fonctionnement de l’allocation
@@ -105,5 +105,3 @@ Les serveurs des centres de données Azure sont partitionnés en clusters. En r�
 Lorsqu’une demande d’allocation est épinglée à un cluster, il y a plus de risque de ne pas trouver les ressources disponibles puisque le pool de ressources disponibles est réduit. En outre, si votre demande d’allocation est épinglée à un cluster alors que le type de ressource que vous avez demandé n’est pas pris en charge par ce cluster, votre demande échouera, même si le cluster comporte des ressources disponibles. Le diagramme 3 ci-dessous illustre le cas d’une allocation épinglée qui échoue, car le seul cluster candidat ne comporte pas de ressources disponibles. La Figure 4 illustre le cas de figure où une allocation épinglée échoue parce que le seul cluster candidat ne prend pas en charge la taille de machine virtuelle demandée, bien qu'il puisse libérer des ressources.
 
 ![Échec d’allocation épinglée](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

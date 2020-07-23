@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641825"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520967"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
@@ -39,7 +39,7 @@ Pour des exemples de modèles d’applications logiques, voir :
 * le [modèle complet](#full-example-template) utilisé pour les exemples de cette rubrique ;
 * l’[exemple de modèle d’application logique de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) dans GitHub.
 
-Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration et les artefacts de compte d’intégration, voir [Types de ressources Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration et les artefacts de compte d’intégration, voir [Types de ressources Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -328,7 +328,7 @@ Voici les attributs spécifiques de la définition de ressource de votre applica
 | `accessControl` | Non | Object | Utilisé pour spécifier des attributs de sécurité pour votre application logique, tels qu’une restriction d’accès IP aux déclencheurs de demandes ou aux entrées et sorties de l’historique d’exécution. Pour plus d’informations, voir [Accès sécurisé aux applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration et les artefacts de compte d’intégration, voir [Types de ressources Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Pour plus d’informations sur les ressources de modèle spécifiques pour les applications logiques, les comptes d’intégration et les artefacts de compte d’intégration, voir [Types de ressources Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -910,7 +910,7 @@ Voici un exemple fournissant le nom du compte et la clé d’accès pour une con
 
 ### <a name="authenticate-connections"></a>Authentifiez les connexions
 
-Après le déploiement, votre application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, vous devez encore autoriser les connexions OAuth à générer des jetons d’accès valides pour l’[authentification de vos informations d’identification](../active-directory/develop/authentication-scenarios.md). Pour plus d’informations, voir [Autoriser des connexions OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Après le déploiement, votre application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, vous devez encore autoriser les connexions OAuth à générer des jetons d’accès valides pour l’[authentification de vos informations d’identification](../active-directory/develop/authentication-vs-authorization.md). Pour plus d’informations, voir [Autoriser des connexions OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Certaines connexions prennent en charge l’utilisation d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) pour autoriser les connexions d’une application logique [inscrite dans Azure AD](../active-directory/develop/quickstart-register-app.md). Par exemple, cette définition de ressource de connexion Azure Data Lake montre comment référencer les paramètres de modèle qui gèrent les informations du principal de service, et comment le modèle déclare ces paramètres :
 
@@ -1006,7 +1006,7 @@ L’objet `parameters` de niveau supérieur du modèle déclare ces paramètres 
 Pour plus d’informations sur l’utilisation des principaux de service, voir les rubriques suivantes :
 
 * [Création d’un principal de service à l’aide du portail Azure](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Créer un principal de service Azure à l’aide d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Créer un principal de service Azure à l’aide d’Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Créer un principal de service avec un certificat à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>

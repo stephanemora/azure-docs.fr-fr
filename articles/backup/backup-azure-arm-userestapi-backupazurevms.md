@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248683"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514201"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -23,7 +23,7 @@ Supposons que vous souhaitez protéger une machine virtuelle « testVM » sous
 
 ### <a name="discover-unprotected-azure-vms"></a>Découvrir les machines virtuelles Azure non protégées
 
-Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuelle Azure. Cette action est déclenchée à l’aide de l’[opération d’actualisation](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de toutes les machines virtuelles non protégées dans l’abonnement actuel et les « met en cache ». Une fois que la machine virtuelle est « mise en cache », Recovery Services est en mesure d’y accéder et de la protéger.
+Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuelle Azure. Cette action est déclenchée à l’aide de l’[opération d’actualisation](/rest/api/backup/protectioncontainers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de toutes les machines virtuelles non protégées dans l’abonnement actuel et les « met en cache ». Une fois que la machine virtuelle est « mise en cache », Recovery Services est en mesure d’y accéder et de la protéger.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -37,7 +37,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Réponses
 
-L’opération « Actualiser » est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
+L’opération « Actualiser » est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Sélection de la machine virtuelle Azure appropriée
 
- Vous pouvez vérifier que la « mise en cache » est effectuée en [listant tous les éléments pouvant être protégés](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) sous l’abonnement et rechercher la machine virtuelle souhaitée dans la réponse. [La réponse de cette opération](#example-responses-1) vous fournit également des informations sur la façon dont Recovery Services identifie une machine virtuelle.  Une fois que vous êtes familiarisé avec le modèle, vous pouvez ignorer cette étape et passer directement à l’[activation de la protection](#enabling-protection-for-the-azure-vm).
+ Vous pouvez vérifier que la « mise en cache » est effectuée en [listant tous les éléments pouvant être protégés](/rest/api/backup/backupprotectableitems/list) sous l’abonnement et rechercher la machine virtuelle souhaitée dans la réponse. [La réponse de cette opération](#example-responses-1) vous fournit également des informations sur la façon dont Recovery Services identifie une machine virtuelle.  Une fois que vous êtes familiarisé avec le modèle, vous pouvez ignorer cette étape et passer directement à l’[activation de la protection](#enabling-protection-for-the-azure-vm).
 
 Cette opération est une opération *GET*.
 
@@ -106,7 +106,7 @@ L’URI *GET* contient tous les paramètres obligatoires. Aucun corps de demande
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### <a name="example-responses"></a><a name="example-responses-1"></a>Exemples de réponses
 
@@ -162,7 +162,7 @@ Dans l’exemple, les valeurs ci-dessus sont traduites en :
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Activation de la protection pour la machine virtuelle Azure
 
-Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protectionpolicies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
+Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protectionpolicies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
 
 L’activation de la protection est une opération *PUT* asynchrone qui crée un « élément protégé ».
 
@@ -184,7 +184,7 @@ Pour créer un élément protégé, voici les composants du corps de la demande.
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriétés de ressource ProtectedItem         |
 
-Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST créer un élément protégé](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
+Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST créer un élément protégé](/rest/api/backup/protecteditems/createorupdate#request-body).
 
 ##### <a name="example-request-body"></a>Exemple de corps de demande
 
@@ -204,13 +204,13 @@ Le corps de la demande suivant définit les propriétés requises pour créer un
 
 #### <a name="responses"></a>Réponses
 
-La création d’un élément protégé est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
+La création d’un élément protégé est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
 
 ##### <a name="example-responses"></a>Exemples de réponses
@@ -296,9 +296,9 @@ Pour déclencher une sauvegarde à la demande, voici les composants du corps de 
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriétés de BackupRequestResource         |
+|properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriétés de BackupRequestResource         |
 
-Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST déclencher des sauvegardes pour les éléments protégés](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST déclencher des sauvegardes pour les éléments protégés](/rest/api/backup/backups/trigger#request-body).
 
 #### <a name="example-request-body"></a>Exemple de corps de demande
 
@@ -315,7 +315,7 @@ Le corps de la demande suivant définit les propriétés requises pour déclench
 
 ### <a name="responses"></a>Réponses
 
-Le déclenchement d’une sauvegarde à la demande est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
+Le déclenchement d’une sauvegarde à la demande est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
@@ -419,7 +419,7 @@ La réponse suivra le même format que celui mentionné [pour le déclenchement 
 
 ### <a name="stop-protection-and-delete-data"></a>Arrêter la protection et supprimer les données
 
-Pour supprimer la protection sur une machine virtuelle protégée ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Pour supprimer la protection sur une machine virtuelle protégée ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](/rest/api/backup/protecteditems/delete).
 
 L’arrêt de la protection avec suppression des données est une opération *DELETE*.
 
@@ -435,7 +435,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 #### <a name="responses"></a><a name="responses-2"></a>Réponses
 
-L’opération *DELETE* sur la protection est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
+L’opération *DELETE* sur la protection est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 204 (Pas de contenu) quand cette opération est terminée.
 

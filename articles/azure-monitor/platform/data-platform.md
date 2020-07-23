@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457261"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515527"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -49,7 +49,7 @@ Dans Azure Monitor, les journaux sont stockés dans un espace de travail Log Ana
 > Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](platform-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de ressources](platform-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de ressources ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
 
 
- Vous pouvez utiliser des [requêtes de journal](../log-query/log-query-overview.md) interactivement avec [Log Analytics](../log-query/portals.md) dans le portail Azure ou ajouter les résultats à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données. Vous pouvez également créer des [alertes de journal](alerts-log.md) qui déclenchent une alerte basée sur les résultats d’une requête de planification.
+ Vous pouvez utiliser des [requêtes de journal](../log-query/log-query-overview.md) interactivement avec [Log Analytics](../log-query/log-query-overview.md) dans le portail Azure ou ajouter les résultats à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données. Vous pouvez également créer des [alertes de journal](alerts-log.md) qui déclenchent une alerte basée sur les résultats d’une requête de planification.
 
 Pour en savoir plus sur les journaux Azure Monitor, notamment sur leurs sources de données, consultez [Journaux dans Azure Monitor](data-platform-logs.md).
 
@@ -81,7 +81,7 @@ Pour obtenir la liste des différentes sources de données qui remplissent chaqu
 
 
 ## <a name="stream-data-to-external-systems"></a>Transmettre des données en continu vers les systèmes externes
-En plus d’utiliser les outils dans Azure pour analyser les données de supervision, vous aurez peut-être besoin de transférer ces données vers un outil externe, comme un produit SIEM (Security Information and Event Management). Ce transfert est le plus souvent effectué directement à partir des ressources supervisées au travers d’[Azure Event Hubs](/azure/event-hubs/). Certaines sources peuvent être configurées pour envoyer des données directement à un hub d’événements, tandis que vous pouvez utiliser un autre processus comme une application logique pour récupérer les données requises. Pour plus d’informations, consultez [Diffuser des données de supervision Azure vers un hub d’événements pour les utiliser dans un outil externe](stream-monitoring-data-event-hubs.md).
+En plus d’utiliser les outils dans Azure pour analyser les données de supervision, vous aurez peut-être besoin de transférer ces données vers un outil externe, comme un produit SIEM (Security Information and Event Management). Ce transfert est le plus souvent effectué directement à partir des ressources supervisées au travers d’[Azure Event Hubs](../../event-hubs/index.yml). Certaines sources peuvent être configurées pour envoyer des données directement à un hub d’événements, tandis que vous pouvez utiliser un autre processus comme une application logique pour récupérer les données requises. Pour plus d’informations, consultez [Diffuser des données de supervision Azure vers un hub d’événements pour les utiliser dans un outil externe](stream-monitoring-data-event-hubs.md).
 
 
 

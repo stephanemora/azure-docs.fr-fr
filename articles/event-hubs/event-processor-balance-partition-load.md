@@ -3,12 +3,12 @@ title: Équilibrer la charge de partition sur plusieurs instances – Azure Even
 description: Décrit comment équilibrer la charge de partition sur plusieurs instances de votre application à l’aide d’un processeur d’événements et du Kit de développement logiciel (SDK) Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314978"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512314"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Équilibrer la charge de partition sur plusieurs instances de votre application
 Pour mettre à l’échelle votre application de traitement des événements, vous pouvez exécuter plusieurs instances de l’application et faire en sorte que celle-ci équilibre la charge entre elles. Dans les versions plus anciennes, [EventProcessorHost](event-hubs-event-processor-host.md) vous permettait d’équilibrer la charge entre plusieurs instances de votre programme et des événements de point de contrôle lors de la réception. Dans les versions plus récentes (à partir de 5.0), **EventProcessorClient** (.NET et Java) ou **EventHubConsumerClient** (Python et JavaScript) vous permet d’en faire de même. Le modèle de développement est simplifié par l’utilisation d’événements. Vous vous abonnez aux événements qui vous intéressent en inscrivant un gestionnaire d’événements.
@@ -16,7 +16,7 @@ Pour mettre à l’échelle votre application de traitement des événements, vo
 Cet article décrit un exemple de scénario permettant d’utiliser plusieurs instances pour lire des événements à partir d’un hub d’événements, puis vous donner des détails sur les fonctionnalités du client du processeur d’événements, ce qui vous permet de recevoir des événements de plusieurs partitions en même temps et d’équilibrer la charge avec d’autres consommateurs qui utilisent les mêmes hub d’événements et groupe de consommateurs.
 
 > [!NOTE]
-> La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](https://msdn.microsoft.com/library/dn568101.aspx), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
+> La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](/previous-versions/msp-n-p/dn568101(v=pandp.10)), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
 
 ## <a name="example-scenario"></a>Exemple de scénario
 
@@ -75,7 +75,7 @@ Si un processeur d’événements se déconnecte d’une partition, une autre in
 Lorsque le point de contrôle est appliqué pour marquer un événement comme traité, une entrée dans le magasin de points de contrôle est ajoutée ou mise à jour avec le décalage et le numéro de séquence de l’événement. Les utilisateurs doivent décider de la fréquence de mise à jour du point de contrôle. Une mise à jour après chaque événement traité avec succès peut avoir une incidence sur les performances et le coût, car elle déclenche une opération d’écriture dans le magasin de points de contrôle sous-jacent. De plus, l’application d’un point de contrôle à chaque événement indique un profil de courrier mis en file d’attente pour lequel une file d’attente Service Bus pourrait être une meilleure option qu’un hub d’événements. L’idée derrière Event Hubs est que vous obtenez une livraison « au moins une fois » à grande échelle. En octroyant la même puissance à vos systèmes en aval, il est facile de récupérer après des pannes ou des redémarrages qui se traduisent par la réception répétée des mêmes événements.
 
 > [!NOTE]
-> Si vous utilisez le stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du kit de développement logiciel (SDK) de stockage Blob que ceux généralement disponibles sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
+> Si vous utilisez le stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du kit de développement logiciel (SDK) de stockage Blob que ceux généralement disponibles sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

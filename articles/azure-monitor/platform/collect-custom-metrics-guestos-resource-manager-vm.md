@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 208515b7541948ca6913e6fda092c6a424de85f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515782"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour une machine virtuelle Windows
 Les données de performance du système d’exploitation invité des machines virtuelles Azure ne sont pas collectées automatiquement comme d’autres [métriques de la plateforme](../insights/monitor-azure-resource.md#monitoring-data). Installez l’[extension Diagnostics](diagnostics-extension-overview.md) d’Azure Monitor pour collecter les métriques du système d’exploitation invité dans la base de données de mesures, afin qu’elles soient utilisables avec toutes les fonctionnalités des Métriques Azure Monitor, dont les alertes en quasi temps réel, les graphiques, le routage et l’accès à partir d’une API REST. Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows à la base de données des métriques à l’aide d’un modèle Resource Manager. 
@@ -25,9 +25,9 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](metrics-custom-overview.md#supported-regions). 
 
@@ -286,4 +286,3 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).
-

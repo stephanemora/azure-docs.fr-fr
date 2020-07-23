@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 634f560174413dd75bebdee6513160a3700df9a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747448"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513895"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -89,9 +89,9 @@ Vous devez associer l’ordinateur virtuel du serveur de sauvegarde Azure à un 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Utiliser un ordinateur virtuel IaaS dans Azure Stack
 
-Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
+Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
 
-La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. La [matrice de protection pour MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) permet d’expliquer ces nuances. Avant de déployer la machine, lisez cet entièrement cet article.
+La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. La [matrice de protection pour MABS](./backup-mabs-protection-matrix.md) permet d’expliquer ces nuances. Avant de déployer la machine, lisez cet entièrement cet article.
 
 > [!NOTE]
 > Le serveur de sauvegarde Azure est conçu pour s’exécuter sur une machine virtuelle dédiée et spécialisée. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
@@ -107,7 +107,7 @@ Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
 
-L’option de réplication du stockage du coffre Recovery Services vous permet de choisir entre un stockage géoredondant et un stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez un stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy-grs.md) et [localement redondant](../storage/common/storage-redundancy-lrs.md), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
+L’option de réplication du stockage du coffre Recovery Services vous permet de choisir entre un stockage géoredondant et un stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez un stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour modifier le paramètre de réplication du stockage :
 
@@ -243,7 +243,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. Dans l’écran **Paramètres de sécurité**, fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et cliquez sur **Suivant**.
 
@@ -309,7 +309,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
 ## <a name="add-backup-storage"></a>Ajouter de l’espace de stockage pour la sauvegarde
 
-La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez [Ajouter un stockage de sauvegarde moderne](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
+La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez [Ajouter un stockage de sauvegarde moderne](/system-center/dpm/add-storage).
 
 > [!NOTE]
 > Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture du serveur de sauvegarde Azure, le coffre Recovery Services conserve la *deuxième* copie des données, tandis que le stockage local conserve la première copie de sauvegarde (obligatoire).
@@ -359,10 +359,10 @@ Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](b
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’article [Préparation de votre environnement pour DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
+L’article [Préparation de votre environnement pour DPM](/system-center/dpm/prepare-environment-for-dpm) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
 
 Vous pouvez utiliser les articles suivants pour mieux appréhender la notion de protection des charges de travail à l’aide du serveur de sauvegarde Microsoft Azure.
 
-- [Sauvegarde SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
-- [Sauvegarde de serveur SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Sauvegarde SQL Server](./backup-mabs-sql-azure-stack.md)
+- [Sauvegarde de serveur SharePoint](./backup-mabs-sharepoint-azure-stack.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)

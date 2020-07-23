@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510427"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois que l’extension est installée sur la machine virtuelle. La machine virtuelle a besoin d’un agent de machine virtuelle en cours d’exécution pour installer l’extension. Pour plus d’informations, consultez [Vue d'ensemble de l'agent de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois que l’extension est installée sur la machine virtuelle. La machine virtuelle a besoin d’un agent de machine virtuelle en cours d’exécution pour installer l’extension. Pour plus d’informations, consultez [Vue d'ensemble de l'agent de machine virtuelle](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurer des attributions de rôle pour la machine virtuelle
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès aux ressources de votre abonnement Azure, consultez les rubriques relatives à l’utilisation [d’Azure CLI](../../role-based-access-control/role-assignments-cli.md), au [portail Azure](../../role-based-access-control/role-assignments-portal.md) ou à [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Vous pouvez également configurer Azure AD pour exiger l’authentification multifacteur pour qu’un utilisateur spécifique se connecte à la machine virtuelle Linux. Pour plus d’informations, consultez [Prise en main d’Azure Multi-Factor Authentication dans le cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Vous pouvez également configurer Azure AD pour exiger l’authentification multifacteur pour qu’un utilisateur spécifique se connecte à la machine virtuelle Linux. Pour plus d’informations, consultez [Prise en main d’Azure Multi-Factor Authentication dans le cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Se connecter à la machine virtuelle Linux
 

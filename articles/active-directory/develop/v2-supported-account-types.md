@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583109"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518128"
 ---
 # <a name="supported-account-types"></a>Types de comptes pris en charge
 
@@ -45,7 +45,6 @@ Certains types de compte ne peuvent pas être utilisés avec certains flux d’a
 - Des applications de démon ne peuvent être utilisées qu’avec des organisations Azure AD. Il n’est pas judicieux d’essayer d’utiliser des applications de démon pour manipuler des comptes personnels Microsoft. Le consentement de l’administrateur ne sera jamais accordé.
 - Vous pouvez utiliser le flux de l’authentification Windows intégrée uniquement avec des comptes professionnels ou scolaires (dans votre organisation ou une autre). L’authentification Windows intégrée fonctionne avec des comptes de domaine et nécessite que les ordinateurs soient joints à un domaine ou à Azure AD. Ce flux est inutile pour des comptes Microsoft personnels.
 - L’[octroi d’informations d’identification liées au mot de passe du propriétaire de ressource](./v2-oauth-ropc.md) (nom d’utilisateur/mot de passe) ne peut pas être utilisé avec des comptes Microsoft personnels. Les comptes Microsoft personnels nécessitent que l’utilisateur consente à l’accès aux ressources personnelles à chaque session de connexion. C’est pourquoi ce comportement n’est pas compatible avec des flux non interactifs.
-- Le flux de code d’appareil ne fonctionne pas avec des comptes Microsoft personnels.
 
 ## <a name="account-types-in-national-clouds"></a>Types de compte dans les clouds nationaux
 

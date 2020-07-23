@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422601"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509084"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utiliser des outils à distance pour résoudre les problèmes de machine virtuelle Azure
 
@@ -31,7 +31,7 @@ Utilisez une [console série pour machines virtuelles Azure](serial-console-wind
 
 ## <a name="remote-cmd"></a>CMD à distance
 
-Téléchargez [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Connectez-vous à la machine virtuelle en exécutant la commande suivante :
+Téléchargez [PsExec](/sysinternals/downloads/psexec). Connectez-vous à la machine virtuelle en exécutant la commande suivante :
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -251,9 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’applet de commande Enter-PSSession, consultez [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- Pour plus d’informations sur l’extension de script personnalisé pour Windows à l’aide du modèle de déploiement classique, consultez [Extension de script personnalisé pour Windows](../extensions/custom-script-classic.md).
+- Pour plus d’informations sur l’applet de commande Enter-PSSession, consultez [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Pour plus d’informations sur l’extension de script personnalisé pour Windows à l’aide du modèle de déploiement classique, consultez [Extension de script personnalisé pour Windows](../extensions/custom-script-windows.md).
 - PsExec fait partie de la [Suite PSTools](https://download.sysinternals.com/files/PSTools.zip).
-- Pour plus d’informations sur la Suite PSTools, consultez [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
-
-
+- Pour plus d’informations sur la Suite PSTools, consultez [PSTools](/sysinternals/downloads/pstools).

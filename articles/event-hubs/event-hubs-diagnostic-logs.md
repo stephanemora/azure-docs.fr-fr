@@ -3,12 +3,12 @@ title: Configurer des journaux de diagnostic - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment configurer les journaux d’activité et de diagnostic pour Event Hubs dans Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322458"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521936"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -233,7 +233,7 @@ Le code JSON des journaux utilisateur des clés gérées par le client inclut le
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Présentation d’Event Hubs](./event-hubs-about.md)
 - [Exemples de hubs d’événements](sdks.md)
 - Prise en main des hubs d’événements
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

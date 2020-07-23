@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Hyper-V à l’aide de MABS
 description: Cet article contient les procédures de sauvegarde et de récupération des machines virtuelles à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514547"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
@@ -155,4 +155,4 @@ Lorsque vous pouvez récupérer une machine virtuelle sauvegardée, vous utilise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Récupérer des données à partir d’un serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Récupérer des données à partir d’un serveur de sauvegarde Azure](./backup-azure-alternate-dpm-server.md)

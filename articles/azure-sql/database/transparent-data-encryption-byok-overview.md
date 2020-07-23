@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985307"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514717"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Pour que le serveur puisse utiliser le protecteur TDE stocké dans AKV pour le c
 
 - **unwrapKey** : pour pouvoir ôter la protection (déchiffrer) la clé de chiffrement
 
-L’administrateur du coffre de clés peut également [activer la journalisation des événements d’audit de coffre de clés](../../azure-monitor/insights/azure-key-vault.md), afin qu’ils puissent être audités ultérieurement.
+L’administrateur du coffre de clés peut également [activer la journalisation des événements d’audit de coffre de clés](../../azure-monitor/insights/key-vault-insights-overview.md), afin qu’ils puissent être audités ultérieurement.
 
 Quand le serveur est configuré pour utiliser un protecteur TDE d’AKV, le serveur envoie la clé de chiffrement de chaque base de données prenant en charge TDE au coffre de clés pour chiffrement. Le coffre de clés retourne la clé de chiffrement chiffrée, qui est alors stockée dans la base de données utilisateur.
 

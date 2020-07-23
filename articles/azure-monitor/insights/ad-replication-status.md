@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055898"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516785"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
 
@@ -61,7 +62,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-La vignette État de la réplication AD affiche le nombre d’erreurs de réplication que vous avez actuellement. Les **erreurs de réplication critiques** sont celles qui se produisent à au moins 75 % de la [durée de vie des objets tombstone](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) de votre forêt Active Directory.
+La vignette État de la réplication AD affiche le nombre d’erreurs de réplication que vous avez actuellement. Les **erreurs de réplication critiques** sont celles qui se produisent à au moins 75 % de la [durée de vie des objets tombstone](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) de votre forêt Active Directory.
 
 ![Vignette de l’état de la réplication AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 

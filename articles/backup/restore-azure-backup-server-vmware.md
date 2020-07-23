@@ -3,16 +3,16 @@ title: Restaurer des machines virtuelles VMware avec le serveur de sauvegarde Az
 description: Utilisez le serveur de sauvegarde Azure (MABS) pour restaurer des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77212356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524520"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurer les machines virtuelles VMware
 
-Cet article explique comment utiliser le serveur de sauvegarde Microsoft Azure (MABS) pour restaurer les points de récupération de machines virtuelles VMware. Pour avoir une vue d’ensemble de l’utilisation de MABS pour récupérer des données, consultez [Récupérer des données protégées](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). Dans la console d’administrateur MABS, il y a deux façons de rechercher des données récupérables – rechercher ou parcourir. Lorsque vous récupérez des données, vous pouvez vouloir ou non restaurer des données ou une machine virtuelle au même emplacement. Pour cette raison, MABS prend en charge trois options de récupération pour les sauvegardes de machines virtuelles VMware :
+Cet article explique comment utiliser le serveur de sauvegarde Microsoft Azure (MABS) pour restaurer les points de récupération de machines virtuelles VMware. Pour avoir une vue d’ensemble de l’utilisation de MABS pour récupérer des données, consultez [Récupérer des données protégées](./backup-azure-alternate-dpm-server.md). Dans la console d’administrateur MABS, il y a deux façons de rechercher des données récupérables – rechercher ou parcourir. Lorsque vous récupérez des données, vous pouvez vouloir ou non restaurer des données ou une machine virtuelle au même emplacement. Pour cette raison, MABS prend en charge trois options de récupération pour les sauvegardes de machines virtuelles VMware :
 
 * **Récupération à l’emplacement d’origine (OLR)**  : utilisez la récupération à l’emplacement d’origine pour restaurer une machine virtuelle protégée à son emplacement d’origine. Vous ne pouvez restaurer une machine virtuelle à son emplacement d’origine que si aucun disque n’a été ajouté ou supprimé depuis la sauvegarde. Si des disques ont été ajoutés ou supprimés, vous devez utiliser un autre emplacement de récupération.
 

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027163"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514082"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -329,6 +329,6 @@ Le script donne accès en lecture seule à un point de récupération et n’est
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour tout problème lors de la restauration de fichiers, reportez-vous à la section de [résolution des problèmes](#troubleshooting)
-- Découvrez comment [restaurer des fichiers via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Découvrez comment [restaurer des fichiers via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- Une fois la machine virtuelle restaurée, découvrez comment [gérer les sauvegardes](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Découvrez comment [restaurer des fichiers via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Découvrez comment [restaurer des fichiers via Azure CLI](./tutorial-restore-files.md)
+- Une fois la machine virtuelle restaurée, découvrez comment [gérer les sauvegardes](./backup-azure-manage-vms.md)

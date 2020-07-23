@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513623"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -18,7 +18,7 @@ Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauveg
 - audit des sauvegardes et restaurations ;
 - identification des tendances clés à différents niveaux de granularité.
 
-Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) et les [classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
+Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](../azure-monitor/log-query/get-started-portal.md) et les [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -26,7 +26,7 @@ Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise
 - Concernant les charges de travail DPM, les rapports de sauvegarde sont pris en charge pour la version 5.1.363.0 et les versions ultérieures de DPM et la version 2.0.9127.0 et les versions ultérieures de l’agent.
 - Concernant les charges de travail MABS, les rapports de sauvegarde sont pris en charge pour la version 13.0.415.0 et les versions ultérieures de MABS ainsi que pour la version 2.0.9170.0 et les versions ultérieures de l’agent.
 - Les rapports de sauvegarde peuvent être affichés sur l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics auquel l’utilisateur a accès. Pour visualiser les rapports d’un ensemble de coffres, il suffit d’un accès lecteur à l’espace de travail Log Analytics auquel les coffres envoient leurs données. Il n’est pas nécessaire d’avoir accès aux différents coffres.
-- Si vous utilisez [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) avec un accès délégué aux abonnements de vos clients, vous pouvez utiliser ces rapports avec Azure Lighthouse afin de les consulter pour tous vos locataires.
+- Si vous utilisez [Azure Lighthouse](../lighthouse/index.yml) avec un accès délégué aux abonnements de vos clients, vous pouvez utiliser ces rapports avec Azure Lighthouse afin de les consulter pour tous vos locataires.
 - Actuellement, les données peuvent être affichées dans Rapports de sauvegarde sur un maximum de 100 espaces de travail Log Analytics (sur tous les locataires).
 - Les données des travaux de sauvegarde de fichier journal ne sont pas affichées dans les rapports.
 
@@ -38,22 +38,22 @@ Suivez cette procédure pour commencer à utiliser les rapports.
 
 Configurez un ou plusieurs espaces de travail Log Analytics pour stocker vos données de rapport de sauvegarde. L’emplacement et l’abonnement dans lesquels ces espaces de travail peuvent être créés dépendent de l’emplacement et de l’abonnement où se trouvent les coffres.
 
-Pour configurer un espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Pour configurer un espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/learn/quick-create-workspace.md).
 
-Par défaut, les données d’un espace de travail Log Analytics sont conservées pendant 30 jours. Pour consulter les données sur un horizon temporel plus long, changez la période de rétention de l’espace de travail Log Analytics. Pour modifier cette période, consultez [Gestion de l’utilisation et des coûts avec les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Par défaut, les données d’un espace de travail Log Analytics sont conservées pendant 30 jours. Pour consulter les données sur un horizon temporel plus long, changez la période de rétention de l’espace de travail Log Analytics. Pour modifier cette période, consultez [Gestion de l’utilisation et des coûts avec les journaux Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurer les paramètres de diagnostic des coffres
 
 Des ressources Azure Resource Manager, comme les coffres Recovery Services, enregistrent des informations sur les opérations planifiées et sur les opérations déclenchées par l’utilisateur au titre de données de diagnostics.
 
-Dans la section de monitorage de votre coffre Recovery Services, sélectionnez **Paramètres de diagnostic** et spécifiez la cible des données de diagnostic du coffre Recovery Services. Pour plus d’informations sur l’utilisation des événements de diagnostic, consultez [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+Dans la section de monitorage de votre coffre Recovery Services, sélectionnez **Paramètres de diagnostic** et spécifiez la cible des données de diagnostic du coffre Recovery Services. Pour plus d’informations sur l’utilisation des événements de diagnostic, consultez [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](./backup-azure-diagnostic-events.md).
 
 ![Volet Paramètres de diagnostic](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Le service Sauvegarde Azure fournit également une définition Azure Policy intégrée qui automatise la configuration des paramètres de diagnostic pour tous les coffres dans une étendue donnée. Pour savoir comment utiliser cette stratégie, consultez [Configuration à grande échelle des paramètres de diagnostic des coffres](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Le service Sauvegarde Azure fournit également une définition Azure Policy intégrée qui automatise la configuration des paramètres de diagnostic pour tous les coffres dans une étendue donnée. Pour savoir comment utiliser cette stratégie, consultez [Configuration à grande échelle des paramètres de diagnostic des coffres](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> Une fois les diagnostics configurés, le Push de données initial peut prendre jusqu’à 24 heures. Lorsqu’elles commencent à arriver dans l’espace de travail Log Analytics, les données n’apparaissent pas forcément tout de suite dans les rapports, car les données d’une journée incomplète ne figurent pas dans les rapports. Pour plus d’informations, consultez [Conventions utilisées dans les rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). Il est recommandé d’afficher les rapports deux jours après avoir configuré les coffres en vue d’envoyer des données à Log Analytics.
+> Une fois les diagnostics configurés, le Push de données initial peut prendre jusqu’à 24 heures. Lorsqu’elles commencent à arriver dans l’espace de travail Log Analytics, les données n’apparaissent pas forcément tout de suite dans les rapports, car les données d’une journée incomplète ne figurent pas dans les rapports. Pour plus d’informations, consultez [Conventions utilisées dans les rapports de sauvegarde](#conventions-used-in-backup-reports). Il est recommandé d’afficher les rapports deux jours après avoir configuré les coffres en vue d’envoyer des données à Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Afficher les rapports sur le Portail Azure
 
@@ -103,7 +103,7 @@ Sélectionnez le bouton Épingler en haut d’un widget pour épingler le widget
 
 ## <a name="cross-tenant-reports"></a>Rapports multilocataires
 
-Si vous utilisez [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) avec un accès délégué aux abonnements de plusieurs environnements de locataires, vous pouvez utiliser le filtre d’abonnement par défaut. Sélectionnez le bouton de filtre en haut à droite du Portail Azure pour choisir tous les abonnements dont vous souhaitez afficher les données. Cela vous permet de sélectionner des espaces de travail Log Analytics de plusieurs locataires pour afficher des rapports multilocataires.
+Si vous utilisez [Azure Lighthouse](../lighthouse/index.yml) avec un accès délégué aux abonnements de plusieurs environnements de locataires, vous pouvez utiliser le filtre d’abonnement par défaut. Sélectionnez le bouton de filtre en haut à droite du Portail Azure pour choisir tous les abonnements dont vous souhaitez afficher les données. Cela vous permet de sélectionner des espaces de travail Log Analytics de plusieurs locataires pour afficher des rapports multilocataires.
 
 ## <a name="conventions-used-in-backup-reports"></a>Conventions utilisées dans les rapports de sauvegarde
 
@@ -131,8 +131,8 @@ Les widgets du rapport de sauvegarde reposent sur des requêtes Kusto, qui s’e
 
 - L’ancienne application modèle Power BI pour la création de rapports, dont les données provenaient d’un compte de stockage Azure, est en voie de dépréciation. Nous vous recommandons de commencer à envoyer les données de diagnostic des coffres à Log Analytics pour afficher des rapports.
 
-- En outre, le [schéma v1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) d’envoi de données de diagnostic à un compte de stockage ou à un espace de travail LA est également en voie de désapprobation. Cela signifie que si vous avez écrit des automatisations ou des requêtes personnalisées basées sur le schéma v1, nous vous recommandons de les mettre à jour afin qu’elles utilisent le schéma v2 pris en charge.
+- En outre, le [schéma v1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) d’envoi de données de diagnostic à un compte de stockage ou à un espace de travail LA est également en voie de désapprobation. Cela signifie que si vous avez écrit des automatisations ou des requêtes personnalisées basées sur le schéma v1, nous vous recommandons de les mettre à jour afin qu’elles utilisent le schéma v2 pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez la supervision et la création de rapports avec Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Découvrez la supervision et la création de rapports avec Sauvegarde Azure](./backup-azure-monitor-alert-faq.md)

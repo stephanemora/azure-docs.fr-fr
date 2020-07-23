@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30487eebed361e5b010df023a9b1a44f96590b14
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516938"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -23,14 +23,14 @@ Jusqu’à récemment, le modèle de données de télémétrie de surveillance d
 
 L’utilisation de journaux d’activité pour conserver un ensemble complet d’événements présente un grand avantage en termes d’analyse et de diagnostic. Vous pouvez par exemple obtenir le nombre exact de requêtes envoyées vers une URL donnée avec le nombre d’utilisateurs distincts ayant effectué ces appels. Ou bien vous pouvez obtenir des rapports d’appels de procédures détaillés pour le diagnostic, notamment les exceptions et les appels de dépendance de n’importe quelle session utilisateur. Ce type d’information améliore considérablement la visibilité sur l’intégrité et l’utilisation des applications, diminuant le temps nécessaire pour diagnostiquer les problèmes avec une application.
 
-Dans le même temps, la collecte d'un ensemble complet d'événements peut s'avérer difficile (voire impossible) pour les applications qui génèrent un volume important de données de télémétrie. Dans les situations où le volume d’événements est trop élevé, Application Insights implémente plusieurs techniques de réduction du volume de données de télémétrie, comme [l’échantillonnage](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) et le [filtrage](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) qui diminuent le nombre d’événements collectés et stockés. Malheureusement, la diminution du nombre d’événements stockés fait également baisser la précision des métriques qui, en arrière-plan, doivent effectuer des agrégations de requêtes des événements stockés dans les journaux d’activité.
+Dans le même temps, la collecte d'un ensemble complet d'événements peut s'avérer difficile (voire impossible) pour les applications qui génèrent un volume important de données de télémétrie. Dans les situations où le volume d’événements est trop élevé, Application Insights implémente plusieurs techniques de réduction du volume de données de télémétrie, comme [l’échantillonnage](./sampling.md) et le [filtrage](./api-filtering-sampling.md) qui diminuent le nombre d’événements collectés et stockés. Malheureusement, la diminution du nombre d’événements stockés fait également baisser la précision des métriques qui, en arrière-plan, doivent effectuer des agrégations de requêtes des événements stockés dans les journaux d’activité.
 
 > [!NOTE]
 > Dans Application Insights, les métriques basées sur l’agrégation des requêtes d’événements et les mesures stockées dans les journaux d’activité sont appelées des métriques basées sur le journal. Ces métriques comportent généralement de nombreuses dimensions de propriétés d’événements, ce qui les rend particulièrement intéressantes pour l’analyse. Toutefois, leur précision pâtit de l’échantillonnage et du filtrage.
 
 ## <a name="pre-aggregated-metrics"></a>Métriques pré-agrégées
 
-Outre les métriques basées sur le journal, fin 2018, l'équipe Application Insights a publié une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour les séries chronologiques. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), des [tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) plus réactifs et bien plus encore.
+Outre les métriques basées sur le journal, fin 2018, l'équipe Application Insights a publié une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour les séries chronologiques. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](../platform/alerts-metric-near-real-time.md), des [tableaux de bord](./overview-dashboard.md) plus réactifs et bien plus encore.
 
 > [!IMPORTANT]
 > Les métriques basées sur le journal et pré-agrégées coexistent dans Application Insights. Pour différencier les deux, dans l'expérience utilisateur Application Insights, les métriques pré-agrégées sont maintenant appelées « Métriques standard (préversion) », tandis que les métriques traditionnelles des événements ont été renommées « Métriques basées sur le journal ».
@@ -39,17 +39,17 @@ Les kits de développement logiciel les plus récents (SDK [Application Insights
 
 Lorsque les SDK n'implémentent pas la pré-agrégation (ce qui est le cas avec les anciennes versions des SDK Application Insights ou pour l'instrumentation du navigateur), le serveur principal d'Application Insights continue à renseigner les nouvelles métriques en agrégeant les événements reçus par le point de terminaison de collecte des événements d'Application Insights. Ainsi, même si vous ne bénéficiez pas de la réduction du volume de données transmises sur le réseau, vous pouvez utiliser les métriques pré-agrégées et profiter de performances et d'une prise en charge améliorées de la génération d'alertes dimensionnelles quasiment en temps réel avec des kits de développement logiciel (SDK) qui ne pré-agrègent pas les métriques pendant la collecte.
 
-Notez par ailleurs que le point de terminaison de collecte pré-agrège les événements avant l’échantillonnage d’ingestion, ce qui signifie que [l’échantillonnage d’ingestion](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) n’a pas d’impact sur la précision des métriques pré-agrégées, quelle que soit la version du SDK que vous utilisez pour votre application.  
+Notez par ailleurs que le point de terminaison de collecte pré-agrège les événements avant l’échantillonnage d’ingestion, ce qui signifie que [l’échantillonnage d’ingestion](./sampling.md) n’a pas d’impact sur la précision des métriques pré-agrégées, quelle que soit la version du SDK que vous utilisez pour votre application.  
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Utilisation de la pré-agrégation avec des métriques personnalisées Application Insights
 
 Vous pouvez utiliser la pré-agrégation avec des métriques personnalisées. Les deux principaux avantages sont : la possibilité de configurer et d’alerter sur la dimension d’une métrique personnalisée et la réduction du volume de données envoyées à partir du SDK vers le point de terminaison de collecte d’Application Insights.
 
-Il existe plusieurs [méthodes pour envoyer des métriques personnalisées à partir du SDK d’Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Si votre version du SDK propose les méthodes [GetMetric et TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric), ces méthodes sont à privilégier pour l’envoi de mesures personnalisées, car dans ce cas la pré-agrégation est effectuée au sein du SDK, réduisant non seulement le volume de données stockées dans Azure, mais également le volume de données transmises à partir du SDK vers Application Insights. Sinon, utilisez la méthode [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric), qui pré-agrège les événements liés aux métriques pendant l’ingestion de données.
+Il existe plusieurs [méthodes pour envoyer des métriques personnalisées à partir du SDK d’Application Insights](./api-custom-events-metrics.md). Si votre version du SDK propose les méthodes [GetMetric et TrackValue](./api-custom-events-metrics.md#getmetric), ces méthodes sont à privilégier pour l’envoi de mesures personnalisées, car dans ce cas la pré-agrégation est effectuée au sein du SDK, réduisant non seulement le volume de données stockées dans Azure, mais également le volume de données transmises à partir du SDK vers Application Insights. Sinon, utilisez la méthode [trackMetric](./api-custom-events-metrics.md#trackmetric), qui pré-agrège les événements liés aux métriques pendant l’ingestion de données.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Dimensions des métriques personnalisées et pré-agrégation
 
-Toutes les métriques que vous envoyez en utilisant des appels d’API [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) ou [GetMetric et TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) sont automatiquement stockées dans des journaux d’activité et des magasins de métriques. Toutefois, bien que la version basée sur le journal de votre métrique personnalisée conserve toujours toutes les dimensions, la version pré-agrégée de la métrique est stockée par défaut sans aucune dimension. Vous pouvez activer la collecte des dimensions des métriques personnalisées dans l'onglet [Utilisation et estimation des coûts](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) en cochant « Activer la génération d'alertes sur les dimensions des métriques personnalisées » : 
+Toutes les métriques que vous envoyez en utilisant des appels d’API [trackMetric](./api-custom-events-metrics.md#trackmetric) ou [GetMetric et TrackValue](./api-custom-events-metrics.md#getmetric) sont automatiquement stockées dans des journaux d’activité et des magasins de métriques. Toutefois, bien que la version basée sur le journal de votre métrique personnalisée conserve toujours toutes les dimensions, la version pré-agrégée de la métrique est stockée par défaut sans aucune dimension. Vous pouvez activer la collecte des dimensions des métriques personnalisées dans l'onglet [Utilisation et estimation des coûts](./pricing.md) en cochant « Activer la génération d'alertes sur les dimensions des métriques personnalisées » : 
 
 ![Utilisation et estimation des coûts](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
@@ -65,11 +65,11 @@ Utilisez [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md
 
 ## <a name="pricing-models-for-application-insights-metrics"></a>Modèles de tarification pour les métriques Application Insights
 
-L'ingestion de métriques dans Application Insights, qu'elles soient basées sur le journal ou pré-agrégées, engendre des coûts proportionnels à la taille des données ingérées, comme décrit [ici](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model). Vos métriques personnalisées (dimensions comprises) sont toujours stockées dans le magasin de journaux Application Insights. En outre, une version pré-agrégée de vos métriques personnalisées (sans les dimensions) est transmise par défaut au magasin de métriques.
+L'ingestion de métriques dans Application Insights, qu'elles soient basées sur le journal ou pré-agrégées, engendre des coûts proportionnels à la taille des données ingérées, comme décrit [ici](./pricing.md#pricing-model). Vos métriques personnalisées (dimensions comprises) sont toujours stockées dans le magasin de journaux Application Insights. En outre, une version pré-agrégée de vos métriques personnalisées (sans les dimensions) est transmise par défaut au magasin de métriques.
 
 La sélection de l'option [Activer la génération d'alertes sur les dimensions des métriques personnalisées](#custom-metrics-dimensions-and-pre-aggregation) pour stocker les dimensions des métriques pré-agrégées dans le magasin de métriques peut engendrer des coûts **supplémentaires** conformément à la [Tarification des métriques personnalisées](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Génération d’alertes quasiment en temps réel](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)
-* [GetMetric et TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric)
+* [Génération d’alertes quasiment en temps réel](../platform/alerts-metric-near-real-time.md)
+* [GetMetric et TrackValue](./api-custom-events-metrics.md#getmetric)

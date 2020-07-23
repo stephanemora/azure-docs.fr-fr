@@ -3,15 +3,15 @@ title: Exemples - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit une liste d’exemples pour Azure Event Hubs qui se trouvent sur GitHub.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d7a40e399482af0ad3a501918a7e3307d724c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315511"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512297"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Référentiels Git avec des exemples pour Azure Event Hubs 
-Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Ces exemples présentent les fonctionnalités clés [d’Azure Event Hubs](/azure/event-hubs/). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
+Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Ces exemples présentent les fonctionnalités clés [d’Azure Event Hubs](./index.yml). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
 ## <a name="net-samples"></a>Exemples relatifs à .NET
 
@@ -57,6 +57,6 @@ Vous trouverez des exemples pour les Event Hubs de la fonctionnalité Apache Kaf
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 
-- [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Vue d’ensemble d’Event Hubs](./event-hubs-about.md)
 - [Fonctionnalités Event Hubs](event-hubs-features.md)
 - [FAQ sur les hubs d’événements](event-hubs-faq.md)

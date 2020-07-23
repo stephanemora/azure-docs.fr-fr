@@ -6,18 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14beeebe15193cbe2ef4684f97e4783810ad77a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968797"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510548"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
 Dans cet article, vous allez découvrir comment télécharger un fichier de disque dur virtuel (VHD) Linux à partir d’Azure à l’aide d’Azure CLI et du portail Microsoft Azure. 
 
-Si vous ne l’avez pas déjà fait, installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Si vous ne l’avez pas déjà fait, installez [Azure CLI](/cli/azure/install-az-cli2).
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
@@ -25,7 +25,7 @@ Il n’est pas possible de télécharger un disque VHD associé à une machine v
 
 Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, suivez les étapes ci-dessous :
 
-1. Utilisez SSH, le nom du compte et l’adresse IP publique de la machine virtuelle pour vous y connecter et la déprovisionner. Recherchez l’adresse IP publique avec la commande [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Le paramètre +user supprime également le dernier compte d’utilisateur approvisionné. Si vous sauvegardez les informations d’identification du compte sur la machine virtuelle, n’insérez pas ce paramètre +user. L’exemple suivant permet de supprimer le dernier compte d’utilisateur approvisionné :
+1. Utilisez SSH, le nom du compte et l’adresse IP publique de la machine virtuelle pour vous y connecter et la déprovisionner. Recherchez l’adresse IP publique avec la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Le paramètre +user supprime également le dernier compte d’utilisateur approvisionné. Si vous sauvegardez les informations d’identification du compte sur la machine virtuelle, n’insérez pas ce paramètre +user. L’exemple suivant permet de supprimer le dernier compte d’utilisateur approvisionné :
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -33,7 +33,7 @@ Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuell
     exit 
     ```
 
-2. Connectez-vous à votre compte Azure avec [az login](https://docs.microsoft.com/cli/azure/reference-index).
+2. Connectez-vous à votre compte Azure avec [az login](/cli/azure/reference-index).
 3. Arrêtez et libérez la machine virtuelle.
 
     ```azurecli
@@ -57,7 +57,7 @@ Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machin
 
 ## <a name="generate-sas-url"></a>Générer une URL de SAP
 
-Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
+Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
 
 1.  Dans le menu du page pour la machine virtuelle, sélectionnez **Disques**.
 2.  Sélectionnez le disque de système d’exploitation de la machine virtuelle, puis **Exportation de disque**.
@@ -79,4 +79,3 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
 - Découvrez comment [charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gestion des disques Azure avec l’interface de ligne de commande Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

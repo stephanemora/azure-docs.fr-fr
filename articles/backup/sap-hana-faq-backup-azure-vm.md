@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170324"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513504"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -22,11 +22,11 @@ Nous prenons en charge une seule sauvegarde complète par jour. Les sauvegardes 
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des travaux de sauvegarde génère-t-elle des alertes ?
 
-Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](./backup-azure-monitoring-built-in-monitor.md). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
 
-Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde ad hoc. Pour les tâches planifiées, utilisez [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde ad hoc. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
 
@@ -51,7 +51,7 @@ L’exécution du script de pré-inscription définit les autorisations requises
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Les sauvegardes seront-elles opérationnelles après la migration SAP HANA de SDC vers MDC ?
 
-Reportez-vous à [cette section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) du Guide de résolution des problèmes.
+Reportez-vous à [cette section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) du Guide de résolution des problèmes.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
 
@@ -111,7 +111,7 @@ Ensuite, une sauvegarde complète est déclenchée de nouveau sur le nœud 1 et
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Pourquoi ne puis-je pas voir le système HANA sur lequel ma base de données doit être restaurée ?
 
-Vérifiez que toutes les conditions préalables pour la restauration vers la cible de l’instance SAP HANA sont remplies. Pour plus d’informations, consultez [Conditions préalables - Restaurer des bases de données SAP HANA dans une machine virtuelle Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Vérifiez que toutes les conditions préalables pour la restauration vers la cible de l’instance SAP HANA sont remplies. Pour plus d’informations, consultez [Conditions préalables - Restaurer des bases de données SAP HANA dans une machine virtuelle Azure](./sap-hana-db-restore.md#prerequisites).
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Pourquoi la restauration du remplacement de la base de données a-t-elle échoué pour ma base de données ?
 
@@ -127,4 +127,4 @@ Oui, vous pouvez utiliser des sauvegardes en continu déclenchées sur une base 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [sauvegarder des bases de données SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) qui s’exécutent sur des machines virtuelles Azure.
+Découvrez comment [sauvegarder des bases de données SAP HANA](./backup-azure-sap-hana-database.md) qui s’exécutent sur des machines virtuelles Azure.

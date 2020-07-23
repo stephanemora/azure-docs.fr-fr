@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520899"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Exécuter des actions en fonction de l’état du groupe à l’aide d’étendues dans Azure Logic Apps
 
@@ -71,13 +71,13 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
       ![Configurer l’action « Bing Maps - Obtenir un itinéraire »](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://msdn.microsoft.com/library/ff701717.aspx).
+      Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](/bingmaps/rest-services/routes/calculate-a-route).
 
       | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
       | **Étape 1** | <*start*> | Entrez l’origine de votre itinéraire. | 
       | **Étape 2** | <*end*> | Entrez la destination de votre itinéraire. | 
-      | **Avoid** | None | Entrez les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. Pour les valeurs possibles, consultez [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calculer un itinéraire). | 
+      | **Avoid** | None | Entrez les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. Pour les valeurs possibles, consultez [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calculer un itinéraire). | 
       | **Optimize** | timeWithTraffic | Sélectionnez un paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec les informations de circulation actuelle, etc. Cet exemple utilise cette valeur : « timeWithTraffic » | 
       | **Unité de distance** | <*your-preference*> | Entrez l’unité de distance pour calculer votre itinéraire. Cet exemple utilise cette valeur : « Mile » | 
       | **Mode de déplacement** | Conduite | Entrez le mode de déplacement pour votre itinéraire. Cet exemple utilise cette valeur : « Driving » | 
@@ -388,7 +388,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-* Pour toute question, consultez la page [Microsoft Q&A pour Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pour toute question, consultez la page [Microsoft Q&A pour Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Pour voter pour des fonctionnalités et suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes

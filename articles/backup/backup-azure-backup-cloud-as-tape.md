@@ -3,12 +3,12 @@ title: Guide pratique pour remplacer votre infrastructure sur bande
 description: Découvrir comment la Sauvegarde Azure fournit une sémantique de type bande qui vous permet de sauvegarder et de restaurer des données dans Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425100"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514184"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 
@@ -70,5 +70,5 @@ En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent sp
 
 Pour plus d’informations sur la Sauvegarde Azure, consultez :
 
-* [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
-* [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Présentation d’Azure Backup](./backup-overview.md)
+* [Test d’Azure Backup](./backup-windows-with-mars-agent.md)

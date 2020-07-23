@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056784"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518773"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Itinéraires dans Azure Static Web Apps - Préversion
 
@@ -295,7 +295,7 @@ Les exemples suivants décrivent ce qui se produit lorsqu’une demande correspo
 | _/unknown-folder_ | Le fichier _/custom-404.html_ est envoyé. |
 | Fichiers avec l’extension `.custom` | Sont pris en charge avec le type MIME `text/html` |
 
-- Toutes les réponses incluent les en-têtes `content-security-policy` avec une valeur de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
+Toutes les réponses incluent les en-têtes `content-security-policy` avec une valeur de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
 <sup>1</sup> Les règles de routage pour les fonctions d’API prennent uniquement en charge les [redirections](#redirects) et la [sécurisation des itinéraires avec des rôles](#securing-routes-with-roles).
 

@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510444"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 
@@ -34,7 +34,7 @@ Pour charger votre disque dur virtuel sur Azure, vous devez créer un disque man
 
 Ce type de disque managé présente deux états uniques :
 
-- ReadToUpload, qui signifie que le disque est prêt à recevoir un chargement, mais qu'aucune [signature d'accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) n'a été générée.
+- ReadToUpload, qui signifie que le disque est prêt à recevoir un chargement, mais qu'aucune [signature d'accès partagé](../../storage/common/storage-sas-overview.md) (SAS) n'a été générée.
 - ActiveUpload, qui signifie que le disque est prêt à recevoir un chargement et que la SAS a été générée.
 
 > [!NOTE]
@@ -132,4 +132,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez réussi à charger un disque dur virtuel sur un disque managé, vous pouvez joindre le disque en tant que [disque de données à une machine virtuelle existante](add-disk.md) ou [joindre le disque à une machine virtuelle en tant que disque de système d'exploitation](upload-vhd.md#create-the-vm) pour créer une nouvelle machine virtuelle. 
-

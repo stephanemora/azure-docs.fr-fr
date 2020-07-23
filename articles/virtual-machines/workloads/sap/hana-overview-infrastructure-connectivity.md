@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98ecb9ab208b6ead3944455b95f7fe6baa044d35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525107"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Déploiement de SAP HANA (grandes instances) 
 
@@ -36,7 +36,7 @@ Microsoft a besoin des informations suivantes pour déployer les unités de gran
 - Pour chaque région de déploiement Azure :
     - Une plage d’adresses IP /29 pour les connexions ER-P2P qui relient les réseaux virtuels Azure aux grandes instances HANA.
     - Un bloc CIDR /24 utilisé pour le pool d’adresses IP du serveur de grandes instances HANA.
-    - Facultatif avec [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct depuis un site local vers des unités de grandes instances HANA ou le routage entre des unités de grandes instances HANA dans différentes régions Azure, vous devez réserver une autre plage d’adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
+    - Facultatif avec [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) pour activer le routage direct depuis un site local vers des unités de grandes instances HANA ou le routage entre des unités de grandes instances HANA dans différentes régions Azure, vous devez réserver une autre plage d’adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 - Les valeurs de plage d’adresses IP utilisées dans l’attribut Espace d’adressage du réseau virtuel de chaque réseau virtuel Azure qui se connecte à de grandes instances HANA.
 - Données pour chaque système de grandes instances HANA :
   - Nom d’hôte souhaité, idéalement avec le nom de domaine complet.
@@ -53,4 +53,3 @@ Utilisez la séquence suivante pour vous connecter aux grandes instances HANA ap
 1. [Connexion de machines virtuelles Azure à de grandes instances HANA](hana-connect-azure-vm-large-instances.md)
 2. [Connexion d’un réseau virtuel à de grandes instances HANA ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Conditions requises supplémentaires du réseau (facultatives)](hana-additional-network-requirements.md)
-

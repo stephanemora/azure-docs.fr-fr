@@ -3,12 +3,12 @@ title: Détecter un problème de sauvegarde lente de fichiers et de dossiers
 description: Apporte des conseils visant à vous aider à diagnostiquer la cause des problèmes de performances d’Azure Backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135045"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513830"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 
@@ -95,7 +95,7 @@ Les indicateurs suivants peuvent vous aider à identifier le goulot d’étrangl
 * **L’interface utilisateur affiche la progression du transfert de données**. Les données sont toujours en cours de transfert. La bande passante réseau ou la taille des données engendrent peut-être un ralentissement.
 * **L’interface utilisateur n’affiche pas la progression du transfert de données**. Ouvrez les journaux d’activité sous C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, puis recherchez l’entrée FileProvider::EndData dans les journaux d’activité. Cette entrée signifie que le transfert de données est terminé et que l’opération de catalogage est en cours. N’annulez pas les tâches de sauvegarde. Attendez un peu plus longtemps que l’opération de catalogage soit terminée. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Si vous essayez de sauvegarder des disques volumineux, il est recommandé d’utiliser [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) pour la première sauvegarde (réplication initiale).  Si vous ne pouvez pas utiliser Data Box, tous les problèmes réseau temporaires qui se produisent dans votre environnement pendant des transferts de données longs sur le réseau peuvent entraîner des échecs de sauvegarde.  Pour éviter ceux-ci, vous pouvez ajouter quelques dossiers à votre sauvegarde initiale et continuer à ajouter des dossiers de manière incrémentielle jusqu’à ce que tous les dossiers soient dûment sauvegardés dans Azure.  Les sauvegardes incrémentielles suivantes seront relativement plus rapides.
+Si vous essayez de sauvegarder des disques volumineux, il est recommandé d’utiliser [Azure Data Box](./offline-backup-azure-data-box.md) pour la première sauvegarde (réplication initiale).  Si vous ne pouvez pas utiliser Data Box, tous les problèmes réseau temporaires qui se produisent dans votre environnement pendant des transferts de données longs sur le réseau peuvent entraîner des échecs de sauvegarde.  Pour éviter ceux-ci, vous pouvez ajouter quelques dossiers à votre sauvegarde initiale et continuer à ajouter des dossiers de manière incrémentielle jusqu’à ce que tous les dossiers soient dûment sauvegardés dans Azure.  Les sauvegardes incrémentielles suivantes seront relativement plus rapides.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

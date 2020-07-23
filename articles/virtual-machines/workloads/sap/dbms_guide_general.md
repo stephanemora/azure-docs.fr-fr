@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 581efde3128294a326bdfd08e622a8dcabe5784d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232653"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525464"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -66,7 +66,7 @@ Le document emploie les termes suivants :
 * **Système SAP** : combinaison d’une couche SGBD et d’une couche Application d’un système de développement SAP ERP, d’un système de test SAP Business Warehouse ou d’un système de production SAP CRM, par exemple. Dans les déploiements Azure, la séparation de ces deux couches entre les sites locaux et Azure n’est pas prise en charge. Par conséquent, un système SAP donné est déployé soit localement, soit dans Azure. Les différents systèmes d’un paysage SAP peuvent être déployés dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de développement et de test SAP CRM dans Azure, mais déployer le système de production SAP CRM en local.
 * **Entre différents locaux** : décrit un scénario dans lequel les machines virtuelles sont déployées dans un abonnement Azure qui fournit une connectivité de site à site, multisite ou Azure ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. 
 
-    La connexion a pour but d’étendre les domaines locaux, les instances locales d’Active Directory et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles, tels que les services SGBD. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario est le scénario le plus courant pour déployer des ressources SAP sur Azure. Pour plus d’informations, consultez [Planification et conception de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+    La connexion a pour but d’étendre les domaines locaux, les instances locales d’Active Directory et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles, tels que les services SGBD. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario est le scénario le plus courant pour déployer des ressources SAP sur Azure. Pour plus d’informations, consultez [Planification et conception de la passerelle VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 > [!NOTE]
 > Les déploiements entre différents locaux de systèmes SAP s’appliquent quand les machines virtuelles Azure qui exécutent des systèmes SAP font partie d’un domaine local et sont prises en charge par les systèmes SAP de production. Les configurations intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie d’un domaine et de services Active Directory/LDAP locaux même lorsque l’intégralité du paysage SAP est exécutée dans Azure. 
@@ -78,7 +78,7 @@ Le document emploie les termes suivants :
 Certaines documentations Microsoft décrivent les scénarios entre différents locaux un peu différemment, en particulier pour les configurations SGBD à haute disponibilité. Dans les documents portant sur SAP, le scénario de déploiement entre différents locaux se résume à l’établissement d’une connectivité [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privée ou de site à site et à la répartition du paysage SAP entre les sites locaux et Azure.
 
 ## <a name="resources"></a>Ressources
-D’autres articles sont disponibles sur la charge de travail SAP sur Azure. Commencez par lire [Charge de travail SAP sur Azure : bien démarrer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started), puis choisissez le domaine qui vous intéresse.
+D’autres articles sont disponibles sur la charge de travail SAP sur Azure. Commencez par lire [Charge de travail SAP sur Azure : bien démarrer](./get-started.md), puis choisissez le domaine qui vous intéresse.
 
 Les notes SAP suivantes concernent SAP sur Azure et s’appliquent au domaine traité dans ce document.
 
@@ -103,7 +103,7 @@ Les notes SAP suivantes concernent SAP sur Azure et s’appliquent au domaine tr
 
 Pour plus d’informations sur l’ensemble des notes SAP pour Linux, consultez le [Wiki de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
 
-Vous devez avoir une connaissance pratique de l’architecture Microsoft Azure ainsi que du déploiement et du fonctionnement des machines virtuelles Microsoft Azure. Pour plus d’informations, consultez la [documentation Azure](https://docs.microsoft.com/azure/).
+Vous devez avoir une connaissance pratique de l’architecture Microsoft Azure ainsi que du déploiement et du fonctionnement des machines virtuelles Microsoft Azure. Pour plus d’informations, consultez la [documentation Azure](../../../index.yml).
 
 En règle générale, les processus d’installation et de configuration sur Windows, Linux ou SGBD sont globalement les mêmes que pour une machine virtuelle ou un système nu que vous installez en local. Les décisions relatives à l’implémentation de l’architecture et de la gestion des systèmes diffèrent sur certains points lorsque vous utilisez Azure IaaS. Ce document explique les différences spécifiques de l’architecture et de la gestion des systèmes que vous devez prendre en compte quand vous utilisez Azure IaaS.
 
@@ -158,8 +158,8 @@ Comme indiqué précédemment, si vos exigences en IOPS dépassent ce qu’un se
 >
 > Seuls MDADM et LVM (Logical Volume Manager) sont pris en charge pour créer un RAID logiciel sur Linux. Pour plus d'informations, consultez les pages suivantes :
 >
-> - [Configurer un RAID logiciel sur Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid) à l’aide de MDADM
-> - [Configurer LVM sur une machine virtuelle Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm) à l’aide de LVM
+> - [Configurer un RAID logiciel sur Linux](../../linux/configure-raid.md) à l’aide de MDADM
+> - [Configurer LVM sur une machine virtuelle Linux dans Azure](../../linux/configure-lvm.md) à l’aide de LVM
 >
 >
 
@@ -170,9 +170,9 @@ Comme indiqué précédemment, si vos exigences en IOPS dépassent ce qu’un se
 >
 
 ### <a name="managed-or-nonmanaged-disks"></a>Disques managés ou non managés
-Un compte de stockage Azure est une construction administrative qui, par ailleurs, fait également l’objet de limitations. Les limitations ne sont pas les mêmes pour les comptes de stockage Standard et les comptes de stockage Premium. Pour avoir des informations sur les fonctionnalités et les limitations, consultez [Objectifs de performance et de scalabilité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
+Un compte de stockage Azure est une construction administrative qui, par ailleurs, fait également l’objet de limitations. Les limitations ne sont pas les mêmes pour les comptes de stockage Standard et les comptes de stockage Premium. Pour avoir des informations sur les fonctionnalités et les limitations, consultez [Objectifs de performance et de scalabilité du stockage Azure](../../../storage/common/scalability-targets-standard-account.md).
 
-Pour le stockage Standard, n’oubliez pas qu’il y a une limite d’IOPS par compte de stockage. Reportez-vous à la ligne **Taux de requêtes maximal** dans l’article [Objectifs de performance et de scalabilité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets). Il y a également une limite initiale du nombre de comptes de stockage par abonnement Azure. Répartissez les disques durs virtuels de l’environnement SAP le plus grand entre les différents comptes de stockage pour ne pas dépasser les limites de ces comptes. Ce travail peut s’avérer fastidieux quand vous avez des centaines de machines virtuelles avec plus d’un millier de disques durs virtuels.
+Pour le stockage Standard, n’oubliez pas qu’il y a une limite d’IOPS par compte de stockage. Reportez-vous à la ligne **Taux de requêtes maximal** dans l’article [Objectifs de performance et de scalabilité du stockage Azure](../../../storage/common/scalability-targets-standard-account.md). Il y a également une limite initiale du nombre de comptes de stockage par abonnement Azure. Répartissez les disques durs virtuels de l’environnement SAP le plus grand entre les différents comptes de stockage pour ne pas dépasser les limites de ces comptes. Ce travail peut s’avérer fastidieux quand vous avez des centaines de machines virtuelles avec plus d’un millier de disques durs virtuels.
 
 Dans la mesure où l’utilisation du stockage Standard dans les déploiements SGBD conjointement avec une charge de travail SAP n’est pas recommandée, les références et les recommandations relatives au stockage Standard se limitent à ce court [article](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
@@ -188,8 +188,8 @@ Afin d’éviter le travail d’administration lié à la planification et au d�
 
 Pour convertir des disques non managés en disques managés, consultez :
 
-- [Convertir les disques non managés d’une machine virtuelle Windows en disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks).
-- [Convertir les disques non managés d’une machine virtuelle Linux en disques managés](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks).
+- [Convertir les disques non managés d’une machine virtuelle Windows en disques managés](../../windows/convert-unmanaged-to-managed-disks.md).
+- [Convertir les disques non managés d’une machine virtuelle Linux en disques managés](../../linux/convert-unmanaged-to-managed-disks.md).
 
 
 ### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Mise en cache pour les machines virtuelles et les disques de données
@@ -221,13 +221,13 @@ Pour le stockage Premium, les options de mise en cache suivantes sont disponible
 
 Pour le stockage Premium, nous vous recommandons d’utiliser la **mise en cache de lecture pour les fichiers de données** de la base de données SAP et de choisir l’option avec laquelle **aucune mise en cache n’est effectuée pour les disques des fichiers journaux**.
 
-Dans les déploiements de machines virtuelles de série M, nous vous recommandons d’utiliser l’Accélérateur d’écriture Azure pour votre déploiement SGBD. Pour en savoir plus sur les restrictions et le déploiement de l’Accélérateur d’écriture Azure, consultez [Activer l’Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Dans les déploiements de machines virtuelles de série M, nous vous recommandons d’utiliser l’Accélérateur d’écriture Azure pour votre déploiement SGBD. Pour en savoir plus sur les restrictions et le déploiement de l’Accélérateur d’écriture Azure, consultez [Activer l’Accélérateur d’écriture](../../windows/how-to-enable-write-accelerator.md).
 
 
 ### <a name="azure-nonpersistent-disks"></a>Disques Azure non persistants
 Les machines virtuelles Azure fournissent des disques non persistants après le déploiement d’une machine virtuelle. Si une machine virtuelle est redémarrée, tout le contenu de ces disques est effacé. Il est évident que les fichiers de données, les fichiers journaux et les fichiers de restauration ne doivent en aucun cas se trouver sur ces disques. Il peut exister des exceptions pour certaines bases de données, où ces disques non persistants sont parfois appropriés pour les espaces de stockage tempdb et temp. N’utilisez pas ces disques pour des machines virtuelles de série A, car ces disques non persistants sont limités en débit avec cette famille de machines virtuelles. 
 
-Pour plus d’informations, consultez [Understand the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/), qui décrit le disque temporaire sur les machines virtuelles Windows dans Azure.
+Pour plus d’informations, consultez [Understand the temporary drive on Windows VMs in Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines), qui décrit le disque temporaire sur les machines virtuelles Windows dans Azure.
 
 ---
 > ![Windows][Logo_Windows] Windows
@@ -247,7 +247,7 @@ Pour plus d’informations, consultez [Understand the temporary drive on Windows
 ### <a name="microsoft-azure-storage-resiliency"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Résilience du Stockage Microsoft Azure
 Le stockage Microsoft Azure stocke le disque dur virtuel de base, avec le système d’exploitation et les disques ou objets blob associés, sur au moins trois nœuds de stockage distincts. Ce type de stockage est appelé stockage localement redondant (LRS). Il s’agit du type de stockage par défaut pour tous les stockages dans Azure.
 
-Il existe d’autres méthodes de redondance. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+Il existe d’autres méthodes de redondance. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
 >Le stockage Premium est le type de stockage recommandé pour les machines virtuelles et disques SGBD qui stockent des fichiers de base de données ainsi que des fichiers journaux et de restauration. Le stockage localement redondant est la seule méthode de redondance disponible pour le stockage Premium. Par conséquent, vous devez configurer les méthodes de base de données afin d’activer la réplication des données de base de données dans une autre région ou zone de disponibilité Azure. Les méthodes de base de données incluent SQL Server Always On, Oracle Data Guard et la réplication de système HANA.
@@ -259,7 +259,7 @@ Il existe d’autres méthodes de redondance. Pour plus d’informations, consul
 
 
 ## <a name="vm-node-resiliency"></a>Résilience des nœuds de machine virtuelle
-Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant généralement un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability).
+Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant généralement un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../windows/manage-availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../linux/manage-availability.md).
 
 Les recommandations minimales pour les scénarios de SGBD de production avec une charge de travail SAP sont les suivantes :
 
@@ -269,43 +269,43 @@ Les recommandations minimales pour les scénarios de SGBD de production avec une
 
 Vous pouvez aussi déployer une troisième machine virtuelle dans une autre région Azure et utiliser les mêmes méthodes de base de données pour fournir un réplica asynchrone dans une autre région Azure.
 
-Pour savoir comment configurer les groupes à haute disponibilité Azure, consultez [ce tutoriel](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+Pour savoir comment configurer les groupes à haute disponibilité Azure, consultez [ce tutoriel](../../windows/tutorial-availability-sets.md).
 
 
 
 ## <a name="azure-network-considerations"></a>Considérations relatives au réseau Azure
-Dans les déploiements SAP à grande échelle, utilisez le blueprint du [Centre de données virtuel Azure](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter). Utilisez-le pour configurer votre réseau virtuel, et attribuer les autorisations et rôles réseau appropriés aux différentes parties de votre organisation.
+Dans les déploiements SAP à grande échelle, utilisez le blueprint du [Centre de données virtuel Azure](/azure/architecture/vdc/networking-virtual-datacenter). Utilisez-le pour configurer votre réseau virtuel, et attribuer les autorisations et rôles réseau appropriés aux différentes parties de votre organisation.
 
 Ces bonnes pratiques sont le résultat de centaines de déploiements clients :
 
 - Les réseaux virtuels sur lesquels l’application SAP est déployée n’ont pas accès à Internet.
 - Les machines virtuelles de base de données s’exécutent dans le même réseau virtuel que celui de la couche Application.
 - Les machines virtuelles du réseau virtuel ont une allocation statique de l’adresse IP privée. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/public-ip-addresses.md).
-- Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont *pas* définies avec des pare-feu installés sur les machines virtuelles SGBD locales. À la place, le routage du trafic est défini avec des [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview).
+- Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont *pas* définies avec des pare-feu installés sur les machines virtuelles SGBD locales. À la place, le routage du trafic est défini avec des [groupes de sécurité réseau (NSG)](../../../virtual-network/security-overview.md).
 - Pour séparer et isoler le trafic à destination des machines virtuelles SGBD, attribuez des cartes réseau distinctes aux machines virtuelles. Chaque carte réseau obtient une adresse IP différente et est attribuée à un sous-réseau virtuel différent. Chaque sous-réseau a ses propres règles NSG. L’isolation ou la séparation du trafic réseau est une méthode de routage. Elle ne permet pas de définir des quotas de débit réseau.
 
 > [!NOTE]
-> Quand vous attribuez des adresses IP statiques dans Azure, vous devez les attribuer individuellement aux cartes réseau virtuelles. N’attribuez pas d’adresses IP statiques utilisées au sein du système d’exploitation invité à une carte réseau virtuelle. Certains services Azure, comme Sauvegarde Azure, s’appuient sur le fait qu’au moins la carte réseau virtuelle principale est configurée pour utiliser DHCP à la place d’adresses IP statiques. Pour plus d’informations, consultez [Résoudre les problèmes de sauvegarde des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Pour attribuer plusieurs adresses IP statiques à une machine virtuelle, attribuez plusieurs cartes réseau virtuelles à une machine virtuelle.
+> Quand vous attribuez des adresses IP statiques dans Azure, vous devez les attribuer individuellement aux cartes réseau virtuelles. N’attribuez pas d’adresses IP statiques utilisées au sein du système d’exploitation invité à une carte réseau virtuelle. Certains services Azure, comme Sauvegarde Azure, s’appuient sur le fait qu’au moins la carte réseau virtuelle principale est configurée pour utiliser DHCP à la place d’adresses IP statiques. Pour plus d’informations, consultez [Résoudre les problèmes de sauvegarde des machines virtuelles Azure](../../../backup/backup-azure-vms-troubleshoot.md#networking). Pour attribuer plusieurs adresses IP statiques à une machine virtuelle, attribuez plusieurs cartes réseau virtuelles à une machine virtuelle.
 >
 
 
 > [!IMPORTANT]
-> Il n’est pas possible de configurer des [appliances virtuelles réseau](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. Cette restriction est implémentée pour des raisons de performances et de fonctionnalités. Le chemin de communication entre la couche Application SAP et la couche SGBD doit être direct. La restriction n’inclut pas les [règles NSG et règles de groupe de sécurité d’application (ASG)](https://docs.microsoft.com/azure/virtual-network/security-overview) si ces règles ASG et NSG autorisent un chemin de communication direct. 
+> Il n’est pas possible de configurer des [appliances virtuelles réseau](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. Cette restriction est implémentée pour des raisons de performances et de fonctionnalités. Le chemin de communication entre la couche Application SAP et la couche SGBD doit être direct. La restriction n’inclut pas les [règles NSG et règles de groupe de sécurité d’application (ASG)](../../../virtual-network/security-overview.md) si ces règles ASG et NSG autorisent un chemin de communication direct. 
 >
 > Voici d’autres scénarios où les appliances réseau virtuelles ne sont pas prises en charge :
 >
-> * Chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).
-> * Chemins de communication entre les machines virtuelles Azure et le serveur de fichiers SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). 
+> * Chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse.md).
+> * Chemins de communication entre les machines virtuelles Azure et le serveur de fichiers SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](./sap-high-availability-guide-wsfc-file-share.md). 
 >
 > Les appliances réseau virtuelles dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication. Elles peuvent également limiter le débit dans les chemins critiques entre la couche Application SAP et la couche SGBD. Dans certains scénarios clients, les appliances réseau virtuelles sont susceptibles de provoquer des défaillances de clusters Pacemaker Linux. Cela se produit notamment si les communications entre les nœuds de cluster Linux Pacemaker communiquent avec l’appareil SBD associé par le biais d’une appliance réseau virtuelle.
 >
 
 > [!IMPORTANT]
-> Une autre conception qui n’est *pas* prise en charge est la séparation de la couche Application SAP et de la couche SGBD sur des réseaux virtuels Azure distincts qui ne sont pas [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) l’un avec l’autre. Nous vous recommandons de séparer la couche Application SAP et la couche SGBD en utilisant des sous-réseaux au sein d’un seul réseau virtuel Azure plutôt que plusieurs réseaux virtuels Azure. 
+> Une autre conception qui n’est *pas* prise en charge est la séparation de la couche Application SAP et de la couche SGBD sur des réseaux virtuels Azure distincts qui ne sont pas [appairés](../../../virtual-network/virtual-network-peering-overview.md) l’un avec l’autre. Nous vous recommandons de séparer la couche Application SAP et la couche SGBD en utilisant des sous-réseaux au sein d’un seul réseau virtuel Azure plutôt que plusieurs réseaux virtuels Azure. 
 >
-> Si vous choisissez de ne pas suivre cette recommandation et de séparer les deux couches sur des réseaux virtuels distincts, ces deux réseaux virtuels doivent être [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
+> Si vous choisissez de ne pas suivre cette recommandation et de séparer les deux couches sur des réseaux virtuels distincts, ces deux réseaux virtuels doivent être [appairés](../../../virtual-network/virtual-network-peering-overview.md). 
 >
-> N’oubliez pas que le trafic réseau entre deux réseaux virtuels Azure [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) engage des coûts de transfert. Un énorme volume de données de plusieurs téraoctets est échangé entre la couche Application SAP et la couche SGBD. Vous risquez donc de voir vos coûts augmenter de façon significative si la couche Application SAP et la couche SGBD sont séparées sur deux réseaux virtuels Azure appairés.
+> N’oubliez pas que le trafic réseau entre deux réseaux virtuels Azure [appairés](../../../virtual-network/virtual-network-peering-overview.md) engage des coûts de transfert. Un énorme volume de données de plusieurs téraoctets est échangé entre la couche Application SAP et la couche SGBD. Vous risquez donc de voir vos coûts augmenter de façon significative si la couche Application SAP et la couche SGBD sont séparées sur deux réseaux virtuels Azure appairés.
 
 Utilisez deux machines virtuelles pour le déploiement SGBD de production au sein d’un groupe à haute disponibilité Azure. Utilisez également un routage distinct pour la couche Application SAP et pour le trafic des opérations et de gestion vers les deux machines virtuelles SGBD. Consultez le graphique suivant :
 
@@ -317,7 +317,7 @@ L’emploi d’adresses IP virtuelles privées utilisées dans des fonctionnalit
 
 S’il y a basculement du nœud de base de données, la reconfiguration de l’application SAP est inutile. En fait, les architectures d’application SAP les plus courantes se reconnectent à l’adresse IP virtuelle privée. Quant à l’équilibreur de charge, il répond au basculement du nœud en redirigeant le trafic envoyé à l’adresse IP virtuelle privée vers le second nœud.
 
-Azure fournit deux [références SKU d’équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) différentes : une référence SKU de base et une référence SKU standard. À moins de vouloir effectuer un déploiement dans plusieurs zones de disponibilité Azure, la référence SKU d’équilibreur de charge de base convient parfaitement.
+Azure fournit deux [références SKU d’équilibreur de charge](../../../load-balancer/load-balancer-overview.md) différentes : une référence SKU de base et une référence SKU standard. À moins de vouloir effectuer un déploiement dans plusieurs zones de disponibilité Azure, la référence SKU d’équilibreur de charge de base convient parfaitement.
 
 Le trafic entre les machines virtuelles SGBD et la couche Application SAP est-il toujours routé via l’équilibreur de charge ? La réponse dépend de la façon dont vous configurez l’équilibreur de charge. 
 
@@ -327,7 +327,7 @@ L’équilibreur de charge propose une option de DirectServerReturn. Si cette op
 
 Nous vous recommandons de configurer DirectServerReturn en combinaison avec les équilibreurs de charge positionnés entre la couche Application SAP et la couche SGBD. Cette configuration réduit la latence du réseau entre les deux couches.
 
-Pour obtenir un exemple de cette configuration avec SQL Server Always On, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+Pour obtenir un exemple de cette configuration avec SQL Server Always On, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 Si vous utilisez des modèles JSON GitHub publiés en référence pour les déploiements de votre infrastructure SAP dans Azure, examinez ce [modèle pour un système SAP à trois niveaux](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). Ce modèle vous montre également les paramètres appropriés à utiliser pour l’équilibreur de charge.
 
@@ -341,11 +341,11 @@ Afin de réduire davantage la latence du réseau entre les machines virtuelles A
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Pour savoir comment déployer des machines virtuelles avec mise en réseau accélérée sur Windows, consultez l’article [Créer une machine virtuelle Windows avec mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+> Pour savoir comment déployer des machines virtuelles avec mise en réseau accélérée sur Windows, consultez l’article [Créer une machine virtuelle Windows avec mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-powershell.md).
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Pour plus d’informations sur la distribution Linux, consultez [Créer une machine virtuelle Linux avec mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+> Pour plus d’informations sur la distribution Linux, consultez [Créer une machine virtuelle Linux avec mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 >
 >
 
@@ -373,4 +373,3 @@ Pour plus d’informations sur un système SGBD particulier, consultez :
 - [Guide des opérations SAP HANA sur Azure](hana-vm-operations.md)
 - [Haute disponibilité de SAP HANA pour les machines virtuelles Azure](sap-hana-availability-overview.md)
 - [Guide de sauvegarde pour SAP HANA sur des machines virtuelles Azure](sap-hana-backup-guide.md)
-

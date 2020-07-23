@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518502"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -62,8 +62,8 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 |    Type de compte de stockage    |    Régions prises en charge    |    Services pris en charge    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Universel v2<sup>1</sup>    | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Afrique du Sud Nord<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2    |    Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Asie du Sud-Est<br /> Europe occidentale<br /> USA Est    |    Objets blob de blocs uniquement    |
-|    FileStorage    | Asie du Sud-Est<br /> Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
+|    BlockBlobStorage<sup>1</sup>    | Asie du Sud-Est<br /> Australie Est<br /> Europe occidentale<br /> USA Est    |    Objets blob de blocs uniquement    |
+|    FileStorage    | Asie du Sud-Est<br /> Australie Est<br /> Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
 
 <sup>1</sup> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS.<br />
 <sup>2</sup> Les comptes de stockage qui contiennent des disques managés Azure pour les machines virtuelles utilisent toujours LRS. Les disques non managés Azure doivent également utiliser LRS. Il est possible de créer un compte de stockage utilisant GRS pour les disques non managés Azure, mais cela n’est pas recommandé en raison de problèmes potentiels relatifs à la cohérence de la géoréplication asynchrone. Ni les disques managés, ni les disques non managés ne prennent en charge ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](https://azure.microsoft.com/pricing/details/managed-disks/).

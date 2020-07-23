@@ -3,12 +3,12 @@ title: Activer automatiquement la sauvegarde lors de la création de machines vi
 description: Article décrivant comment utiliser Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles créées dans une étendue donnée
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77584266"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514218"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
 
@@ -18,7 +18,7 @@ Aujourd’hui, Sauvegarde Azure fournit une stratégie intégrée (à l’aide d
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* La stratégie intégrée est actuellement prise en charge uniquement pour les machines virtuelles Azure. Les utilisateurs doivent veiller à ce que la stratégie de rétention spécifiée lors de l’attribution soit une stratégie de rétention de machine virtuelle. Reportez-vous à [ce document](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) pour voir toutes les références SKU de machines virtuelles prises en charge par cette stratégie.
+* La stratégie intégrée est actuellement prise en charge uniquement pour les machines virtuelles Azure. Les utilisateurs doivent veiller à ce que la stratégie de rétention spécifiée lors de l’attribution soit une stratégie de rétention de machine virtuelle. Reportez-vous à [ce document](./backup-azure-policy-supported-skus.md) pour voir toutes les références SKU de machines virtuelles prises en charge par cette stratégie.
 
 * La stratégie peut être attribuée à un seul emplacement et à un seul abonnement à la fois. Pour activer la sauvegarde des machines virtuelles sur plusieurs emplacements et abonnements, plusieurs instances de l’attribution de stratégie doivent être créées, une pour chaque combinaison d’emplacement et d’abonnement.
 
@@ -48,7 +48,7 @@ Pour attribuer la stratégie à l’étendue requise, suivez les étapes ci-dess
 
 > [!NOTE]
 >
-> Azure Policy peut également être utilisé sur des machines virtuelles existantes, à l’aide de la [correction](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> Azure Policy peut également être utilisé sur des machines virtuelles existantes, à l’aide de la [correction](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -56,4 +56,4 @@ Pour attribuer la stratégie à l’étendue requise, suivez les étapes ci-dess
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+[En savoir plus sur Azure Policy](../governance/policy/overview.md)

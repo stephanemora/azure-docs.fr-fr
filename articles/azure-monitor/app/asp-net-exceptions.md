@@ -3,12 +3,12 @@ title: Diagnostiquer des défaillances et exceptions avec Azure Application Insi
 description: Capturez des exceptions à partir d’applications ASP.NET, ainsi que des données de télémétrie des demandes.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892340"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517210"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
@@ -19,7 +19,7 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
   * Applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure : Ajoutez l’[extension Application Monitoring](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installez le [SDK Application Insights](../../azure-monitor/app/asp-net.md) dans votre code d’application, ou
   * Serveurs web IIS : Exécutez l’[agent Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
-  * Applications web Java : Activer [l’agent Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+  * Applications web Java : Activer [l’agent Java](./java-in-process-agent.md)
 * Installez l’[extrait de code JavaScript](../../azure-monitor/app/javascript.md) dans vos pages web pour intercepter les exceptions du navigateur.
 * Dans certains frameworks d’application ou avec certains paramètres, vous devez prendre des mesures supplémentaires pour intercepter davantage d’exceptions :
   * [Web forms](#web-forms)
@@ -28,7 +28,7 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
   * [API web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
-  Cet article se concentre spécifiquement sur les applications .NET Framework du point de vue d’un exemple de code. Certaines des méthodes qui fonctionnent pour .NET Framework sont obsolètes dans le kit SDK .NET Core. Reportez-vous à la [documentation du kit SDK .NET Core ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) si vous avez une application .NET Core.
+  Cet article se concentre spécifiquement sur les applications .NET Framework du point de vue d’un exemple de code. Certaines des méthodes qui fonctionnent pour .NET Framework sont obsolètes dans le kit SDK .NET Core. Reportez-vous à la [documentation du kit SDK .NET Core ](./asp-net-core.md) si vous avez une application .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnostic des exceptions à l’aide de Visual Studio
 Ouvrez la solution d’application dans Visual Studio pour faciliter le débogage.
@@ -214,7 +214,7 @@ Les exceptions non prises en charge provenant de contrôleurs aboutissent géné
 ### <a name="prior-versions-support"></a>Prise en charge des versions antérieures
 Si vous utilisez MVC 4 (ou une version antérieure) du Kit SDK web 2.5 d’Application Insights (ou une version antérieure), référez-vous aux exemples suivants pour effectuer le suivi des exceptions.
 
-Si la configuration de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) est `Off`, les exceptions seront alors disponibles pour être collectées par le [module HTTP](https://msdn.microsoft.com/library/ms178468.aspx). Toutefois, si elle est `RemoteOnly` (valeur par défaut), ou `On`, l'exception ne sera alors pas disponible pour être collectée automatiquement par Application Insights. Vous pouvez corriger ce phénomène en remplaçant la [classe System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx) et en appliquant la classe remplacée comme indiqué pour les différentes versions MVC ci-dessous ([source GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)) :
+Si la configuration de [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) est `Off`, les exceptions seront alors disponibles pour être collectées par le [module HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)). Toutefois, si elle est `RemoteOnly` (valeur par défaut), ou `On`, l'exception ne sera alors pas disponible pour être collectée automatiquement par Application Insights. Vous pouvez corriger ce phénomène en remplaçant la [classe System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2) et en appliquant la classe remplacée comme indiqué pour les différentes versions MVC ci-dessous ([source GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)) :
 
 ```csharp
     using System;

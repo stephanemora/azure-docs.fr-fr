@@ -3,12 +3,13 @@ title: Tableau de prise en charge de Sauvegarde Azure pour la sauvegarde de SQL 
 description: Propose un résumé des limitations et des paramètres de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234243"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513181"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Tableau de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure
 
@@ -27,7 +28,7 @@ Vous pouvez utiliser le service Sauvegarde Azure pour sauvegarder des bases de d
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 
 * La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. Nous ne prenons pas en charge l’interface CLI.
-* La solution est prise en charge pour les deux types de [déploiements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
+* La solution est prise en charge pour les deux types de [déploiements](../azure-resource-manager/management/deployment-models.md) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
 * La machine virtuelle exécutant SQL Server nécessite une connexion Internet pour accéder aux adresses IP publiques Azure.
 * L’**instance de cluster de basculement (FCI)** SQL Server n’est pas prise en charge.
 * Les opérations de sauvegarde et de restauration des bases de données miroir et des instantanés de base de données ne sont pas prises en charge.

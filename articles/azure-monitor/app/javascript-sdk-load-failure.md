@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517057"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Résolution des échecs de chargement du SDK pour les applications web JavaScript
 
@@ -63,7 +63,7 @@ Il en va de même lorsque vous utilisez le Kit de développement logiciel (SDK) 
 
 Vous pouvez également essayer d’utiliser des [packages NPM](#use-npm-packages-to-embed-the-application-insight-sdk) pour incorporer le Kit de développement logiciel (SDK) Application Insights.
 
-Pour minimiser les échecs de connectivité réseau intermittente, nous avons implémenté des en-têtes Cache-Control sur tous les fichiers CDN afin que, une fois que le navigateur de l’utilisateur final a téléchargé la version actuelle du Kit de développement logiciel (SDK), il n’ait pas besoin de la télécharger à nouveau et que le navigateur réutilise la copie précédemment obtenue (voir [le fonctionnement de la mise en cache](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). Si la vérification de la mise en cache échoue ou qu’une nouvelle version a été publiée, le navigateur de l’utilisateur final doit télécharger la version mise à jour. Vous pouvez donc constater un certain niveau de _« bruit »_ en arrière-plan dans le scénario de vérification de l’échec ou un pic temporaire lorsqu’une nouvelle version est mise à la disposition générale (déployée sur le CDN).
+Pour minimiser les échecs de connectivité réseau intermittente, nous avons implémenté des en-têtes Cache-Control sur tous les fichiers CDN afin que, une fois que le navigateur de l’utilisateur final a téléchargé la version actuelle du Kit de développement logiciel (SDK), il n’ait pas besoin de la télécharger à nouveau et que le navigateur réutilise la copie précédemment obtenue (voir [le fonctionnement de la mise en cache](../../cdn/cdn-how-caching-works.md)). Si la vérification de la mise en cache échoue ou qu’une nouvelle version a été publiée, le navigateur de l’utilisateur final doit télécharger la version mise à jour. Vous pouvez donc constater un certain niveau de _« bruit »_ en arrière-plan dans le scénario de vérification de l’échec ou un pic temporaire lorsqu’une nouvelle version est mise à la disposition générale (déployée sur le CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Panne du CDN Application Insights
 

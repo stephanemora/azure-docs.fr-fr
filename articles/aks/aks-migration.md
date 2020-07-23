@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518043"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ AKS est un service managé offrant des fonctionnalités uniques, avec un traitem
 
 Nous vous recommandons d’utiliser des clusters AKS s’appuyant sur [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) et l’équilibreur [Azure Standard Load Balancer](./load-balancer-standard.md) pour être sûr d’obtenir des fonctionnalités telles que des [pools de nœuds multiples](./use-multiple-node-pools.md), [Zones de disponibilité](../availability-zones/az-overview.md), des [plages d’adresses IP autorisées](./api-server-authorized-ip-ranges.md), la [mise à l’échelle automatique de cluster](./cluster-autoscaler.md), [Azure Policy pour AKS](../governance/policy/concepts/policy-for-kubernetes.md) et d’autres fonctionnalités inédites à mesure qu’elles sont publiées.
 
-Les clusters AKS s’appuyant sur des [groupes à haute disponibilité de machines virtuelles](../virtual-machine-scale-sets/availability.md#availability-sets) ne prennent pas en charge la plupart de ces fonctionnalités.
+Les clusters AKS s’appuyant sur des [groupes à haute disponibilité de machines virtuelles](../virtual-machines/availability.md#availability-sets) ne prennent pas en charge la plupart de ces fonctionnalités.
 
 L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il utilise un équilibreur de charge standard. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
 

@@ -3,12 +3,12 @@ title: Préparer le serveur DPM pour sauvegarder des charges de travail
 description: Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718323"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514167"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -24,7 +24,7 @@ Cet article contient :
 
 ## <a name="why-back-up-dpm-to-azure"></a>Pourquoi sauvegarder DPM sur Azure ?
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. DPM interagit avec Azure Backup comme suit :
+[System Center DPM](/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. DPM interagit avec Azure Backup comme suit :
 
 - **DPM s’exécute sur un serveur physique ou une machine virtuelle locale** : vous pouvez sauvegarder les données dans un coffre de sauvegarde dans Azure, en plus des sauvegardes sur disque et sur bande.
 - **DPM s’exécute sur une machine virtuelle Azure** : depuis System Center 2012 R2 avec Update 3 ou version ultérieure, vous pouvez déployer DPM sur une machine virtuelle Azure. Vous pouvez sauvegarder des données sur des disques Azure attachés à la machine virtuelle ou utiliser Sauvegarde Azure pour sauvegarder les données dans un coffre de sauvegarde.
@@ -43,12 +43,12 @@ DPM sur un serveur physique | System Center 2012 SP1 ou version ultérieure, S
 DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle VMware | System Center 2012 R2 avec correctif cumulatif 5 ou version ultérieure.
 Components | Windows PowerShell et .NET Framework 4.5 doivent être installés sur le serveur DPM.
-Applications prises en charge | [En savoir plus](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
+Applications prises en charge | [En savoir plus](/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
 Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegardés avec le service Sauvegarde Azure : chiffré (sauvegardes complètes uniquement), compressé (sauvegardes incrémentielles prises en charge), partiellement alloué (sauvegardes incrémentielles prises en charge), compressé et partiellement alloué (traité comme partiellement alloué).
 Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorés), flux compressés, flux partiellement alloués.
 Stockage local | Chaque machine que vous voulez sauvegarder doit disposer d’un espace de stockage d’au moins 5 % de la taille des données sauvegardées. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
 Stockage dans le coffre | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54,400 Go.
-Azure ExpressRoute | Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.<br/><br/> **Avec le peering public** : Garantissez l’accès aux domaines/adresses suivants :<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> Avec le **peering Microsoft**, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Région Microsoft Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>- Stockage Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>Pour plus d’informations, consultez [Exigences du routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Remarque** : Le peering public est déprécié pour les nouveaux circuits.
+Azure ExpressRoute | Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.<br/><br/> **Avec le peering public** : Garantissez l’accès aux domaines/adresses suivants :<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> Avec le **peering Microsoft**, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Région Microsoft Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>- Stockage Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Remarque** : Le peering public est déprécié pour les nouveaux circuits.
 Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu.
 
 Avant de commencer, vous devez disposer d’un compte Azure avec la fonctionnalité Sauvegarde Azure activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -61,7 +61,7 @@ Vous pouvez choisir entre le stockage géoredondant et le stockage localement re
 
 - Par défaut, votre archivage utilise un stockage géo-redondant.
 - Si vous utilisez Azure comme sauvegarde principale, conservez l’option de stockage géoredondant. Si vous souhaitez une option plus économique, mais moins durable, suivez la procédure ci-dessous pour configurer le stockage localement redondant.
-- Pour en savoir plus sur le [stockage Azure](../storage/common/storage-redundancy.md) et les options de stockage [géoredondant](../storage/common/storage-redundancy-grs.md) et [localement redondant](../storage/common/storage-redundancy-lrs.md).
+- Pour en savoir plus sur le [stockage Azure](../storage/common/storage-redundancy.md) et les options de stockage [géoredondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md).
 - Modifiez les paramètres de stockage avant la sauvegarde initiale. Si vous avez déjà sauvegardé un élément, arrêtez la sauvegarde dans le coffre avant de modifier les paramètres de stockage.
 
 Pour modifier le paramètre de réplication du stockage :
@@ -165,7 +165,7 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
 
 7. Cliquez sur **Inscrire** pour inscrire le serveur DPM dans le coffre.
 
-Une fois le serveur correctement inscrit dans l’archivage, vous êtes prêt à démarrer la sauvegarde dans Microsoft Azure. Vous devez configurer le groupe de protection dans la console DPM pour sauvegarder les charges de travail dans Azure. [Découvrez comment](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) déployer des groupes de protection.
+Une fois le serveur correctement inscrit dans l’archivage, vous êtes prêt à démarrer la sauvegarde dans Microsoft Azure. Vous devez configurer le groupe de protection dans la console DPM pour sauvegarder les charges de travail dans Azure. [Découvrez comment](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) déployer des groupes de protection.
 
 ## <a name="troubleshoot-vault-credentials"></a>Résoudre les problèmes d’informations d’identification de coffre
 
