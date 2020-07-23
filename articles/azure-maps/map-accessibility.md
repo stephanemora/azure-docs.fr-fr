@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648578"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242370"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -46,6 +46,7 @@ Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotat
 - Quand le focus est placé sur la carte, utilisez le signe moins, le trait d’union (`-`) ou le trait de soulignement (`_`) pour faire un zoom arrière d’un niveau.
 - Utilisez le contrôle de zoom avec une souris, une interaction tactile ou les touches Tab/Entrée du clavier.
 - Maintenez le bouton `Shift` enfoncé et appuyez sur la carte à l’aide du bouton gauche de la souris, puis faites glisser pour dessiner une zone dans laquelle faire un zoom sur la carte.
+- En utilisant des pavés tactiles multipoints, faites glisser deux doigts vers le haut pour effectuer un zoom arrière, ou vers le bas pour effectuer un zoom avant.
 
 **Effectuer un panoramique sur la carte**
 

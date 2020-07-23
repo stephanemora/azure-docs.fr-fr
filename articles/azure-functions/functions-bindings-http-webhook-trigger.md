@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833789"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224092"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -801,7 +801,7 @@ Dans la version 1.x, les modèles de webhook offrent une validation supplémenta
 
 Pour répondre aux webhooks GitHub, commencez par créer votre fonction avec un déclencheur HTTP, puis définissez la propriété **webHookType** sur `github`. Ensuite, copiez son URL et sa clé API dans la page **Ajouter un Webhook** de votre dépôt GitHub. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Capture d’écran montrant comment ajouter un webhook pour votre fonction.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="slack-webhooks"></a>Webhooks Slack
 

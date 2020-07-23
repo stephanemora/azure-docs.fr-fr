@@ -8,14 +8,17 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d017472715e8fe924a11080fc837ac837f5bd48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982150"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245289"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence AML dans un pipeline d’enrichissement Recherche cognitive Azure
+
+> [!IMPORTANT] 
+> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le SDK .NET n’est actuellement pas pris en charge.
 
 La compétence **AML** vous permet d’étendre l’enrichissement par IA à l’aide d’un modèle [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AML) personnalisé. Une fois qu’un modèle AML est [formé et déployé](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow), une compétence **AML** l’intègre dans l’enrichissement par IA.
 

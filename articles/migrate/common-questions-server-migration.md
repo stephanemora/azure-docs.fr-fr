@@ -3,12 +3,12 @@ title: Questions courantes sur la migration de serveur Azure Migrate
 description: Obtenez des réponses aux questions courantes sur l’utilisation d’Azure Migrate Server Migration pour migrer des machines.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744326"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224126"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
@@ -66,6 +66,9 @@ Non. Les Zones de disponibilité Azure ne sont pas prises en charge pour la migr
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Quel protocole de transport Azure Migrate utilise-t-il pendant la réplication ?
 
 Azure Migrate utilise le protocole NBD (Network Block Device) avec chiffrement TLS.
+
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Comment les données sont-elles transmises de l’environnement local à Azure ? Sont-elles chiffrées avant la transmission ? 
+Dans le cas de la réplication sans agent, l’appliance Azure Migrate compresse les données et les chiffre avant le chargement. Les données sont transmises via un canal de communication sécurisé sur HTTPS et utilisent TLS 1.2 ou une version ultérieure. De plus, le Stockage Azure chiffre automatiquement vos données quand elles sont conservées dans le cloud (chiffrement au repos).  
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Quelle est la version minimale de vCenter Server requise pour la migration ?
 

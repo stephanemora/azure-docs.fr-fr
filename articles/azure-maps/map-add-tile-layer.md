@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988598"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242302"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Ajouter une couche de mosaïques à une carte
 
@@ -37,6 +37,7 @@ L’URL de la mosaïque transmise à une couche de mosaïques doit être l’URL
 * `{quadkey}` - identificateur quadkey de la mosaïque basé sur la convention de nommage du système de mosaïques de Bing Maps.
 * `{bbox-epsg-3857}` - chaîne de rectangle englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 * `{subdomain}` - espace réservé pour les valeurs de sous-domaine ; si spécifié, le `subdomain` sera ajouté.
+* `{azMapsDomain}` - espace réservé pour aligner le domaine et l’authentification des demandes de vignette avec les mêmes valeurs que celles utilisées par la carte.
 
 ## <a name="add-a-tile-layer"></a>Ajouter un calque de vignettes
 

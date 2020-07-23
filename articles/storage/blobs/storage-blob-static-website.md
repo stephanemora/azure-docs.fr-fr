@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833344"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203389"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -76,13 +76,15 @@ Vous pouvez modifier le niveau d’accès public du conteneur **$web**, mais cel
 
 La capture d’écran suivante montre la définition du niveau d’accès public dans le portail Azure :
 
-![Capture d’écran illustrant la façon de définir le niveau d’accès public dans le portail](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Capture d’écran illustrant la façon de définir le niveau d’accès public dans le portail](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Si le point de terminaison principal du site web statique n’est pas affecté, en revanche, une modification du niveau d’accès public a bien une incidence sur le point de terminaison principal du service Blob.
 
 Par exemple, si vous modifiez le niveau d’accès public du conteneur **$web** en le passant de **Privé (aucun accès anonyme)** à **Blob (accès en lecture anonyme pour les objets Blob uniquement)** , le niveau d’accès public au point de terminaison principal du site web statique `https://contosoblobaccount.z22.web.core.windows.net/index.html` ne change pas.
 
 Toutefois, l’accès public au point de terminaison principal du service Blob `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passe, lui, de privé à public. Désormais, les utilisateurs peuvent ouvrir ce fichier à l’aide, au choix, d’un de ces deux points de terminaison.
+
+La désactivation de l’accès public sur un compte de stockage n’affecte pas les sites web statiques hébergés dans ce compte de stockage. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md) (Configurer l’accès en lecture publique anonyme pour les conteneurs et les objets blob).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappage d’un domaine personnalisé à une URL de site web statique
 

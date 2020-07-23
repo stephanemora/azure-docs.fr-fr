@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273776"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
@@ -19,7 +19,7 @@ Pour accéder à la page **Fournisseurs de services** sur le portail Azure, le c
 > [!NOTE]
 > Pour afficher la page **Fournisseurs de services**, un utilisateur du locataire du client doit disposer du [rôle intégré Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou d’un autre rôle intégré qui comprend l’accès en lecture).
 >
-> Pour ajouter des offres, déléguer des ressources et supprimer des offres, l’utilisateur doit disposer du [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement.
+> Pour ajouter ou mettre à jour des offres, déléguer des ressources et supprimer des offres, l’utilisateur doit disposer du [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement.
 
 N’oubliez pas que la page **Fournisseurs de services** affiche des informations uniquement sur les fournisseurs de services qui ont accès aux abonnements ou aux groupes de ressources du client via Azure Lighthouse. Si un client travaille avec des fournisseurs de services supplémentaires qui n’utilisent pas Azure Lighthouse pour accéder aux ressources du client, les informations sur ces fournisseurs de services n’apparaissent pas ici.
 

@@ -1,5 +1,5 @@
 ---
-title: Description des rôles et des autorisations des administrateurs - Azure AD | Microsoft Docs
+title: Description des rôles et des autorisations d’Azure AD - Azure Active Directory | Microsoft Docs
 description: Le rôle de l’administrateur peut servir à ajouter des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/29/2020
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e648058e866be57deaf8dd159c89fc08141b68
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd0d17732991fd97b2406c9c5f182408f4746d96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166669"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223871"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -42,6 +42,11 @@ Il est possible qu’un ou plusieurs rôles aient été ajoutés à Azure AD pou
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
 
 Pour découvrir comment attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory, consultez l’article [Afficher et attribuer des rôles d’administrateur dans Azure Active Directory](directory-manage-roles-portal.md).
+
+> [!Note]
+> Si vous disposez d’une licence Azure AD Premium P2 et que vous êtes déjà un utilisateur Privileged Identity Management (PIM), toutes les tâches de gestion des rôles sont effectuées dans PIM et non dans Azure AD.
+>
+> ![Rôles Azure AD gérés dans PIM pour les utilisateurs qui utilisent déjà PIM et qui disposent d’une licence Premium P2](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="available-roles"></a>Rôles disponibles
 
@@ -180,6 +185,7 @@ Ce rôle peut uniquement être attribué comme administrateur local supplémenta
 ### <a name="directory-readers"></a>[Lecteurs de répertoire](#directory-readers-permissions)
 
 Les utilisateurs de ce rôle peuvent lire des informations de base relatives aux répertoires. Ce rôle doit être utilisé pour :
+
 * Accorder à un ensemble spécifique d’utilisateurs invités un accès en lecture au lieu de l’accorder à tous les utilisateurs invités.
 * Accorder à un ensemble spécifique d’utilisateurs non-administrateurs l’accès au portail Azure quand l’option « Restreindre l’accès au portail Azure AD aux seuls administrateurs » a la valeur « Oui ».
 * Accorder un accès aux principaux de service au répertoire quand Directory.Read.All n’est pas possible.
@@ -309,6 +315,7 @@ Les utilisateurs dotés de ce rôle peuvent superviser toutes les notifications 
 Les utilisateurs dans ce rôle peuvent superviser les notifications et les mises à jour d’avis d’intégrité dans le [Centre de messages Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) pour leur organisation sur les services configurés comme Exchange, Intune et Microsoft Teams. Les lecteurs du Centre de messages reçoivent par e-mail des résumés hebdomadaires des publications, mises à jour, et peuvent partager les messages publiés sur le Centre de messages dans Office 365. Dans Azure AD, les utilisateurs affectés à ce rôle disposeront d’un accès en lecture seule aux services Azure AD comme les utilisateurs et les groupes. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
 
 ### <a name="modern-commerce-administrator"></a>[Administrateur de Commerce moderne](#modern-commerce-administrator-permissions)
+
 Ne pas utiliser. Ce rôle est attribué automatiquement à partir de Commerce, et n’est ni prévu, ni pris en charge pour toute autre utilisation. Consultez les détails ci-dessous.
 
 Le rôle Administrateur de Commerce moderne donne à certains utilisateurs l’autorisation d’accéder au Centre d’administration Microsoft 365 et de consulter les entrées de navigation de gauche pour **Hébergement**, **Facturation** et **Support**. Le contenu disponible dans ces zones est contrôlé par des [rôles spécifiques du commerce](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) attribués aux utilisateurs pour gérer des produits qu’ils ont achetés pour eux-mêmes ou votre organisation. Cela peut inclure des tâches telles que le paiement de factures, ou l’accès à des comptes de facturation et à des profils de facturation. 
@@ -316,17 +323,17 @@ Le rôle Administrateur de Commerce moderne donne à certains utilisateurs l’a
 Les utilisateurs ayant le rôle Administrateur de Commerce moderne disposent généralement d’autorisations d’administration dans d’autres systèmes d’achat Microsoft, mais ne disposent pas des rôles Administrateur général ou Administrateur de facturation utilisés pour accéder au Centre d’administration. 
 
 **Quand le rôle Administrateur de Commerce moderne est-il attribué ?**
+
 * **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Administrateur de Commerce moderne afin de pouvoir gérer leurs achats dans le Centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de marché Azure, le rôle Administrateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
-* **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Lorsque la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Administrateur de Commerce moderne pour accéder au Centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce. 
+* **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de marché Azure, le rôle Administrateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Lorsque la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Administrateur de Commerce moderne pour accéder au Centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce.
 * **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas un Administrateur général ou un Administrateur de facturation, il obtient le rôle Administrateur de Commerce moderne qui lui permet d’accéder au Centre d’administration.  
 
-En cas de suppression de l’attribution du rôle Administrateur de Commerce moderne à un utilisateur, celui-ci perd son accès au Centre d’administration Microsoft 365. S’il gérait des produits pour lui-même ou pour votre organisation, ils ne peut plus les gérer. Cette gestion peut inclure l’attribution de licences, la modification de modes de paiement, le paiement de factures ou d’autres tâches d’administration des abonnements. 
+En cas de suppression de l’attribution du rôle Administrateur de Commerce moderne à un utilisateur, celui-ci perd son accès au Centre d’administration Microsoft 365. S’il gérait des produits pour lui-même ou pour votre organisation, ils ne peut plus les gérer. Cette gestion peut inclure l’attribution de licences, la modification de modes de paiement, le paiement de factures ou d’autres tâches d’administration des abonnements.
 
 ### <a name="network-administrator"></a>[Administrateur réseau](#network-administrator-permissions)
 
-Les utilisateurs de ce rôle peuvent passer en revue les recommandations de Microsoft relatives à l’architecture du périmètre réseau basées sur la télémétrie du réseau à partir de leur emplacement utilisateur. Les performances réseau pour Office 365 s’appuient sur une architecture de périmètre de réseau client entreprise soigneuse, qui est généralement spécifique de l’emplacement de l’utilisateur. Ce rôle permet de modifier les emplacements utilisateur découverts et la configuration des paramètres réseau pour ces emplacements afin de faciliter les mesures de télémétrie et les recommandations de conception améliorées. 
-
+Les utilisateurs de ce rôle peuvent passer en revue les recommandations de Microsoft relatives à l’architecture du périmètre réseau basées sur la télémétrie du réseau à partir de leur emplacement utilisateur. Les performances réseau pour Office 365 s’appuient sur une architecture de périmètre de réseau client entreprise soigneuse, qui est généralement spécifique de l’emplacement de l’utilisateur. Ce rôle permet de modifier les emplacements utilisateur découverts et la configuration des paramètres réseau pour ces emplacements afin de faciliter les mesures de télémétrie et les suggestions de conception améliorées
 ### <a name="office-apps-administrator"></a>[Administrateur d’applications Office](#office-apps-administrator-permissions)
 
 Les utilisateurs de ce rôle peuvent gérer les paramètres cloud des applications Office 365. Cela comprend la gestion des stratégies cloud, la gestion du téléchargement en libre-service et la possibilité d’afficher des rapports relatifs aux applications Office. Ce rôle accorde en outre la possibilité de gérer les tickets de support et de surveiller l’intégrité du service au sein du centre d’administration principal. Les utilisateurs affectés à ce rôle peuvent également gérer la communication de nouvelles fonctionnalités dans les applications Office. 
@@ -487,13 +494,13 @@ Les utilisateurs dans ce rôle peuvent gérer tous les aspects de la charge de t
 
 ### <a name="user-administrator"></a>[Administrateur d’utilisateurs](#user-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir ci-dessous) et mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Les administrateurs d’utilisateurs n’ont pas l’autorisation de gérer certaines propriétés utilisateur pour les utilisateurs affectés à des rôles d’administrateur. L’utilisateur ayant ce rôle n’est pas autorisé à gérer l’authentification multifacteur. Les rôles qui sont des exceptions à cette restriction sont listés dans le tableau suivant.
+Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir le tableau) et mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Les administrateurs d’utilisateurs n’ont pas l’autorisation de gérer certaines propriétés utilisateur pour les utilisateurs affectés à des rôles d’administrateur. L’utilisateur ayant ce rôle n’est pas autorisé à gérer l’authentification multifacteur. Les rôles qui sont des exceptions à cette restriction sont listés dans le tableau suivant.
 
-| Autorisation | Peut |
+| **Permission** | **Peut** |
 | --- | --- |
 |Autorisations générales|<p>Créer des utilisateurs et des groupes</p><p>Créer et gérer des vues utilisateur</p><p>Gérer les tickets de support Office<p>Mettre à jour les stratégies d’expiration de mot de passe|
-|<p>Tous les utilisateurs, notamment les administrateurs</p>|<p>Gérer les licences</p><p>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal</p>
-|Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>|
+| <p>Tous les utilisateurs, notamment les administrateurs</p>|<p>Gérer les licences</p><p>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal</p>
+| Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>|
 
 > [!IMPORTANT]
 > Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :

@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 07/08/2020
 ms.author: alkohli
-ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558541"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200131"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
 
-Cet article fournit des informations détaillées sur la résolution de problèmes que vous pouvez rencontrer lors de l’utilisation d’Azure Data Box ou d’Azure Data Box Heavy. Il inclut la liste des erreurs possibles quand des données sont copiées vers Data Box ou quand des données sont chargées à partir de Data Box.
+Cet article fournit des informations détaillées sur la résolution des problèmes que vous pouvez rencontrer lors de l’utilisation d’Azure Data Box ou d’Azure Data Box Heavy pour les commandes d’importation. Il inclut la liste des erreurs possibles quand des données sont copiées vers Data Box ou quand des données sont chargées à partir de Data Box pour une commande d’importation.
+
+Les informations contenues dans cet article ne s’appliquent pas aux ordres d’exportation créés pour Data Box.
 
 ## <a name="error-classes"></a>Classes d’erreur
 

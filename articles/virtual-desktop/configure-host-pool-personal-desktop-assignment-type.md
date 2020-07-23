@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 158ac92a930b53e02ee81570c62711ca27dc4ae8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200390"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260811"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurer le type d’affectation d’un pool hôte de bureau personnel
 
@@ -72,11 +72,26 @@ Pour affecter un utilisateur à un hôte de session spécifique, exécutez la cm
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
+Pour affecter directement un utilisateur à un hôte de session dans le portail Azure :
+
+1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
+2. Entrez **Windows Virtual Desktop** dans la barre de recherche.
+3. Sous **Services**, sélectionnez **Windows Virtual Desktop**.
+4. Dans la page Windows Virtual Desktop, accédez au menu sur le côté gauche de la fenêtre, puis sélectionnez **Pools d’hôtes**.
+5. Sélectionnez le nom du pool d’hôtes que vous souhaitez mettre à jour.
+6. Ensuite, accédez au menu sur le côté gauche de la fenêtre et sélectionnez **Groupes d’applications**.
+7. Sélectionnez le nom du groupe d’applications de bureau que vous souhaitez modifier, puis sélectionnez **Affectations** dans le menu situé à gauche de la fenêtre.
+8. Sélectionnez **+ Ajouter**, puis sélectionnez les utilisateurs ou les groupes d’utilisateurs sur lesquels vous souhaitez publier ce groupe d’applications de bureau.
+9. Sélectionnez **Affecter une machine virtuelle** dans la barre d’informations pour attribuer un hôte de session à un utilisateur.
+10. Sélectionnez l’hôte de session que vous souhaitez attribuer à l’utilisateur, puis sélectionnez **Affecter**.
+11. Sélectionnez l’utilisateur auquel vous souhaitez attribuer l’hôte de session dans la liste des utilisateurs disponibles.
+12. Quand vous avez terminé, sélectionnez **Sélectionner**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez configuré le type d’affectation de bureau personnel, connectez-vous à un client Windows Virtual Desktop pour le tester dans le cadre d’une session utilisateur. Les deux guides pratiques suivants indiquent comment se connecter à une session à l’aide du client choisi :
 
-- [Se connecter avec le client Windows Desktop](connect-windows-7-and-10.md)
+- [Se connecter avec le client Windows Desktop](connect-windows-7-10.md)
 - [Se connecter avec le client web](connect-web.md)
 - [Se connecter avec le client Android](connect-android.md)
 - [Se connecter avec le client iOS](connect-ios.md)

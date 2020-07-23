@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463720"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224891"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Activer et gérer la suppression réversible pour les blobs
 
@@ -40,31 +40,31 @@ Activez la suppression réversible pour blob sur votre compte de stockage à l�
 
 5. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de protection des données
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Capture d’écran du portail Azure avec le service Blob de protection des données sélectionné.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Pour afficher les objets blob supprimés de manière réversible, activez la case à cocher **Afficher les objets blob supprimés**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Capture d’écran de la page du service Blob de protection des données avec l’option Afficher les objets blob supprimés mise en évidence.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Pour afficher les instantanés d’objets blob supprimés de manière réversible pour un objet blob donné, sélectionnez celui-ci, puis cliquez sur **Afficher les instantanés**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Capture d’écran de la page du service Blob de protection des données avec l’option Afficher les instantanés mise en évidence.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Assurez-vous que la case à cocher **Afficher les instantanés supprimés** est activée.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Capture d’écran de la page Afficher les instantanés avec l’option Afficher les objets blob supprimés mise en évidence.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Lorsque vous cliquez sur un blob ou un instantané d’objet blob supprimés de manière réversible, notez les nouvelles propriétés de l’objet blob. Elles indiquent quand l’objet a été supprimé, et le nombre de jours restants avant l’expiration définitive de l’objet blob ou de l’instantané d’objet blob. Si l’objet supprimé de manière réversible n’est pas un instantané, vous avez également la possibilité d’annuler sa suppression.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Capture d’écran des détails d’un objet supprimé de manière réversible.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 N’oubliez pas que l’annulation de la suppression d’un objet blob a également pour effet d’annuler la suppression de tous les instantanés associés. Pour annuler la suppression des instantanés d’objets blob supprimés de manière réversible pour un objet blob actif, cliquez sur celui-ci, puis sélectionnez **Annuler la suppression de tous les instantanés**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Capture d’écran des détails d’un objet blob supprimé de manière réversible.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Après avoir annulé la suppression d’instantanés d’un objet blob, vous pouvez cliquer sur **Promouvoir** pour copier un instantané sur la racine du blob, ce qui a pour effet de restaurer l’objet blob à son instantané.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Capture d’écran de la page Afficher les instantanés avec l’option Promouvoir mise en évidence.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

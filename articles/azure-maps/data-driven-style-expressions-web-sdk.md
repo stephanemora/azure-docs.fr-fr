@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 79f1188665208ec95e5d1d855d2247858e98653c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaf974eca4b307fc122cf0ee5fdb0ddbcf75088a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561646"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242608"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -410,7 +410,7 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 | `['typeof', value]` | string | Retourne une chaîne décrivant le type de la valeur donnée. |
 
 > [!TIP]
-> Si un message d’erreur semblable à `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` s’affiche dans la console du navigateur, alors cela signifie qu’il existe, quelque part dans votre code, une expression comportant un tableau qui n’a pas de chaîne pour sa première valeur. Si vous voulez que l’expression retourne un tableau, wrappez le tableau avec l’expression `literal`. L’exemple suivant définit l’option d’icône `offset` d’une couche de symboles, qui doit être un tableau contenant deux nombres, à l’aide d’une expression `match` permettant de choisir entre deux valeurs de décalage en fonction de la valeur de la propriété `entityType` de la fonctionnalité de point.
+> Si un message d’erreur semblable à `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` s’affiche dans la console du navigateur, cela signifie qu’il existe quelque part dans votre code une expression comportant un tableau qui n’a pas de chaîne pour sa première valeur. Si vous voulez que l’expression retourne un tableau, wrappez le tableau avec l’expression `literal`. L’exemple suivant définit l’option d’icône `offset` d’une couche de symboles, qui doit être un tableau contenant deux nombres, à l’aide d’une expression `match` permettant de choisir entre deux valeurs de décalage en fonction de la valeur de la propriété `entityType` de la fonctionnalité de point.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -779,7 +779,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency’: 'USD' }
+            { ‘currency': 'USD' }
         ],
 
         offset: [0, 0.75]

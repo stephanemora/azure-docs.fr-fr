@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683942"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223582"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -195,3 +195,5 @@ Vous pouvez créer une machine virtuelle à partir d’une galerie d’images pa
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [chiffrement de disque côté serveur](./windows/disk-encryption.md).
+
+Pour savoir comment fournir des informations sur le plan d'achat, consultez [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md) (Donner des informations sur le plan d'achat de la place de marché Azure lors de la création d’images).

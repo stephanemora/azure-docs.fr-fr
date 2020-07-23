@@ -1,5 +1,5 @@
 ---
-title: Assigner des rôles d’annuaire à des utilisateurs - Azure Active Directory | Microsoft Docs
+title: Attribuer des rôles Azure AD aux utilisateurs - Azure Active Directory | Microsoft Docs
 description: Instructions sur l’attribution de rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -8,35 +8,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 06/15/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5dc42d8308b8e20a647f5f64867fd78a1a09c96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604112"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224005"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
-Si un utilisateur de votre organisation a besoin d’une autorisation pour gérer les ressources Azure Active Directory (Azure AD), vous devez assigner un rôle approprié à l’utilisateur dans Azure AD en fonction des actions qu’il souhaite effectuer et pour lesquelles il a besoin d’une permission.
 
-Pour plus d’informations sur les rôles disponibles, consultez [Assigner des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Pour plus d’informations sur l’ajout d’utilisateurs, consultez [Ajouter de nouveaux utilisateurs à Azure Active Directory](add-users-azure-active-directory.md).
+Dans Azure Active Directory (Azure AD), si l’un de vos utilisateurs a besoin de l’autorisation de gérer les ressources Azure AD, vous devez l’assigner à un rôle qui fournit les autorisations nécessaires. Pour plus d’informations sur les rôles qui gèrent les ressources Azure et sur les rôles qui gèrent les ressources Azure AD, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Pour plus d’informations sur les rôles Azure AD disponibles, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Pour ajouter des utilisateurs, consultez [Ajouter de nouveaux utilisateurs à Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Attribuer des rôles
-Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve sur la page **Rôle d’annuaire** d’un utilisateur.
 
-Vous pouvez également assigner des rôles à l’aide de Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve dans la page **Rôles affectés** d’un utilisateur. Vous pouvez également disposer du droit d’être promu juste-à-temps dans un rôle avec Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
-### <a name="to-assign-a-role-to-a-user"></a>Assigner un rôle à un utilisateur
-1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous à l’aide d’un compte d’administrateur général pour le répertoire. 
+> [!Note]
+> Si vous disposez d’un plan de licences Azure AD Premium P2 et que vous utilisez déjà PIM, toutes les tâches de gestion des rôles sont effectuées dans l’[expérience Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md).
+>
+> ![Rôles Azure AD gérés dans PIM pour les utilisateurs qui se servent déjà de PIM et qui disposent d’une licence Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+
+## <a name="assign-a-role-to-a-user"></a>Affecter un rôle à un utilisateur
+
+1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous à l’aide d’un compte d’administrateur général pour l’annuaire.
 
 2. Recherchez et sélectionnez **Azure Active Directory**.
 
       ![Recherche dans le portail Azure d'Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
-
 
 3. Sélectionnez **Utilisateurs**.
 
@@ -46,16 +51,17 @@ Vous pouvez également assigner des rôles à l’aide de Privileged Identity Ma
 
 5. Sur la page **Alain Charon - Profil**, sélectionnez **Rôles affectés**.
 
-    La page **Alain Charon - Rôle d’annuaire** s’affiche.
+    La page **Alain Charon - Rôles d’administration** s’affiche.
 
-6. Sélectionnez **Ajouter une affectation**. Ensuite, sélectionnez le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
+6. Sélectionnez **Ajouter des attributions**, le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
 
     ![Page Rôles affectés, affichant le rôle sélectionné](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    Le rôle Administrateur d’application est assigné à Alain Charon et il apparaît sur la page **Alain Charon - Rôle d’annuaire**.
+    Le rôle Administrateur d’application est assigné à Alain Charon et il apparaît dans la page **Alain Charon - Rôles d’administration**.
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
-Si vous devez supprimer l’attribution de rôle d’un utilisateur, vous pouvez également le faire à partir de la page **Alain Charon - Rôle d’annuaire**.
+
+Si vous devez supprimer l’attribution de rôle d’un utilisateur, vous pouvez également le faire à partir de la page **Alain Charon - Rôles d’administration**.
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>Pour supprimer une attribution de rôle d’un utilisateur
 
@@ -65,15 +71,14 @@ Si vous devez supprimer l’attribution de rôle d’un utilisateur, vous pouvez
 
     ![Page Rôles affectés, affichant le rôle sélectionné et l’option Supprimer](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    Le rôle Administrateur d’application d’Alain Charon est supprimé et il n’apparaît plus sur la page **Alain Charon - Rôle d’annuaire**.
+    Le rôle Administrateur d’application d’Alain Charon est supprimé et il n’apparaît plus dans la page **Alain Charon - Rôles d’administration**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - [Ajouter ou supprimer des utilisateurs](add-users-azure-active-directory.md)
 
 - [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)
 
 - [Ajouter des utilisateurs invités à partir d’un autre répertoire](../b2b/what-is-b2b.md)
 
-Vous pouvez également réaliser d’autres tâches de gestion d’utilisateur, comme l’affectation de délégués, l’utilisation de stratégies et le partage de comptes d’utilisateur. Pour en savoir plus sur les autres actions disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
-
-
+Vous pouvez consulter d’autres tâches de gestion des utilisateurs disponibles dans [Documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).

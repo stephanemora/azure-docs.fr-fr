@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111340"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224058"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Pare-feu d’applications web Azure et Azure Policy
 
@@ -38,10 +38,12 @@ Il existe plusieurs stratégies Azure intégrées pour gérer les ressources WAF
 
 2.  Dans le service de la stratégie Azure, sous **Création**, sélectionnez **Affectations**.
 
+[!div class="mx-imgBorder"]
 ![Pare-feu d’applications web (WAF) d’Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  Sur la page « Affectations », sélectionnez l’icône **Attribuer une stratégie** en haut.
 
+[!div class="mx-imgBorder"]
 ![Pare-feu d’applications web (WAF) d’Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  Dans l’onglet « Informations de base » de la page « Attribuer une stratégie », mettez à jour les champs suivants :
@@ -49,6 +51,7 @@ Il existe plusieurs stratégies Azure intégrées pour gérer les ressources WAF
     2.  **Exclusions** : Sélectionner toutes les ressources de l’étendue à exclure de la stratégie 
     3.  **Définition de la stratégie** : Sélectionnez la stratégie Azure à appliquer à l’étendue avec des exclusions. Tapez « pare-feu d’applications web » dans la barre de recherche pour choisir la stratégie Azure du pare-feu d’applications Web appropriée.
 
+[!div class="mx-imgBorder"]
 ![Pare-feu d’applications web (WAF) d’Azure](../media/waf-azure-policy/policy-listing.png)
 
 

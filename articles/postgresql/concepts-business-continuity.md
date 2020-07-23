@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981931"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245302"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -52,6 +52,11 @@ La fonctionnalité de géorestauration permet de restaurer le serveur à l’aid
 
 ## <a name="cross-region-read-replicas"></a>Réplicas en lecture inter-régions
 Vous pouvez utiliser des réplicas en lecture inter-régions pour améliorer la planification de la continuité d’activité et de la reprise d’activité. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication physique de PostgreSQL. Pour plus d’informations sur les réplicas en lecture, les régions disponibles et le basculement, consultez cet [article sur les concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Questions fréquentes (FAQ)
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Où Azure Database pour PostgreSQL stocke-t-il les données client ?
+Par défaut, Azure Database pour PostgreSQL ne déplace pas ou ne stocke pas les données client en dehors de la région dans laquelle elles sont déployées. Toutefois, les clients peuvent éventuellement choisir d’activer les [sauvegardes géoredondantes](concepts-backup.md#backup-redundancy-options) ou de créer un [réplica en lecture sur plusieurs régions](concepts-read-replicas.md#cross-region-replication) pour le stockage des données dans une autre région.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les sauvegardes automatisées, consultez [Sauvegardes dans Azure Database pour PostgreSQL](concepts-backup.md). 

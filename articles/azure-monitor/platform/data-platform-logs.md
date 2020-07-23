@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83799974"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200890"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -39,13 +39,13 @@ Un événement est un type courant d’entrée de journal collectée de façon s
 Le tableau suivant répertorie les différentes façons d’utiliser des journaux dans Azure Monitor.
 
 
-|  |  |
+|  | Description |
 |:---|:---|
-| Analyser | Utiliser [Log Analytics](../log-query/get-started-portal.md) sur le portail Azure pour écrire des [requêtes de journal](../log-query/log-query-overview.md) et analyser de manière interactive des données de journal à l’aide du puissant moteur d’analyse Explorateur de données.<br>Utiliser la [console analytique d’Application Insights](../app/analytics.md) sur le portail Azure pour écrire des requêtes de journal et analyser les données de journal d’Application Insights de manière interactive. |
-| Visualisation | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../platform/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.<br>Exporter les résultats d’une requête vers [Grafana](grafana-plugin.md) afin de profiter de ses tableaux de bord et de les combiner avec d’autres sources de données.|
-| Alerte | Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.<br>Configurer une [règle d’alerte de métrique](alerts-metric-logs.md) sur certains journaux de données de journal extraits en tant que métriques. |
-| Récupération | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide d’[Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide d’une [API REST](https://dev.loganalytics.io/). |
-| Exporter | Générer un flux de travail pour récupérer des données de journal et les copier vers un emplacement externe à l’aide de [Logic Apps](~/articles/logic-apps/index.yml). |
+| **Analyser** | Utiliser [Log Analytics](../log-query/get-started-portal.md) sur le portail Azure pour écrire des [requêtes de journal](../log-query/log-query-overview.md) et analyser de manière interactive des données de journal à l’aide du puissant moteur d’analyse Explorateur de données.<br>Utiliser la [console analytique d’Application Insights](../app/analytics.md) sur le portail Azure pour écrire des requêtes de journal et analyser les données de journal d’Application Insights de manière interactive. |
+| **Visualiser** | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../platform/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.<br>Exporter les résultats d’une requête vers [Grafana](grafana-plugin.md) afin de profiter de ses tableaux de bord et de les combiner avec d’autres sources de données.|
+| **Alert** | Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.<br>Configurer une [règle d’alerte de métrique](alerts-metric-logs.md) sur certains journaux de données de journal extraits en tant que métriques. |
+| **Récupérer** | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide d’[Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide d’une [API REST](https://dev.loganalytics.io/). |
+| **Export** | Générer un flux de travail pour récupérer des données de journal et les copier vers un emplacement externe à l’aide de [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Comment les données sont-elles structurées dans Azure Monitor ?

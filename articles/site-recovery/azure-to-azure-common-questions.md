@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134045"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201214"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -120,7 +120,7 @@ Non, ce scénario n’est pas pris en charge. Toutefois, si vous déplacez accid
 Une stratégie de réplication définit les paramètres de l’historique de rétention des points de récupération. La stratégie définit également la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une nouvelle stratégie de réplication avec les paramètres par défaut suivants :
 
 - 24 heures pour l’historique de rétention des points de récupération.
-- 60 minutes pour la fréquence des captures instantanées cohérentes au niveau application.
+- 4 heures pour la fréquence des captures instantanées cohérentes au niveau application.
 
 [Apprenez-en davantage sur les paramètres de réplication](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

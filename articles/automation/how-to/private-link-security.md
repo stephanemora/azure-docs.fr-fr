@@ -4,24 +4,27 @@ description: Utiliser Azure Private Link pour connecter en toute sécurité des 
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268651"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207275"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation (préversion)
 
 Azure Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service Automation dans votre réseau virtuel. Le trafic réseau entre les machines sur le réseau virtuel et le compte Automation traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public.
 
-Par exemple, vous avez un réseau virtuel dans lequel vous avez désactivé l’accès Internet sortant. Toutefois, vous souhaitez accéder à votre compte Automation en privé et utiliser des fonctionnalités Automation comme les webhooks, State Configuration et les tâches runbook sur les Runbook Workers hybrides. En outre, vous souhaitez que les utilisateurs aient accès au compte Automation uniquement via le réseau virtuel. Pour ce faire, vous pouvez déployer des points de terminaison privés.
+Par exemple, vous avez un réseau virtuel dans lequel vous avez désactivé l’accès Internet sortant. Toutefois, vous souhaitez accéder à votre compte Automation en privé et utiliser des fonctionnalités Automation comme les webhooks, State Configuration et les tâches runbook sur les Runbook Workers hybrides. En outre, vous souhaitez que les utilisateurs aient accès au compte Automation uniquement via le réseau virtuel.  Le déploiement d’un point de terminaison privé atteint ces objectifs.
 
-Cet article explique quand utiliser et comment configurer un point de terminaison privé avec votre compte Automation.
+Cet article explique quand utiliser et comment configurer un point de terminaison privé avec votre compte Automation (préversion).
 
 ![Vue d’ensemble conceptuelle de la liaison privée pour Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Le support Private Link avec Azure Automation (préversion) est uniquement disponible dans les clouds Azure commercial et Azure US Government.
 
 ## <a name="advantages"></a>Avantages
 
@@ -46,25 +49,27 @@ Azure Automation Private Link connecte un ou plusieurs points de terminaison pri
 
 Une fois que vous avez créé des points de terminaison privés pour l’automatisation, chacune des URL Automation accessibles au public, que vous ou une machine pouvez contacter directement, est mappée à un point de terminaison privé de votre réseau virtuel.
 
+Dans le cadre de la mise en production de la préversion, un compte Automation ne peut pas accéder à des ressources Azure sécurisées à l’aide d’un point de terminaison privé. Par exemple, Azure Key Vault, Azure SQL, compte de stockage Azure, etc.
+
 ### <a name="webhook-scenario"></a>Scénario Webhook
 
-Vous pouvez démarrer des runbooks en exécutant une PUBLICATION sur l’URL du webhook. Par exemple, l’URL ressemble à ceci : `https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Vous pouvez démarrer des runbooks en exécutant une PUBLICATION sur l’URL du webhook. Par exemple, l’URL ressemble à : `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scénario State Configuration (agentsvc)
 
 State Configuration fournit un service de gestion de la configuration Azure qui vous permet d’écrire, de gérer et de compiler des configurations PowerShell Desired State Configuration (DSC) pour les nœuds d’un cloud ou d’un centre de données local.
 
-L’agent sur l’ordinateur s’inscrit auprès du service DSC, puis utilise le point de terminaison de service pour extraire la configuration DSC. Le point de terminaison de service agent se présente comme suit : `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`.
+L’agent sur l’ordinateur s’inscrit auprès du service DSC, puis utilise le point de terminaison de service pour extraire la configuration DSC. Le point de terminaison de service de l’agent ressemble à : `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`.
 
 L’URL du point de terminaison public et privé est la même, mais elle est mappée à une adresse IP privée lorsque la liaison privée est activée.
 
 ## <a name="planning-based-on-your-network"></a>Planification en fonction de votre réseau
 
-Avant de configurer votre ressource de compte Automation, tenez compte de vos exigences en matière d’isolement réseau. Évaluez l’accès de vos réseaux virtuels à Internet public et les restrictions d’accès à votre compte Automation (y compris la configuration d’une étendue de groupe de liaisons privées pour des journaux Azure Monitor s’ils sont intégrés à votre compte Automation).
+Avant de configurer votre ressource de compte Automation, tenez compte de vos exigences en matière d’isolement réseau. Évaluez l’accès de vos réseaux virtuels à Internet public et les restrictions d’accès à votre compte Automation (y compris la configuration d’une étendue de groupe de liaisons privées pour des journaux Azure Monitor s’ils sont intégrés à votre compte Automation). Incluez également une révision du service Automation [Enregistrements DNS](./automation-region-dns-records.md) dans le cadre de votre plan pour vous assurer que les fonctionnalités prises en charge fonctionnent sans problème.
 
 ### <a name="connect-to-a-private-endpoint"></a>Se connecter à un point de terminaison privé
 
-Créez un point de terminaison privé pour vous connecter à notre réseau. Vous pouvez effectuer cette tâche dans le [Centre de liaisons privées du Portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Une fois vos modifications apportées à publicNetworkAccess et à la liaison privée, la prise en compte peut prendre jusqu’à 35 minutes.
+Créez un point de terminaison privé pour vous connecter à notre réseau. Vous pouvez le faire dans le [Centre Private Link du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Une fois vos modifications apportées à publicNetworkAccess et à la liaison privée, la prise en compte peut prendre jusqu’à 35 minutes.
 
 Dans cette section, vous allez créer un point de terminaison privé pour votre compte Automation.
 
@@ -72,7 +77,7 @@ Dans cette section, vous allez créer un point de terminaison privé pour votre 
 
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **Générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
-3. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez ces informations :
+3. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -86,7 +91,7 @@ Dans cette section, vous allez créer un point de terminaison privé pour votre 
 
 4. Sélectionnez **Suivant : Ressource**.
 
-5. Dans **Créer un point de terminaison privé - Ressource**, entrez ou sélectionnez les informations suivantes :
+5. Dans **Créer un point de terminaison privé – Ressource**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -99,7 +104,7 @@ Dans cette section, vous allez créer un point de terminaison privé pour votre 
 
 6. Sélectionnez **Suivant : Configuration**.
 
-7. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez ces informations :
+7. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>Configuration DNS
 
-Lors de la connexion à une ressource de liaison privée à l’aide d’un nom de domaine complet (FQDN) dans la chaîne de connexion, il est important de configurer correctement vos paramètres DNS pour résoudre l’adresse IP privée allouée. Les services Azure existants peuvent déjà avoir une configuration DNS à utiliser lors de la connexion à un point de terminaison public. Cette valeur doit être remplacée pour la connexion à l’aide de votre instance Private Endpoint.
+Lors de la connexion à une ressource Private Link à l’aide d’un nom de domaine complet (FQDN) dans la chaîne de connexion, il est important de configurer correctement vos paramètres DNS pour résoudre l’adresse IP privée allouée. Les services Azure existants peuvent déjà avoir une configuration DNS à utiliser lors de la connexion à un point de terminaison public. Votre configuration DNS doit être révisée et mise à jour pour vous connecter à l’aide de votre point de terminaison privé.
 
 L’interface réseau associée à l’instance Private Endpoint contient l’ensemble complet des informations requises pour configurer votre DNS, y compris le nom de domaine complet et les adresses IP privées allouées pour une ressource Private Link donnée.
 

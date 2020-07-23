@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734280"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223395"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Comprendre les états d’intégrité et résoudre les domaines suspendus dans Azure Active Directory Domain Services
 
-Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Si un domaine managé reste ensuite dans un état suspendu, il est automatiquement supprimé. Pour assurer l’intégrité de votre domaine managé Azure AD DS et éviter la suspension, résolvez toutes les alertes aussi rapidement que possible.
+Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Si un domaine managé reste dans un état suspendu, il est automatiquement supprimé. Pour assurer l’intégrité de votre domaine managé Azure AD DS et éviter la suspension, résolvez toutes les alertes aussi rapidement que possible.
 
 Cet article explique pourquoi les domaines managés sont suspendus et comment récupérer un domaine suspendu.
 
@@ -39,7 +39,7 @@ Un domaine managé peut avoir l’un des états suivants :
 
 ## <a name="running-state"></a>État En cours d’exécution
 
-Un domaine managé qui est configuré correctement et s’exécute sans problème se trouve dans l’état *En cours d’exécution*. Il s’agit de l’état souhaité pour un domaine managé.
+Un domaine managé qui est configuré correctement et sans problème se trouve dans l’état *En cours d’exécution*. Il s’agit de l’état souhaité pour un domaine managé.
 
 ### <a name="what-to-expect"></a>À quoi s’attendre
 
@@ -50,7 +50,9 @@ Un domaine managé qui est configuré correctement et s’exécute sans problèm
 
 ## <a name="needs-attention-state"></a>État Doit être surveillé
 
-Un domaine managé présentant un ou plusieurs problèmes qui doivent être résolus se trouve dans l’état *Doit être surveillé*. La page d’intégrité du domaine managé liste les alertes et indique où un problème se pose. Certaines alertes sont temporaires et résolues automatiquement par la plateforme Azure. Pour d’autres alertes, vous pouvez résoudre le problème en suivant les étapes de résolution indiquées. En cas d’alerte critique, [formulez une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
+Un domaine managé présentant un ou plusieurs problèmes qui doivent être résolus se trouve dans l’état *Doit être surveillé*. La page d’intégrité du domaine managé liste les alertes et indique où un problème se pose.
+
+Certaines alertes sont temporaires et résolues automatiquement par la plateforme Azure. Pour d’autres alertes, vous pouvez résoudre le problème en suivant les étapes de résolution indiquées. En cas d’alerte critique, [formulez une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
 
 Un groupe de sécurité réseau restrictif représente un exemple d’alerte. Dans cette configuration, la plateforme Azure peut ne pas être en mesure de mettre à jour et de superviser le domaine managé. Une alerte est générée et l’état passe à *Doit être surveillé*.
 
@@ -113,7 +115,7 @@ Si un domaine managé reste à l’état *Suspendu* pendant 15 jours, il est su
 Quand un domaine managé passe à l’état *Supprimé*, le comportement suivant se produit :
 
 * Toutes les ressources et sauvegardes du domaine managé sont supprimées.
-* Vous ne pouvez pas restaurer le domaine managé et devez créer un domaine managé de remplacement afin de pouvoir réutiliser Azure AD DS.
+* Vous ne pouvez pas restaurer le domaine managé. Vous devez créer un domaine managé de remplacement pour réutiliser Azure AD DS.
 * Lorsque le domaine managé est supprimé, vous n’êtes plus facturé pour celui-ci.
 
 ## <a name="next-steps"></a>Étapes suivantes

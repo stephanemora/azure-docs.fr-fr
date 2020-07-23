@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099067"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203527"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -60,11 +60,11 @@ Pour les informations les plus récentes sur les limites du service de stockage 
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de la taille du compte de stockage Azure
 
-Voici les limites de la taille des données qui sont copiées dans le compte de stockage. Assurez-vous que les données que vous chargez sont conformes à ces limites. Pour consulter les dernières informations relatives à ces limites, accédez à [Objectifs de mise à l’échelle du stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) et [Objectifs de mise à l’échelle Azure Files](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Voici les limites de la taille des données qui peuvent être copiées sur un compte de stockage. Assurez-vous que les données que vous chargez sont conformes à ces limites. 
 
-| Taille des données copiées dans le compte de stockage Azure                      | Limite par défaut          |
-|---------------------------------------------------------------------|------------------------|
-| Objet blob de blocs et objet blob de pages                                            | 500 To par compte de stockage. <br> Comprend les données à partir de toutes les sources, notamment Data Box Disk.|
+| Type de données             | Limite par défaut          |
+|--------------------------|------------------------|
+| objet blob de blocs, objet blob de pages.    | Pour des informations actualisées sur ces limites, voir [Objectifs de mise à l'échelle du stockage Azure Blob](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) , [Objectifs de mise à l'échelle du stockage Azure standard](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts) et [Objectifs de mise à l'échelle du stockage Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Les limites comprennent les données à partir de toutes les sources, notamment Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Limites de taille des objets Azure

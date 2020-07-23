@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703993"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201034"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportation de groupes de ressources contenant des extensions de machine virtuelle
 
@@ -33,18 +33,7 @@ De nombreuses extensions de machine virtuelle sont disponibles. Toutes les exten
 
 Les extensions suivantes peuvent être exportées à l’aide de la fonctionnalité de script Automation.
 
-| Extension ||||
-|---|---|---|---|
-| Sauvegarde Acronis | Agent Datadog Windows | Application de correctifs au système d’exploitation pour Linux | Instantané de machine virtuelle Linux
-| Sauvegarde Acronis Linux | Extension Docker | Agent Puppet |
-| Infos Bg | Extension DSC | Aperçu Apm 24 x 7 de site |
-| Agent BMC CTM Linux | Dynatrace Linux | Serveur Linux 24 x 7 de site |
-| Agent BMC CTM Windows | Dynatrace Windows | Windows Server 24 x 7 de site |
-| Client Chef | Application de sécurité HPE Defender | Trend Micro DSA |
-| Script personnalisé | Logiciel anti-programme malveillant IaaS | Trend Micro DSA Linux |
-| Extension de script personnalisé | Diagnostics IaaS | Accès aux machines virtuelles pour Linux |
-| Script personnalisé pour Linux | Client Chef Linux | Accès aux machines virtuelles pour Linux |
-| Agent Datadog Linux | Diagnostic Linux | Instantané de machine virtuelle |
+> Sauvegarde Acronis, Sauvegarde Acronis Linux, Infos Bg, Agent BMC CTM Linux, Agent BMC CTM Windows, Client Chef, Script personnalisé, Extension de script personnalisé, Script personnalisé pour Linux, Agent Datadog Linux, Agent Datadog Windows, Extension Docker, Extension DSC, Dynatrace Linux, Dynatrace Windows, Application de sécurité HPE Defender, Logiciel anti-programme malveillant IaaS, Diagnostics IaaS, Client Chef Linux, Diagnostic Linux, Application de correctifs au système d’exploitation pour Linux, Agent Puppet, Aperçu Apm 24 x 7 de site, Serveur Linux 24 x 7 de site, Windows Server 24 x 7 de site, Trend Micro DSA, Trend Micro DSA Linux, Accès aux machines virtuelles pour Linux, Instantané de machine virtuelle, Instantané de machine virtuelle Linux
 
 ## <a name="export-the-resource-group"></a>Exporter le groupe de ressources
 

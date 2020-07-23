@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838465"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223514"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Aperçu : Créer une image à partir d’une machine virtuelle
 
@@ -23,7 +23,7 @@ Si vous souhaitez créer plusieurs machines virtuelles identiques à partir d’
 Vous pouvez capturer une image à partir de machines virtuelles [spécialisées et généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) en utilisant Azure PowerShell. 
 
 Les images d’une galerie d’images comportent deux composants, que nous allons créer dans cet exemple :
-- Une **définition d’image** transporte des informations sur l’image et les exigences liées à son utilisation. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, spécialisée ou généralisée, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. 
+- Une **définition d’image** transporte des informations sur l’image et ses conditions d’utilisation. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, spécialisée ou généralisée, et comprennent les notes de publication et la mémoire maximale et minimale requise. Il s’agit d’une définition de type d’image. 
 - Une **version d’image** est ce qui permet de créer une machine virtuelle lors de l’utilisation d’une galerie d’images partagées. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Quand vous créez une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois.
 
 
@@ -139,3 +139,5 @@ $job.State
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez vérifié que la nouvelle version de l’image fonctionne correctement, vous pouvez créer une machine virtuelle. Créez une machine virtuelle à partir d’une [version d’image spécialisée](vm-specialized-image-version-powershell.md) ou d’une [version d’image généralisée](vm-generalized-image-version-powershell.md).
+
+Pour savoir comment fournir des informations sur le plan d’achat, consultez [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](marketplace-images.md).

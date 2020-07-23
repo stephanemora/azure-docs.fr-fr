@@ -1,5 +1,5 @@
 ---
-title: Interpréter et expliquer les modèles de ML dans Python
+title: Interpréter et expliquer les modèles ML dans Python (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment obtenir des explications sur la façon dont votre modèle de Machine Learning détermine l’importance des fonctionnalités et effectue des prédictions lors de l’utilisation du kit de développement logiciel (SDK) Azure Machine Learning.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/12/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3830f65a3435c1db0291811c6306ea579bf1d896
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560202"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207139"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Utiliser le package d’interprétabilité pour expliquer les modèles de ML et les prédictions dans Python
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

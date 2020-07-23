@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981305"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224704"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
 
 Bien que les fonctions de gestion et d’accès offrent de nombreuses options, le déploiement de cloud peut se révéler plus délicat. La gestion, le suivi et l’audit peuvent être plus complexes pour les actions d’administration. Des menaces de sécurité peuvent également survenir avec l’accès non réglementé aux points de terminaison de client utilisés pour la gestion des services cloud. Les stations de travail personnelles ou communes destinées au développement et à la gestion de l’infrastructure introduisent des menaces imprévisibles, notamment avec la navigation Web (par exemple, lors d’attaques de point d’eau) ou la messagerie électronique (par exemple, ingénierie sociale et hameçonnage).
 
-![](./media/management/typical-management-network-topology.png)
+![Diagramme montrant les différentes façons dont une menace peut monter une attaque.](./media/management/typical-management-network-topology.png)
 
 Les risques d’attaque sont plus importants dans ce type d’environnement : en effet, il est difficile de créer des stratégies et des mécanismes de sécurité pour gérer l’accès aux interfaces Azure (comme SMAPI) à partir de points de terminaison variés.
 
@@ -157,12 +157,12 @@ Avec une station de travail renforcée autonome, les administrateurs disposent d
 
 Dans une station de travail renforcée autonome (voir ci-dessous), l’instance locale du pare-feu Windows (ou un pare-feu client tiers) est configurée de manière à bloquer les connexions entrantes, comme le protocole RDP. L’administrateur peut ouvrir une session sur la station de travail renforcée et lancer une session RDP qui se connecte à Azure après l’établissement d’une connexion VPN avec Azure Virtual Network, mais il ne peut pas utiliser un PC d’entreprise et le protocole RDP pour se connecter à la station de travail renforcée elle-même.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Diagramme montrant le scénario de station de travail renforcée autonome.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>PC d’entreprise servant de machine virtuelle
 Si l’utilisation d’une station de travail renforcée autonome distincte coûte trop cher ou n’est pas pratique, la station de travail renforcée peut héberger une machine virtuelle pour les tâches non administratives.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Diagramme montrant la station de travail renforcée hébergeant une machine virtuelle afin d’effectuer des tâches non administratives.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Dans l’optique de contourner plusieurs risques de sécurité liés à l’utilisation d’une station de travail pour la gestion des systèmes et d’autres tâches quotidiennes, vous pouvez déployer une machine virtuelle Windows Hyper-V vers la station de travail renforcée. Cette machine virtuelle sert ainsi de PC d’entreprise. L’environnement des PC d’entreprise peut rester isolé de l’hôte, ce qui réduit la surface d’attaque et supprime la coexistence entre activités quotidiennes de l’utilisateur (par exemple, courrier électronique) et tâches d’administration sensibles.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793841"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223565"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrer depuis une image managée vers une version d’image avec Azure CLI
 Si vous souhaitez migrer une image managée dans une galerie d’images partagées, vous pouvez créer une image Shared Image Gallery directement à partir de l’image managée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer l’image managée source. Vous pouvez également effectuer une migration depuis une image managée vers une galerie d’images partagées à l’aide de [PowerShell](image-version-managed-image-powershell.md).
@@ -98,3 +98,5 @@ az sig image-version create \
 ## <a name="next-steps"></a>Étapes suivantes
 
 Créez une machine virtuelle à partir d’une [version d’image généralisée](vm-generalized-image-version-cli.md).
+
+Pour savoir comment fournir des informations sur le plan d’achat, consultez [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](marketplace-images.md).

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d55bcf921d5bddb1612f9cfb884b339f837c7aa2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224926"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494715"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Créez une image à partir d’un disque dur virtuel ou d’une capture instantanée dans une Shared Image Gallery à l’aide de PowerShell
 
@@ -90,9 +90,9 @@ Les définitions d’image créent un regroupement logique des images. Elles son
 
 Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le VHD sont issus d’une machine virtuelle en cours d’utilisation et n’ont pas été généralisés. Si le disque dur virtuel ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
 
-Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./windows/shared-image-galleries.md#image-definitions).
 
-Créez la définition d’image à l’aide de [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à un système d’exploitation Windows spécialisé. Pour créer une définition pour des images utilisant un système d’exploitation Linux, utilisez `-OsType Linux`. 
+Créez la définition d’image à l’aide de [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à un système d’exploitation Windows spécialisé. Pour créer une définition pour des images utilisant un système d’exploitation Linux, utilisez `-OsType Linux`. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -114,7 +114,7 @@ Dans certains cas, vous devez transmettre des informations sur le plan d’achat
 
 ## <a name="create-an-image-version"></a>Créer une version d’image
 
-Créez une version d’image à partir de la capture instantanée à l’aide de [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Créez une version d’image à partir de la capture instantanée à l’aide de [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -148,7 +148,7 @@ $job.State
 > [!NOTE]
 > Vous devez attendre que la version d’image soit totalement intégrée et répliquée avant de pouvoir utiliser la même capture instantanée pour créer une autre version d’image. 
 >
-> Vous pouvez également stocker votre version d’image dans un [stockage redondant interzone](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `-StorageAccountType Standard_ZRS` lorsque vous créez la version d’image.
+> Vous pouvez également stocker votre version d’image dans un [stockage redondant interzone](../storage/common/storage-redundancy.md) en ajoutant `-StorageAccountType Standard_ZRS` lorsque vous créez la version d’image.
 >
 
 ## <a name="delete-the-source"></a>Supprimer la source

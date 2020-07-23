@@ -2,13 +2,13 @@
 title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058059"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248915"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -160,7 +160,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 Lorsque vous décidez des [dépendances](define-resource-dependency.md) à définir, respectez les recommandations suivantes :
 
-* Utilisez la fonction **référence** et transmettez le nom de la ressource pour définir une dépendance implicite entre des ressources qui doivent partager une propriété. N’ajoutez pas d’élément `dependsOn` explicite lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles.
+* Utilisez la fonction **référence** et transmettez le nom de la ressource pour définir une dépendance implicite entre des ressources qui doivent partager une propriété. N’ajoutez pas d’élément `dependsOn` explicite lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. Pour obtenir un exemple de paramétrage d’une dépendance implicite, consultez [dépendance implicite](define-resource-dependency.md#reference-and-list-functions).
 
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
 

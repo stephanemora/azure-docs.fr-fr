@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733396"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223038"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
@@ -32,8 +32,8 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, suivez le tutoriel pour [créer et configurer un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Événements d’audit de sécurité activés pour votre domaine managé Azure Active Directory Domain Services qui diffusent en continu des données vers un espace de travail Log Analytics.
-    * Si nécessaire, [activez les audits de sécurité pour Azure Active Directory Domain Services][enable-security-audits].
+* Événements d’audit de sécurité activés pour votre domaine managé qui diffusent en continu des données vers un espace de travail Log Analytics.
+    * Si nécessaire, [activer les audits de sécurité pour Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Vue d’ensemble des classeurs Azure Monitor
 
@@ -61,7 +61,9 @@ Pour accéder au modèle de classeur pour le rapport de vue d’ensemble de la s
     ![Sélectionnez l’option de menu Classeurs dans le Portail Microsoft Azure.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choisissez le **Rapport Vue d’ensemble de la sécurité**.
-1. Dans les menus déroulants en haut du classeur, sélectionnez votre abonnement Azure, puis l’espace de travail Azure Monitor. Choisissez une **Période**, par exemple *Les 7 derniers jours*.
+1. Dans les menus déroulants en haut du classeur, sélectionnez votre abonnement Azure, puis un espace de travail Azure Monitor.
+
+    Choisissez un **intervalle de temps**, par exemple *7 derniers jours*, comme indiqué dans la capture d’écran suivante :
 
     ![Sélectionnez l’option de menu Classeurs dans le Portail Microsoft Azure.](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
@@ -85,7 +87,11 @@ Pour accéder au modèle de classeur pour le rapport d’activité du compte, pr
 1. Sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Dans le menu de gauche, choisissez **Supervision > Classeurs**
 1. Choisissez le **rapport d’activité de compte**.
-1. Dans les menus déroulants en haut du classeur, sélectionnez votre abonnement Azure, puis l’espace de travail Azure Monitor. Choisissez une **Période**, par exemple *Les 30 derniers jours*, puis la manière dont vous souhaitez que l’affichage **Mosaïque** représente les données. Vous pouvez filtrer par **Nom d’utilisateur du compte**, par exemple *felix*, comme indiqué dans l’exemple de rapport suivant :
+1. Dans les menus déroulants en haut du classeur, sélectionnez votre abonnement Azure, puis un espace de travail Azure Monitor.
+
+    Choisissez une **Période**, par exemple *Les 30 derniers jours*, puis la manière dont vous souhaitez que l’affichage **Mosaïque** représente les données.
+
+    Vous pouvez filtrer par **Nom d’utilisateur du compte**, par exemple *felix*, comme indiqué dans l’exemple de rapport suivant :
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 

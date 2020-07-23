@@ -2,22 +2,22 @@
 title: Architectures de référence pour les bases de données Oracle sur Azure | Microsoft Docs
 description: Architectures de référence pour l'exécution de bases de données Oracle Database Enterprise Edition sur des Machines virtuelles Microsoft Azure.
 services: virtual-machines-linux
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683486"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221610"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -41,7 +41,7 @@ Enfin, lors de la migration ou de la création d'applications pour le cloud, il 
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oracle RAC dans le cloud
 
-Oracle Real Application Cluster (RAC) est une solution Oracle qui permet aux clients de bénéficier de débits élevés en utilisant plusieurs instances qui accèdent à un même espace de stockage de base de données (modèle d'architecture partagée). Oracle RAC peut également être utilisé pour la haute disponibilité en local, mais Oracle RAC seul ne peut pas être utilisé pour la haute disponibilité dans le cloud car il protège uniquement contre les défaillances au niveau de l'instance et non au niveau du rack ou du centre de données. C'est la raison pour laquelle Oracle vous recommande d'utiliser Oracle Data Guard avec votre base de données (qu'il s'agisse d'une instance unique ou RAC) pour la haute disponibilité. Les clients ont généralement besoin d'un contrat de niveau de service (SLA) de niveau élevé pour exécuter leurs applications stratégiques. Oracle RAC n'est actuellement ni certifié ni pris en charge par Oracle sur Azure. Cependant, Azure vous propose des fonctionnalités telles que les zones de disponibilité et les fenêtres de maintenance planifiée pour vous protéger contre les défaillances au niveau de l'instance. En outre, les clients peuvent utiliser des technologies telles qu'Oracle Data Guard, Oracle GoldenGate et Oracle Sharding pour bénéficier de performances et d'une résilience de haut niveau en protégeant leurs bases de données contre les défaillances au niveau du rack et du centre de données ainsi que des défaillances résultant de problèmes géopolitiques.
+Oracle Real Application Cluster (RAC) est une solution Oracle qui permet aux clients de bénéficier de débits élevés en utilisant plusieurs instances qui accèdent à un même espace de stockage de base de données (modèle d'architecture partagée). Oracle RAC peut également être utilisé pour la haute disponibilité en local, mais Oracle RAC seul ne peut pas être utilisé pour la haute disponibilité dans le cloud car il protège uniquement contre les défaillances au niveau de l'instance et non au niveau du rack ou du centre de données. C'est la raison pour laquelle Oracle vous recommande d'utiliser Oracle Data Guard avec votre base de données (qu'il s'agisse d'une instance unique ou RAC) pour la haute disponibilité. Les clients ont généralement besoin d'un contrat de niveau de service (SLA) de niveau élevé pour exécuter leurs applications stratégiques. Oracle RAC n'est actuellement ni certifié ni pris en charge par Oracle sur Azure. Cependant, Azure vous propose des fonctionnalités telles que les zones de disponibilité et les fenêtres de maintenance planifiée pour vous protéger contre les défaillances au niveau de l'instance. En outre, les clients peuvent utiliser des technologies telles qu’Oracle Data Guard, Oracle GoldenGate et Oracle Sharding pour bénéficier de performances et d’une résilience de haut niveau en protégeant leurs bases de données contre les défaillances au niveau du rack et du centre de données ainsi que des défaillances résultant de problèmes géopolitiques.
 
 Lors de l'exécution d'instances d'Oracle Database au sein de plusieurs [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview) en conjonction avec Oracle Data Guard ou GoldenGate, les clients peuvent bénéficier d'un contrat de niveau de service (SLA) garantissant un temps d'activité de 99,99 %. Dans les régions Azure où les zones de disponibilité ne sont pas encore prises en charge, les clients peuvent utiliser des [groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) et bénéficier d'un contrat de niveau de service (SLA) garantissant un temps d'activité de 99,99 %.
 

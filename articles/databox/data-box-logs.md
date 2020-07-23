@@ -1,27 +1,27 @@
 ---
-title: Suivi et journalisation des événements Azure Data Box, Azure Data Box Heavy | Microsoft Docs
-description: Décrit comment suivre et journaliser les événements à divers stades de votre commande Azure Data Box et Azure Data Box Heavy.
+title: Suivi et journalisation des événements Azure Data Box, Azure Data Box Heavy pour les ordres d’importation | Microsoft Docs
+description: Décrit comment suivre et journaliser les événements à divers stades de votre ordre d’importation Azure Data Box et Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676406"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204302"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Suivi et journalisation des événements de vos ordres d’importation Azure Data Box et Azure Data Box Heavy
 
-Une commande Data Box ou Data Box Heavy passe par les étapes suivantes : commande, configuration, copie des données, retour, chargement sur Azure et vérification, puis effacement des données. Lors de chaque étape de la commande, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, auditer les événements, suivre la commande et interpréter les différents journaux générés.
+Un ordre d’importation Data Box ou Data Box Heavy passe par les étapes suivantes : ordre, configuration, copie des données, retour, chargement sur Azure et vérification, puis effacement des données. Lors de chaque étape de la commande, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, auditer les événements, suivre la commande et interpréter les différents journaux générés.
 
-Le tableau suivant récapitule les étapes de la commande Data Box ou Data Box Heavy ainsi que les outils disponibles pour effectuer le suivi et l’audit de la commande à chaque étape.
+Le tableau suivant récapitule les étapes de l’ordre d’importation Data Box ou Data Box Heavy ainsi que les outils disponibles pour effectuer le suivi et l’audit de l’ordre à chaque étape.
 
-| Étape de la commande Data Box       | Outil de suivi et d’audit                                                                        |
+| Étape de l’ordre d’importation Data Box       | Outil de suivi et d’audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Créer la commande               | [Configurer le contrôle d’accès sur la commande via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Commande traitée            | [Suivre la commande](#track-the-order) via <ul><li> Portail Azure </li><li> Site web du transporteur </li><li>Notifications par e-mail</ul> |
@@ -31,7 +31,7 @@ Le tableau suivant récapitule les étapes de la commande Data Box ou Data Box H
 | Chargement des données dans Azure       | [Passer en revue les journaux de copie](#review-copy-log-during-upload-to-azure) à la recherche des erreurs survenues pendant le chargement de données dans le centre de données Azure                         |
 | Effacement des données de l’appareil   | [Afficher les journaux d’activité de chaîne de responsabilité](#get-chain-of-custody-logs-after-data-erasure) qui incluent les journaux d’audit et l’historique des commandes                |
 
-Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et l’audit d’une commande Data Box ou Data Box Heavy. Les informations de cet article s’appliquent à Data Box et à Data Box Heavy. Dans les sections suivantes, toutes les références à Data Box s’appliquent également à Data Box Heavy.
+Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et l’audit d’un ordre d’importation Data Box ou Data Box Heavy. Les informations de cet article s’appliquent aux ordres d’importation à la fois de Data Box et de Data Box Heavy. Dans les sections suivantes, toutes les références à Data Box s’appliquent également à Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur la commande
 

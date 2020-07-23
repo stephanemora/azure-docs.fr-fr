@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 9e2f4eccb725bfac2229fa1471673a121c77f648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2452d1e0cc07767922b86810a914bba2e6f56dba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448460"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200929"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vidéos sur la plateforme d’identités Microsoft
 
@@ -66,10 +66,22 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        6 - <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">Quels aspects de l’utilisation des protocoles sont facilités par les bibliothèques MSAL ? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        7 - <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Si vous utilisez MSAL, quels concepts essentiels relatifs aux protocoles devez-vous connaître ? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:51)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -132,6 +144,20 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        7 - <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Quelle est la relation entre une demande d’autorisation et des jetons ? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:45)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        8 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Quelle est la différence entre les jetons d’ID, les jetons d’accès, les jetons d’actualisation et les jetons de session ? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -238,6 +264,32 @@ ___
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">Quelle est la différence entre les autorisations d’application et les autorisations déléguées ? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank"> <img src="./media/identity-videos/aad-basics-12.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">Qu’est-ce qu’une plateforme d’identités Microsoft certifiée OpenID Connect ? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">Quels sont les différents types d’applications AAD et en quoi se différencient-ils ? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 ## <a name="migrate-from-v10-to-v20"></a>Migrer de v1.0 à v2.0
 
@@ -266,9 +318,9 @@ ___
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">Quelles sont les différences entre l’authentification v1 et v2 ? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::

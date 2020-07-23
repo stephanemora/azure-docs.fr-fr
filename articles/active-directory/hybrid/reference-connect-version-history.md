@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550134"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230381"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -47,6 +47,22 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >Si vous avez activé Azure AD Connect pour la synchronisation, vous commencerez bientôt à recevoir automatiquement des notifications d'intégrité qui vous avertiront des dépréciations à venir lorsque vous exécuterez une version ancienne.
 >
 >Veuillez consulter [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
+
+## <a name="15420"></a>1.5.42.0
+
+### <a name="release-status"></a>État de la version
+10/07/2020 : publiée pour téléchargement
+
+### <a name="functional-changes"></a>Modifications fonctionnelles
+Cette version comprend une préversion publique de la fonctionnalité permettant d’exporter la configuration d’un serveur de Azure AD Connect existant dans un fichier .JSON qui peut ensuite être utilisé lors de l’installation d’un nouveau serveur de Azure AD Connect pour créer une copie du serveur d’origine.
+
+Une description détaillée de cette nouvelle fonctionnalité est disponible dans [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- Correction d’un bogue où de faux avertissement pendant la mise à niveau concernant la taille de la base de données locale sur les builds localisés.
+- Correction d’un bogue où il y aurait une fausse erreur dans les événements de l’application pour l’échange de nom de compte/nom de domaine.
+- Correction d’une erreur qui entraînait l’échec de l’installation de Azure AD Connect sur un contrôleur de domaine, avec l’erreur « membre introuvable ».
+
 
 ## <a name="15300"></a>1.5.30.0
 

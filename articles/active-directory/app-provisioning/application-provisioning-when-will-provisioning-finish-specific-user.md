@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782022"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203006"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
@@ -77,12 +77,11 @@ Le tableau suivant récapitule les temps de synchronisation des scénarios d’a
 | Synchroniser l’ensemble des utilisateurs dans Azure AD|  < 1 000  | < 30 minutes | < 30 minutes |
 | Synchroniser l’ensemble des utilisateurs dans Azure AD | 1 000 - 10 000  | 43 - 86 minutes | < 30 minutes |
 
-
 En ce qui concerne la configuration **Synchroniser uniquement les utilisateurs et groupes assignés**, vous pouvez utiliser les formules suivantes et déterminer les temps minimum et maximum attendus pour le **cycle initial** :
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- Nombre minimal de minutes = 0,01 x [nombre d’utilisateurs, de groupes et de membres de groupe affectés]
+- Nombre maximal de minutes = 0,08 x [nombre d’utilisateurs, de groupes et de membres de groupe affectés]
+
 Récapitulatif des facteurs ayant une incidence sur le temps nécessaire à l’accomplissement d’un **cycle initial** :
 
 - Nombre total d'utilisateurs et de groupes concernés par l'approvisionnement.

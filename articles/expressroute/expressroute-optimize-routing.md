@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
-ms.openlocfilehash: f3a658d4b02501994437691308810ffb9cabcb6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738853"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259785"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.
@@ -33,18 +33,18 @@ Dans l’exemple ci-dessus, pour préférer les chemins ExpressRoute, configurez
 
 **Configuration Cisco IOS-XE du point de vue R1 :**
 
-    R1(config)#route-map prefer-ExR permit 10
-    R1(config-route-map)#set local-preference 150
+- R1(config)#route-map prefer-ExR permit 10
+- R1(config-route-map)#set local-preference 150
 
-    R1(config)#router BGP 345
-    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
-    R1(config-router)#neighbor 1.1.1.2 activate
-    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+- R1(config)#router BGP 345
+- R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+- R1(config-router)#neighbor 1.1.1.2 activate
+- R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
 **Configuration Junos du point de vue R1 :**
 
-    user@R1# set protocols bgp group ibgp type internal
-    user@R1# set protocols bgp group ibgp local-preference 150
+- user@R1# set protocols bgp group ibgp type internal
+- user@R1# set protocols bgp group ibgp local-preference 150
 
 
 

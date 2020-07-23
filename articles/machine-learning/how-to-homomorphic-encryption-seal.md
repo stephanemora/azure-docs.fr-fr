@@ -1,23 +1,23 @@
 ---
-title: Déployer le service d’inférence chiffrée
+title: Déployer le service d’inférence chiffrée (version préliminaire)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser Microsoft SEAL pour déployer un service de prédiction chiffrée pour la classification des images
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560195"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206793"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Comment déployer un service web d’inférence chiffrée
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Comment déployer un service web d’inférence chiffrée (version préliminaire)
 
 Découvrez comment déployer un modèle de classification d’images en tant que service web d’inférence chiffrée dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Le service web est une image conteneur Docker qui contient le modèle et la logique de scoring.
 

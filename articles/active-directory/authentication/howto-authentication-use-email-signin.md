@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550337"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223021"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
 
@@ -38,7 +38,7 @@ Pour se connecter à Azure AD, les utilisateurs entrent un nom qui identifie leu
 
 Pour les organisations dont l’UPN local correspond à l’adresse e-mail de connexion préférée de l’utilisateur, cette approche est intéressante. Ces organisations définissent l’UPN Azure AD sur la même valeur que l’UPN local, et les utilisateurs bénéficient d’une expérience de connexion cohérente.
 
-Cela étant, dans certaines organisations, l’UPN local n’est pas utilisé en tant que nom de connexion. Au sein des environnements locaux, vous configurez l’instance AD DS locale pour autoriser la connexion avec un ID de connexion de substitution. La définition de l’UPN Azure AD sur la même valeur que l’UPN local n’est pas possible car Azure AD imposerait aux utilisateurs de se connecter avec cette valeur.
+Cela étant, dans certaines organisations, l’UPN local n’est pas utilisé en tant que nom de connexion. Dans les environnements locaux, vous configurez l’instance AD DS locale de façon à autoriser la connexion avec un ID de connexion de substitution. La définition de l’UPN Azure AD sur la même valeur que l’UPN local n’est pas possible car Azure AD imposerait aux utilisateurs de se connecter avec cette valeur.
 
 La solution de contournement à ce problème consiste à définir l’UPN Azure AD sur l’adresse e-mail que l’utilisateur envisage d’utiliser pour se connecter. Cette approche fonctionne, même si elle donne lieu à des UPN différents entre AD local et Azure AD. Qui plus est, cette configuration n’est pas compatible avec toutes les charges de travail Microsoft 365.
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: e5a4c9d1afcc4caa0f9ac0db8b59274006ab3097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88aaa10bf84d0195cc22d11d7fa1cfdcd639d475
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676554"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207435"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -41,7 +41,7 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
 - Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./linux/generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
-- Elles sont actuellement disponibles uniquement dans les régions Royaume-Uni Sud, Canada Centre et USA Est.
+- Disponibles dans les régions listées [ici](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 - Génération précédente de machines virtuelles de calcul confidentiel : [Série DC](sizes-previous-gen.md#preview-dc-series)
 - Créer des machines virtuelles DCsv2 à l’aide du [Portail Azure](./linux/quick-create-portal.md) ou de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 

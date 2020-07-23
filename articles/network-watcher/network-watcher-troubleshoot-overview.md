@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738649"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207371"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
@@ -73,7 +73,7 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée » |Non|
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
 | ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
-| Authentication | Incompatibilité des clés prépartagées | Oui|
+| Authentification | Incompatibilité des clés prépartagées | Oui|
 | PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
 | IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
 | WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
@@ -82,7 +82,7 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 
 La table suivante répertorie quelles passerelles et quelles connexions sont prises en charge avec la résolution des problèmes de Network Watcher :
 
-|  |  |
+| Passerelle ou connexion | Prise en charge  |
 |---------|---------|
 |**Types de passerelles**   |         |
 |VPN      | Prise en charge        |
@@ -105,7 +105,7 @@ Les fichiers journaux de dépannage des ressources sont stockés dans un compte 
 > [!NOTE]
 > Dans certains cas, seul un sous-ensemble des fichiers journaux d’activité est écrit dans l’espace de stockage.
 
-Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’explorateur de stockage, cliquez sur le lien suivant : [Explorateur de stockage](https://storageexplorer.com/)
+Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086889"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260065"
 ---
 # <a name="about-azure-edge-zone-preview"></a>À propos d’Azure Edge Zone (préversion)
 
@@ -75,6 +75,8 @@ Les cas d’utilisation classiques sont les suivants :
 Les zones périphériques seront proposées en partenariat avec les opérateurs suivants :
 
 - AT&T (Atlanta, Dallas et Los Angeles) 
+
+Les éditeurs de logiciels indépendants qui travaillent sur des applications optimisées et évolutives connectées à des réseaux 5G peuvent désormais utiliser le nouvel emplacement d’aperçu Los Angeles d’Azure Edge Zones avec AT&T lors de la génération et de l’expérimentation de scénarios mobiles et connectés avec des plateformes à latence ultra-faible. Inscrivez-vous au programme d’utilisateur précoce pour tirer parti d’une connectivité sécurisée à bande passante élevée.
 
 Pour plus d’informations, [contactez l’équipe Edge Zone](https://aka.ms/EdgeZones).
 

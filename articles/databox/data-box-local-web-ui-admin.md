@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608245"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202530"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
@@ -28,6 +28,8 @@ Cet article inclut les didacticiels suivants :
 - Télécharger les fichiers manifeste ou de nomenclature
 - Afficher la capacité disponible sur l’appareil
 - Ignorer la validation de la somme de contrôle
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Générer un package de support
 
@@ -80,9 +82,9 @@ Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 
 ## <a name="download-bom-or-manifest-files"></a>Télécharger les fichiers manifeste ou de nomenclature
 
-Les fichiers manifeste ou de nomenclature contiennent la liste des fichiers copiés dans Data Box ou Data Box Heavy. Ces fichiers sont générés quand vous préparez l’appareil pour l’expédition.
+Les fichiers manifeste ou de nomenclature contiennent la liste des fichiers copiés dans Data Box ou Data Box Heavy. Ces fichiers sont générés pour un ordre d’importation quand vous préparez l’appareil pour l’expédition.
 
-Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est terminée pour votre appareil. Pour télécharger les fichiers manifeste ou de nomenclature, effectuez les étapes suivantes :
+Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est terminée pour votre appareil. Pour télécharger les fichiers manifeste ou de nomenclature pour votre ordre d’importation, effectuez les étapes suivantes :
 
 1. Accédez à l’interface utilisateur web locale de votre appareil. Vous pouvez voir que la préparation de l’expédition est terminée pour l’appareil. Au terme de la préparation de l’appareil, son état passe à **Prêt pour l’expédition**.
 
@@ -168,6 +170,8 @@ Vous pouvez utiliser le tableau de bord de l’appareil pour afficher la capacit
 
 Par défaut, des sommes de contrôle sont générées pour vos données quand vous préparez l’expédition. Dans de rares cas, selon le type de données (fichiers de petite taille), les performances peuvent diminuer. Dans ces cas, vous pouvez ignorer la somme de contrôle.
 
+Le calcul de la somme de contrôle pendant la préparation de l’expédition est effectué uniquement pour les commandes d’importation, et non pour les ordres d’exportation. 
+
 Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sauf si les performances sont fortement affectées.
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, accédez à **Paramètres**.
@@ -177,7 +181,8 @@ Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sau
 2. **Désactiver** la validation de la somme de contrôle
 3. Cliquez sur **Appliquer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+> [!NOTE]
+> L’option de calcul ignorer la somme de contrôle n’est disponible que lorsque Azure Data Box est déverrouillé. Vous ne verrez pas cette option lorsque l’appareil est verrouillé.
 
 - Découvrez comment [gérer Data Box et Data Box Heavy via le portail Azure](data-box-portal-admin.md).
 

@@ -11,30 +11,86 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954738"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207063"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
-Vision par ordinateur comprend de nouvelles fonctionnalités de reconnaissance optique de caractères (OCR), basées sur le Deep Learning, qui extraient du texte imprimé ou manuscrit d’images et de documents PDF. L’extraction peut être effectuée à partir de documents analogiques (images et documents numérisés) et de documents numérisés. Il peut s’agir d’images libres, comme des photos de contenants ou de conteneurs indiquant des numéros de série, ainsi que de documents (factures, rapports financiers, articles, etc.). Cette fonctionnalité OCR est disponible dans le cadre du service géré dans le cloud ou localement (conteneurs). Par ailleurs, elle prend en charge les réseaux virtuels et les points de terminaison privés pour répondre aux besoins de conformité et de confidentialité de votre entreprise.
+L’API Vision par ordinateur de Microsoft comprend des fonctionnalités de reconnaissance optique de caractères (OCR) qui extraient du texte imprimé ou manuscrit d’images et de documents PDF. Les API OCR extraient le texte à partir de documents analogiques (images et documents numérisés) et de documents numérisés. Il peut s’agir d’images libres, comme des photos de contenants ou de conteneurs indiquant des numéros de série, ainsi que de documents (factures, rapports financiers, articles, etc.). La nouvelle API OCR Lire est disponible dans le cadre du service managé dans le cloud ou localement (conteneurs). Par ailleurs, elle prend en charge les réseaux virtuels et les points de terminaison privés pour répondre aux besoins de conformité et de confidentialité de votre entreprise.
 
 ## <a name="read-api"></a>API Lire 
 
-[L’API Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Vision par ordinateur, toute dernière technologie OCR de Microsoft, extrait du texte imprimé (dans sept langues), du texte manuscrit (en anglais uniquement), des chiffres et des symboles monétaires à partir d’images et de documents PDF multipages. Elle est optimisée pour extraire le texte d’images libres à forte composante textuelle et de documents PDF multipages en langue mixte. Elle prend en charge la détection de texte imprimé et manuscrit (en anglais uniquement) dans la même image ou le même document. La liste complète des langues prises en charge est disponible sur la page [Prise en charge des langues pour Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition).
+L’[API Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Vision par ordinateur, toute dernière technologie OCR de Microsoft, extrait du texte imprimé (dans sept langues), du texte manuscrit (en anglais uniquement), des chiffres et des symboles monétaires à partir d’images et de documents PDF multipages. Elle est optimisée pour extraire le texte d’images libres à forte composante textuelle et de documents PDF multipages en langue mixte. Elle prend en charge la détection de texte imprimé et manuscrit (en anglais uniquement) dans la même image ou le même document. Consultez la liste complète de la page des [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).
 
-### <a name="how-it-works"></a>Fonctionnement
+### <a name="how-ocr-works"></a>Fonctionnement de la reconnaissance optique de caractères
 
 Dans la mesure où [l’API Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) prend en charge les documents contenant beaucoup de texte et jusqu’à 2 000 pages, elle s’exécute de manière asynchrone. La première étape consiste à appeler l’opération Lire. Celle-ci prend en entrée une image ou un document PDF et retourne un ID d’opération. 
 
-La deuxième étape consiste à appeler l’opération [Obtenir les résultats](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750). Celle-ci prend l’ID d’opération créé par l’opération Lire. Elle retourne ensuite le contenu texte extrait de votre image ou document au format JSON. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et un score de confiance.
+La deuxième étape consiste à appeler l’opération [Obtenir les résultats](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750). Celle-ci prend l’ID d’opération créé par l’opération Lire. Elle retourne ensuite le contenu texte extrait de votre image ou document au format JSON. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et des scores de confiance.
 
 Si nécessaire, Lire corrige la rotation de la page reconnue en retournant le décalage de rotation en degrés autour de l'axe horizontal de l'image de la façon suivante :
 
-![Rotation d’une image en vue de la lecture et de la délimitation de son texte](./Images/vision-overview-ocr-read.png)
+![Comment la reconnaissance optique de caractères convertit les images et les documents en une sortie structurée avec du texte extrait](./Images/how-ocr-works.svg)
+
+### <a name="sample-ocr-output"></a>Exemple de sortie OCR
+
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
+        "lines": [
+          {
+            "boundingBox": [
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
+              {
+                "boundingBox": [
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
+                ],
+                "text": "The",
+                "confidence": 0.958
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 Suivez le guide de démarrage rapide [Extraire du texte imprimé et manuscrit](./QuickStarts/CSharp-hand-text.md) pour mettre en œuvre la reconnaissance optique de caractères à l’aide de C# et de l’API REST.
 
@@ -45,7 +101,6 @@ L’API Lire accepte les entrées suivantes :
 * PDF et TIFF : jusqu’à 2 000 pages sont traitées. Abonnés du niveau Gratuit : seules les deux premières pages sont traitées.
 * La taille de fichier doit être inférieure à 50 Mo, et les dimensions comprises entre 50 × 50 pixels et 10 000 × 10 000 pixels.
 * Les dimensions des PDF ne doivent pas dépasser 17 × 17 pouces, ce qui correspond aux formats de papier Legal ou A3 (maximum).
-
 
 ### <a name="text-from-images"></a>Texte issu d’images
 
@@ -68,7 +123,7 @@ Pour l’instant, l’opération Lire prend en charge l’extraction de texte ma
 
 ### <a name="printed-text-in-supported-languages"></a>Texte imprimé dans les langues prises en charge
 
-L’API Lire gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais. Si votre scénario réclame la prise en charge d’autres langues, référez-vous à la vue d’ensemble de l’API OCR dans ce document. Consultez la liste des [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition).
+L’API Lire gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais. Si votre scénario réclame la prise en charge d’autres langues, référez-vous à la vue d’ensemble de l’API OCR dans ce document. Consultez la liste de toutes les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Rotation d’une image en vue de la lecture et de la délimitation de son texte](./Images/supported-languages-example.png)
 
@@ -89,7 +144,7 @@ Lire est également disponible sous la forme d’un conteneur Docker (préversio
 
 ## <a name="ocr-api"></a>API OCR
 
-[L’API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) applique un modèle de reconnaissance plus ancien, ne prend en charge que les images et s’exécute de façon synchrone, retournant immédiatement le texte détecté. Elle gère [plus de langues](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) que l’API Lire.
+[L’API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) applique un modèle de reconnaissance plus ancien, ne prend en charge que les images et s’exécute de façon synchrone, retournant immédiatement le texte détecté. Consultez les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) autres que par l’API Lire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

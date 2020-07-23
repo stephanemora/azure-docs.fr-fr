@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512000"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260006"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
 Cet article liste les problèmes courants liés à Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes. 
 
-En plus des étapes de dépannage présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) pour vérifier que le client Linux dispose des prérequis. Azfilediagnostics automatise la détection de la plupart des problèmes mentionnés dans cet article. Il vous aide à configurer votre environnement pour obtenir des performances optimales. Vous pouvez également trouver ces informations dans l’[utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). L’utilitaire de résolution des problèmes indique les étapes pour vous aider en cas de problèmes de connexion, de mappage et de montage de partages Azure Files.
+En plus des étapes de dépannage présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) pour vérifier que le client Linux dispose des prérequis. Azfilediagnostics automatise la détection de la plupart des problèmes mentionnés dans cet article. Il vous aide à configurer votre environnement pour obtenir des performances optimales. Vous pouvez également trouver ces informations dans l’[utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). L’utilitaire de résolution des problèmes indique les étapes pour vous aider en cas de problèmes de connexion, de mappage et de montage de partages Azure Files.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Connexion ou montage impossible d’un partage de fichiers Azure
 
@@ -30,12 +30,12 @@ Causes courantes de ce problème :
 
 |   | SMB 2.1 <br>(Montages sur des machines virtuelles au sein de la même région Azure) | SMB 3.0 <br>(Montages en local et entre les régions) |
 | --- | :---: | :---: |
-| Serveur Ubuntu | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| OpenSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Serveur Ubuntu** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - Les utilitaires CIFS (cifs-utils) ne sont pas installés sur le client.
 - La version de SMB/CIFS minimale, à savoir 2.1, n’est pas installée sur le client.
@@ -84,9 +84,9 @@ Dans Linux, vous recevez un message d’erreur semblable au suivant :
 
 ### <a name="cause"></a>Cause
 
-Vous avez atteint la limite supérieure de handles ouverts simultanément autorisés pour un fichier.
+Vous avez atteint la limite supérieure de handles ouverts simultanément autorisés pour un fichier ou un répertoire.
 
-Il existe un quota de 2 000 handles ouverts sur un seul fichier. Quand vous avez 2 000 handles ouverts, un message d’erreur s’affiche pour signaler que le quota est atteint.
+Il existe un quota de 2 000 handles ouverts sur un seul fichier ou répertoire. Quand vous avez 2 000 handles ouverts, un message d’erreur s’affiche pour signaler que le quota est atteint.
 
 ### <a name="solution"></a>Solution
 

@@ -1,7 +1,7 @@
 ---
-title: Résolution des erreurs de module
+title: Résoudre des erreurs de module (préversion) concepteur
 titleSuffix: Azure Machine Learning
-description: Résoudre les exceptions des modules dans le concepteur Azure Machine Learning en utilisant les codes d’erreur
+description: Résoudre les codes d'erreur de modules dans le concepteur Azure Machine Learning (préversion)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b477fbf0744304b28b3f4ef06271ce7728800bf
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213752"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206998"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 

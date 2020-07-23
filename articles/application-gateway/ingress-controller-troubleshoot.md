@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207166"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Résoudre les problèmes courants liés à Ingress Controller
 
@@ -26,7 +26,7 @@ ms.locfileid: "85207853"
 Les étapes suivantes partent des suppositions ci-après :
   - Vous disposez d’un cluster AKS avec mise en réseau avancée activée.
   - AGIC a été installé sur le cluster AKS.
-  - Vous avez déjà une passerelle Application Gateway sur un réseau virtuel partagé avec votre cluster AKS.
+  - Vous avez déjà une passerelle Application Gateway sur un réseau virtuel partagé avec votre cluster AKS
 
 Pour vérifier que l’installation Application Gateway + AKS + AGIC est correctement configurée, déployez l’application la plus simple possible :
 

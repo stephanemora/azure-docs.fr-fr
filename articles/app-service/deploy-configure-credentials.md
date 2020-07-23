@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649126"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223854"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
@@ -40,17 +40,17 @@ Sur le portail Azure, vous devez disposer d’au moins une application avant de 
 
 1. Sur le [portail Azure](https://portal.azure.com), dans le menu de gauche, sélectionnez **App Services** >  **\<any_app>**  > **Centre de déploiement** > **FTP** > **Tableau de bord**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Ou bien, si vous avez déjà configuré le déploiement Git, sélectionnez **App Services** >  **&lt;une_application>**  > **Centre de déploiement** > **FTP/Informations d’identification**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services pour votre déploiement de Git configuré.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Sélectionnez **Informations d’identification de l’utilisateur**, configurez le nom d’utilisateur et le mot de passe, puis sélectionnez **Enregistrer les informations d’identification**.
 
 Une fois que vous avez défini vos informations d’identification de déploiement, vous trouverez le nom d’utilisateur du déploiement *Git* dans la page **Vue d’ensemble** de votre application.
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Montre comment trouver le nom d’utilisateur du déploiement Git sur la page Vue d’ensemble de votre application.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Si le déploiement Git est configuré, la page présente un **Nom d’utilisateur Git/Déploiement** ; sinon, un **Nom d’utilisateur FTP/Déploiement** est affiché.
 

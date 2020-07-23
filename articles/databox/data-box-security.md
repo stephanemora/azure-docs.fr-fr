@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817711"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200404"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -30,11 +30,14 @@ La solution Microsoft Azure Data Box repose sur l’interaction de quatre compos
 - **Les clients/hôtes connectés à l’appareil** : les clients de votre infrastructure se connectant à l’appareil Data Box et contenant des données devant être protégées.
 - **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Azure Data Box que vous avez créée.
 
-Le diagramme suivant indique le flux de données à travers la solution Azure Data Box de l’environnement local vers Azure.
+Le diagramme suivant indique le flux de données à travers la solution Azure Data Box de l’environnement local vers Azure. Ce flux est destiné à une commande d’importation pour votre Data Box.
 
 ![Sécurité Data Box](media/data-box-security/data-box-security-2.png)
 
-Comme les données circulent dans cette solution, les événements sont enregistrés et des journaux sont générés. Pour plus d’informations, accédez à [Suivi et journalisation des événements pour votre Azure Data Box](data-box-logs.md).
+Comme les données circulent dans cette solution, les événements sont enregistrés et des journaux sont générés. Pour plus d'informations, accédez à :
+
+- [Suivi et journalisation des événements pour les commandes d’importation de votre Azure Data Box](data-box-logs.md).
+- [Suivi et journalisation des événements pour les commandes d’exportation de votre Azure Data Box](data-box-export-logs.md)
 
 ## <a name="security-features"></a>Fonctionnalités de sécurité
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734620"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223497"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -98,13 +98,15 @@ Certaines considérations relatives à la disponibilité des services d’authen
 
 Les adresses IP des contrôleurs de domaine d’un domaine managé changent après une migration. Ce changement comprend l’adresse IP publique du point de terminaison LDAP sécurisé. Les nouvelles adresses IP se trouvent dans la plage d’adresses du nouveau sous-réseau du réseau virtuel Resource Manager.
 
-En cas d’annulation, les adresses IP peuvent changer après le retour à un état antérieur à la migration.
+Si vous avez besoin d’annuler, les adresses IP peuvent changer après le retour à un état antérieur à la migration.
 
 Azure AD DS utilise généralement les deux premières adresses IP disponibles dans la plage d’adresses, mais ce n’est pas systématique. Vous ne pouvez pas actuellement spécifier les adresses IP à utiliser après la migration.
 
 ### <a name="downtime"></a>Temps d’arrêt
 
-Le processus de migration implique que les contrôleurs de domaine soient hors connexion pendant un certain temps. Les contrôleurs de domaine sont inaccessibles pendant la migration d’Azure AD DS vers le réseau virtuel et le modèle de déploiement Resource Manager. En moyenne, le temps d’arrêt varie entre 1 et 3 heures. Cette période court entre le moment où les contrôleurs de domaine sont mis hors connexion et le moment où le premier contrôleur de domaine est remis en ligne. Cette moyenne n’inclut pas le temps nécessaire au deuxième contrôleur de domaine pour effectuer la réplication, ni le temps qu’il peut prendre pour procéder à la migration des ressources supplémentaires vers le modèle de déploiement Resource Manager.
+Le processus de migration implique que les contrôleurs de domaine soient hors connexion pendant un certain temps. Les contrôleurs de domaine sont inaccessibles pendant la migration d’Azure AD DS vers le réseau virtuel et le modèle de déploiement Resource Manager.
+
+En moyenne, le temps d’arrêt varie entre 1 et 3 heures. Cette période court entre le moment où les contrôleurs de domaine sont mis hors connexion et le moment où le premier contrôleur de domaine est remis en ligne. Cette moyenne n’inclut pas le temps nécessaire au deuxième contrôleur de domaine pour effectuer la réplication, ni le temps qu’il peut prendre pour procéder à la migration des ressources supplémentaires vers le modèle de déploiement Resource Manager.
 
 ### <a name="account-lockout"></a>Verrouillage de compte
 
@@ -207,7 +209,7 @@ Pour préparer le domaine managé à la migration, effectuez les étapes suivant
 
 ## <a name="migrate-the-managed-domain"></a>Migrer le domaine managé
 
-Une fois le domaine managé préparé et sauvegardé, il peut être migré. Cette étape recrée les machines virtuelles du contrôleur de domaine Azure AD Domain Services au moyen du modèle de déploiement Resource Manager. Cette étape peut prendre 1 à 3 heures.
+Une fois le domaine managé préparé et sauvegardé, il peut être migré. Cette étape recrée les machines virtuelles du contrôleur de domaine Azure Active Directory Domain Services au moyen du modèle de déploiement Resource Manager. Cette étape peut prendre 1 à 3 heures.
 
 Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Commit*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé préparé à la section précédente, par exemple *aaddscontoso.com* :
 
@@ -248,10 +250,12 @@ Avec le modèle de déploiement Resource Manager, les ressources réseau du doma
 
 Lorsqu’au moins un contrôleur de domaine est disponible, procédez aux étapes de configuration suivantes pour établir la connectivité réseau avec les machines virtuelles :
 
-* **Mettre à jour les paramètres de serveur DNS** - Pour permettre à d’autres ressources sur le réseau virtuel Resource Manager de résoudre et d’utiliser le domaine managé, mettez à jour les paramètres DNS avec les adresses IP des nouveaux contrôleurs de domaine. La portail Azure peut configurer automatiquement ces paramètres pour vous. Pour en savoir plus sur la configuration du réseau virtuel Resource Manager, consultez [Mettre à jour les paramètres DNS pour le réseau virtuel Azure][update-dns].
+* **Mettre à jour les paramètres de serveur DNS** - Pour permettre à d’autres ressources sur le réseau virtuel Resource Manager de résoudre et d’utiliser le domaine managé, mettez à jour les paramètres DNS avec les adresses IP des nouveaux contrôleurs de domaine. La portail Azure peut configurer automatiquement ces paramètres pour vous.
+
+    Pour en savoir plus sur la configuration du réseau virtuel Resource Manager, consultez [Mettre à jour les paramètres DNS pour le réseau virtuel Azure][update-dns].
 * **Redémarrer les machines virtuelles jointes à un domaine** - Comme les adresses IP de serveur DNS pour les contrôleurs de domaine Azure AD DS changent, redémarrez toutes les machines virtuelles jointes au domaine afin qu’elles utilisent ensuite les nouveaux paramètres de serveur DNS. Si des applications ou des machines virtuelles disposent de paramètres DNS configurés manuellement, mettez-les à jour manuellement en utilisant les nouvelles adresses IP de serveur DNS des contrôleurs de domaine, qui sont affichées dans le portail Azure.
 
-À présent, testez la connexion réseau virtuel et la résolution de noms. Sur une machine virtuelle connectée au réseau virtuel Resource Manager, ou appairée à celui-ci, essayez les tests de communication réseau suivants :
+À présent, testez la connexion réseau virtuel et la résolution de noms. Sur une machine virtuelle connectée au réseau virtuel Resource Manager, ou appairée à celui-ci, essayez les tests de communication réseau suivants :
 
 1. Vérifiez si vous pouvez exécuter une commande ping sur l’adresse IP de l’un des contrôleurs de domaine, par exemple `ping 10.1.0.4`.
     * Les adresses IP des contrôleurs de domaine sont affichées sur la page **Propriétés** du domaine managé, dans le portail Azure.
@@ -270,7 +274,7 @@ Azure AD DS expose les journaux d’audit pour vous aider à résoudre des probl
 
 Vous pouvez utiliser des modèles pour superviser les informations importantes qui sont exposées dans les journaux. Par exemple, le modèle de classeur du journal d’audit peut superviser les éventuels verrouillages de compte sur le domaine managé.
 
-### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurer les notifications par e-mail pour Azure Active Directory Domain Services
+### <a name="configure-email-notifications"></a>Configurer les notifications par e-mail
 
 Afin d’être averti lorsqu’un problème est détecté sur le domaine managé, mettez à jour les paramètres de notification par e-mail dans le portail Azure. Pour plus d’informations, consultez [Configurer les paramètres de notification][notifications].
 
@@ -297,7 +301,7 @@ Jusqu’à un certain point du processus de migration, vous pouvez choisir de re
 
 ### <a name="roll-back"></a>Annuler l’opération
 
-En cas d’erreur survenant lors de l’exécution de l’applet de commande PowerShell pour préparer la migration à l’étape 2, ou pour la migration elle-même à l’étape 3, le domaine managé peut revenir à la configuration d’origine. Cette opération d’annulation nécessite l’existence du réseau virtuel classique d’origine. Notez que les adresses IP peuvent toujours changer après la restauration.
+En cas d’erreur survenant lors de l’exécution de l’applet de commande PowerShell pour préparer la migration à l’étape 2, ou pour la migration elle-même à l’étape 3, le domaine managé peut revenir à la configuration d’origine. Cette opération d’annulation nécessite l’existence du réseau virtuel classique d’origine. Les adresses IP peuvent toujours changer après la restauration.
 
 Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Abort*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé préparé dans une des sections précédentes, par exemple *aaddscontoso.com*, et le nom du réseau virtuel Classique, par exemple *myClassicVnet* :
 

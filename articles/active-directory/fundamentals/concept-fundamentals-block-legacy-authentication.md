@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196387"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200551"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocage de l’authentification héritée
  
@@ -32,9 +32,9 @@ Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour
 
 Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
 
-1. Accédez au  **portail Azure** > **Azure Active Directory** > **Connexions**.
+1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
 1. Si elle n’est pas affichée, ajoutez la colonne **Application cliente** en cliquant sur  **Colonnes** > **Application cliente**.
-1. Filtrez par  **Application cliente** > vérifiez toutes les options **Clients d’authentification hérités** présentées.
+1. Filtrez par **Application cliente** > cochez toutes les options **Clients d’authentification hérités** présentées.
 1. Filtrez par **État** > **Réussite**. 
 1. Si nécessaire, étendez votre plage de dates en utilisant le filtre **Date**.
 

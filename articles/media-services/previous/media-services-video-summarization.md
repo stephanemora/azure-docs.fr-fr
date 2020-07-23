@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918312"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231843"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo  
 
@@ -61,16 +61,16 @@ Actuellement, vous pouvez modifier les paramètres suivants :
 
 | Paramètre | Description |
 | --- | --- |
-| outputAudio |Spécifie si la vidéo obtenue contient, ou non, des données audio. <br/>Les valeurs autorisées sont : True ou False. La valeur par défaut est True. |
-| fadeInFadeOut |Spécifie si des transitions en fondu sont, ou non, utilisées entre les différentes miniatures du film.  <br/>Les valeurs autorisées sont : True ou False.  La valeur par défaut est True. |
+| outputAudio |Spécifie si la vidéo obtenue contient, ou non, des données audio. <br/>Les valeurs autorisées sont les suivantes : True ou False. La valeur par défaut est True. |
+| fadeInFadeOut |Spécifie si des transitions en fondu sont, ou non, utilisées entre les différentes miniatures du film.  <br/>Les valeurs autorisées sont les suivantes : True ou False.  La valeur par défaut est True. |
 | maxMotionThumbnailDurationInSecs |Entier qui spécifie la durée que doit avoir la vidéo obtenue.  La valeur par défaut dépend de la durée de la vidéo d’origine. |
 
 Le tableau suivant décrit la durée par défaut, quand **maxMotionThumbnailInSecs** n’est pas utilisé.
 
-|  |  |  |
+|  | Petite | Plus grand |
 | --- | --- | --- |
-| Durée de la vidéo |d < 3 min |3 min < d < 15 min |
-| Durée de la miniature |15 s (2-3 scènes) |30 s (3-5 scènes) |
+| **Durée de la vidéo** |d < 3 min |3 min < d < 15 min |
+| **Durée de la miniature** |15 s (2-3 scènes) |30 s (3-5 scènes) |
 
 Le code JSON suivant définit les paramètres disponibles.
 

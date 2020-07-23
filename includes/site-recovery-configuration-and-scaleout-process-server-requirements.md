@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544700"
 ---
 **Exigences des serveur de configuration et de traitement**
 
@@ -60,6 +60,9 @@ time.windows.com | Éléments utilisés pour vérifier la synchronisation horair
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (facultatif) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | L’installation OVF nécessite l’accès à ces URL supplémentaires. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Pour effectuer le téléchargement de MySQL. </br> Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l’URL CDN figure également dans la liste verte, si nécessaire.
 |
+
+> [!NOTE]
+> Si vous avez une [connexion de liaisons privées](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) au coffre Site Recovery, vous n’avez pas besoin d’un autre accès Internet pour le serveur de configuration. Exception : lors de la configuration de l’ordinateur CS à l’aide du modèle OVA, vous devez accéder aux URL suivantes vers et au-delà de l’accès de liaison privée - https://management.azure.com, https://www.live.com et https://www.microsoft.com. Si vous ne souhaitez pas autoriser l’accès à ces URL, configurez l’ordinateur CS avec le programme d’installation unifiée.
 
 ## <a name="required-software"></a>Logiciels requis
 

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/19/2020
+ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 39c694f4e2afbf5d781a8fde43a7db9c4a255466
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392662"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232149"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -32,15 +32,12 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 * Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="resource-manager-template"></a>Modèle Resource Manager
+## <a name="workspace-resource-manager-template"></a>Modèle Resource Manager de l’espace de travail
 
-Le modèle Resource Manager suivant permet de créer un espace de travail Azure Machine Learning et des ressources Azure associées :
-
-[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
+Le modèle Azure Resource Manager utilisé tout au long de ce document est disponible dans le répertoire [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) du dépôt GitHub de modèles de démarrage rapide Azure.
 
 Ce modèle crée les services Azure suivants :
 
-* Groupe de ressources Azure
 * Compte Stockage Azure
 * Azure Key Vault
 * Azure Application Insights
@@ -49,13 +46,13 @@ Ce modèle crée les services Azure suivants :
 
 Le groupe de ressources est le conteneur des services. Les différents services sont requis par l’espace de travail Azure Machine Learning.
 
-L’exemple de modèle possède deux paramètres :
+L’exemple de modèle comprend deux paramètres **obligatoires** :
 
-* L’**emplacement**, où le groupe de ressources et les services vont être créés.
+* L’emplacement (**location**) de création des ressources.
 
     Le modèle utilise l’emplacement que vous sélectionnez pour la plupart des ressources. L’exception est le service Application Insights, qui n’est pas disponible dans tous les emplacements où les autres services le sont. Si vous sélectionnez un emplacement où il n’est pas disponible, le service est créé à l’emplacement USA Centre Sud.
 
-* Le **nom de l’espace de travail**, qui est le nom convivial de l’espace de travail Azure Machine Learning.
+* Le nom de l’espace de travail (**workspaceName**), qui est le nom convivial de l’espace de travail Azure Machine Learning.
 
     > [!NOTE]
     > Le nom de l’espace de travail n’est pas sensible à la casse.
@@ -75,7 +72,82 @@ Pour plus d’informations sur les modèles, voir les articles suivants :
 * [Déployer une application avec des modèles Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
 * [Types de ressources Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-### <a name="advanced-template"></a>Modèle avancé
+## <a name="deploy-template"></a>Déployer un modèle
+
+Pour déployer votre modèle, vous devez créer un groupe de ressources.
+
+Consultez la section du [portail Azure](#use-the-azure-portal) si vous préférez utiliser l’interface graphique utilisateur.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az group create --name "examplegroup" --location "eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroup -Name "examplegroup" -Location "eastus"
+```
+
+---
+
+Une fois votre groupe de ressources correctement créé, déployez le modèle à l’aide de la commande suivante :
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" location="eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus"
+```
+
+---
+
+Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing**, puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      storageAccountOption="existing" \
+      storageAccountName="existingstorageaccountname"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -storageAccountOption "existing" `
+  -storageAccountName "existingstorageaccountname"
+```
+
+---
+
+## <a name="deploy-an-encrypted-workspace"></a>Déployer un espace de travail chiffré
 
 L’exemple de modèle suivant montre comment créer un espace de travail avec trois paramètres :
 
@@ -87,6 +159,7 @@ Pour plus d'informations, consultez [Chiffrement au repos](concept-enterprise-se
 
 > [!IMPORTANT]
 > Pour pouvoir utiliser ce modèle, l’abonnement doit satisfaire à certaines exigences :
+>
 > * L’application __Azure Machine Learning__ doit être un __contributeur__ pour votre abonnement Azure.
 > * Vous devez disposer d’un Azure Key Vault contenant une clé de chiffrement.
 > * Vous devez disposer dans l’Azure Key Vault d’une stratégie d’accès accordant les accès __get__, __wrap__ et __unwrap__ à l’application __Azure Cosmos DB__.
@@ -94,110 +167,482 @@ Pour plus d'informations, consultez [Chiffrement au repos](concept-enterprise-se
 
 __Pour ajouter l’application Azure Machine Learning en tant que de contributeur__, utilisez les commandes suivantes :
 
-1. Pour vous authentifier auprès d’Azure à partir de l’interface CLI, utilisez la commande suivante :
+1. Connectez-vous à votre compte Azure, puis obtenez votre ID d’abonnement. Cet abonnement doit être le même que celui qui contient votre espace de travail Azure Machine Learning.  
 
-    ```azurecli-interactive
-    az login
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az account list --query '[].[name,id]' --output tsv
     ```
-    
-    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
+
+    > [!TIP]
+    > Pour sélectionner un autre abonnement, utilisez la commande `az account set -s <subscription name or ID>` et spécifiez le nom ou l’ID de l’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzSubscription
+    ```
+
+    > [!TIP]
+    > Pour sélectionner un autre abonnement, utilisez la commande `Az-SetContext -SubscriptionId <subscription ID>` et spécifiez le nom ou l’ID de l’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
+
+    ---
 
 1. Pour obtenir l’ID d’objet de l’application Azure Machine Learning, utilisez la commande suivante. La valeur peut être différente pour chacun de vos abonnements Azure :
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
+    ```
+
+    ---
     Cette commande retourne l’ID d’objet qui est un GUID.
 
-1. Pour ajouter l’ID d’objet en tant que contributeur à votre abonnement, utilisez la commande suivante. Remplacez `<object-ID>` par le GUID de l’étape précédente. Remplacez `<subscription-ID>` par le nom ou l’ID de votre abonnement Azure :
+1. Pour ajouter l’ID d’objet en tant que contributeur à votre abonnement, utilisez la commande suivante. Remplacez `<object-ID>` par l’ID objet du principal de service. Remplacez `<subscription-ID>` par le nom ou l’ID de votre abonnement Azure :
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-__Pour ajouter une clé à votre Azure Key Vault__, suivez les instructions de la section [Ajouter une clé, un secret ou un certificat au coffre de clés](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) de l’article __Gérer Key Vault avec Azure CLI__.
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
+    ```
+
+    ---
+
+1. Pour générer une clé dans un coffre de clés Azure existant, utilisez l’une des commandes suivantes. Remplacez `<keyvault-name>` par le nom du coffre de clés. Remplacez `<key-name>` par le nom à utiliser pour la clé :
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
+    ```
+    --- 
 
 __Pour ajouter une stratégie d’accès au coffre de clés, utilisez les commandes suivantes__ :
 
 1. Pour récupérer l’ID d’objet de l’application Azure Cosmos DB, utilisez la commande suivante. La valeur peut être différente pour chacun de vos abonnements Azure :
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
-    
-    Cette commande retourne l’ID d’objet qui est un GUID.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
+    ```
+    ---
+
+    Cette commande retourne l’ID d’objet qui est un GUID. Enregistrez-le pour plus tard.
 
 1. Pour définit la stratégie, utilisez la commande suivante. Remplacez `<keyvault-name>` par le nom de l’Azure Key Vault existant. Remplacez `<object-ID>` par le GUID de l’étape précédente :
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    
+    ```azurepowershell
+    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
+    ```
+    ---    
 
 __Pour obtenir les valeurs__ pour `cmk_keyvault` (ID du Key Vault) et les paramètres `resource_cmk_uri` (URI de clé) dont ce modèle a besoin, procédez comme suit :
 
 1. Pour connaître l’ID du Key Vault, utilisez la commande suivante :
 
-    ```azurecli-interactive
-    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv
     ```
 
-    Cette commande renvoie une valeur semblable `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
+    ```
+    ---
+
+    Cette commande renvoie une valeur semblable `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.
 
 1. Pour obtenir la valeur de l’URI de la clé gérée par le client, utilisez la commande suivante :
 
-    ```azurecli-interactive
-    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
+    ```
+    ---
+
     Cette commande renvoie une valeur semblable `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
-
-__Exemple de modèle__
-
-:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
 > Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
 
+Après avoir effectué avec succès les étapes ci-dessus, déployez votre modèle comme vous le feriez normalement. Pour activer l’utilisation des clés gérées par le client, définissez les paramètres suivants :
+
+* **encryption_status** sur **Enabled**.
+* **cmk_keyvault** sur la valeur `cmk_keyvault` obtenue dans les étapes précédentes.
+* **resource_cmk_uri** sur la valeur `resource_cmk_uri` obtenue dans les étapes précédentes.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      encryption_status="Enabled" \
+      cmk_keyvault="/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" \
+      resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -encryption_status "Enabled" `
+  -cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
+  -resource_cmk_uri "https://mykeyvault.vault.azure.net/keys/mykey/{guid}"
+```
+---
+
+Lors de l’utilisation d’une clé gérée par le client, Azure Machine Learning crée un groupe de ressources secondaire qui contient l’instance Cosmos DB. Pour plus d’informations, consultez [Chiffrement au repos - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+
+Définir le paramètre **confidential_data** sur **true** constitue une configuration supplémentaire que vous pouvez fournir pour vos données. Cette opération effectue les actions suivantes :
+
+* Démarre le chiffrement du disque de travail local pour les clusters de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans votre abonnement avant. Si vous avez déjà créé un cluster dans l’abonnement, ouvrez un ticket de support pour que le chiffrement du disque de travail soit activé pour vos clusters de calcul.
+* Nettoie le disque de travail local entre les exécutions.
+* Transmet de manière sécurisée les informations d’identification pour le compte de stockage, le registre de conteneurs et le compte SSH de la couche d’exécution à vos clusters de calcul en utilisant un coffre de clés.
+* Active le filtrage IP pour garantir que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres qu’AzureMachineLearningService.
+
+  Pour plus d’informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
+
+## <a name="deploy-workspace-behind-a-virtual-network"></a>Déployer un espace de travail derrière un réseau virtuel
+
+En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vous pouvez créer les ressources utilisées par un espace de travail derrière un réseau virtuel.
+
+> [!IMPORTANT]
+> Pour le registre de conteneurs, seule la référence SKU « Premium » est prise en charge.
+
+> [!IMPORTANT]
+> Application Insights ne prend pas en charge le déploiement derrière un réseau virtuel.
+
+### <a name="only-deploy-workspace-behind-private-endpoint"></a>Déployer l’espace de travail uniquement derrière un point de terminaison privé
+
+Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé.
+
+> [!IMPORTANT]
+> Le déploiement n’est valide que dans les régions qui prennent en charge les points de terminaison privés.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+### <a name="use-a-new-virtual-network"></a>Utiliser un nouveau réseau virtuel
+
+Pour déployer une ressource derrière un nouveau réseau virtuel, définissez **vnetOption** sur **new** avec les paramètres de réseau virtuel de la ressource concernée. Le déploiement ci-dessous montre comment déployer un espace de travail avec la ressource de compte de stockage derrière un nouveau réseau virtuel.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+Vous pouvez également déployer plusieurs ou toutes les ressources dépendantes derrière un réseau virtuel.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -keyVaultBehindVNet "true" `
+  -containerRegistryBehindVNet "true" `
+  -containerRegistryOption "new" `
+  -containerRegistrySku "Premium"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -privateEndpointType "AutoApproval"
+```
+
+--- -->
+
+### <a name="use-an-existing-virtual-network--resources"></a>Utiliser un réseau virtuel et des ressources existants
+
+Pour déployer un espace de travail avec les ressources associées existantes, vous devez définir le paramètre **vnetOption** sur **existing** avec les paramètres de sous-réseau. Toutefois, vous devez créer des points de terminaison de service dans le réseau virtuel pour chacune des ressources **avant** le déploiement. Comme avec les nouveaux déploiements de réseau virtuel, vous pouvez avoir l’une de vos ressources, ou toutes, derrière un réseau virtuel.
+
+> [!IMPORTANT]
+> Le sous-réseau doit avoir un point de terminaison de service `Microsoft.Storage`
+
+> [!IMPORTANT]
+> Les sous-réseaux n’autorisent pas la création de points de terminaison privés. Désactivez le point de terminaison privé pour activer le sous-réseau.
+
+1. Activez les points de terminaison de service pour les ressources.
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.ContainerRegistry" | Set-AzVirtualNetwork
+    ```
+
+    ---
+
+1. Déployer l’espace de travail
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="examplegroup" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium" \
+      subnetName="examplesubnet" \
+      subnetOption="existing"
+      privateEndpointType="AutoApproval"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -Name "exampledeployment" `
+      -ResourceGroupName "examplegroup" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+      -workspaceName "exampleworkspace" `
+      -location "eastus" `
+      -vnetOption "existing" `
+      -vnetName "examplevnet" `
+      -vnetResourceGroupName "examplegroup" `
+      -storageAccountBehindVNet "true"
+      -keyVaultBehindVNet "true" `
+      -containerRegistryBehindVNet "true" `
+      -containerRegistryOption "new" `
+      -containerRegistrySku "Premium" `
+      -subnetName "examplesubnet" `
+      -subnetOption "existing"
+      -privateEndpointType "AutoApproval"
+    ```
+    ---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="rg" \
+      privateEndpointType="AutoApproval" \
+      subnetName="subnet" \
+      subnetOption="existing"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "existing" `
+  -vnetName "examplevnet" `
+  -vnetResourceGroupName "rg"
+  -privateEndpointType "AutoApproval"
+  -subnetName "subnet"
+  -subnetOption "existing"
+```
+
+--- -->
+
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
-1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Lorsque vous arrivez à l’écran __Modifier le modèle__, collez dans le modèle à partir de ce document.
-1. Sélectionnez __Enregistrer__ pour utiliser le modèle. Fournissez les informations suivantes et acceptez les conditions répertoriées :
+1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__, choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
+1. Sélectionnez __Sélectionner un modèle__ pour utiliser le modèle. Fournissez les informations nécessaires suivantes et tous les autres paramètres en fonction de votre scénario de déploiement.
 
    * Abonnement : Sélectionnez l’abonnement Azure à utiliser pour ces ressources.
    * Groupe de ressources : Sélectionnez ou créez un groupe de ressources pour contenir les services.
+   * Région : sélectionnez la région Azure dans laquelle les ressources seront créées.
    * Nom de l’espace de travail : Nom à utiliser pour l’espace de travail Azure Machine Learning qui va être créé. Le nom de l'espace de travail doit contenir entre 3 et 33 caractères. Il ne peut contenir que des caractères alphanumériques et « - ».
    * Localisation : Sélectionnez l’emplacement de création des ressources.
+1. Sélectionnez __Revoir + créer__.
+1. Dans l’écran __Vérifier + créer__, acceptez les conditions générales mentionnées, puis sélectionnez __Créer__.
 
 Pour plus d’informations, consultez [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-
-Cet exemple suppose que vous avez enregistré le modèle dans un fichier nommé `azuredeploy.json` dans le répertoire actuel :
-
-```powershell
-New-AzResourceGroup -Name examplegroup -Location "East US"
-new-azresourcegroupdeployment -name exampledeployment `
-  -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
-```
-
-Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) et [Déployer un modèle Resource Manager privé avec un jeton SAP et Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
-
-## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
-
-Cet exemple suppose que vous avez enregistré le modèle dans un fichier nommé `azuredeploy.json` dans le répertoire actuel :
-
-```azurecli-interactive
-az group create --name examplegroup --location "East US"
-az group deployment create \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus sku=basic
-```
-
-Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/templates/deploy-cli.md) et [Déployer un modèle Resource Manager privé avec un jeton SAP et Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -217,7 +662,7 @@ Pour éviter ce problème, nous vous recommandons une des approches suivantes :
 
 * Examinez les stratégies d’accès Key Vault, puis utilisez ces stratégies pour définir la propriété `accessPolicies` du modèle. Pour voir les stratégies d’accès, utilisez la commande Azure CLI suivante :
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
@@ -288,7 +733,7 @@ Pour éviter ce problème, nous vous recommandons une des approches suivantes :
 
     Pour obtenir l’ID de la ressource Key Vault, référencez la sortie de l’exécution du modèle initial ou utilisez Azure CLI. La commande suivante est un exemple d’utilisation d’Azure CLI pour obtenir l’ID de la ressource Key Vault :
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
     ```
 

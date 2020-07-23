@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253866"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223310"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 
@@ -44,11 +44,11 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
      À ce stade, votre storyboard a normalement l’aspect suivant :
 
-     ![][0]
+     ![Capture d’écran de l’application MainStoryboard_iPhone.storyboard avec l’ajout des composants.][0]
 
 2. Dans l’éditeur de l’Assistant, créez des outlets pour tous les contrôles commutés et appelez-les, connectez les champs texte au View Controller (délegué), puis créez une **Action** pour le bouton **login**.
 
-    ![][1]
+    ![Capture d’écran de l’éditeur assistant dans l’application MainStoryboard_iPhone.storyboard][1]
 
     Le fichier BreakingNewsViewController.h doit désormais contenir le code suivant :
 

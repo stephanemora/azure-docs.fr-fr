@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135073"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221202"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -150,6 +150,9 @@ L’API nécessite un « SourceType » qui définit la source pour la générati
 - PlatformImage : indique que l’image source est une image de la Place de marché.
 - ManagedImag : utilisez cette option au démarrage à partir d’une image managée classique.
 - SharedImageVersion : cette option s’applique lorsque vous utilisez une version d’image dans une galerie d’images partagées comme source.
+
+> [!NOTE]
+> Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="iso-source"></a>Source ISO
 Nous déprécions cette fonctionnalité dans le générateur d’images, car il existe désormais des [images RHEL BYOS (Apportez votre propre abonnement)](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). Voir la chronologie ci-dessous :
@@ -468,7 +471,10 @@ Le générateur d’images Azure prend en charge trois cibles de distribution :
 - **sharedImage** - Galerie d’images partagées.
 - **VHD** - Disque dur virtuel dans un compte de stockage.
 
-Vous pouvez distribuer une image sur les deux types de cibles dans la même configuration, consultez les [exemples](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+Vous pouvez distribuer une image sur les deux types de cibles dans la même configuration.
+
+> [!NOTE]
+> La commande sysprep AIB par défaut n’inclut pas « /mode:vm », mais cela peut être nécessaire lors de la création d’images pour lesquelles le rôle HyperV est installé. Si vous devez ajouter cet argument de commande, vous devez écraser la commande sysprep.
 
 Comme vous pouvez avoir plusieurs cibles sur lesquelles distribuer, le générateur d’images gère un état pour chaque cible de distribution accessible en interrogeant `runOutputName`.  `runOutputName` est un objet que vous pouvez interroger après la distribution pour plus d’informations sur cette distribution. Par exemple, vous pouvez interroger l’emplacement du disque dur virtuel, ou des régions dans lesquelles la version de l’image a été répliquée ou la version de l’image SIG créée. Il s’agit d’une propriété de chaque cible de distribution. `runOutputName` doit être unique pour chaque cible de distribution. Voici un exemple qui interroge une distribution de la Shared Image Gallery :
 

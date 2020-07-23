@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135740"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224109"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Répliquer des machines avec des disques activées par les clés gérées par le client
 
@@ -81,3 +81,8 @@ Suivez ces étapes pour modifier les paramètres cibles par défaut de Site Reco
 * J’ai ajouté un nouveau disque activé par une clé gérée par le client à l’élément répliqué. Comment puis-je répliquer ce disque à l’aide d’Azure Site Recovery ?
 
     L’ajout d’un nouveau disque activé par une clé gérée par le client à un élément répliqué existant n’est pas pris en charge. Désactivez et réactivez la réplication pour la machine virtuelle.
+
+* J’ai activé des clés gérées par la plateforme et celles par le client. Comment puis-je protéger mes disques ?
+
+    L’activation du double chiffrement avec les clés gérées par la plateforme et celles gérées par le client est prise en charge par Site Recovery. Suivez les instructions de cet article pour protéger votre machine. Vous devez créer à l’avance un DES pour lequel le double chiffrement est activé dans la région cible. Au moment d’activer la réplication pour une machine virtuelle de ce type, vous pouvez fournir ce DES à Site Recovery.
+
