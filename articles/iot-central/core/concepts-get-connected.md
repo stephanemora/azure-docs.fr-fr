@@ -3,20 +3,19 @@ title: Connectivité des appareils dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à la connectivité des appareils dans Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710437"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224741"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -73,19 +72,40 @@ Utilisez les informations de connexion du fichier d’exportation dans le code d
 
 Dans un environnement de production, l’utilisation de certificats X.509 est le mécanisme d’authentification des appareils recommandé pour IoT Central. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](../../iot-hub/iot-hub-x509ca-overview.md).
 
-Avant de connecter un appareil à un certificat X.509, ajoutez et vérifiez un certificat X.509 intermédiaire ou racine dans votre application. Les appareils doivent utiliser des certificats X.509 feuilles générés à partir du certificat racine ou intermédiaire.
+Pour connecter un appareil avec un certificat X.509 à votre application :
 
-### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>Ajouter et vérifier un certificat racine ou intermédiaire
+1. Créez un *groupe d’inscription* qui utilise le type d’attestation **Certificats (X.509)** .
+2. Ajoutez et vérifiez un certificat X.509 intermédiaire ou racine dans le groupe d’inscription.
+3. Inscrivez et connectez des appareils qui utilisent des certificats feuilles X.509 générés à partir du certificat racine ou intermédiaire dans le groupe d’inscription.
 
-Accédez à **Administration > Connexion d’appareils > Gérer le certificat primaire** et ajoutez le certificat X.509 racine ou intermédiaire que vous utilisez pour générer les certificats d’appareils.
+### <a name="create-an-enrollment-group"></a>Création d’un groupe d’inscription
 
-![Paramètres de connexion](media/concepts-get-connected/manage-x509-certificate.png)
+Un [groupe d’inscription](../../iot-dps/concepts-service.md#enrollment) désigne un groupe d’appareils qui partagent le même type d’attestation. Les deux types d’attestations pris en charge sont les certificats X.509 et la signature SAP :
 
-La vérification de la propriété du certificat permet de s’assurer que la personne qui charge le certificat a la clé privée associée. Pour vérifier le certificat :
+- Dans un groupe d’inscription X.509, tous les appareils qui se connectent à IoT Central utilisent des certificats feuilles X.509 générés à partir du certificat racine ou intermédiaire dans le groupe d’inscription.
+- Dans un groupe d’inscription SAP, tous les appareils qui se connectent à IoT Central utilisent un jeton SAP généré à partir du jeton SAP dans le groupe d’inscription.
 
-  1. Sélectionnez le bouton en regard **Code de vérification** pour créer un code.
-  1. Créez un certificat de vérification X.509 avec le code de vérification généré à l’étape précédente. Enregistrez le certificat en tant que fichier .cer.
-  1. Chargez le certificat de vérification signé et sélectionnez **Vérifier**. Le certificat est marqué comme **Vérifié** lorsque la vérification est réussie.
+Les deux groupes d’inscription par défaut de toutes les applications IoT Central sont des groupes d’inscription SAP : l’un pour les appareils IoT et l’autre pour les appareils Azure IoT Edge. Pour créer un groupe d’inscription X.509, accédez à la page **Connexion de l’appareil**, puis sélectionnez **+ Ajouter un groupe d’inscription** :
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Capture d’écran Ajouter un groupe d’inscription X.509":::
+
+### <a name="add-and-verify-a-root-or-intermediate-x509-certificate"></a>Ajout et vérification d’un certificat X.509 racine ou intermédiaire
+
+Pour ajouter et vérifier un certificat racine ou intermédiaire à votre groupe d’inscription :
+
+1. Accédez au groupe d’inscription X.509 que vous venez de créer. Vous avez la possibilité d’ajouter des certificats X.509 principaux et secondaires. Sélectionnez **+ Gérer le certificat principal**.
+
+1. Sur la page **Certificat principal**, chargez votre certificat X.509 principal. Il s’agit de votre certificat racine ou intermédiaire :
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Capture d’écran Certificat principal":::
+
+1. Utilisez le **Code de vérification** pour générer un code de vérification dans votre outil. Sélectionnez ensuite **Vérifier** pour charger le certificat de vérification.
+
+1. Une fois la vérification réussie, la confirmation suivante s’affiche :
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Capture d’écran Certificat principal vérifié":::
+
+La vérification de la propriété du certificat permet de s’assurer que la personne qui charge le certificat a la clé privée associée.
 
 En cas de violation de la sécurité ou si votre certificat principal arrive à expiration, utilisez le certificat secondaire pour réduire le temps d’arrêt. Vous pouvez continuer à approvisionner des appareils à l’aide du certificat secondaire pendant que vous mettez à jour le certificat principal.
 
@@ -93,7 +113,7 @@ En cas de violation de la sécurité ou si votre certificat principal arrive à 
 
 Pour connecter des appareils en bloc avec des certificats X.509, inscrivez d’abord les appareils dans votre application en utilisant un fichier CSV pour [importer les ID et les noms des appareils](howto-manage-devices.md#import-devices). Les ID d’appareils doivent tous être en minuscules.
 
-Générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire chargé. Utilisez l’**ID d’appareil** en tant que valeur `CNAME` dans les certificats feuilles. Le code de votre appareil requiert la valeur **Étendue d’ID** pour votre application, l’**ID d’appareil** et le certificat d’appareil correspondant.
+Générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez chargé dans votre groupe d’inscription X.509. Utilisez l’**ID d’appareil** en tant que valeur `CNAME` dans les certificats feuilles. Le code de votre appareil requiert la valeur **Étendue d’ID** pour votre application, l’**ID d’appareil** et le certificat d’appareil correspondant.
 
 #### <a name="sample-device-code"></a>Exemple de code d’appareil
 
@@ -123,9 +143,9 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Connecter des appareils qui utilisent des jetons SAS sans inscription
 
-1. Copiez la clé primaire du groupe de l’application IoT Central :
+1. Copiez la clé primaire du groupe à partir du groupe d’inscription **SAS-IoT-Devices** :
 
-    ![Clé SAS primaire du groupe de l’application](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Clé primaire du groupe à partir du groupe d’inscription SAS-IoT-Devices":::
 
 1. Utilisez l’outil [dps-keygen](https://www.npmjs.com/package/dps-keygen) pour générer les clés SAS des appareils. Utilisez la clé primaire de groupe de l’étape précédente. Les ID d’appareils doivent être en minuscules :
 
@@ -146,7 +166,7 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Connecter des appareils qui utilisent des certificats X.509 sans inscription
 
-1. [Ajoutez et vérifiez un certificat X.509 racine ou intermédiaire](#connect-devices-using-x509-certificates) dans votre application IoT Central.
+1. [Créez un groupe d’inscription](#create-an-enrollment-group), puis [ajoutez et vérifiez un certificat X.509 racine ou intermédiaire](#add-and-verify-a-root-or-intermediate-x509-certificate) dans votre application IoT Central.
 
 1. générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire ou racine que vous avez ajouté à votre application IoT Central. Utilisez des ID d’appareils en minuscules comme `CNAME` dans les certificats feuilles.
 

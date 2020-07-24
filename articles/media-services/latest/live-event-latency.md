@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199646"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232455"
 ---
 # <a name="live-event-low-latency-settings"></a>Paramètres de latence faible d’événement en direct
 
@@ -62,15 +62,15 @@ Les tableaux suivants illustrent les résultats classiques de latence (quand l�
 
 ||GOP 2 s à faible latence|GOP 1 s à faible latence|
 |---|---|---|
-|DASH dans AMP|10 s|8 s|
-|HLS sur lecteur iOS natif|14 s|10 s|
+|**DASH dans AMP**|10 s|8 s|
+|**HLS sur lecteur iOS natif**|14 s|10 s|
 
 ### <a name="live-encoding"></a>Encodage en direct
 
 ||GOP 2 s à faible latence|GOP 1 s à faible latence|
 |---|---|---|
-|DASH dans AMP|14 s|10 s|
-|HLS sur lecteur iOS natif|18 s|13 s|
+|**DASH dans AMP**|14 s|10 s|
+|**HLS sur lecteur iOS natif**|18 s|13 s|
 
 > [!NOTE]
 > La latence de bout en bout peut varier en fonction des conditions du réseau local ou en introduisant une couche de mise en cache d’un réseau de distribution de contenu. Faites des tests spécifiquement dans vos configurations.

@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765095"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224857"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -81,6 +81,9 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   État : terminé, en échec avec informations sur l’erreur ou annulé.  
       -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Stratégies de sécurité et d’accès réseau associées à l’autorité de certification intégrée
+Le service Key Vault envoie des demandes à l’autorité de certification (trafic sortant). Par conséquent, il est entièrement compatible avec les coffres de clés qui se trouvent derrière un pare-feu. Il ne partage pas de stratégies d’accès avec l’autorité de certification. L’autorité de certification doit être configurée de façon à accepter indépendamment les demandes de signature. [Guide d’intégration de l’autorité de certification approuvée](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## <a name="import-a-certificate"></a>Importation d’un certificat  
  Vous pouvez également importer un certificat dans Key Vault : PFX ou PEM.  
 
@@ -103,7 +106,7 @@ Nous prenons en charge le type d’importation suivant pour le format de fichier
 
 -----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-Quand vous importez le certificat, vous devez vérifier que la clé est incluse dans le fichier. Si vous avez la clé privée ailleurs et dans un autre format, vous devez associer la clé au certificat. Certaines autorités de certification fournissent des certificats dans différents formats. Vous devez donc vérifier qu’ils sont au format .pem ou .pfx avant d’importer le certificat. 
+Quand vous importez le certificat, vous devez vérifier que la clé est incluse dans le fichier. Si vous avez la clé privée ailleurs et dans un autre format, vous devez associer la clé au certificat. Certaines autorités de certification fournissent des certificats dans différents formats. Avant d’importer le certificat, vous devez donc vérifier qu’il est au format .pem ou .pfx. 
 
 ### <a name="formats-of-merge-csr-we-support"></a>Formats de fusion de CSR que nous prenons en charge
 AKV prend en charge 2 formats basés sur PEM. Vous pouvez fusionner un seul certificat encodé en PKCS#8 ou un fichier P7B encodé en Base64 (chaîne de certificats signés par l’autorité de certification). 

@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c924af297d9a315b61351b69d2fe6346bc1178
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733531"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232625"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -50,7 +50,7 @@ Une passerelle qui effectue la traduction d’identité fournit les avantages de
 
 Voici un aide-mémoire qui compare les primitives IoT Hub lors de l’utilisation de passerelles transparentes, opaques (protocole) et de proxy.
 
-| &nbsp; | Passerelle transparente | Traduction de protocole | Traduction d’identité |
+| Primitives | Passerelle transparente | Traduction de protocole | Traduction d’identité |
 |--------|-------------|--------|--------|
 | Identités stockées dans le registre des identités IoT Hub | Identités de tous les appareils connectés | Uniquement l’identité de l’appareil de passerelle | Identités de tous les appareils connectés |
 | Jumeau d’appareil | Chaque appareil connecté possède son propre jumeau d’appareil | Seule la passerelle a un appareil et des jumeaux de module | Chaque appareil connecté possède son propre jumeau d’appareil |

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868085"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277750"
 ---
 La fonctionnalité Disques partagés Azure (préversion) est une nouvelle fonctionnalité pour disques managés Azure qui permet de connecter simultanément un disque managé à plusieurs machines virtuelles. Le fait d’attacher un disque managé à plusieurs machines virtuelles vous permet de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure.
 
@@ -41,7 +41,7 @@ Le clustering basé sur Windows repose essentiellement sur WSFC, qui gère toute
 
 Voici quelques exemples d’applications bien connues qui s’exécutent sur WSFC :
 
-- Instances de cluster de basculement SQL Server (FCI)
+- [Création d’une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Serveur de fichiers avec montée en puissance parallèle (SoFS)
 - Serveur de fichiers pour une utilisation générale (charge de travail IW)
 - Disque de profil utilisateur de serveur Bureau à distance (RDS UPD)
@@ -87,7 +87,12 @@ Les disques Ultra offrent une limitation supplémentaire, soit deux limitations 
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Image d’une table représentant l’accès en lecture seule ou en lecture/écriture pour le détenteur de la réservation, l’utilisateur inscrit et autres.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Limitations des performances des disques Ultra
+## <a name="performance-throttles"></a>Limitation des performances
+
+### <a name="premium-ssd-performance-throttles"></a>Limitations des performances des disques SSD Premium
+Sur un disque SSD Premium, les IOPS et le débit sont fixes. Par exemple, un P30 présente 5 000 IOPS. Cette valeur reste la même que le disque soit partagé entre deux ou cinq machines virtuelles. Les limites de disque peuvent être atteintes à partir d’une seule machine virtuelle ou réparties sur plusieurs machines virtuelles. 
+
+### <a name="ultra-disk-performance-throttles"></a>Limitations des performances des disques Ultra
 
 Les disques Ultra ont la capacité unique de vous permettre de définir vos performances en exposant des attributs modifiables et en vous permettant de les modifier. Par défaut, il n’y a que deux attributs modifiables, mais les disques Ultra partagés ont deux attributs supplémentaires.
 
@@ -111,23 +116,23 @@ Les formules suivantes expliquent comment définir les attributs de performance,
     - La limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS provisionnée, avec un maximum de 2000 Mbits/s par disque.
     - Le débit minimal garanti par disque est de 4 Kio/s pour chaque IOPS provisionnée avec une base de référence globale minimale de 1 Mbits/s.
 
-### <a name="examples"></a>Exemples
+#### <a name="examples"></a>Exemples
 
 Les exemples suivants illustrent quelques scénarios qui montrent comment la limitation peut fonctionner notamment avec des disques Ultra partagés.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster à deux nœuds utilisant des volumes partagés de cluster
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster à deux nœuds utilisant des volumes partagés de cluster
 
 Voici un exemple de cluster WSFC à 2 nœuds utilisant des volumes partagés en cluster. Dans cette configuration, les deux machines virtuelles disposent d’un accès en écriture simultané au disque, ce qui entraîne la répartition de la limitation ReadWrite entre les deux machines virtuelles et la non-utilisation de la limitation ReadOnly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Exemple de disque Ultra à deux nœuds utilisant des volumes partagés de cluster":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster à deux nœuds sans volumes de partage de cluster
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster à deux nœuds sans volumes de partage de cluster
 
 Voici un exemple de cluster WSFC à 2 nœuds qui n’utilise pas de volumes partagés en cluster. Dans cette configuration, une seule machine virtuelle dispose d’un accès en écriture au disque. Cela entraîne l’utilisation exclusive de la limitation ReadWrite pour la machine virtuelle principale et l’utilisation de la limitation ReadOnly uniquement par la machine virtuelle secondaire.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Exemple de disque Ultra à deux nœuds sans volumes partagés de cluster":::
 
-#### <a name="four-node-linux-cluster"></a>Cluster Linux à quatre nœuds
+##### <a name="four-node-linux-cluster"></a>Cluster Linux à quatre nœuds
 
 Voici un exemple de cluster Linux à quatre nœuds avec un seul enregistreur et trois lecteurs en parallèle. Dans cette configuration, une seule machine virtuelle dispose d’un accès en écriture au disque. Cela entraîne l’utilisation exclusive de la limitation ReadWrite pour la machine virtuelle principale et la répartition de la limitation ReadOnly entre les machines virtuelles secondaires.
 

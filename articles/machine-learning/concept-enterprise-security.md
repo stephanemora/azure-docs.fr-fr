@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392231"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259433"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning prend en charge deux formes d’authentification pour les
 
 |Méthode d'authentification|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|Clé|Les clés sont statiques et n’ont pas besoin d’être actualisées. Elles peuvent être regénérées manuellement.|Désactivée par défaut| Activée par défaut|
+|Clé|Les clés sont statiques et n’ont pas besoin d’actualisation. Elles peuvent être regénérées manuellement.|Désactivée par défaut| Activée par défaut|
 |par jeton|Les jetons expirent après un laps de temps spécifié et doivent ensuite être actualisés.| Non disponible| Désactivée par défaut |
 
 Pour obtenir des exemples de code, consultez la section [Authentification auprès d’un service web](how-to-setup-authentication.md#web-service-authentication).
@@ -111,16 +111,21 @@ Vous pouvez également activer le service Liaison privée Azure pour votre espac
 
 ## <a name="data-encryption"></a>Chiffrement des données
 
+> [!IMPORTANT]
+> Pour le chiffrement de niveau production au cours de __l’apprentissage__, Microsoft recommande d’utiliser le cluster de calcul Azure Machine Learning. Pour le chiffrement de niveau production au cours de __l’inférence__, Microsoft recommande d’utiliser Azure Kubernetes Service.
+>
+> L’instance de calcul Azure Machine Learning constitue un environnement de dev/test. Lorsque vous l’utilisez, nous vous recommandons de stocker vos fichiers, notamment les notebooks et les scripts, dans un partage de fichiers. Vos données doivent être stockées dans un magasin de données.
+
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
 > [!IMPORTANT]
 > Si votre espace de travail contient des données sensibles, nous vous recommandons de définir l’[indicateur hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) lors de la création de votre espace de travail. 
 
-L’indicateur `hbi_workspace` contrôle la quantité de données que Microsoft collecte à des fins de diagnostic, et permet un chiffrement supplémentaire dans des environnements gérés par Microsoft. Il active en outre les opérations suivantes :
+L’indicateur `hbi_workspace` contrôle la quantité de données que Microsoft collecte à des fins de diagnostic, et permet un chiffrement supplémentaire dans des environnements gérés par Microsoft. Il active par ailleurs les opérations suivantes :
 
-* Démarre le chiffrement du disque de travail local dans votre cluster Amlcompute, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
+* Lance le chiffrement du disque de travail local dans votre cluster de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
 * Nettoie votre disque de travail local entre les exécutions.
-* Transmet en toute sécurité les informations d’identification pour votre compte de stockage, le registre de conteneurs et le compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
+* Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
 * Active le filtrage IP pour s’assurer que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres que AzureMachineLearningService.
 
 

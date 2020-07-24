@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77123187"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277715"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparaison entre la disponibilité générale et la version préliminaire
 
@@ -22,16 +22,16 @@ Le tableau suivant récapitule quelques différences clés entre les instances A
 
 | | GA | PRÉVERSION |
 | --- | --- | ---|
-| Citoyen de première classe | Centrage sur les événements | Centrage sur les séries chronologiques |
-| Raisonnement sémantique | Bas niveau (données de référence) | Haut niveau (modèles) |
-| Contextualisation des données | Niveau non-appareil | Niveau appareil et non-appareil |
-| Stockage de logique de calcul | Non | Stocké dans des variables types faisant partie du modèle |
-| Stockage et contrôle d’accès | Non | Activé via un modèle |
-| Agrégations/échantillonnage | Non | Pondéré et l’événement et par le temps |
-| Reconstruction de signal | Non | Interpolation |
-| Production de séries chronologiques dérivées | Non | Oui, fusions et jointures |
-| Flexibilité de la langue | Non composable | Composable |
-| Langage d’expression | Chaîne de prédicat | Expressions de série chronologique (chaînes de prédicat, valeurs, expressions et fonctions) |
+| **Citoyen de première classe** | Centrage sur les événements | Centrage sur les séries chronologiques |
+| **Raisonnement sémantique** | Bas niveau (données de référence) | Haut niveau (modèles) |
+| **Contextualisation des données** | Niveau non-appareil | Niveau appareil et non-appareil |
+| **Stockage de la logique de calcul** | Non | Stocké dans des variables types faisant partie du modèle |
+| **Stockage et contrôle d’accès** | Non | Activé via un modèle |
+| **Agrégations/échantillonnage** | Non | Pondéré et l’événement et par le temps |
+| **Reconstruction de signal** | Non | Interpolation |
+| **Production de séries chronologiques dérivées** | Non | Oui, fusions et jointures |
+| **Flexibilité du langage** | Non composable | Composable |
+| **Langage d’expression** | Chaîne de prédicat | Expressions de série chronologique (chaînes de prédicat, valeurs, expressions et fonctions) |
 
 ### <a name="property-limits"></a>Limites de propriétés
 

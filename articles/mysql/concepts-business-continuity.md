@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086549"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241962"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendre la continuité d’activité dans Azure Database pour MySQL
 
@@ -51,6 +51,10 @@ L’autre solution consiste à utiliser la fonctionnalité de géorestauration d
 ## <a name="cross-region-read-replicas"></a>Réplicas en lecture inter-régions
 
 Vous pouvez utiliser des réplicas en lecture inter-régions pour améliorer la planification de la continuité d’activité et de la reprise d’activité. Les réplicas en lecture sont mis à jour de manière asynchrone à l’aide de la technologie de réplication des journaux des transactions de MySQL. Pour plus d’informations sur les réplicas en lecture, les régions disponibles et le basculement, consultez cet [article sur les concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Questions fréquentes (FAQ)
+### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Où Azure Database pour MySQL stocke-t-il les données client ?
+Par défaut, Azure Database pour MySQL ne déplace pas ni ne stocke les données client en dehors de la région dans laquelle il est déployé. Toutefois, les clients peuvent s’ils le souhaitent choisir d’activer les [sauvegardes géoredondantes](concepts-backup.md#backup-redundancy-options) ou de créer un [réplica en lecture sur plusieurs régions](concepts-read-replicas.md#cross-region-replication) pour stocker les données dans une autre région.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

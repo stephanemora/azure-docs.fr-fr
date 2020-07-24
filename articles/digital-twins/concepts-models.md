@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392299"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258275"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -197,9 +197,14 @@ L’interface d’extension ne peut pas modifier les définitions des interfaces
 
 ## <a name="validating-models"></a>Validation des modèles
 
-Un exemple est disponible pour la validation de documents de modèle afin de vérifier que le langage DTDL est valide. Il est basé sur la bibliothèque de l’analyseur DTDL et est indépendant du langage. Il se trouve ici : [Exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+> [!TIP]
+> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins.
 
-Pour plus d’informations sur la bibliothèque de l’analyseur, dont un exemple de son utilisation directe, consultez [Guide pratique pour analyser et valider les modèles](how-to-use-parser.md).
+Il existe un exemple de validation de documents de modèle indépendant du langage permettant de vérifier que le langage DTDL est correct. Il se trouve ici : [**Exemple de validateur DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+
+L’exemple de validateur DTDL s’appuie sur une bibliothèque d’analyseur DTDL .NET, disponible sur NuGet comme bibliothèque côté client : [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Vous pouvez également vous servir directement de la bibliothèque pour concevoir votre propre solution de validation. Dans ce cas, veillez à utiliser une version compatible avec celle d’Azure Digital Twins. Pendant la préversion, il s’agit de la version *3.7.0*.
+
+Pour plus d’informations sur la bibliothèque d’analyseur, et notamment des exemples d’utilisation, consultez [Guide pratique pour analyser et valider les modèles](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

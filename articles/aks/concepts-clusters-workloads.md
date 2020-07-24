@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336639"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251856"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -38,7 +38,7 @@ Un cluster Kubernetes comprend deux composants :
 
 ## <a name="control-plane"></a>Plan de contrôle
 
-Quand vous créez un cluster AKS, un plan de contrôle est automatiquement créé et configuré. Ce plan de contrôle est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût lié au plan de contrôler ; seuls les nœuds qui font partie du cluster AKS occasionnent des frais.
+Quand vous créez un cluster AKS, un plan de contrôle est automatiquement créé et configuré. Ce plan de contrôle est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût lié au plan de contrôler ; seuls les nœuds qui font partie du cluster AKS occasionnent des frais. Le plan de contrôle et ses ressources se trouvent uniquement sur la région dans laquelle le cluster a été créé.
 
 Le plan de contrôle inclut les composants Kubernetes principaux suivants :
 
@@ -49,7 +49,7 @@ Le plan de contrôle inclut les composants Kubernetes principaux suivants :
 
 AKS fournit un plan de contrôle monolocataire doté de dispositifs dédiés (serveur d’API, Scheduler, etc.). Vous définissez le nombre et la taille des nœuds, puis la plateforme Azure configure la communication sécurisée entre les nœuds et le plan de contrôle. L’interaction avec le plan de contrôle se produit par le biais d’API Kubernetes, telles que `kubectl` ou le tableau de bord Kubernetes.
 
-Ce plan de contrôle managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au plan de contrôle. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du Portail Azure, qui met à niveau le plan de contrôle, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux d’activité du plan de contrôle par le biais des journaux d’activité Azure Monitor.
+Ce plan de contrôle managé évite d’avoir à configurer des composants tels qu’un magasin *etcd* hautement disponible, mais n’est pas accessible directement. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du Portail Azure, qui met à niveau le plan de contrôle, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux d’activité du plan de contrôle par le biais des journaux d’activité Azure Monitor.
 
 Si vous devez configurer le plan de contrôle d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine].
 
@@ -73,7 +73,7 @@ Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou run
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
-Les ressources de nœud sont utilisées par AKS pour faire fonctionner le nœud dans le cadre de votre cluster. Cela peut créer un écart entre les ressources totales de votre nœud et les ressources allouables quand elles sont utilisées dans AKS. Il est important de le noter lors de la définition de demandes et de limites pour les pods déployés par l’utilisateur.
+Les ressources de nœud sont utilisées par AKS pour faire fonctionner le nœud dans le cadre de votre cluster. Cette utilisation peut créer un écart entre les ressources totales du nœud et les ressources allouables quand elles sont utilisées dans AKS. Il est important de noter cette information au moment de définir les demandes et les limites des pods déployés par l’utilisateur.
 
 Pour rechercher les ressources allouables d’un nœud, exécutez :
 ```kubectl
@@ -86,7 +86,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 >[!NOTE]
 > L’utilisation de modules complémentaires AKS tels que Container Insights (OMS) nécessite des ressources de nœud supplémentaires.
 
-- **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut aboutir à un processeur moins allouable en raison de l’exécution de fonctionnalités supplémentaires
+- **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut le rendre moins allouable en raison de l’exécution de fonctionnalités supplémentaires.
 
 | Cœurs de processeur sur l’hôte | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
@@ -94,7 +94,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 
 - **Mémoire** – la mémoire utilisée par AKS comprend la somme de deux valeurs.
 
-1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Il s’agit d’une action réactive lorsque la mémoire disponible diminue au-delà du seuil 750Mi.
+1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Cette action se déclenche lorsque la mémoire disponible descend au-dessous du seuil de 750 Mi.
 
 2. La deuxième valeur est une vitesse régressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
     - 25 % des 4 premiers Go de mémoire
@@ -103,7 +103,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
     - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
     - 2 % de la mémoire au-dessus de 128 Go
 
-Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Ces règles d’allocation font également en sorte que le nœud signale moins de mémoire allouée et d’UC qu’il ne le ferait s’il faisait partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
+Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Du fait de ces règles d’allocation, le nœud signale moins de mémoire et de processeur allouables que s’il ne faisait pas partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 
 Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable incluant le seuil d’éviction dur de 750Mi.
 
@@ -153,7 +153,7 @@ Quand vous créez un pod, vous pouvez définir des *demandes de ressources* afin
 
 Pour plus d’informations, consultez [Kubernetes pods][kubernetes-pods] (Pods Kubernetes) et [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (Cycle de vie des pods Kubernetes).
 
-Un pod est une ressource logique, tandis que les conteneurs sont l’endroit où s’exécutent les charges de travail d’applications. Les pods sont en général des ressources éphémères jetables, et ceux planifiés individuellement ne bénéficient pas de toutes les fonctionnalités de haute disponibilité et de redondance fournies par Kubernetes. Au lieu de cela, les pods sont généralement déployés et gérés par des *contrôleurs* Kubernetes, tels que le contrôleur de déploiement.
+Un pod est une ressource logique, tandis que les conteneurs sont l’endroit où s’exécutent les charges de travail d’applications. Les pods sont en général des ressources éphémères jetables, et ceux planifiés individuellement ne bénéficient pas de toutes les fonctionnalités de haute disponibilité et de redondance fournies par Kubernetes. En effet, les pods sont déployés et gérés par des *contrôleurs* Kubernetes, comme le contrôleur de déploiement.
 
 ## <a name="deployments-and-yaml-manifests"></a>Déploiements et manifestes YAML
 
@@ -163,9 +163,9 @@ Vous pouvez mettre à jour les déploiements pour changer la configuration des p
 
 La plupart des applications sans état dans AKS doivent utiliser le modèle de déploiement plutôt que la planification de pods individuels. Kubernetes peut superviser l’intégrité et l’état des déploiements pour s’assurer que le nombre requis de réplicas s’exécutent dans le cluster. Quand vous planifiez uniquement des pods individuels, ces derniers ne sont pas redémarrés s’ils rencontrent un problème et ne sont pas replanifiés sur des nœuds sains si leur nœud actuel rencontre un problème.
 
-Si une application requiert qu’un quorum d’instances soit toujours disponible pour les prises de décisions de gestion, il convient qu’aucun processus de mise à jour ne rompe ce dispositif. Vous pouvez utiliser des *budgets d’interruption de pods* pour définir le nombre de réplicas dans un déploiement pouvant être retirés pendant une mise à niveau d’un nœud ou une mise à jour. Par exemple, si votre déploiement comprend *5* réplicas, vous pouvez définir une interruption de pods de *4* pour autoriser la suppression ou la replanification d’un seul réplica à la fois. Comme dans le cas des limites de ressources des pods, une bonne pratique consiste à définir des budgets d’interruption de pods sur les applications qui nécessitent la présence systématique d’un nombre minimal de réplicas.
+Si une application requiert qu’un quorum d’instances soit toujours disponible pour les prises de décisions de gestion, il convient qu’aucun processus de mise à jour ne rompe ce dispositif. Vous pouvez utiliser des *budgets d’interruption de pods* pour définir le nombre de réplicas dans un déploiement pouvant être retirés pendant une mise à niveau d’un nœud ou une mise à jour. Par exemple, si votre déploiement comprend *cinq (5)*  réplicas, vous pouvez définir une interruption de pods de *4* pour limiter la suppression ou la replanification autorisée à un seul réplica à la fois. Comme dans le cas des limites de ressources des pods, une bonne pratique consiste à définir des budgets d’interruption de pods sur les applications qui nécessitent la présence systématique d’un nombre minimal de réplicas.
 
-Les déploiements sont généralement créés et gérés avec `kubectl create` ou `kubectl apply`. Pour créer un déploiement, vous définissez un fichier manifeste dans le format YAML (YAML Ain't Markup Language). L’exemple suivant crée un déploiement de base du serveur web NGINX. Le déploiement spécifie la création de *3* réplicas et l’ouverture du port *80* sur le conteneur. Des demandes et limites de ressources sont également définies pour l’UC et la mémoire.
+Les déploiements sont généralement créés et gérés avec `kubectl create` ou `kubectl apply`. Pour créer un déploiement, vous définissez un fichier manifeste dans le format YAML (YAML Ain't Markup Language). L’exemple suivant crée un déploiement de base du serveur web NGINX. Le déploiement spécifie la création de *trois (3)*  réplicas ; le port *80* doit être ouvert sur le conteneur. Des demandes et limites de ressources sont également définies pour l’UC et la mémoire.
 
 ```yaml
 apiVersion: apps/v1

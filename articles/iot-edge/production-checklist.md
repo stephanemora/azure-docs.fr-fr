@@ -4,19 +4,19 @@ description: Découvrez comment faire passer votre solution Azure IoT Edge du d�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431929"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258791"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -38,11 +38,14 @@ Il existe de nombreux types d’appareils IoT Edge : un Raspberry Pi, un portabl
 
 ### <a name="install-production-certificates"></a>Installer les certificats de production
 
-Un certificat d’autorité de certification doit être installé sur chaque appareil IoT Edge en production. Il est ensuite déclaré auprès du runtime IoT Edge dans le fichier config.yaml. Pour faciliter les scénarios de développement et de test, le runtime IoT Edge crée des certificats temporaires si aucun certificat n’est déclaré dans le fichier config.yaml. Toutefois, ces certificats temporaires expirent au bout de trois mois et ne sont pas sécurisés pour les scénarios de production.
+Un certificat d’autorité de certification doit être installé sur chaque appareil IoT Edge en production. Il est ensuite déclaré auprès du runtime IoT Edge dans le fichier config.yaml. Pour faciliter les scénarios de développement et de test, le runtime IoT Edge crée des certificats temporaires si aucun certificat n’est déclaré dans le fichier config.yaml. Toutefois, ces certificats temporaires expirent au bout de trois mois et ne sont pas sécurisés pour les scénarios de production. Dans les scénarios de production, vous devez fournir votre propre certificat d’autorité de certification d’appareil, soit issu d’une autorité de certification auto-signée, soit acheté auprès d’une autorité de certification commerciale.
+
+> [!NOTE]
+> Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2050 ou après cette date.
 
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
-Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-manage-device-certificates.md).
+Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Gestion d’un certificat sur un appareil IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Élaborer un plan de gestion des appareils
 

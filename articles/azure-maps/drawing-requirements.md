@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791569"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242472"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
@@ -21,7 +21,7 @@ Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/ma
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le dossier Dessins comprend des dessins enregistrés au format DWG, qui est le format de fichier natif du logiciel AutoCAD® d’Autodesk, une [marque déposée d’Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+Le package Dessin comprend des dessins enregistrés au format DWG. Il s’agit du format de fichier natif du logiciel AutoCAD® d’Autodesk, une [marque d’Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 Vous pouvez choisir n’importe quel logiciel de CAO pour produire les dessins du package de dessin.  
 
@@ -222,7 +222,7 @@ L’objet `buildingLevels` contient un tableau JSON de niveaux de bâtiments.
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Représentation décimale de la latitude en degrés à l’origine du dessin du bâtiment. Les coordonnées de l’origine doivent être conformes à la norme WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |numeric|    true|    Représentation décimale de la longitude en degrés à l’origine du dessin du bâtiment. Les coordonnées de l’origine doivent être conformes à la norme WGS84 Web Mercator (`EPSG:3857`). |
-|angle|    numeric|    true|   Angle, exprimé en degrés dans le sens des aiguilles d’une montre, entre le nord réel et l’axe vertical (Y) du dessin.   |
+|angle|    numeric|    true|   Angle, exprimé en degrés, entre le nord réel et l’axe vertical (Y) du dessin dans le sens des aiguilles d’une montre.   |
 
 ### <a name="dwglayers"></a>dwgLayers
 

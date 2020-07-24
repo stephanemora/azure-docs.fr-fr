@@ -5,17 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772967"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226416"
 ---
-Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
+Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage s’active avec le commutateur `--debug` dans l’interface CLI et le commutateur `-Debug` dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Impossible de créer une galerie d’images partagées
@@ -43,7 +43,7 @@ Les caractères autorisés pour la définition d’image sont les lettres majusc
 
 Les propriétés comme le nom, l’éditeur, l’offre, la référence et le type de système d’exploitation sont obligatoires. Vérifiez si toutes les propriétés sont renseignées.
 
-Vérifiez que la valeur **OSType**, Linux ou Windows, de la définition d’image est la même que celle de l’image managée source que vous utilisez pour créer la version d’image. 
+Vérifiez que la valeur **OSType** (Linux ou Windows) de la définition d’image est la même que celle de la source utilisée pour créer la version d’image. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>Impossible de créer une version d’image 
@@ -84,7 +84,7 @@ Vérifiez que la région dans laquelle vous essayez de créer une machine virtue
 
 *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*
 
-Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. 
+Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est la même que celle de la source utilisée pour créer la version d’image. 
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 

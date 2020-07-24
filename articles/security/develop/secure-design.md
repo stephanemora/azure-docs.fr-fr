@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857163"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246807"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -153,7 +153,7 @@ La modélisation de la conception de l’application et l’énumération des me
 
 | Menace | Propriété de sécurité | Atténuation des risques potentiels sur la plateforme Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Usurpation d’identité               | Authentication        | [Exiger des connexions HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Usurpation d’identité               | Authentification        | [Exiger des connexions HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Falsification              | Intégrité             | Valider des certificats SSL/TLS. Les applications qui utilisent les protocoles SSL/TLS doivent intégralement vérifier les certificats X.509 des entités auxquelles elles se connectent. Utiliser des certificats Azure Key Vault pour [gérer vos certificats x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Répudiation            | Non-répudiation       | Activez [la surveillance et les diagnostics Azure](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Divulgation d’informations | Confidentialité       | Chiffrer les données sensibles [au repos](../fundamentals/encryption-atrest.md) et [en transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -209,7 +209,7 @@ Utilisez une authentification à deux facteurs. L’authentification à deux fac
 
 Utilisez les mécanismes d‘authentification et d‘autorisation fournis par les plateformes au lieu d‘un code personnalisé. En effet, le développement d’un code d’authentification personnalisé peut être sujet aux erreurs. Le code commercial (par exemple, de Microsoft) est souvent très contrôlé au niveau de la sécurité. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) est la solution Azure pour la gestion des identités et des accès. Ces services et outils Azure AD contribuent au développement sécurisé :
 
-- [Plateforme d’identités Azure AD (Azure AD pour développeurs)](../../active-directory/develop/about-microsoft-identity-platform.md) est un service d’identité cloud que les développeurs utilisent pour créer des applications qui connectent les utilisateurs de manière sécurisée. Azure AD assistent les développeurs qui créent des applications métier monolocataires et les développeurs qui souhaitent développer des applications multilocataires. En plus de la connexion de base, les applications qui sont créées avec Azure AD peuvent appeler les API Microsoft et les API personnalisées s’appuyant sur la plateforme Azure AD. La plateforme d’identités Azure AD prend en charge les protocoles standard, tels qu’OAuth 2.0 et OpenID Connect.
+- La [Plateforme d’identités Microsoft](/azure/active-directory/develop/) est un ensemble de composants utilisé par les développeurs pour créer des applications qui connectent les utilisateurs de manière sécurisée. Elle aide les développeurs qui créent des applications métier monolocataires et ceux qui cherchent à développer des applications multilocataires. En plus de la connexion de base, les applications créées à l’aide de la Plateforme d’identités Microsoft peuvent appeler des API Microsoft et des API personnalisées. La plateforme d’identités Microsoft prend en charge les protocoles standard, tels qu’OAuth 2.0 et OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) est un service de gestion des identités que vous pouvez utiliser pour personnaliser et contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. Sont notamment incluses les applications développées pour iOS, Android et .NET. Azure AD B2C autorise ces actions tout en protégeant les identités de vos clients.
 
