@@ -24,7 +24,7 @@
 - name: Procédure
   items:
     - name: Configurer des alertes pour des évènements Service Health
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Afficher les notifications Service Health dans le portail Azure
       href: service-notifications.md
     - name: Envoyer des alertes aux systèmes externes par Webhook
