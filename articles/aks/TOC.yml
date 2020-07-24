@@ -54,7 +54,7 @@
     - name: Sécurité
       href: concepts-security.md
       items: null
-    - name: Mise en réseau
+    - name: Réseau
       href: concepts-network.md
     - name: Stockage
       href: concepts-storage.md
@@ -66,6 +66,9 @@
       items:
         - name: Vue d’ensemble
           href: best-practices.md
+        - name: Architecture de référence pour un cluster AKS
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: Pour les opérateurs du cluster
           items:
             - name: Multilocation et isolation de cluster
