@@ -99,6 +99,8 @@
       href: concepts-security.md
     - name: Prise en charge de TLS
       href: tls-support.md
+    - name: Prise en charge des réseaux virtuels
+      href: virtual-network-support.md
     - name: Service
       href: concepts-service.md
     - name: Compréhension des adresses IP DPS
