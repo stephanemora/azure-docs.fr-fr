@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Scénarios courants de gestion d’applications
       href: common-scenarios.md
-    - name: Applications cloud et authentification unique
+    - name: Planification d’une intégration d’applications cloud
       items:
-        - name: Planification d’une intégration d’applications cloud
-          items:
-            - name: Bien démarrer avec l’intégration d’applications
-              href: plan-an-application-integration.md
-            - name: Planifier le déploiement d’un volet d’accès
-              href: access-panel-deployment-plan.md
-            - name: Aide pour les développeurs
-              href: developer-guidance-for-integrating-applications.md
-        - name: Authentification unique
-          items:
-            - name: Activer SSO pour votre application multilocataire
-              href: isv-sso-content.md
-            - name: Créer un locataire Azure pour une application multilocataire
-              href: isv-tenant-multi-tenant-app.md
-            - name: Choisir une fédération multilocataire
-              href: isv-choose-multi-tenant-federation.md
-            - name: Créer une documentation pour une application multilocataire
-              href: isv-create-sso-documentation.md
-            - name: Planifier un déploiement de l’authentification unique
-              href: plan-sso-deployment.md
-        - name: Authentification SSO en un clic
-          items:
-            - name: Qu’est-ce que l’authentification SSO en un clic
-              href: one-click-sso-tutorial.md
-        - name: Sécurité des applications
-          items:
-            - name: Options d’accès aux applications
-              href: what-is-access-management.md
-            - name: Options de signature de certificat
-              href: certificate-signing-options.md
-            - name: Gérer des certificats
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Restrictions de locataire
-              href: tenant-restrictions.md
-            - name: Configurer le chiffrement des jetons SAML
-              href: howto-saml-token-encryption.md
-            - name: Portails d’utilisateurs finaux
-              href: end-user-experiences.md
-    - name: Visibilité et contrôle des applications cloud
-      href: cloud-app-security.md
+        - name: Bien démarrer avec l’intégration d’applications
+          href: plan-an-application-integration.md
+        - name: Planifier le déploiement d’un volet d’accès
+          href: access-panel-deployment-plan.md
+        - name: Aide pour les développeurs
+          href: developer-guidance-for-integrating-applications.md
+    - name: Authentification unique
+      items:
+        - name: Activer SSO pour votre application multilocataire
+          href: isv-sso-content.md
+        - name: Créer un locataire Azure pour une application multilocataire
+          href: isv-tenant-multi-tenant-app.md
+        - name: Choisir une fédération multilocataire
+          href: isv-choose-multi-tenant-federation.md
+        - name: Créer une documentation pour une application multilocataire
+          href: isv-create-sso-documentation.md
+        - name: Planifier un déploiement de l’authentification unique
+          href: plan-sso-deployment.md
+        - name: SSO en un clic
+          href: one-click-sso-tutorial.md
+    - name: Sécurité des applications
+      items:
+        - name: Options d’accès aux applications
+          href: what-is-access-management.md
+        - name: Options de signature de certificat
+          href: certificate-signing-options.md
+        - name: Gérer des certificats
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Restrictions de locataire
+          href: tenant-restrictions.md
+        - name: Configurer le chiffrement des jetons SAML
+          href: howto-saml-token-encryption.md
+        - name: Portails d’utilisateurs finaux
+          href: end-user-experiences.md
+        - name: Visibilité et contrôle des applications cloud
+          href: cloud-app-security.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Application Proxy (Proxy d’application)
