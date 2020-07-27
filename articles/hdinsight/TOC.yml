@@ -939,8 +939,6 @@
           href: ./control-network-traffic.md
         - name: Adresses IP requises pour des NSG et des UDR
           href: ./hdinsight-management-ip-addresses.md
-        - name: Étiquettes de service pour le Pare-feu Azure
-          href: ./hdinsight-service-tags.md
         - name: Chiffrement de disque de clés gérées par le client
           href: ./disk-encryption.md
         - name: Synchronisation LDAP dans Ranger et Apache Ambari
@@ -967,8 +965,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Utiliser un pare-feu pour limiter le trafic sortant
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Créer des stratégies de point de terminaison de service
+          href: ./service-endpoint-policies.md
         - name: Configurer une appliance virtuelle réseau
           href: ./network-virtual-appliance.md
+        - name: Étiquettes de service pour le Pare-feu Azure
+          href: ./hdinsight-service-tags.md
         - name: Dépanner
           items:
             - name: Problèmes d’authentification ESP

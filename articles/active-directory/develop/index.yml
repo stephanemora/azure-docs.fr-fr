@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 689fb9953f6de9c717d774e222824c5b3701527e
-  ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+  ms.openlocfilehash: e17e6195d629238c9c719d8e34780593129ae244
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/10/2020
-  ms.locfileid: "86230347"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87027068"
 landingContent:
 - title: À propos de la plateforme d’identités Microsoft
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
       url: quickstart-v2-ios.md
     - text: Bureau Windows (WPF)
       url: quickstart-v2-windows-desktop.md
-- title: Sécuriser l’API web
+- title: API Web
   linkLists:
   - linkListType: get-started
     links:
@@ -92,11 +92,27 @@ landingContent:
       url: microsoft-graph-intro.md
     - text: Présentation de l’authentification de Microsoft Graph
       url: https://docs.microsoft.com/graph/auth/
-- title: SAML 2.0
+- title: Protocoles
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: OAuth 2.0 et OpenID Connect
+      url: active-directory-v2-protocols.md
+    - text: SAML 2.0
+      url: active-directory-saml-protocol-reference.md
+- title: Entreprise-client (B2C)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure AD B2C ?
+      url: ../../active-directory-b2c/overview.md
+    - text: Vue d’ensemble technique et des fonctionnalités
+      url: ../../active-directory-b2c/technical-overview.md
+- title: Identités managées
   linkLists:
   - linkListType: get-started
     links:
-    - text: Utilisation du protocole SAML par Azure AD
-      url: active-directory-saml-protocol-reference.md
-    - text: Authentification unique SAML dans Azure AD
-      url: single-sign-on-saml-protocol.md
+    - text: À propos des identités gérées pour les ressources Azure
+      url: ../managed-identities-azure-resources/overview.md
+    - text: Identités managées et machines virtuelles Azure
+      url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md

@@ -1,20 +1,28 @@
 - name: Général
   href: index.yml
 - name: Vue d’ensemble
-  expanded: true
   items:
     - name: À propos d’Azure Key Vault
       href: overview.md
     - name: 'À propos des clés, des secrets et des certificats'
       href: about-keys-secrets-certificates.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Interface de ligne de commande
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portail
+      href: quick-create-portal.md
 - name: Tutoriels
   items:
     - name: Machine virtuelle Azure
       items:
-        - name: Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Utiliser Azure Key Vault avec une machine virtuelle dans .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Utiliser Azure Key Vault avec une machine virtuelle dans Python
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Intégrer Azure Key Vault à Kubernetes
@@ -117,15 +125,11 @@
     - name: Déplacer un coffre de clés
       items:
         - name: Déplacer un coffre de clés dans un autre groupe de ressources
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Déplacer un coffre de clés dans un nouvel abonnement
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Déplacer un coffre de clés dans une nouvelle région
-          href: keyvault-moveregion.md
-    - name: Dépanner
-      items:
-        - name: Modifier l’ID de locataire d’un coffre de clés après un déplacement d’abonnement
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Informations de référence
   items:
     - name: Codes d’erreur d’API REST - Azure Key Vault

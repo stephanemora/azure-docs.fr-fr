@@ -10,6 +10,8 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Créer des modèles – VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Créer et déployer une spécification du modèle
+      href: quickstart-create-template-specs.md
     - name: Services Azure
       items:
         - name: IA + Machine Learning
@@ -28,6 +30,8 @@
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Databricks
               href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Data Factory
+              href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Event Hubs
               href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: HDInsight – Hadoop
@@ -114,6 +118,8 @@
           items:
             - name: Advisor
               href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Automatisation
+              href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Sauvegarde
               href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cost Management + facturation
@@ -201,6 +207,12 @@
         - name: 3 – Créer un pipeline
           displayName: Devop
           href: deployment-tutorial-pipeline.md
+    - name: Specs de modèle
+      items:
+        - name: Créer avec des modèles liés
+          href: template-specs-create-linked.md
+        - name: Déployer en tant que modèle lié
+          href: template-specs-deploy-linked-template.md
     - name: Modèles avancés
       items:
         - name: Utiliser des informations de référence sur les modèles
@@ -240,6 +252,8 @@
       href: template-best-practices.md
     - name: Forum aux questions
       href: frequently-asked-questions.md
+    - name: Specs de modèle
+      href: template-specs.md
     - name: Modèles pour la cohérence du cloud
       href: templates-cloud-consistency.md
     - name: Modes de déploiement
@@ -283,7 +297,7 @@
               href: resource-location.md
             - name: Utiliser des extensions de modèle
               href: add-resource-extensions.md
-        - name: Sorties
+        - name: Outputs
           href: template-outputs.md
         - name: Script de déploiement
           displayName: custom script

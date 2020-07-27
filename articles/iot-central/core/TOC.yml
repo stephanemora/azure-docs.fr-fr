@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: "Que sont les modèles d’appareils\_?"
       href: concepts-device-templates.md
+    - name: Charges utiles de messages
+      href: concepts-telemetry-properties-commands.md
     - name: Connectivité des appareils
       href: concepts-get-connected.md
     - name: Se connecter aux appareils IoT Edge

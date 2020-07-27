@@ -38,6 +38,8 @@
           href: virtual-wan-configure-automation-providers.md
     - name: Concepts de la tarification
       href: pricing-concepts.md
+    - name: À propos des NVA dans un hub virtuel
+      href: about-nva-hub.md
     - name: Routage
       items:
         - name: À propos du routage de hub virtuel
@@ -60,6 +62,10 @@
               href: scenario-route-between-hubs-firewall.md
             - name: Pare-feu Azure - personnalisé
               href: scenario-route-between-vnets-firewall.md
+    - name: Supervision
+      items:
+        - name: À propos d’Azure Monitor Insights pour Virtual WAN (préversion)
+          href: azure-monitor-insights.md
     - name: De site à site
       items:
         - name: À propos des stratégies IPsec
@@ -70,6 +76,8 @@
   items:
     - name: Mettre à niveau une référence SKU Virtual WAN
       href: upgrade-virtual-wan.md
+    - name: Créer une NVA dans un hub virtuel (préversion)
+      href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
         - name: Créer une connexion ExpressRoute

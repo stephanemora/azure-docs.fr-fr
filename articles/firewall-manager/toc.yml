@@ -44,7 +44,7 @@
       href: migrate-to-policy.md
     - name: Paramètres DNS
       href: dns-settings.md
-    - name: Déployer plusieurs adresses IP publiques
+    - name: Déployer plusieurs adresses IP publiques - PowerShell
       href: multiple-public-ip-powershell.md
 - name: Informations de référence
   items:

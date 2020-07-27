@@ -53,6 +53,9 @@
       href: develop-locally.md
     - name: Sécurité
       items:
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
     - name: Types d’entrée pour un travail

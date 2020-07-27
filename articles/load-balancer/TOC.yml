@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Créer un équilibreur de charge - Modèle ARM
       href: quickstart-load-balancer-standard-public-template.md
-    - name: Créer un équilibreur de charge interne - Portail
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Créer un équilibreur de charge interne - Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Créer un équilibreur de charge interne - Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Créer un équilibreur de charge interne - Modèle ARM
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutoriels
   items:
+    - name: Équilibreur de charge interne
+      items:
+        - name: Créer un équilibreur de charge interne - Portail
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: Créer un équilibreur de charge interne - Azure CLI
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Créer un équilibreur de charge interne - Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Créer un équilibreur de charge interne - Modèle ARM
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Gestion des pools de back-ends
       href: backend-pool-management.md
+    - name: Standard Load Balancer et Virtual Machine Scale Sets
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procédures
   items:
     - name: Groupes identiques de machines virtuelles

@@ -1104,6 +1104,8 @@
       items:
         - name: Restauration des données à partir d’une sauvegarde
           href: how-to-backup-and-restore.md
+        - name: Demander une augmentation de quota
+          href: create-support-request-quota-increase.md
     - name: Superviser
       items:
         - name: Superviser Cosmos DB
@@ -1112,6 +1114,8 @@
           items:
             - name: Azure Monitor pour Cosmos (préversion)
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Scénarios à superviser
+              href: use-metrics.md
             - name: Superviser la latence côté serveur
               href: monitor-server-side-latency.md
             - name: Superviser l’utilisation des unités de requête
@@ -1124,8 +1128,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Auditer les journaux du plan de contrôle
               href: audit-control-plane-logs.md
-        - name: Voir les métriques de compte Cosmos DB
-          href: use-metrics.md
+        - name: Configurer des alertes
+          href: create-alerts.md
         - name: Informations de référence sur les données de supervision
           href: monitor-cosmos-db-reference.md
         - name: Journalisation des applications avec Logic Apps

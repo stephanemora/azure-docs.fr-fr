@@ -351,6 +351,8 @@
           items:
             - name: Créer des alertes sur les mesures
               href: howto-hyperscale-alert-on-metric.md
+            - name: Accéder aux journaux de base de données
+              href: howto-hyperscale-logging.md
         - name: Dépanner
           items:
             - name: Résoudre les erreurs de connexion

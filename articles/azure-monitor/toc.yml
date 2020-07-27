@@ -157,6 +157,11 @@
       href: visualizations.md
     - name: Intégrations des partenaires
       href: platform/partners.md
+    - name: Sécurité
+      items:
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./platform/security-controls-policy.md
 - name: Guides pratiques
   items:
     - name: Scénarios
@@ -244,14 +249,12 @@
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: Historique des versions
                       href: platform/diagnostics-extension-versions.md
-                    - name: Format des journaux de ressources JSON Lines
-                      href: platform/resource-logs-append-blobs.md
                     - name: Dépannage
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   displayname: diagnostics extension
                   items:
-                    - name: Vue d’ensemble
+                    - name: Vue d'ensemble
                       href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                     - name: Collecter des métriques avec Telegraf
                       href: platform/collect-custom-metrics-linux-telegraf.md
@@ -264,9 +267,9 @@
                 - name: Agents Linux
                   href: platform/agent-linux.md
                 - name: Extension de machine virtuelle pour Windows
-                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
                 - name: Extension de machine virtuelle pour Linux
-                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Passerelle Log Analytics
                   href: platform/gateway.md
                 - name: Gestion des agents
@@ -430,7 +433,7 @@
         - name: Mettre à l’échelle avec des métriques personnalisées
           href: platform/autoscale-custom-metric.md
         - name: Mettre à l’échelle des groupes de machines virtuelles identiques
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
         - name: Mettre à l’échelle des groupes de machines virtuelles identiques à l’aide de modèles Resource Manager
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: Utiliser des webhooks et des notifications par e-mail
@@ -446,7 +449,7 @@
             - name: Disponibilité
               href: app/monitor-web-app-availability.md
             - name: Alertes de métrique
-              href: app/alerts.md
+              href: ./platform/alerts-log.md
         - name: Règles d’alerte de métrique
           items:
             - name: Gérer les alertes de métrique
@@ -474,19 +477,20 @@
             - name: Alerte sur un événement de journal d’activité
               href: platform/alerts-activity-log.md
             - name: Migrer les événements de gestion vers les alertes de journal d’activité
-              href: platform/migrate-management-alerts.md
+              href: ./platform/activity-log-alerts.md
             - name: Schéma du Webhook
               href: platform/activity-log-alerts-webhook.md
         - name: Alertes sur l’intégrité des services
           items:
             - name: Voir les notifications
-              href: platform/service-notifications.md
+              href: ../service-health/service-notifications.md
             - name: Configurer des alertes sur les événements de notification
               href: platform/alerts-activity-log-service-notifications.md
         - name: Notifications et actions
           items:
             - name: Règles d’action (préversion)
               href: platform/alerts-action-rules.md
+              displayName: 'Azure CLI, az monitor action rule'
             - name: Créer un groupe d’actions
               href: platform/action-groups.md
             - name: Schéma d’alerte courant
@@ -556,7 +560,7 @@
         - name: Vue d'ensemble d’Application Insights
           href: app/app-insights-overview.md
         - name: Questions fréquentes (FAQ)
-          href: app/troubleshoot-faq.md
+          href: ./faq.md
         - name: Supervision basée sur le code
           items:
             - name: ASP.NET Core
@@ -929,7 +933,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers
@@ -970,7 +974,11 @@
         - name: Analyser des données avec des requêtes de journal
           href: insights/container-insights-log-search.md
         - name: Génération d’alertes
-          href: insights/container-insights-alerts.md
+          items:
+            - name: Créer des règles d’alerte de journal
+              href: insights/container-insights-log-alerts.md
+            - name: Créer des règles d’alerte de métrique
+              href: insights/container-insights-metric-alerts.md
         - name: Gestion des agents
           href: insights/container-insights-manage-agent.md
         - name: Configurer l’abandon des métriques de Prometheus
@@ -1016,6 +1024,7 @@
       items:
         - name: Vue d’ensemble
           href: insights/solutions.md
+          displayName: 'Azure CLI, az monitor log-analytics'
         - name: Solutions cibles
           href: insights/solution-targeting.md
         - name: Solutions disponibles
@@ -1028,8 +1037,6 @@
               href: insights/capacity-performance.md
             - name: Surveillance de Docker et du conteneur Windows
               href: insights/containers.md
-            - name: Key Vault Analytics
-              href: insights/azure-key-vault.md
             - name: Réseaux
               items:
                 - name: Analyse de mise en réseau
@@ -1173,7 +1180,7 @@
     - name: Changements terminologiques
       href: terminology.md
     - name: Référence de données
-      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
+      href: /azure/azure-monitor/reference/
     - name: Mesures prises en charge
       items:
         - name: Métriques de plateforme
@@ -1288,6 +1295,8 @@
         - name: Remplacer par le format de stockage d’objets blob
           displayname: Diagnostic settings
           href: platform/resource-logs-blob-format.md
+        - name: Key Vault Analytics (déprécié)
+          href: insights/azure-key-vault-deprecated.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

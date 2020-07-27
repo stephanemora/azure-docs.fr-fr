@@ -60,6 +60,8 @@
         - name: Vos avantages sur la Place de marché
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Avantage d’Azure Consumption Commitment
+              href: ./azure-consumption-commitment-benefit.md
             - name: Engagement en tant que partenaire de co-vente
               href: ./marketplace-co-sell.md
             - name: Solutions recommandées

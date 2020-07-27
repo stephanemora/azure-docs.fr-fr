@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Informations de référence
   items:
+    - name: "Appliquer le protocole TLS\_1.2"
+      href: reference-device-registration-tls-1-2.md
     - name: Paramètres GPO Enterprise State Roaming
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Paramètres Windows Enterprise State Roaming
