@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8b54f216850b77473ea8c272311e3f135f256518
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76961186"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536502"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil simulé avec des clés symétriques
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil simulé sur IoT Hub avec des clés symétriques
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer et à exécuter un simulateur d’appareil sur une machine de développement Windows. Vous allez configurer cet appareil simulé à affecter à un hub IoT de sorte qu’il utilise une clé symétrique pour s’authentifier auprès d’une instance du service DPS (Device Provisioning Service). Un exemple de code des [SDK Microsoft Azure IoT pour Java](https://github.com/Azure/azure-iot-sdk-java) sera utilisé pour simuler une séquence de démarrage pour l’appareil qui lance le provisionnement. L’appareil sera reconnu sur la base d’une inscription individuelle auprès d’une instance du service DPS et affecté à un hub IoT.
 

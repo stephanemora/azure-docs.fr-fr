@@ -1,6 +1,6 @@
 ---
-title: Mises à jour du service de pool d'hôtes Windows Virtual Desktop - Azure
-description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
+title: Mises à jour du service de pool d’hôtes Windows Virtual Desktop (automne 2019) - Azure
+description: Découvrez comment créer un pool d’hôtes de validation pour superviser les mises à jour de service avant de déployer les mises à jour en production.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117740"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527580"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service (version d’automne 2019)
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../create-validation-host-pool.md).

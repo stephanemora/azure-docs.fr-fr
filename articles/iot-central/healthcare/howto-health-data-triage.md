@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497044"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
 
 
 
-Lors de l’élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Dans ce tutoriel, vous allez apprendre à créer un tableau de bord de streaming en temps réel Power BI à partir de votre modèle d’application de surveillance continue des patients IoT Central.
+Lors de l’élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Dans ce tutoriel, vous allez apprendre à créer un tableau de bord de streaming en temps réel Power BI à partir de votre modèle d’application de surveillance continue des patients IoT Central. Si votre cas d’utilisation ne nécessite pas l’accès aux données en temps réel, vous pouvez utiliser le [tableau de bord Power BI IoT Central](../core/howto-connect-powerbi.md), qui présente un processus de déploiement simplifié. 
 
 >[!div class="mx-imgBorder"]
 >![GIF du tableau de bord](media/dashboard-gif-3.gif)

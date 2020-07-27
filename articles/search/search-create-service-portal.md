@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529622"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -27,11 +27,11 @@ Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.micr
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Quand vous créez un service, réfléchissez à la façon dont vous allez l’utiliser :
+Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Dans la mesure où elles sont fixes, songez aux implications quand vous remplissez chaque propriété :
 
-* Nom (Consultez [ces suggestions](#name-the-service) pour les noms de service.)
-* Niveau (Les niveaux gratuit, de base et standard [affectent la facturation](search-sku-tier.md) et définissent une limite de croissance de la capacité.)
-* Région (Choisissez un emplacement qui a des services liés. Pour une intégration à Cognitive Services ou Azure Machine Learning, la colocalisation des services dans la même région est obligatoire.)
+* Le nom du service fait partie du point de terminaison de l’URL ([consultez ces conseils](#name-the-service) pour les noms de service utiles).
+* Le niveau de service [affecte la facturation](search-sku-tier.md) et définit une limite de capacité.
+* La région du service peut déterminer la disponibilité de certains scénarios. Si vous êtes intéressé par l’exploration des connaissances et l’enrichissement par IA, utilisez Cognitive Services et éventuellement Azure Machine Learning dans la même région que la Recherche cognitive Azure.
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 

@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628379"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536162"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage (préversion) pour la classification d’images multiclasse 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Ce tutoriel vous montre comment gérer le processus d’étiquetage (également appelé balisage) des images à utiliser comme données pour générer des modèles Machine Learning. L’étiquetage des données dans Azure Machine Learning est en préversion publique.
@@ -130,7 +130,7 @@ Sélectionnez **Suivant** pour continuer.
 
 1. Sélectionnez **Suivant**.
 
-1. Dans le formulaire **Étiquetage assisté par ML**, laissez la case décochée. L’étiquetage assisté par ML requiert plus de données que ce que vous allez utiliser dans ce tutoriel.
+1. Si vous utilisez un espace de travail d’entreprise, vous verrez une section d’**étiquetage assisté par ML**.  Laissez la case à cocher décochée. L’étiquetage assisté par ML requiert plus de données que ce que vous allez utiliser dans ce tutoriel.
 
 1. Sélectionnez **Créer un projet**.
 

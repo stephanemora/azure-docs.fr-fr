@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457148"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505820"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -44,7 +44,7 @@ Pour de nombreuses ressources Azure, vous verrez les données collectées par Az
 
 ![Mesures](media/overview/metrics.png)
 
-Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](log-query/portals.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
+Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](./log-query/log-query-overview.md) dans le portail Azure, avant d’analyser directement les données à l’aide de différents outils ou d’enregistrer les requêtes pour les utiliser avec les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) utilisé par Azure Data Explorer qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](log-query/sql-cheatsheet.md) et [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -90,7 +90,7 @@ La supervision des données est utile uniquement si elle permet d’augmenter vo
 ![Insights de machine virtuelle](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Solutions de supervision
-Les [solutions de supervision](insights/solutions.md) dans Azure Monitor sont des jeux de logique empaquetés qui fournissent des informations détaillées pour une application ou un service spécifique. Elles incluent une logique de collecte des données de surveillance pour l’application ou le service, des [requêtes](log-query/log-query-overview.md) permettant d’analyser ces données et des [vues](../log-analytics/log-analytics-view-designer.md) pour la visualisation. [Microsoft](insights/solutions-inventory.md) et ses partenaires proposent des solutions de supervision qui assurent la supervision de divers services Azure et d’autres applications.
+Les [solutions de supervision](insights/solutions.md) dans Azure Monitor sont des jeux de logique empaquetés qui fournissent des informations détaillées pour une application ou un service spécifique. Elles incluent une logique de collecte des données de surveillance pour l’application ou le service, des [requêtes](log-query/log-query-overview.md) permettant d’analyser ces données et des [vues](./platform/view-designer.md) pour la visualisation. [Microsoft](./monitor-reference.md) et ses partenaires proposent des solutions de supervision qui assurent la supervision de divers services Azure et d’autres applications.
 
 ![Solutions de supervision](media/overview/solutions-overview.png)
 
@@ -119,12 +119,12 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) vous pe
 ![tableau de bord](media/overview/dashboard.png)
 
 ### <a name="views"></a>Les vues
-Les [vues](../log-analytics/log-analytics-view-designer.md) présentent de manière visuelle les données de journal dans Azure Monitor.  Chaque vue inclut une seule vignette comportant plusieurs visualisations, par exemple sous forme de barres et de graphiques en courbes, en plus des listes résumant les données critiques.  Les solutions de supervision incluent des vues qui synthétisent les données pour une application donnée. Vous pouvez créer vos propres vues pour présenter les données de n’importe quelle requête de journal. Comme les autres éléments d’Azure Monitor, les vues peuvent être ajoutées aux tableaux de bord Azure.
+Les [vues](./platform/view-designer.md) présentent de manière visuelle les données de journal dans Azure Monitor.  Chaque vue inclut une seule vignette comportant plusieurs visualisations, par exemple sous forme de barres et de graphiques en courbes, en plus des listes résumant les données critiques.  Les solutions de supervision incluent des vues qui synthétisent les données pour une application donnée. Vous pouvez créer vos propres vues pour présenter les données de n’importe quelle requête de journal. Comme les autres éléments d’Azure Monitor, les vues peuvent être ajoutées aux tableaux de bord Azure.
 
 ![Affichage](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) est un service d’analyse métier qui fournit des visualisations interactives d’une large gamme de sources de données. Il constitue un moyen efficace de mettre les données à disposition d’autres personnes dans et en dehors de votre organisation. Vous pouvez configurer Power BI pour [importer automatiquement les données de journal à partir d’Azure Monitor](../log-analytics/log-analytics-powerbi.md) afin de tirer parti de ces visualisations supplémentaires.
+[Power BI](https://powerbi.microsoft.com) est un service d’analyse métier qui fournit des visualisations interactives d’une large gamme de sources de données. Il constitue un moyen efficace de mettre les données à disposition d’autres personnes dans et en dehors de votre organisation. Vous pouvez configurer Power BI pour [importer automatiquement les données de journal à partir d’Azure Monitor](./platform/powerbi.md) afin de tirer parti de ces visualisations supplémentaires.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -134,7 +134,7 @@ Les [vues](../log-analytics/log-analytics-view-designer.md) présentent de mani�
 Vous devrez souvent intégrer Azure Monitor à d’autres systèmes et créer des solutions personnalisées qui utilisent vos données de supervision. D’autres services Azure fonctionnent avec Azure Monitor en vue de fournir cette intégration.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utilisez Event Hubs pour [diffuser en continu les données Azure Monitor](platform/stream-monitoring-data-event-hubs.md) auprès des outils SIEM (Security Information and Event Management) et de supervision.
+[Azure Event Hubs](../event-hubs/index.yml) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utilisez Event Hubs pour [diffuser en continu les données Azure Monitor](platform/stream-monitoring-data-event-hubs.md) auprès des outils SIEM (Security Information and Event Management) et de supervision.
 
 
 ### <a name="logic-apps"></a>Logic Apps
@@ -150,4 +150,4 @@ Pour en savoir plus :
 * [Métriques et journaux d’activité](platform/data-platform.md) pour les données collectées par Azure Monitor.
 * [Sources de données](platform/data-sources.md) pour découvrir comment les différents composants de votre application envoient des données de télémétrie.
 * [Requêtes de journal](log-query/log-query-overview.md) pour l’analyse des données collectées.
-* [Bonnes pratiques](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) pour la supervision des applications et services cloud.
+* [Bonnes pratiques](/azure/architecture/best-practices/monitoring) pour la supervision des applications et services cloud.

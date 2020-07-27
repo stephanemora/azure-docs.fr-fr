@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ac23912b12bc6c7fcd40d7433cb4e2d257eeb5d0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525156"
 ---
 1. Sur la page du portail de votre réseau étendu virtuel, dans la section **Connectivité**, sélectionnez **Sites VPN** pour ouvrir la page correspondante.
 2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
@@ -24,7 +24,7 @@ ms.locfileid: "85562983"
     * **Région** : précédemment appelée « Emplacement ». Il s’agit de l’emplacement auquel vous souhaitez créer cette ressource de site.
     * **Nom** : nom par lequel vous souhaitez faire référence à votre site local.
     * **Fournisseur de périphériques** : nom du fournisseur de périphériques VPN (par exemple :  Citrix, Cisco, Barracuda). Cela peut aider l’équipe Azure à mieux comprendre votre environnement afin d’ajouter des possibilités d’optimisation supplémentaires à l’avenir ou pour vous aider à résoudre les problèmes.
-    * **Border Gateway Protocol** : si ce champ est activé, toutes les connexions à partir du site seront compatibles avec le protocole BGP. Vous allez finalement configurer les informations BGP pour chaque lien à partir du site VPN dans la section Liens. La configuration du protocole BGP sur un réseau Virtual WAN équivaut à configurer le protocole BGP sur une passerelle VPN Azure. Votre adresse d’homologue BGP local ne doit pas être identique à l’adresse IP publique de votre réseau VPN vers l’appareil ou à l’espace d’adresse du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il ne peut pas s’agir d’une adresse APIPA (169.254.x.x). Spécifiez cette adresse sur le site VPN correspondant, représentant l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Vous pouvez à tout moment modifier une connexion VPN pour mettre à jour ses paramètres BGP (adresse IP de peering sur le lien et n° de système autonome) une fois que le paramètre BGP du site VPN est activé.
+    * **Border Gateway Protocol** : si ce champ est activé, toutes les connexions à partir du site seront compatibles avec le protocole BGP. Vous allez finalement configurer les informations BGP pour chaque lien à partir du site VPN dans la section Liens. La configuration du protocole BGP sur un réseau Virtual WAN équivaut à configurer le protocole BGP sur une passerelle VPN Azure. Votre adresse d’homologue BGP local ne doit pas être identique à l’adresse IP publique de votre réseau VPN vers l’appareil ou à l’espace d’adresse du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur l’appareil. Spécifiez cette adresse sur le site VPN correspondant, représentant l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Vous pouvez à tout moment modifier une connexion VPN pour mettre à jour ses paramètres BGP (adresse IP de peering sur le lien et n° de système autonome) une fois que le paramètre BGP du site VPN est activé.
     * **Espace d’adressage privé** : espace d’adressage IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est acheminé vers votre site local. Cette option est requise lorsque le protocole BGP n’est pas activé pour le site.
     * **Hubs** : concentrateur auquel votre site doit se connecter. Un site ne peut être connecté qu’aux hubs disposant d’une passerelle VPN. Si vous ne voyez pas de hub, créez d’abord une passerelle VPN dans ce hub.
 4. Sélectionnez **Liens** pour ajouter des informations sur les liens physiques au niveau de la branche. Si vous disposez de l’appareil CPE Virtual WAN d’un partenaire, vérifiez auprès de ce dernier que ces informations sont échangées avec Azure dans le cadre de la configuration du chargement des informations de branche à partir de ses systèmes.

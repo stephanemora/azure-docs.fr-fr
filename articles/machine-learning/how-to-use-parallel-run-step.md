@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 06/23/2020
+ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520627"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,6 +33,7 @@ Dans cet article, vous apprenez à effectuer les tâches suivantes :
 > * Écriture de votre script d’inférence.
 > * Création d’un [pipeline Machine Learning](concept-ml-pipelines.md) contenant ParallelRunStep et exécution de l’inférence par lots sur les images de test MNIST. 
 > * Nouvelle soumission d’une exécution d’inférence par lots avec de nouveaux paramètres et entrées de données. 
+> * Affichez les résultats.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -159,9 +160,7 @@ Les objets [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeli
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## <a name="prepare-the-model"></a>Préparer le modèle
@@ -266,17 +265,17 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ### <a name="prepare-the-environment"></a>Préparer l’environnement
 
-Vous devez d’abord spécifier les dépendances de votre script. Cela vous permet d’installer des packages Pip et de configurer l’environnement. Veillez à toujours inclure les packages **azureml-core** et **azureml-dataprep[pandas, fuse]** .
+Vous devez d’abord spécifier les dépendances de votre script. Cela vous permet d’installer des packages Pip et de configurer l’environnement.
 
-Si vous utilisez une image Docker personnalisée (user_managed_dependencies=True), Conda doit également être installé.
+Incluez toujours **azureml-core** et **azureml-dataset-runtime[pandas, fuse]** dans la liste des packages pip. Si vous utilisez une image Docker personnalisée (user_managed_dependencies=True), Conda doit également être installé.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -286,7 +285,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Spécifier les paramètres à l’aide de ParallelRunConfig
 
-`ParallelRunConfig` est la configuration principale de l’instance `ParallelRunStep` dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, y compris les suivants :
+`ParallelRunConfig` est la configuration principale de l’instance `ParallelRunStep` dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, dont toutes les entrées suivantes :
 - `entry_script`: script utilisateur utilisé comme un chemin de fichier local qui sera exécuté en parallèle sur plusieurs nœuds. Si `source_directory` est présent, utilisez un chemin relatif. Dans le cas contraire, utilisez un chemin accessible sur la machine.
 - `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (Facultatif ; la valeur par défaut est `10` fichiers pour FileDataset et `1MB` pour TabularDataset.)
     - Pour `FileDataset`, il s’agit du nombre de fichiers avec une valeur minimale de `1`. Vous pouvez combiner plusieurs fichiers dans un mini-lot.
@@ -379,7 +378,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="resubmit-a-run-with-new-data-inputs-and-parameters"></a>Soumettre à nouveau une exécution avec de nouveaux paramètres et entrées de données
 
-Dès lors que vous avez constitué les entrées et plusieurs configurations sous la forme de `PipelineParameter`, vous pouvez soumettre à nouveau une exécution de l’inférence par lots avec une entrée de jeu de données différente, et ajuster les paramètres sans avoir à créer entièrement un nouveau pipeline. Vous allez vous servir du même magasin de données, mais n’utiliser qu’une seule image comme entrées de données.
+Dès lors que vous avez constitué les entrées et plusieurs configurations sous la forme de `PipelineParameter`, vous pouvez soumettre à nouveau une exécution de l’inférence par lots avec une entrée de jeu de données différente, et ajuster les paramètres sans avoir à créer un pipeline entièrement nouveau. Vous allez vous servir du même magasin de données, mais n’utiliser qu’une seule image comme entrées de données.
 
 ```python
 path_on_datastore = mnist_blob.path('mnist/0.png')
@@ -392,6 +391,28 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## <a name="view-the-results"></a>View the results
+
+Les résultats de l’exécution ci-dessus sont écrits dans le magasin de données spécifié dans l’objet PipelineData comme données de sortie, qui dans ce cas sont appelées *inférences*. Les résultats sont stockés dans le conteneur d’objets blob par défaut. Vous pouvez accéder à votre compte de stockage et observer via l’Explorateur Stockage que le chemin de fichier est azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+
+Vous pouvez également télécharger ces données pour voir les résultats. Voici l’exemple de code permettant d’afficher les 10 premières lignes.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

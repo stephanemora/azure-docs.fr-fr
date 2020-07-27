@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78253119"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518537"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutoriel : Configurer des mots de passe interdits personnalisés pour la protection par mot de passe Azure Active Directory
 
@@ -36,12 +36,12 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*administrateur général*.
 * Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*. Vous devez utiliser ce compte pour tester un événement de changement de mot de passe dans ce tutoriel.
-    * Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../add-users-azure-active-directory.md).
+    * Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * Pour permettre le test de l’opération de changement de mot de passe à l’aide d’un mot de passe interdit, le locataire Azure AD doit être [configuré pour la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md).
 
 ## <a name="what-are-banned-password-lists"></a>Que sont les listes de mots de passe interdits ?
 
-Azure AD inclut une liste globale de mots de passe interdits. Le contenu de la liste globale de mots de passe interdits n’est basé sur aucune source de données externe. En fait, la liste globale de mots de passe interdits est basée sur les résultats en continu de l’analyse et de la télémétrie de sécurité Azure AD. Quand un utilisateur ou un administrateur tente de changer ou de réinitialiser ses informations d’identification, le mot de passe souhaité est comparé à la liste des mots de passe interdits. La demande de changement de mot de passe n’aboutit pas, s’il existe une correspondance dans la liste globale de mots de passe interdits.
+Azure AD inclut une liste globale de mots de passe interdits. Le contenu de la liste globale de mots de passe interdits n’est basé sur aucune source de données externe. En fait, la liste globale de mots de passe interdits est basée sur les résultats en continu de l’analyse et de la télémétrie de sécurité Azure AD. Quand un utilisateur ou un administrateur tente de changer ou de réinitialiser ses informations d’identification, le mot de passe souhaité est comparé à la liste des mots de passe interdits. La demande de changement de mot de passe n’aboutit pas, s’il existe une correspondance dans la liste globale de mots de passe interdits. Vous ne pouvez pas modifier cette liste globale de mots de passe interdits par défaut.
 
 Pour affiner votre choix des mots de passe autorisés, vous pouvez également définir une liste personnalisée de mots de passe interdits. La liste personnalisée de mots de passe interdits fonctionne parallèlement à la liste globale de mots de passe interdits pour permettre l’instauration de mots de passe forts dans votre organisation. Vous pouvez ajouter des termes spécifiques à l’organisation dans la liste personnalisée de mots de passe interdits. En voici quelques exemples :
 
@@ -91,7 +91,7 @@ Dans le cas d’un environnement hybride, vous pouvez également [déployer la p
 Pour voir la liste personnalisée de mots de passe interdits en action, essayez de remplacer le mot de passe par une variante de celui que vous avez ajouté au cours de la section précédente. Quand Azure AD tente de traiter le changement de mot de passe, ce dernier est mis en correspondance avec une entrée de la liste personnalisée de mots de passe interdits. Dans ce cas, l’utilisateur voit s’afficher une erreur.
 
 > [!NOTE]
-> Pour qu’un utilisateur puisse réinitialiser son mot de passe dans le portail web, le locataire Azure AD doit être [configuré pour la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md).
+> Pour qu’un utilisateur puisse réinitialiser son mot de passe dans le portail web, le locataire Azure AD doit être [configuré pour la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md). Si nécessaire, l’utilisateur peut [s’inscrire à la réinitialisation de mot de passe en libre-service (SSPR)https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 
 1. Accédez à la page **Mes applications** sur [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. En haut à droite, sélectionnez votre nom, puis choisissez **Profil** dans le menu déroulant.

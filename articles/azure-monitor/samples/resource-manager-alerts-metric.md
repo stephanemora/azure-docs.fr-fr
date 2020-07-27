@@ -1,18 +1,18 @@
 ---
-title: Créer une alerte de mesure avec un modèle Resource Manager
-description: Découvrez comment utiliser un modèle Resource Manager pour créer une alerte de métrique.
+title: Exemples de modèle Resource Manager pour les alertes de métrique
+description: Cet article présente des exemples de modèle Azure Resource Manager pour créer des alertes de métrique dans Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853302"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515374"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de métrique dans Azure Monitor
 
@@ -20,7 +20,7 @@ Cet article fournit des exemples d’utilisation de [modèles Azure Resource Man
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Consultez [Ressources prises en charge pour les alertes de métrique dans Azure Monitor](../platform/alerts-metric-near-real-time.md) pour obtenir une liste des ressources qui peuvent être utilisées avec des règles d’alerte de métrique. Une explication du schéma et des propriétés d’une règle d’alerte est disponible dans [Alertes de métrique – Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Consultez [Ressources prises en charge pour les alertes de métrique dans Azure Monitor](../platform/alerts-metric-near-real-time.md) pour obtenir une liste des ressources qui peuvent être utilisées avec des règles d’alerte de métrique. Une explication du schéma et des propriétés d’une règle d’alerte est disponible dans [Alertes de métrique – Créer ou mettre à jour](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez [Alerte de métrique pour les journaux – Modèle de ressource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -1094,7 +1094,7 @@ Voici par exemple quelques-unes des séries chronologiques potentielles supervis
 
 Vous pouvez utiliser le modèle suivant pour créer une règle d’alerte de métrique de seuil statique plus avancée sur une métrique personnalisée.
 
-Pour en savoir plus sur les métriques personnalisées dans Azure Monitor, consultez [Métriques personnalisées dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Pour en savoir plus sur les métriques personnalisées dans Azure Monitor, consultez [Métriques personnalisées dans Azure Monitor](../platform/metrics-custom-overview.md).
 
 Lorsque vous créez une règle d’alerte sur une métrique personnalisée, vous devez spécifier à la fois le nom et l’espace de noms de la métrique. Vous devez également vous assurer que la métrique personnalisée est déjà signalée, car vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore.
 
@@ -1325,7 +1325,7 @@ Enregistrez le code JSON ci-après sous le nom customstaticmetricalert.json pour
 
 >[!NOTE]
 >
-> Vous pouvez rechercher l’espace de noms de métrique d’une métrique personnalisée spécifique en [parcourant vos métriques personnalisées à l’aide du Portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Vous pouvez rechercher l’espace de noms de métrique d’une métrique personnalisée spécifique en [parcourant vos métriques personnalisées à l’aide du Portail Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Plusieurs ressources

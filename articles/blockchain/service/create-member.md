@@ -1,15 +1,16 @@
 ---
 title: Créer un membre Azure Blockchain Service - Portail Azure
 description: Créez un membre Azure Blockchain Service pour un consortium de blockchain à l’aide du portail Azure.
-ms.date: 03/30/2020
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: references_regions
+ms.openlocfilehash: 5632c8a17c5ac25c8b4b436297d0dd5a0071df26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115242"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503419"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Démarrage rapide : Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
 
@@ -35,7 +36,7 @@ Un membre Azure Blockchain Service est un nœud blockchain dans un réseau block
     --------|------------
     Abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
     Resource group | Créez un nom de groupe de ressources ou choisissez un nom de groupe existant dans votre abonnement.
-    Région | Choisissez la région où créer le membre. Tous les membres du consortium doivent se trouver au même emplacement.
+    Région | Choisissez la région où créer le membre. Tous les membres du consortium doivent se trouver au même emplacement. Les fonctionnalités peuvent ne pas être disponibles dans certaines régions. Azure Blockchain Data Manager est disponible dans les régions Azure suivantes : USA Est et Europe Ouest.
     Protocol | La préversion d’Azure Blockchain Service prend en charge le protocole Quorum.
     Consortium | Pour un nouveau consortium, entrez un nom unique. Si vous rejoignez un consortium par le biais d’une invitation, choisissez le consortium que vous rejoignez. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
     Nom | Choisissez un nom unique pour le membre Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.

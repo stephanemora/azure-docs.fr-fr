@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77193151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530167"
 ---
 ## <a name="create-the-webapi-project"></a>Création du projet WebAPI
 
@@ -30,7 +30,7 @@ Pour créer le serveur principal WebAPI ASP.NET, procédez comme suit :
 >
 >Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, sélectionnez **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet** pour votre version de Visual Studio et vérifiez que vous disposez de la dernière version. Si vous ne disposez pas de la version la plus récente, désinstallez votre version actuelle et réinstallez le Gestionnaire de package NuGet.
 
-![][B4]
+![Capture d’écran de la boîte de dialogue Extensions et mises à jour avec le package Gestionnaire de package NuGet pour Visual Studio mis en évidence.][B4]
 
 > [!NOTE]
 > Assurez-vous que le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) Visual Studio est installé, pour le déploiement du site web.

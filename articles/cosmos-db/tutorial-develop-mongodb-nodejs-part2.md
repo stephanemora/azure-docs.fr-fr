@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523483"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Créer une application Express Node.js
 
@@ -147,11 +147,11 @@ Ce didacticiel requiert les éléments suivants :
 
 7. Enregistre tous vos fichiers modifiés. 
 
-8. Dans Visual Studio Code, cliquez sur le bouton **Déboguer**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png). Cliquez sur le bouton en forme d’engrenage ![Bouton Engrenage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Le fichier launch.json s’ouvre dans Visual Studio Code.
+8. Dans Visual Studio Code, cliquez sur le bouton **Déboguer** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::, puis cliquez sur le bouton représentant un engrenage :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. Le fichier launch.json s’ouvre dans Visual Studio Code. 
 
 8. À la ligne 11 du fichier launch.json, remplacez `"${workspaceFolder}\\server"` par `"program": "${workspaceRoot}/src/server/index.js"` et enregistrez le fichier.
 
-9. Cliquez sur le bouton **Démarrer le débogage**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) pour exécuter l’application.
+9. Cliquez sur le bouton **Démarrer le débogage** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: pour exécuter l’application.
 
     L’application doit s’exécuter sans erreurs.
 

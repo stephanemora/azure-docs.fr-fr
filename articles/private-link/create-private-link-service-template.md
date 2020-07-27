@@ -1,6 +1,6 @@
 ---
 title: Créer un service de liaison privée dans Azure Private Link
-description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour créer un service de liaison privée.
+description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer un service de liaison privée.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529605"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un service de liaison privée à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Démarrage rapide : Créer un service de liaison privée à l’aide d’un modèle ARM
 
-Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour créer un service de liaison privée.
+Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer un service de liaison privée.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [Portail Azure](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) ou l’interface [Azure CLI](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Configuration requise
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Créer un service Private Link
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Ce modèle crée un service de liaison privée.
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ Plusieurs ressources Azure sont définies dans le modèle :
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : il y a deux adresses IP publiques, une pour chaque machine virtuelle.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : le point de terminaison privé pour accéder au service.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
-Voici comment déployer le modèle Azure Resource Manager sur Azure :
+Voici comment déployer le modèle ARM sur Azure :
 
 1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez **Déployer sur Azure**. Le modèle crée une machine virtuelle, un équilibreur de charge standard, un service de liaison privée, un point de terminaison privé, un réseau et une machine virtuelle à valider.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Sélectionnez ou créez votre groupe de ressources.
 3. Saisissez le nom d’utilisateur et le mot de passe administrateur de la machine virtuelle.
@@ -63,7 +65,7 @@ Voici comment déployer le modèle Azure Resource Manager sur Azure :
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 
 > [!NOTE]
-> Le modèle Azure Resource Manager génère un nom unique pour la machine virtuelle myConsumerVm<b>{uniqueid}</b>. Remplacez la valeur générée pour **{uniqueid}** .
+> Le modèle ARM génère un nom unique pour la ressource de la machine virtuelle myConsumerVm<b>{uniqueid}</b>. Remplacez la valeur générée pour **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -95,7 +97,7 @@ Connectez-vous à la machine virtuelle _myConsumerVm{uniqueid}_ via Internet com
 Voici comment vous connecter au service http à partir de la machine virtuelle en utilisant le point de terminaison privé.
 
 1.  Accédez au Bureau à distance de la machine virtuelle _myConsumerVm{uniqueid}_ .
-2.  Ouvrez un navigateur et entrez l’adresse du point de terminaison privé : http://10.0.0.5/.
+2.  Ouvrez un navigateur et entrez l’adresse du point de terminaison privé : `http://10.0.0.5/`.
 3.  La page IIS par défaut s’affiche.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

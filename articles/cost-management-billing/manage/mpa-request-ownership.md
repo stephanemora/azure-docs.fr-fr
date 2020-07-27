@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523602"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA
 
@@ -155,6 +155,12 @@ Certaines des demandes de transfert du client peuvent nécessiter un processus d
 Le répertoire des abonnements Azure qui sont transférés doit correspondre au répertoire du client qui a été sélectionné lors de l’établissement de la relation CSP.
 
 Si ces deux répertoires ne correspondent pas, les abonnements ne peuvent pas être transférés. Vous devez alors soit établir une nouvelle relation de revendeur CSP avec le client en sélectionnant le répertoire approprié des abonnements Azure, soit changer le répertoire des abonnements Azure pour qu’il corresponde au répertoire de la relation CSP-client. Pour plus d’informations, consultez [Associer un abonnement existant à un annuaire Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Abonnement Contrat Entreprise dans l’annuaire hors organisation
+
+Les abonnements Contrat Entreprise provenant d’annuaires hors organisation peuvent être transférés tant que l’annuaire a une relation de revendeur avec le fournisseur de solutions cloud. Si l’annuaire n’a pas de relation de revendeur, veillez à ce que l’utilisateur de l’organisation soit titulaire du rôle *Administrateur général* dans l’annuaire pour qu’il puisse accepter la relation de partenaire. La partie nom de domaine du nom d’utilisateur doit être le nom de domaine par défaut initial « [nom de domaine]. onmicrosoft.com » ou un nom de domaine personnalisé vérifié et non fédéré tel que « contoso.com ».  
+
+Pour ajouter un utilisateur à l’annuaire, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Vérifier l’accès à un Contrat Partenaire Microsoft
 

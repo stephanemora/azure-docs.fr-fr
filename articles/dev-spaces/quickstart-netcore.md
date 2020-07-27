@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application .NET Core sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512450"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes : Visual Studio Code et .NET Core - Azure Dev Spaces
 
@@ -102,7 +102,7 @@ Cette commande prépare votre projet à s’exécuter dans Azure Dev Spaces en g
 
 Cliquez sur l’icône *Déboguer* sur la gauche, puis sur *.NET Core Launch (AZDS)* en haut.
 
-![](media/get-started-netcore/debug-configuration.png)
+![La capture d’écran représente le coin supérieur gauche de la fenêtre Visual Studio Code. L’icône de débogage est mise en surbrillance, le panneau de gauche s’intitule « DEBUG » (DÉBOGUER), et une liste déroulante à droite du titre affiche « .NET Core Launch (AZDS) » (Lancement de .NET Core (AZDS)).](media/get-started-netcore/debug-configuration.png)
 
 Cette commande génère et exécute votre service dans Azure Dev Spaces en mode débogage. La fenêtre *Terminal* dans le bas montre la sortie de la génération et les URL pour votre service s’exécutant dans Azure Dev Spaces. La *Console de débogage* montre la sortie du journal.
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Enregistrez le fichier . Cliquez sur *Déboguer*, puis sur *Redémarrer le débogage* ou, dans la *barre d’outils de débogage*, cliquez sur le bouton *Redémarrer le débogage*.
 
-![](media/common/debug-action-refresh.png)
+![La barre d’outils de débogage est un petit volet situé en haut au centre de la page (juste en dessous du titre de la page). Le bouton Redémarrer affiche une flèche circulaire, et est mis en surbrillance. Quand l’utilisateur fait passer le curseur sur le bouton, une image s’affiche en indiquant « Redémarrer (Ctrl + Maj + F5) ».](media/common/debug-action-refresh.png)
 
 Ouvrez votre service dans un navigateur et notez que votre message mis à jour est affiché.
 

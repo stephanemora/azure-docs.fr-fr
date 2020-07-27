@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Créer un domaine managé Azure Active Directory Domain Services | Microsoft Docs
+title: Tutoriel - Créer un domaine managé Azure AD DS avec une configuration avancée
 description: Dans ce tutoriel, vous allez découvrir comment utiliser le portail Azure pour créer et configurer un domaine managé Azure Active Directory Domain Services, et définir des options de configuration avancées.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518519"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutoriel : Créer et configurer un domaine managé Azure Active Directory Domain Services avec des options de configuration avancées
 

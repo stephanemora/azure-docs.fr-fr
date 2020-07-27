@@ -1,21 +1,22 @@
 ---
-title: Créer un laboratoire avec Azure DevTest Labs et un modèle Resource Manager
-description: Avec ce tutoriel, vous créez un labo dans Azure DevTest Labs à l’aide d’un modèle Azure Resource Manager. Un administrateur de laboratoire définit un laboratoire, crée dans celui-ci des machines virtuelles et configure des stratégies.
-ms.topic: tutorial
+title: Créer un labo avec Azure DevTest Labs et un modèle Azure Resource Manager
+description: Dans ce guide de démarrage rapide, vous créez un labo dans Azure DevTest Labs à l’aide d’un modèle Azure Resource Manager (modèle ARM). Un administrateur de laboratoire définit un laboratoire, crée dans celui-ci des machines virtuelles et configure des stratégies.
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ba4ffeec22a45c07b096b0a754d08c8230dd8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476204"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537545"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs-resource-manager-template"></a>Tutoriel : Configurer un labo en utilisant Azure DevTest Labs (modèle Resource Manager)
-Dans ce tutoriel, vous allez créer un laboratoire avec une machine virtuelle Windows Server 2019 Datacenter à l’aide d’un modèle Azure Resource Manager. 
+# <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Démarrage rapide : Configurer un labo à l’aide d’un modèle ARM Azure DevTest Labs
+Dans ce guide de démarrage rapide, vous allez créer un labo avec une machine virtuelle Windows Server 2019 Datacenter à l’aide d’un modèle Azure Resource Manager (ARM). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Dans ce tutoriel, vous allez effectuer les actions suivantes :
+Dans ce guide de démarrage rapide, vous effectuez les actions suivantes :
 
 > [!div class="checklist"]
 > * Vérifier le modèle 
@@ -23,15 +24,17 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Vérifier le modèle
 > * Nettoyer les ressources
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
 :::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
 
@@ -46,7 +49,7 @@ Pour obtenir d’autres exemples de modèles, voir [Modèles de démarrage rapid
 ## <a name="deploy-the-template"></a>Déployer le modèle
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous. 
 
-[![Déployer sur Azure](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. Créez un **groupe de ressources** pour qu’il soit facile de le nettoyer plus tard.
 1. Sélectionnez l’**emplacement** du groupe de ressources. 
@@ -59,7 +62,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Page Modèle de déploiement":::
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+## <a name="validate-the-deployment"></a>Valider le déploiement
 1. Sélectionnez **Notifications** en haut pour afficher l’état du déploiement, puis cliquez sur le lien **Déploiement en cours**.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notification de déploiement":::
@@ -76,7 +79,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
     > [!IMPORTANT] 
     > Gardez cette page ouverte et suivez les instructions de la section suivante pour nettoyer les ressources et ainsi éviter les coûts d’exécution du laboratoire et de la machine virtuelle sur Azure. Si vous souhaitez suivre le tutoriel suivant pour tester l’accès à la machine virtuelle dans le laboratoire, nettoyez les ressources seulement après. 
 
-## <a name="cleanup-resources"></a>Nettoyer les ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 1. Tout d’abord, supprimez le laboratoire pour pouvoir supprimer le groupe de ressources. Vous ne pouvez pas supprimer un groupe de ressources dans lequel se trouve un laboratoire. Pour supprimer le labo, sélectionnez **Supprimer** dans la barre d’outils. 
 
@@ -90,8 +93,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Bouton Supprimer le groupe de ressources":::
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez créé un laboratoire avec une machine virtuelle. Pour savoir comment accéder au laboratoire, passer au tutoriel suivant :
+Dans le cadre de ce guide de démarrage rapide, vous avez créé un labo avec une machine virtuelle. Pour savoir comment accéder au laboratoire, passer au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Accéder au laboratoire](tutorial-use-custom-lab.md)
-

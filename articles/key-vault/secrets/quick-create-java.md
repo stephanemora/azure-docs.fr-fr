@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 2da208c7c85dd001502a88f00bc7c1e090bbc3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125598"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536434"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Java
 
@@ -26,7 +26,12 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Simplifier et automatiser les tâches associées aux certificats TLS/SSL
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
-[Code source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentation de référence de l’API](https://azure.github.io/azure-sdk-for-java) | [Documentation du produit](index.yml) | [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+Ressources supplémentaires :
+
+* [Code source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [Documentation de référence de l’API](https://azure.github.io/azure-sdk-for-java)
+* [Documentation du produit](index.yml)
+* [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -1,5 +1,5 @@
 ---
-title: Modèle de métadonnées partagées Azure Synapse Analytics
+title: Modèle de métadonnées partagées
 description: Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre leurs pools Spark (préversion), le moteur SQL à la demande (préversion) et les pools SQL.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 26a65aef0d7524bf73c6dc2981bd71539e59ed76
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080161"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496047"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Métadonnées partagées Azure Synapse Analytics
 

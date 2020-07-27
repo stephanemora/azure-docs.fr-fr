@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 39ddc5b3c3fecb4504dcfb67e0bbe683ccbb2037
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ce544ea014a7bacbc5103b28c5b9dc66c7bbb57f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545035"
 ---
-Si vous préférez vous y mettre tout de suite, consultez ou téléchargez tous les <a href="https://aka.ms/speech/github-java">Exemples Java du SDK Speech</a> sur GitHub. Sinon, commençons.
+Vous pouvez consulter ou télécharger tous les <a href="https://aka.ms/speech/github-java">Exemples Java du kit SDK Speech</a> sur GitHub. 

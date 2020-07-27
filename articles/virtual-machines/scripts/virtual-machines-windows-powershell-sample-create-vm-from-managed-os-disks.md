@@ -1,5 +1,5 @@
 ---
-title: Créer une machine virtuelle en attachant un disque managé en tant que disque de système d’exploitation - Exemple PowerShell
+title: Créer une machine virtuelle en attachant un disque managé en tant que disque de système d’exploitation (Windows) - PowerShell
 description: Exemple de script Azure PowerShell - Créer une machine virtuelle en attachant un disque géré en tant que disque de système d’exploitation
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4514940918f33ee28fc4195b821018df54252e13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8001990d4ade9986bea81f63b60832ed69024265
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509553"
 ---
-# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Créer une machine virtuelle en utilisant un disque de système d’exploitation géré existant avec PowerShell
+# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell-windows"></a>Créer une machine virtuelle en utilisant un disque de système d’exploitation managé existant avec PowerShell (Windows)
 
 Ce script crée une machine virtuelle en attachant un disque géré existant en tant que disque de système d’exploitation. Utilisez ce script dans des scénarios précédent :
 * Créer une machine virtuelle à partir d’un disque de système d’exploitation géré existant qui a été copié d’un disque géré dans un autre abonnement
@@ -51,15 +51,15 @@ Ce script utilise les commandes suivantes pour obtenir des propriétés de disqu
 
 | Commande | Notes |
 |---|---|
-| [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/Get-AzDisk) | Obtient l’objet disque sur la base du nom et du groupe de ressources d’un disque. La propriété Id de l’objet disque retourné est utilisée pour attacher le disque à une nouvelle machine virtuelle |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Crée une configuration de machine virtuelle. Cette configuration inclut des informations telles que le nom de la machine virtuelle, le système d’exploitation et les informations d’identification d’administration. La configuration est utilisée lors de la création de machines virtuelles. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Attache un disque géré en utilisant la propriété Id du disque en tant que disque de système d’exploitation pour une nouvelle machine virtuelle |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Crée une adresse IP publique. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Crée une interface réseau. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Création d’une machine virtuelle |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
+| [Get-AzDisk](/powershell/module/az.compute/get-azdisk) | Obtient l’objet disque sur la base du nom et du groupe de ressources d’un disque. La propriété Id de l’objet disque retourné est utilisée pour attacher le disque à une nouvelle machine virtuelle |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crée une configuration de machine virtuelle. Cette configuration inclut des informations telles que le nom de la machine virtuelle, le système d’exploitation et les informations d’identification d’administration. La configuration est utilisée lors de la création de machines virtuelles. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Attache un disque géré en utilisant la propriété Id du disque en tant que disque de système d’exploitation pour une nouvelle machine virtuelle |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crée une adresse IP publique. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Crée une interface réseau. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Création d’une machine virtuelle |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
 
-Pour les images marketplace, utilisez [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) afin de définir les informations de plan.
+Pour les images marketplace, utilisez [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) afin de définir les informations de plan.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: lbosq
-ms.openlocfilehash: 18f8be607516857d1631f43d3bef9e2ae233c995
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248644"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523738"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Présentation de l’API Gremlin dans Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
 * **Indexation automatique**
 
-  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview)
+  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview)
 
 * **Compatibilité avec Apache TinkerPop**
 

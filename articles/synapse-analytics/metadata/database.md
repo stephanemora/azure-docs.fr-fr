@@ -1,5 +1,5 @@
 ---
-title: Base de données partagée Azure Synapse Analytics
+title: Base de données partagée
 description: Azure Synapse Analytics fournit un modèle de métadonnées partagées, où le fait de créer une base de données dans Apache Spark la rend accessible à partir de ses moteurs de pools SQL et SQL à la demande (préversion).
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 68919457cc045f50ebef249ced9c117fea8d6984
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079032"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496007"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 

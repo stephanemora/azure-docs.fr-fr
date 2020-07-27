@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone, Objective-C – Service Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Objective-C - Service Speech (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Découvrir la reconnaissance vocale en Objective-C sur macOS avec le SDK Speech
+description: Découvrez comment créer une application de reconnaissance vocale en Objective-C pour un ordinateur macOS à l’aide du kit SDK Cognitive Services Speech.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 8f94f2ed810204d739dfd2e6d5e88ef0977ad9a4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: b73925165552fe428be7df465b33701eeed157cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391517"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524231"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur macOS avec le SDK Speech
 

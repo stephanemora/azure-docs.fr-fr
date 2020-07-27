@@ -1,5 +1,5 @@
 ---
-title: Créer un disque managé à partir d’une capture instantanée - Exemple PowerShell
+title: Créer un disque managé à partir d’une capture instantanée (Windows) - Exemple de code PowerShell
 description: 'Exemple de script Azure PowerShell : Créer un disque géré à partir d’une capture instantanée'
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5758e31fc24d366479cbebb139f1a8376330b397
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d14f78b361c0b66b86886df7ffd7abbfc72cff35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459319"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500988"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Créer un disque géré à partir d’une capture instantanée avec PowerShell
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell-windows"></a>Créer un disque managé à partir d’une capture instantanée avec PowerShell (Windows)
 
 Ce script crée un disque managé à partir d’une capture instantanée. Utilisez-le pour restaurer une machine virtuelle à partir de captures instantanées de disques de système d’exploitation et de données. Créez des disques managés de système d’exploitation et de données à partir des captures instantanées respectives, puis créez une machine virtuelle en joignant les disques managés. Vous pouvez également restaurer les disques de données d’une machine virtuelle existante en joignant les disques de données créés à partir de captures instantanées.
 
@@ -39,9 +39,9 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 | Commande | Notes |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Obtient les propriétés de capture instantanée.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Crée une configuration de disque qui est utilisée pour la création du disque. Il inclut l’ID de ressource de la capture instantanée parente, un emplacement identique à l’emplacement de la capture instantanée parente, et le type de stockage.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Crée un disque à partir de la configuration de disque, du nom du disque et du nom de groupe de ressources transmis en tant que paramètres. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Obtient les propriétés de capture instantanée.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Crée une configuration de disque qui est utilisée pour la création du disque. Il inclut l’ID de ressource de la capture instantanée parente, un emplacement identique à l’emplacement de la capture instantanée parente, et le type de stockage.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Crée un disque à partir de la configuration de disque, du nom du disque et du nom de groupe de ressources transmis en tant que paramètres. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

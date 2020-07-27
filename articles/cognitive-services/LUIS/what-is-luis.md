@@ -3,12 +3,12 @@ title: Qu’est-ce que le service Language Understanding (LUIS) ?
 description: Language Understanding (LUIS) est un service API cloud qui applique une intelligence Machine Learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées pertinentes.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675982"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538035"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -61,7 +61,7 @@ Le modèle LUIS commence par les catégories d’intentions utilisateur appelée
 
 ## <a name="query-prediction-endpoint"></a>Interroger le point de terminaison de prédiction
 
-Une fois votre application entraînée et publiée sur le point de terminaison, l’application cliente envoie les énoncés à l’API du [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) de prédiction. L’API applique l’application à l’énoncé d’analyse et répond avec les résultats de prédiction dans un format JSON.
+Une fois votre application entraînée et publiée sur le point de terminaison, l’application cliente envoie les énoncés à l’API du [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) de prédiction. L’API applique le modèle à l’énoncé d’analyse et répond avec les résultats de prédiction au format JSON.
 
 La réponse minimale du point de terminaison JSON contient l’énoncé de la requête, ainsi que l’intention présentant le score le plus élevé. Elle peut également extraire des données telles que l’entité **Contact Type** et ke sentiment général ci-après.
 

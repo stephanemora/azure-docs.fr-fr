@@ -1,30 +1,34 @@
 ---
 title: Créer une instance de DMS (modèle Azure Resource Manager)
-description: Découvrez comment créer une instance de Database Migration Service à l’aide d’un modèle Azure Resource Manager.
+description: Découvrez comment créer une instance de Database Migration Service à l’aide d’un modèle ARM (Azure Resource Manager).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 9e0d537a948e960c90737cc3f367940a0ffca74c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852463"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537443"
 ---
-# <a name="create-instance-of-azure-database-migration-service-azure-resource-manager-template"></a>Créer une instance d’Azure Database Migration Service (modèle Azure Resource Manager)
+# <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Démarrage rapide : Créer une instance du service Azure Database Migration Service à l’aide du modèle ARM
 
-Utilisez ce modèle Azure Resource Manager pour déployer une instance d’Azure Database Migration Service. 
+Utilisez ce modèle ARM (Azure Resource Manager) pour déployer une instance d’Azure Database Migration Service. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Le modèle Resource Manager Azure Database Migration Service nécessite les éléments suivants : 
 
-- La version la plus récente de l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) et/ou de [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La version la plus récente de l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) et/ou de [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
@@ -39,7 +43,7 @@ Trois ressources Azure sont définies dans le modèle :
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets) : crée le sous-réseau. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services) : Déploie une instance d’Azure Database Migration Service. 
 
-Vous trouverez d’autres exemples de modèles Azure Database Migration Service dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
+Vous trouverez d’autres exemples de modèles Azure Database Migration Service dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
@@ -105,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Pour d’autres façons de déployer Azure Database Migration Service, consultez : 
 - [Azure portal](quickstart-create-data-migration-service-portal.md)

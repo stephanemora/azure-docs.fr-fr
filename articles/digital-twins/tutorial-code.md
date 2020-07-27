@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027889"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537414"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codage avec les API Azure Digital Twins
 
@@ -47,7 +47,7 @@ Plusieurs fichiers seront alors créés dans votre répertoire, notamment un nom
 Ensuite, ajoutez deux dépendances nécessaires à l’utilisation d’Azure Digital Twins :
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -174,7 +174,7 @@ Dans le répertoire où vous avez créé votre projet, créez un fichier *.json*
 > Si vous utilisez Visual Studio pour ce tutoriel, vous souhaiterez peut-être sélectionner le nouveau fichier JSON et affecter la valeur *Copier si plus récent* ou *Toujours copier* à la propriété *Copier dans le répertoire de sortie* dans l’inspecteur de propriété. Cela permettra à Visual Studio de trouver le fichier JSON avec le chemin par défaut quand vous exécuterez le programme avec **F5** lors des étapes suivantes du tutoriel.
 
 > [!TIP] 
-> Il existe un [exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [Guide pratique pour analyser et valider les modèles](how-to-use-parser.md).
+> Il existe un [exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [*Guide pratique pour analyser et valider les modèles*](how-to-use-parser.md).
 
 Ensuite, ajoutez du code à *Program.cs* pour charger le modèle que vous venez de créer dans votre instance Azure Digital Twins.
 
@@ -185,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Ensuite, préparez l’utilisation des méthodes asynchrones dans le SDK de service C# en modifiant la signature de la méthode `Main` pour autoriser l’exécution asynchrone. 
@@ -531,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
  
-L’instance utilisée dans ce tutoriel peut être réutilisée dans le tutoriel suivant, intitulé [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Si vous envisagez de passer au tutoriel suivant, vous pouvez conserver l’instance Azure Digital Twins que vous avez configurée ici.
+L’instance utilisée dans ce tutoriel peut être réutilisée dans le tutoriel suivant, intitulé [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Si vous envisagez de passer au tutoriel suivant, vous pouvez conserver l’instance Azure Digital Twins que vous avez configurée ici.
  
 Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer.
 
@@ -561,8 +560,8 @@ Dans ce tutoriel, vous avez créé une application console cliente .NET à parti
 Passez au tutoriel suivant pour découvrir les opérations que vous pouvez effectuer avec cet exemple d’application cliente : 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md)
+> [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md)
 
 Vous pouvez également étendre le code que vous avez écrit dans ce tutoriel en apprenant à effectuer d’autres opérations de gestion dans les articles de procédures, ou consulter la documentation du concept pour en savoir plus sur les éléments que vous avez utilisés dans le tutoriel.
-* [Guide pratique pour Gérer les modèles personnalisés](how-to-manage-model.md)
-* [Concepts : modèles personnalisés](concepts-models.md)
+* [*Guide pratique : Gérer des modèles personnalisés*](how-to-manage-model.md)
+* [*Concepts : Modèles personnalisés*](concepts-models.md)
