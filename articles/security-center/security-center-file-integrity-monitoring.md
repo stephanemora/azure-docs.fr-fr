@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628289"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519335"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -46,7 +46,7 @@ Le Monitoring d’intégrité de fichier dans Security Center valide l’intégr
 Security Center vous recommande des entités à surveiller, pour lesquelles vous pouvez facilement activer la fonctionnalité FIM. Vous pouvez également définir vos propres stratégies FIM ou entités à surveiller. Cette procédure pas à pas vous explique comment procéder.
 
 > [!NOTE]
-> La fonctionnalité Monitoring d’intégrité de fichier (FIM) est prise en charge sur les ordinateurs et les machines virtuelles Windows et Linux, et est disponible dans le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+> La fonctionnalité FIM (File Integrity Monitoring) est prise en charge sur les ordinateurs et les machines virtuelles Windows et Linux, et est disponible au niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Lorsque la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type **Solution**. Pour plus d’informations sur la fréquence de collecte de données, consultez [Détails de la collecte de données de suivi des modifications](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
 
@@ -108,7 +108,7 @@ Chaque espace de travail contient les informations suivantes :
 Les boutons suivants peuvent également apparaître dans certains espaces de travail :
 
 - ![Icône Activer][3] Indique que la fonctionnalité FIM n’est pas activée pour l’espace de travail. Sélectionnez l’espace de travail pour activer la fonctionnalité FIM sur tous les ordinateurs associés à l’espace de travail.
-- ![Icône de mise à niveau du plan][4] Indique que l’espace de travail ou l’abonnement ne s’exécute pas avec le niveau Standard de Security Center. Pour utiliser la fonctionnalité FIM, votre abonnement doit s’exécuter avec le niveau Standard.  Sélectionnez l’espace de travail pour effectuer la mise à niveau vers le mode Standard. Pour en savoir plus sur le niveau Standard et la procédure de mise à niveau associée, consultez l’article [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
+- ![Icône de mise à niveau du plan][4] Indique que l’espace de travail ou l’abonnement ne s’exécute pas au niveau Standard de Security Center. Pour utiliser la fonctionnalité FIM, votre abonnement doit s’exécuter avec le niveau Standard.  Sélectionnez l’espace de travail pour effectuer la mise à niveau vers le mode Standard. Pour en savoir plus sur le niveau Standard et la procédure de mise à niveau associée, consultez l’article [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
 - Si aucun bouton n’apparaît, la fonctionnalité FIM est déjà activée dans l’espace de travail.
 
 Sous **Monitoring d’intégrité de fichier**, vous pouvez sélectionner un espace de travail pour y activer la fonctionnalité FIM, afficher le tableau de bord Monitoring d’intégrité de fichier pour cet espace de travail, ou [mettre à niveau](security-center-pricing.md) l’espace de travail vers le niveau Standard.
