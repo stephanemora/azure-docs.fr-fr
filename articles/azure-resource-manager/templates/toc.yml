@@ -302,6 +302,8 @@
         - name: Script de déploiement
           displayName: custom script
           href: deployment-script-template.md
+        - name: Créer un environnement de développement de script de déploiement
+          href: deployment-script-template-configure-dev.md
         - name: Modulariser les modèles
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

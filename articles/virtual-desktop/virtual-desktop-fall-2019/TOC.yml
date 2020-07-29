@@ -1,10 +1,10 @@
-- name: "Windows Virtual Desktop - Version Automne\_2019"
+- name: Windows Virtual Desktop (classique)
   href: ../index.yml
 - name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Windows Virtual Desktop\_?"
       href: ../overview.md
-    - name: "Documentation de la version Printemps\_2020"
+    - name: Documentation Windows Virtual Desktop
       href: ../create-host-pools-azure-marketplace.md
 - name: Tutoriels
   items:
