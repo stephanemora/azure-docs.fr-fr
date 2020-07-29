@@ -1,20 +1,21 @@
 ---
-title: Partager un disque managé Azure entre plusieurs machines virtuelles (préversion)
-description: Découvrez le partage de disques managés Azure entre plusieurs machines virtuelles.
+title: Partager un disque managé Azure entre plusieurs machines virtuelles
+description: Apprenez-en plus sur le partage de disques managés Azure entre plusieurs machines virtuelles.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/16/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3792a98c4ddcab36496f7e83482f2a1382c93d0d
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.custom: references_regions
+ms.openlocfilehash: 3ca8a93357b51ed1817bed63ee624abd9b2daa6c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502506"
 ---
-# <a name="azure-shared-disks"></a>Disques partagés Azure
+# <a name="share-an-azure-managed-disk"></a>Partager Étendre un disque managé Azure
 
 [!INCLUDE [virtual-machines-disks-shared](../../../includes/virtual-machines-disks-shared.md)]
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120498"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520151"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -27,7 +27,7 @@ Si vous disposez du rôle Propriétaire dans le portail Cloud Partner pour un co
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>Votre compte a été migré vers l’Espace partenaires
 
-Pour tous les comptes qui ont effectué la migration de CPP vers l’Espace partenaires, la gestion des comptes se produit dans l’Espace partenaires. Les modifications telles que l’ajout/la suppression d’utilisateurs seront synchronisées avec CPP.
+Vous gérez maintenant votre compte dans l’Espace partenaires. Les modifications telles que l’ajout/la suppression d’utilisateurs seront synchronisées avec CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Vous n’avez pas encore migré votre compte vers l’Espace partenaires
 
@@ -45,7 +45,7 @@ Cliquez sur la bannière pour démarrer le processus de migration de votre compt
 
 ## <a name="publishers-moving-from-cpp"></a>Éditeurs migrant à partir du portail CPP
 
-Si votre compte a été migré depuis le [portail Cloud Partner (CPP)](https://cloudpartner.azure.com), vous n’avez pas besoin de créer un nouveau compte Espace partenaires. Vous devez avoir reçu un lien personnalisé vers votre nouveau compte Espace partenaires dans votre messagerie électronique et dans une bannière de notification après vous être connecté à votre compte CPP existant.
+Si votre compte a été migré depuis le CPP, vous n’avez pas besoin de créer un nouveau compte Espace partenaires. Vous devez avoir reçu un lien personnalisé vers votre nouveau compte Espace partenaires dans votre messagerie électronique et dans une bannière de notification après vous être connecté à votre compte CPP existant.
 
 Une fois que vous avez activé votre nouveau compte Espace partenaires en cliquant sur ce lien personnalisé, vous pouvez revenir à votre compte en vous rendant sur le [Tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
 

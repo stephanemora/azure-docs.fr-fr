@@ -15,12 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511634"
 ---
 # <a name="understand-azure-role-definitions"></a>Comprendre les définitions de rôles Azure
 
@@ -90,7 +90,7 @@ La portion `{action}` d’une chaîne d’opération spécifie le type des opér
 
 ### <a name="role-definition-example"></a>Exemple de définition de rôle
 
-Voici la définition de rôle [Contributeur](built-in-roles.md#contributor) comme indiqué dans Azure PowerShell et Azure CLI. L’opération de caractère générique (`*`) sous `Actions` indique que le principal affecté à ce rôle peut effectuer toutes les actions, ou, en d’autres termes, tout gérer. Cela inclut les actions qui seront définies dans le futur, à mesure qu’Azure ajoutera de nouveaux types de ressources. Les opérations sous `NotActions` sont soustraites de `Actions`. Dans le cas du rôle [Contributeur](built-in-roles.md#contributor), `NotActions` supprime la possibilité pour ce rôle de gérer et d’autoriser l’accès aux ressources.
+Voici la définition de rôle [Contributeur](built-in-roles.md#contributor) comme indiqué dans Azure PowerShell et Azure CLI. L’opération de caractère générique (`*`) sous `Actions` indique que le principal affecté à ce rôle peut effectuer toutes les actions, ou, en d’autres termes, tout gérer. Cela inclut les actions qui seront définies dans le futur, à mesure qu’Azure ajoutera de nouveaux types de ressources. Les opérations sous `NotActions` sont soustraites de `Actions`. Dans le cas du rôle [Contributeur](built-in-roles.md#contributor), `NotActions` supprime la possibilité pour ce rôle de gérer l’accès aux ressources et gère également les affectations Azure Blueprint.
 
 Rôle contributeur tel qu’il s’affiche dans Azure PowerShell :
 

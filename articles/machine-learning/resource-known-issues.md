@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223456"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536111"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -96,6 +96,22 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
     ```bash
     automl_setup
     ```
+    
+* **KeyError: « brand » lors de l’exécution d’AutoML sur une capacité de calcul locale ou dans un cluster Azure Databricks**
+
+    Si un nouvel environnement a été créé après le 10 juin 2020 à l’aide du kit de développement logiciel (SDK) 1.7.0 ou version antérieure, la formation peut échouer avec cette erreur en raison d’une mise à jour dans le package py-cpuinfo. (Les environnements créés jusqu’au 10 juin 2020 inclus ne sont pas affectés, tout comme les expériences exécutées sur une capacité de calcul distante, car des images de formation mises en cache sont utilisées.) Pour contourner ce problème, prenez l’une des deux mesures suivantes :
+    
+    * Mettez à jour la version du kit de développement logiciel (SDK) vers 1.8.0 ou une version ultérieure (py-cpuinfo revient alors à la version antérieure, soit 5.0.0) :
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Passez à la version antérieure de py-cpuinfo, soit 5.0.0 :
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Message d’erreur : Impossible de désinstaller « PyYAML »**
 
@@ -146,6 +162,12 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
 > Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
 
 * **Portail Azure**: Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du portail, vous ne pourrez pas afficher la page **Vue d’ensemble** normale comportant des informations sur l’abonnement dans l’extension. Vous ne pourrez pas non plus basculer sur un autre espace de travail. Si vous souhaitez afficher un autre espace de travail, accédez directement à [Azure Machine Learning Studio](https://ml.azure.com), puis à rechercher le nom de l’espace de travail.
+
+* **Navigateurs pris en charge dans le portail web Azure Machine Learning Studio** : Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
+  * Microsoft Edge (le nouveau Microsoft Edge, dernière version. Pas Microsoft Edge hérité)
+  * Safari (dernière version, Mac uniquement)
+  * Chrome (version la plus récente)
+  * Firefox (version la plus récente)
 
 ## <a name="set-up-your-environment"></a>Configurer votre environnement
 
@@ -217,9 +239,16 @@ Limitations et problèmes connus des superviseurs de dérive de données :
 
 ## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
 
-Problèmes connus :
+* **Longue durée de préparation du calcul :**
 
-* **Calcul de préparation de longue durée** : La première fois que vous vous connectez ou créez une cible de calcul, la préparation peut prendre quelques minutes voire plus. 
+La première fois que vous vous connectez ou créez une cible de calcul, la préparation peut prendre quelques minutes voire plus. 
+
+À partir du collecteur de données du modèle, les données peuvent prendre jusqu’à 10 minutes pour arriver dans votre compte de stockage d’objets blob. Attendez 10 minutes avant de vous assurer que les cellules ci-dessous s’exécutent.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Entraîner des modèles
 

@@ -2,19 +2,19 @@
 title: Installer HCX (Hybrid Cloud Extension)
 description: Configurer la solution HCX (Hybrid Cloud Extension) VMware pour votre cloud privé AVS (Azure VMware Solution)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539157"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installer HCX pour Azure VMware Solution
 
 Dans cet article, nous explorons les procédures pour configurer la solution HCX (Hybrid Cloud Extension) VMware pour votre cloud privé AVS (Azure VMware Solution). HCX permet la migration de vos charges de travail VMware vers le cloud et d’autres sites connectés par le biais de différents types de migration HCX intégrés pris en charge.
 
-HCX Advanced, l’installation par défaut, prend en charge un maximum de trois sites externes. Si plus de trois sites sont requis, les clients ont la possibilité d’activer le module complémentaire HCX Enterprise via le Support. L’installation de HCX Enterprise entraîne des frais supplémentaires pour les clients après la disponibilité générale, mais fournit des [fonctionnalités supplémentaires](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, l’installation par défaut, prend en charge jusqu’à trois sites vCenter. Les clients pour qui cela ne suffit pas ont la possibilité d’activer le module complémentaire HCX Enterprise par le biais du Support. L’installation de HCX Enterprise entraîne des frais supplémentaires pour les clients après la disponibilité générale, mais fournit des [fonctionnalités supplémentaires](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Commencez par passer en revue minutieusement les sections [Avant de commencer](#before-you-begin), [Exigences de la version logicielle](#software-version-requirements) et [Prérequis](#prerequisites). 

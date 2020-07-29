@@ -3,12 +3,12 @@ title: Sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment utiliser des sessions pour permettre un traitement conjoint et ordonné de séquences illimitées de messages associés.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341196"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511294"
 ---
 # <a name="message-sessions"></a>Sessions de message
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
@@ -31,7 +31,7 @@ La fonctionnalité de session dans Service Bus autorise une opération de récep
 
 Dans le portail, définissez l’indicateur avec la case à cocher suivante :
 
-![][2]
+![Capture d’écran de la boîte de dialogue Créer une file d’attente avec l’option Activer les sessions sélectionnée et mise en évidence en rouge.][2]
 
 > [!NOTE]
 > Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
@@ -42,7 +42,7 @@ Les API relatives aux sessions existent sur les clients de file d’attente et d
 
 Les sessions assurent un démultiplexage simultané de flux de messages entrelacés tout en préservant et en garantissant la remise chronologique des messages.
 
-![][1]
+![Diagramme montrant comment la fonctionnalité Sessions préserve la livraison chronologique des messages.][1]
 
 Un destinataire [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est créé par le client qui accepte une session. Le client appelle [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. Dans le modèle de rappel réactif, il inscrit un gestionnaire de sessions.
 

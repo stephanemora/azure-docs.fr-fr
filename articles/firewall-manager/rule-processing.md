@@ -1,5 +1,5 @@
 ---
-title: Logique de traitement des règles du service Pare-feu Azure
+title: Logique de traitement des règles d’Azure Firewall Manager
 description: En savoir plus sur la logique de traitement des règles du service Pare-feu Azure
 services: firewall-manager
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 70026173d1cb932d30a59ea2b876ef22217a81bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563670"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512178"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logique de traitement des règles du service Pare-feu Azure
 

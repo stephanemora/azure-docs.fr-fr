@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995855"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511600"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -126,6 +126,30 @@ Le tableau suivant décrit ce que signifient les propriétés de rôle personnal
 | `DataActions`</br>`dataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Si vous créez un rôle personnalisé avec `DataActions`, ce rôle ne peut pas être affecté au niveau de l’étendue du groupe d’administration. Pour plus d’informations, consultez [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, consultez [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Vous ne pouvez définir qu’un seul groupe d’administration dans `AssignableScopes` d’un rôle personnalisé. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion. Pour plus d’informations, voir [AssignableScopes](role-definitions.md#assignablescopes). |
+
+## <a name="wildcard-permissions"></a>Autorisations de caractères génériques
+
+`Actions`, `NotActions`, `DataActions` et `NotDataActions` prennent en charge les caractères génériques (`*`) pour définir des autorisations. Un caractère générique (`*`) étend une autorisation à tout ce qui correspond à la chaîne d’action que vous fournissez. Par exemple, supposons que vous souhaitiez ajouter toutes les autorisations relatives à Azure Cost Management et aux exportations. Vous pouvez ajouter toutes ces chaînes d’action :
+
+```
+Microsoft.CostManagement/exports/action
+Microsoft.CostManagement/exports/read
+Microsoft.CostManagement/exports/write
+Microsoft.CostManagement/exports/delete
+Microsoft.CostManagement/exports/run/action
+```
+
+Au lieu d’ajouter toutes ces chaînes, vous pouvez simplement ajouter une chaîne de caractères génériques. Par exemple, la chaîne de caractères génériques suivante équivaut aux cinq chaînes précédentes. Cela inclut également toutes les futures autorisations d’exportation qui pourraient être ajoutées.
+
+```
+Microsoft.CostManagement/exports/*
+```
+
+Vous pouvez également avoir plusieurs caractères génériques dans une chaîne. Par exemple, la chaîne suivante représente toutes les autorisations de requête pour Cost Management.
+
+```
+Microsoft.CostManagement/*/query/*
+```
 
 ## <a name="steps-to-create-a-custom-role"></a>Procédure de création d’un rôle personnalisé
 

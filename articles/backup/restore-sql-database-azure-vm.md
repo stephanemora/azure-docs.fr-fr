@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687427"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538433"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -29,13 +29,13 @@ Avant de restaurer une base de données, notez les points suivants :
 
 - Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure.
 - Le serveur de destination doit être inscrit auprès du même coffre que la source.
-- Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+- Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Avant de restaurer la base de données « master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage **-m AzureWorkloadBackup**.
   - La valeur de **-m** est le nom du client.
   - Seul le nom du client spécifié peut ouvrir la connexion.
 - Pour toutes les bases de données système (model, master, msdb), arrêtez le service SQL Server Agent avant de déclencher la restauration.
 - Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
-- Si plusieurs instances sont en cours d’exécution sur un serveur, toutes les instances doivent fonctionner. Dans le cas contraire, le serveur n’apparaît pas dans la liste des serveurs de destination pour vous permettre d’y restaurer la base de données.
+- Si plusieurs instances sont en cours d’exécution sur un serveur, toutes les instances doivent fonctionner. Dans le cas contraire, le serveur n’apparaîtra pas dans la liste des serveurs de destination pour vous permettre d’y restaurer la base de données.
 
 ## <a name="restore-a-database"></a>Restaurer une base de données
 
@@ -72,23 +72,32 @@ Restaurez comme ceci :
    - **Autre emplacement** : restaure la base de données vers un autre emplacement et conserve la base de données source d’origine.
    - **Remplacer la base de données** : restaure les données dans la même instance SQL Server que la source d’origine. Cette option remplace la base de données d’origine.
 
-    > [!IMPORTANT]
-    > Si la base de données sélectionnée fait partie d’un groupe de disponibilité Always On, SQL Server n’autorise pas le remplacement de la base de données. Seul **Autre emplacement** est disponible.
-    >
+        > [!IMPORTANT]
+        > Si la base de données sélectionnée fait partie d’un groupe de disponibilité Always On, SQL Server n’autorise pas le remplacement de la base de données. Seul **Autre emplacement** est disponible.
+        >
    - **Restaurer sous forme de fichiers** : au lieu de restaurer sous forme de base de données, restaure les fichiers de sauvegarde qui peuvent être récupérés sous forme de base de données ultérieurement sur tout ordinateur sur lequel les fichiers sont présents à l’aide de SQL Server Management Studio.
      ![Menu Configuration de la restauration](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restaurer à un autre emplacement
 
 1. Dans le menu **Configuration de la restauration**, sous **Où voulez-vous restaurer**, sélectionnez **Autre emplacement**.
-2. Sélectionnez le nom du serveur et l’instance SQL Server où vous voulez restaurer la base de données.
-3. Dans la boîte de dialogue **Nom de la base de données restaurée**, indiquez le nom de la base de données cible.
-4. Le cas échéant, sélectionnez **Remplacer si une base de données du même nom existe déjà sur l’instance SQL sélectionnée**.
-5. Sélectionnez **OK**.
+1. Sélectionnez le nom du serveur et l’instance SQL Server où vous voulez restaurer la base de données.
+1. Dans la boîte de dialogue **Nom de la base de données restaurée**, indiquez le nom de la base de données cible.
+1. Le cas échéant, sélectionnez **Remplacer si une base de données du même nom existe déjà sur l’instance SQL sélectionnée**.
+1. Sélectionnez **Point de restauration**, puis sélectionnez [restaurer à un point spécifique dans le temps](#restore-to-a-specific-point-in-time) ou [restaurer à un point de récupération spécifique](#restore-to-a-specific-restore-point).
 
-    ![Indiquer des valeurs pour le menu de Configuration de la restauration](./media/backup-azure-sql-database/restore-configuration.png)
+    ![Sélectionner un point de restauration](./media/backup-azure-sql-database/select-restore-point.png)
 
-6. Dans **Sélectionner un point de restauration**, choisissez de [restaurer à un point spécifique dans le temps](#restore-to-a-specific-point-in-time) ou de restaurer à un [point de récupération spécifique](#restore-to-a-specific-restore-point).
+    ![Restaurer à un point dans le temps](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+
+1. Dans le menu **Configuration avancée** :
+
+    - Si vous voulez que la base de données reste non opérationnelle après la restauration, activez **Restaurer avec NORECOVERY**.
+    - Si vous voulez changer l’emplacement de restauration sur le serveur de destination, entrez de nouveaux chemins cibles.
+
+        ![Entrer des chemins cibles](./media/backup-azure-sql-database/target-paths.png)
+
+1. Cliquez sur **OK** pour déclencher la restauration. Suivez la progression de la restauration dans la zone **Notifications**, ou suivez-la sous la vue **Travaux de sauvegarde** dans le coffre.
 
     > [!NOTE]
     > La restauration à un point dans le temps est disponible seulement pour les sauvegardes de fichiers journaux pour les bases de données dont le mode de récupération est Complet et utilisant les journaux de transactions.
@@ -106,11 +115,11 @@ Restaurez comme ceci :
 
 ### <a name="restore-as-files"></a>Restaurer sous forme de fichiers
 
-Pour restaurer les données de sauvegarde sous forme de fichiers .bak plutôt que sous forme de base de données, choisissez **Restaurer sous forme de fichiers**. Une fois les fichiers vidés dans un chemin d’accès spécifié, vous pouvez placer ces fichiers sur n’importe quel ordinateur sur lequel vous souhaitez les restaurer sous forme de base de données. En raison de la possibilité de déplacer ces fichiers sur n’importe quel ordinateur, vous pouvez désormais restaurer les données entre les abonnements et les régions.
+Pour restaurer les données de sauvegarde sous forme de fichiers .bak plutôt que sous forme de base de données, choisissez **Restaurer sous forme de fichiers**. Une fois les fichiers vidés dans un chemin d’accès spécifié, vous pouvez placer ces fichiers sur n’importe quel ordinateur sur lequel vous souhaitez les restaurer sous forme de base de données. Étant donné que vous pouvez déplacer ces fichiers vers n’importe quel ordinateur, vous pouvez désormais restaurer les données entre les abonnements et les régions.
 
-1. Dans le menu **Configuration de la restauration**, sous **Où voulez-vous restaurer**, sélectionnez **Restaurer sous forme de fichiers**.
-2. Sélectionnez le nom du serveur SQL Server où vous voulez restaurer les fichiers de sauvegarde.
-3. Dans le **Chemin d’accès de destination sur le serveur**, entrez le chemin d’accès du dossier sur le serveur sélectionné à l’étape 2. Il s’agit de l’emplacement où le service doit vider tous les fichiers de sauvegarde nécessaires. En règle générale, un chemin d’accès de partage réseau, ou le chemin d’un partage de fichiers Azure monté lorsqu’il est spécifié comme chemin de destination, permet un accès plus facile à ces fichiers par d’autres ordinateurs du même réseau ou avec le même partage de fichiers Azure monté sur ces fichiers.<BR>
+1. Sous **Où et comment restaurer**, sélectionnez **Restaurer sous forme de fichiers**.
+1. Sélectionnez le nom du serveur SQL Server où vous voulez restaurer les fichiers de sauvegarde.
+1. Dans le **Chemin d’accès de destination sur le serveur**, entrez le chemin d’accès du dossier sur le serveur sélectionné à l’étape 2. Il s’agit de l’emplacement où le service doit vider tous les fichiers de sauvegarde nécessaires. En règle générale, un chemin d’accès de partage réseau, ou le chemin d’un partage de fichiers Azure monté lorsqu’il est spécifié comme chemin de destination, permet un accès plus facile à ces fichiers par d’autres ordinateurs du même réseau ou avec le même partage de fichiers Azure monté sur ces fichiers.<BR>
 
     >Pour restaurer les fichiers de sauvegarde de base de données sur un partage de fichiers Azure monté sur la machine virtuelle inscrite cible, assurez-vous que NT AUTHORITY\SYSTEM a accès au partage de fichiers. Vous pouvez effectuer les étapes ci-dessous pour accorder les autorisations de lecture/écriture au compte AFS monté sur la machine virtuelle :
     >
@@ -120,15 +129,13 @@ Pour restaurer les données de sauvegarde sous forme de fichiers .bak plutôt qu
     >- Lancer une restauration en tant que fichiers à partir du coffre de sauvegarde vers `\\<storageacct>.file.core.windows.net\<filesharename>` comme chemin d’accès<BR>
     Vous pouvez télécharger PsExec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
 
-4. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
     ![Sélectionner Restaurer sous forme de fichiers](./media/backup-azure-sql-database/restore-as-files.png)
 
-5. Sélectionnez le **Point de restauration** auquel tous les fichiers .bak disponibles seront restaurés.
+1. Sélectionnez **Point de restauration**, puis sélectionnez [restaurer à un point spécifique dans le temps](#restore-to-a-specific-point-in-time) ou [restaurer à un point de récupération spécifique](#restore-to-a-specific-restore-point).
 
-    ![Sélectionner un point de restauration](./media/backup-azure-sql-database/restore-point.png)
-
-6. Tous les fichiers de sauvegarde associés au point de récupération sélectionné sont vidés dans le chemin de destination. Vous pouvez restaurer les fichiers sous forme de base de données sur n’importe quel ordinateur sur lequel ils sont présents à l’aide de SQL Server Management Studio.
+1. Tous les fichiers de sauvegarde associés au point de récupération sélectionné sont vidés dans le chemin de destination. Vous pouvez restaurer les fichiers sous forme de base de données sur n’importe quel ordinateur sur lequel ils sont présents à l’aide de SQL Server Management Studio.
 
     ![Fichiers de sauvegarde restaurés dans le chemin de destination](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -144,44 +151,20 @@ Si vous avez sélectionné **Journaux d’activité (point dans le temps)** comm
 1. Une fois que vous avez sélectionné une date, le graphique chronologique affiche les points de récupération disponibles dans une plage continue.
 1. Spécifiez une heure pour la récupération avec le graphique chronologique, ou sélectionnez une heure. Sélectionnez ensuite **OK**.
 
-    ![Sélectionner un point de restauration](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
-
-1. Dans le menu **Configuration avancée**, si vous voulez conserver la base de données non opérationnelle après la restauration, activez **Restaurer avec l’option NORECOVERY**.
-1. Si vous voulez changer l’emplacement de restauration sur le serveur de destination, entrez un nouveau chemin cible.
-1. Sélectionnez **OK**.
-
-    ![Menu Configuration avancée](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. Dans le menu **Restaurer**, sélectionnez **Restaurer** pour démarrer le travail de restauration.
-1. Suivez la progression de la restauration dans la zone de **Notifications** ou en sélectionnant **Restaurer les travaux** dans le menu de la base de données.
-
-    ![Progression du travail de restauration](./media/backup-azure-sql-database/restore-job-notification.png)
-
 ### <a name="restore-to-a-specific-restore-point"></a>Restaurer à un point de restauration spécifique
 
 Si vous avez sélectionné **Complète et différentielle** comme type de restauration, effectuez les actions suivantes :
 
 1. Sélectionnez un point de récupération dans la liste, puis cliquez sur **OK** pour terminer la procédure de sélection du point de restauration.
 
-    ![Choisir un point de récupération complète](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+    ![Choisir un point de récupération complète](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
     > Par défaut, les points de récupération des 30 derniers jours sont affichés. Vous pouvez afficher les points de récupération datant de plus de 30 jours en cliquant sur **Filtrer**, puis en sélectionnant une plage personnalisée.
 
-1. Dans le menu **Configuration avancée**, si vous voulez conserver la base de données non opérationnelle après la restauration, activez **Restaurer avec l’option NORECOVERY**.
-1. Si vous voulez changer l’emplacement de restauration sur le serveur de destination, entrez un nouveau chemin cible.
-1. Sélectionnez **OK**.
-
-    ![Menu Configuration avancée](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. Dans le menu **Restaurer**, sélectionnez **Restaurer** pour démarrer le travail de restauration.
-1. Suivez la progression de la restauration dans la zone de **Notifications** ou en sélectionnant **Restaurer les travaux** dans le menu de la base de données.
-
-    ![Progression du travail de restauration](./media/backup-azure-sql-database/restore-job-notification.png)
-
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurer des bases de données comprenant un grand nombre de fichiers
 
-Si la taille totale de la chaîne des fichiers dans une base de données dépasse une [limite spécifique](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différent, de sorte que vous ne serez pas en mesure de définir le chemin d’accès de restauration cible pendant l’opération de restauration. Au lieu de cela, les fichiers seront restaurés vers le chemin d’accès SQL par défaut.
+Si la taille totale de la chaîne des fichiers dans une base de données dépasse une [limite spécifique](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différent, de sorte que vous ne pouvez pas définir le chemin de restauration cible pendant l’opération de restauration. Au lieu de cela, les fichiers seront restaurés vers le chemin d’accès SQL par défaut.
 
   ![Restaurer une base de données avec des fichiers volumineux](./media/backup-azure-sql-database/restore-large-files.jpg)
 

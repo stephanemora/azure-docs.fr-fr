@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519896"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
@@ -24,7 +24,7 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Créer un compte Azure Media Services](../latest/create-account-howto.md)
     * Utilisez l’une de ces régions : USA Est 2, USA Centre, USA Centre Nord, Japon Est, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.
-    * Nous vous recommandons d’utiliser des comptes de stockage à usage général v2 (GPv2).
+    * Nous vous recommandons d’utiliser des comptes de stockage universels v2 (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configuration des ressources Azure pour utiliser Live Video Analytics
 
@@ -34,7 +34,7 @@ Voir [Créer un rôle Azure Resource Manager personnalisé](create-custom-azure-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configurer un point de terminaison de streaming Premium
 
-Si vous prévoyez d’utiliser Live Video Analytics pour enregistrer des vidéos dans le cloud et les rejouer par la suite, alors vous devez mettre à niveau Media Service vers un [point de terminaison de streaming Premium](../latest/streaming-endpoint-concept.md#types).  
+Si vous prévoyez d’utiliser Live Video Analytics pour enregistrer des vidéos en continu dans le cloud, puis de recourir aux [API de requête](playback-recordings-how-to.md#query-api) avant de les rejouer, nous vous recommandons de mettre à niveau Media Service vers un [point de terminaison de streaming Premium](../latest/streaming-endpoint-concept.md#types).  
 
 Il s’agit d’une étape facultative. Pour ce faire, vous pouvez utiliser cette commande Azure CLI :
 

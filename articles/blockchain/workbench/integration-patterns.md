@@ -4,12 +4,12 @@ description: Vue d’ensemble des modèles d’intégration de contrat intellige
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538330"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 
@@ -134,7 +134,7 @@ Ce modèle est généralement implémenté selon l’approche suivante :
 -   Le changement d’état est présenté au consommateur en aval sous la forme d’un événement.
 -   Le consommateur en aval reçoit l’événement et déclenche l’exécution de code externe.
 
-![Transition de contrôle vers le processus externe](./media/integration-patterns/transition-external-process.png)
+![Le diagramme montre un changement d’état dans le contrat qui provoque l’accès d’un événement au registre distribué. Blockchain Workbench sélectionne ensuite l’événement et le publie.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Retour de contrôle du contrat intelligent
 
@@ -142,7 +142,7 @@ En fonction des possibilités de personnalisation du système externe, il peut o
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Remise directe d’un Azure Blockchain Workbench dans le format attendu
 
-![](./media/integration-patterns/direct-delivery.png)
+![Le diagramme montre un message d’API du système externe récupéré par Blockchain Workbench via le Service Bus. Blockchain Workbench envoie ensuite un message en tant que transaction au registre distribué pour le compte de l’agent. Il est transmis au contrat, où elle provoque un changement d’état.](./media/integration-patterns/direct-delivery.png)
 
 Dans ce modèle, la communication avec le contrat et le changement d’état qui s’en suit se déroulent suivant le processus précédent, où :
 

@@ -4,18 +4,20 @@ description: API permettant de récupérer toutes les opérations sur l’offre 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113460"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520287"
 ---
 # <a name="retrieve-operations"></a>Récupérer des opérations
 
 > [!NOTE]
-> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API du Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements indiqués dans [Informations de référence sur les API du Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour veiller à ce que votre code continue de fonctionner après la transition vers l’Espace partenaires. Les API du Portail Cloud Partner ne doivent être utilisées que pour les produits intégrés avant la transition vers l’Espace partenaires. Les nouveaux produits doivent employer les API de soumission à l’Espace partenaires.
 
 Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée. Le client peut utiliser des paramètres de requête pour filtrer les opérations en cours d’exécution.
 
@@ -26,7 +28,6 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
   GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/operations/<operationId>?api-version=2017-10-31
 
 ```
-
 
 ## <a name="uri-parameters"></a>Paramètres URI
 
@@ -40,13 +41,11 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 
 ## <a name="header"></a>En-tête
 
-
 |  **Nom**          |  **Valeur**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Autorisation     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## <a name="body-example"></a>Exemple de corps
 

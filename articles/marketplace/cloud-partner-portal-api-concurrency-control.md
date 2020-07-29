@@ -3,19 +3,21 @@ title: Contrôle d’accès concurrentiel – Place de marché Azure
 description: Stratégies de contrôle d’accès concurrentiel pour les API de publication du Portail Cloud Partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b66d266500745d08bef98a42e51cc8a7bab63958
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: emuench
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 1160d5568108e7936099cc5227b9e4cadbaddf36
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102733"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520338"
 ---
 # <a name="concurrency-control"></a>Contrôle d’accès concurrentiel
 
 > [!NOTE]
-> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API du Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements indiqués dans [Informations de référence sur les API du Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour veiller à ce que votre code continue de fonctionner après la transition vers l’Espace partenaires. Les API du Portail Cloud Partner ne doivent être utilisées que pour les produits intégrés avant la transition vers l’Espace partenaires. Les nouveaux produits doivent employer les API de soumission à l’Espace partenaires.
 
 Chaque appel d’API de publication du Portail Cloud Partner doit spécifier explicitement la stratégie de contrôle d’accès concurrentiel à utiliser. L’absence de l’en-tête **If-Match** entraîne une réponse d’erreur HTTP 400. Nous proposons deux stratégies de contrôle d’accès concurrentiel.
 

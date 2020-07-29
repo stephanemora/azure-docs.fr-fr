@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791195"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511719"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure
 
@@ -204,17 +204,7 @@ Pour ajouter ou supprimer des autorisations pour votre rôle personnalisé, proc
 
 ### <a name="add-wildcard-permissions"></a>Ajouter des autorisations génériques
 
-Selon la façon dont vous avez choisi de commencer, il se peut que votre liste d’autorisations contienne des autorisations avec des caractères génériques (\*). Un caractère générique (\*) étend une autorisation à tout ce qui correspond à la chaîne que vous fournissez. Par exemple, supposons que vous souhaitiez ajouter toutes les autorisations relatives à Azure Cost Management et aux exportations. Vous pouvez ajouter toutes ces autorisations :
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Au lieu d’ajouter toutes ces autorisations, vous pouvez simplement ajouter une autorisation générique. Par exemple, l’autorisation générique suivante équivaut aux cinq autorisations précédentes. Cela inclut également toutes les futures autorisations d’exportation qui pourraient être ajoutées.
+Selon la façon dont vous avez choisi de commencer, il se peut que votre liste d’autorisations contienne des autorisations avec des caractères génériques (`*`). Un caractère générique (`*`) étend une autorisation à tout ce qui correspond à la chaîne d’action que vous fournissez. Par exemple, la chaîne de caractères génériques suivante ajoute toutes les autorisations relatives à Azure Cost Management et aux exportations. Cela inclut également toutes les futures autorisations d’exportation qui pourraient être ajoutées.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -224,7 +214,7 @@ Si vous souhaitez ajouter une nouvelle autorisation générique, vous ne pouvez 
 
 ### <a name="exclude-permissions"></a>Exclure les autorisations
 
-Si votre rôle a une autorisation générique (\*) et que vous souhaitez exclure ou soustraire des autorisations spécifiques de cette autorisation générique, vous pouvez les exclure. Par exemple, supposons que vous disposez de l’autorisation générique suivante :
+Si votre rôle a une autorisation générique (`*`) et que vous souhaitez exclure ou soustraire des autorisations spécifiques de cette autorisation générique, vous pouvez les exclure. Par exemple, supposons que vous disposez de l’autorisation générique suivante :
 
 ```
 Microsoft.CostManagement/exports/*
@@ -269,7 +259,7 @@ Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre
 
 ## <a name="step-6-json"></a>Étape 6 : JSON
 
-Sous l’onglet **JSON**, vous voyez votre rôle personnalisé au format JSON. Si vous le souhaitez, vous pouvez modifier directement le JSON. Si vous souhaitez ajouter une autorisation générique (\*), vous devez utiliser cet onglet.
+Sous l’onglet **JSON**, vous voyez votre rôle personnalisé au format JSON. Si vous le souhaitez, vous pouvez modifier directement le JSON. Si vous souhaitez ajouter une autorisation générique (`*`), vous devez utiliser cet onglet.
 
 1. Pour modifier le JSON, cliquez sur **Modifier**.
 

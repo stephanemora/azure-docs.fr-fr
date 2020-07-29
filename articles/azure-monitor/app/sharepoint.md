@@ -3,15 +3,19 @@ title: Surveillance d’un site SharePoint avec Application Insights
 description: Démarrage de la surveillance d'une nouvelle application avec une nouvelle clé d'instrumentation
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671441"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516887"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Surveillance d’un site SharePoint avec Application Insights
+
 Azure Application Insights surveille la disponibilité, les performances et l’utilisation de vos applications. Vous allez maintenant apprendre à le configurer pour un site SharePoint.
+
+> [!NOTE]
+> Pour des raisons de sécurité, vous ne pouvez pas ajouter directement le script décrit dans cet article à vos pages web dans le cadre de l’expérience utilisateur moderne de SharePoint. Vous pouvez également vous servir de [ SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) pour créer une extension personnalisée pouvant être utilisée pour installer Application Insights sur vos sites SharePoint. Pour en savoir plus, consultez [Comment créer une solution d’extension SPFx avec AppInsights installé à partir de zéro](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) ou [affichez l’exemple](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
 
 ## <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 Dans le [portail Azure](https://portal.azure.com), créez une ressource Application Insights. Choisissez le type d'application ASP.NET.
@@ -49,18 +53,18 @@ Si vous pouvez modifier la page maître de votre site, vous pourrez surveiller c
 
 Vérifiez la page maître et modifiez-la à l'aide de SharePoint Designer ou de n’importe quel autre éditeur.
 
-![](./media/sharepoint/03-master.png)
+![Capture d'écran montrant comment modifier la page maître à l'aide de SharePoint Designer ou d'un autre éditeur.](./media/sharepoint/03-master.png)
 
 Ajoutez le code juste avant la </head> balise. 
 
-![](./media/sharepoint/04-code.png)
+![Capture d'écran montrant où ajouter le code sur la page de votre site.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>Ou sur des pages individuelles
 Pour surveiller un ensemble limité de pages, ajoutez le script à chaque page, séparément. 
 
 Insérez un composant Web et incorporez l'extrait de code qu'il contient.
 
-![](./media/sharepoint/05-page.png)
+![Capture d'écran montrant comment ajouter le script pour surveiller un ensemble limité de pages.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Affichage des données relatives à votre application
 Redéployez votre application.
@@ -69,7 +73,7 @@ Revenez au panneau de votre application dans le [portail Azure](https://portal.a
 
 Les premiers événements s’affichent dans Search. 
 
-![](./media/sharepoint/09-search.png)
+![Capture d'écran montrant les nouvelles données que vous pouvez visualiser dans l'application.](./media/sharepoint/09-search.png)
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
@@ -78,7 +82,7 @@ L’extrait de code d’une page Web standard ne capture pas l’ID d’utilisat
 
 1. Copiez la clé d’instrumentation de votre application de la liste déroulante Bases dans Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Capture d'écran montrant comment copier l'instrumentation de l'application à partir de la liste déroulante Essentials d'Application Insights.](./media/sharepoint/02-props.png)
 
 1. Insérez la clé d’instrumentation à l’emplacement « XXXX » dans l’extrait de code ci-dessous. 
 2. Incorporez dans votre application SharePoint au lieu de l’extrait de code que vous obtenez à partir du portail.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) pour les autres types d'applications.
 
 <!--Link references-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: Acheminer le trafic pour la haute disponibilité des applications – Azure PowerShell – Traffic Manager
+title: Acheminer le trafic réseau pour la haute disponibilité – Azure PowerShell
 description: Exemple de script Azure PowerShell - Acheminer le trafic pour la haute disponibilité des applications
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
-ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40f24fa7b37bf5131256287c5f9c74dc7e0dec26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74049247"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530149"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Acheminer le trafic pour la haute disponibilité des applications – Azure PowerShell
 

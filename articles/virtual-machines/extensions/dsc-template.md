@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891658"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511158"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
-Cet article décrit le modèle Azure Resource Manager destiné au [gestionnaire de l’extension Configuration d’état souhaité (DSC)](dsc-overview.md). La plupart des exemples utilisent **RegistrationURL** (sous forme de chaîne) et **RegistrationKey** (sous forme de [PSCredential](/dotnet/api/system.management.automation.pscredential)) pour l'intégration à Azure Automation. Pour plus d’informations sur l’obtention de ces valeurs, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration - Enregistrement sécurisé](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+Cet article décrit le modèle Azure Resource Manager destiné au [gestionnaire de l’extension Configuration d’état souhaité (DSC)](dsc-overview.md). La plupart des exemples utilisent **RegistrationURL** (sous forme de chaîne) et **RegistrationKey** (sous forme de [PSCredential](/dotnet/api/system.management.automation.pscredential)) pour l'intégration à Azure Automation. Pour plus d’informations sur l’obtention de ces valeurs, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration - Enregistrement sécurisé](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > Vous pouvez rencontrer des exemples de schéma légèrement différents. Le schéma a été modifié dans la version d’octobre 2016. Pour plus d’informations, consultez [Mettre à jour à partir d’un format antérieur](#update-from-a-previous-format).

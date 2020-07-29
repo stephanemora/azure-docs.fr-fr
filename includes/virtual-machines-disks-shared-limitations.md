@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84337346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500590"
 ---
-En préversion, l’activation de disques partagés est disponible uniquement pour une partie des types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
+L’activation de disques partagés est disponible uniquement pour un sous-ensemble de types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
 
 ### <a name="ultra-disks"></a>Disques Ultra
 
@@ -23,17 +23,19 @@ Les disques Ultra ont leur propre liste de limitations sans lien avec les disque
 
 Quand vous partagez des disques Ultra, ils présentent les limitations supplémentaires suivantes :
 
-- Limités à la prise en charge d’Azure Resource Manager ou des kits SDK.
+- Limités à la prise en charge d’Azure Resource Manager ou des kits SDK. 
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
 ### <a name="premium-ssds"></a>SSD Premium
 
 - Actuellement pris en charge dans la région USA Centre-Ouest uniquement.
-- Toutes les machines virtuelles partageant un disque doivent être déployées dans les mêmes [groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups.md).
+- Limités à la prise en charge d’Azure Resource Manager ou des kits SDK. 
 - Activation possible uniquement sur des disques de données, et non sur des disques de système d’exploitation.
+- La mise en cache de l’hôte **ReadOnly** n’est pas disponible pour les disques SSD Premium avec `maxShares>1`.
+- Le bursting n’est pas disponible pour les disques SSD Premium avec `maxShares>1`.
+- Lorsque vous utilisez des groupes à haute disponibilité et des groupes de machines virtuelles identiques avec des disques partagés Azure, [l’alignement du domaine d’erreur de stockage](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) sur un domaine d’erreur de machine virtuelle n’est pas appliqué pour le disque de données partagé.
+- Lorsque des [groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups.md) sont utilisés, toutes les machines virtuelles qui se partagent un disque doivent faire partie du même groupe de placement de proximité.
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- La mise en cache de l’hôte ReadOnly n’est pas disponible pour les disques SSD Premium avec `maxShares>1`.
-- Les groupes à haute disponibilité et les groupes de machines virtuelles identiques peuvent uniquement être utilisés avec `FaultDomainCount` défini sur 1.
 - La prise en charge de Sauvegarde Azure et d’Azure Site Recovery n’est pas encore disponible.
 
-Si vous souhaitez essayer la fonctionnalité Disques partagés, [inscrivez-vous à la préversion](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Si vous souhaitez essayer les disques partagés, [inscrivez-vous pour y accéder](https://aka.ms/AzureSharedDiskGASignUp).

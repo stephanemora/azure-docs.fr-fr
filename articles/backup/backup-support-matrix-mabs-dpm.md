@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193273"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538664"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -16,7 +16,7 @@ Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauv
 
 ## <a name="about-dpmmabs"></a>À propos de DPM/MABS
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) est une solution d'entreprise qui configure, facilite et gère la sauvegarde et la récupération des machines et des données d'entreprise. Cette solution fait partie de la suite de produits [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing).
+[System Center DPM](/system-center/dpm/dpm-overview) est une solution d'entreprise qui configure, facilite et gère la sauvegarde et la récupération des machines et des données d'entreprise. Cette solution fait partie de la suite de produits [System Center](https://www.microsoft.com/system-center/pricing).
 
 MABS est un produit serveur qui permet de sauvegarder des serveurs physiques locaux, des machines virtuelles et les applications qu'elles exécutent.
 
@@ -71,7 +71,7 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **Scénario** | **DPM/MABS**
 --- | ---
 **MABS sur une machine virtuelle Azure** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> Standard_A4_v2 minimum avec quatre cœurs et 8 Go de RAM.
-**DPM sur une machine virtuelle Azure** | System Center 2012 R2 avec Update 3 ou ultérieur.<br/><br/> Système d’exploitation Windows conforme aux [exigences de System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> Standard_A4_v2 minimum avec quatre cœurs et 8 Go de RAM.
+**DPM sur une machine virtuelle Azure** | System Center 2012 R2 avec Update 3 ou ultérieur.<br/><br/> Système d’exploitation Windows conforme aux [exigences de System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> Standard_A4_v2 minimum avec quatre cœurs et 8 Go de RAM.
 **MABS localement** |  MABS v3 et versions ultérieures : Windows Server 2016 ou Windows Server 2019
 **DPM localement** | Serveur physique/machine virtuelle Hyper-V : System Center 2012 SP1 ou ultérieur.<br/><br/> Machine virtuelle VMware : System Center 2012 R2 avec Update 5 ou ultérieur.
 
@@ -82,7 +82,7 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 
 **Problème** | **Détails**
 --- | ---
-**Installation** | Installez DPM/MABS sur une machine à usage unique.<br/><br/> N'installez pas DPM/MABS sur un contrôleur de domaine, une machine avec l'installation du rôle Serveur d'applications, une machine qui exécute Exchange Server, System Center Operations Manager ou un nœud de cluster.<br/><br/> [Passez en revue toutes les exigences système de DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Installation** | Installez DPM/MABS sur une machine à usage unique.<br/><br/> N'installez pas DPM/MABS sur un contrôleur de domaine, une machine avec l'installation du rôle Serveur d'applications, une machine qui exécute Exchange Server, System Center Operations Manager ou un nœud de cluster.<br/><br/> [Passez en revue toutes les exigences système de DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domaine** | DPM/MABS doit être joint à un domaine. Effectuez d’abord l’installation, puis joignez DPM/MABS à un domaine. Le déplacement de DPM/MABS vers un nouveau domaine après le déploiement n’est pas pris en charge.
 **Stockage** | Le stockage de sauvegarde moderne (MBS) est pris en charge pour DPM 2016/MABS v2 et versions ultérieures. Il n’est pas disponible pour MABS v1.
 **Mise à niveau de MABS** | Vous pouvez installer directement MABS v3 ou effectuer la mise à niveau vers MABS v3 à partir de MABS v2. [Plus d’informations](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
@@ -121,7 +121,7 @@ Le serveur DPM/MABS doit accéder à ces URL :
 
 ### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
-Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur le Peering privé n’est pas prise en charge.
+Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.
 
 Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
 
@@ -131,13 +131,13 @@ Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants�
 - `.microsoftonline.com`
 - `.windows.net`
 
-Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
+Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 
 - Azure Active Directory (12076:5060)
 - Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 - Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
-Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
@@ -152,6 +152,13 @@ Connecté | Actif | Sauvegarde sur disque DPM/MABS.<br/><br/> Sauvegarde sur Azu
 Connecté | Expiré/déprovisionné | Aucune sauvegarde sur disque ou Azure.<br/><br/> Si l'abonnement a expiré, vous pouvez restaurer à partir d'un disque ou d'Azure.<br/><br/> Si l'abonnement est désactivé, vous ne pouvez pas restaurer à partir d'un disque ou d'Azure. Les points de récupération Azure sont supprimés.
 Aucune connectivité pendant plus de 15 jours | Actif | Aucune sauvegarde sur disque ou Azure.<br/><br/> Vous pouvez restaurer à partir d’un disque ou d’Azure.
 Aucune connectivité pendant plus de 15 jours | Expiré/déprovisionné | Aucune sauvegarde sur disque ou Azure.<br/><br/> Si l'abonnement a expiré, vous pouvez restaurer à partir d'un disque ou d'Azure.<br/><br/> Si l'abonnement est désactivé, vous ne pouvez pas restaurer à partir d'un disque ou d'Azure. Les points de récupération Azure sont supprimés.
+
+## <a name="domain-and-domain-trusts-support"></a>Prise en charge des domaines et des approbations de domaines
+
+|Condition requise |Détails |
+|---------|---------|
+|Domaine    | Le serveur DPM/MABS doit se trouver dans un domaine Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.        |
+|Approbation de domaines   |  DPM/MABS prend en charge la protection des données sur plusieurs forêts pour autant que vous établissiez une relation d'approbation bidirectionnelle au niveau de la forêt entre les forêts distinctes.   <BR><BR>   DPM/MABS peut protéger des serveurs et des stations de travail sur plusieurs domaines au sein d'une forêt ayant une relation d'approbation bidirectionnelle avec le domaine du serveur DPM/MABS. Pour protéger des ordinateurs dans des groupes de travail ou des domaines non approuvés, consultez [Sauvegarder et restaurer des charges de travail dans des groupes de travail et des domaines non approuvés.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
 
 ## <a name="dpmmabs-storage-support"></a>Prise en charge du stockage pour DPM/MABS
 
@@ -174,11 +181,11 @@ Les données sauvegardées sur DPM/MABS sont stockées sur le stockage de disque
 
 ## <a name="supported-backups-to-mabs"></a>Sauvegardes prises en charge sur MABS
 
-Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger à l’aide du serveur de sauvegarde Azure, reportez-vous à la [matrice de protection du serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
+Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger à l’aide du serveur de sauvegarde Azure, reportez-vous à la [matrice de protection du serveur de sauvegarde Azure](./backup-mabs-protection-matrix.md#protection-support-matrix).
 
 ## <a name="supported-backups-to-dpm"></a>Sauvegardes prises en charge sur DPM
 
-Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger avec Data Protection Manager, reportez-vous à l’article [Que peut sauvegarder DPM ?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger avec Data Protection Manager, reportez-vous à l’article [Que peut sauvegarder DPM ?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
 
 - Les charges de travail en cluster sauvegardées par DPM/MABS doivent se trouver dans le même domaine que DPM/MABS ou dans un domaine enfant/approuvé.
 - Vous pouvez utiliser l’authentification NTLM/par certificat pour sauvegarder les données dans des groupes de travail ou des domaines non approuvés.
@@ -188,4 +195,4 @@ Pour plus d’informations sur les différents serveurs et charges de travail qu
 - [Découvrez-en plus](backup-architecture.md#architecture-back-up-to-dpmmabs) sur l’architecture MABS.
 - [Passez en revue](backup-support-matrix-mars-agent.md) ce qui est pris en charge pour l’agent MARS.
 - [Configurez](backup-azure-microsoft-azure-backup.md) un serveur MABS.
-- [Configurez DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
+- [Configurez DPM](/system-center/dpm/install-dpm).
