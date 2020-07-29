@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510971"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Résoudre les problèmes d’approvisionnement des machines virtuelles avec cloud-init
 
@@ -21,17 +21,17 @@ Si vous avez créé des images personnalisées généralisées à l’aide de cl
 
 Voici quelques exemples de problèmes d’approvisionnement :
 - La machine virtuelle est bloquée lors de la « création » pendant 40 minutes, et la création de la machine virtuelle est marquée comme ayant échoué
-- CustomData n’est pas traité
+- `CustomData` n’est pas traité
 - Échec du montage du disque éphémère
 - Les utilisateurs ne sont pas créés, ou il y a des problèmes d’accès utilisateur
 - La mise en réseau n’est pas configurée correctement
 - Échecs de fichier ou de partition d’échange
 
-Cet article vous explique les procédures pour résoudre des problèmes avec cloud-init. Pour plus d’informations, consultez [Formation approfondie sur cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
+Cet article vous explique les procédures pour résoudre des problèmes avec cloud-init. Pour plus d’informations, consultez [Formation approfondie sur cloud-init](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Étape 1 : Tester le déploiement sans customData
+## <a name="step-1-test-the-deployment-without-customdata"></a>Étape 1 : Tester le déploiement sans `customData`
 
-Cloud-init peut accepter customData, qui lui est transmis, lors de la création de la machine virtuelle. Tout d’abord, vous devez vous assurer que cela ne pose aucun problème avec les déploiements. Essayez d’approvisionner la machine virtuelle sans intégrer de configuration. Si vous ne parvenez pas à approvisionner la machine virtuelle, poursuivez avec les étapes ci-dessous, si vous trouvez que la configuration que vous intégrez n’est pas appliquée, passez [l’étape 4](). 
+Cloud-init peut accepter `customData`, qui lui est transmis, lors de la création de la machine virtuelle. Tout d’abord, vous devez vous assurer que cela ne pose aucun problème avec les déploiements. Essayez d’approvisionner la machine virtuelle sans intégrer de configuration. Si vous ne parvenez pas à approvisionner la machine virtuelle, poursuivez avec les étapes ci-dessous, si vous trouvez que la configuration que vous intégrez n’est pas appliquée, passez [l’étape 4](). 
 
 ## <a name="step-2-review-image-requirements"></a>Étape 2 : Vérifier les exigences des images
 La cause principale de l’échec de l’approvisionnement de la machine virtuelle est que l’image du système d’exploitation ne satisfait pas les conditions préalables à l’exécution sur Azure. Assurez-vous que vos images sont correctement préparées avant d’essayer de les configurer dans Azure. 
@@ -39,15 +39,16 @@ La cause principale de l’échec de l’approvisionnement de la machine virtuel
 
 Les articles ci-après expliquent comment préparer les diverses distributions Linux prises en charge sur Azure :
 
-- [Distributions CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SLES et openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Autres : Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Distributions CentOS](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES et openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
+- [Autres : Distributions non approuvées](create-upload-generic.md)
 
-Pour les [images Azure cloud-init prises en charge](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init), les distributions Linux disposent déjà de tous les packages et configurations nécessaires pour approvisionner correctement l’image dans Azure. Si vous constatez que la création de votre machine virtuelle échoue à partir de votre propre image, essayez une image de la Place de marché Azure prise en charge qui est déjà configurée pour cloud-init, avec votre customData facultatif. Si le customData fonctionne correctement avec une image de la Place de marché Azure, il y a probablement un problème avec votre image.
+Pour les [images Azure cloud-init prises en charge](./using-cloud-init.md), les distributions Linux disposent déjà de tous les packages et configurations nécessaires pour approvisionner correctement l’image dans Azure. Si vous constatez que la création de votre machine virtuelle échoue à partir de votre propre image, essayez une image de la Place de marché Azure prise en charge qui est déjà configurée pour cloud-init, avec votre `customData` facultatif. Si le `customData` fonctionne correctement avec une image de la Place de marché Azure, il y a probablement un problème avec votre image organisée.
 
 ## <a name="step-3-collect--review-vm-logs"></a>Étape 3 : Collecter et consulter les journaux des machines virtuelles
 
@@ -55,11 +56,11 @@ En cas d’échec de l’approvisionnement de la machine virtuelle, Azure affich
 
 Pendant que la machine virtuelle est en cours d’exécution, vous aurez besoin des journaux de la machine virtuelle pour comprendre la raison de l’échec de l’approvisionnement.  Pour comprendre la raison de l’échec de l’approvisionnement d’une machine virtuelle, n’arrêtez pas la machine virtuelle. Laissez la machine virtuelle en cours d’exécution. Vous devez conserver l’état d’exécution de la machine virtuelle qui a échoué afin de collecter les journaux. Pour collecter les journaux, utilisez l’une des méthodes suivantes :
 
-- [Console série](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Console série](./serial-console-grub-single-user-mode.md)
 
-- [Activez les diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) au cours du démarrage.
+- [Activez les diagnostics de démarrage](./tutorial-monitor.md#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](./tutorial-monitor.md#view-boot-diagnostics) au cours du démarrage.
 
-- [Exécutez la commande AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) pour attacher et monter le disque du système d’exploitation, ce qui vous permet de collecter ces journaux :
+- [Exécutez la commande AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) pour attacher et monter le disque du système d’exploitation, ce qui vous permet de collecter ces journaux :
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -107,7 +108,7 @@ Une fois que vous avez trouvé une erreur ou un avertissement, remontez dans le 
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Si vous avez accès à la [Console série ](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
+Si vous avez accès à la [Console série ](./serial-console-grub-single-user-mode.md), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
 
 La journalisation de `/var/log/cloud-init.log` peut également être reconfigurée dans /etc/cloud/cloud.cfg.d/05_logging.cfg. Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -132,4 +133,4 @@ Toutes les défaillances dans cloud-init entraînent un échec d’approvisionne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne pouvez toujours pas isoler la raison pour laquelle cloud-init n’a pas exécuté la configuration, vous devez examiner de plus près ce qui se passe dans chaque étape cloud-init, et quand les modules s’exécutent. Pour plus d’informations, consultez [Exploration approfondie de cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive). 
+Si vous ne pouvez toujours pas isoler la raison pour laquelle cloud-init n’a pas exécuté la configuration, vous devez examiner de plus près ce qui se passe dans chaque étape cloud-init, et quand les modules s’exécutent. Pour plus d’informations, consultez [Exploration approfondie de cloud-init](./cloud-init-deep-dive.md). 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207704"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526637"
 ---
-# <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
+# <a name="how-to-use-perfinsights-in-azure"></a>Comment utiliser PerfInsights dans Azure
 
 [PerfInsights](https://aka.ms/perfinsightsdownload) est un outil de diagnostics autonome qui collecte et analyse les données de diagnostic, et fournit un rapport afin de faciliter la résolution des problèmes de performances liés aux machines virtuelles Windows dans Azure. Vous pouvez exécuter PerfInsights sur les machines virtuelles sous forme d’outil autonome, directement à partir du portail en utilisant les [diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) ou en installant [l’extension de machine virtuelle des diagnostics de performances Azure](performance-diagnostics-vm-extension.md).
 
@@ -65,7 +65,7 @@ Ce scénario exécute le test d’évaluation [Diskspd](https://github.com/Micro
 
 ### <a name="performance-analysis"></a>Analyse des performances
 
-Ce scénario exécute un suivi du [compteur de performances](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) en utilisant les compteurs spécifiés dans le fichier RuleEngineConfig.json. Si la machine virtuelle est identifiée en tant que serveur qui exécute SQL Server, elle exécute un suivi du compteur de performances. Il le fait en utilisant les compteurs trouvés dans le fichier RuleEngineConfig.json. Ce scénario inclut également des données de diagnostics de performances.
+Ce scénario exécute un suivi du [compteur de performances](/windows/win32/perfctrs/performance-counters-portal) en utilisant les compteurs spécifiés dans le fichier RuleEngineConfig.json. Si la machine virtuelle est identifiée en tant que serveur qui exécute SQL Server, elle exécute un suivi du compteur de performances. Il le fait en utilisant les compteurs trouvés dans le fichier RuleEngineConfig.json. Ce scénario inclut également des données de diagnostics de performances.
 
 ### <a name="azure-files-analysis"></a>Analyse de fichiers Azure
 
@@ -300,7 +300,7 @@ Diskspd est un générateur de charge de stockage et un outil de test de perform
 
 ### <a name="xperf"></a>XPerf
 
-Xperf est un outil en ligne de commande qui permet de capturer des suivis à partir de Windows Performance Toolkit. Pour plus d’informations, consultez [Windows Performance Toolkit : Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf est un outil en ligne de commande qui permet de capturer des suivis à partir de Windows Performance Toolkit. Pour plus d’informations, consultez [Windows Performance Toolkit : Xperf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -313,4 +313,3 @@ La capture d’écran suivante affiche un message semblable à ce que vous pouve
 Suivez les instructions dans le message pour accéder à l’espace de travail de transfert de fichier. Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
 Après vous être connecté, vous voyez s’afficher une boîte de dialogue vous invitant à charger le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** collecté par PerfInsights.
-
