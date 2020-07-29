@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527204"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837872"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Quel est le temps nécessaire pour une migration ?
 
@@ -29,7 +29,7 @@ Les clients qui avaient des machines virtuelles IaaS actives ou arrêtées mais 
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Pourquoi est-ce que j’obtiens une erreur indiquant « NewClassicVMCreationNotAllowedForSubscription » ?
 
-Dans le cadre du processus de mise hors service, les machines virtuelles IaaS (Classic) ne sont plus disponibles pour de nouveaux clients. Étant donné que nous vous avons identifié comme nouveau client, votre opération n’a pas été autorisée. Nous vous recommandons vivement d’utiliser des [machines virtuelles Azure à l’aide de ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si vous ne pouvez pas utiliser de machines virtuelles Azure à l’aide d’ARM, contactez le support pour ajouter votre abonnement à la liste autorisée.
+Dans le cadre du processus de mise hors service, les machines virtuelles IaaS (Classic) ne sont plus disponibles pour de nouveaux clients. Étant donné que nous vous avons identifié comme nouveau client, votre opération n’a pas été autorisée. Nous vous recommandons vivement d’utiliser des [machines virtuelles Azure à l’aide de ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si vous ne pouvez pas utiliser des machines virtuelles Azure à l’aide de ARM, contactez le support pour la mise en liste verte des abonnements.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ? 
 
