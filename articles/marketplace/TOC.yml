@@ -121,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Questions fréquentes (FAQ) sur une ressource technique de machine virtuelle Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certifier une image de machine virtuelle Azure
+                - name: Tester une machine virtuelle déployée depuis un VHD
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI SAP
                   items:

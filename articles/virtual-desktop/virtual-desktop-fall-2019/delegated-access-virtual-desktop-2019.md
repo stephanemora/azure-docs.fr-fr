@@ -1,5 +1,5 @@
 ---
-title: Accès délégué dans Windows Virtual Desktop - Azure
+title: Accès délégué dans Windows Virtual Desktop Automne 2019 - Azure
 description: Découvrez comment déléguer des fonctionnalités d’administration lors d'un déploiement de Windows Virtual Desktop, avec exemples.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 899e42e3b592ce1bc92d7d47578e10355b1c6de7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613962"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527555"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Accès délégué dans Windows Virtual Desktop
+# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Accès délégué dans Windows Virtual Desktop Automne 2019
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../delegated-access-virtual-desktop.md).

@@ -98,7 +98,7 @@
               href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
         - name: Authentification
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: /azure/sql-database/sql-database-aad-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
@@ -132,7 +132,7 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Meilleures pratiques
           href: sql-data-warehouse-best-practices-development.md
@@ -182,6 +182,8 @@
               href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Nettoyer le cache
               href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Prédictions de machine learning
+          href: sql-data-warehouse-predict.md
         - name: Tables
           items:
             - name: Vue d’ensemble

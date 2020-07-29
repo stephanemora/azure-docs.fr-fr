@@ -574,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Détection avancée des menaces
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
     - name: Préparation pour l’entreprise
@@ -988,7 +991,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Définir des clés uniques
           href: how-to-define-unique-keys.md
-    - name: Performances et résolution des problèmes
+    - name: Performances
       items:
         - name: Requête
           items:
@@ -996,28 +999,20 @@
               href: profile-sql-api-query.md
             - name: Régler les performances des requêtes
               href: sql-api-query-metrics.md
-            - name: Dépannage de la performance des requêtes
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: "Conseils en performances pour le kit SDK .NET\_v3"
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: "Conseils en performances pour le kit SDK .NET\_v2"
               href: performance-tips.md
-            - name: Résoudre les problèmes du kit SDK .NET
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: "Conseils en performances pour le kit SDK Java\_v4"
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Résoudre les problèmes du kit SDK Java v4
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: Kit SDK Java asynchrone v2
               href: performance-tips-async-java.md
             - name: Kit SDK Java synchrone v2
               href: performance-tips-java.md
-            - name: "Résoudre les problèmes du kit SDK Java asynchrone\_v2"
-              href: troubleshoot-java-async-sdk.md
         - name: Test de performances - application exemple
           href: performance-testing.md
         - name: Écritures et lectures rentables
@@ -1026,6 +1021,36 @@
       items:
         - name: "Migrer vers le kit SDK Java\_V4"
           href: migrate-java-v4-sdk.md
+    - name: Dépannage
+      items:
+        - name: Erreurs courantes
+          items:
+            - name: Dépannage de la performance des requêtes
+              href: troubleshoot-query-performance.md
+            - name: Résoudre les problèmes d’expiration de demande de service
+              href: troubleshoot-request-timeout.md
+            - name: Résoudre les problèmes de taux de demandes trop élevé
+              href: troubleshoot-request-rate-too-large.md
+            - name: Résoudre les problèmes du message d’erreur Introuvable
+              href: troubleshoot-not-found.md
+            - name: Résoudre les problèmes du message d’erreur Non autorisé
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Dépannage général du kit SDK .NET
+              href: troubleshoot-dot-net-sdk.md
+            - name: Résoudre les problèmes d’en-tête de demande trop grand
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Résoudre les problèmes d’expiration de demande
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Résoudre les problèmes de service indisponible
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: Résoudre les problèmes du kit SDK Java v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: "Résoudre les problèmes du kit SDK Java asynchrone\_v2"
+              href: troubleshoot-java-async-sdk.md
     - name: Modifier le flux
       items:
         - name: Journaux de déclencheur Azure Cosmos DB

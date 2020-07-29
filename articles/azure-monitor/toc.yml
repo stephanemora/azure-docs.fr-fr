@@ -1020,6 +1020,10 @@
           href: insights/resource-group-insights.md
         - name: Résoudre des problèmes d’insights
           href: insights/troubleshoot-workbooks.md
+    - name: Changer d’analyse
+      items:
+        - name: Changer d’analyse
+          href: app/change-analysis.md
     - name: Solutions
       items:
         - name: Vue d’ensemble
@@ -1073,30 +1077,6 @@
               href: insights/vmware.md
             - name: Solution Wire Data
               href: insights/wire-data.md
-        - name: Les vues
-          items:
-            - name: Convertir des vues en classeurs
-              items:
-                - name: Vue d’ensemble d’une conversion
-                  href: platform/view-designer-conversion-overview.md
-                - name: Options de conversion
-                  href: platform/view-designer-conversion-options.md
-                - name: Vue d’ensemble et accès
-                  href: platform/view-designer-conversion-access.md
-                - name: Tâches courantes
-                  href: platform/view-designer-conversion-tasks.md
-                - name: Conversions de vignettes
-                  href: platform/view-designer-conversion-tiles.md
-                - name: Exemples
-                  href: platform/view-designer-conversion-examples.md
-            - name: Concepteur de vue
-              href: platform/view-designer.md
-            - name: Référence de vignette
-              href: platform/view-designer-tiles.md
-            - name: Référence des composants de visualisation
-              href: platform/view-designer-parts.md
-            - name: Filtres
-              href: platform/view-designer-filters.md
     - name: Workbooks
       items:
         - name: Vue d’ensemble
@@ -1124,6 +1104,20 @@
                   href: platform/workbooks-time.md
                 - name: Paramètres de texte
                   href: platform/workbooks-text.md
+        - name: Convertir des vues en classeurs
+          items:
+            - name: Vue d’ensemble d’une conversion
+              href: platform/view-designer-conversion-overview.md
+            - name: Options de conversion
+              href: platform/view-designer-conversion-options.md
+            - name: Vue d’ensemble et accès
+              href: platform/view-designer-conversion-access.md
+            - name: Tâches courantes
+              href: platform/view-designer-conversion-tasks.md
+            - name: Conversions de vignettes
+              href: platform/view-designer-conversion-tiles.md
+            - name: Exemples
+              href: platform/view-designer-conversion-examples.md
     - name: Autres visualisations
       items:
         - name: Power BI
@@ -1217,6 +1211,8 @@
           href: app/azure-functions-supported-features.md
         - name: Notes de publication
           items:
+            - name: Kits SDK de supervision basée sur le code
+              href: app/release-notes.md
             - name: Extension d’application web
               href: app/web-app-extension-release-notes.md
         - name: Modèle de données
@@ -1297,6 +1293,16 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics (déprécié)
           href: insights/azure-key-vault-deprecated.md
+        - name: Les vues
+          items:
+            - name: Concepteur de vue
+              href: platform/view-designer.md
+            - name: Référence de vignette
+              href: platform/view-designer-tiles.md
+            - name: Référence des composants de visualisation
+              href: platform/view-designer-parts.md
+            - name: Filtres
+              href: platform/view-designer-filters.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

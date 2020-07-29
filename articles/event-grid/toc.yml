@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparer les services de messagerie
       href: compare-messaging-services.md
+    - name: Notes de publication
+      href: whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: Configurer le pare-feu IP (préversion)
           href: configure-firewall.md
-        - name: Sécuriser un WebHook avec AAD
+        - name: Sécuriser un webhook avec AAD
           href: secure-webhook-delivery.md
         - name: Remise d’événement avec une identité managée
           href: managed-service-identity.md
