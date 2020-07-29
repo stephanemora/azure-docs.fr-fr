@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524163"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -58,30 +58,30 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 2. Au lancement de votre application logique, sélectionnez le déclencheur **Requête/réponse - Requête** : 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![Une boîte de dialogue comporte une zone permettant d’effectuer une recherche dans tous les déclencheurs. Il y a également un seul déclencheur, « Requête / Réponse-Requête », avec un bouton de sélection.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. Sélectionnez **Enregistrer**. Au moment de l’enregistrement, une URL de requête est générée automatiquement. 
 
 4. Sélectionnez **Nouvelle étape**, puis sélectionnez **Ajouter une action**. Entrez `oracle` pour afficher les actions disponibles : 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![Une zone de recherche contient « Oracle ». La recherche produit un accès intitulé « Oracle Database ». Il y a une page avec onglets, un onglet indiquant « DÉCLENCHEURS (0) » et un autre indiquant « ACTIONS (6) ». Six actions sont répertoriées. La première consiste à « obtenir l’aperçu de la ligne ».](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > C’est également le moyen le plus rapide de voir les déclencheurs et les actions disponibles pour n’importe quel connecteur. Entrez une partie du nom du connecteur, comme `oracle`. Le concepteur répertorie tous les déclencheurs et toutes les actions. 
 
 5. Sélectionnez l’une des actions, comme **Base de données Oracle - Obtenir une ligne**. Sélectionnez l’option **Se connecter via la passerelle de données locale**. Entrez le nom du serveur Oracle, la méthode d’authentification, le nom d’utilisateur et le mot de passe, puis sélectionnez la passerelle :
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![La boîte de dialogue est intitulée « Oracle Database - Obtenir une ligne ». Une case intitulée « Se connecter via une passerelle de données locale » est cochée. Vous trouverez ci-dessous les cinq autres zones de texte.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Une fois connecté, sélectionnez une table dans la liste et entrez l’ID de ligne pour votre table. Vous devez connaître l’identificateur de la table. Si vous ne le connaissez pas, contactez votre administrateur de base de données Oracle et récupérez la sortie à partir de `select * from yourTableName`. Vous disposerez ainsi des informations d’identification nécessaires pour continuer.
 
     Dans l’exemple suivant, les données de travail sont renvoyées à partir d’une base de données Ressources humaines : 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![La boîte de dialogue intitulée « Obtenir une ligne (Aperçu) » comporte deux zones de texte : « Nom de la table », qui contient « HRJOBS » et présente une liste déroulante et « ID de la ligne », qui contient « SA_REP ».](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Dans l’étape suivante, vous pouvez utiliser l’un des autres connecteurs pour créer votre workflow. Si vous souhaitez tester l’obtention de données à partir d’Oracle, envoyez-vous un courrier électronique contenant les données Oracle à l’aide de l’un des connecteurs d’envoi de courriers électroniques, comme Office 365 ou Outlook. Utilisez les jetons dynamiques de la table Oracle pour créer les éléments `Subject` et `Body` de votre message électronique :
+7. Dans l’étape suivante, vous pouvez utiliser l’un des autres connecteurs pour créer votre workflow. Si vous souhaitez tester l’obtention de données à partir d’Oracle, envoyez-vous un e-mail contenant les données Oracle à l’aide de l’un des connecteurs d’envoi d’e-mails, comme Office 365 ou Outlook. Utilisez les jetons dynamiques de la table Oracle pour créer les éléments `Subject` et `Body` de votre message électronique :
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![Il existe deux boîtes de dialogue. La boîte de dialogue « Envoyer un e-mail » contient des cases permettant de spécifier le corps, l’objet et l’adresse du destinataire de l’e-mail. La boîte de dialogue « Ajouter du contenu dynamique » permet de rechercher du contenu dynamique à partir des applications et des services du flux.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. **Enregistrez** votre application logique, puis sélectionnez **Exécuter**. Fermez le concepteur et consultez l’état de l’historique des exécutions. En cas d’échec, sélectionnez la ligne du message ayant échoué. Le concepteur s’ouvre et affiche l’étape qui a échoué ainsi que les informations d’erreur. En cas de réussite, vous devez recevoir un courrier électronique contenant les informations que vous avez ajoutées.
 
@@ -90,11 +90,11 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 * Vous souhaitez surveiller le hashtag #oracle et inclure les tweets dans une base de données afin de pouvoir les consulter et les utiliser dans d’autres applications. Dans une application logique, ajoutez le déclencheur `Twitter - When a new tweet is posted`, puis entrez le hashtag **#oracle**. Ajoutez ensuite l’action `Oracle Database - Insert row`, puis sélectionnez votre table :
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    ![La boîte de dialogue « Lorsqu’un nouveau tweet est publié » affiche « mot-dièse Oracle » comme texte de recherche et vous permet de spécifier la fréquence de vérification. Cette boîte de dialogue ouvre la boîte de dialogue « Oracle Database » qui vous permet de sélectionner l’action.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * Les messages sont envoyés à une file d’attente Service Bus. Vous souhaitez récupérer ces messages et les inclure dans une base de données. Dans une application logique, ajoutez le déclencheur `Service Bus - when a message is received in a queue`, puis sélectionnez la file d’attente. Ajoutez ensuite l’action `Oracle Database - Insert row`, puis sélectionnez votre table :
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    ![La boîte de dialogue « Lorsqu’un message est reçu... » affiche des « ordres » comme « Nom de la file d’attente » et vous permet de spécifier la fréquence de vérification. Cette boîte de dialogue ouvre la boîte de dialogue « Insérer une ligne (Aperçu) » qui vous permet de sélectionner « Nom de la table ».](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Erreurs courantes
 
