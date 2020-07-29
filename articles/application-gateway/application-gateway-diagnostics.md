@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517873"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -156,7 +156,9 @@ Par défaut, Azure génère le journal d’activité. Les journaux d’activité
 
 ### <a name="access-log"></a>Journal d’accès
 
-Le journal d’accès n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque accès d’Application Gateway est journalisé au format JSON, comme le montre l’exemple ci-dessous pour v 1 :
+Le journal d’accès n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque accès à Application Gateway est journalisé au format JSON, comme indiqué ci-dessous. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Pour le niveau tarifaire Application Gateway Standard et WAF (v1)
 
 |Valeur  |Description  |
 |---------|---------|
@@ -200,7 +202,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
     }
 }
 ```
-Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’informations :
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Pour le niveau tarifaire Application Gateway et WAF v2
 
 |Valeur  |Description  |
 |---------|---------|
@@ -221,7 +223,10 @@ Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’inf
 |serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
 |serverStatus| Code d’état HTTP du serveur back-end.|
 |serverResponseLatency| Latence de la réponse du serveur back-end.|
-|host| Adresse figurant dans l’en-tête d’hôte de la demande.|
+|host| Adresse figurant dans l’en-tête d’hôte de la demande. En cas de réécriture, ce champ contient le nom d’hôte mis à jour.|
+|originalRequestUriWithArgs| Ce champ contient l’URL de la requête HTTP d’origine. |
+|requestUri| Ce champ contient l’URL après l’opération de réécriture sur Application Gateway. |
+|originalHost| Ce champ contient le nom d’hôte de la requête HTTP d’origine.
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",

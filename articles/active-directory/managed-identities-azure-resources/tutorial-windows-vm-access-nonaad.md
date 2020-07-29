@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018772"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
 
@@ -75,7 +75,7 @@ Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aid
  
 ## <a name="access-data"></a>Accéder aux données  
 
-Cette section montre comment obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et comment l’utiliser pour récupérer un secret dans le coffre de clés. Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/overview).
+Cette section montre comment obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et comment l’utiliser pour récupérer un secret dans le coffre de clés. Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/).
 
 Tout d’abord, nous utilisons l’identité managée attribuée par le système de machine virtuelle pour obtenir un jeton d’accès permettant de s’authentifier auprès de Key Vault :
  

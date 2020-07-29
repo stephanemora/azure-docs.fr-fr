@@ -3,12 +3,12 @@ title: Azure Event Hubs - Traiter les événements Apache Kafka
 description: 'Tutoriel : Cet article décrit comment traiter les événements Kafka ingérés à travers des hubs d’événements à l’aide d’Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074907"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutoriel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article montre comment diffuser en streaming des données dans Event Hubs et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
@@ -129,7 +129,7 @@ La requête dans le travail Stream Analytics parcourt les données sans effectue
  
 
 ### <a name="define-a-query"></a>Définir une requête
-Lorsque vous disposez d’un travail Stream Analytics configuré pour lire un flux de données entrantes, l’étape suivante consiste à créer une transformation qui analyse les données en temps réel. Vous définissez la requête de transformation à l’aide du [Langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Dans cette procédure pas à pas, vous définissez une requête qui parcourt les données sans aucune transformation.
+Lorsque vous disposez d’un travail Stream Analytics configuré pour lire un flux de données entrantes, l’étape suivante consiste à créer une transformation qui analyse les données en temps réel. Vous définissez la requête de transformation à l’aide du [Langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). Dans cette procédure pas à pas, vous définissez une requête qui parcourt les données sans aucune transformation.
 
 1. Sélectionnez **Requête**.
 2. Dans la fenêtre de requête, remplacez `[YourOutputAlias]` par l’alias de sortie que vous avez créé précédemment.

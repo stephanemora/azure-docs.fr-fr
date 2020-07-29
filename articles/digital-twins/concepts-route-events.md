@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537509"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -46,7 +46,7 @@ Le message d’événement contient également l’ID de la représentation sour
 
 La ressource de calcul doit également établir des autorisations de sécurité et d’accès de façon indépendante.
 
-Pour passer en revue le processus de configuration d’une fonction Azure pour traiter les événements de représentation numérique, consultez [Guide pratique pour : Configurer une fonction Azure pour le traitement des données](how-to-create-azure-function.md).
+Afin de passer en revue le processus de configuration d’une fonction Azure pour traiter les événements de représentation numérique, consultez [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Créer un point de terminaison
 
@@ -90,7 +90,7 @@ Les différents types d’événements dans IoT Hub et Azure Digital Twins produ
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer et gérer un itinéraire d’événement :
-* [Guide pratique pour Gérer les points de terminaison et les routes](how-to-manage-routes.md)
+* [*Guide pratique : Gérer les points de terminaison et les itinéraires*](how-to-manage-routes.md)
 
 Ou bien, découvrez comment utiliser Azure Functions pour acheminer des événements dans Azure Digital Twins :
-* [Guide pratique pour Configurer une fonction Azure pour le traitement des données](how-to-create-azure-function.md)
+* [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md)

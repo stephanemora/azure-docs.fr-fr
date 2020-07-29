@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497758"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Utiliser Azure Kubernetes avec Azure Cosmos DB (préversion)
 
@@ -33,7 +33,7 @@ Pour en savoir plus sur l'API etcd dans Azure Cosmos DB, consultez l’article [
 
    Azure Kubernetes Engine (**aks-engine**) génère des modèles Azure Resource Manager pour les clusters Kubernetes sur Azure. L’entrée d'aks-engine correspond à un fichier de définition de cluster qui décrit le cluster souhaité, notamment l'orchestrateur, les fonctionnalités et les agents. La structure des fichiers d’entrée ressemble à l’API publique d'Azure Kubernetes Service.
 
-1. Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Inscrivez-vous pour utiliser la préversion sur : https://aka.ms/cosmosetcdapi-signup. Une fois le formulaire envoyé, votre abonnement sera mis en liste verte pour utiliser l’API etcd Azure Cosmos. 
+1. Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Inscrivez-vous pour utiliser la préversion sur : https://aka.ms/cosmosetcdapi-signup. Une fois le formulaire envoyé, votre abonnement sera autorisé à utiliser l’API etcd Azure Cosmos DB. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Déployer le cluster avec Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Pour en savoir plus sur l'API etcd dans Azure Cosmos DB, consultez l’article [
    az login 
    ```
 
-1. Si vous disposez de plusieurs abonnements, basculez vers l’abonnement mis en liste verte pour l'API etcd Azure Cosmos DB. Pour basculer vers l'abonnement requis, utilisez la commande suivante :
+1. Si vous disposez de plusieurs abonnements, basculez vers l’abonnement autorisé à utiliser l’API etcd Azure Cosmos DB. Pour basculer vers l'abonnement requis, utilisez la commande suivante :
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

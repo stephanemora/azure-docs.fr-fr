@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783538"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503028"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tailles de machine virtuelle Azure sans disque temporaire local 
 Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Azure qui n’ont pas de disque temporaire local (c’est-à-dire aucun bureau temporaire local). Pour plus d’informations sur ces tailles de machine virtuelle, consultez les [spécifications des séries Dv4 et  Dsv4 (charges de travail universelles)](dv4-dsv4-series.md) ou les [spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md).
@@ -23,7 +23,7 @@ Cet article fournit des réponses aux questions fréquentes (FAQ) sur les taille
 ## <a name="what-does-no-local-temp-disk-mean"></a>Que signifie l’absence de disque temporaire local ? 
 Traditionnellement, nous avons des tailles de machine virtuelle (par exemple Standard_D2s_v3, Standard_E48_v3) qui incluent un petit disque local (c’est-à-dire un lecteur D: ). Désormais, avec ces nouvelles tailles de machine virtuelle, ce petit disque local n’existe plus. Toutefois, vous pouvez toujours joindre un disque HDD Standard, SSD Premium ou SSD Ultra.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>Que se passe-t-il si je souhaite conserver un disque temporaire local ?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>Que se passe-t-il si je souhaite conserver un disque temporaire local ?
 Si votre charge de travail nécessite un disque temporaire local, de nouvelles tailles de machine virtuelle [Ddv4 et Ddsv4](ddv4-ddsv4-series.md) ou [Edv4 et Edsv4](edv4-edsv4-series.md) sont également disponibles. Ces tailles offrent un disque temporaire dont la taille est supérieure de 50 % à celle des tailles v3 précédentes.
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: e8bae2062051156d6de378e54bc354b3f785e403
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515459"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -21,7 +21,7 @@ ms.locfileid: "86145164"
 
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. 
 
-Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. La liste a été mise à jour pour la dernière fois le 27 mars 2020. Les métriques modifiées ou ajoutées après cette date peuvent ne pas apparaître ci-dessous. Pour interroger cette liste de métriques et y accéder programmatiquement, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). D’autres métriques ne figurant pas dans cette liste peuvent être disponibles dans le portail ou via les API héritées.
+Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. La liste a été mise à jour pour la dernière fois le 27 mars 2020. Les métriques modifiées ou ajoutées après cette date peuvent ne pas apparaître ci-dessous. Pour interroger cette liste de métriques et y accéder programmatiquement, veuillez utiliser [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). D’autres métriques ne figurant pas dans cette liste peuvent être disponibles dans le portail ou via les API héritées.
 
 Les métriques sont organisées par fournisseurs de ressources et par type de ressource. Pour obtenir la liste des services et des fournisseurs de ressources qui leur appartiennent, consultez [Fournisseurs de ressources pour les services Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
@@ -516,7 +516,7 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |FileShareCount|Nombre de partages de fichiers|Count|Average|Nombre de partages de fichiers dans le service Fichier du compte de stockage.|None|
 |FileShareSnapshotCount|Nombre d’instantanés de partage de fichiers|Count|Average|Nombre de captures instantanées présentes sur le partage dans le service Fichier du compte de stockage.|FileShare|
 |FileShareSnapshotSize|Taille d’instantané de partage de fichiers|Octets|Average|Quantité de stockage utilisée par les instantanés dans le service Fichier du compte de stockage, en octets.|FileShare|
-|FileShareQuota|Taille du quota de partage de fichiers|Octets|Average|Limite supérieure de la quantité de stockage pouvant être utilisée par le service Azure Files, en octets.|FileShare|
+|FileShareCapacityQuota|Taille du quota de partage de fichiers|Octets|Average|Limite supérieure de la quantité de stockage pouvant être utilisée par le service Azure Files, en octets.|FileShare|
 |Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType,ApiName,Authentication,FileShare|
 |Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -748,21 +748,6 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |BytesUploadedToCloud|Octets cloud chargés (appareil)|Octets|Average|Nombre total d’octets chargés vers Azure à partir d’un appareil pendant la période du rapport.|None|
 |HyperVVirtualProcessorUtilization|Computing en périphérie - Pourcentage du processeur|Pourcentage|Average|Pourcentage d’utilisation du processeur|InstanceName|
 |HyperVMemoryUtilization|Computing en périphérie - Utilisation de la mémoire|Pourcentage|Average|Quantité de RAM utilisée|InstanceName|
-
-
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datacatalogs
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Distribution de ressources par classification|Count|Total|Indique le nombre de ressources auxquelles une certaine classification est affectée, autrement dit classifiées avec cette étiquette.|Classification,Source|
-|AssetDistributionByStorageType|Distribution de ressources par type de stockage|Count|Total|Indique le nombre de ressources avec un certain type de stockage.|StorageType|
-|NumberOfAssetsWithClassifications|Nombre de ressources avec au moins une classification|Count|Average|Indique le nombre de ressources avec au moins une classification de balise.|None|
-|ScanCancelled|Analyse annulée|Count|Total|Indique le nombre d’analyses annulées.|None|
-|ScanCompleted|Analyse effectuée|Count|Total|Indique le nombre d’analyses correctement effectuées.|None|
-|ScanFailed|Analyse ayant échoué|Count|Total|Indique le nombre d’analyses ayant échoué.|None|
-|ScanTimeTaken|Durée de l’analyse|Secondes|Total|Indique la durée totale d’analyse en secondes.|None|
-|CatalogActiveUsers|Utilisateurs actifs quotidiennement|Count|Total|Nombre d’utilisateurs actifs quotidiennement|None|
-|CatalogUsage|Distribution de l’utilisation par opération|Count|Total|Indiquez le nombre d’opérations que l’utilisateur effectue dans le catalogue, autrement dit Accès, Recherche, Glossaire.|Opération|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
@@ -2145,7 +2130,7 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 |FileShareCount|Nombre de partages de fichiers|Count|Average|Nombre de partages de fichiers dans le service Fichier du compte de stockage.|None|
 |FileShareSnapshotCount|Nombre d’instantanés de partage de fichiers|Count|Average|Nombre de captures instantanées présentes sur le partage dans le service Fichier du compte de stockage.|FileShare|
 |FileShareSnapshotSize|Taille d’instantané de partage de fichiers|Octets|Average|Quantité de stockage utilisée par les instantanés dans le service Fichier du compte de stockage, en octets.|FileShare|
-|FileShareQuota|Taille du quota de partage de fichiers|Octets|Average|Limite supérieure de la quantité de stockage pouvant être utilisée par le service Azure Files, en octets.|FileShare|
+|FileShareCapacityQuota|Taille du quota de partage de fichiers|Octets|Average|Limite supérieure de la quantité de stockage pouvant être utilisée par le service Azure Files, en octets.|FileShare|
 |Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType,ApiName,Authentication,FileShare|
 |Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -2534,4 +2519,3 @@ Il existe certaines limitations dans les informations pouvant être routées et 
 * [En savoir plus sur les métriques dans Azure Monitor](data-platform.md)
 * [Créer des alertes sur les métriques](alerts-overview.md)
 * [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](platform-logs-overview.md)
-

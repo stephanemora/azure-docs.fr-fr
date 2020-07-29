@@ -5,14 +5,14 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 0ee44ae12ba0f7f4d91de12ff2fa0730f8831b61
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261154"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529248"
 ---
-# <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
+# <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Meilleures pratiques en matière de surveillance et de diagnostic pour Azure Service Fabric
 
 [La supervision et les diagnostics](./service-fabric-diagnostics-overview.md) sont essentiels au développement, au test et au déploiement des charges de travail dans tout environnement cloud. Par exemple, vous pouvez suivre la façon dont vos applications sont utilisées, les actions effectuées par la plateforme Service Fabric, votre utilisation des ressources avec des compteurs de performances et l’intégrité globale de votre cluster. Vous pouvez utiliser ces informations pour diagnostiquer et corriger les problèmes, et éviter qu’ils ne se reproduisent.
 

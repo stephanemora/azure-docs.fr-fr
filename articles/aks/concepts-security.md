@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244529"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507095"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -54,9 +54,9 @@ Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas encore totaleme
 
 ### <a name="compute-isolation"></a>Isolation du calcul
 
- Pour des raisons de conformité ou d’exigences réglementaires, certaines charges de travail peuvent nécessiter un niveau d’isolation élevé par rapport aux autres charges de travail client. Pour ces charges de travail, Azure fournit des [machines virtuelles isolées](../virtual-machines/linux/isolation.md), qui peuvent être utilisées en tant que nœuds d’agent dans un cluster AKS. Ces machines virtuelles sont isolées dans un type de matériel spécifique et dédiées à un client unique. 
+ Pour des raisons de conformité ou d’exigences réglementaires, certaines charges de travail peuvent nécessiter un niveau d’isolation élevé par rapport aux autres charges de travail client. Pour ces charges de travail, Azure fournit des [machines virtuelles isolées](../virtual-machines/isolation.md), qui peuvent être utilisées en tant que nœuds d’agent dans un cluster AKS. Ces machines virtuelles sont isolées dans un type de matériel spécifique et dédiées à un client unique. 
 
- Pour utiliser ces machines virtuelles isolées avec un cluster AKS, sélectionnez l’une des tailles de machines virtuelles isolées répertoriées [ici](../virtual-machines/linux/isolation.md) comme **taille de nœud** lors de la création d’un cluster AKS ou de l’ajout d’un pool de nœuds.
+ Pour utiliser ces machines virtuelles isolées avec un cluster AKS, sélectionnez l’une des tailles de machines virtuelles isolées répertoriées [ici](../virtual-machines/isolation.md) comme **taille de nœud** lors de la création d’un cluster AKS ou de l’ajout d’un pool de nœuds.
 
 
 ## <a name="cluster-upgrades"></a>Mise à niveau des clusters
@@ -81,6 +81,8 @@ Pour la connectivité et la sécurité avec les réseaux locaux, vous pouvez dé
 ### <a name="azure-network-security-groups"></a>Groupes de sécurité réseau Azure
 
 Pour filtrer le flux du trafic dans les réseaux virtuels, Azure utilise des règles de groupe de sécurité réseau. Ces règles définissent les plages d’adresses IP source et de destination, les ports et les protocoles qui se voient autoriser ou refuser l’accès aux ressources. Des règles par défaut sont créées pour autoriser le trafic TLS vers le serveur d’API Kubernetes. Quand vous créez des services avec des équilibreurs de charge, des mappages de ports ou des routes d’entrée, AKS modifie automatiquement le groupe de sécurité réseau afin que le trafic transite de manière appropriée.
+
+Dans les cas où vous fournissez votre propre sous-réseau pour votre cluster AKS et que vous souhaitez modifier le flux du trafic, ne modifiez pas le groupe de sécurité réseau de niveau sous-réseau géré par AKS. Vous pouvez créer des groupes de sécurité réseau de niveau sous-réseau supplémentaires pour modifier le flux du trafic, à condition qu’ils n’interfèrent pas avec le trafic nécessaire à la gestion du cluster, par exemple l’accès à l’équilibreur de charge, la communication avec le plan de contrôle et la [sortie][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Stratégie de réseau Kubernetes
 
@@ -123,6 +125,7 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

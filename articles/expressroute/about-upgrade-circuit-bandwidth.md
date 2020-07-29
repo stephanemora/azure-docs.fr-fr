@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537035"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>À propos de la mise à niveau de la bande passante d’un circuit ExpressRoute
 
@@ -34,7 +34,7 @@ Si la capacité est disponible, vous pouvez mettre à niveau le circuit à l’a
 
 Si le partenaire ExpressRoute ne dispose pas d’une capacité suffisante, vous devez créer un autre circuit, configuré pour la bande passante souhaitée. Pour maintenir la connectivité, ne supprimez pas l’ancien circuit tant que le circuit nouvellement créé n’est pas provisionné, que le peering n’a pas été configuré et (en ce qui concerne le peering privé) que l’objet de connexion à la passerelle de réseau virtuel ExpressRoute n’a pas été provisionné.
 
-Si votre partenaire ExpressRoute ne dispose pas de suffisamment d’une capacité disponible, vous devez demander une capacité supplémentaire à l’emplacement de peering souhaité. Une fois la nouvelle capacité provisionnée, vous pouvez utiliser les étapes contenues dans la section [Mettre à niveau la bande passante d’un circuit](#upgrade) des articles pour créer un circuit, configurer la connectivité et supprimer l’ancien circuit :
+Si votre partenaire ExpressRoute ne dispose pas de suffisamment d’une capacité disponible, vous devez demander une capacité supplémentaire à l’emplacement de peering souhaité. Une fois la nouvelle capacité approvisionnée, vous pouvez utiliser les étapes de la section [Mettre à niveau la bande passante d’un circuit](#upgrade) pour créer un circuit, configurer la connectivité et supprimer l’ancien circuit.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Bande passante ExpressRoute Direct insuffisante

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503385"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque d’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
 Nous allons maintenant passer à l’utilisation de code en téléchargeant un exemple d’application .NET à partir de GitHub. Cette application effectue des opérations en bloc sur les données stockées dans votre compte Azure Cosmos. Pour cloner l’application, ouvrez une invite de commandes, accédez au répertoire où vous souhaitez la copier, puis exécutez la commande suivante :
 
-```
+```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
@@ -203,4 +203,4 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les packages Nuget et les notes de publication de la bibliothèque, consultez les [détails sur le SDK de l’exécuteur en bloc](sql-api-sdk-bulk-executor-dot-net.md).
+* Pour en savoir plus sur les packages NuGet et les notes de publication, consultez les [détails sur le Kit de développement logiciel (SDK) de l’exécuteur en bloc](sql-api-sdk-bulk-executor-dot-net.md).

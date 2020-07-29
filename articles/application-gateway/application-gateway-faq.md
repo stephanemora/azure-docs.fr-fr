@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981997"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506568"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -336,6 +336,58 @@ Pour un acheminement (basé sur l'hôte) sur plusieurs domaines, vous pouvez cr�
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Puis-je utiliser des caractères spéciaux dans le mot de passe de mon fichier. pfx ?
 
 Non, utilisez uniquement des caractères alphanumériques dans le mot de passe de votre fichier. pfx.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>Mon certificat EV est émis par DigiCert et mon certificat intermédiaire a été révoqué. Comment faire renouveler mon certificat sur Application Gateway ?
+
+Les membres de l’organisation Certification Authority Browser Forum ont récemment publié des rapports détaillant les différents certificats émis par les fournisseurs d’autorités de certification qui sont utilisés par nos clients, Microsoft et la communauté technologique dans son ensemble et qui n’étaient plus conformes aux normes du secteur pour les autorités de certification publiquement fiables. Les rapports concernant les autorités de certification non conformes sont accessibles ici :  
+
+* [Bogue 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Bogue 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+Conformément aux exigences du secteur en matière de conformité, les fournisseurs d’autorités de certification commençaient à révoquer les autorités de certification non conformes et émettaient des autorités de certification conformes, ce qui oblige les clients à émettre à nouveau leurs certificats. Microsoft travaille en étroite collaboration avec ces fournisseurs pour réduire l’impact potentiel sur les services Azure. **Toutefois, les certificats auto-émis ou ceux utilisés dans des scénarios BYOC (Bring Your Own Certificate) sont toujours susceptibles d’être révoqués de manière inattendue**.
+
+Pour vérifier si les certificats utilisés par votre application ont été révoqués, reportez-vous à l’[annonce de DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) et au [suivi des révocations de certificats](https://misissued.com/#revoked). Si vos certificats ont été révoqués ou le seront, vous devrez demander de nouveaux certificats auprès du fournisseur d’autorité de certification utilisé dans vos applications. Pour éviter que la disponibilité de votre application ne soit interrompue en raison d’une révocation inattendue de certificats, ou pour mettre à jour un certificat qui a été révoqué, reportez-vous à notre billet relatifs aux mises à jour Azure afin d’accéder aux liens de correction des différents services Azure qui prennent en charge BYOC : https://azure.microsoft.com/updates/certificateauthorityrevocation/.
+
+Pour des informations spécifiques à Application Gateway, voir ci-dessous :
+
+Si vous utilisez un certificat émis par l’une des autorités de certification révoquées, la disponibilité de votre application peut être interrompue et, en fonction de votre application, vous pouvez recevoir différents messages d’erreur, notamment : 
+
+1.  Certificat non valide/certificat révoqué
+2.  Délai de connexion dépassé
+3.  HTTP 502
+
+Pour éviter toute interruption de votre application en raison de ce problème, ou pour réémettre une autorité de certification qui a été révoquée, vous devez procéder comme suit : 
+
+1.  Contactez votre fournisseur de certificats pour savoir comment émettre à nouveau vos certificats.
+2.  Une fois vos certificats réémis, mettez-les à jour sur Azure Application Gateway/WAF avec la [chaîne de confiance](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) complète (certificats feuille, intermédiaire, racine). En fonction de l’emplacement où vous utilisez votre certificat, soit sur l’écouteur, soit sur les paramètres HTTP de la passerelle d’application, suivez les étapes ci-dessous pour mettre à jour les certificats et consultez les liens de documentation mentionnés pour plus d’informations.
+3.  Mettez à jour vos serveurs d’applications principaux pour utiliser le certificat réémis. Selon le serveur principal que vous utilisez, les étapes de mise à jour de votre certificat peuvent varier. Consultez la documentation de votre fournisseur.
+
+Pour mettre à jour le certificat dans votre écouteur :
+
+1.  Dans le [portail Azure](https://portal.azure.com/), ouvrez votre ressource Application Gateway.
+2.  Ouvrez les paramètres d’écouteur associés à votre certificat.
+3.  Cliquez sur  Renouveler ou modifier le certificat sélectionné ».
+4.  Chargez votre nouveau certificat PFX avec le mot de passe et cliquez sur Enregistrer.
+5.  Accédez au site web et vérifiez que le site fonctionne comme prévu. Pour plus d’informations, consultez la documentation [ici](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+Si vous référencez des certificats d’Azure Key Vault dans votre écouteur de passerelle d’application, nous vous recommandons d’utiliser les étapes suivantes pour une modification rapide :
+
+1.  Dans le [portail Azure](https://portal.azure.com/), accédez aux paramètres Azure Key Vault qui ont été associés à la passerelle d’application.
+2.  Ajoutez/importez le certificat réémis dans votre magasin. Pour plus d’informations sur les procédures, consultez la documentation [ici](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal).
+3.  Une fois le certificat importé, accédez aux paramètres d’écouteur de votre passerelle d’application puis, sous « Choisir un certificat à partir de Key Vault », cliquez sur la liste déroulante « Certificat » et choisissez le certificat récemment ajouté.
+4.  Cliquez sur Enregistrer. Pour plus d’informations relatives à la terminaison TLS sur Application Gateway avec des certificats Key Vault, consultez la documentation [ici](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Pour mettre à jour le certificat dans vos paramètres HTTP :
+
+Si vous utilisez la SKU v1 du service Application Gateway/WAF, vous devez charger le nouveau certificat en tant que certificat d’authentification principal.
+1.  Dans le [portail Azure](https://portal.azure.com/), ouvrez votre ressource Application Gateway.
+2.  Ouvrez les paramètres HTTP associés à votre certificat.
+3.  Cliquez sur « Ajouter un certificat » et chargez le certificat réémis, puis cliquez sur Enregistrer.
+4.  Vous pouvez supprimer l’ancien certificat ultérieurement en cliquant sur le bouton d’options « … » à côté de l’ancien certificat et en sélectionnant Supprimer, puis cliquez sur Enregistrer.
+Pour plus d’informations, consultez la documentation [ici](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+Si vous utilisez la SKU v2 du service Application Gateway/WAF, vous n’êtes pas obligé de charger le nouveau certificat dans les paramètres HTTP, car la SKU v2 utilise des « certificat racine approuv » et aucune action n’est nécessaire ici.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuration - Contrôleur d’entrée pour AKS
 

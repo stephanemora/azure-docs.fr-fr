@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523517"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Données de localisation géospatiales et GeoJSON dans Azure Cosmos DB
 
@@ -21,9 +21,19 @@ Cet article est une introduction aux fonctionnalités géospatiales dans Azure C
 * Comment puis-je interroger des données géospaciales dans Azure Cosmos DB dans SQL et LINQ ?
 * Comment puis-je activer ou désactiver l’indexation spatiale dans Azure Cosmos DB ?
 
+## <a name="spatial-data-use-cases"></a>Cas d’usage de données spatiales
+
+Les données géospatiales impliquent souvent des requêtes de proximité, comme « rechercher tous les cafés près de mon emplacement actuel ». Les cas d’usage courants sont les suivants :
+
+* Analyses de géolocalisation, qui conduisent à des initiatives marketing spécifiques.
+* Personnalisation en fonction de l’emplacement, pour plusieurs secteurs tels que la vente au détail et les soins de santé.
+* Amélioration de la logistique, pour l’optimisation du transport.
+* Analyse des risques, en particulier pour les compagnies d’assurance et sociétés de financement.
+* Conscience situationnelle, pour les alertes et les notifications.
+
 ## <a name="introduction-to-spatial-data"></a>Présentation des données spatiales
 
-Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre et aux données géospatiales. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac. Les scénarios d’utilisation courants impliquent souvent des requêtes de proximité, comme « rechercher tous les cafés près de mon emplacement actuel ».
+Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre et aux données géospatiales. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac.
 
 L’API SQL Azure Cosmos DB prend en charge deux types de données spatiales : les données de type **géométrique** et les données de type **géographique**.
 

@@ -4,16 +4,16 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806869"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514546"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 
-Vous pouvez utiliser le [service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview) pour sauvegarder des partages de fichiers Azure. Cet article récapitule les paramètres de prise en charge lorsque vous sauvegardez des partages de fichiers Azure avec Sauvegarde Azure.
+Vous pouvez utiliser le [service Sauvegarde Azure](./backup-overview.md) pour sauvegarder des partages de fichiers Azure. Cet article récapitule les paramètres de prise en charge lorsque vous sauvegardez des partages de fichiers Azure avec Sauvegarde Azure.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -23,7 +23,7 @@ La sauvegarde des partages de fichiers Azure est disponible dans toutes les rég
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Régions prises en charge pour la protection contre la suppression accidentelle
 
-USA Centre-Ouest, Australie Sud-Est, Canada Centre
+USA Centre-Ouest, Australie Sud-Est, Canada Centre, West Central US, Inde Sud, USA Centre Nord, Japon Est, Brésil Sud, USA Centre Sud, Australie Est, USA Est, USA Est 2
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 

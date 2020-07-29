@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667316"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513855"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -16,7 +16,7 @@ Les bases de données SAP HANA sont des charges de travail critiques nécessitan
 
 Cet article explique comment sauvegarder des bases de données SAP HANA s’exécutant sur des machines virtuelles Azure pour un coffre Recovery Services de la Sauvegarde Azure.
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > * Créer et configurer un coffre
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à :
 > * Exécuter un travail de sauvegarde à la demande
 
 >[!NOTE]
->[Prenez-en main](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) la sauvegarde SAP HANA en préversion pour RHEL (7.4, 7.6, 7.7 ou 8.1). Pour d’autres questions, écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>[Prenez-en main](./tutorial-backup-sap-hana-db.md) la sauvegarde SAP HANA en préversion pour RHEL (7.4, 7.6, 7.7 ou 8.1). Pour d’autres questions, écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 >[!NOTE]
 >**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
@@ -53,17 +53,17 @@ De plus amples informations sur l’utilisation de ces options sont disponibles 
 
 #### <a name="private-endpoints"></a>Instances Private Endpoint
 
-Les points de terminaison privés vous permettent de vous connecter en toute sécurité à votre coffre Recovery Services à partir de serveurs situés dans un réseau virtuel. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre coffre. Le trafic réseau entre vos ressources dans le réseau virtuel et le coffre transite via votre réseau virtuel et une liaison privée sur le réseau principal de Microsoft. Cela élimine l’exposition de l’Internet public. Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](https://docs.microsoft.com/azure/backup/private-endpoints).
+Les points de terminaison privés vous permettent de vous connecter en toute sécurité à votre coffre Recovery Services à partir de serveurs situés dans un réseau virtuel. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre coffre. Le trafic réseau entre vos ressources dans le réseau virtuel et le coffre transite via votre réseau virtuel et une liaison privée sur le réseau principal de Microsoft. Cela élimine l’exposition de l’Internet public. Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](./private-endpoints.md).
 
 #### <a name="nsg-tags"></a>Balises NSG
 
-Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de la balise pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) similaires pour *Azure AD* et *Stockage Azure*.  Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
+Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de la balise pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/security-overview.md#service-tags) similaires pour *Azure AD* et *Stockage Azure*.  Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
 1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 
 1. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 
-1. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
+1. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](../virtual-network/manage-network-security-group.md#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
 
 1. Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
 
@@ -71,7 +71,7 @@ De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pou
 
 #### <a name="azure-firewall-tags"></a>Balises Pare-feu Azure
 
-Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la [balise FQDN de Pare-feu Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) *AzureBackup*. Cela autorise tout accès sortant vers Sauvegarde Azure.
+Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la [balise FQDN de Pare-feu Azure](../firewall/fqdn-tags.md) *AzureBackup*. Cela autorise tout accès sortant vers Sauvegarde Azure.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Autoriser l’accès aux plages d’adresses IP du service
 
@@ -85,7 +85,7 @@ Vous pouvez également utiliser les FQDN suivants pour autoriser l’accès aux 
 | -------------- | ------------------------------------------------------------ |
 | Sauvegarde Azure  | `*.backup.windowsazure.com`                             |
 | Stockage Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Autoriser l’accès aux FQDN en vertu des sections 56 et 59 conformément à [cet article](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Autoriser l’accès aux FQDN en vertu des sections 56 et 59 conformément à [cet article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Utiliser un serveur proxy HTTP pour acheminer le trafic
 
@@ -199,17 +199,19 @@ Les sauvegardes s’exécutent conformément à la planification de la stratégi
 Si vous souhaitez effectuer une sauvegarde locale (à l’aide de HANA Studio) d’une base de données en cours de sauvegarde par le service Sauvegarde Azure, procédez comme suit :
 
 1. Attendez la fin de toute sauvegarde complète ou de fichier journal de la base de données. Vérifiez l’état dans SAP HANA Studio/Cockpit.
-2. Désactivez les sauvegardes de fichiers journaux, puis définissez le catalogue de sauvegarde sur le système de fichiers pour la base de données appropriée.
-3. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
-4. Définissez **enable_auto_log_backup** sur **No (Non)** .
-5. Définissez **log_backup_using_backint** sur **False (Faux)** .
-6. Effectuez une sauvegarde complète à la demande de la base de données.
-7. Attendez la fin de la sauvegarde complète et de la sauvegarde du catalogue.
-8. Rétablissez les paramètres précédents sur les valeurs pour Azure :
+1. Désactivez les sauvegardes de fichiers journaux, puis définissez le catalogue de sauvegarde sur le système de fichiers pour la base de données appropriée.
+1. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
+1. Définissez **enable_auto_log_backup** sur **No (Non)** .
+1. Définissez **log_backup_using_backint** sur **False (Faux)** .
+1. Définissez **catalog_backup_using_backint** sur **False**.
+1. Effectuez une sauvegarde complète à la demande de la base de données.
+1. Attendez la fin de la sauvegarde complète et de la sauvegarde du catalogue.
+1. Rétablissez les paramètres précédents sur les valeurs pour Azure :
     * Définissez **enable_auto_log_backup** sur **Yes (Oui)** .
     * Définissez **log_backup_using_backint** sur **True (Vrai)** .
+    * Définissez **catalog_backup_using_backint** sur **True**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Découvrez comment [gérer les bases de données SAP HANA sauvegardées à l’aide de la Sauvegarde Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Découvrez comment [restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](./sap-hana-db-restore.md)
+* Découvrez comment [gérer les bases de données SAP HANA sauvegardées à l’aide de la Sauvegarde Azure](./sap-hana-db-manage.md)

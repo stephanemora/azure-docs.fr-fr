@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753567"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497639"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -124,7 +124,11 @@ Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants
 
 ## <a name="integration-runtime-location"></a>Emplacement du runtime d’intégration
 
-L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au [runtime d’intégration globalement disponible](https://azure.microsoft.com/global-infrastructure/services/) pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
+### <a name="relationship-between-factory-location-and-ir-location"></a>Relation entre l’emplacement de la fabrique et l’emplacement du runtime d’intégration
+
+Quand le client crée une instance de fabrique de données, il doit spécifier l’emplacement de la fabrique de données. L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Les métadonnées de la fabrique sont uniquement stockées dans la région choisie par le client et ne seront pas stockées dans d’autres régions.
+
+Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au [runtime d’intégration globalement disponible](https://azure.microsoft.com/global-infrastructure/services/) pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
 
 L’emplacement du runtime d’intégration définit l’emplacement de son calcul principal, mais aussi l’emplacement où le déplacement des données, la répartition des activités et l’exécution des packages SSIS sont effectués. L’emplacement du runtime d’intégration peut être différent de l’emplacement de la fabrique de données à laquelle il appartient. 
 

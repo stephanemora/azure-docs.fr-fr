@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024878"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519352"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -33,7 +33,7 @@ Azure Security Center émet ses recommandations de sécurité en fonction des st
 
 Security Center offre les options suivantes pour l’utilisation des stratégies de sécurité :
 
-* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, une initiative intégrée nommée « ASC default » est automatiquement attribuée à tous les abonnements inscrits auprès du Security Center (niveaux Gratuit ou Standard). Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
+* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, une initiative intégrée nommée « ASC default » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center (niveaux tarifaires gratuit ou standard). Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
 
 * **Ajouter vos propres stratégies personnalisées** : si vous souhaitez personnaliser les initiatives de sécurité appliquées à votre abonnement, vous pouvez le faire dans Security Center. Vous recevez ensuite des recommandations si vos machines ne suivent pas les stratégies que vous créez. Pour obtenir des instructions sur la création et l’attribution de stratégies personnalisées, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
 
@@ -86,14 +86,18 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
 
-Security Center utilise le contrôle d’accès en fonction du rôle (RBAC) qui fournit des rôles intégrés susceptibles d’être assignés à des utilisateurs, des groupes et des services dans Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils ont accès. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. En plus de ces rôles, il existe deux rôles de Security Center spécifiques :
+Security Center utilise le contrôle d’accès en fonction du rôle (RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
 
-- **Lecteur Sécurité** : l’utilisateur ayant ce rôle a des droits d’affichage dans Security Center. Il peut afficher les suggestions, les alertes, la stratégie et l’intégrité, mais il ne peut pas effectuer de changements.
-- **Administrateur Sécurité** : l’utilisateur ayant ce rôle a les mêmes droits d’affichage que le *lecteur Sécurité*, mais il peut en plus mettre à jour la stratégie de sécurité, et ignorer les alertes et les suggestions.
+- **Lecteur Sécurité** : a le droit de consulter les éléments de Security Center tels que les recommandations, les alertes, la stratégie et l’intégrité. Ne peut pas apporter de modifications.
+- **Administrateur Sécurité** : a les mêmes droits de consultation que *Lecteur Sécurité*. Peut également mettre à jour la stratégie de sécurité et ignorer les alertes.
 
 
-## <a name="disable-security-policies"></a>Désactiver des stratégies de sécurité
-Si la stratégie de sécurité par défaut génère une suggestion qui n’est pas pertinent pour votre environnement, vous pouvez l’arrêter en désactivant la définition de stratégie qui envoie la recommandation.
+## <a name="disable-security-policies-and-disable-recommendations"></a>Désactiver des stratégies de sécurité et des recommandations
+
+Lorsque votre initiative de sécurité déclenche une recommandation qui n’est pas pertinente pour votre environnement, vous pouvez empêcher cette recommandation de s’afficher à nouveau. Pour désactiver une recommandation, désactivez la stratégie spécifique qui génère la recommandation.
+
+La recommandation que vous souhaitez désactiver continuera de s’afficher si elle est requise par une norme réglementaire que vous avez appliquée à l’aide des outils de conformité réglementaire de Security Center. Même si vous avez désactivé une stratégie dans l’initiative intégrée, une autre de l’initiative de la norme réglementaire déclenchera toujours la recommandation si celle-ci est nécessaire à la conformité. Vous ne pouvez pas désactiver les stratégies d’initiatives de normes réglementaires.
+
 Pour plus d’informations sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
 1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
@@ -103,7 +107,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 2. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation.
 
    > [!NOTE]
-   > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement, et que l’abonnement appartient à un groupe d’administration qui utilise toujours la même stratégie, vous continuerez à recevoir les suggestion de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
+   > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement et que celui-ci appartient à un groupe d’administration qui utilise encore la même stratégie, vous continuez à recevoir les recommandations de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
 
 1. Sélectionnez **Afficher la stratégie actuelle**.
 
@@ -125,7 +129,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez découvert les stratégies de sécurité. Pour accéder à des informations connexes, voir les articles suivants :
+Cet article a décrit les stratégies de sécurité. Pour accéder à des informations connexes, voir les articles suivants :
 
 * Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 

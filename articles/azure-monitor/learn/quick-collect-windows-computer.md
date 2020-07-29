@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324316"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Collecter des données à partir d’un ordinateur Windows dans un environnement hybride avec Azure Monitor
 
-[Azure Monitor](../overview.md) est capable de collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels de votre environnement dans un espace de travail Log Analytics pour ensuite procéder à une analyse et à une mise en corrélation détaillées. L’installation de l’[agent Log Analytics](../platform/log-analytics-agent.md) permet à Azure Monitor de collecter des données à partir d’un centre de données ou d’un autre environnement cloud. Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples. Pour obtenir des informations sur les machines virtuelles Windows Azure, consultez [Collecter des données sur les machines virtuelles Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) est capable de collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels de votre environnement dans un espace de travail Log Analytics pour ensuite procéder à une analyse et à une mise en corrélation détaillées. L’installation de l’[agent Log Analytics](../platform/log-analytics-agent.md) permet à Azure Monitor de collecter des données à partir d’un centre de données ou d’un autre environnement cloud. Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples. Pour obtenir des informations sur les machines virtuelles Windows Azure, consultez [Collecter des données sur les machines virtuelles Azure](./quick-collect-azurevm.md).  
 
-Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation Windows pris en charge](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation Windows pris en charge](../platform/log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](../platform/log-analytics-agent.md#network-requirements).
  
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -166,3 +166,4 @@ Pour savoir comment consulter et analyser les données, passez au didacticiel su
 
 > [!div class="nextstepaction"]
 > [Consulter ou analyser les données dans Log Analytics](../log-query/get-started-portal.md)
+

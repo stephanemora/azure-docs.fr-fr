@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536746"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -48,21 +48,27 @@ Vous pouvez créer des clusters à l’aide de combinaisons de services pour le 
 | Version de HDInsight | Stockage principal | Stockage secondaire | Prise en charge |
 |---|---|---|---|
 | 3.6 et 4.0 | Universel V1, Universel V2 | Universel V1, Universel V2, BlobStorage (objets blob de blocs) | Oui |
-| 3.6 et 4.0 | Universel V1, Universel V2 | Data Lake Storage Gen2 | Non  |
+| 3.6 et 4.0 | Universel V1, Universel V2 | Data Lake Storage Gen2 | Non |
 | 3.6 et 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Oui |
 | 3.6 et 4.0 | Data Lake Storage Gen2* | Universel V1, Universel V2, BlobStorage (objets blob de blocs) | Oui |
-| 3.6 et 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non  |
+| 3.6 et 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non |
 | 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
 | 3.6 | Data Lake Storage Gen 1 | Universel V1, Universel V2, BlobStorage (objets blob de blocs) | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non  |
-| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non  |
-| 4.0 | Universel V1, Universel V2 | Data Lake Storage Gen 1 | Non  |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non |
+| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non |
+| 4.0 | Universel V1, Universel V2 | Data Lake Storage Gen 1 | Non |
 
 * = Il peut s’agir d’un ou de plusieurs comptes Data Lake Storage Gen2, à condition qu’ils sont tous configurés pour utiliser la même identité managée pour l’accès au cluster.
 
 > [!NOTE]
 > Le stockage principal Data Lake Storage Gen2 n’est pas pris en charge pour les clusters Spark 2.1 ou 2.2.
 
+## <a name="data-replication"></a>Réplication des données
+
+Azure HDInsight ne stocke pas les données client. Les principaux moyens de stockage d’un cluster sont les comptes de stockage qui lui sont associés. Vous pouvez associer votre cluster à un compte de stockage existant ou créer un compte de stockage pendant le processus de création du cluster. Si un nouveau compte est créé, il est créé en tant que compte de stockage localement redondant (LRS) et répond aux exigences en matière de résidence des données dans la région, notamment celles spécifiées dans [Centre de confidentialité Azure](https://azuredatacentermap.azurewebsites.net).
+
+Vous pouvez vérifier que HDInsight est correctement configuré pour stocker les données dans une seule région en veillant à ce que le compte de stockage associé à votre compte HDInsight soit LRS ou une autre option de stockage mentionnée sur le site de [Centre de confidentialité Azure](https://azuredatacentermap.azurewebsites.net).
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de Stockage Azure](./overview-azure-storage.md)

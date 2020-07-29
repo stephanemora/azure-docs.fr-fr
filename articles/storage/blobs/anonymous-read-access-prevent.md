@@ -1,34 +1,34 @@
 ---
 title: Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 titleSuffix: Azure Storage
-description: ''
+description: Découvrez comment analyser les requêtes anonymes sur un compte de stockage et comment empêcher l’accès anonyme pour l’ensemble du compte de stockage ou pour un conteneur spécifique.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518722"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
-L’accès en lecture public anonyme aux conteneurs et aux blobs dans le stockage Azure est un moyen pratique de partager des données, mais peut également présenter un risque pour la sécurité. Il est important d’activer l’accès anonyme judicieusement et de comprendre comment évaluer l’accès anonyme à vos données. La complexité opérationnelle, une erreur humaine ou une attaque malveillante contre les données accessibles publiquement peuvent entraîner des violations de données coûteuses. Microsoft vous recommande d’activer l’accès anonyme uniquement quand cela est nécessaire pour votre scénario d’application.
+L’accès en lecture public anonyme aux conteneurs et aux blobs dans le stockage Azure est un moyen pratique de partager des données, mais peut également présenter un risque pour la sécurité. Il est important de gérer judicieusement l’accès anonyme et de comprendre la manière d’évaluer l’accès anonyme à vos données. La complexité opérationnelle, une erreur humaine ou une attaque malveillante contre les données accessibles publiquement peuvent entraîner des violations de données coûteuses. Microsoft vous recommande d’activer l’accès anonyme uniquement quand cela est nécessaire pour votre scénario d’application.
 
-Par défaut, un compte de stockage permet à un utilisateur disposant des autorisations appropriées de configurer un accès public aux conteneurs et aux blobs. Vous pouvez désactiver cette fonctionnalité au niveau du compte de stockage, afin que les conteneurs et les blobs du compte ne puissent pas être configurés pour un accès public.
+Par défaut, un utilisateur disposant des autorisations appropriées peut configurer un accès public aux conteneurs et aux blobs. Vous pouvez empêcher tout accès public au niveau du compte de stockage. Lorsque vous interdisez l’accès public aux blobs pour le compte de stockage, les conteneurs du compte ne peuvent pas être configurés pour un accès public. Les conteneurs qui ont déjà été configurés pour un accès public n’acceptent plus les requêtes anonymes. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md) (Configurer l’accès en lecture publique anonyme pour les conteneurs et les objets blob).
 
 Cet article explique comment analyser les demandes anonymes sur un compte de stockage et comment empêcher l’accès anonyme pour l’ensemble du compte de stockage ou pour un conteneur spécifique.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Détecter les demandes anonymes des applications clientes
 
-Quand vous désactivez l’accès en lecture public pour un compte de stockage, vous risquez de rejeter les demandes à destination des conteneurs et des blobs qui sont configurés pour l’accès public. La désactivation de l’accès public pour un compte de stockage remplace les paramètres d’accès public pour tous les conteneurs appartenant à ce compte de stockage. Quand l’accès public est désactivé pour le compte de stockage, toute demande anonyme ultérieure adressée à ce compte échoue.
+Quand vous interdisez l’accès en lecture public pour un compte de stockage, vous risquez de rejeter les requêtes à destination des conteneurs et des blobs qui sont configurés pour l’accès public. L’interdiction de l’accès public pour un compte de stockage remplace les paramètres d’accès public pour tous les conteneurs appartenant à ce compte de stockage. Quand l’accès public est interdit pour le compte de stockage, toute requête anonyme ultérieure adressée à ce compte échoue.
 
-Pour que vous compreniez dans quelle mesure la désactivation de l’accès public peut affecter les applications clientes, Microsoft vous recommande d’activer la journalisation et les métriques pour ce compte et d’analyser les modèles de demandes anonymes sur un intervalle de temps. Utilisez des métriques pour déterminer le nombre de demandes anonymes adressées au compte de stockage et utilisez les journaux pour déterminer les conteneurs qui sont accessibles de façon anonyme.
+Pour que vous compreniez dans quelle mesure l’interdiction de l’accès public peut influer sur les applications clientes, Microsoft vous recommande d’activer la journalisation et les métriques pour ce compte et d’analyser les modèles de requêtes anonymes sur un intervalle de temps. Utilisez des métriques pour déterminer le nombre de demandes anonymes adressées au compte de stockage et utilisez les journaux pour déterminer les conteneurs qui sont accessibles de façon anonyme.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Superviser les demandes anonymes avec Metrics Explorer
 
@@ -92,7 +92,7 @@ Pour obtenir des informations de référence sur les champs disponibles dans les
 
 Les journaux de stockage Azure dans Azure Monitor incluent le type d’autorisation qui a été utilisé pour effectuer une demande à destination d’un compte de stockage. Dans votre requête de journal, filtrez sur la propriété **AuthenticationType** pour afficher les demandes anonymes.
 
-Pour récupérer les journaux des 7 derniers jours pour les demandes anonymes sur le stockage Blob, ouvrez votre espace de travail Log Analytics. Collez ensuite la requête suivante dans une nouvelle requête de journal et exécutez-la. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+Pour récupérer les journaux des 7 derniers jours pour les demandes anonymes sur le stockage Blob, ouvrez votre espace de travail Log Analytics. Collez ensuite la requête suivante dans une nouvelle requête de journal et exécutez-la :
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ Vous pouvez également configurer une règle d’alerte basée sur cette requêt
 
 Une fois que vous avez évalué les demandes anonymes destinées aux conteneurs et aux blobs dans votre compte de stockage, vous pouvez prendre des mesures pour limiter ou empêcher l’accès public. Si certains conteneurs de votre compte de stockage doivent être disponibles pour un accès public, vous pouvez configurer le paramètre d’accès public pour chaque conteneur dans votre compte de stockage. Cette option fournit le contrôle le plus précis de l’accès public. Pour plus d’informations, consultez [Définir le niveau d’accès public pour un conteneur](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-Pour renforcer la sécurité, vous pouvez désactiver l’accès public pour un compte de stockage entier. Le paramètre d’accès public pour un compte de stockage remplace les paramètres individuels des conteneurs dans ce compte. Quand vous désactivez l’accès public pour un compte de stockage, tous les conteneurs qui sont configurés pour autoriser l’accès public ne sont plus accessibles de façon anonyme. Pour plus d’informations, consultez [Activer ou désactiver l’accès en lecture public pour un compte de stockage](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+Pour renforcer la sécurité, vous pouvez interdire l’accès public pour l’ensemble du compte de stockage. Le paramètre d’accès public pour un compte de stockage remplace les paramètres individuels des conteneurs dans ce compte. Quand vous interdisez l’accès public pour un compte de stockage, tous les conteneurs qui sont configurés pour autoriser l’accès public ne sont plus accessibles de façon anonyme. Pour plus d’informations, consultez [Autoriser ou interdire l’accès en lecture public pour un compte de stockage](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Si votre scénario nécessite que certains conteneurs soient disponibles pour un accès public, il peut être préférable de déplacer ces conteneurs et leurs blobs dans des comptes de stockage réservés à un accès public. Vous pouvez ensuite désactiver l’accès public pour tous les autres comptes de stockage.
+Si votre scénario nécessite que certains conteneurs soient disponibles pour un accès public, il peut être préférable de déplacer ces conteneurs et leurs blobs dans des comptes de stockage réservés à un accès public. Vous pouvez ensuite interdire l’accès public pour tous les autres comptes de stockage.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Vérifier que l’accès public à un blob n’est pas autorisé
 
-Pour vérifier que l’accès public à un blob spécifique est refusé, vous pouvez essayer de télécharger le blob via son URL. Si le téléchargement s’effectue correctement, le blob est toujours accessible publiquement. Si le blob n’est pas accessible publiquement parce que l’accès public a été désactivé pour le compte de stockage, un message d’erreur s’affiche, indiquant que l’accès public n’est pas autorisé sur ce compte.
+Pour vérifier que l’accès public à un blob spécifique est interdit, vous pouvez essayer de télécharger le blob via son URL. Si le téléchargement s’effectue correctement, le blob est toujours accessible publiquement. Si le blob n’est pas accessible publiquement parce que l’accès public a été interdit pour le compte de stockage, un message d’erreur s’affiche, indiquant que l’accès public n’est pas autorisé sur ce compte.
 
 L’exemple suivant montre comment utiliser PowerShell pour essayer de télécharger un blob via son URL. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Vérifier que la modification du paramètre d’accès public du conteneur n’est pas autorisée
 
-Pour vérifier que le paramètre d’accès public d’un conteneur ne peut pas être modifié après la désactivation de l’accès public pour le compte de stockage, vous pouvez essayer de modifier le paramètre. La modification du paramètre d’accès public du conteneur échoue si l’accès public est désactivé pour le compte de stockage.
+Pour vérifier que le paramètre d’accès public d’un conteneur ne peut pas être modifié après l’interdiction de l’accès public pour le compte de stockage, vous pouvez essayer de modifier le paramètre. La modification du paramètre d’accès public du conteneur échoue si l’accès public est interdit pour le compte de stockage.
 
 L’exemple suivant montre comment utiliser PowerShell pour tenter de changer le paramètre d’accès public d’un conteneur. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Vérifier que la création d’un conteneur avec accès public activé n’est pas autorisée
 
-Si l’accès public est désactivé pour le compte de stockage, vous ne pouvez pas créer un conteneur avec accès public activé. Pour vérifier, vous pouvez essayer de créer un conteneur avec accès public activé.
+Si l’accès public est interdit pour le compte de stockage, vous ne pouvez pas créer de conteneur avec un accès public autorisé. Pour vérifier, vous pouvez essayer de créer un conteneur avec accès public activé.
 
 L’exemple suivant montre comment utiliser PowerShell pour essayer de créer un conteneur avec accès public activé. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181730"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518179"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Application web qui appelle des API web : Acquérir un jeton pour l’application
 
@@ -50,6 +50,7 @@ Le service `ITokenAcquisition` est injecté par ASP.NET à l’aide de l’injec
 Voici le code simplifié pour l’action du `HomeController`, qui obtient un jeton pour appeler Microsoft Graph :
 
 ```csharp
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
@@ -65,6 +66,8 @@ public async Task<IActionResult> Profile()
 
 Pour mieux comprendre le code nécessaire dans ce scénario, consultez la phase 2 ([2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) [Application web appelant Microsoft Graph] du tutoriel [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial).
 
+L’attribut `AuthorizeForScopes` en haut de l’action du contrôleur (ou de la page Razor si vous utilisez un modèle Razor) est fourni par Microsoft.Identity.Web. Il s’assure que l’utilisateur est invité à donner son consentement, le cas échéant, et de façon incrémentielle.
+
 Il existe d’autres variantes complexes, telles que :
 
 - Appels de plusieurs API.
@@ -79,6 +82,36 @@ Le code pour ASP.NET est similaire au code présenté pour ASP.NET Core :
 - Une action de contrôleur, protégée par un attribut [Authorize], extrait l’ID de locataire et l’identifiant utilisateur du membre `ClaimsPrincipal` du contrôleur. (ASP.NET utilise `HttpContext.User`.)
 - Il génère alors un objet `IConfidentialClientApplication` MSAL.NET.
 - Enfin, il appelle la méthode `AcquireTokenSilent` de l’application cliente confidentielle.
+- Si une interaction est requise, l’application web doit effectuer un test de connexion de l’utilisateur (réouverture de session) et demander d’autres revendications.
+
+L’extrait de code suivant est extrait de [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) dans l’exemple de code MVC ASP.NET [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) :
+
+```C#
+public async Task<ActionResult> ReadMail()
+{
+    IConfidentialClientApplication app = MsalAppBuilder.BuildConfidentialClientApplication();
+    AuthenticationResult result = null;
+    var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
+    string[] scopes = { "Mail.Read" };
+
+    try
+    {
+        // try to get token silently
+        result = await app.AcquireTokenSilent(scopes, account).ExecuteAsync().ConfigureAwait(false);
+    }
+    catch (MsalUiRequiredException)
+    {
+        ViewBag.Relogin = "true";
+        return View();
+    }
+
+    // More code here
+    return View();
+}
+```
+
+Pour plus d’informations, consultez le code relatif à [BuildConfidentialClientApplication()](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs) et [GetMsalAccountId](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) dans l’exemple de code.
+
 
 # <a name="java"></a>[Java](#tab/java)
 

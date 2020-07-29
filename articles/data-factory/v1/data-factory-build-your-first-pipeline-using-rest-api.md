@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15c388336efc92381ac5ebd84df9145c1890cfcc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007212"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
   2. Obtenez un **ID client** et une **clé secrète**.
   3. Obtenez l’ **ID de locataire**.
   4. Attribuez l’application **ADFGetStartedApp** au rôle **Collaborateurs de fabrique de données**.
-* Installez [Azure PowerShell](/powershell/azure/overview).
+* Installez [Azure PowerShell](/powershell/azure/).
 * Démarrez **PowerShell** et exécutez la commande suivante. Conservez Azure PowerShell ouvert jusqu’à la fin de ce tutoriel. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.
   1. Exécutez **Connect-AzAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
   2. Exécutez **Get-AzSubscription** pour voir tous les abonnements de ce compte.

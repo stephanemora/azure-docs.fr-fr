@@ -4,18 +4,20 @@ description: API permettant de récupérer l’état actuel de l’offre.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114072"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535873"
 ---
 # <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre
 
 > [!NOTE]
-> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Récupère l’état actuel de l’offre.
 
@@ -30,7 +32,6 @@ Récupère l’état actuel de l’offre.
 |  api-version    | Dernière version de l’API                        |     Date       |
 |  |  |
 
-
 ## <a name="header"></a>En-tête
 
 
@@ -41,7 +42,6 @@ Récupère l’état actuel de l’offre.
 |  |  |
 
 ## <a name="body-example"></a>Exemple de corps
-
 
 ### <a name="response"></a>response
 
@@ -115,7 +115,6 @@ Récupère l’état actuel de l’offre.
       liveLinks": [],
   }
 ```
-
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497112"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
@@ -190,7 +190,7 @@ Une connexion aux journaux de flux étant établie à l’aide de Logstash, et l
 
    Dès que vous avez lancé l’entrée, celle-ci doit apparaître sous la section **Local inputs** (Entrées locales), comme illustré dans l’image suivante :
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Capture d’écran montrant la section Entrées locales qui contient l’entrée que vous avez lancée.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Pour approfondir votre connaissance des entrées de message Graylog, reportez-vous à la [documentation](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 

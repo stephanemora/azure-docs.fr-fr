@@ -4,12 +4,12 @@ description: Découvrez la mise à l’échelle dans Azure Kubernetes Service (A
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244512"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499883"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -58,7 +58,7 @@ L’autoscaler de cluster est généralement utilisé parallèlement à l’auto
 
 Pour vous familiariser avec l’autoscaler de cluster dans AKS, consultez [Autoscaler de cluster sur AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Événements de mise à l’échelle par augmentation (scale up)
+### <a name="scale-out-events"></a>Événements de scale-out
 
 Si les ressources de calcul d’un nœud sont insuffisantes pour l’exécution d’un pod demandé, ce pod ne peut pas avancer dans le processus de planification. Le pod ne peut pas démarrer, sauf si des ressources de calcul supplémentaires sont disponibles dans le pool de nœuds.
 
@@ -66,7 +66,7 @@ Lorsque l’autoscaler de cluster remarque que des pods ne sont pas panifiables 
 
 Si votre application doit rapidement se mettre à l'échelle, il est possible que certains pods restent en état d’attente de planification, jusqu’à ce que les nœuds supplémentaires déployés par l’autoscaler de cluster puissent accepter les pods planifiés. Pour les applications qui présentent des demandes de croissance extrêmement forte et rapide, vous pouvez mettre à l’échelle au moyen de nœuds virtuels et d’Azure Container Instances.
 
-### <a name="scale-down-events"></a>Scale-down d’événements
+### <a name="scale-in-events"></a>Événements de scale-in
 
 L’autoscaler de cluster surveille également le statut de planification des pods pour les nœuds qui n’ont pas reçu récemment de nouvelles demandes de planification. Ce scénario indique que le pool de nœuds détient plus de ressources de calcul que nécessaire, et que le nombre de nœuds peut être réduit.
 
