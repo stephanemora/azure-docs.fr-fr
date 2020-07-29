@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250347"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525413"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -86,7 +86,7 @@ Les référentiels EUS (Extended Update Support) sont proposés aux clients qui 
 Au moment de la rédaction de ce document, la prise en charge d’EUS est terminée pour RHEL 7.4 et les versions antérieures. Pour en savoir plus, consultez la section « Maintenance prolongée de Red Hat Enterprise Linux » de la [documentation Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 * La prise en charge de RHEL 7.4 EUS se terminera le 31 août 2019.
 * La prise en charge de RHEL 7.5 EUS se terminera le 30 avril 2020.
-* La prise en charge de RHEL 7.6 EUS se terminera le 31 octobre 2020.
+* La prise en charge de RHEL 7.6 EUS se terminera le 31 mai 2021.
 * La prise en charge de RHEL 7.7 EUS se terminera le 30 août 2021.
 
 ### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Faites basculer une machine virtuelle RHEL vers EUS (verrouillage sur une version mineure spécifique)
@@ -168,7 +168,7 @@ Si vous utilisez une configuration du réseau pour restreindre davantage l’acc
 >Les nouvelles images Azure US Government, à compter de janvier 2020, utiliseront une adresse IP publique mentionnée dans l’en-tête Azure Global ci-dessus.
 
 >[!NOTE]
->Notez également qu’Azure Allemagne est déconseillé en faveur des régions publiques d’Allemagne. Pour les clients Azure Allemagne, il est recommandé de commencer par pointer sur les RHUI publics à l’aide de [ces étapes](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers).
+>Notez également qu’Azure Allemagne est déconseillé en faveur des régions publiques d’Allemagne. Pour les clients Azure Allemagne, il est recommandé de commencer par pointer sur les RHUI publics à l’aide de [ces étapes](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## <a name="azure-rhui-infrastructure"></a>Infrastructure Azure RHUI
 

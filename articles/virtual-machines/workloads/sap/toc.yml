@@ -84,6 +84,8 @@
           href: hana-setup-smt.md
         - name: Migration de HLI vers les machines virtuelles Azure
           href: hana-large-instance-virtual-machine-migration.md
+        - name: Acheter une réservation SAP HANA - Grandes instances
+          href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
 - name: SAP HANA sur des machines virtuelles Azure
   items:
     - name: Installation de SAP HANA sur des machines virtuelles Azure

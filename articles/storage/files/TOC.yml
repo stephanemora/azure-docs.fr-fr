@@ -251,11 +251,11 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Exiger un transfert sécurisé
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Configurer le protocole TLS (Transport Layer Security)
+        - name: Gérer TLS (Transport Layer Security)
           items:
-            - name: Configurer la version TLS minimale pour un compte de stockage
+            - name: Appliquer la version TLS minimale pour les demandes entrantes
               href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Configurer TLS pour une application cliente
+            - name: Configurer la version TLS pour une application cliente
               href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Transférer
       items:
