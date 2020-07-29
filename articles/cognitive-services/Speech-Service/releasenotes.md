@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512661"
 ---
-# <a name="release-notes"></a>Notes de publication
+# <a name="speech-service-release-notes"></a>Notes de publication du service Speech
 
 ## <a name="text-to-speech-2020-july-release"></a>Synthèse vocale 2020 - version de juillet
 

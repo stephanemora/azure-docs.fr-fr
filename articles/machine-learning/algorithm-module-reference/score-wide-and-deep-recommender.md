@@ -1,5 +1,5 @@
 ---
-title: Scorer un modèle d’image
+title: Utiliser le module Score Wide et Deep Recommender
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module du générateur de recommandations Score Wide and Deep dans Azure Machine Learning pour noter les prédictions de recommandation pour un jeu de données.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 1d566d270f9e4b7017171a79fddf58090e21cdec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536213"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Générateur de recommandations Score Wide and Deep
 

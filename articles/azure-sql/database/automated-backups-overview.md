@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983102"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515112"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -101,7 +101,7 @@ La consommation du stockage de sauvegarde jusqu’à la taille maximale des donn
 
 ## <a name="backup-retention"></a>Rétention des sauvegardes
 
-Pour toutes les bases de données nouvelles, restaurées et copiées, Azure SQL Database et Azure SQL Managed Instance conservent des sauvegardes suffisantes pour autoriser la récupération jusqu’à une date et heure (PITR) au cours des 7 derniers jours par défaut. À l’exception des bases de données Hyperscale, vous pouvez [modifier la période de rétention des sauvegardes](#change-the-pitr-backup-retention-period) par base de données dans la plage de 1-35 jours. Comme décrit dans [Consommation du stockage de sauvegarde](#backup-storage-consumption), les sauvegardes stockées pour activer la récupération jusqu’à une date et heure (PITR) peuvent être antérieures à la période de rétention.
+Pour toutes les bases de données nouvelles, restaurées et copiées, Azure SQL Database et Azure SQL Managed Instance conservent des sauvegardes suffisantes pour autoriser la récupération jusqu’à une date et heure (PITR) au cours des 7 derniers jours par défaut. À l’exception des bases de données Hyperscale, vous pouvez [modifier la période de conservation des données des sauvegardes](#change-the-pitr-backup-retention-period) par base de données dans la plage de 1-35 jours. Comme décrit dans [Consommation du stockage de sauvegarde](#backup-storage-consumption), les sauvegardes stockées pour activer la récupération jusqu’à une date et heure (PITR) peuvent être antérieures à la période de rétention. Pour Azure SQL Managed Instance uniquement, il est possible de définir le taux de rétention des sauvegardes PITR une fois qu’une base de données a été supprimée dans la plage de 0-35 jours. 
 
 Si vous supprimez une base de données, le système conserve les sauvegardes de la même façon que pour une base de données en ligne avec sa période de rétention spécifique. Vous ne pouvez pas modifier la période de rétention de sauvegarde pour une base de données supprimée.
 
@@ -192,7 +192,7 @@ Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut 
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure via le portail Azure
 
-Pour modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure (PITR) via le portail Azure, accédez au serveur ou à l’instance gérée contenant les bases de données dont vous souhaitez modifier la période de rétention. 
+Pour modifier la période de rétention des sauvegardes avec récupération jusqu’à une date et heure (PITR) via le Portail Azure, accédez au serveur ou à l’instance gérée contenant les bases de données dont vous souhaitez modifier la période de rétention. 
 
 #### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
 
@@ -214,9 +214,54 @@ Les changements de conservation des sauvegardes avec restauration dans le temps 
 > [!IMPORTANT]
 > Le module PowerShell AzureRM est toujours pris en charge par SQL Database et SQL Managed Instance, mais tout développement futur concerne le module Az.Sql. Pour plus d’informations, consultez la page [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont essentiellement identiques à ceux utilisés dans les modules AzureRm.
 
+#### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
+
+Pour modifier la rétention de sauvegarde PITR pour les bases de données SQL Azure actives, utilisez l’exemple PowerShell suivant.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
+
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **active individuelle**, utilisez l'exemple PowerShell suivant.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **actives**, utilisez l'exemple PowerShell suivant.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **individuelle supprimée**, utilisez l'exemple PowerShell suivant.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **supprimées**, utilisez l'exemple PowerShell suivant.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+La rétention des jours zéro (0) indique que la sauvegarde est immédiatement supprimée et n’est plus conservée pour une base de données supprimée.
+Une fois la rétention de sauvegarde PITR réduite pour une base de données supprimée, elle ne peut plus être augmentée.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Modifier la période de rétention des sauvegardes avec récupération jusqu`à une date et heure à l’aide de l’API REST
 
@@ -260,3 +305,4 @@ Pour plus d’informations, consultez [API REST de conservation des sauvegardes]
 - Apprenez-en davantage sur la [restauration d’une base de données à un point dans le temps à l’aide de PowerShell](scripts/restore-database-powershell.md).
 - Pour plus d’informations sur la façon de configurer, gérer et restaurer depuis la conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec le portail Azure, consultez [Gestion de la rétention des sauvegardes à long terme à l’aide du Portail Azure](long-term-backup-retention-configure.md).
 - Pour plus d’informations sur la façon de configurer, gérer et restaurer des données à partir d’une conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec PowerShell, voir [Gestion de la rétention des sauvegardes à long terme à l’aide de PowerShell](long-term-backup-retention-configure.md).
+- Pour savoir comment ajuster la rétention et les coûts de stockage de sauvegarde pour Azure SQL Managed Instance, consultez [Réglage des coûts de stockage de sauvegarde sur Managed Instance](https://aka.ms/mi-backup-tuning).

@@ -3,14 +3,14 @@ title: Tableau de bord Commandes de l’Espace partenaires dans l’analytique d
 description: Découvrez comment accéder aux rapports d’analytique sur vos commandes d’offres de la place de marché dans un format graphique et téléchargeable.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536128"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -29,12 +29,9 @@ Le **tableau de bord Commandes** du menu **Analyser** présente les commandes en
 - [Commandes par zone géographique](#orders-by-geography)
 - [Commandes par offre](#orders-by-offers)
 - [Tendance des commandes par site et par siège](#orders-trend-per-site-versus-per-seat)
-- [Commandes par référence SKU](#orders-by-skus)
+- [Commandes par plans](#orders-by-plans)
 - [Tendance des commandes et des sièges](#orders-and-seats-trend)
 - [Tableau des détails des commandes](#order-details-table)
-
-> [!NOTE]
-> Il existe des différences sur la manière dont les rapports d'analyse s'affichent dans le Portail Cloud Partner et le nouveau programme Place de marché commerciale de l'Espace partenaires. Par exemple, la section **Insights Vendeurs** du Portail Cloud Partner comporte un onglet **Commandes et utilisation**, qui présente les données des offres facturées à l’utilisation et autres. Dans l'Espace partenaires, la page **Commandes** propose un onglet distinct pour les offres SaaS.
 
 ## <a name="order-dashboard-details"></a>Détails du tableau de bord Commande
 
@@ -76,16 +73,16 @@ Le graphique en anneau **Commandes par offre** organise les commandes (commandes
 
 Le graphique en anneau **par site et par siège** représente la répartition des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses). L’histogramme représente la tendance des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses).
 
-### <a name="orders-by-skus"></a>Commandes par référence SKU
+### <a name="orders-by-plans"></a>Commandes par plans
 
-Le graphe **Commandes par référence SKU** représente la tendance des commandes au niveau de la référence SKU pour toutes vos offres (commandes annulées incluses). Le graphique en anneau représente la répartition des cinq premières commandes de références SKU et l’histogramme représente la tendance des commandes pour les cinq premières références SKU.
+Le graphe **Commandes par plans** représente la tendance des commandes au niveau des plans pour toutes vos offres (commandes annulées incluses). Le graphique en anneau représente la répartition des cinq premières commandes par plans et l’histogramme représente la tendance des commandes pour les cinq premiers plans.
 
 ### <a name="orders-and-seats-trend"></a>Tendance des commandes et des sièges
 
 Le graphe **Tendance des commandes et des sièges** présente les 50 premières offres par nombre de commandes. Elles sont affichées dans un classement et triées par nombre de commandes et pourcentage de commandes.
 
-- **Commandes par référence SKU** : sélectionnez une offre pour voir la répartition du nombre de commandes pour les cinq premières références SKU dans le graphe.
-- **Sièges par référence SKU** : tendance mensuelle des sièges pour les cinq premières références SKU. Si l’offre sélectionnée n’est pas une offre par siège, ce graphique en aires ne comportera aucune donnée.
+- **Commandes par plans** – Sélectionnez une offre pour voir la répartition du nombre de commandes pour les cinq premiers plans dans le graphe.
+- **Sièges par plans** – Tendance mensuelle des sièges pour les cinq premiers plans. Si l’offre sélectionnée n’est pas une offre par siège, ce graphique en aires ne comportera aucune donnée.
 
 ### <a name="canceled-orders-by-offers"></a>Commandes annulées par offre
 

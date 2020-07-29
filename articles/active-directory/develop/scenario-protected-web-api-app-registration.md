@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868843"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518272"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -29,15 +29,15 @@ Pour connaître les étapes courantes visant à inscrire une application, consul
 
 Le point de terminaison de la plateforme d’identités Microsoft peut émettre des jetons v1.0 et des jetons v2.0. Pour plus d’informations sur ces jetons, consultez [Jetons d’accès](access-tokens.md).
 
-La version de jeton acceptée varie selon la valeur **Types de comptes pris en charge** que vous avez choisie lorsque vous avez créé votre application.
+La version de jeton que votre API peut accepter dépend de la sélection de **Types de compte pris en charge** lorsque vous créez l’inscription de votre application API Web dans le Portail Azure.
 
-- Si la valeur **Types de comptes pris en charge** est **Comptes dans un annuaire organisationnel et comptes Microsoft personnels (par exemple, Skype, Xbox, Outlook.com)** , la version de jeton acceptée est v2.0.
+- Si la valeur de **Types de comptes pris en charge** est **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , la version de jeton acceptée est v2.0.
 - Sinon, la version de jeton acceptée est v1.0.
 
 Après avoir créé l’application, vous pouvez déterminer ou changer la version de jeton acceptée en procédant comme suit :
 
 1. Dans le Portail Azure, sélectionnez votre application puis **Manifeste**.
-1. Recherchez la propriété **accessTokenAcceptedVersion** dans le manifeste. La valeur par défaut de la propriété est 2.
+1. Recherchez la propriété **accessTokenAcceptedVersion** dans le manifeste.
 1. La valeur spécifie à Azure Active Directory (Azure AD) la version de jeton acceptée par l’API web.
     - Si la valeur est 2, l’API web accepte les jetons v2.0.
     - Si la valeur est **Null**, l’API web accepte les jetons v1.0.
@@ -52,7 +52,7 @@ Les API web n’ont pas besoin d’inscrire d’URI de redirection, car aucun ut
 
 ## <a name="exposed-api"></a>API exposée
 
-D’autres paramètres spécifiques aux API web sont l’API exposée et les étendues exposées.
+D’autres paramètres spécifiques aux API web sont l’API exposée et les étendues exposées ou rôles d’application.
 
 ### <a name="application-id-uri-and-scopes"></a>URI d’ID d’application et étendues
 
@@ -64,7 +64,7 @@ Lors de l’inscription de l’application, vous devez définir les paramètres 
 - Une ou plusieurs étendues
 - Un ou plusieurs rôles d’application
 
-Par défaut, le portail d’inscription des applications vous recommande d’utiliser l’URI de ressource `api://{clientId}`. Cet URI est unique, mais n’est pas lisible. Si vous modifiez l’URI, assurez-vous que la nouvelle valeur est unique.
+Par défaut, le portail d’inscription des applications vous recommande d’utiliser l’URI de ressource `api://{clientId}`. Cet URI est unique, mais n’est pas lisible. Si vous modifiez l’URI, assurez-vous que la nouvelle valeur est unique. Le portail d’inscription des applications s’assure que vous utilisez un domaine de [serveur de publication configuré](howto-configure-publisher-domain.md)
 
 Pour les applications clientes, les étendues s’affichent en tant que *permissions déléguées* et les rôles d’application en tant que *permissions d’application* pour votre API web.
 
@@ -72,6 +72,8 @@ Les étendues s’affichent également dans la fenêtre de consentement présent
 
 - Comme vue par un utilisateur.
 - Comme vue par l’administrateur client, qui peut accorder un consentement administrateur.
+
+Les rôles d’application ne peuvent pas être consentis par un utilisateur (car ils sont utilisés par une application qui appelle l’API Web pour son propre compte). Un administrateur client devra donner son consentement aux applications clientes de votre API Web qui exposent des rôles d’application. Pour plus d’informations, consultez [Consentement administrateur](v2-admin-consent.md)
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exposition d’autorisations déléguées (étendues)
 

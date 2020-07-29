@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255532"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523313"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -104,11 +104,15 @@ Si vous n’avez pas de nombreux packages à exécuter et que vous voulez exécu
 
 Ces données représentent une seule exécution de package sur un seul nœud de rôle de travail. Le package charge 3 millions d’enregistrements avec des colonnes de prénoms et de noms depuis le stockage Blob Azure, génère une colonne avec des noms complets et écrit les enregistrements dont le nom complet a plus de 20 caractères dans le stockage Blob Azure.
 
+L’axe des Y est le nombre de packages dont l’exécution s’est terminée en une heure. Notez qu’il ne s’agit que d’un résultat de test d’un package gourmand en mémoire. Si vous souhaitez connaître le débit de votre package, il est recommandé d’effectuer le test par vous-même.
+
 ![Vitesse d’exécution du package Azure-SSIS Integration Runtime](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configurer pour le débit global
 
 Si vous avez beaucoup de packages à exécuter et que vous vous souciez surtout du débit global, utilisez les informations données dans le tableau suivant pour choisir un type de machine virtuelle approprié à votre scénario.
+
+L’axe des Y est le nombre de packages dont l’exécution s’est terminée en une heure. Notez qu’il ne s’agit que d’un résultat de test d’un package gourmand en mémoire. Si vous souhaitez connaître le débit de votre package, il est recommandé d’effectuer le test par vous-même.
 
 ![Débit global maximal d’Azure-SSIS Integration Runtime](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513375"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518587"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -79,7 +79,7 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
 ## <a name="introduction"></a><a name="introduction"></a>Introduction
 Ce guide vous explique comment utiliser des fonctionnalités telles que Azure Storage Analytics, la journalisation côté client dans la bibliothèque cliente de Azure Storage, et d’autres outils tiers permettant d’identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage.
 
-![][1]
+![Diagramme qui illustre le flux d'informations entre les applications des clients et les services de stockage Azure.][1]
 
 Ce guide est destiné principalement aux développeurs de services en ligne qui utilisent les services Azure Storage et aux professionnels de l’informatique responsables de la gestion de tels services en ligne. Ce guide a pour objectifs de :
 
@@ -118,7 +118,7 @@ Vous devez surveiller en permanence vos applications Azure afin de vous assurer 
 
 Les graphiques de l’image suivante illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d'activité. Les métriques horaires s'affichent pour indiquer un taux de demandes stable ; les métriques par minute révèlent les fluctuations réelles.
 
-![][3]
+![Les graphiques illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d’activité.][3]
 
 La suite de cette section décrit quelles métriques vous devriez analyser et pourquoi.
 
@@ -348,7 +348,7 @@ Votre problème concerne-t-il la disponibilité d’un des services de stockage�
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Les métriques indiquent une valeur AverageE2ELatency élevée et une valeur AverageServerLatency faible
 L’illustration de l’outil d’analyse du [portail Azure](https://portal.azure.com) donne un exemple où la valeur **AverageE2ELatency** est nettement supérieure à la valeur **AverageServerLatency**.
 
-![][4]
+![L’illustration de l’outil d’analyse du Portail Azure donne un exemple où la valeur AverageE2ELatency est nettement supérieure à la valeur AverageServerLatency.][4]
 
 Le service de stockage calcule uniquement la métrique **AverageE2ELatency** pour les requêtes réussies et, contrairement à la valeur **AverageServerLatency**, inclut le temps nécessaire au client pour envoyer les données et recevoir l’accusé de réception du service de stockage. Par conséquent, une différence entre les valeurs **AverageE2ELatency** et **AverageServerLatency** peut être due à une réponse lente de l’application client ou aux conditions sur le réseau.
 
@@ -455,7 +455,7 @@ Vos métriques indiquent une augmentation de la valeur **PercentTimeoutError** p
 >
 >
 
-La métrique **PercentTimeoutError** est une agrégation des métriques suivantes : **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** et **SASServerTimeoutError**.
+La métrique **PercentTimeoutError** est un agrégat des métriques suivantes : **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** et **SASServerTimeoutError**.
 
 Les délais d'expiration du serveur sont provoqués par une erreur sur le serveur. Les délais d’expiration clients se produisent lorsqu’une opération sur le serveur a dépassé le délai d’expiration spécifié par le client ; par exemple, un client qui utilise la bibliothèque cliente de stockage peut définir un délai d’expiration pour une opération en utilisant la propriété **ServerTimeout** de la classe **QueueRequestOptions**.
 
@@ -626,9 +626,9 @@ La cause la plus probable de ce scénario est que le client a envoyé une demand
 Si ce problème se produit fréquemment, vous devez rechercher pourquoi le client ne reçoit pas les accusés de réception du service de table. Si le problème est intermittent, vous devez capturer l’erreur « HTTP (404) Not Found » et la journaliser dans le client, mais permettre au client de continuer.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>Le client reçoit des messages HTTP 409 (Conflict)
-Le tableau suivant montre un extrait du journal côté serveur pour deux opérations clientes : **DeleteIfExists** suivi immédiatement par **CreateIfNotExists** et le même nom de conteneur d’objets blob. Chaque opération cliente génère l’envoi de deux requêtes au serveur : d’abord une requête **GetContainerProperties** afin de vérifier l’existence du conteneur, puis la requête **DeleteContainer** ou **CreateContainer**.
+Le tableau suivant inclut un extrait du journal côté serveur pour deux opérations client : **DeleteIfExists** suivie de **CreateIfNotExists** avec le même nom de conteneur d’objet blob. Chaque opération cliente génère l’envoi de deux requêtes au serveur : d’abord une requête **GetContainerProperties** afin de vérifier l’existence du conteneur, puis la requête **DeleteContainer** ou **CreateContainer**.
 
-| Timestamp | Opération | Résultats | Nom du conteneur | ID de la demande client |
+| Timestamp | Opération | Résultat | Nom du conteneur | ID de la demande client |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -727,7 +727,7 @@ Après avoir lancé Fiddler, il commence à capturer le trafic HTTP et HTTPS de 
 
 Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters** . La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
 
-![][5]
+![Capture d'écran montrant un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau
 [Wireshark](https://www.wireshark.org/) est un analyseur de protocole réseau qui vous permet d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau.
@@ -739,18 +739,18 @@ La procédure suivante explique comment capturer des informations détaillées c
 3. Cliquez sur **Capture Options**.
 4. Ajoutez un filtre à la zone de texte **Capture Filter** . Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Consultez la [liste complète des filtres de capture](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Capture d’écran montrant comment ajouter un filtre à la zone de texte Filtre de capture.][6]
 5. Cliquez sur **Start**. Wireshark commence à capturer tous les paquets envoyés au ou par le point de terminaison de stockage du service de table lors de l'utilisation de votre application cliente sur votre ordinateur local.
 6. Lorsque vous avez terminé, dans le menu principal, cliquez sur **Capture**, puis sur **Stop**.
 7. Pour enregistrer les données capturées dans un fichier de capture Wireshark, dans le menu principal, cliquez sur **File**, puis sur **Save**.
 
 WireShark met en évidence toutes les erreurs détectées dans la fenêtre **packetlist** . Vous pouvez également utiliser la fenêtre **Expert Info** (cliquez sur **Analyze**, puis sur **Expert Info**) pour afficher un récapitulatif des erreurs et avertissements.
 
-![][7]
+![Capture d’écran qui montre la fenêtre info Expert dans laquelle vous pouvez afficher un résumé des erreurs et des avertissements.][7]
 
 Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit sur les données TCP et en sélectionnant **Suivre le flux TCP**. Cette option est utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
 
-![][8]
+![Capture d’écran montrant comment afficher les données TCP comme la couche application les voit.][8]
 
 > [!NOTE]
 > Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -783,11 +783,11 @@ En plus d’utiliser le suivi **Web Proxy** de l’analyseur de message Microsof
 
 La capture d’écran suivante illustre un exemple de suivi **Local Link Layer** avec des messages **d’information** dans la colonne **DiagnosisTypes**. Cliquer sur une icône dans la colonne **DiagnosisTypes** affiche les détails du message. Dans cet exemple, le serveur a retransmis le message #305, car il n'a reçu aucun accusé de réception du client :
 
-![][9]
+![Capture d’écran illustrant un exemple de suivi Local Link Layer avec des messages d’information dans la colonne DiagnosisTypes][9]
 
 Lorsque vous créez la session de suivi dans l'analyseur de message Microsoft, vous pouvez spécifier des filtres afin de limiter le nombre de parasites dans le suivi. Sur la page **Capture / Trace** où vous définissez le suivi, cliquez sur le lien **Configure** à côté de **Microsoft-Windows-NDIS-PacketCapture**. La capture d'écran suivante illustre une configuration qui filtre le trafic TCP pour les adresses IP de trois services de stockage :
 
-![][10]
+![Capture d'écran illustrant une configuration qui filtre le trafic TCP pour les adresses IP de trois services de stockage.][10]
 
 Pour plus d’informations concernant le suivi Local Link Layer de l’analyseur de message Microsoft, consultez [Fournisseur Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
 

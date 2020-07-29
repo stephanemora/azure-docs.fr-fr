@@ -485,7 +485,7 @@
             - name: Voir les notifications
               href: ../service-health/service-notifications.md
             - name: Configurer des alertes sur les événements de notification
-              href: platform/alerts-activity-log-service-notifications.md
+              href: ../service-health/alerts-activity-log-service-notifications-portal.md
         - name: Notifications et actions
           items:
             - name: Règles d’action (préversion)
@@ -905,18 +905,24 @@
           href: insights/vminsights-ga-release-faq.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-vms
-        - name: Activer la supervision
+        - name: Configurer l’espace de travail
+          href: insights/vminsights-configure-workspace.md
+        - name: Installer des agents
           items:
-            - name: Vue d’ensemble de l’activation de la supervision
+            - name: Vue d’ensemble
               href: insights/vminsights-enable-overview.md
-            - name: Activer pour une seule machine virtuelle Azure
-              href: insights/vminsights-enable-single-vm.md
-            - name: Activer à l’aide d’Azure Policy
-              href: insights/vminsights-enable-at-scale-policy.md
-            - name: Activer à l’aide d’Azure PowerShell
-              href: insights/vminsights-enable-at-scale-powershell.md
-            - name: Activer pour un environnement hybride
-              href: insights/vminsights-enable-hybrid-cloud.md
+            - name: Portail Azure
+              href: insights/vminsights-enable-portal.md
+            - name: Azure PowerShell
+              href: insights/vminsights-enable-powershell.md
+            - name: Modèles ARM
+              href: insights/vminsights-enable-resource-manager.md
+            - name: Azure Policy
+              href: insights/vminsights-enable-policy.md
+            - name: Machines virtuelles hybrides
+              href: insights/vminsights-enable-hybrid.md
+            - name: Mettre à niveau l’agent de dépendances
+              href: insights/vminsights-dependency-agent-maintenance.md
         - name: Mapper des dépendances
           href: insights/vminsights-maps.md
         - name: Superviser les performances
@@ -927,8 +933,6 @@
           href: insights/vminsights-workbooks.md
         - name: Créer des règles d'alerte
           href: insights/vminsights-alerts.md
-        - name: Mettre à niveau l’agent de dépendances
-          href: insights/vminsights-dependency-agent-maintenance.md
         - name: Désactiver l’analyse
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs

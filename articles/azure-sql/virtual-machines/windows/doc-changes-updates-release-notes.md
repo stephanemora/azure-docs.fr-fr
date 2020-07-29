@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231503"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503782"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,10 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 | Modifications | Détails |
 | --- | --- |
 | **Migration du journal vers un disque Ultra** | Découvrez comment [migrer votre fichier journal vers un disque Ultra](storage-migrate-to-ultradisk.md) pour bénéficier de performances élevées et d’une faible latence. | 
-
-
+| **Créer un groupe de disponibilité à l’aide de PowerShell** | Il est désormais possible de simplifier la création d’un groupe de disponibilité à l’aide de [PowerShell](availability-group-az-commandline-configure.md), ainsi que d’Azure CLI. | 
 
 
 ## <a name="june-2020"></a>Juin 2020
-
 
 | Modifications | Détails |
 | --- | --- |

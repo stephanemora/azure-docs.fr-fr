@@ -3,12 +3,12 @@ title: Configurer l’accès au registre public
 description: Configurez des règles IP pour activer l’accès à un registre de conteneurs Azure à partir de certaines IP publiques ou plages d’adresses.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702088"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523823"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurer des règles de réseau IP public
 
@@ -101,6 +101,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 1. Sous l’onglet **Accès public**, dans **Autoriser l’accès au réseau public**, sélectionnez **Tous les réseaux**. Ensuite, sélectionnez **Enregistrer**.
 
 ![Accès public à partir de tous les réseaux][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Dépanner
+
+Si une règle de réseau public est définie ou si l’accès public au registre est refusé, les tentatives de connexion au registre à partir d’un réseau public non autorisé échouent. L’accès client depuis derrière un proxy HTTPS échoue également si aucune règle d’accès n’est définie pour le proxy. Un message d'erreur semblable à `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Looks like you don't have access to registry` s'affiche.
+
+Ces erreurs peuvent également se produire si vous utilisez un proxy HTTPS qui est autorisé par une règle d’accès réseau, mais que le proxy n’est pas correctement configuré dans l’environnement client. Vérifiez que votre client Docker et le démon Docker sont configurés pour le comportement du proxy. Pour plus d’informations, consultez [proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) dans la documentation Docker.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

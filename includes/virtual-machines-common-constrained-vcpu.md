@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed1341a323d947441fa2cb3c239fcdf99c447a97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793704"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494482"
 ---
 Certaines charges de travail de base de données, comme SQL Server ou Oracle, nécessitent une mémoire, un espace de stockage et une bande passante d’E/S élevés, mais pas forcément un grand nombre de cœurs. De nombreuses charges de travail de base de données ne nécessitent pas une utilisation intensive du processeur. Azure offre certaines tailles de machine virtuelle pour lesquelles vous pouvez limiter le nombre de processeurs virtuels par machine virtuelle afin de réduire le coût des licences logicielles, tout en conservant une mémoire, un espace de stockage et une bande passante d’E/S identiques.
 
@@ -74,3 +74,5 @@ Les frais de licence facturés pour SQL Server ou Oracle sont limités au nouvea
 | Standard_DS13-2_v2  | 2    | Identique à DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Identique à DS14_v2 |
 | Standard_DS14-4_v2  | 4    | Identique à DS14_v2 |
+| Standard_M416-208s_v2 | 208    | Identique à M416s_v2|
+| Standard_M416-208ms_v2 | 208    | Identique à M416ms_v2 |

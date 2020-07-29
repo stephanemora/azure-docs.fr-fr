@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92e111a6e76dbe285dd8cc7a93ce75f556142565
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335375"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540143"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Afficher des données de trafic sur la carte à l’aide du kit SDK Android Azure Maps
 
@@ -21,9 +21,9 @@ Les données de flux et d’incidents sont deux types de données de trafic qui 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de pouvoir afficher le trafic sur la carte, vous devez [créer un compte Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)et [obtenir une clé d’abonnement](quick-demo-map-app.md#get-the-primary-key-for-your-account). Vous devez ensuite installer le kit [SDK Android Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) et charger une carte.
+Avant de pouvoir afficher le trafic sur la carte, vous devez [créer un compte Azure](quick-demo-map-app.md#create-an-azure-maps-account)et [obtenir une clé d’abonnement](quick-demo-map-app.md#get-the-primary-key-for-your-account). Vous devez ensuite installer le kit [SDK Android Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) et charger une carte.
 
-## <a name="incidents-traffic-data"></a>Données d’incidents de trafic 
+## <a name="incidents-traffic-data"></a>Données d’incidents de trafic
 
 Vous devez importer les bibliothèques suivantes pour appeler `setTraffic` et `incidents` :
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Utilisez l’extrait de code suivant pour définir les données de flux de trafic. Comme pour le code de la section précédente, la valeur de retour de la méthode `flow` est transmise à la méthode `setTraffic`. Les valeurs qui peuvent être transmises à `flow` sont au nombre de quatre, et chacune d’elles déclenche `flow` pour retourner sa propre valeur. La valeur de retour de `flow` est ensuite transmise sous forme d’argument à `setTraffic`. Ces quatre valeurs sont décrites dans le tableau ci-dessous :
 
-| | |
+|Valeur de flux | Description|
 | :-- | :-- |
 | TrafficFlow.NONE | N’affiche pas de données de trafic sur la carte |
 | TrafficFlow.RELATIVE | Affiche des données de trafic relatives à la vitesse dans des conditions de circulation routière fluide |
