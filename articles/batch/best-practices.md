@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497775"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -146,6 +146,10 @@ Les jonctions de répertoires, parfois appelées liens physiques de répertoires
 ### <a name="collect-the-batch-agent-logs"></a>Collecter les journaux de l’agent Batch
 
 Si vous remarquez un problème impliquant le comportement d’un nœud ou de tâches en cours d’exécution sur un nœud, collectez les journaux de l’agent Batch avant de libérer les nœuds en question. Les journaux de l’agent Batch peuvent être collectés à l’aide de l’API de chargement des journaux du service Batch. Ces journaux peuvent être fournis dans le cadre d’un ticket de support envoyé à Microsoft. Ils vous aideront à détecter les problèmes et à les résoudre.
+
+### <a name="manage-os-upgrades"></a>Gérer les mises à jour du système d’exploitation
+
+Pour les comptes Batch en mode d’abonnement utilisateur, les mises à jour automatiques du système d’exploitation peuvent interrompre la progression des tâches, en particulier si elles sont de longue durée. La [création de tâches idempotent](#build-durable-tasks) peut aider à réduire les erreurs provoquées par ces interruptions. Nous vous recommandons également de [planifier des mises à jour des images de système d’exploitation pour les périodes où les tâches ne sont pas censées s’exécuter](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Isolation de sécurité
 

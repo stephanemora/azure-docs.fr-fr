@@ -2,13 +2,13 @@
 title: Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques | Microsoft Docs
 description: Cet article décrit comment mettre à jour Azure Monitor pour conteneurs afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498982"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
 
@@ -22,21 +22,23 @@ Les métriques activées dans le cadre de cette fonctionnalité sont les suivant
 
 | Espace de noms de la métrique | Métrique | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Il s’agit de métriques de *nœud* qui comprennent la dimension *host*, ainsi que<br> le nom du nœud comme valeur de la dimension *host*. |
-| insights.container/pods | podCount | Il s’agit de métriques de *pod* qui comprennent les dimensions suivantes : ControllerName, espace de noms Kubernetes, nom, phase. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Comme mesures de*nœud* métriques, elles incluent *l’hôte* en tant que dimension. Elles incluent également<br> le nom du nœud comme valeur de la dimension *host*. |
+| Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Il s’agit de mesures de *pod* qui comprennent les dimensions suivantes : ControllerName, espace de noms Kubernetes, nom, phase. |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-La mise à jour du cluster pour la prise en charge de ces nouvelles fonctionnalités peut s’effectuer à partir du Portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure (Azure CLI). Azure PowerShell et Azure CLI vous permettent d’activer ces fonctionnalités par cluster ou pour tous les clusters de votre abonnement. Les nouveaux déploiements d’AKS intègrent automatiquement ce changement de configuration et ces nouvelles fonctionnalités.
+Pour prendre en charge ces nouvelles fonctionnalités, un nouvel agent en conteneur, version **microsoft/oms:ciprod02212019**, est inclus dans la version. Les nouveaux déploiements d’AKS intègrent automatiquement ce changement de configuration et ces fonctionnalités. La mise à jour du cluster pour la prise en charge de cette fonctionnalité peut s’effectuer à partir du Portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure (Azure CLI). Avec Azure PowerShell et Azure CLI. Vous pouvez les activer par cluster ou pour tous les clusters de votre abonnement.
 
-Les deux processus attribuent le rôle **Éditeur de métriques d’analyse** au principal de service du cluster ou à l'identité MSI affectée par l'utilisateur pour le module complémentaire de supervision afin que les données collectées par l’agent puissent être publiées sur votre ressource de cluster. L’Éditeur de métriques d’analyse est uniquement autorisé à envoyer (push) des métriques à la ressource. Il ne peut pas modifier d’état, mettre à jour la ressource ni lire aucune donnée. Pour plus d’informations sur le rôle, consultez l’article [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) (Rôle Éditeur de métriques d’analyse).
+Les deux processus attribuent le rôle **Éditeur de métriques d’analyse** au principal de service du cluster ou à l'identité MSI affectée par l'utilisateur pour le module complémentaire de supervision afin que les données collectées par l’agent puissent être publiées sur votre ressource de cluster. L’Éditeur de métriques d’analyse est uniquement autorisé à envoyer (push) des métriques à la ressource. Il ne peut pas modifier d’état, mettre à jour la ressource ni lire aucune donnée. Pour plus d’informations sur le rôle, consultez [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) (Rôle Éditeur de métriques d’analyse).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez les éléments suivants :
+Avant de mettre à jour votre cluster, vérifiez les éléments suivants :
 
 * Les métriques personnalisées sont disponibles dans un sous-ensemble de régions Azure uniquement. La liste des régions prises en charge est présentée [ici](../platform/metrics-custom-overview.md#supported-regions).
-* Vous êtes membre du rôle **[Propriétaire](../../role-based-access-control/built-in-roles.md#owner)** sur la ressource de cluster AKS pour activer la collection de métriques de performances personnalisées de nœud et de pod. 
 
-Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Vous êtes membre du rôle **[Propriétaire](../../role-based-access-control/built-in-roles.md#owner)** sur la ressource de cluster AKS pour activer la collection de métriques de performances personnalisées de nœud et de pod.
+
+Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Mettre à niveau un cluster à partir du Portail Azure
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242177"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544402"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -95,7 +95,7 @@ Les clients peuvent prendre une capture instantanée de leurs disques managés, 
 
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques managés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques managés.
 
-**Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
+**Puis-je localiser conjointement des disques managés et non-managés sur la même machine virtuelle ?**
 
 Non.
 
@@ -158,15 +158,19 @@ La réservation de disque Azure est achetée pour une région et une référence
 **Que se passe-t-il lorsque ma réservation de disques Azure expire ?**     
 Vous recevez une notification par e-mail 30 jours avant l’expiration, puis à nouveau au moment de l’expiration. Une fois la réservation expirée, les disques déployés continuent à fonctionner et sont facturés en fonction au [tarif de paiement à l'utilisation](https://azure.microsoft.com/pricing/details/managed-disks/) le plus récent.
 
+**Les disques SSD standard prennent-ils en charge les « SLA de machine virtuelle à instance unique » ?**
+
+Oui, tous les types de disques prennent en charge les SLA de machine virtuelle à instance unique.
+
 ### <a name="azure-shared-disks"></a>Disques partagés Azure
 
 **La fonctionnalité Disques partagés est-elle prise en charge pour les disques non managés ou les objets blob de pages ?**
 
-Non, elle est prise en charge uniquement pour les disques managés SSD Premium.
+Non, elle est prise en charge uniquement pour les disques Ultra et managés SSD Premium.
 
 **Dans quelles régions les disques partagés sont pris en charge ?**
 
-Pour l’heure, seulement dans la région USA Centre-Ouest.
+Pour obtenir des informations régionales, consultez notre [article conceptuel](../articles/virtual-machines/linux/disks-shared.md).
 
 **Les disques partagés peuvent-ils être utilisés comme disque de système d’exploitation ?**
 
@@ -174,11 +178,11 @@ Non, les disques partagés sont pris en charge uniquement pour les disques de do
 
 **Quelles sont les tailles de disque qui prennent en charge les disques partagés ?**
 
-Seuls les disques SSD Premium P15 ou supérieurs prennent en charge les disques partagés.
+Pour connaître les tailles prises en charge, consultez notre [article conceptuel](../articles/virtual-machines/linux/disks-shared.md).
 
-**Est-il possible d’activer la fonctionnalité Disques partagés sur un disque SSD Premium existant ?**
+**Est-il possible d’activer la fonctionnalité Disques partagés sur un disque existant ?**
 
-La fonctionnalité Disques partagés peut être activée sur tous les disques managés créés avec l’API version 2019-07-01 ou supérieure. Pour cela, vous devez démonter le disque sur toutes les machines virtuelles auxquelles il est attaché. Ensuite, modifiez la propriété `maxShares` sur le disque.
+La fonctionnalité Disques partagés peut être activée sur tous les disques managés créés avec l’API version 2019-07-01 ou supérieure. Pour cela, vous devez démonter le disque sur toutes les machines virtuelles auxquelles il est attaché. Ensuite, modifiez ensuite la propriété **maxShares** sur le disque.
 
 **Si je ne souhaite plus utiliser un disque en mode partagé, que dois-je faire pour le désactiver ?**
 
@@ -194,7 +198,7 @@ Non.
 
 **Est-ce que je peux activer la mise en cache de l’hôte pour un disque sur lequel la fonctionnalité Disques partagés est activée ?**
 
-Seule l’option de mise en cache de l’hôte « Aucune » est prise en charge.
+Seule l’option de mise en cache de l’hôte **« Aucune »** est prise en charge.
 
 ## <a name="ultra-disks"></a>Disques Ultra
 
@@ -205,7 +209,7 @@ Si vous ne savez pas comment configurer le débit de votre disque, nous vous rec
 En plus de la limitation de disque, il existe une limitation d’IO (E/S) imposée au niveau de la machine virtuelle. Vérifiez que la taille de la machine virtuelle que vous utilisez peut prendre en charge les niveaux configurés pour vos disques. Pour plus d’informations sur les limites d’IO (E/S) imposées par votre machine virtuelle, consultez [Tailles des machines virtuelles Windows dans Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Puis-je utiliser les niveaux de mise en cache avec un disque Ultra ?**
-Non, les disques Ultra ne prennent pas en charge les différentes méthodes de mise en cache prises en charge par d’autres types de disque. Affectez la valeur Aucune à la mise en cache de disque.
+Non, les disques Ultra ne prennent pas en charge les différentes méthodes de mise en cache prises en charge par d’autres types de disque. Affectez la valeur **Aucune** à la mise en cache de disque.
 
 **Puis-je attacher un disque Ultra à ma machine virtuelle existante ?**
 Éventuellement. Votre machine virtuelle doit se trouver dans une région et une zone de disponibilité prenant en charge les disques Ultra. Pour plus d’informations, consultez les détails permettant de [bien démarrer avec les disques Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md).
@@ -262,9 +266,6 @@ Les disques SSD standard offrent une meilleure latence, cohérence, disponibilit
 
 **Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
 Non, les disques SSD Standard sont disponibles seulement comme disques managés.
-
-**Les disques SSD standard prennent-ils en charge les « SLA de machine virtuelle à instance unique » ?**
-Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instance unique. Utiliser des disques SSD Premium pour une instance unique de contrat SLA de machine virtuelle.
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers la fonctionnalité Disques managés
 
@@ -413,7 +414,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numéro de version 4.1.0 : Version de juin 2017 ou ultérieure|
-|Azure CLI v1     | Numéro de version 0.10.13 : Version de mai 2017 ou ultérieure|
+|Azure CLI v1     | Numéro de version 0.10.13 : Version de mai 2017 ou ultérieure|
 |Azure CLI v2     | Numéro de version 2.0.12 : Version de juillet 2017 ou ultérieure|
 |AzCopy              | Numéro de version 6.1.0 : Version de juin 2017 ou ultérieure|
 
@@ -451,7 +452,41 @@ Les disques 8 Tio, 16 Tio et 32 Tio sont prises en charge dans toutes les régio
 
 **Prenez-vous en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
 
-La mise en cache de l’hôte (lecture seule et lecture/écriture) est prise en charge sur les tailles de disque inférieures à 4 Tio. Cela signifie que tout disque approvisionné jusqu’à 4095 Gio peut tirer parti de la mise en cache de l’hôte. La mise en cache de l’hôte n’est pas prise en charge pour les tailles de disque supérieures ou égales à 4096 Gio. Par exemple, un disque P50 Premium approvisionné à 4095 Gio peut tirer parti de la mise en cache de l’hôte et un disque P50 approvisionné à 4096 Gio ne peut pas tirer parti de la mise en cache de l’hôte. Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+La mise en cache de l’hôte (**lecture seule** et **lecture/écriture**) est prise en charge sur les tailles de disque inférieures à 4 Tio. Cela signifie que tout disque approvisionné jusqu’à 4095 Gio peut tirer parti de la mise en cache de l’hôte. La mise en cache de l’hôte n’est pas prise en charge pour les tailles de disque supérieures ou égales à 4096 Gio. Par exemple, un disque P50 Premium approvisionné à 4095 Gio peut tirer parti de la mise en cache de l’hôte et un disque P50 approvisionné à 4096 Gio ne peut pas tirer parti de la mise en cache de l’hôte. Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+
+## <a name="private-links-for-securely-exporting-and-importing-managed-disks"></a>Liaisons privées pour l’exportation et l’importation sécurisés des disques managés
+
+**Quel est l’avantage de l’utilisation de liaisons privées pour l’exportation et l’importation de disques managés ?**
+
+Vous pouvez désormais tirer parti des liaisons privées pour restreindre l’exportation et l’importation de disques managés à votre réseau virtuel Azure uniquement. 
+
+**Comment puis-je vérifier qu’un disque peut être exporté ou importé uniquement par le biais de liaisons privées ?**
+
+Vous devez définir la propriété `DiskAccessId` sur une instance d’un objet d’accès au disque et définir la propriété NetworkAccessPolicy sur `AllowPrivate`.
+
+**Puis-je lier plusieurs réseaux virtuels au même objet d’accès au disque ?**
+
+Non. Actuellement, vous pouvez lier un objet d’accès au disque à un seul réseau virtuel.
+
+**Puis-je lier un réseau virtuel à un objet d’accès au disque dans un autre abonnement ?**
+
+Non. Actuellement, vous pouvez lier un objet d’accès au disque à un seul réseau virtuel dans le même abonnement.
+
+**Puis-je lier un réseau virtuel à un objet d’accès au disque dans un autre abonnement ?**
+
+Non. Actuellement, vous pouvez lier un objet d’accès au disque à un seul réseau virtuel dans le même abonnement.
+
+**Combien d’exportations ou d’importations utilisant le même objet d’accès au disque peuvent se produire en même temps ?**
+
+5
+
+**Puis-je utiliser l’URI SAS d’un disque ou d’une capture instantanée pour télécharger le disque dur virtuel sous-jacent d’une machine virtuelle dans le même sous-réseau que le sous-réseau du point de terminaison privé associé au disque ?**
+
+Oui.
+
+**Puis-je utiliser l’URI SAS d’un disque ou d’une capture instantanée pour télécharger le disque dur virtuel sous-jacent d’une machine virtuelle dans le même sous-réseau que le sous-réseau du point de terminaison privé non-associé au disque ?**
+
+Non.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

@@ -3,12 +3,12 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116419"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538834"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
@@ -29,7 +29,7 @@ Cet organigramme montre les différentes étapes et états d’un élément de s
 
 La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité est déconseillée. La seule circonstance où vous devez envisager la désactivation de la suppression réversible est lorsque vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple). Seul le propriétaire du coffre peut désactiver cette fonctionnalité. Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés à venir entraîneront une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde existant à l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état pendant 14 jours. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
 
- Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail, notamment les charges de travail SQL Server et SAP HANA. Par exemple, une fois que la [préversion de SQL Server/SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA, tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
+ Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail, notamment les charges de travail SQL Server et SAP HANA. Par exemple, une fois que la [préversion de SQL Server/SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA, tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Désactivation de la suppression réversible avec le portail Azure
 
@@ -46,7 +46,7 @@ Pour désactiver la suppression réversible, procédez comme suit :
 > [!IMPORTANT]
 > La version Az.RecoveryServices minimale requise pour utiliser la suppression réversible avec Azure PowerShell est la version 2.2.0. Utilisez ```Install-Module -Name Az.RecoveryServices -Force``` pour récupérer la version la plus récente.
 
-Pour effectuer la désactivation, utilisez l’applet de commande PS [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0).
+Pour effectuer la désactivation, utilisez l’applet de commande PS [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty).
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -87,11 +87,11 @@ Procédez comme suit :
 
 5. Choisissez **Supprimer les données de sauvegarde** pour supprimer définitivement les données de sauvegarde.
 
-   ![Choisir Supprimer les données de sauvegarde](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Choisir Supprimer les données de sauvegarde](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
-   ![Entrez le nom de l’élément de sauvegarde](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Entrez le nom de l’élément de sauvegarde](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 

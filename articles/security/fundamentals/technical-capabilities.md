@@ -2,25 +2,20 @@
 title: Fonctionnalités techniques de la sécurité dans Azure - Microsoft Azure
 description: Introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519318"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -170,77 +165,11 @@ Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâc
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Pour les bonnes pratiques de chiffrement et de sécurité des données dans Azure, les recommandations que nous formulons s’articulent autour des états suivants des données :
 
 - Au repos : Cela inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
-
 - En transit : Lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Pour appliquer le chiffrement au repos, vous devez effectuer ce qui suit :
-
-Prend en charge au moins un des modèles de chiffrement recommandés qui sont répertoriés dans le tableau suivant pour chiffrer les données.
-
-| Modèles de chiffrement |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Chiffrement serveur | Chiffrement serveur | Chiffrement serveur | Chiffrement client
-| Chiffrement côté serveur à l’aide de clés gérés par le service | Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault | Chiffrement côté serveur à l’aide de clés gérées par le client local |
-| • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br> • Microsoft gère les clés <br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement<br>• Le client contrôle les clés par le biais d’Azure Key Vault<br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br>• Le client contrôle les clés localement <br> • Fonctionnalité cloud complète| • Les services Azure ne peuvent pas voir les données déchiffrées <br>• Les clients conservent les clés localement (ou dans d’autres banques d’informations sécurisées). Les clés ne sont pas disponibles pour les services Azure <br>• Fonctionnalité cloud réduite|
-
-### <a name="enabling-encryption-at-rest"></a>Activation du chiffrement au repos
-
-**Identifier tous les emplacements où vos données sont stockées**
-
-Le chiffrement au repos vise à chiffrer toutes les données. En agissant ainsi, la possibilité qu’il puisse manquer des données importantes ou des emplacements persistants est éliminée. Énumérez toutes les données stockées par votre application.
-
-> [!Note]
-> Pas simplement les « données d’application » ou les « informations d’identification personnelle », mais les données relatives à l’application, y compris les métadonnées de compte (mappages d’abonnement, informations de contrat, informations d’identification personnelle).
-
-Réfléchissez aux banques d’informations que vous utilisez pour stocker les données. Par exemple :
-
-- Stockage externe (par exemple, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
-
-- Stockage temporaire (n’importe quel cache local incluant les données du locataire)
-
-- Cache en mémoire (peut être intégré dans le fichier d’échange)
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Optimiser la prise en charge existante du chiffrement au repos dans Azure
-
-Pour chaque banque d’informations que vous utilisez, tirez parti de la prise en charge existante du chiffrement au repos.
-
-- Stockage Azure : Consultez [Chiffrement du service Stockage Azure pour les données au repos](../../storage/common/storage-service-encryption.md),
-
-- SQL Azure : Consultez [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- Machine virtuelle & stockage sur disque local ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-Pour le stockage de disque local et de machine virtuelle, utilisez Azure Disk Encryption où il est pris en charge :
-
-#### <a name="iaas"></a>IaaS
-
-Les services avec des machines virtuelles IaaS (Windows ou Linux) doivent utiliser [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) pour chiffrer les volumes contenant des données client.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Les services qui s’exécutent sur PaaS v2 au moyen de Service Fabric peuvent utiliser Azure Disk Encryption pour le groupe de machines virtuelles identiques, afin de chiffrer leurs machines virtuelles PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-Actuellement, Azure Disk Encryption n’est pas pris en charge sur PaaS v1. Par conséquent, vous devez utiliser le chiffrement au niveau de l’application pour chiffrer les données persistantes au repos.  Cela inclut, mais n’est pas limité aux données d’application, fichiers temporaires, journaux d’activité et vidages sur incident.
-
-La plupart des services devraient tenter de tirer parti du chiffrement d’un fournisseur de ressources de stockage. Certains services doivent procéder à un chiffrement explicite, par exemple, le matériel de clé persistante (certificats, clé racine / principale) doit être stocké dans Key Vault.
-
-Si vous prenez en charge le chiffrement côté service avec des clés gérées par le client, celui-ci doit trouver le moyen de nous faire parvenir la clé. Le moyen recommandé et pris en charge pour ce faire est l’intégration à Azure Key Vault. Dans ce cas, les clients peuvent ajouter et gérer leurs clés dans Azure Key Vault. Un client peut apprendre à utiliser Azure Key Vault en consultant [Bien démarrer avec Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Pour l’intégration à Azure Key Vault, vous devez ajouter du code pour demander une clé à Azure Key Vault lorsqu’elle est nécessaire pour le déchiffrement.
-
-- Consultez [Azure Key Vault – Étape par étape](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) pour obtenir plus d’informations sur l’intégration à Azure Key Vault.
-
-Si vous prenez en charge les clés gérées par le client, vous devez fournir une expérience utilisateur (UX) pour que le client puisse spécifier quel Key Vault (ou l’URI Key Vault) utiliser.
-
-Comme le chiffrement au repos implique le chiffrement de l’hôte, de l’infrastructure et des données du locataire, la perte des clés due à une défaillance du système ou à des activités malveillantes peut signifier la perte de toutes les données chiffrées. Il est donc capital que votre solution de chiffrement au repos dispose d’un historique de récupération d’urgence complet, résistant aux défaillances du système et aux activités malveillantes.
-
-Les services qui implémentent le chiffrement au repos sont en général toujours vulnérables au niveau des données ou des clés de chiffrement qui restent non chiffrés sur le lecteur hôte (par exemple, dans le fichier d’échange du système d’exploitation hôte). Par conséquent, les services doivent s’assurer que le volume hôte soit chiffré pour leurs services. Pour faciliter cette opération, l’équipe Compute a activé le déploiement du chiffrement de l’hôte, qui utilise [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP et des extensions vers l’agent et le service DCM pour chiffrer le volume hôte.
-
-La plupart des services sont implémentés sur des machines virtuelles Azure standard. Ces services devraient automatiquement récupérés le[chiffrement de l’hôte](../azure-security-disk-encryption-overview.md) lorsque Compute l’active. Pour les services qui s’exécutent dans les clusters gérés par Compute, le chiffrement de l’hôte est activé automatiquement en même temps que Windows Server 2016 est déployé.
+Le chiffrement au repos est détaillé dans [Chiffrement de données Azure au repos](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 

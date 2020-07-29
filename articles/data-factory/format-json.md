@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84611042"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537695"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,8 +33,8 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | Oui      |
 | encodingName     | Le type de codage utilisé pour lire/écrire des fichiers de test. <br>Les valeurs autorisées sont les suivantes : « UTF-8 », « UTF-16 », « UTF-16BE », « UTF-32 », « UTF-32BE », « US-ASCII », « UTF-7 », « BIG5 », « EUC-JP », « EUC-KR », « GB2312 », « GB18030 », « JOHAB », « SHIFT-JIS », « CP875 », « CP866 », « IBM00858 », « IBM037 », « IBM273 », « IBM437 », « IBM500 », « IBM737 », « IBM775 », « IBM850 », « IBM852 », « IBM855 », « IBM857 », « IBM860 », « IBM861 », « IBM863 », « IBM864 », « IBM865 », « IBM869 », « IBM870 », « IBM01140 », « IBM01141 », « IBM01142 », « IBM01143 », « IBM01144 », « IBM01145 », « IBM01146 », « IBM01147 », « IBM01148 », « IBM01149 », « ISO-2022-JP », « ISO-2022-KR », « ISO-8859-1 », « ISO-8859-2 », « ISO-8859-3 », « ISO-8859-4 », « ISO-8859-5 », « ISO-8859-6 », « ISO-8859-7 », « ISO-8859-8 », « ISO-8859-9 », « ISO-8859-13 », « ISO-8859-15 », « WINDOWS-874 », « WINDOWS-1250 », « WINDOWS-1251 », « WINDOWS-1252 », « WINDOWS-1253 », » WINDOWS-1254 », « WINDOWS-1255 », « WINDOWS-1256 », « WINDOWS-1257 », « WINDOWS-1258 ».| Non       |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
-| type | Le codec de compression utilisé pour lire/écrire des fichiers JSON. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, ou **lz4**. À utiliser lors de l’enregistrement du fichier. La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Notez** que lors de l'utilisation de l'activité de copie pour décompresser des fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source zip file>/`, utilisez `preserveZipFileNameAsFolder` sur [source de l'activité de copie](#json-as-source) pour déterminer si le nom du fichier zip doit être conservé comme structure de dossier. | Non.  |
-| level | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
+| type<br/>(*sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers JSON. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, ou **lz4**. À utiliser lors de l’enregistrement du fichier. La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Notez** que lors de l'utilisation de l'activité de copie pour décompresser des fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source zip file>/`, utilisez `preserveZipFileNameAsFolder` sur [source de l'activité de copie](#json-as-source) pour déterminer si le nom du fichier zip doit être conservé comme structure de dossier. | Non.  |
+| level<br/>(*sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données JSON sur Stockage Blob Azure :
 
@@ -65,6 +65,8 @@ Voici un exemple de jeu de données JSON sur Stockage Blob Azure :
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source et le récepteur JSON.
+
+Découvrez la procédure d’extraction de données à partir de fichiers JSON et de mappage au magasin/format de données récepteur, ou inversement, à partir de la [mise en correspondance du schéma](copy-activity-schema-and-type-mapping.md).
 
 ### <a name="json-as-source"></a>JSON en tant que source
 
@@ -209,7 +211,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source JS
 | Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
 | Document individuel | Les flux de données de mappage lisent un document JSON à partir de chaque fichier | non | `true` ou `false` | singleDocument |
-| Noms de colonnes sans guillemets | Si **Noms de colonnes sans guillemets** est sélectionné, le mappage des flux de données lit les colonnes JSON qui ne sont pas entourées de guillemets. | non | `true` ou `false` |  unquotedColumnNames
+| Noms de colonnes sans guillemets | Si **Noms de colonnes sans guillemets** est sélectionné, le mappage des flux de données lit les colonnes JSON qui ne sont pas entourées de guillemets. | non | `true` ou `false` |  unquotedColumnNames |
 | Comporte des commentaires | Sélectionnez **Comporte des commentaires** si les données JSON ont des commentaires de style C ou C++ | non | `true` ou `false` | asComments |
 | Apostrophes simples | Lit les colonnes JSON qui ne sont pas entourées de guillemets | non | `true` ou `false` | singleQuoted |
 | Barres obliques inverses d’échappement | Sélectionnez **Barres obliques inverses d’échappement** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON. | non | `true` ou `false` | backslashEscape |
@@ -297,7 +299,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par un récepteur�
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Effacer le contenu du dossier | Pour effacer le contenu du dossier de destination avant l’écriture de données | non | `true` ou `false` | truncate |
+| Effacer le contenu du dossier | Si le dossier de destination est vidé avant l’écriture | non | `true` ou `false` | truncate |
 | Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Comme les données de la colonne : String <br> Sortie dans un fichier unique : `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Création de structures JSON dans une colonne dérivée
