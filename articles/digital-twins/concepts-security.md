@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833162"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522259"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Sécuriser Azure Digital Twins avec le contrôle d’accès en fonction du rôle
 
@@ -58,7 +58,7 @@ Vous pouvez attribuer des rôles de deux manières :
 * Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [Ajouter ou supprimer des attributions de rôles à l’aide de RBAC Azure et du portail Azure](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
 
-Pour plus d’informations sur la procédure à suivre, testez le [tutoriel Azure Digital Twins : Connecter une solution de bout en bout](tutorial-end-to-end.md).
+Pour plus d’informations sur la procédure à suivre, testez le [tutoriel Azure Digital Twins : *Connecter une solution de bout en bout*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Étendues d’autorisation
 
@@ -73,6 +73,6 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez comment suivre ces étapes avec un exemple d’application cliente dans [Guide pratique : Authentifier une application cliente](how-to-authenticate-client.md).
+* Découvrez comment suivre ces étapes avec un exemple d’application cliente dans [*Guide pratique : Authentifier une application cliente*](how-to-authenticate-client.md).
 
 * En savoir plus sur les [RBAC pour Azure ](../role-based-access-control/overview.md).

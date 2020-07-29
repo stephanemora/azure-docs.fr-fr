@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501889"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
@@ -23,11 +23,11 @@ Une fois que la séquence SysRq est livrée, la configuration du noyau contrôle
 
 La console série Azure peut être utilisée pour envoyer une SysRq à une machine virtuelle Azure via l’icône de clavier dans la barre de commande ci-dessous.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Capture d’écran de la console série Azure. L’icône de clavier est mise en surbrillance et son menu est visible. Ce menu contient une option Envoyer une commande SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 En sélectionnant « Envoyer une commande SysRq », une boîte de dialogue s’ouvre et propose des options SysRq communes ou accepte une séquence de commandes SysRq entrées dans la boîte de dialogue.  Une série de SysRq peut ainsi exécuter une opération de haut niveau, par exemple un redémarrage sûr : `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Capture d’écran de la boîte de dialogue Envoyer une commande SysRq à un invité. L’option permettant d’entrer des commandes est sélectionnée et la zone de commande contient REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 La commande SysRq ne peut pas être utilisée sur les machines virtuelles arrêtées ou dont le noyau n’est pas en état réactif. (par exemple un état d’alerte du noyau).
 
@@ -56,7 +56,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``h``  |   Affiche l’aide (les touches qui ne sont pas mentionnées ici affichent aussi l’aide, mais il est facile de mémoriser ``h`` :-)
 |``i``  |    Envoie un SIGKILL à tous les processus, sauf init.
 |``j``  |    Forçage de « Just thaw it » (simple libération) - systèmes de fichiers gelés par l’ioctl FIFREEZE.
-|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE : consultez les commentaires importants ci-dessous dans la section SAK.
+|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE :  consultez les commentaires importants disponibles ci-dessous, à la section SAK.
 |``l``  |    Affiche un historique des piles de tous les processeurs actifs.
 |``m``  |    Sauvegarde les informations de la mémoire actuelle sur votre console.
 |``n``  |    Utilisé pour que les tâches RT soient agréables
@@ -96,7 +96,7 @@ Une interruption non masquable (NMI) est conçue pour créer un signal que les l
 
 La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système.  Les systèmes d’exploitation Linux peuvent être configurés de façon à provoquer un incident et à créer une image mémoire lorsque le système d’exploitation reçoit une NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Capture d’écran de la console série. L’icône de clavier est mise en surbrillance et son menu est visible. Ce menu contient une option Envoyer une interruption non masquable.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 Pour les systèmes Linux qui prennent en charge sysctl pour configurer les paramètres du noyau, vous pouvez activer une alerte lors de la réception de la NMI en procédant comme suit :
 1. Ajout de cette ligne à */etc/sysctl.conf* <br>
@@ -121,7 +121,7 @@ Pour plus d'informations sur les configurations du noyau Linux, notamment `unkno
 - [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* La page principale de documentation de la console série Linux se trouve [ici](serial-console.md).
+* La page principale de documentation de la console série Linux se trouve [ici](../troubleshooting/serial-console-linux.md).
 * Utiliser la console série pour [démarrer dans GRUB et entrer en mode mono-utilisateur](serial-console-grub-single-user-mode.md)
-* La console série est également disponible pour les machines virtuelles [Windows](../windows/serial-console.md)
-* En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md)
+* La console série est également disponible pour les machines virtuelles [Windows](../troubleshooting/serial-console-windows.md)
+* En savoir plus sur les [diagnostics de démarrage](../troubleshooting/boot-diagnostics.md)

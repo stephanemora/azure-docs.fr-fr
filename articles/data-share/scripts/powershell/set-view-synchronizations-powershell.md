@@ -9,14 +9,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: b8d01a383e816bfc73413d21e9cc8d51d326ab14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ced66c1d3023b7edb3220b45e24d3eb54098df8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70307182"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512484"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Utiliser PowerShell pour surveiller l’utilisation d’un partage de données envoyé
+# <a name="use-powershell-to-set-azure-data-share-sychronization-settings"></a>Utiliser PowerShell pour définir les paramètres de synchronisation d’Azure Data Share
 
 Ce script PowerShell définit et obtient les paramètres de synchronisation du partage.
 
