@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526756"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L’arrêt de Machines virtuelles Windows Azure est bloqué sur « Redémarrage », « Arrêt » ou « Arrêt des services »
 
@@ -25,7 +25,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes de messa
 
 ## <a name="symptoms"></a>Symptômes
 
-Quand vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour visualiser la capture d’écran de la machine virtuelle, vous pouvez voir que cette capture affiche le message « Redémarrage », « Arrêt » ou « Arrêt des services ».
+Quand vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour visualiser la capture d’écran de la machine virtuelle, vous pouvez voir que cette capture affiche le message « Redémarrage », « Arrêt » ou « Arrêt des services ».
 
 ![Écrans Redémarrage, Arrêt ou Arrêt des services](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -41,7 +41,7 @@ Windows utilise le processus d’arrêt pour effectuer les opérations de mainte
 
 2. Détachez le disque contenant les fichiers nécessaires de la machine virtuelle fonctionnelle et attachez le disque à votre machine virtuelle endommagée. Nous appelons ce disque **Disque utilitaire**.
 
-Utilisez la [console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) pour effectuer les étapes suivantes :
+Utilisez la [console série](./serial-console-windows.md) pour effectuer les étapes suivantes :
 
 1. Ouvrez une session PowerShell d’administration et vérifiez le service qui cesse de répondre lors de l’arrêt.
 
@@ -81,13 +81,13 @@ Si le problème n’est pas résolu après que vous avez attendu que les modific
 
 **Attacher le disque du système d’exploitation à une machine virtuelle de récupération**
 
-1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
-2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Connectez-vous à la machine virtuelle de récupération à l’aide du Bureau à distance.
 
-4. Si le disque du système d’exploitation est chiffré, vous devez désactiver le chiffrement avant de passer à l’étape suivante. Pour plus d’informations, consultez [Déchiffrer le disque de système d’exploitation chiffré sur la machine virtuelle qui ne peut pas démarrer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Si le disque du système d’exploitation est chiffré, vous devez désactiver le chiffrement avant de passer à l’étape suivante. Pour plus d’informations, consultez [Déchiffrer le disque de système d’exploitation chiffré sur la machine virtuelle qui ne peut pas démarrer](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Rechercher le fichier d’image mémoire et envoyer un ticket de support**
 
@@ -142,7 +142,7 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Détachez le disque du système d’exploitation, puis rattachez-le à la machine virtuelle affectée](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Détachez le disque du système d’exploitation, puis rattachez-le à la machine virtuelle affectée](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Démarrez la machine virtuelle et accédez à la console série.
 

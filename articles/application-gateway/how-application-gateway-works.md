@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250228"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506551"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 
@@ -62,7 +62,7 @@ Une passerelle d’application insère quatre en-têtes supplémentaires dans to
 
 Les valeurs valides pour x-forwarded-proto sont HTTP ou HTTPS. X-forwarded-port spécifie le port où la requête a pu joindre la passerelle d’application. L’en-tête X-original-host contient l’en-tête d’origine de l’hôte avec lequel la requête est arrivée. Cet en-tête est utile dans l’intégration de sites web Azure, où l’en-tête de l’hôte entrant est modifié avant que le trafic ne soit routé vers le back-end. Si l’option d’affinité de session est activée, un cookie d’affinité géré par la passerelle est ajouté.
 
-Vous pouvez configurer la passerelle d’application pour qu’elle modifie les en-têtes par la [réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou pour qu’elle modifie le chemin de l’URI à l’aide d’un paramètre de substitution de chemin. Toutefois, à moins que la passerelle d’application ne soit configurée dans ce but, toutes les requêtes entrantes sont proxysées vers le back-end.
+Vous pouvez configurer la passerelle d’application pour qu’elle modifie les en-têtes de requête et de réponse par la [réécriture des en-têtes HTTP et URL](rewrite-http-headers-url.md) ou pour qu’elle modifie le chemin de l’URI à l’aide d’un paramètre de substitution de chemin. Toutefois, à moins que la passerelle d’application ne soit configurée dans ce but, toutes les requêtes entrantes sont proxysées vers le back-end.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

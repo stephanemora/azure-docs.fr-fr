@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498438"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,11 +66,11 @@ Vous pouvez envisager de migrer vers d’autres versions d’Azure plus adaptée
 **Où puis-je effectuer une migration si j’ai des exigences matérielles spécifiques, telles qu’un ratio RAM/vCore plus élevé ou davantage de processeurs ?**
 Vous pouvez envisager de migrer vers [SQL Server sur les machines virtuelles Azure](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) ou [Azure SQL Database](../database/sql-database-paas-overview.md) avec un ratio mémoire/processeur optimisé.
 
-## <a name="known-issues--bugs"></a>Problèmes connus et bogues
+## <a name="known-issues-and-defects"></a>Problèmes et défauts connus
 
-**Où puis-je trouver des informations sur les problèmes connus et les bogues ?**
+**Où puis-je trouver des informations sur les problèmes et les défauts connus ?**
 
-Pour les bogues et les problèmes connus, consultez [Problèmes connus](../database/doc-changes-updates-release-notes.md#known-issues).
+Pour les défauts et les problèmes connus, consultez [Problèmes connus](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
@@ -127,7 +127,7 @@ Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, 
 **Comment puis-je migrer d’un pool unique ou élastique Azure SQL Database vers SQL Managed Instance ?**
 
 L’instance gérée offre les mêmes niveaux de performance par calcul et taille de stockage que les autres options de déploiement d’Azure SQL Database. Si vous souhaitez consolider les données sur une seule instance ou si vous avez simplement besoin d’une fonctionnalité prise en charge exclusivement dans une instance gérée, vous pouvez migrer vos données en utilisant la fonctionnalité d’export/import (BACPAC). Voici d’autres façons de prendre en compte la migration SQL Database vers SQL Managed Instance : 
-- Utilisation d'une [Source de données externe]()
+- Utilisation d'une [Source de données externe](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Utilisation de [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Utilisation de la commande [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -349,21 +349,6 @@ Afin d’atténuer les risques liés à l’exfiltration de données, il est rec
 - Activez l’[audit SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) et intégrez-le à des mécanismes d’alerte.
 - Activez la [détection des menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) à partir de la suite [advanced data security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
-
-## <a name="cost-saving-use-cases"></a>Cas d’usage de réduction des coûts
-
-**Où puis-je trouver des cas d’usage et les économies de coûts qui en résultent avec SQL Managed Instance ?**
-
-Études de cas SQL Managed Instance :
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-Pour mieux comprendre les avantages, les coûts et les risques associés au déploiement d’Azure SQL Managed Instance, une étude de Forrester est également disponible : [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
 ## <a name="dns"></a>DNS
 
 **Puis-je configurer un DNS personnalisé pour SQL Managed Instance ?**
@@ -467,6 +452,19 @@ Vous pouvez surveiller le coût du stockage de sauvegarde via le portail Azure. 
 **Comment optimiser les coûts de stockage des sauvegardes sur une instance managée ?**
 
 Pour optimiser les coûts de stockage des sauvegardes, consultez [Fine backup tuning on SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
+
+## <a name="cost-saving-use-cases"></a>Cas d’usage de réduction des coûts
+
+**Où puis-je trouver des cas d’usage et les économies de coûts qui en résultent avec SQL Managed Instance ?**
+
+Études de cas SQL Managed Instance :
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+Pour mieux comprendre les avantages, les coûts et les risques associés au déploiement d’Azure SQL Managed Instance, une étude de Forrester est également disponible : [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 ## <a name="password-policy"></a>Stratégie de mot de passe 
 

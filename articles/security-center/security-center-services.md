@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187011"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519227"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
-Les tableaux ci-dessous présentent les fonctionnalités Azure Security Center disponibles pour les machines virtuelles et les serveurs.
+Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Center disponibles pour machines virtuelles et les serveurs Windows et Linux.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>Fonctionnalités prises en charge pour les machines virtuelles et les serveurs <a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Ordinateurs Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[**Machines Windows**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|----|:----:|:----:|:----:|:----:|
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Standard|
-|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](threat-protection.md)|✔|✔|✔|Recommandations (Gratuit) </br></br> Alertes de sécurité (Standard)|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](threat-protection.md)|✔|✔|✔|Standard|
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -43,21 +42,20 @@ Les tableaux ci-dessous présentent les fonctionnalités Azure Security Center d
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Standard|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
-|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuit|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
 |Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
 |Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
 
 
-### <a name="linux-machines"></a>[Ordinateurs Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[**Machines Linux**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|----|:----:|:----:|:----:|:----:|
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standard|
-|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Recommandations (Gratuit) </br></br> Alertes de sécurité (Standard)|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Standard|
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -66,11 +64,10 @@ Les tableaux ci-dessous présentent les fonctionnalités Azure Security Center d
 |[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Contrôles réseau adaptatifs|✔|✔|-|Standard|
 |[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Standard|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuit|
 |Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
 |Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|

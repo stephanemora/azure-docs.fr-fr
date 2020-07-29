@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527861"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Utilisation du service StorSimple Device Manager pour modifier vos mots de passe StorSimple
 
@@ -36,25 +36,25 @@ Le mot de passe qui a été défini initialement dans l’interface Windows Powe
 
 2. Dans la liste tabulaire d’appareils, sélectionnez et cliquez sur l’appareil dont vous souhaitez modifier le mot de passe.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Capture d’écran montrant le service Gestionnaire de périphériques StorSimple. Sous Gestion, Appareils est sélectionné. Dans la liste des appareils, un appareil est sélectionné.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Dans le panneau **Paramètres**, accédez à **Paramètres de l’appareil > Sécurité**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Capture d'écran montrant le panneau Paramètres du service Gestionnaire de périphériques. Sous Paramètres de l’appareil, Sécurité est sélectionné.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Dans le panneau **Paramètres de sécurité**, cliquez sur **Mot de passe** pour modifier le mot de passe d’administrateur de l’appareil.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![Capture d'écran montrant les paramètres pour le panneau Paramètres de sécurité. Le bouton Mot de passe est mis en surbrillance.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. Dans le panneau **Mot de passe**, indiquez un mot de passe d’administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison d’au moins 3 caractères en majuscules, en minuscules, numériques et spéciaux.
 
 6. Confirmez le mot de passe.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![Capture d’écran montrant le panneau Mot de passe. Sous Mot de passe administrateur du Gestionnaire d’instantanés, les zones Nouveau mot de passe et Confirmer le mot de passe sont renseignées.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. Cliquez sur **Enregistrer** puis, lorsque vous êtes invité à confirmer l’opération, cliquez sur **Oui**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![Capture d’écran montrant le panneau Mot de passe. Le bouton Enregistrer est en surbrillance.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 Le mot de passe Administrateur d’appareil doit maintenant être à jour. Vous pouvez utiliser ce mot de passe modifié pour accéder à l’interface Windows PowerShell.
 
@@ -70,25 +70,25 @@ Vous pouvez définir ou modifier le mot de passe du Gestionnaire d’instantané
 
 2. Dans la liste tabulaire d’appareils, sélectionnez et cliquez sur l’appareil dont vous souhaitez définir ou modifier le mot de passe du Gestionnaire d’instantanés StorSimple.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Capture d’écran montrant le service Gestionnaire de périphériques StorSimple. Sous Gestion, Appareils est sélectionné. Dans la liste des appareils, un appareil est sélectionné.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Dans le panneau **Paramètres**, accédez à **Paramètres de l’appareil > Sécurité**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Capture d'écran montrant le panneau Paramètres du service Gestionnaire de périphériques. Sous Paramètres de l’appareil, Sécurité est sélectionné.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Dans le panneau **Paramètres de sécurité**, cliquez sur **Mot de passe** pour définir ou modifier le mot de passe du Gestionnaire d’instantanés StorSimple.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![Capture d'écran montrant les paramètres pour le panneau Paramètres de sécurité. Le bouton Mot de passe est mis en surbrillance.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. Dans le panneau **Mot de passe**, entrez un mot de passe de 14 ou 15 caractères. Assurez-vous que le mot de passe contient une combinaison d’au moins 3 caractères en majuscules, en minuscules, numériques et spéciaux.
 
 6. Confirmez le mot de passe.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![Capture d’écran montrant le panneau Mot de passe. Sous Mot de passe Snapshot Manager, les zones Nouveau mot de passe et Confirmer le mot de passe sont renseignées.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. Cliquez sur **Enregistrer** puis, lorsque vous êtes invité à confirmer l’opération, cliquez sur **Oui**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![Capture d’écran montrant le panneau Mot de passe. Le bouton Enregistrer est en surbrillance.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 Le mot de passe du Gestionnaire d’instantanés StorSimple doit maintenant être mis à jour.
 

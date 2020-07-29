@@ -1,5 +1,5 @@
 ---
-title: Détecter un problème sur un hôte de la session Windows Virtual Desktop – Azure
+title: Résoudre des problèmes sur un hôte de la session Windows Virtual Desktop Automne 2019 – Azure
 description: Guide pratique pour résoudre les problèmes pendant la configuration de machines virtuelles hôte de session Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362507"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527657"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Résoudre des problèmes de configurations de machine virtuelle hôte de session
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../troubleshoot-vm-configuration.md).

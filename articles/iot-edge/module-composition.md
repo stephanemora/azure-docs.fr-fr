@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511838"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
@@ -38,7 +38,7 @@ Dans les didacticiels Azure IoT Edge, vous générez un manifeste de déploiemen
 
 Deux modules sont nécessaires dans chaque manifeste de déploiement : `$edgeAgent` et `$edgeHub`. Ces modules font partie du runtime IoT Edge qui gère l’appareil IoT Edge et les modules en cours d’exécution sur ce dernier. Pour plus d’informations sur ces modules, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
 
-Outre les deux modules de runtime, vous pouvez ajouter jusqu'à 20 modules de votre choix pour s’exécuter sur un appareil IoT Edge.
+Outre les deux modules de runtime, vous pouvez ajouter jusqu'à 30 modules de votre choix à exécuter sur un appareil IoT Edge.
 
 Un manifeste de déploiement ne contenant que le runtime IoT Edge (edgeAgent et edgeHub) est valide.
 

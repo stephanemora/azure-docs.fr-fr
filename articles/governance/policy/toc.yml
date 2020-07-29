@@ -228,6 +228,8 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Ressources
   items:
+    - name: Problèmes connus
+      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub - Exemples Azure Policy
       href: 'https://github.com/Azure/azure-policy'
     - name: GitHub - Dépôt Community Policy
@@ -246,8 +248,8 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: Tâche de correction
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: "Vidéo - Version\_2018"
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: "Vidéo - Ignite\_2019"
+      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix

@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524486"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -57,6 +57,9 @@ Dans le portail Azure, ouvrez **Coffre** > **Infrastructure de sauvegarde** > **
 >Vous ne pouvez supprimer un coffre Recovery Services qu’après avoir annulé l’enregistrement de tous les comptes de stockage inscrits auprès du coffre.
 
 ## <a name="common-backup-or-restore-errors"></a>Erreurs courantes de sauvegarde ou de restauration
+
+>[!NOTE]
+>Reportez-vous à [ce document](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) pour vous assurer que vous disposez des autorisations suffisantes pour effectuer des opérations de sauvegarde ou de restauration.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound : échec de l’opération parce que le partage de fichiers est introuvable
 
@@ -313,7 +316,7 @@ Code d’erreur : UserErrorBackupAFSInDeleteState
 
 Message d’erreur : La sauvegarde a échoué car le partage de fichiers Azure associé a été définitivement supprimé
 
-Déterminez si le partage de fichiers sauvegardé a été définitivement supprimé. Si oui, arrêtez la sauvegarde du partage de fichiers pour éviter les échecs de sauvegarde répétés. Pour en savoir plus sur l'arrêt de la protection, consultez [Arrêter la protection du partage de fichiers Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share).
+Déterminez si le partage de fichiers sauvegardé a été définitivement supprimé. Si oui, arrêtez la sauvegarde du partage de fichiers pour éviter les échecs de sauvegarde répétés. Pour en savoir plus sur l'arrêt de la protection, consultez [Arrêter la protection du partage de fichiers Azure](./manage-afs-backup.md#stop-protection-on-a-file-share).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
