@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412632"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537882"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -61,6 +61,17 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 | **Ateliers et laboratoires Azure Cosmos DB** |[Page d’accueil relative aux ateliers Cosmos DB](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Historique des mises en production
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* Ajout de l’API de journalisation des scripts à `CosmosStoredProcedureRequestOptions`.
+* Mise à jour de `DirectConnectionConfig` par défaut `idleEndpointTimeout` sur 1h et de `connectTimeout` par défaut sur 5s.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Correction d’un problème en raison duquel `GatewayConnectionConfig` `idleConnectionTimeout` remplaçait `DirectConnectionConfig` `idleConnectionTimeout`.
+* Correction de `responseContinuationTokenLimitInKb` pour obtenir et définir des API dans `CosmosQueryRequestOptions`.
+* Correction d’un problème dans la requête et le flux de modification lors de la recréation de la collection portant le même nom.
+* Correction d’un problème avec ClassCastException.
+* Correction d’un problème lié au classement par requête avec NullPointerException.
+* Correction d’un problème de gestion des requêtes annulées en mode direct entraînant l’appel du réacteur `onErrorDropped`. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
