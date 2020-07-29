@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496993"
 ---
 # <a name="weather-partner-integration"></a>Intégration de partenaire - Données météorologiques
 
@@ -36,10 +36,10 @@ Un partenaire météorologique devra fournir un programme/une image Docker (avec
 
 Les API FarmBeats incluent une documentation technique Swagger. Pour plus d’informations sur toutes les API et leurs demandes ou réponses correspondantes, consultez [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Si vous avez installé FarmBeats, vous pouvez accéder à votre FarmBeats Swagger à l’adresse [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+Si vous avez installé FarmBeats, vous pouvez accéder à votre FarmBeats Swagger à l’adresse `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Notez que « -api » est ajouté au nom de votre site web FarmBeats.
-Le point de terminaison de l’API est : [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+Le point de terminaison de l’API est : `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Bibliothèque Datahub
 
@@ -134,7 +134,7 @@ Ce composant est appelé à chaque fois qu’un utilisateur de FarmBeats exécut
 
 ### <a name="details-of-the-objects"></a>Détails des objets
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Description |
   --- | ---
   Nom  | Nom du modèle de données météorologiques |
   Description  | Description explicite du modèle. |
@@ -147,7 +147,7 @@ Ce composant est appelé à chaque fois qu’un utilisateur de FarmBeats exécut
   weatherMeasures > AggregationType  | None, Average, Maximum, Minimum, StandardDeviation, Sum ou Total
   weatherMeasures > Depth  | Profondeur du capteur en centimètres. Par exemple, la mesure de l’humidité à 10 cm dans le sol.
   weatherMeasures > Description  | Description explicite de la mesure. |
-  **JobType** |  |
+  **JobType** | **Description** |
   Nom  | nom du travail, par exemple Get_Daily_Forecast ; travail exécuté par le client pour récupérer les données météorologiques|
   pipelineDetails > parameters > name  | nom du paramètre |
   pipelineDetails > parameters > type | String, Int, Float, Bool ou Array |
@@ -156,7 +156,7 @@ Ce composant est appelé à chaque fois qu’un utilisateur de FarmBeats exécut
   pipelineDetails > parameters > description | Description du paramètre |
   Propriétés  | Propriétés supplémentaires fournies par le fabricant.
   Properties > **programRunCommand** | commande d’exécution de Docker : cette commande est exécutée lorsque le client exécute le travail météorologique. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Description** |
   weatherDataModelId  | ID du modèle WeatherDataModel correspondant qui a été créé au cours du démarrage|
   location  | représente la latitude, la longitude et l’altitude |
   Nom | Nom de l’objet |

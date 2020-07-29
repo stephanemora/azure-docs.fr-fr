@@ -1,5 +1,5 @@
 ---
-title: 'Régression de forêt d’arbres de décision : Informations de référence sur les modules'
+title: 'Perceptron moyenné à deux classes : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Perceptron moyenné à deux classes dans Azure Machine Learning pour créer un modèle Machine Learning basé sur l’algorithme perceptron moyenné.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: daa0cfdedfe634acd2039cd4ec87606d30f7e76f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137669"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520576"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Module Perceptron moyenné à deux classes
 

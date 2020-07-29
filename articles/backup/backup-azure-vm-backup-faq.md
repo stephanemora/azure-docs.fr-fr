@@ -4,16 +4,16 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82800649"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538766"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
-Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](backup-introduction-to-azure-backup.md).
+Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](./backup-overview.md).
 
 ## <a name="backup"></a>Backup
 
@@ -83,7 +83,7 @@ Il n’est pas possible de prendre des instantanés sur un disque avec Accélér
 
 Sauvegarde Azure ne peut pas sauvegarder le disque avec Accélérateur d’écriture, mais peut l’exclure de la sauvegarde. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données car les informations situées sur le disque avec Accélérateur d’écriture ne sont pas sauvegardées. Vous pouvez sauvegarder des disques dans une telle configuration si vous souhaitez que la sauvegarde porte sur les disques du système d’exploitation et les disques sans Accélérateur d’écriture.
 
-Sauvegarde Azure fournit une solution de sauvegarde en continu pour les bases de données SAP HANA avec un RPO de 15 minutes. Elle est certifiée Backint par SAP pour la prise en charge de sauvegarde native à l’aide d’API natives de SAP HANA. En savoir plus [sur la sauvegarde des bases de données SAP HANA dans des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Sauvegarde Azure fournit une solution de sauvegarde en continu pour les bases de données SAP HANA avec un RPO de 15 minutes. Elle est certifiée Backint par SAP pour la prise en charge de sauvegarde native à l’aide d’API natives de SAP HANA. En savoir plus [sur la sauvegarde des bases de données SAP HANA dans des machines virtuelles Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Quel est le délai maximal de lancement de la sauvegarde à partir de l’heure de sauvegarde planifiée définie dans ma stratégie de sauvegarde de machine virtuelle ?
 
@@ -129,7 +129,11 @@ Le processus de restauration ne change pas. Si le point de récupération est un
 
 [Découvrez](backup-azure-vms-automation.md#restore-an-azure-vm) comment effectuer ces opérations dans PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Puis-je restaurer la machine virtuelle qui a été supprimée ?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Si la restauration ne permet pas de créer la machine virtuelle, qu’advient-il des disques inclus dans la restauration ?
+
+Dans le cas d’une restauration de machine virtuelle managée, même si la création de la machine échoue, les disques sont toujours restaurés.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Puis-je restaurer une machine virtuelle qui a été supprimée ?
 
 Oui. Même si vous supprimez la machine virtuelle, vous pouvez accéder à l’élément de sauvegarde correspondant dans le coffre et effectuer une restauration à partir d’un point de récupération.
 
@@ -143,13 +147,13 @@ La capacité [Restauration instantanée](backup-instant-restore-capability.md) p
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Que se passe-t-il lorsque nous modifions les paramètres du coffre de clés pour la machine virtuelle chiffrée ?
 
-Une fois que vous avez modifié les paramètres du coffre de clés pour la machine virtuelle chiffrée, les sauvegardes continuent de fonctionner avec le nouvel ensemble d’informations. Toutefois, après la restauration à partir d’un point de récupération antérieur à la modification, vous devrez restaurer les secrets du coffre de clés avant de pouvoir créer la machine virtuelle à partir de celui-ci. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Une fois que vous avez modifié les paramètres du coffre de clés pour la machine virtuelle chiffrée, les sauvegardes continuent de fonctionner avec le nouvel ensemble d’informations. Toutefois, après la restauration à partir d’un point de récupération antérieur à la modification, vous devrez restaurer les secrets du coffre de clés avant de pouvoir créer la machine virtuelle à partir de celui-ci. Pour plus d’informations, consultez cet [article](./backup-azure-restore-key-secret.md).
 
 Des opérations telles que la restauration de secret/clé ne nécessitent pas cette étape et le même coffre de clés peut être utilisé après restauration.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Puis-je accéder à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine ?
 
-Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, consultez cet [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

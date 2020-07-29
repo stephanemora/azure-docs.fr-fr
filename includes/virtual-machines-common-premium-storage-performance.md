@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218323"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526030"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -138,7 +138,7 @@ Pour plus d’informations sur les tailles de machine virtuelle et sur les E/S p
 Une demande d’E/S représente une unité d’opération d’entrée/sortie exécutée par votre application. Identifier la nature des demandes d’E/S (aléatoires ou séquentielles, en lecture ou en écriture, petites ou grandes) vous permet de déterminer les exigences de performances de votre application. Il est important de comprendre la nature des demandes d’E/S afin de prendre les bonnes décisions lors de la conception de votre infrastructure d’applications. Pour bénéficier des meilleures performances possibles, veillez à ce que les E/S soient distribuées de façon uniforme.
 
 La taille des E/S compte parmi les facteurs les plus importants. La taille des E/S correspond à la taille de la demande d’opération d’entrée/sortie générée par votre application. La taille des E/S a un impact significatif sur les performances, en particulier sur le nombre d’E/S par seconde et sur la bande passante, que l’application sera en mesure de délivrer. La formule suivante montre la relation entre le nombre d’IOPS, la taille des E/S et la bande passante ou le débit.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Diagramme montrant l’équation IOPS et taille d’E/S correspondant au débit.](media/premium-storage-performance/image1.png)
 
 Certaines applications vous permettent de modifier leur taille d’E/S, contrairement à d’autres. Par exemple, SQL Server détermine lui-même la taille d’E/S optimale et ne fournit aux utilisateurs aucun dispositif permettant de la modifier. De son côté, Oracle propose un paramètre appelé [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) que vous pouvez utiliser pour configurer la taille de la demande d’E/S de la base de données.
 
@@ -371,13 +371,13 @@ Par exemple, dans SQL Server, une valeur MAXDOP de 4 pour une requête indique �
 
 *Profondeur de file d’attente optimale*  
 Une valeur de profondeur de file d’attente très élevée présente aussi des inconvénients. Si la valeur de profondeur de file d’attente est trop importante, l’application tentera de générer un taux d’E/S par seconde très élevé. À moins que l’application repose sur des disques persistants associés à un nombre suffisant d’E/S par seconde, cela peut affecter sérieusement les latences d’application. La formule suivante montre la relation entre les IOPS, la latence et la profondeur de file d’attente.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Diagramme montrant l’équation IOPS et latence correspondant à la profondeur de file d’attente.](media/premium-storage-performance/image6.png)
 
 Vous ne devez pas configurer la profondeur de file d’attente à une valeur élevée, mais plutôt à une valeur optimale, qui peut générer suffisamment d’E/S par seconde pour l’application sans affecter les latences. Par exemple, si la latence de l’application doit être de 1 milliseconde, la profondeur de file d’attente requise pour atteindre 5 000 E/S par seconde sera : PF = 5 000 x 0,001 = 5.
 
 *Profondeur de file d’attente pour le volume entrelacé*  
 Pour un volume entrelacé, conservez une profondeur de file d’attente suffisamment élevée de sorte que chaque disque dispose individuellement d’un pic de profondeur de file d’attente. Prenons l’exemple d’une application qui envoie (push) une profondeur de file d’attente de 2 dans un scénario d’entrelacement à quatre disques. Les deux demandes d’E/S seront transmises à deux disques et les deux disques restants seront inactifs. Vous devez par conséquent configurer la profondeur de file d’attente afin que tous les disques puissent être occupés. La formule ci-dessous montre comment déterminer la profondeur de file d’attente des volumes entrelacés.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Diagramme montrant l’équation Q D par disque et nombre de colonnes par volume correspondant à Q D du volume agrégé par bandes.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitation
 
