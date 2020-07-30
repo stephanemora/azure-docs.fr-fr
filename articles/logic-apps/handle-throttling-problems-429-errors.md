@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272676"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086436"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gérer les problèmes de limitation (429 – erreurs « Trop de requêtes ») dans Azure Logic Apps
 
@@ -77,7 +77,7 @@ Pour gérer la limitation à ce niveau, les options suivantes s’offrent à vou
 
 ## <a name="connector-throttling"></a>Limitation des connecteurs
 
-Chaque connecteur a ses propres limitations, que vous pouvez trouver à la page de référence technique du connecteur. Par exemple, le [connecteur Azure Service Bus](https://docs.microsoft.com/connectors/servicebus/) a une limitation qui autorise jusqu’à 6 000 appels par minute, tandis que le connecteur SQL Server a des [limitations qui varient en fonction du type d’opération](https://docs.microsoft.com/connectors/sql/).
+Chaque connecteur a ses propres limitations, que vous pouvez trouver à la page de référence technique du connecteur. Par exemple, le [connecteur Azure Service Bus](/connectors/servicebus/) a une limitation qui autorise jusqu’à 6 000 appels par minute, tandis que le connecteur SQL Server a des [limitations qui varient en fonction du type d’opération](/connectors/sql/).
 
 Certains déclencheurs et actions, tels que HTTP, ont une [« stratégie de nouvelle tentative »](../logic-apps/logic-apps-exception-handling.md#retry-policies) que vous pouvez personnaliser en fonction des [limites de la stratégie de nouvelle tentative](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) pour implémenter la gestion des exceptions. Cette stratégie spécifie si et à quelle fréquence un déclencheur ou une action réessaie d’effectuer une requête quand la requête d’origine expire ou échoue et génère une réponse 408, 429 ou 5xx. Ainsi, lorsque la limitation démarre et renvoie une erreur 429, Logic Apps suit la stratégie de nouvelle tentative lorsqu’elle est prise en charge.
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 658bedad3b74bf30ba23562ebf025af4781f1034
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0c6ca03f535201059f107d6b53bc423b92d1c1c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073359"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-managed-instance-database-to-another-geo-region"></a>Utiliser PowerShell pour restaurer une base de données Azure SQL Managed Instance dans une autre région de zone géographique
 
@@ -82,6 +82,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur PowerShell, consultez la [documentation d’Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur PowerShell, consultez la [documentation d’Azure PowerShell](/powershell/azure/).
 
 Des exemples supplémentaires de scripts PowerShell pour Azure SQL Database sont disponibles dans [Scripts Azure SQL Database PowerShell](../../database/powershell-script-content-guide.md).

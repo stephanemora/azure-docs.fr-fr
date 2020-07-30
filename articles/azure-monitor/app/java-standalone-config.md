@@ -3,12 +3,13 @@ title: Superviser les applications Java partout - Azure Monitor Application Insi
 description: Supervision des performances des applications Java sans code s’exécutant dans tout environnement sans instrumenter l’application. Recherchez la cause racine des problèmes à l’aide du suivi distribué et de la cartographie d’application.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319684"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374284"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Options de configuration - Agent autonome Java pour Azure Monitor Application Insights
 
@@ -216,7 +217,7 @@ Voici un exemple montrant comment définir l'échantillonnage sur **10 % de tou
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
-Si votre application se trouve derrière un pare-feu et n'est pas en mesure de se connecter directement à Application Insights (voir [Adresses IP utilisées par Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), vous pouvez configurer la préversion Application Insights Java 3.0 pour utiliser un proxy HTTP :
+Si votre application se trouve derrière un pare-feu et n'est pas en mesure de se connecter directement à Application Insights (voir [Adresses IP utilisées par Application Insights](./ip-addresses.md)), vous pouvez configurer la préversion Application Insights Java 3.0 pour utiliser un proxy HTTP :
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75454188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082806"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Utiliser le service de gestion de certificats OPC Vault
 
@@ -38,7 +38,7 @@ Si vous ne l’avez pas encore fait, créez le certificat de l’autorité de ce
 
 1. Ouvrez votre service de certificats à l’adresse `https://myResourceGroup-app.azurewebsites.net`, puis connectez-vous.
 2. Accédez à **Register New** (Inscrire nouveau). Pour un inscrire une application, un utilisateur doit disposer au moins du rôle Rédacteur.
-2. Le formulaire d’entrée suit les conventions de nommage d’OPC UA. Par exemple, dans la capture d’écran suivante, les paramètres de l’exemple [Serveur de référence OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) de la pile .NET Standard sont présentés :
+2. Le formulaire d’entrée suit les conventions de nommage d’OPC UA. Par exemple, dans la capture d’écran suivante, les paramètres de l’exemple [Serveur de référence OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) de la pile .NET Standard sont présentés :
 
    ![Capture d’écran de l’inscription de serveur de référence UA](media/howto-opc-vault-secure/reference-server-registration.png "Inscription de serveur de référence UA")
 

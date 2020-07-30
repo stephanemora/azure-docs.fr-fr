@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066522"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuité d’activité et reprise d’activité pour Azure Logic Apps
 
@@ -157,7 +157,7 @@ Lorsque votre application logique est déclenchée et commence à s’exécuter,
 
 Pour réduire le nombre d’instances de flux de travail en cours abandonnées, vous pouvez choisir parmi différents modèles de messages que vous pouvez implémenter, par exemple :
 
-* [Modèle de bordereau de routage fixe](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Modèle de bordereau de routage fixe](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Ce modèle de message d’entreprise fractionne un processus métier en étapes plus petites. Pour chaque étape, vous configurez une application logique qui gère la charge de travail de cette étape. Pour communiquer entre elles, vos applications logiques utilisent un protocole de messagerie asynchrone, comme des files d’attente ou des rubriques Azure Service Bus. Lorsque vous divisez un processus en étapes plus petites, vous réduisez le nombre de processus métier qui peuvent être bloqués sur une instance d’application logique qui a échoué. Pour plus d’informations générales sur ce modèle, consultez [Modèles d’intégration d’entreprise - Bordereau de routage](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Pour réduire le nombre d’instances de flux de travail en cours abandonnées, 
 
   ![Fractionner un processus métier en étapes représentées par des applications logiques, qui communiquent entre elles à l’aide de files d’attente Azure Service Bus](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Si les deux instances d’application logique principale et secondaire suivent le même modèle de bordereau de routage dans leurs emplacements, vous pouvez implémenter le [modèle de consommateurs concurrents](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) en configurant des [rôles actifs/actifs](#roles) pour ces instances.
+  Si les deux instances d’application logique principale et secondaire suivent le même modèle de bordereau de routage dans leurs emplacements, vous pouvez implémenter le [modèle de consommateurs concurrents](/azure/architecture/patterns/competing-consumers) en configurant des [rôles actifs/actifs](#roles) pour ces instances.
 
 * [Modèle de gestionnaire de processus (répartiteur)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ Du point de vue de la reprise d’activité, quand vous configurez les instances
   Par exemple, la lecture à partir d’une file d’attente de messages, comme une file d’attente Azure Service Bus, utilise l’état côté serveur, car le service de mise en file d’attente maintient des verrous sur les messages pour empêcher d’autres clients de lire les mêmes messages.
 
   > [!NOTE]
-  > Si votre application logique doit lire les messages dans un ordre spécifique, par exemple, à partir d’une file d’attente Service Bus, vous pouvez utiliser le modèle de consommateurs concurrents, mais uniquement en association avec des sessions Service Bus, ce qui est également appelé [*modèle de convoi séquentiel*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). Dans le cas contraire, vous devez configurer vos instances d’application logique avec des rôles actifs/passifs.
+  > Si votre application logique doit lire les messages dans un ordre spécifique, par exemple, à partir d’une file d’attente Service Bus, vous pouvez utiliser le modèle de consommateurs concurrents, mais uniquement en association avec des sessions Service Bus, ce qui est également appelé [*modèle de convoi séquentiel*](/azure/architecture/patterns/sequential-convoy). Dans le cas contraire, vous devez configurer vos instances d’application logique avec des rôles actifs/passifs.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Du point de vue de la reprise d’activité, le déclencheur de requête est un 
 
 * [Actif/passif](#roles) : Seule l’instance principale est active et gère l’ensemble du travail, tandis que l’instance secondaire attend que l’instance principale subisse une interruption ou une défaillance. L’appelant ou le routeur détermine quand appeler l’instance secondaire.
 
-En tant qu’architecture recommandée, vous pouvez utiliser Gestion des API Azure comme proxy pour les applications logiques qui utilisent des déclencheurs de requête. Gestion des API offre une [résilience intégrée entre les régions et la capacité à acheminer le trafic entre plusieurs points de terminaison](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+En tant qu’architecture recommandée, vous pouvez utiliser Gestion des API Azure comme proxy pour les applications logiques qui utilisent des déclencheurs de requête. Gestion des API offre une [résilience intégrée entre les régions et la capacité à acheminer le trafic entre plusieurs points de terminaison](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Pour cette tâche, dans l’emplacement secondaire, créez une application logiq
 
 ### <a name="activate-your-secondary-instance"></a>Activer votre instance secondaire
 
-Pour activer automatiquement l’instance secondaire, vous pouvez créer une application logique qui appelle l’API de gestion, par exemple [le connecteur Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) pour activer les applications logiques appropriées dans l’emplacement secondaire. Vous pouvez développer votre application de surveillance pour appeler cette application logique d’activation après un nombre spécifique d’échecs.
+Pour activer automatiquement l’instance secondaire, vous pouvez créer une application logique qui appelle l’API de gestion, par exemple [le connecteur Azure Resource Manager](/connectors/arm/) pour activer les applications logiques appropriées dans l’emplacement secondaire. Vous pouvez développer votre application de surveillance pour appeler cette application logique d’activation après un nombre spécifique d’échecs.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Vous pouvez configurer la journalisation des exécutions de votre application lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de la résilience pour Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Liste de vérification de la résilience pour des services Azure spécifiques](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Gestion des données pour la résilience dans Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Sauvegarde et reprise d’activité pour les applications Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Récupérer après une interruption de service à l’échelle de la région](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Vue d’ensemble de la résilience pour Azure](/azure/architecture/framework/resiliency/overview)
+* [Liste de vérification de la résilience pour des services Azure spécifiques](/azure/architecture/checklist/resiliency-per-service)
+* [Gestion des données pour la résilience dans Azure](/azure/architecture/framework/resiliency/data-management)
+* [Sauvegarde et reprise d’activité pour les applications Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Récupérer après une interruption de service à l’échelle de la région](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Contrats de niveau de service (SLA) Microsoft pour les services Azure](https://azure.microsoft.com/support/legal/sla/)

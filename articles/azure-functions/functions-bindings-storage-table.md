@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8ca41c56239bc994b34119600dfa9db60ada6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083087"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -140,7 +140,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien démarrer avec Stockage Table Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien démarrer avec Stockage Table Azure](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
@@ -306,7 +306,7 @@ public class LogEntity : TableEntity
 }
 ```
 
-Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien démarrer avec Stockage Table Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien démarrer avec Stockage Table Azure](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
@@ -607,7 +607,7 @@ Les données de table sont passées à la fonction sous la forme d’une chaîne
 
 # <a name="java"></a>[Java](#tab/java)
 
-L’attribut [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) vous donne accès à la ligne de table qui ayant déclenché la fonction.
+L’attribut [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) vous donne accès à la ligne de table qui ayant déclenché la fonction.
 
 ---
 
@@ -978,15 +978,15 @@ Il existe deux options pour générer en sortie un message de ligne de stockage 
 
 - **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur de retour de la fonction est conservée en tant que ligne de stockage de table.
 
-- **Impératif** : Passez une valeur à la méthode [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
+- **Impératif** : Passez une valeur à la méthode [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Il existe deux options pour produire en sortie une ligne de stockage de table à partir d’une fonction en utilisant l’annotation [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
+Il existe deux options pour produire en sortie une ligne de stockage de table à partir d’une fonction en utilisant l’annotation [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
 
 - **Valeur de retour** : En appliquant l’annotation à la fonction elle-même, la valeur de retour de la fonction est conservée sous la forme d’une ligne de stockage de table.
 
-- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), où `T` inclut les propriétés `PartitionKey` et `RowKey`. Ces propriétés sont souvent accompagnées de l’implémentation de `ITableEntity` ou de l’héritage de `TableEntity`.
+- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), où `T` inclut les propriétés `PartitionKey` et `RowKey`. Ces propriétés sont souvent accompagnées de l’implémentation de `ITableEntity` ou de l’héritage de `TableEntity`.
 
 ---
 
@@ -994,9 +994,9 @@ Il existe deux options pour produire en sortie une ligne de stockage de table à
 
 | Liaison | Informations de référence |
 |---|---|
-| Table de charge de travail | [Codes d’erreur de table](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Objet blob, Table, File d’attente | [Dépannage](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Table de charge de travail | [Codes d’erreur de table](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Objet blob, Table, File d’attente | [Codes d’erreur de stockage](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Objet blob, Table, File d’attente | [Dépannage](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

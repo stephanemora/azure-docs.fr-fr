@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028241"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Résolution des messages d’erreur RDP spécifiques des machines virtuelles Windows dans Azure
 Il peut arriver que vous receviez un message d’erreur spécifique lorsque vous utilisez la connexion Bureau à distance à une machine virtuelle Windows dans Azure. Cet article décrit en détail certains des messages d’erreur les plus couramment rencontrés, ainsi que les étapes de dépannage à suivre pour les résoudre. Si vous rencontrez des problèmes de connexion à votre machine virtuelle avec le protocole RDP mais que vous ne recevez pas de message d’erreur spécifique, consultez le [guide de résolution des problèmes de Bureau à distance](troubleshoot-rdp-connection.md).
@@ -46,7 +46,7 @@ mstsc <File name>.RDP /admin
 
 Si vous n’avez pas besoin de plus de deux connexions Bureau à distance simultanées à la machine virtuelle, vous pouvez utiliser le Gestionnaire de serveur pour supprimer le rôle de serveur Bureau à distance.
 
-Pour plus d’information, consultez le billet de blog [Azure VM fails with « No Remote Desktop License Servers available » (La machine virtuelle Azure échoue et affiche le message « Aucun serveur de licences Bureau à distance n’est disponible »)](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Pour plus d’information, consultez le billet de blog [Azure VM fails with « No Remote Desktop License Servers available » (La machine virtuelle Azure échoue et affiche le message « Aucun serveur de licences Bureau à distance n’est disponible »)](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available).
 
 <a id="rdpname"></a>
 
@@ -111,6 +111,5 @@ Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits
 ## <a name="next-steps"></a>Étapes suivantes
 Si aucune de ces erreurs ne s’est produite et que vous avez rencontré un problème inconnu en vous connectant avec le protocole RDP, consultez le [guide de dépannage du Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Pour connaître les étapes de résolution des problèmes d’accès aux applications exécutées sur une machine virtuelle, consultez [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Si vous rencontrez des problèmes pour vous connecter à une machine virtuelle Linux dans Azure avec SSH (Secure Shell), consultez [Résolution des problèmes de connexions SSH à une machine virtuelle de Linux dans Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+* Pour connaître les étapes de résolution des problèmes d’accès aux applications exécutées sur une machine virtuelle, consultez [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Si vous rencontrez des problèmes pour vous connecter à une machine virtuelle Linux dans Azure avec SSH (Secure Shell), consultez [Résolution des problèmes de connexions SSH à une machine virtuelle de Linux dans Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

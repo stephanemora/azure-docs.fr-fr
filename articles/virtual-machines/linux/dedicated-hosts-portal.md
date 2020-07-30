@@ -3,16 +3,16 @@ title: Déployer des hôtes dédiés Azure à l’aide du portail Azure
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide du Portail Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19bd7960c4a6a02566d86d51ff7e21f4e570c34d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086764"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373638"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
 
@@ -46,7 +46,7 @@ Vous pouvez ajouter une machine virtuelle existante à un hôte dédié, mais la
 
 - La taille de la machine virtuelle doit appartenir à la même famille de tailles que l’hôte dédié. Par exemple, si votre hôte dédié est DSv3, la taille de la machine virtuelle peut être Standard_D4s_v3, mais pas Standard_A4_v2. 
 - La machine virtuelle doit être située dans la même région que l’hôte dédié.
-- La machine virtuelle ne peut pas faire partie d’un groupe de placements de proximité. Supprimez la machine virtuelle du groupe de placements de proximité avant de la déplacer vers un hôte dédié. Pour plus d’informations, consultez [Déplacer une machine virtuelle hors d’un groupe de placements de proximité](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group).
+- La machine virtuelle ne peut pas faire partie d’un groupe de placements de proximité. Supprimez la machine virtuelle du groupe de placements de proximité avant de la déplacer vers un hôte dédié. Pour plus d’informations, consultez [Déplacer une machine virtuelle hors d’un groupe de placements de proximité](../windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group).
 - La machine virtuelle ne peut pas se trouver dans un groupe à haute disponibilité.
 - Si la machine virtuelle se trouve dans une zone de disponibilité, il doit s’agir de la même zone de disponibilité que celle du groupe hôte. Les paramètres de zone de disponibilité de la machine virtuelle et du groupe hôte doivent correspondre.
 
@@ -67,6 +67,3 @@ Déplacez la machine virtuelle vers un hôte dédié à l’aide du [portail](ht
 - Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également déployer un hôte dédié à l’aide de l’[interface de ligne de commande Azure](dedicated-hosts-cli.md).
-
-
-

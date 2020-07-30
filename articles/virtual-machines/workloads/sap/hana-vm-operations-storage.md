@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c553b3508b56245be166afcdb4cb5a6c7520b271
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074027"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
 Azure fournit des types de stockage différents, adaptés aux machines virtuelles Azure exécutant SAP HANA. **Types de stockage Azure certifiés SAP HANA** pouvant être pris en compte pour la liste des déploiements SAP HANA, tels que : 
 
 - SSD Azure Premium ou stockage Premium 
-- [Disque Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Disque Ultra](../../linux/disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Pour en savoir plus sur ces types de disques, consultez les articles [Types de stockage Azure pour une charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) et [Sélectionner un type de disque](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+Pour en savoir plus sur ces types de disques, consultez les articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../linux/disks-types.md)
 
 Azure offre deux méthodes de déploiement avec les disques durs virtuels sur le stockage Azure Standard et Premium. Nous vous recommandons de tirer parti du [disque géré Azure](https://azure.microsoft.com/services/managed-disks/) pour les déploiements de stockage par blocs Azure. 
 
@@ -42,7 +42,7 @@ Pour obtenir une liste des types de stockage et les contrats SLA associés pour 
 
 Les conditions certifiée SAP HANA minimales pour les différents types de stockages sont les suivantes : 
 
-- Le stockage Premium Azure - **/hana/log** doit être pris en charge par l’[Accélérateur d'écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) Azure. Le volume **/hana/data** peut être placé sur un stockage SSD sans Accélérateur d’écriture Azure ou sur un disque Ultra
+- Le stockage Premium Azure - **/hana/log** doit être pris en charge par l’[Accélérateur d'écriture](../../linux/how-to-enable-write-accelerator.md) Azure. Le volume **/hana/data** peut être placé sur un stockage SSD sans Accélérateur d’écriture Azure ou sur un disque Ultra
 - Disque Ultra Azure au moins pour le volume **/hana/log**. Le volume **/hana/data** peut être placé sur un stockage Premium sans Accélérateur d’écriture Azure ou sur disque Ultra pour accélérer les temps de redémarrage
 - Volumes **NFS v4.1** par-dessus Azure NetApp Files pour **/hana/log et /hana/data**. Le volume de/hana/shared peut utiliser le protocole NFS v3 ou NFS v4.1
 
@@ -59,8 +59,8 @@ Localement, vous aviez rarement besoin de vous occuper des sous-systèmes d’E/
 
 Voici une liste de certains principes de directeur quant au choix de la configuration de stockage pour HANA :
 
-- Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) et [Sélectionner un type de disque](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
-- Gardez à l’esprit le débit d’E/S global et les limites d’IOPS de la machine virtuelle lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+- Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../linux/disks-types.md)
+- Gardez à l’esprit le débit d’E/S global et les limites d’IOPS de la machine virtuelle lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md)
 - Lorsque vous choisissez la configuration du stockage, essayez de rester en dessous du débit global de la machine virtuelle avec votre configuration de volume **/hana/data**. L’écriture de points d’enregistrement, SAP HANA peut générer des opérations d’E/S agressives. Vous pouvez facilement atteindre les limites de débit de votre volume **/hana/data** lors de l’écriture d’un point d’enregistrement. Si votre ou vos disques générant le volume **/hana/data** affichent un débit supérieur à celui autorisé par votre machine virtuelle, vous pouvez rencontrer des situations où le débit utilisé par l’écriture du point d’enregistrement interfère avec les demandes de débit des écritures de journal de rétablissement. Cette situation peut avoir un impact sur le débit de l’application
 - Si vous utilisez le stockage Premium Azure, la configuration la moins coûteuse consiste à utiliser des gestionnaires de volumes logiques pour créer des jeux de bandes afin de générer les volumes **/hana/data** et **/hana/log**
 
@@ -75,7 +75,7 @@ Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linu
 L’Accélérateur d’écriture Azure est une fonctionnalité qui est fournie uniquement pour les machines virtuelles Azure de la série M. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. Pour SAP HANA, l’Accélérateur des écritures doit être utilisé exclusivement sur le volume **/hana/log**. Par conséquent, **/hana/data** et **/hana/log** sont des volumes distincts avec l’Accélérateur d’écriture Azure prenant en charge le volume **/hana/log** uniquement. 
 
 > [!IMPORTANT]
-> En cas d’utilisation du stockage Premium Azure, l’utilisation de l’[Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) Azure ou du volume **/hana/log** est obligatoire. L’Accélérateur d’écriture est disponible pour le stockage Premium et les machines virtuelles de série M et Mv2 uniquement. L’Accélérateur d’écriture ne fonctionne pas en association avec d’autres familles de machines virtuelles Azure, notamment Esv3 ou Edsv4.
+> En cas d’utilisation du stockage Premium Azure, l’utilisation de l’[Accélérateur d’écriture](../../linux/how-to-enable-write-accelerator.md) Azure ou du volume **/hana/log** est obligatoire. L’Accélérateur d’écriture est disponible pour le stockage Premium et les machines virtuelles de série M et Mv2 uniquement. L’Accélérateur d’écriture ne fonctionne pas en association avec d’autres familles de machines virtuelles Azure, notamment Esv3 ou Edsv4.
 
 Les suggestions de mise en cache pour disques Azure Premium indiquées plus bas supposent que SAP HANA présente les caractéristiques d’E/S suivantes :
 
@@ -111,7 +111,7 @@ L’augmentation du nombre de disques durs virtuels Azure sous un jeu de bandes 
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Fonctionnalité en rafale Azure pour le stockage Premium
-Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
+Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](../../linux/disk-bursting.md). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
 
 Idéalement, cette fonctionnalité en rafales sera planifiée pour des volumes ou disques contenant des fichiers de données pour les différents SGBD. La charge de travail d’E/S attendue pour ces volumes, en particulier avec les systèmes de petite ou moyenne taille, devrait ressembler à ceci :
 
@@ -133,7 +133,7 @@ En particulier sur les systèmes SGBD plus petits dans lesquels votre charge de 
 > La certification SAP HANA des machines virtuelles Azure de la série M est valable exclusivement avec l’Accélérateur des écritures Azure sur le volume **/hana/log**. Par conséquent, dans les scénarios de production, les déploiements SAP HANA sur des machines virtuelles Azure de la série M doivent être configurés avec l’Accélérateur des écritures Azure sur le volume **/hana/log**.  
 
 > [!NOTE]
-> Dans les scénarios impliquant le stockage Azure Premium, nous implémentons des fonctionnalités en rafales dans la configuration. À mesure que vous utilisez des outils de test de stockage de toute forme, gardez à l’esprit le mode de fonctionnement de [la fonctionnalité en rafales de disque Azure Premium](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting). En exécutant les tests de stockage fournis par l’outil SAP HWCCT ou HCMT, nous ne nous attendons pas à ce que tous les tests répondent aux critères, car certains des tests dépasseront les crédits de rafales que vous pouvez cumuler. En particulier lorsque tous les tests s’exécutent séquentiellement sans interruption.
+> Dans les scénarios impliquant le stockage Azure Premium, nous implémentons des fonctionnalités en rafales dans la configuration. À mesure que vous utilisez des outils de test de stockage de toute forme, gardez à l’esprit le mode de fonctionnement de [la fonctionnalité en rafales de disque Azure Premium](../../linux/disk-bursting.md). En exécutant les tests de stockage fournis par l’outil SAP HWCCT ou HCMT, nous ne nous attendons pas à ce que tous les tests répondent aux critères, car certains des tests dépasseront les crédits de rafales que vous pouvez cumuler. En particulier lorsque tous les tests s’exécutent séquentiellement sans interruption.
 
 
 > [!NOTE]
@@ -194,9 +194,9 @@ Pour les autres volumes, la configuration ressemblerait à ceci :
 
 Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
 
-L’Accélérateur des écritures Azure fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés. Vous trouverez des instructions et des restrictions plus détaillées sur l’Accélérateur des écritures Azure dans l’article [Accélérateur des écritures](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+L’Accélérateur des écritures Azure fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés. Vous trouverez des instructions et des restrictions plus détaillées sur l’Accélérateur des écritures Azure dans l’article [Accélérateur des écritures](../../linux/how-to-enable-write-accelerator.md).
 
-Pour les machines virtuelles certifiées HANA de la famille Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) et [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), vous avez besoin d’ANF pour les volumes **/hana/data** et **/hana/log**. Ou vous devez tirer parti du stockage sur disque Ultra Azure au lieu du stockage Premium Azure uniquement pour le volume **/hana/log**. Par conséquent, les configurations pour le volume **/hana/data** sur le stockage Premium Azure peuvent ressembler à ceci :
+Pour les machines virtuelles certifiées HANA de la famille Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) et [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), vous avez besoin d’ANF pour les volumes **/hana/data** et **/hana/log**. Ou vous devez tirer parti du stockage sur disque Ultra Azure au lieu du stockage Premium Azure uniquement pour le volume **/hana/log**. Par conséquent, les configurations pour le volume **/hana/data** sur le stockage Premium Azure peuvent ressembler à ceci :
 
 | Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ Pour les autres volumes, y compris **/hana/log** sur disque Ultra, la configurat
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuration du stockage sur disque Ultra Azure pour SAP HANA
-Un autre type de stockage Azure est appelé [Disque Ultra Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). La grande différence entre le stockage Azure proposé jusqu’à présent et le disque Ultra est que les capacités du disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour le disque Ultra :
+Un autre type de stockage Azure est appelé [Disque Ultra Azure](../../windows/disks-types.md#ultra-disk). La grande différence entre le stockage Azure proposé jusqu’à présent et le disque Ultra est que les capacités du disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour le disque Ultra :
 
 - Taille d’un disque allant de 4 à 65 536 Gio
 - IOPS allant de 100 à 160K (la valeur maximum dépend également des types de machine virtuelle)
@@ -229,7 +229,7 @@ Avec le disque Ultra, vous avez la possibilité de définir un seul disque qui r
 Les autres avantages du disque Ultra peuvent être la meilleure latence de lecture par rapport au stockage Premium. La latence de lecture plus courte peut avoir des avantages quand vous souhaitez réduire le temps de démarrage HANA et la charge ultérieure des données en mémoire. Les avantages du stockage sur disque Ultra peuvent également être observés quand HANA écrit des points d’enregistrement. 
 
 > [!NOTE]
-> Le disque Ultra n’est pas encore disponible dans toutes les régions Azure, ni pris en charge par tous les types de machines virtuelles listés ci-dessous. Pour plus d’informations sur la disponibilité du disque Ultra et sa prise en charge par les différentes familles de machines virtuelles, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
+> Le disque Ultra n’est pas encore disponible dans toutes les régions Azure, ni pris en charge par tous les types de machines virtuelles listés ci-dessous. Pour plus d’informations sur la disponibilité du disque Ultra et sa prise en charge par les différentes familles de machines virtuelles, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](../../windows/disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solution de stockage recommandée pour la production avec une pure configuration de disque Ultra
 Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/log** séparément. Les valeurs suggérées sont dérivées des indicateurs de performance clés que SAP doit certifier pour les configurations SAP HANA et de stockage, comme recommandé dans le [livre blanc sur le stockage SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -272,10 +272,10 @@ Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver et SAP
 
 - La taille de pool de capacité minimale est de 4 Tio.  
 - La taille de volume minimale est de 100 Gio
-- Azure NetApp Files et toutes les machines virtuelles, où les volumes Azure NetApp Files seront montés, doivent être déployés dans le même réseau virtuel Azure ou dans des [réseaux virtuels homologués](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) de la même région.  
+- Azure NetApp Files et toutes les machines virtuelles, où les volumes Azure NetApp Files seront montés, doivent être déployés dans le même réseau virtuel Azure ou dans des [réseaux virtuels homologués](../../../virtual-network/virtual-network-peering-overview.md) de la même région.  
 - Le réseau virtuel sélectionné doit avoir un sous-réseau délégué à Azure NetApp Files.
-- Le débit d’un volume NetApp Azure est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Lors du dimensionnement de volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration système requise pour HANA.  
-- Azure NetApp Files propose une [stratégie d’exportation](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) : vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.). 
+- Le débit d’un volume NetApp Azure est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Lors du dimensionnement de volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration système requise pour HANA.  
+- Azure NetApp Files propose une [stratégie d’exportation](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md) : vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.). 
 - La fonctionnalité Azure NetApp Files ne tient pas encore compte des zones. Actuellement, la fonctionnalité Azure NetApp Files n’est pas déployée dans toutes les zones de disponibilité d’une région Azure. Méfiez-vous de l’impact potentiel sur les temps de latence dans certaines régions Azure.  
 - Il est important que les machines virtuelles soient déployées à proximité du stockage Azure NetApp pour des raisons de faible latence. 
 - L’ID d’utilisateur pour <b>sid</b>adm et l’ID de groupe pour `sapsys` sur les machines virtuelles doivent correspondre à la configuration dans Azure NetApp Files. 
@@ -288,7 +288,7 @@ Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver et SAP
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionnement de la base de données HANA sur Azure NetApp Files
 
-Le débit d’un volume NetApp Azure est une fonction de la taille de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+Le débit d’un volume NetApp Azure est une fonction de la taille de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
 Lorsque vous concevez l’infrastructure pour SAP dans Azure, vous devez connaître certaines exigences de débit de stockage minimal de SAP, qui se traduisent par des caractéristiques de débit minimal pour :
 
@@ -296,12 +296,12 @@ Lorsque vous concevez l’infrastructure pour SAP dans Azure, vous devez connaî
 - Activer l’activité de lecture à un débit de 400 Mo/s au minimum pour **/hana/data** pour des tailles d’E/S de 16 Mo et 64 Mo  
 - Activer l’activité d’écriture à un débit de 250 Mo/s au minimum pour **/hana/data** avec des tailles d’E/S de 16 Mo et 64 Mo  
 
-Les [limites de débit Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) pour un quota de volume de 1 Tio sont les suivantes :
+Les [limites de débit Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) pour un quota de volume de 1 Tio sont les suivantes :
 - Niveau de stockage Premium – 64 Mio/s  
 - Niveau de stockage Ultra - 128 Mio/s  
 
 > [!IMPORTANT]
-> Indépendamment de la capacité que vous déployez sur un volume NFS unique, le débit est supposé stagner dans la plage de bande passante de 1,2 à 1,4 Go/s exploitée par un consommateur dans une machine virtuelle. Cela concerne l’architecture sous-jacente de l’offre ANF et aux limites de session Linux associées relatives à NFS. Les valeurs de performances et de débit décrites dans l’article [Résultats des tests de performances pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) ont été effectuées sur un volume NFS partagé avec plusieurs machines virtuelles clientes et, par conséquent, avec plusieurs sessions. Ce scénario est différent du scénario que nous mesurons dans SAP. Nous y mesurons le débit d’une seule machine virtuelle par rapport à un volume NFS. hébergé sur ANF.
+> Indépendamment de la capacité que vous déployez sur un volume NFS unique, le débit est supposé stagner dans la plage de bande passante de 1,2 à 1,4 Go/s exploitée par un consommateur dans une machine virtuelle. Cela concerne l’architecture sous-jacente de l’offre ANF et aux limites de session Linux associées relatives à NFS. Les valeurs de performances et de débit décrites dans l’article [Résultats des tests de performances pour Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) ont été effectuées sur un volume NFS partagé avec plusieurs machines virtuelles clientes et, par conséquent, avec plusieurs sessions. Ce scénario est différent du scénario que nous mesurons dans SAP. Nous y mesurons le débit d’une seule machine virtuelle par rapport à un volume NFS. hébergé sur ANF.
 
 Pour respecter les exigences de débit minimal SAP pour les données et le journal, et conformément aux instructions pour `/hana/shared`, les tailles recommandées ressemblent à ceci :
 
@@ -320,10 +320,10 @@ Par conséquent, vous pouvez envisager de déployer un débit similaire pour les
 > [!TIP]
 > Vous pouvez redimensionner les volumes Azure NetApp Files de manière dynamique, sans avoir à `unmount` les volumes, à arrêter les machines virtuelles ou à arrêter SAP HANA. Cela permet de répondre aux exigences à la fois attendues et imprévues de votre application en matière de débit.
 
-La documentation sur le déploiement d’une configuration de scale-out de SAP HANA avec un nœud de secours à l’aide de volumes NFS v4.1 hébergés dans ANF est publiée dans [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
+La documentation sur le déploiement d’une configuration de scale-out de SAP HANA avec un nœud de secours à l’aide de volumes NFS v4.1 hébergés dans ANF est publiée dans [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Haute disponibilité de SAP HANA pour les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+- [Haute disponibilité de SAP HANA pour les machines virtuelles Azure](./sap-hana-availability-overview.md).

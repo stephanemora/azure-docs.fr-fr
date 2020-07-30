@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055852"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -351,17 +351,17 @@ La charge utile de l’élément de la file d’attente est disponible via `cont
 
 # <a name="python"></a>[Python](#tab/python)
 
-Accédez au message de la file d’attente via le paramètre typé en [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+Accédez au message de la file d’attente via le paramètre typé en [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-L’annotation [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) vous donne accès au message de la file d’attente qui a déclenché la fonction.
+L’annotation [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) vous donne accès au message de la file d’attente qui a déclenché la fonction.
 
 ---
 
 ## <a name="message-metadata"></a>Métadonnées de message
 
-Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les propriétés sont membres de la classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage).
+Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les propriétés sont membres de la classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage).
 
 |Propriété|Type|Description|
 |--------|----|-----------|

@@ -2,19 +2,20 @@
 title: Guide pratique pour sécuriser une application monopage avec connexion non interactive
 titleSuffix: Azure Maps
 description: Explique comment configurer une application monopage avec contrôle d’accès en fonction du rôle Azure AD non interactif et SDK web Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d33fbdf2e95faaa82c13b4fc0d52ea3f188c3f86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988371"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285694"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Guide pratique pour sécuriser une application monopage avec connexion non interactive
 

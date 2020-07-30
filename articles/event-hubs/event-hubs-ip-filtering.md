@@ -2,13 +2,13 @@
 title: Règles de pare-feu dans Azure Event Hubs | Microsoft Docs
 description: Utilisez les règles de pare-feu pour autoriser les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fb9fa72af7127224afdcf70ecca1c851e9212c4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 2b886aaaf40e5c82d9c7ac3ce5abeda8f54cad3b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320420"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288042"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configuration des règles de pare-feu IP pour un espace de noms Azure Event Hubs
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -21,9 +21,7 @@ Cette fonctionnalité est utile dans les scénarios où Azure Event Hubs ne doit
 > Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor (paramètre de diagnostic)
 > - Azure Stream Analytics
-> - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
 >

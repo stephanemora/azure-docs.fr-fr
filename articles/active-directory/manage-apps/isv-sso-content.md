@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cabcaacbdc7e3e94e62c8fb45274c4d4f9390ddd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763276"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273403"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Activer l’authentification unique pour votre application multilocataire  
 
@@ -61,4 +61,4 @@ Il y a de nombreux avantages à activer le SSO dans votre application multilocat
 1. [Créez votre locataire Azure](isv-tenant-multi-tenant-app.md) et testez votre application
 1. [Créez et publiez une documentation sur l’authentification unique sur votre site Web](isv-create-sso-documentation.md).
 1. [Soumettez votre liste d’applications](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) et établissez un partenariat avec Microsoft pour créer de la documentation sur le site de Microsoft.
-1. [Rejoignez le Microsoft Partner Network (gratuit) et élaborez votre plan de commercialisation](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Rejoignez le Microsoft Partner Network (gratuit) et élaborez votre plan de commercialisation](https://partner.microsoft.com/explore/commercial#gtm).

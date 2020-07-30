@@ -1,19 +1,17 @@
 ---
 title: Découvrez les formats de données Apache Spark pour les développeurs U-SQL d’Azure Data Lake Analytics.
 description: Cet article décrit les concepts d’Apache Spark pour aider les développeurs U-SQL à comprendre les différences entre les formats de données U-SQL et Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: ed929b9dd6d262d63554ef3df59d3e3806dd28dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106422"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132311"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Comprendre les différences entre les formats de données U-SQL et Spark
 

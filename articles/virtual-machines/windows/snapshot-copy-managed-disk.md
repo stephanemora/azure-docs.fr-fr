@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074126"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -37,7 +37,7 @@ Pour créer une capture instantanée, effectuez les étapes suivantes :
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
-Les étapes suivantes montrent comment copier le disque dur virtuel et créer la configuration de capture instantanée. Vous pouvez ensuite prendre une capture instantanée du disque en utilisant l’applet de commande [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+Les étapes suivantes montrent comment copier le disque dur virtuel et créer la configuration de capture instantanée. Vous pouvez ensuite prendre une capture instantanée du disque en utilisant l’applet de commande [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot). 
 
  
 
@@ -53,18 +53,18 @@ Les étapes suivantes montrent comment copier le disque dur virtuel et créer la
 2. Obtenez la machine virtuelle :
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Créez la configuration de capture instantanée. Pour cet exemple, la capture instantanée est celle du disque de système d’exploitation :
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ Les étapes suivantes montrent comment copier le disque dur virtuel et créer la
 4. Prenez la capture instantanée :
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

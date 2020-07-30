@@ -7,26 +7,26 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288175"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour une base de données SQL à l’aide d’Azure Logic Apps
 
-Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation), ainsi que [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) et [Azure SQL Managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server](/sql/sql-server/sql-server-technical-documentation), ainsi que [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) et [Azure SQL Managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 Vous pouvez créer des applications logiques qui s’exécutent lorsqu’elles sont déclenchées par des événements dans votre base de données SQL ou dans d’autres systèmes, tels que Dynamics CRM Online. Vos applications logiques peuvent également obtenir, insérer et supprimer des données, ainsi qu’exécuter des requêtes SQL et des procédures stockées. Par exemple, vous pouvez concevoir une application logique qui recherche automatiquement les nouveaux enregistrements dans Dynamics CRM Online, ajoute des éléments à votre base de données SQL en cas de nouveaux enregistrements, puis envoie des alertes sur les éléments ajoutés par e-mail.
 
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir les informations techniques, les limitations et les problèmes connus spécifiques aux connecteurs, consultez la page [référence du connecteur SQL Server](https://docs.microsoft.com/connectors/sql/).
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir les informations techniques, les limitations et les problèmes connus spécifiques aux connecteurs, consultez la page [référence du connecteur SQL Server](/connectors/sql/).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) ou [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Une [base de données SQL Server](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) ou [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
   Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous utilisez Azure SQL Database, vous pouvez utiliser des échantillons de bases de données inclus.
 
@@ -74,7 +74,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    | Authentification | Description |
    |----------------|-------------|
    | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Nécessite une identité valide dans Azure Active Directory (Azure AD) qui a accès à votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL : authentification Azure AD Integrated](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Authentification SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Authentification SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Cet exemple se poursuit avec **Azure AD Integrated** :
@@ -117,8 +117,8 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
    | Authentification | Description |
    |----------------|-------------|
-   | [**Authentification Windows**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Prend en charge uniquement le connecteur SQL Server non-ISE, qui nécessite une ressource de passerelle de données créée préalablement dans Azure pour votre connexion, que vous utilisiez Azure à plusieurs locataires ou un ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe Windows valides pour confirmer votre identité par le biais de votre compte Windows. <p>Pour plus d'informations, consultez [Authentication Windows](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**Authentification SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre SQL Server. <p>Pour plus d’informations, consultez [Authentification SQL Server](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Authentification Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Prend en charge uniquement le connecteur SQL Server non-ISE, qui nécessite une ressource de passerelle de données créée préalablement dans Azure pour votre connexion, que vous utilisiez Azure à plusieurs locataires ou un ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe Windows valides pour confirmer votre identité par le biais de votre compte Windows. <p>Pour plus d'informations, consultez [Authentication Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
+   | [**Authentification SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre SQL Server. <p>Pour plus d’informations, consultez [Authentification SQL Server](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Cet exemple se poursuit avec l’**authentification Windows** :
@@ -134,7 +134,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    | **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour le serveur et la base de données SQL |
    | **Mot de passe** | Oui | Votre mot de passe pour le serveur et la base de données SQL |
    | **Abonnement** |  Oui, pour l’Authentification Windows | L’abonnement Azure pour la ressource de passerelle de données que vous avez créée précédemment dans Azure |
-   | **Passerelle de connexion** | Oui, pour l’Authentification Windows | Le nom de la ressource de passerelle de données que vous avez créée précédemment dans Azure <p><p>**Conseil** : Si votre passerelle n’apparaît pas dans la liste, vérifiez que vous avez correctement [configuré votre passerelle](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). |
+   | **Passerelle de connexion** | Oui, pour l’Authentification Windows | Le nom de la ressource de passerelle de données que vous avez créée précédemment dans Azure <p><p>**Conseil** : Si votre passerelle n’apparaît pas dans la liste, vérifiez que vous avez correctement [configuré votre passerelle](../logic-apps/logic-apps-gateway-connection.md). |
    |||
 
    > [!TIP]
@@ -171,7 +171,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
    Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, continuez en ajoutant une [action du connecteur SQL](#add-sql-action) ou [une autre action](../connectors/apis-list.md) qui effectue la tâche suivante que vous souhaitez dans votre flux de travail d’application logique.
    
-   Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
+   Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
 
 1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -201,7 +201,7 @@ Dans cet exemple, l’application logique commence par le [déclencheur de péri
 
    ![Sélectionnez le nom de la table et spécifier l’identifiant de la ligne](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
-   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Ainsi, pour afficher les données dans cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
+   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Ainsi, pour afficher les données dans cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
 
 1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
@@ -217,13 +217,13 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
 
   Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces lignes en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). Toutefois, lorsque votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple), vous devez réduire les coûts liés aux appels à la base de données.
 
-  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
+  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
 
   Pour en savoir plus sur la solution, consultez les articles suivants :
 
   * [Pagination de SQL pour le transfert de données en bloc avec Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-  * [SELECT - Clause ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  * [SELECT - Clause ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ### <a name="handle-dynamic-bulk-data"></a>Gérer les données en bloc dynamiques
 
@@ -250,8 +250,9 @@ Parfois, lorsque vous effectuez un appel à une procédure stockée au moyen du 
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/), qui est générée à partir de la description Swagger.
+Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/), qui est générée à partir de la description Swagger.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [tous les autres connecteurs pour Azure Logic apps](../connectors/apis-list.md)
+

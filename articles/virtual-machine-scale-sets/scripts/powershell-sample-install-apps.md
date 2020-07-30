@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ab096fd2425f0efe65f2b048435a9d7f67a4cb9e
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: aff871562c366836906d5125b0cd675a51f9a20c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087065"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Installer des applications dans un groupe de machines virtuelles identiques avec PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016, puis utilise l’extension du script personnalisé pour installer une application web de base. Une fois que vous avez exécuté le script, vous pouvez accéder à l’application web via un navigateur web.
@@ -47,4 +47,4 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 |  [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/).

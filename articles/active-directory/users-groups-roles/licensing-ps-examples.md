@@ -14,16 +14,16 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025215"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell et Graph pour les licences basées sur les groupes dans Azure AD
 
-Toutes les fonctionnalités pour les licences basées sur les groupes sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée aux opérations en lecture seule. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
+Toutes les fonctionnalités pour les licences basées sur les groupes sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée aux opérations en lecture seule. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](/powershell/module/msonline) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
 
 > [!NOTE]
 > Avant de commencer à exécuter des applets de commande, veillez d’abord à vous connecter à votre organisation en exécutant l’applet de commande `Connect-MsolService` .

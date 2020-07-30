@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 07/17/2020
+ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086657"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformation de tableau croisé dynamique dans le flux de données de mappage
 
@@ -20,6 +20,8 @@ ms.locfileid: "83683302"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilisez la transformation de tableau croisé dynamique pour créer plusieurs colonnes à partir des valeurs de lignes uniques d’une seule colonne. Un tableau croisé dynamique est une transformation d’agrégation dans laquelle vous sélectionnez l’option Regrouper par colonnes et générez des colonnes de tableau croisé dynamique à l’aide de [fonctions d’agrégation](data-flow-expression-functions.md#aggregate-functions).
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
 ## <a name="configuration"></a>Configuration
 

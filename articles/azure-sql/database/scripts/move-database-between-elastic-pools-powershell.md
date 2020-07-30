@@ -11,12 +11,12 @@ author: stevestein
 ms.reviewer: ''
 ms.author: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: de26542c56eeddefc560c17a9d7b03f18f7c15a3
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bc6054292d1a4f73bd12d90b877fc639e81802fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084991"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-a-database-between-them"></a>Utiliser PowerShell pour créer des pools élastiques et déplacer une base de données entre eux
 
@@ -58,6 +58,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/).
 
 Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell dans [Scripts PowerShell Azure SQL Database](../powershell-script-content-guide.md).

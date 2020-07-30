@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079568"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -51,7 +51,7 @@ Interface de ligne de commande qui peut être utilisée pour gérer les services
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Interface de ligne de commande permettant de gérer les services Azure via une ligne de commande sur un PC Windows. Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande.
-Voir [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/overview)
+Voir [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>modèle de déploiement Azure Resource Manager
 l’un des deux [modèles de déploiement](resource-manager-deployment-model.md) utilisés pour déployer des ressources dans Microsoft Azure (l’autre est le modèle de déploiement classique). Certains services Azure prennent en charge uniquement le modèle de déploiement du Gestionnaire de ressources, certains prennent en charge uniquement le modèle de déploiement standard, et d’autres prennent en charge les deux. La documentation de chaque service Azure spécifie le ou les modèles qu’il prend en charge.

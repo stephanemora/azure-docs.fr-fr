@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd1022079b382353591857eacdedff344ed49f63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 028ac730396c71549bfc338d3496109c98dfdc73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027833"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 
@@ -62,7 +62,7 @@ Les étapes de la procédure définissent « DefaultSiteHQ » comme connexion 
 
 ## <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 
-Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Vous devez installer la dernière version des applets de commande PowerShell. Sinon, vous risquez de recevoir des erreurs de validation à l’exécution de certaines des applets de commande.

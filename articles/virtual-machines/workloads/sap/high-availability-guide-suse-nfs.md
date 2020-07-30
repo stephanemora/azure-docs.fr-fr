@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085161"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -136,7 +136,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
    SLES For SAP Applications 12 SP3 (BYOS) est utilisé  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Ajouter un disque de données pour chaque système SAP sur les deux machines virtuelles
-1. Créez un équilibreur de charge (interne). Nous vous recommandons [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+1. Créez un équilibreur de charge (interne). Nous vous recommandons [Standard Load Balancer](../../../load-balancer/load-balancer-overview.md).  
    1. Suivez ces instructions pour créer un équilibreur Standard Load Balancer :
       1. Créer les adresses IP de serveurs frontaux
          1. Adresse IP 10.0.0.4 pour NW1
@@ -213,10 +213,10 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
             * Répéter les étapes ci-dessus pour les ports 2049 et UDP pour NW2
 
 > [!Note]
-> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 

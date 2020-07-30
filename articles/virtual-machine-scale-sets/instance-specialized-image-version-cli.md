@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e47ed9b5505966973644bee0578d5b13d1659766
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080554"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Créer un groupe identique à l’aide d’une version d’image spécialisée avec Azure CLI
 
-Créez un groupe identique à partir d’une [version d’image spécialisée](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stockée dans une galerie d’images partagées. Si vous souhaitez créer un groupe identique à l’aide d’une version d’image généralisée, consultez [Créer un groupe identique à partir d’une image généralisée](instance-generalized-image-version-cli.md).
+Créez un groupe identique à partir d’une [version d’image spécialisée](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) stockée dans une galerie d’images partagées. Si vous souhaitez créer un groupe identique à l’aide d’une version d’image généralisée, consultez [Créer un groupe identique à partir d’une image généralisée](instance-generalized-image-version-cli.md).
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.4.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -60,6 +60,3 @@ Vous pouvez également créer la ressource de galerie d’images partagées à l
 - [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-
-
-

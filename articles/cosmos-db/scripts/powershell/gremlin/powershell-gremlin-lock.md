@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: 5e4486bf91742bf815515cf3b349fc9191202edb
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 32b5a02064ec987250f640ab6ea63515bac8385f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039932"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-powershell"></a>Créer un verrou de ressource pour une base de données et un graphe d’API Gremlin Azure Cosmos à l’aide d’Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "85127047"
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
 > [!IMPORTANT]
-> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent à l’aide d’un SDK Gremlin ou du portail Azure, sauf si le compte Cosmos DB est d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention de la modification des SDK](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent à l’aide d’un SDK Gremlin ou du portail Azure, sauf si le compte Cosmos DB est d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention de la modification des SDK](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="sample-script"></a>Exemple de script
 

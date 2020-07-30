@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504218"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386841"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -78,10 +78,10 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
 ## <a name="compare-with-transactional-replication"></a>Comparaison avec la réplication transactionnelle
 
-| Synchronisation des données | Réplication transactionnelle |
+| | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
-| Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration <br/>\- Prise en charge d’Azure SQL Managed Instance |
-| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
+| **Avantages** | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration <br/>\- Prise en charge d’Azure SQL Managed Instance |
+| **Inconvénients** | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
 
 ## <a name="get-started"></a>Bien démarrer 
 

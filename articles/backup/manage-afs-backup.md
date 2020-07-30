@@ -3,16 +3,16 @@ title: Gérer les sauvegardes de partage de fichiers Azure
 description: Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712086"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073295"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
-Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview). Vous allez apprendre à effectuer des tâches de gestion dans le coffre Recovery Services.
+Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service [Sauvegarde Azure](./backup-overview.md). Vous allez apprendre à effectuer des tâches de gestion dans le coffre Recovery Services.
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 
@@ -165,4 +165,4 @@ Pour annuler l’inscription du compte de stockage :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez [Résoudre les problèmes liés à la sauvegarde des partages de fichiers Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Pour plus d'informations, consultez [Résoudre les problèmes liés à la sauvegarde des partages de fichiers Azure](./troubleshoot-azure-files.md).
