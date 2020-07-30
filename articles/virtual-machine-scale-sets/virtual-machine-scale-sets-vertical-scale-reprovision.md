@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029278"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
 
@@ -89,7 +89,7 @@ Vous pouvez configurer la mise à l’échelle verticale pour qu’elle se décl
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Créer un compte Azure Automation avec fonctionnalité d’identification
 La première chose à faire est de créer un compte Azure Automation qui héberge les runbooks utilisés pour mettre à l’échelle les instances de groupe de machines virtuelles identiques. Depuis peu, [Azure Automation](https://azure.microsoft.com/services/automation/) dispose de la fonctionnalité « Compte d’identification » qui facilite la configuration du principal du service en vue de l’exécution automatique de runbooks pour le compte d’un utilisateur. Pour plus d'informations, consultez les pages suivantes :
 
-* [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authentifier des Runbooks avec un compte d’identification Azure](../automation/manage-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importer les runbooks de mise à l’échelle verticale Azure Automation dans votre abonnement
 

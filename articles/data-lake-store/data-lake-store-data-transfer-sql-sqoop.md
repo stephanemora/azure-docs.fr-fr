@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 32d17962938c9a1dc301c7a1a681801ed488c584
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985016"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323075"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copier des données entre Data Lake Storage Gen1 et Azure SQL Database à l’aide de Sqoop
 
@@ -102,7 +102,7 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
    Par exemple,
 
     ```console
-    sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
     ```
 
 1. Vérifiez que les données ont été transférées vers le compte Data Lake Storage Gen1. Exécutez la commande suivante :
@@ -134,7 +134,7 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
    Par exemple,
 
     ```console
-    sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
 1. Vérifiez que les données ont été chargées sur la table de la base de données SQL. Utilisez [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) ou Visual Studio pour vous connecter à la base de données Azure SQL, puis exécutez la requête suivante.
@@ -156,7 +156,7 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Considérations de performances lors de l’utilisation de Sqoop
 
-Pour plus d’informations sur les performances d’optimisation de votre tâche Sqoop pour copier des données vers Data Lake Storage Gen1, consultez le [billet de blog sur les performances Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+Pour plus d’informations sur les performances d’optimisation de votre tâche Sqoop pour copier des données vers Data Lake Storage Gen1, consultez le [billet de blog sur les performances Sqoop](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e97611cdfdca28b2c2b22f21d3aedcc79c4ee6d0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d005cf64089abee07c44f584366fee9cd26c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085416"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutoriel : Créer un groupe de machines virtuelles identiques et déployer une application à haute disponibilité sur Linux avec Azure CLI
 
@@ -28,7 +28,7 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 > * Afficher les informations de connexion pour les instances de groupe identique
 > * Utiliser des disques de données dans un groupe identique
 
-Ce tutoriel utilise l’interface CLI disponible dans [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), qui est constamment mise à jour vers la dernière version. Pour ouvrir Cloud Shell, sélectionnez **Essayer** en haut d’un bloc de code.
+Ce tutoriel utilise l’interface CLI disponible dans [Azure Cloud Shell](../../cloud-shell/overview.md), qui est constamment mise à jour vers la dernière version. Pour ouvrir Cloud Shell, sélectionnez **Essayer** en haut d’un bloc de code.
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 

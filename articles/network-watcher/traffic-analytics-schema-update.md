@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 31d0de63185c56eafda8c42efbe44d8e7ffcaf1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022461"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Exemples de requêtes avec de nouveaux champs dans le schéma Traffic Analytics (mise à jour du schéma d’août 2019)
 
@@ -76,7 +76,7 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 L’ancien champ utilise le format :
 
-<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+`<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>`
 
 Nous ne regroupons plus de données dans un groupe de sécurité réseau. Dans le schéma mis à jour, **NSGList_s** contient un seul groupe de sécurité réseau. En outre, **NSGRules** contient une seule règle. Nous avons supprimé la mise en forme compliquée ici et dans d’autres champs, comme indiqué dans l’exemple.
 

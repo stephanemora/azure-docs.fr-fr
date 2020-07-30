@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX qui utilise vos propres certificats dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: b3e844c0c4d4861f7a0a0e12c4ae9d59e23c24e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 7588614f615e7aa7dee00fa7553ad986f2e26b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056962"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS et utiliser vos propres certificats TLS sur Azure Kubernetes Service (AKS)
 
@@ -211,7 +211,7 @@ La section *tls* indique à la route d’entrée d’utiliser le secret nommé *
 Créez un fichier nommé `hello-world-ingress.yaml` et copiez-y l’exemple de code YAML suivant.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -257,13 +257,13 @@ ingress.extensions/hello-world-ingress created
 Pour tester les certificats avec notre faux hôte *demo.azure.com*, utilisez `curl` et spécifiez le paramètre *--resolve*. Ce paramètre vous permet de mapper le nom *demo.azure.com* à l’adresse IP publique de votre contrôleur d’entrée. Spécifiez l’adresse IP publique de votre propre contrôleur d’entrée, telle qu’indiquée dans l’exemple suivant :
 
 ```
-curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 ```
 
 Aucun chemin d’accès supplémentaire n’ayant été fourni avec l’adresse, l’itinéraire par défaut du contrôleur d’entrée est */* . La première application de démonstration est retournée, comme l’illustre l’exemple de sortie condensée suivant :
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 
 [...]
 <!DOCTYPE html>
@@ -290,7 +290,7 @@ Le paramètre *-v* figurant dans notre commande `curl` fournit en sortie des inf
 Ajoutez maintenant le chemin d’accès */hello-world-two* à l’adresse, par exemple, `https://demo.azure.com/hello-world-two`. La deuxième application de démonstration avec le titre personnalisé est retournée, comme l’illustre l’exemple de sortie condensée suivant :
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hello-world-two
 
 [...]
 <!DOCTYPE html>

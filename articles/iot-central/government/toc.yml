@@ -26,8 +26,6 @@
       href: how-to-configure-connected-field-services.md
     - name: Connecter des appareils
       items:
-        - name: Préparer et connecter un kit de développement IoT MXChip
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: "Préparer et connecter un Rigado Cascade\_500"
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Superviser la connectivité des appareils à l’aide d’Azure CLI
@@ -107,9 +105,9 @@
     - name: Kits de développement logiciel (SDK) Azure IoT
       items:
         - name: Kits de développement logiciel (SDK) IoT Service
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: Kits de développement logiciel (SDK) IoT Device
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Options d’aide et de support
       href: /azure/iot-fundamentals/iot-support-help
     - name: Demandes de données client

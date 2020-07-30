@@ -12,12 +12,13 @@ ms.date: 06/28/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e16d0ed264f32746c11d89e88ea1e67f9383b773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+- devx-track-java
+ms.openlocfilehash: 7f04483415253145cd485ccf870160e83a6e0e4b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732514"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319114"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envoi de messages cloud à appareil avec IoT Hub (Java)
 

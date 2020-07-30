@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033579"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -22,13 +22,13 @@ Pour comprendre le comportement lié à la mise à l’échelle, vous devez éga
 
 La table d’**historique** est une table de stockage Azure qui contient les événements d’historique de toutes les instances d’orchestration au sein d’un hub de tâches. Le nom de la table apparaît sous la forme *TaskHubName*History. Au fur et à mesure que des instances sont exécutées, de nouvelles lignes sont ajoutées à cette table. La clé de partition de la table provient de l’ID d’instance de l’orchestration. Un identifiant d’instance est aléatoire dans la plupart des cas, ce qui garantit une distribution optimale des partitions internes dans le stockage Azure.
 
-Lorsqu’une instance d’orchestration doit s’exécuter, les lignes appropriées de la table d’historique sont chargées en mémoire. Ces *événements d’historique* sont ensuite relus dans le code de fonction d’orchestrateur pour revenir à l’état contrôlé précédemment. L’utilisation de l’historique d’exécution permettant de régénérer l’état de cette façon est influencée par le [modèle d’approvisionnement en événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
+Lorsqu’une instance d’orchestration doit s’exécuter, les lignes appropriées de la table d’historique sont chargées en mémoire. Ces *événements d’historique* sont ensuite relus dans le code de fonction d’orchestrateur pour revenir à l’état contrôlé précédemment. L’utilisation de l’historique d’exécution permettant de régénérer l’état de cette façon est influencée par le [modèle d’approvisionnement en événements](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Table d’instances
 
 La table d’**instances** est une autre table de stockage Azure qui contient les états de toutes les instances d’orchestration et d’entité au sein d’un hub de tâches. Au fur et à mesure que des instances sont créées, des lignes sont ajoutées à cette table. La clé de partition de cette table est l’ID d’instance de l’orchestration ou la clé d’entité, tandis que la clé de ligne est une constante fixe. Il y a une ligne par instance d’orchestration ou d’entité.
 
-Cette table est utilisée pour répondre aux demandes de requête d’instance provenant des API `GetStatusAsync` (.NET) et `getStatus` (JavaScript) et de l’API [HTTP de requête d’état](durable-functions-http-api.md#get-instance-status). Sa cohérence avec le contenu de la table d’**historique** mentionnée précédemment est conservée. L’utilisation d’une table de stockage Azure distincte pour satisfaire les opérations de requête d’instance de cette façon est influencée par le [modèle de séparation des responsabilités en matière de commande et de requête (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Cette table est utilisée pour répondre aux demandes de requête d’instance provenant des API `GetStatusAsync` (.NET) et `getStatus` (JavaScript) et de l’API [HTTP de requête d’état](durable-functions-http-api.md#get-instance-status). Sa cohérence avec le contenu de la table d’**historique** mentionnée précédemment est conservée. L’utilisation d’une table de stockage Azure distincte pour satisfaire les opérations de requête d’instance de cette façon est influencée par le [modèle de séparation des responsabilités en matière de commande et de requête (CQRS)](/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Déclencheurs de file d’attente interne
 

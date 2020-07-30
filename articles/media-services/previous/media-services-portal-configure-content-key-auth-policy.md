@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2be430fc032acd94f851072f80d14a43638c8863
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084583"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurer une stratégie d’autorisation de clé de contenu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -57,7 +57,7 @@ La restriction ouverte signifie que le système fournit la clé à toute personn
 ### <a name="token-restriction"></a>Restriction à jeton
 Pour choisir la stratégie de restriction à jeton, sélectionnez le bouton **JETON**.
 
-La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT (Simple Web Tokens)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) et JWT (JSON Web Token). Pour en savoir plus, consultez [Authentification JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT (Simple Web Tokens)](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) et JWT (JSON Web Token). Pour en savoir plus, consultez [Authentification JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services ne fournit pas de service STS. Vous pouvez créer un STS personnalisé pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu, le service de remise de clés Media Services retourne la clé de chiffrement au client.
 
@@ -94,4 +94,3 @@ Vous pouvez sélectionner le bouton **importer le XML de la stratégie** et four
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9c4b133ae74438def30f4fcd9e49a5ca5e6f9cd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e1153b58063f85b57fba99da495d6842a75a819
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086283"
 ---
 # <a name="h264-single-bitrate-4k-audio-51"></a>H264 – Vitesse de transmission unique – 4 K – Audio 5.1
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -29,7 +29,7 @@ ms.locfileid: "61463563"
  Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 18 000 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour connaître la signification des différents éléments et les valeurs valides pour chaque élément, consultez [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](./media-services-scale-media-processing-overview.md).  
   
  XML  
   

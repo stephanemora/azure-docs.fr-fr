@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Déployer une application avec le portail LUIS'
 description: Ce guide de démarrage rapide montre comment déployer une application en créant une ressource de point de terminaison de prédiction, en affectant la ressource à l’application, puis en entraînant et en publiant l’application.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653233"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336364"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -19,7 +19,7 @@ Dans ce démarrage rapide, vous allez apprendre à déployer une application. Cr
 ## <a name="prerequisites"></a>Prérequis
 
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/free).
-* Suivez le guide de [démarrage rapide du portail précédent](get-started-portal-build-app.md) ou [téléchargez et importez l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Suivez le guide de [démarrage rapide du portail précédent](get-started-portal-build-app.md) ou [téléchargez et importez l’application](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * Si vous disposez d’applications qui sont antérieures à l’authentification des ressources Azure, [effectuez une migration vers une ressource Azure](luis-migration-authoring.md). Certaines pages du portail s’affichent différemment lorsque l’authentification par e-mail est appliquée.
 
 <a name="create-the-endpoint-resource"></a>

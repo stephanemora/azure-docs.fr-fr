@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499543"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317992"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 
@@ -41,9 +41,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |---|---|---|
-| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non    | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
-| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
+| [Agents Windows](../platform/agent-windows.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
+| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
+| [Groupe d’administration SCOM](../platform/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
 ## <a name="prerequisites"></a>Conditions préalables requises
@@ -55,7 +55,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 Exécutez l’étape suivante pour ajouter la solution Capacité et performances dans votre espace de travail.
 
-- Ajoutez la solution Capacity and Performance dans votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+- Ajoutez la solution Capacity and Performance dans votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](./solutions.md).
 
 ## <a name="management-packs"></a>Packs d’administration
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Lorsque la solution Capacité et performances est mise à jour, le numéro de version change.
 
-Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../../azure-monitor/platform/om-agents.md).
+Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
@@ -129,4 +129,5 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [Recherches dans les journaux de Log Analytics](../../azure-monitor/log-query/log-query-overview.md) pour afficher les données détaillées de capacité et de performances.
+* Utilisez les [Recherches dans les journaux de Log Analytics](../log-query/log-query-overview.md) pour afficher les données détaillées de capacité et de performances.
+

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055979"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de Stockage Blob Azure pour Azure Functions
 
-Azure Functions s’intègre à [Stockage Azure](https://docs.microsoft.com/azure/storage/) via [des déclencheurs et des liaisons](./functions-triggers-bindings.md). L’intégration à Stockage Blob vous permet de créer des fonctions qui réagissent aux modifications de données d’objets Blob ainsi qu’à la lecture et à l’écriture de valeurs.
+Azure Functions s’intègre à [Stockage Azure](../storage/index.yml) via [des déclencheurs et des liaisons](./functions-triggers-bindings.md). L’intégration à Stockage Blob vous permet de créer des fonctions qui réagissent aux modifications de données d’objets Blob ainsi qu’à la lecture et à l’écriture de valeurs.
 
 | Action | Type |
 |---------|---------|

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 84a93d4fb8a6a3890ddd2c94b4f0a5c9114bd84d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058204"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutoriel : Intégrer Replicon à Azure Active Directory
 
@@ -39,6 +39,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 * Un abonnement Replicon pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

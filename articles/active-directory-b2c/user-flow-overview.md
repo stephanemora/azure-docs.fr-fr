@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc0e297ca16bf2605993e36942de9d31c331680
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78185606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115849"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
 

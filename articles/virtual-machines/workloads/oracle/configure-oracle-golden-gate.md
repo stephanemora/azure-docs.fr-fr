@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088357"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
@@ -27,7 +27,7 @@ L’interface de ligne de commande (CLI) Azure permet de créer et gérer des re
 
 Ce document vous explique pas à pas comment créer, installer et configurer Oracle Golden Gate sur une machine virtuelle Azure. Dans ce didacticiel, deux machines virtuelles sont configurées dans un groupe à haute disponibilité dans une seule région. Le même didacticiel peut être utilisé pour configurer OracleGolden Gate pour des machines virtuelles dans différentes zones de disponibilité dans une même région Azure ou pour la configuration de machines virtuelles dans deux régions différentes.
 
-Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-L’étape suivante est facultative mais recommandée. Pour plus d’informations, consultez [Instructions pour les groupes à haute disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+L’étape suivante est facultative mais recommandée. Pour plus d’informations, consultez [Instructions pour les groupes à haute disponibilité Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

@@ -2,16 +2,17 @@
 title: Tutoriel - Supprimer un cluster Azure Red Hat OpenShift
 description: Dans ce tutoriel, découvrez comment supprimer un cluster Azure Red Hat OpenShift à l’aide d’Azure CLI
 author: sakthi-vetrivel
+ms.custom: fasttrack-edit
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6fdc36dbf270be61457dcd00dd1988808a80d062
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030094"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Supprimer un cluster Azure Red Hat OpenShift 4
 
@@ -49,7 +50,7 @@ RESOURCE_GROUP=yourresourcegroup
 À l’aide de ces valeurs, supprimez votre cluster :
 
 ```bash
-az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
 Vous serez ensuite invité à confirmer la suppression du cluster. Après que vous aurez confirmé avec `y`, la suppression du cluster prendra plusieurs minutes. Quand la commande est terminée, tout le groupe de ressources et toutes les ressources qu’il contient, y compris le cluster, sont supprimés.

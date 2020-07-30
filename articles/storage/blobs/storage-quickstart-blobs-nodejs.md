@@ -3,16 +3,16 @@ title: 'Démarrage rapide : Bibliothèque de stockage Blob Azure v12 – JavaSc
 description: Ce démarrage rapide explique comment utiliser la bibliothèque de client du stockage blob Azure version 12 pour JavaScript afin de créer un conteneur et un blob dans un stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 72d1048af5f1d6d812228d8928224b2104958300
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 002266285c9ed6722f4d15d37cafe9eb8bd42c5b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290636"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v12 en Node.js
 
@@ -30,9 +30,6 @@ Ressources supplémentaires :
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
 - [Node.js](https://nodejs.org/en/download/).
-
-> [!NOTE]
-> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v10 en Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

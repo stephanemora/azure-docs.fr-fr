@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029619"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -43,12 +43,12 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 | Type | Tailles courantes | Taille maximale du disque temporaire (Gio) |
 |----|----|----|
-| [Usage général](../virtual-machines/linux/sizes-general.md) | Séries A, B et D | 1 600 |
-| [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
-| [Mémoire optimisée](../virtual-machines/linux/sizes-memory.md) | Séries D, E, G et M | 6144 |
-| [Optimisé pour le stockage](../virtual-machines/linux/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1440 |
-| [Hautes performances](../virtual-machines/linux/sizes-hpc.md) | Séries A et H | 2000 |
+| [Usage général](../virtual-machines/sizes-general.md) | Séries A, B et D | 1 600 |
+| [Optimisé pour le calcul](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Mémoire optimisée](../virtual-machines/sizes-memory.md) | Séries D, E, G et M | 6144 |
+| [Optimisé pour le stockage](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Hautes performances](../virtual-machines/sizes-hpc.md) | Séries A et H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Disques de données Azure
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Préparer les disques de données
 Les disques créés et attachés aux instances de machine virtuelle de votre groupe identique sont des disques bruts. Avant que vous ne puissiez les utiliser avec vos données et vos applications, les disques doivent être préparés. Pour préparer les disques, vous devez créer une partition, créer un système de fichiers, et les monter.
 
-Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md).
+Pour automatiser le processus sur plusieurs instances de machine virtuelle dans un groupe identique, vous pouvez utiliser l’extension de script personnalisé Azure. Cette extension peut exécuter des scripts localement sur chaque instance de machine virtuelle, par exemple pour préparer les disques de données attachés. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/extensions/custom-script-linux.md).
 
 L’exemple suivant montre l’exécution d’un script à partir d’un exemple de référentiel GitHub sur chaque instance de machine virtuelle avec la commande [az vmss extension set](/cli/azure/vmss/extension) qui prépare tous les disques de données attachés bruts :
 

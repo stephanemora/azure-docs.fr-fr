@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6f1663924f338b6b17c760afe64527f563f5bc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 178c4b92722453cd1c97471e725cb0fc68abb6fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82098014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020319"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise *azureuser* comme d’utilisateur administratif. 
 
-Vous devrez fournir un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+Vous devrez fournir un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](./faq.md#what-are-the-password-requirements-when-creating-a-vm
 ). Dans le cadre de l’exemple ci-après, vous serez invité à entrer un mot de passe dans la ligne de commande. Vous pouvez également ajouter le paramètre `--admin-password` avec une valeur pour votre mot de passe. Le nom d’utilisateur et le mot de passe seront utilisés plus tard, lorsque vous vous connecterez à la machine virtuelle.
 
 ```azurecli-interactive

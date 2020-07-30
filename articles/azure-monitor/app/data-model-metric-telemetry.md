@@ -4,16 +4,16 @@ description: Modèle de données Application Insights pour la télémétrie des
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320576"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des mesure : modèle de données Application Insights
 
-Deux types de télémétrie des mesures sont prises en charge par [Application Insights](../../azure-monitor/app/app-insights-overview.md) : la mesure unique et la mesure pré-agrégée. La mesure unique consiste simplement dans un nom et une valeur. La mesure pré-agrégée spécifie les valeurs minimale et maximale de la mesure dans l’intervalle d’agrégation, ainsi que son écart standard.
+Deux types de télémétrie des mesures sont prises en charge par [Application Insights](./app-insights-overview.md) : la mesure unique et la mesure pré-agrégée. La mesure unique consiste simplement dans un nom et une valeur. La mesure pré-agrégée spécifie les valeurs minimale et maximale de la mesure dans l’intervalle d’agrégation, ainsi que son écart standard.
 
 La télémétrie des mesures pré-agrégées suppose que cette période d’agrégation est d’une minute.
 
@@ -65,6 +65,7 @@ Si la propriété personnalisée `CustomPerfCounter` d’une métrique est défi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Découvrez comment utiliser [l’API Application Insights pour les événements et les mesures personnalisés](./api-custom-events-metrics.md#trackmetric).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](data-model.md).
-- Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.
+- Découvrez quelles [plateformes](./platforms.md) sont prises en charge par Application Insights.
+

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 208019bbc86b22443c7d012400d4e4324679aee9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78330666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084464"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Prise en main de l’authentification Azure AD à l’aide du portail Azure
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Découvrez comment utiliser le portail Azure pour accéder à l’authentification Azure Active Directory (Azure AD) en vue d’accéder à l’API Azure Media Services.
 
@@ -53,7 +53,7 @@ Authentifie un service à l’aide d’une application Azure Active Directory (A
 
 La section **Gérer votre application AAD et votre secret** vous permet de sélectionner ou de créer une application Azure AD et de générer un secret. Pour des raisons de sécurité, le secret ne peut pas être affiché après la fermeture du panneau. L’application utilise l’ID d’application et le secret pour l’authentification afin d’obtenir un jeton valide pour Media Services.
 
-Veillez à avoir les autorisations suffisantes pour inscrire une application auprès de votre locataire Azure AD et pour attribuer l’application à un rôle dans votre abonnement Azure. Pour plus d’informations, consultez [Autorisations requises](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Veillez à avoir les autorisations suffisantes pour inscrire une application auprès de votre locataire Azure AD et pour attribuer l’application à un rôle dans votre abonnement Azure. Pour plus d’informations, consultez [Autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ### <a name="connect-to-media-services-api"></a>Se connecter à l’API Media Services
 

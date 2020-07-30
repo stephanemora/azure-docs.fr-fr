@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092012"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schémas des journaux de diagnostic
 
@@ -30,7 +30,7 @@ Cet article décrit les schémas des journaux de diagnostic de Media Services.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schéma des journaux de diagnostic de niveau supérieur
 
-Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Schéma de journal de remise de clé
 

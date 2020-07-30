@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655648"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033511"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -57,11 +57,11 @@ La collecte automatique des compteurs de performances fonctionne uniquement sur 
 
 ## <a name="live-metrics--secure-control-channel"></a>Métriques en temps réel et canal de contrôle sécurisé
 
-Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète. Pour obtenir des instructions, consultez [Sécuriser le canal de contrôle](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel).
+Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète. Pour obtenir des instructions, consultez [Sécuriser le canal de contrôle](./live-stream.md#secure-the-control-channel).
 
 ## <a name="sampling"></a>échantillonnage
 
-Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](../../azure-functions/functions-monitoring.md#configure-sampling).
 
 Si votre projet prend une dépendance sur le kit de développement logiciel (SDK) Application Insights pour effectuer un suivi télémétrique manuel, vous constaterez peut-être un comportement inhabituel en présence d'une configuration d’échantillonnage différente de la configuration d’échantillonnage de Functions. 
 

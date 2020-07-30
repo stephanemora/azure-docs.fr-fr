@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045193"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -26,9 +26,9 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Vous devez avoir installé [Azure PowerShell](/powershell/azure), ou vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Vous devez avoir installé [Azure PowerShell](/powershell/azure), ou vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 - Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](metrics-custom-overview.md#supported-regions).
 
@@ -293,5 +293,3 @@ Vous pouvez ensuite également choisir d’utiliser les dimensions de cette mét
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).
-
-

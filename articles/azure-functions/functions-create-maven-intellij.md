@@ -5,13 +5,13 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-java
+ms.openlocfilehash: 38ccc99de72af8f989cca0fefae2f962fb178f0e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556577"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373366"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Créer votre première fonction Azure avec Java et IntelliJ
 
@@ -44,7 +44,7 @@ Pour développer une fonction avec Java et IntelliJ, installez les logiciels sui
 2. Pour vous connecter à votre compte Azure, ouvrez la barre latérale **Azure Explorer**, puis cliquez sur l’icône **Connexion à Azure** dans la barre en haut (ou dans le menu IDEA **Tools/Azure/Azure Sign in**).
     ![Commande IntelliJ de connexion à Azure][intellij-azure-login]
 
-3. Dans la fenêtre **Connexion à Azure** qui s’affiche, sélectionnez **Connexion à l’appareil**, puis cliquez sur **Connexion** ([autres options de connexion](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. Dans la fenêtre **Connexion à Azure** qui s’affiche, sélectionnez **Connexion à l’appareil**, puis cliquez sur **Connexion** ([autres options de connexion](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![Fenêtre Connexion à Azure avec l’option Connexion à l’appareil activée][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ Dans cette section, vous utilisez Azure Toolkit for IntelliJ pour créer un proj
 Vous avez créé un projet de fonctions Java avec une fonction déclenchée par HTTP, vous l’avez exécuté sur votre ordinateur local et vous l’avez déployée sur Azure. À présent, étendez votre fonction en effectuant un...
 
 > [!div class="nextstepaction"]
-> [Ajout de liaison de sortie de file d’attente Stockage Azure](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Ajout de liaison de sortie de file d’attente Stockage Azure](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

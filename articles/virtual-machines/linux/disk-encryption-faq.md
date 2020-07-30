@@ -4,16 +4,16 @@ description: Cet article offre des réponses aux questions fréquentes sur Micro
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829935"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374034"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Linux
 
@@ -154,15 +154,15 @@ Le chiffrement des disques de données XFS est pris en charge uniquement lorsque
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 
-Sauvegarde Azure fournit un mécanisme permettant de sauvegarder et de restaurer les machines virtuelles chiffrées dans le même abonnement et la même région.  Pour obtenir les instructions correspondantes, consultez [Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  La restauration d’une machine virtuelle chiffrée dans une autre région n’est pas prise en charge actuellement.  
+Sauvegarde Azure fournit un mécanisme permettant de sauvegarder et de restaurer les machines virtuelles chiffrées dans le même abonnement et la même région.  Pour obtenir les instructions correspondantes, consultez [Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md).  La restauration d’une machine virtuelle chiffrée dans une autre région n’est pas prise en charge actuellement.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Où puis-je poser des questions ou envoyer des commentaires ?
 
-Vous pouvez poser vos questions ou envoyer vos commentaires sur la [Page de questions Microsoft Q&A pour Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Vous pouvez poser vos questions ou envoyer vos commentaires sur la [Page de questions Microsoft Q&A pour Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a fourni les réponses aux questions les plus courantes concernant Azure Disk Encryption. Pour plus d'informations sur ce service, consultez les articles suivants :
 
 - [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md)
-- [Appliquer le chiffrement de disque dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Chiffrement des données au repos Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Appliquer le chiffrement de disque dans Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Chiffrement des données au repos Azure](../../security/fundamentals/encryption-atrest.md)

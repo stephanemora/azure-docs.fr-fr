@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322293"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de métrique dans Azure Monitor
 
@@ -23,7 +23,7 @@ Cet article fournit des exemples d’utilisation de [modèles Azure Resource Man
 Consultez [Ressources prises en charge pour les alertes de métrique dans Azure Monitor](../platform/alerts-metric-near-real-time.md) pour obtenir une liste des ressources qui peuvent être utilisées avec des règles d’alerte de métrique. Une explication du schéma et des propriétés d’une règle d’alerte est disponible dans [Alertes de métrique – Créer ou mettre à jour](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez [Alerte de métrique pour les journaux – Modèle de ressource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez [Alerte de métrique pour les journaux – Modèle de ressource](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -3127,7 +3127,7 @@ Cet exemple crée une règle d’alerte de métrique de seuil dynamique qui supe
 
 
 ## <a name="availability-test-with-metric-alert"></a>Test de disponibilité avec alerte de métrique
-Les [tests de disponibilité d’Application Insights](../../azure-monitor/app/monitor-web-app-availability.md) vous aident à surveiller la disponibilité de votre site web ou application à partir de divers emplacements dans le monde. Les alertes de test de disponibilité vous informent quand des tests de disponibilité d’un certain nombre d’emplacements échouent. Alertes de test de disponibilité du même type de ressource que les alertes de métrique (Microsoft.Insights/metricAlerts). L’exemple suivant crée un test de disponibilité simple et une alerte associée.
+Les [tests de disponibilité d’Application Insights](../app/monitor-web-app-availability.md) vous aident à surveiller la disponibilité de votre site web ou application à partir de divers emplacements dans le monde. Les alertes de test de disponibilité vous informent quand des tests de disponibilité d’un certain nombre d’emplacements échouent. Alertes de test de disponibilité du même type de ressource que les alertes de métrique (Microsoft.Insights/metricAlerts). L’exemple suivant crée un test de disponibilité simple et une alerte associée.
 
 > [!NOTE]
 > `&amp` ; référence d’entité HTML pour &. Les paramètres d’URL restent séparés par une perluète (&) mais, si vous mentionnez l’URL en HTML, vous devez l’encoder. Par conséquent, si vous avez une perluète « & » dans la valeur de votre paramètre pingURL, vous devez la faire précéder du caractère d’échappement « `&amp`; ».
@@ -3266,3 +3266,4 @@ Les [tests de disponibilité d’Application Insights](../../azure-monitor/app/m
 - [Obtenir d’autres exemples de modèle pour Azure Monitor](resource-manager-samples.md).
 - [En savoir plus sur les alertes](../platform/alerts-overview.md).
 - [Obtenir un exemple pour créer un groupe d’actions avec un modèle Resource Manager](resource-manager-action-groups.md).
+
