@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047489"
 ---
 # <a name="animated-character-detection-preview"></a>Détection de personnages animés (préversion)
 
@@ -134,7 +134,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
         ![Personnalisation du modèle de contenu](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. Une fois l’apprentissage effectué, toute vidéo qui sera indexée ou réindexée à l’aide de ce modèle reconnaîtra les personnages formés. 
-    Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. En savoir plus sur [l’amélioration de votre classifieur dans Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+    Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. En savoir plus sur [l’amélioration de votre classifieur dans Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
 1. Supprimer un personnage animé.
 
@@ -160,7 +160,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
 1. Connectez un compte Custom Vision.
 
     Si vous êtes propriétaire d’un compte Video Indexer payant, vous devez d’abord connecter un compte Custom Vision. <br/>
-    Si vous n’avez pas encore de compte Custom Vision, créez-en un. Pour plus d’informations, consultez [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Si vous n’avez pas encore de compte Custom Vision, créez-en un. Pour plus d’informations, consultez [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
 
     [Connectez votre compte Custom Vision à l'aide de l’API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Créez un modèle de personnages animés.

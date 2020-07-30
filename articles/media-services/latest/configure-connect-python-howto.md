@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: tracking-python
-ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559621"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001177"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Se connecter à l’API Media Services v3 - Python
 
@@ -29,8 +29,8 @@ Cet article vous montre comment vous connecter à l’API Azure Media Services v
 
 - Télécharger Python sur le site [python.org](https://www.python.org/downloads/)
 - Définir la variable d’environnement `PATH`
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
-- Suivez les étapes de l’article [Accéder aux API](access-api-cli-how-to.md). Enregistrez l’ID d’abonnement, l’ID d’application (ID client), la clé d’authentification (secret), et l’ID locataire dont vous aurez besoin dans une prochaine étape.
+- [Créer un compte Media Services](./create-account-howto.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- Suivez les étapes de l’article [Accéder aux API](./access-api-howto.md). Enregistrez l’ID d’abonnement, l’ID d’application (ID client), la clé d’authentification (secret), et l’ID locataire dont vous aurez besoin dans une prochaine étape.
 
 > [!IMPORTANT]
 > Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
@@ -55,7 +55,7 @@ pip3 install azure-mgmt-media==1.1.1
 1. Ouvrir le fichier dans l’éditeur de votre choix
 1. Ajoutez le code suivant au fichier. Le code importe les modules nécessaires et crée l’objet d’informations d’identification Active Directory nécessaire pour vous connecter à Media Services.
 
-      Définir les valeurs de variables pour les valeurs que vous avez obtenues à l’étape [Accéder aux API](access-api-cli-how-to.md)
+      Définir les valeurs de variables pour les valeurs que vous avez obtenues à l’étape [Accéder aux API](./access-api-howto.md)
 
       ```
       import adal

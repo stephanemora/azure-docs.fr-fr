@@ -4,26 +4,26 @@ description: API récupère une liste récapitulative des offres d’un espace d
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113477"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535890"
 ---
-<a name="retrieve-offers"></a>Récupération des offres
-===============
+# <a name="retrieve-offers"></a>Récupération des offres
 
 > [!NOTE]
-> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront de fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les modifications répertoriées dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Récupère une liste récapitulative des offres sous un espace de noms du serveur de publication.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Paramètres URI
---------------
+## <a name="uri-parameters"></a>Paramètres URI
 
 | **Nom**         |  **Description**                         |  **Type de données** |
 | -------------    |  ------------------------------------    |  -----------   |
@@ -31,9 +31,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  api-version     | Dernière version de l’API                    |    Date        |
 |  |  |
 
-
-<a name="header"></a>En-tête
-------
+## <a name="header"></a>En-tête
 
 |  **Nom**        |         **Valeur**       |
 |  --------------- |       ----------------  |
@@ -41,9 +39,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  Autorisation   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
-
-<a name="body-example"></a>Exemple de corps
-------------
+## <a name="body-example"></a>Exemple de corps
 
 ### <a name="response"></a>response
 
@@ -77,7 +73,6 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  changedTime    | Heure UTC de la dernière modification de l’offre                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 
 | **Code**  |  **Description**                                                                                                   |
@@ -87,7 +82,6 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  403      | `Forbidden` : le client n’a pas accès à l’espace de noms spécifié.                                          |
 |  404      | `Not found` : l’entité spécifiée n’existe pas.                                                                 |
 |  |  |
-
 
 ### <a name="offer-status"></a>État de l’offre
 

@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289892"
 ---
 ### <a name="property-limits"></a>Limites de propriétés
 
@@ -33,7 +33,7 @@ Au maximum deux sources d’événements par instance sont prise en charge.
 * Découvrez comment [ajouter une source Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurez [une source de hub IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Par défaut, les [environnements Gen2 prennent en charge des débits](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) d’entrée allant jusqu’à **1 mégaoctet par seconde (Mo/s) par environnement**. Les clients peuvent augmenter le débit de leurs environnements jusqu’à **16 Mo/s** si nécessaire. Une limite de **0,5 Mo/s** par partition est également fixée.
+Par défaut, les [environnements Gen2 prennent en charge des débits](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) d’entrée allant jusqu’à **1 mégaoctet par seconde (Mo/s) par environnement**. Les clients peuvent augmenter le débit de leurs environnements jusqu’à **16 Mo/s** si nécessaire. Une limite de **0,5 Mo/s** par partition est également fixée.
 
 ### <a name="api-limits"></a>Limites de l’API
 

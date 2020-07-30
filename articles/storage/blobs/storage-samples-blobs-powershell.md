@@ -7,18 +7,18 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: c4e8608c0d5c8dc79fa299d5d814f33cd6c8da2d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66c188186c81e5a4d15c417a31ab096ba7ef598
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68726320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020897"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Exemples Azure PowerShell pour Stockage Blob Azure
 
 Le tableau suivant contient des liens vers des exemples de scripts PowerShell qui créent et gèrent un Stockage Azure.
 
-| | |
+| Script | Description |
 |---|---|
 |**Comptes de stockage**||
 | [Créer un compte de stockage et récupérer/faire tourner les clés d’accès](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un compte de stockage Azure, et récupère et fait tourner l’une de ses clés d’accès. |

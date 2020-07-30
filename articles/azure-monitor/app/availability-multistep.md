@@ -3,12 +3,12 @@ title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Applic
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024771"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -17,7 +17,7 @@ Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions av
 > [!NOTE]
 > Les tests web à plusieurs étapes dépendent des fichiers de test web Visual Studio. Il a été [annoncé](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 est la dernière version avec la fonctionnalité de test web. Il est important de comprendre que même si aucune nouvelle fonctionnalité ne sera ajoutée, les fonctionnalités de test web dans Visual Studio 2019 sont toujours prises en charge et continueront d’être prises en charge pendant le cycle de vie du support du produit. L’équipe de produit Azure Monitor a répondu aux questions concernant l’avenir des tests de disponibilité à plusieurs étapes [ici](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 > </br>
-> Les tests web comportant plusieurs étapes **ne sont pas pris en charge** dans le cloud [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+> Les tests web comportant plusieurs étapes **ne sont pas pris en charge** dans le cloud [Azure Government](../../azure-government/index.yml).
 
 
 ## <a name="pre-requisites"></a>Conditions préalables
@@ -37,7 +37,7 @@ Pour localiser les outils requis. Lancez **Visual Studio Installer** > **Composa
 > [!WARNING]
 > Nous ne recommandons plus l’utilisation de l’enregistreur multiétape. L’enregistreur a été développé pour les pages HTML statiques avec des interactions de base et ne fournit pas d’expérience fonctionnelle pour les pages web modernes.
 
-Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [documentation officielle de Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [documentation officielle de Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Charger le test web
 

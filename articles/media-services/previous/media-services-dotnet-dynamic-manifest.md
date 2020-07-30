@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: cenkdin
-ms.openlocfilehash: b2099283bc3af19f7d23e5007377b8baac0066d8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cd1272b6c49d247d58486193fcbc488d566ec1b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043034"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Création de filtres à l’aide du Kit de développement logiciel (SDK) .NET Media Services 
 > [!div class="op_single_selector"]
@@ -40,10 +40,10 @@ Notez que si vous mettez à jour un filtre, il peut falloir jusqu’à deux minu
 ## <a name="types-used-to-create-filters"></a>Types utilisés pour créer des filtres
 Les types suivants sont utilisés lors de la création de filtres : 
 
-* **IStreamingFilter**.  Ce type est basé sur l’API REST suivante : [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. Ce type est basé sur l’API REST suivante : [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. Ce type est basé sur l’API REST suivante : [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* **FilterTrackSelectStatement** et **IFilterTrackPropertyCondition**. Ces types sont basés sur les API REST suivantes [FilterTrackSelect et FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* **IStreamingFilter**.  Ce type est basé sur l’API REST suivante : [Filter](/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. Ce type est basé sur l’API REST suivante : [AssetFilter](/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. Ce type est basé sur l’API REST suivante : [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** et **IFilterTrackPropertyCondition**. Ces types sont basés sur les API REST suivantes [FilterTrackSelect et FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>Création/Mise à jour/Lecture/Suppression de filtres globaux
 Le code suivant montre comment utiliser .NET pour créer, mettre à jour, lire et supprimer des filtres d’éléments multimédias.
@@ -137,4 +137,3 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
-

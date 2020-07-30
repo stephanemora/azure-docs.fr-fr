@@ -3,12 +3,12 @@ title: Limites et frontières - QnA Maker
 description: QnA Maker présente des limites de métadonnées pour certaines parties de la base de connaissances et du service. Il est important de maintenir votre base de connaissances à l’intérieur de ces limites pour les tests et la publication.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855560"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524435"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -63,7 +63,7 @@ Le nombre maximal de champs de métadonnées par base de connaissances est basé
 
 |**Niveau de Recherche cognitive Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
+|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
 
 ### <a name="by-name-and-value"></a>Par nom et valeur
 
@@ -79,7 +79,8 @@ La longueur et les caractères acceptables pour le nom et la valeur des métadon
 Limites globales sur le contenu de la base de connaissances :
 * Longueur du texte de réponse : 25 000
 * Longueur du texte de question : 1 000
-* Longueur du texte de valeur/clé des métadonnées : 100
+* Longueur du texte de clé des métadonnées : 100
+* Longueur du texte de valeur des métadonnées : 500
 * Caractères pris en charge pour le nom des métadonnées : lettres, chiffres et `_`
 * Caractères pris en charge pour la valeur des métadonnées : Tous sauf `:` et `|`
 * Longueur de nom de fichier : 200

@@ -5,20 +5,20 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024569"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Surveillance d’Azure Functions avec Application Insights d’Azure Monitor
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) est intégré à Azure Application Insights pour surveiller des fonctions. 
+[Azure Functions](../../azure-functions/functions-overview.md) est intégré à Azure Application Insights pour surveiller des fonctions. 
 
 Application Insights collecte les données des journaux, des performances et des erreurs et détecte automatiquement les anomalies de performances. Application Insights intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre la manière dont vos fonctions sont utilisées. Lorsque vous avez la possibilité de visualiser les données de vos applications, vous pouvez améliorer de manière continue les performances et la convivialité. Vous pouvez également utiliser Application Insights lors du développement d'un projet d'application de fonction local. 
 
-L’instrumentation Application Insights nécessaire est intégrée à Azure Functions. La seule chose dont vous avez besoin est une clé d’instrumentation valide pour connecter votre application de fonction à une ressource Application Insights. La clé d’instrumentation doit être ajoutée aux paramètres de votre application lorsque la ressource de votre application de fonction est créée dans Azure. Si votre application de fonction n’a pas encore cette clé, vous pouvez la définir manuellement. Pour plus d’informations, lisez l’article relatif à la[surveillance d’Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
+L’instrumentation Application Insights nécessaire est intégrée à Azure Functions. La seule chose dont vous avez besoin est une clé d’instrumentation valide pour connecter votre application de fonction à une ressource Application Insights. La clé d’instrumentation doit être ajoutée aux paramètres de votre application lorsque la ressource de votre application de fonction est créée dans Azure. Si votre application de fonction n’a pas encore cette clé, vous pouvez la définir manuellement. Pour plus d’informations, lisez l’article relatif à la[surveillance d’Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Suivi distribué pour les applications Java sur Windows (préversion publique)
 
@@ -40,8 +40,8 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Lire plus d’instructions et d’informations sur la [surveillance d’Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-* Obtenir une vue d’ensemble du [traçage distribué](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
-* Découvrir ce que la [cartographie d’application](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) peut apporter à votre entreprise
-* En savoir plus sur les [requêtes et les dépendances des applications Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* En savoir plus sur [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) et [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* Lire plus d’instructions et d’informations sur la [surveillance d’Azure Functions](../../azure-functions/functions-monitoring.md)
+* Obtenir une vue d’ensemble du [traçage distribué](./distributed-tracing.md)
+* Découvrir ce que la [cartographie d’application](./app-map.md?tabs=net) peut apporter à votre entreprise
+* En savoir plus sur les [requêtes et les dépendances des applications Java](./java-in-process-agent.md)
+* En savoir plus sur [Azure Monitor](../overview.md) et [Application Insights](./app-insights-overview.md)
