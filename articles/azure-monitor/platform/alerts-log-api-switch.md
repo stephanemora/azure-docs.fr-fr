@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324078"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 
@@ -115,4 +115,5 @@ Dans le cas contraire, si l'espace de travail Log Analytic spécifié n'a pas en
 
 - En savoir plus sur [Azure Monitor - Alertes de journal](alerts-unified-log.md).
 - En savoir plus sur la création d’[alertes de journal dans Alertes Azure](alerts-log.md).
-- En savoir plus sur l’[expérience Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
+- En savoir plus sur l’[expérience Alertes Azure](./alerts-overview.md).
+

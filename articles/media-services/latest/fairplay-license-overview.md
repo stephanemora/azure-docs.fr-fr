@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4a3516d96e397944adcd31628a561a243e178c2d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 433768ddea6e250c66483ec3da4c7737b3538a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092046"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuration et conditions de licence Apple FairPlay 
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser l’API Media Services pour configurer des licences FairPla
 > [!NOTE]
 > Généralement, vous n’aurez à configurer les options de stratégie FairPlay qu’une seule fois, car vous n’aurez qu’un seul jeu de certification et de clé ASK.
 
-L’exemple suivant utilise le kit [SDK .NET Media Services ](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) pour configurer la licence.
+L’exemple suivant utilise le kit [SDK .NET Media Services ](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) pour configurer la licence.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()

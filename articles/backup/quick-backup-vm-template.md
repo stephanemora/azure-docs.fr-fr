@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054481"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Démarrage rapide : Sauvegarder une machine virtuelle dans Azure avec un modèle ARM
 
-La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machines locales, ainsi que les machines virtuelles Azure. Cet article explique comment sauvegarder une machine virtuelle Azure avec un modèle Azure Resource Manager (modèle ARM) et Azure PowerShell. Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle ARM en vue de créer un coffre Recover Services. Pour plus d’informations sur le développement de modèles ARM, consultez la [documentation Azure Resource Manager](/azure/azure-resource-manager/) et les [informations de référence sur les modèles](/azure/templates/microsoft.recoveryservices/allversions).
+La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machines locales, ainsi que les machines virtuelles Azure. Cet article explique comment sauvegarder une machine virtuelle Azure avec un modèle Azure Resource Manager (modèle ARM) et Azure PowerShell. Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle ARM en vue de créer un coffre Recover Services. Pour plus d’informations sur le développement de modèles ARM, consultez la [documentation Azure Resource Manager](../azure-resource-manager/index.yml) et les [informations de référence sur les modèles](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77468760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052492"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -23,7 +23,7 @@ Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des d
 
 * charger votre vidéo à partir d’une URL (par défaut),
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
-* Utilisez la ressource Azure Media Services existante en fournissant l’[ID de la ressource](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
+* Utilisez la ressource Azure Media Services existante en fournissant l’[ID de la ressource](../latest/assets-concept.md) (pris en charge dans les comptes payants uniquement).
 
 Une fois votre vidéo téléchargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
 
@@ -58,7 +58,7 @@ L’article décrit comment télécharger et indexer vos vidéos avec les option
 
 Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Video Indexer, consultez l’article [conteneur d’entrée/formats de fichiers](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Télécharger et indexer une vidéo à l’aide du site web Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Télécharger et indexer une vidéo à l’aide du site web Video Indexer
 
 > [!NOTE]
 > Un nom de vidéo ne doit pas dépasser 80 caractères.
@@ -74,7 +74,7 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 
     Une fois l’analyse terminée par Video Indexer, vous obtiendrez une notification contenant un lien vers votre vidéo et une brève description des éléments découverts dedans. Par exemple : personnes, rubriques, OCR.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>Télécharger et indexer avec API
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>Télécharger et indexer avec API
 
 Utilisez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour télécharger et indexer vos vidéos en fonction d’une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. 
 
@@ -142,7 +142,7 @@ Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. 
 
 Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
 
-Pour exécuter les travaux d’indexation et d’encodage, le [compte Azure Media Services connecté à votre compte Video Indexer](connect-to-azure.md), nécessite des unités réservées. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Dans la mesure où il s’agit de tâches de calcul intensif, un type d’unité S3 est fortement recommandé. Le nombre d’unités de demande définit le nombre maximal de travaux pouvant s’exécuter en parallèle. La suggestion de base de référence est 10 unités de demande S3. 
+Pour exécuter les travaux d’indexation et d’encodage, le [compte Azure Media Services connecté à votre compte Video Indexer](connect-to-azure.md), nécessite des unités réservées. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Dans la mesure où il s’agit de tâches de calcul intensif, un type d’unité S3 est fortement recommandé. Le nombre d’unités de demande définit le nombre maximal de travaux pouvant s’exécuter en parallèle. La suggestion de base de référence est 10 unités de demande S3. 
 
 Si vous souhaitez uniquement indexer votre vidéo sans l’encoder, définissez `streamingPreset` sur `NoStreaming`.
 

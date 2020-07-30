@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052823"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -338,7 +338,7 @@ Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur 
 4. Appuyez sur **Charger**, puis accédez au fichier .mp4 que vous souhaitez charger.
 
 >[!NOTE]
-> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour plus d’informations, consultez [Déclencheurs et liaisons de stockage blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour plus d’informations, consultez [Déclencheurs et liaisons de stockage blob](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -350,4 +350,3 @@ Consultez également [Utiliser Azure WebHooks pour surveiller les notifications 
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

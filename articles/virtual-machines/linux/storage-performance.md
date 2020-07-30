@@ -5,17 +5,17 @@ services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines-linux
 ms-subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 520754c08fc9bf89949739987b41974eccdcd29d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757686"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292138"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de la série Lsv2
 
@@ -110,4 +110,4 @@ Pour en savoir plus sur les options de sauvegarde des données sur le stockage l
    
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les spécifications pour toutes les [machines virtuelles à stockage optimisé](sizes-storage.md) sur Azure
+* Consultez les spécifications pour toutes les [machines virtuelles à stockage optimisé](../sizes-storage.md) sur Azure

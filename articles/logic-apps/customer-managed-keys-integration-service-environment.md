@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687002"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386161"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -39,7 +39,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 * Un coffre de clés Azure pour lequel les propriétés **Suppression réversible** et **Ne pas vider** sont activées
 
-  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/overview-soft-delete.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si vous ne connaissez pas Azure Key Vault, découvrez [comment créer un coffre de clés](../key-vault/secrets/quick-create-portal.md#create-a-vault) à l’aide du portail Azure ou à l’aide de la commande Azure PowerShell [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si vous ne connaissez pas Azure Key Vault, découvrez [comment créer un coffre de clés](../key-vault/secrets/quick-create-portal.md#create-a-vault) à l’aide du portail Azure ou à l’aide de la commande Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * Dans votre coffre de clés, une clé créée avec les valeurs de propriétés suivantes :
 
@@ -52,7 +52,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
   ![Créez votre clé de chiffrement gérée par le client](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) ou la commande Azure PowerShell [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) ou la commande Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Un outil que vous pouvez utiliser pour créer votre ISE en appelant l’API REST Logic Apps avec une requête PUT HTTPS. Par exemple, vous pouvez utiliser [Postman](https://www.getpostman.com/downloads/) ou créer une application logique qui effectue cette tâche
 
@@ -199,7 +199,7 @@ Cet exemple de corps de requête montre les exemples de valeurs :
 
 Dans les *30 minutes* qui suivent l’envoi de la requête PUT HTTP qui crée votre ISE, vous devez ajouter une stratégie d’accès à votre coffre de clés pour l’identité attribuée par le système de votre ISE. Si vous ne le faites pas, la création de votre ISE échoue et vous recevez une erreur d’autorisation. 
 
-Pour cette tâche, vous pouvez utiliser la commande Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) ou effectuer ces étapes dans le portail Azure :
+Pour cette tâche, vous pouvez utiliser la commande Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) ou effectuer ces étapes dans le portail Azure :
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre coffre de clés Azure.
 

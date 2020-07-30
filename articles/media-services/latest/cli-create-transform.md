@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 365c6a6a10ee79d96c1054416669e84c5392344c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74888596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092165"
 ---
 # <a name="cli-example-create-a-transform"></a>Exemple CLI : créer une transformation
 
@@ -27,14 +27,14 @@ Le script Azure CLI dans cet article montre comment créer une transformation. L
 
 ## <a name="prerequisites"></a>Conditions préalables requises 
 
-[Créer un compte Media Services](create-account-cli-how-to.md).
+[Créer un compte Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
-> Vous pouvez uniquement spécifier le chemin d’un fichier JSON prédéfini Standard Encoder personnalisé pour [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Pour plus d’informations, consultez l’exemple [Encoder avec une transformation personnalisée](custom-preset-cli-howto.md).
+> Vous pouvez uniquement spécifier le chemin d’un fichier JSON prédéfini Standard Encoder personnalisé pour [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Pour plus d’informations, consultez l’exemple [Encoder avec une transformation personnalisée](custom-preset-cli-howto.md).
 >
-> Vous ne pouvez pas passer un nom de fichier si vous utilisez [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
+> Vous ne pouvez pas passer un nom de fichier si vous utilisez [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 
 ## <a name="example-script"></a>Exemple de script
 
@@ -42,4 +42,4 @@ Le script Azure CLI dans cet article montre comment créer une transformation. L
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[az ams transform (CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)
+[az ams transform (CLI)](/cli/azure/ams/transform?view=azure-cli-latest)

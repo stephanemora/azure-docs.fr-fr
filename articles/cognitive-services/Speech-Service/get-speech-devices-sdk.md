@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 436e80ebed78043c9fdb102ca71d77fde65e5b45
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0bc1a7b5e443de0c1a95fa209d2e5a280cf28ef2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928378"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385838"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenir le kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
@@ -26,7 +26,7 @@ Le kit SDK Speech Devices est une bibliothèque préconfigurée conçue pour fon
 |Appareils|Caractéristique|Description|Scénarios|
 |--|--|--|--|
 |[Kit de développement URbetter](http://www.urbetter.com/products_56/278.html)![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Ethernet, HDMI, caméra USB. <br>Linux|Un kit SDK Speech Devices de niveau industriel qui adapte l’ensemble Microsoft Mic Array et prend en charge de nombreuses E/S, comme HDMI/Ethernet et d’autres périphériques USB. <br> [Contacter Urbetter](http://www.urbetter.com/products_56/278.html)|Transcription de conversation, enseignement, hôpital, robots, boîte OTT, la agent vocal, Drive Thru|
-|[Kit de développement Roobo Smart Audio](https://ddk.roobo.com)<br>[Configuration](speech-devices-sdk-roobo-v1.md) / [Démarrage rapide](speech-devices-sdk-android-quickstart.md)![Kit de développement Roobo Smart Audio](media/speech-devices-sdk/device-roobo-v1.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, sortie audio, E/S. <br>[Android](speech-devices-sdk-android-quickstart.md)|Le premier kit SDK Speech Devices à adapter l’ensemble Microsoft Mic Array et le kit SDK de traitement frontal pour développer des scénarios de transcription et de reconnaissance vocale de qualité.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
+|[Kit de développement Roobo Smart Audio](http://ddk.roobo.com)<br>[Configuration](speech-devices-sdk-roobo-v1.md) / [Démarrage rapide](speech-devices-sdk-android-quickstart.md)![Kit de développement Roobo Smart Audio](media/speech-devices-sdk/device-roobo-v1.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, sortie audio, E/S. <br>[Android](speech-devices-sdk-android-quickstart.md)|Le premier kit SDK Speech Devices à adapter l’ensemble Microsoft Mic Array et le kit SDK de traitement frontal pour développer des scénarios de transcription et de reconnaissance vocale de qualité.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
 |[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Configurer](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [Démarrage rapide](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Caméras de profondeur et RVB avec ensemble de 7 micros. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit de développement doté de capteurs d’intelligence artificielle (IA) avancés pour élaborer des modèles vocaux et des modèles de vision par ordinateur sophistiqués. Il associe un ensemble de microphones spatiaux de pointe et une caméra de profondeur à une caméra vidéo et à un capteur d'orientation, le tout au sein d'un petit dispositif doté de différents modes, options et kits SDK pour gérer différents types de calcul.|Transcription de conversation, robotique, bâtiment intelligent|
 |Kit de développement Roobo Smart Audio 2<br>[Paramétrage](speech-devices-sdk-roobo-v2.md)<br>![Kit de développement Roobo Smart Audio 2](media/speech-devices-sdk/device-roobo-v2.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Bluetooth, E/S. <br>Linux|Le kit SDK Speech Devices deuxième génération, qui offre un autre système d’exploitation et des fonctionnalités supplémentaires dans une conception de référence économique.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
 

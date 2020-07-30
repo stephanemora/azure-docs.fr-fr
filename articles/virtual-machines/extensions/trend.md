@@ -1,25 +1,19 @@
 ---
 title: Installer Trend Micro Deep Security sur une machine virtuelle
 description: Cet article décrit comment installer et configurer la sécurité Trend Micro sur une machine virtuelle créée avec le modèle de déploiement Classic dans Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186960"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288513"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows
 
@@ -38,7 +32,7 @@ Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous po
 
 Le [portail Azure](https://portal.azure.com) vous permet d’installer l’extension de sécurité Trend Micro lorsque vous utilisez une image de la **Place de marché** pour créer la machine virtuelle. La création d’une machine virtuelle unique à l’aide du portail est une méthode simple pour ajouter une protection Trend Micro.
 
-L’utilisation d’une entrée de la **Place de marché** a pour effet d’ouvrir un Assistant qui vous aide à configurer la machine virtuelle. Vous utilisez le panneau **Paramètres**, le troisième volet de l’Assistant, pour installer l’extension de sécurité Trend Micro.  Pour obtenir des instructions générales, consultez [Créer une machine virtuelle exécutant Windows dans le portail Azure](../windows/classic/tutorial.md).
+L’utilisation d’une entrée de la **Place de marché** a pour effet d’ouvrir un Assistant qui vous aide à configurer la machine virtuelle. Vous utilisez le panneau **Paramètres**, le troisième volet de l’Assistant, pour installer l’extension de sécurité Trend Micro.  Pour obtenir des instructions générales, consultez [Créer une machine virtuelle exécutant Windows dans le portail Azure](../windows/quick-create-portal.md).
 
 Lorsque vous accédez au panneau **Paramètres** de l’Assistant, procédez comme suit :
 
@@ -57,7 +51,7 @@ Lorsque vous accédez au panneau **Paramètres** de l’Assistant, procédez com
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installation de l’agent Deep Security sur une machine virtuelle existante
 Pour installer l’agent sur une machine virtuelle existante, vous devez disposer des éléments suivants :
 
-* Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version** . Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Connectez-vous à votre abonnement Azure à l’aide d’ `Add-AzureAccount`.
+* Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version** . Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/). Connectez-vous à votre abonnement Azure à l’aide d’ `Add-AzureAccount`.
 * L'agent de machine virtuelle installé sur la machine virtuelle cible.
 
 Tout d'abord, vérifiez que l’agent de machine virtuelle est déjà installé. Renseignez le nom du service cloud et le nom de la machine virtuelle, puis exécutez les commandes suivantes à une invite de commandes de niveau administrateur Azure PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < et >.
@@ -100,4 +94,4 @@ Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre
 
 <!-- Link references -->
 [Connexion à une machine virtuelle exécutant Windows Server]:../windows/classic/connect-logon.md
-[Fonctionnalités et extensions de machine virtuelle Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Fonctionnalités et extensions de machine virtuelle Azure]: features-windows.md

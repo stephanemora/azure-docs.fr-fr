@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091995"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Points de terminaison de streaming (origine) dans Azure Media Services
 
-Dans Microsoft Azure Media Services, un [point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente, à l’aide de l’un des protocoles de streaming multimédia courants (HLS ou DASH). En outre, le **point de terminaison de streaming** offre un chiffrement dynamique (juste-à-temps) aux systèmes DRM de pointe. 
+Dans Microsoft Azure Media Services, un [point de terminaison de streaming](/rest/api/media/streamingendpoints) représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente, à l’aide de l’un des protocoles de streaming multimédia courants (HLS ou DASH). En outre, le **point de terminaison de streaming** offre un chiffrement dynamique (juste-à-temps) aux systèmes DRM de pointe. 
 
 Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte (voir [Quotas et limites](limits-quotas-constraints.md)).
 
@@ -41,7 +41,7 @@ Quand vous utilisez le point de terminaison de streaming par défaut, `servicena
 ### <a name="limitations"></a>Limites
 
 * Le nom du point de terminaison de streaming peut contenir 24 caractères au maximum.
-* Le nom doit suivre ce modèle [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* Le nom doit suivre ce modèle [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Types
 
@@ -77,7 +77,7 @@ Utilisation recommandée |Recommandé pour la plupart des scénarios de streamin
 
 ## <a name="streaming-endpoint-properties"></a>Propriétés des points de terminaison de streaming
 
-Cette section fournit des détails sur certaines propriétés du point de terminaison de streaming. Pour obtenir des exemples montrant comment créer un nouveau point de terminaison de streaming et les descriptions de toutes les propriétés, consultez [Point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+Cette section fournit des détails sur certaines propriétés du point de terminaison de streaming. Pour obtenir des exemples montrant comment créer un nouveau point de terminaison de streaming et les descriptions de toutes les propriétés, consultez [Point de terminaison de streaming](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Permet de configurer les paramètres de sécurité suivants pour ce point de terminaison de diffusion en continu : Les clés d’authentification d’en-tête de signature Akamai et les adresses IP qui sont autorisées à se connecter à ce point de terminaison. Cette propriété peut uniquement être définie quand `cdnEnabled` est défini sur false.
 
@@ -92,7 +92,7 @@ Cette section fournit des détails sur certaines propriétés du point de termin
 
 - `cdnProfile`: Quand `cdnEnabled` est définie sur true, vous pouvez également passer des valeurs de `cdnProfile` valeurs. `cdnProfile` est le nom du profil CDN où le point du point de terminaison CDN doit être créé. Vous pouvez fournir un cdnProfile existant ou en utiliser un nouveau. Si la valeur est NULL et que `cdnEnabled` est true, la valeur par défaut « AzureMediaStreamingPlatformCdnProfile » est utilisée. Si le `cdnProfile` fourni existe déjà, un point de terminaison est créé sous celui-ci. Si le profil n’existe pas, un nouveau profil est créé automatiquement.
 - `cdnProvider`: Quand le CDN est activé, vous pouvez également passer des valeurs de `cdnProvider`. `cdnProvider` contrôle les fournisseurs à utiliser. Actuellement, trois valeurs sont prises en charge : « StandardVerizon », « PremiumVerizon » et « StandardAkamai ». Si aucune valeur n’est fournie et que `cdnEnabled` a la valeur true, « StandardVerizon » est utilisé (c’est la valeur par défaut).
-- `crossSiteAccessPolicies`: Utilisée pour spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Les paramètres s’appliquent uniquement au format Smooth Streaming.
+- `crossSiteAccessPolicies`: Utilisée pour spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](/previous-versions/azure/azure-services/gg185950(v=azure.100)). Les paramètres s’appliquent uniquement au format Smooth Streaming.
 - `customHostNames`: Utilisée pour configurer un point de terminaison de streaming pour qu’il accepte le trafic dirigé vers un nom d’hôte personnalisé. Cette propriété est valide pour les points de terminaison de streaming Standard et Premium, et elle peut être définie quand `cdnEnabled` est définie sur false.
 
     La propriété du nom de domaine doit être vérifiée par Media Services. Media Services vérifie la propriété du nom de domaine en demandant un enregistrement `CName` qui contient l’ID de compte Media Services comme composant à ajouter au domaine utilisé. Par exemple, pour utiliser « sports.contoso.com » comme nom d’hôte personnalisé pour le point de terminaison de streaming, un enregistrement pour `<accountId>.contoso.com` doit être configuré de façon à pointer vers un des noms d’hôte de vérification de Media Services. Le nom d’hôte de vérification est composé de verifydns.\<mediaservices-dns-zone>.

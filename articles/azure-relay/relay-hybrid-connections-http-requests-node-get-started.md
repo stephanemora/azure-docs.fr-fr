@@ -3,12 +3,13 @@ title: Connexions hybrides Azure Relay - Requêtes HTTP dans Node
 description: Écrivez une application console Node.js pour des requêtes HTTP de connexions hybrides Azure Relay dans Node.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e40b16d71e8d651e687fa8dea93efeab7064ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ff6b4e6b99299091910df537bf90984f493405e3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382863"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Bien démarrer avec les requêtes HTTP de connexions hybrides Relay dans Node
 
