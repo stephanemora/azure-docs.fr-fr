@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337141"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
 
@@ -135,7 +135,7 @@ Dans une application Azure IoT Central, les modèles d’appareil définissent l
 
 Un modèle d’appareil d’application IoT Central contient :
 
-- Les **modèles de capacité d’appareil** spécifient les capacités d'un appareil, notamment les données de télémétrie qu'il envoie, les propriétés qui définissent l'état de l’appareil, et les commandes auxquelles l’appareil répond. Les capacités de l'appareil sont organisées en une ou plusieurs interfaces. Pour plus d’informations sur les modèles de capacité d’appareil, consultez la documentation [IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md).
+- Les **modèles de capacité d’appareil** spécifient les capacités d'un appareil, notamment les données de télémétrie qu'il envoie, les propriétés qui définissent l'état de l’appareil, et les commandes auxquelles l’appareil répond. Les capacités de l'appareil sont organisées en une ou plusieurs interfaces.
 - Les **propriétés du cloud** spécifient les propriétés que l'IoT Central stocke pour un appareil. Ces propriétés sont uniquement stockées dans IoT Central et ne sont jamais envoyées à un appareil.
 - Les **vues** spécifient les tableaux de bord et les formulaires créés par le concepteur pour permettre à l'opérateur de surveiller et de gérer les appareils.
 - Les **personnalisations** permettent au concepteur de remplacer certaines des définitions du modèle de capacité d’appareil afin de les rendre plus pertinentes pour l'application IoT Central.

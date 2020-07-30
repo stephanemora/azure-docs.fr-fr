@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337447"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procédure : Configurer et activer des stratégies de risque
 
@@ -55,7 +55,7 @@ Pour activer les stratégies de risque utilisateur et de risque de connexion, pr
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble**.
-1. Sélectionnez **Configurer la stratégie d’utilisateur à risque**.
+1. Sélectionnez **Stratégie de risque utilisateur**.
    1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
@@ -64,7 +64,7 @@ Pour activer les stratégies de risque utilisateur et de risque de connexion, pr
       1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger la modification du mot de passe**.
    1. **Appliquer la stratégie** - **Activé**
    1. **Enregistrer** : cette action a pour effet de renvoyer à la page **Vue d’ensemble**.
-1. Sélectionnez **Configurer la stratégie de connexion à risque**.
+1. Sélectionnez **Stratégie de connexion à risque**.
    1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.

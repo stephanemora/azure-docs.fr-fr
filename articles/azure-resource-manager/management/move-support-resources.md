@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079507"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -288,6 +288,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
+> [!IMPORTANT]
+> Un service Gestion des API dont la référence SKU définie est Consommation ne peut pas être déplacé.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -298,9 +301,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | reportfeedback | Non | Non |
 > | service | Oui | Oui |
 > | validateservicename | Non | Non |
-
-> [!IMPORTANT]
-> Un service Gestion des API dont la référence SKU définie est Consommation ne peut pas être déplacé.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -330,15 +330,15 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
+> [!IMPORTANT]
+> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | apiapps | Non | Non |
 > | appidentities | Non | Non |
 > | gateways | Non | Non |
-
-> [!IMPORTANT]
-> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -375,6 +375,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
+> [!IMPORTANT]
+> Les runbooks doivent exister dans le même groupe de ressources que le compte Automation.
+>
+> Pour plus d'informations, consultez [Déplacer votre compte Azure Automation vers un autre abonnement](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -388,11 +393,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | automationaccounts / softwareupdateconfigurations | Non | Non |
 > | automationaccounts / webhooks | Non | Non |
 > | opérations | Non | Non |
-
-> [!IMPORTANT]
-> Les runbooks doivent exister dans le même groupe de ressources que le compte Automation.
->
-> Pour plus d'informations, consultez [Déplacer votre compte Azure Automation vers un autre abonnement](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -626,6 +626,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
+> [!IMPORTANT]
+> Si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations relatives au déplacement réseau](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -638,9 +641,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | redis / eventgridfilters | Non | Non |
 > | redis / privatelinkresources | Non | Non |
 > | redisenterprise | Non | Non |
-
-> [!IMPORTANT]
-> Si l’instance du Cache Azure pour Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations relatives au déplacement réseau](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -700,6 +700,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
+> [!IMPORTANT]
+> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -707,9 +710,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | certificateorders / certificates | Non | Non |
 > | opérations | Non | Non |
 > | validatecertificateregistrationinformation | Non | Non |
-
-> [!IMPORTANT]
-> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
 
@@ -719,6 +719,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | opérations | Non | Non |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+
+> [!IMPORTANT]
+> Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
@@ -746,20 +749,20 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | virtualmachines / metricdefinitions | Non | Non |
 > | virtualmachines / metrics | Non | Non |
 
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
+
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
-
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | classicinfrastructureresources | Non | Non |
 
+## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
-
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
@@ -776,10 +779,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | virtualnetworks / remotevirtualnetworkpeeringproxies | Non | Non |
 > | virtualnetworks / virtualnetworkpeerings | Non | Non |
 
+## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
-
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
@@ -807,18 +810,15 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | storageaccounts / vmimages | Non | Non |
 > | vmimages | Non | Non |
 
+## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
+
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
-
-## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | opérations | Non | Non |
-
-> [!IMPORTANT]
-> Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -843,6 +843,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | usageaggregates | Non | Non |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
+
+> [!IMPORTANT]
+> Consultez [Conseils pour le déplacement de machines virtuelles](./move-limitations/virtual-machines-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
@@ -888,9 +891,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | virtualmachinescalesets / publicipaddresses | Non | Non |
 > | virtualmachinescalesets / virtualmachines | Non | Non |
 > | virtualmachinescalesets / virtualmachines / networkinterfaces | Non | Non |
-
-> [!IMPORTANT]
-> Consultez [Conseils pour le déplacement de machines virtuelles](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1613,6 +1613,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
+> [!IMPORTANT]
+> Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe de ressources. Toutefois, vous ne pouvez pas déplacer sur différents abonnements les ressources réseau liées au cluster HDInsight (par exemple le réseau virtuel, une carte réseau ou un équilibrage de charge). En outre, vous ne pouvez pas déplacer vers un nouveau groupe de ressources une carte réseau connectée à une machine virtuelle pour le cluster.
+>
+> Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez tout d’abord les autres ressources (le compte de stockage, par exemple). Puis, déplacez le cluster HDInsight par lui-même.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -1627,11 +1632,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | locations / usages | Non | Non |
 > | locations / validatecreaterequest | Non | Non |
 > | opérations | Non | Non |
-
-> [!IMPORTANT]
-> Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe de ressources. Toutefois, vous ne pouvez pas déplacer sur différents abonnements les ressources réseau liées au cluster HDInsight (par exemple le réseau virtuel, une carte réseau ou un équilibrage de charge). En outre, vous ne pouvez pas déplacer vers un nouveau groupe de ressources une carte réseau connectée à une machine virtuelle pour le cluster.
->
-> Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez tout d’abord les autres ressources (le compte de stockage, par exemple). Puis, déplacez le cluster HDInsight par lui-même.
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
@@ -1699,6 +1699,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
+> [!IMPORTANT]
+> Vérifiez que le déplacement vers le nouvel abonnement ne dépasse pas les [quotas d’abonnement](azure-subscription-service-limits.md#azure-monitor-limits).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -1754,9 +1757,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | workbooks | Oui | Oui |
 > | workbooktemplates | Oui | Oui |
 
-> [!IMPORTANT]
-> Vérifiez que le déplacement vers le nouvel abonnement ne dépasse pas les [quotas d’abonnement](azure-subscription-service-limits.md#azure-monitor-limits).
-
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -1779,6 +1779,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
+> [!IMPORTANT]
+> Les coffres de clés utilisés pour le chiffrement de disques ne peuvent pas être déplacés vers des groupes de ressources situés dans le même abonnement ni d’un abonnement à l’autre.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -1795,9 +1798,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | vaults / accesspolicies | Non | Non |
 > | vaults / eventgridfilters | Non | Non |
 > | vaults / secrets | Non | Non |
-
-> [!IMPORTANT]
-> Les coffres de clés utilisés pour le chiffrement de disques ne peuvent pas être déplacés vers des groupes de ressources situés dans le même abonnement ni d’un abonnement à l’autre.
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -2115,6 +2115,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
+> [!IMPORTANT]
+> Consultez l’[Aide pour le déplacement du réseau](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -2188,7 +2191,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | locations / usages | Non | Non |
 > | locations / validateresourceownership | Non | Non |
 > | locations / virtualnetworkavailableendpointservices | Non | Non |
-> | natgateways | Non | Non  |
+> | natgateways | Non | Non |
 > | networkexperimentprofiles | Non | Non |
 > | networkintentpolicies | Oui | Oui |
 > | networkinterfaces | Oui | Oui |
@@ -2237,9 +2240,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | vpnserverconfigurations | Non | Non |
 > | vpnsites (Virtual WAN) | Non | Non |
 
-> [!IMPORTANT]
-> Consultez l’[Aide pour le déplacement du réseau](./move-limitations/networking-move-limitations.md).
-
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -2272,6 +2272,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
+> [!IMPORTANT]
+> Vérifiez que le déplacement vers un nouvel abonnement ne dépasse pas les [quotas d’abonnement](azure-subscription-service-limits.md#azure-monitor-limits).
+>
+> Les espaces de travail qui ont un compte Automation lié ne peuvent pas être déplacés. Avant de commencer une opération de déplacement, veillez à dissocier tous les comptes Automation.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -2289,11 +2294,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | workspaces / metadata | Non | Non |
 > | workspaces / query | Non | Non |
 > | workspaces / scopedprivatelinkproxies | Non | Non |
-
-> [!IMPORTANT]
-> Vérifiez que le déplacement vers un nouvel abonnement ne dépasse pas les [quotas d’abonnement](azure-subscription-service-limits.md#azure-monitor-limits).
->
-> Les espaces de travail qui ont un compte Automation lié ne peuvent pas être déplacés. Avant de commencer une opération de déplacement, veillez à dissocier tous les comptes Automation.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -2406,6 +2406,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
+> [!IMPORTANT]
+> Voir [Conseils sur le déplacement de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -2426,9 +2429,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | opérations | Non | Non |
 > | replicationeligibilityresults | Non | Non |
 > | vaults | Oui | Oui |
-
-> [!IMPORTANT]
-> Voir [Conseils sur le déplacement de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
@@ -2532,6 +2532,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
+> [!IMPORTANT]
+> Vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -2540,9 +2543,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | opérations | Non | Non |
 > | resourcehealthmetadata | Non | Non |
 > | searchservices | Oui | Oui |
-
-> [!IMPORTANT]
-> Vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -2748,6 +2748,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
+> [!IMPORTANT]
+> La base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure Synapse Analytics.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -2922,9 +2925,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers / vulnerabilityassessments | Non | Non |
 > | virtualclusters | Oui | Oui |
 
-> [!IMPORTANT]
-> La base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure Synapse Analytics.
-
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
@@ -3012,6 +3012,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
+> [!IMPORTANT]
+> Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -3020,9 +3023,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | locations / quotas | Non | Non |
 > | opérations | Non | Non |
 > | streamingjobs | Oui | Oui |
-
-> [!IMPORTANT]
-> Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -3110,6 +3110,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
+> [!IMPORTANT]
+> Pour modifier l’abonnement pour Azure DevOps, consultez [Modifier l’abonnement Azure utilisé pour la facturation](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -3118,9 +3121,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | account / project | Non | Non |
 > | checknameavailability | Non | Non |
 > | opérations | Non | Non |
-
-> [!IMPORTANT]
-> Pour modifier l’abonnement pour Azure DevOps, consultez [Modifier l’abonnement Azure utilisé pour la facturation](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -3178,6 +3178,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
+> [!IMPORTANT]
+> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
@@ -3232,9 +3235,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | staticsites | Non | Non |
 > | validate | Non | Non |
 > | verifyhostingenvironmentvnet | Non | Non |
-
-> [!IMPORTANT]
-> Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 

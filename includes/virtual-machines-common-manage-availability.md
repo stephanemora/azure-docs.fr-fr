@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e0f9bbf4e0d8edd153798b39f880f0adb8be6587
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502274"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292393"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -32,7 +32,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]
-* [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configurer chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]
@@ -95,11 +95,11 @@ Si vous prévoyez d’utiliser des machines virtuelles avec des disques non mana
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles
 
-Quand vous vous abonnez à des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), votre machine virtuelle reçoit une notification relative aux futurs événements de maintenance susceptibles de l’impacter. Quand des événements planifiés sont activés, votre machine virtuelle dispose d’un délai minimal avant l’exécution de l’activité de maintenance. Par exemple, les mises à jour du système d’exploitation hôte susceptibles d’impacter votre machine virtuelle sont mises en file d’attente en tant qu’événements indiquant l’impact ainsi que l’heure d’exécution de la maintenance si aucune action n’est entreprise. Les événements de planification sont également mis en file d’attente quand Azure détecte une défaillance matérielle imminente pouvant impacter votre machine virtuelle, ce qui vous permet de décider du moment de la réparation. Les clients peuvent utiliser l’événement pour effectuer des tâches préalables à la maintenance, par exemple une sauvegarde de l’état, un basculement vers le nœud secondaire, etc. Une fois que vous avez fini de mettre au point votre logique de gestion de l’événement de maintenance, vous pouvez approuver l’événement planifié en attente pour permettre à la plateforme de procéder à la maintenance.
+Quand vous vous abonnez à des [événements planifiés](../articles/virtual-machines/linux/scheduled-events.md), votre machine virtuelle reçoit une notification relative aux futurs événements de maintenance susceptibles de l’impacter. Quand des événements planifiés sont activés, votre machine virtuelle dispose d’un délai minimal avant l’exécution de l’activité de maintenance. Par exemple, les mises à jour du système d’exploitation hôte susceptibles d’impacter votre machine virtuelle sont mises en file d’attente en tant qu’événements indiquant l’impact ainsi que l’heure d’exécution de la maintenance si aucune action n’est entreprise. Les événements de planification sont également mis en file d’attente quand Azure détecte une défaillance matérielle imminente pouvant impacter votre machine virtuelle, ce qui vous permet de décider du moment de la réparation. Les clients peuvent utiliser l’événement pour effectuer des tâches préalables à la maintenance, par exemple une sauvegarde de l’état, un basculement vers le nœud secondaire, etc. Une fois que vous avez fini de mettre au point votre logique de gestion de l’événement de maintenance, vous pouvez approuver l’événement planifié en attente pour permettre à la plateforme de procéder à la maintenance.
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combiner un équilibreur de charge avec des zones de disponibilité ou des groupes à haute disponibilité
-Combinez [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) avec une zone de disponibilité ou un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machine virtuelles de niveau Standard. Certains niveaux de machines virtuelles n’intègrent pas Azure Load Balancer. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez [Équilibrage de charge des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
+Combinez [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) avec une zone de disponibilité ou un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machine virtuelles de niveau Standard. Certains niveaux de machines virtuelles n’intègrent pas Azure Load Balancer. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez [Équilibrage de charge des machines virtuelles](../articles/virtual-machines/linux/tutorial-load-balancer.md).
 
 Si l’équilibrage de charge n’est pas configuré pour équilibrer le trafic entre plusieurs machines virtuelles, tout événement de maintenance planifié affecte l’unique machine virtuelle en charge du trafic, entraînant ainsi une interruption de votre couche Application. Placer plusieurs machines virtuelles de la même couche dans le même équilibrage de charge et groupe à haute disponibilité permet de toujours avoir au moins une instance disponible pour le trafic.
 

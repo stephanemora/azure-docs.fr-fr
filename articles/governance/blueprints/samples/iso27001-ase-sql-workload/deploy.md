@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 description: Étapes de déploiement de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74f2670b79d1968755e376d1f5a75bbb76e6e6c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072891"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Déployer l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 

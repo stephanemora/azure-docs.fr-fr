@@ -3,20 +3,20 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079687"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
-À de nombreux égards, la planification du développement, du déploiement et de l’exploitation sécurisés des fonctions serverless est très similaire à celle d’une application Web ou hébergée sur le Cloud. [Azure App Service](/azure/app-service/) fournit l’infrastructure d’hébergement pour vos applications de fonction. Cet article décrit des stratégies de sécurité pour exécuter votre code de fonction, ainsi que la façon dont App Service peut vous aider à sécuriser vos fonctions. 
+À de nombreux égards, la planification du développement, du déploiement et de l’exploitation sécurisés des fonctions serverless est très similaire à celle d’une application Web ou hébergée sur le Cloud. [Azure App Service](../app-service/index.yml) fournit l’infrastructure d’hébergement pour vos applications de fonction. Cet article décrit des stratégies de sécurité pour exécuter votre code de fonction, ainsi que la façon dont App Service peut vous aider à sécuriser vos fonctions. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-Pour obtenir un ensemble de suggestions de sécurité qui suivent le [benchmark de sécurité Azure](/azure/security/benchmarks/overview), consultez la [base de référence de sécurité pour Azure Functions](security-baseline.md).
+Pour obtenir un ensemble de suggestions de sécurité qui suivent le [benchmark de sécurité Azure](../security/benchmarks/overview.md), consultez la [base de référence de sécurité pour Azure Functions](security-baseline.md).
 
 ## <a name="secure-operation"></a>Opération sécurisée 
 

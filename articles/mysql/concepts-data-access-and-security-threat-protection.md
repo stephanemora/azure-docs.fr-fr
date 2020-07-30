@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 01ac6ccbc2789d2052bab07e2da51630b6dbf581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 834083b0f472de6ac1fd157ee966ebb021286cff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290185"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure ATP pour Azure Database pour MySQL
 
@@ -20,7 +20,7 @@ La protection avancée contre les menaces d’Azure Database pour MySQL détecte
 > [!NOTE]
 > Advanced Threat Protection est disponible en préversion publique.
 
-La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. Vous pouvez accéder à Advanced Threat Protection et le gérer via le [portail Azure](https://portal.azure.com) ou l’[API REST](/rest/api/mysql/serversecurityalertpolicies). Cette fonctionnalité est disponible pour les serveurs Usage général et Mémoire optimisée.
+La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. Vous pouvez accéder à Advanced Threat Protection et le gérer via le [portail Azure](https://portal.azure.com) ou l’[API REST](/rest/api/mysql). Cette fonctionnalité est disponible pour les serveurs Usage général et Mémoire optimisée.
 
 > [!NOTE]
 > La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.

@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60460981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292836"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
 
-Le [programme CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) met en avant des témoignages de collaboration pour tous les services cloud de Microsoft, notamment Office 365, Enterprise Mobility Suite et Microsoft Azure. Grâce au fournisseur de solutions cloud, les partenaires établissent une relation de bout en bout avec leurs clients et deviennent leur point de contact principal. Les partenaires peuvent déployer des abonnements Azure pour les clients et combiner ces abonnements avec leurs propres offres personnalisées à valeur ajoutée.
+Le [programme CSP](https://partner.microsoft.com/cloud-solution-provider) met en avant des témoignages de collaboration pour tous les services cloud de Microsoft, notamment Office 365, Enterprise Mobility Suite et Microsoft Azure. Grâce au fournisseur de solutions cloud, les partenaires établissent une relation de bout en bout avec leurs clients et deviennent leur point de contact principal. Les partenaires peuvent déployer des abonnements Azure pour les clients et combiner ces abonnements avec leurs propres offres personnalisées à valeur ajoutée.
 
 Avec [Azure Site Recovery](site-recovery-overview.md), en tant que partenaires, vous pouvez gérer la récupération d’urgence pour les clients directement par le biais du fournisseur de solutions cloud. Vous pouvez également utiliser le fournisseur de solutions cloud pour configurer des environnements Site Recovery et permettre aux clients de gérer leurs propres besoins de récupération d’urgence en libre-service. Dans les deux cas, les partenaires jouent le rôle de liaison entre la récupération de site et leurs clients. Les partenaires assument la relation client et facturent l’utilisation de Site Recovery.
 

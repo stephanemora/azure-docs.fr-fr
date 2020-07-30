@@ -5,12 +5,13 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7614cec43fd9b2f294a04ed266cb0614f6cde872
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194465"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291830"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 
@@ -185,7 +186,7 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 ## <a name="test-your-function-in-azure"></a>Tester votre fonction dans Azure
 
-1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. L’URL qui appelle la fonction déclenchée via HTTP doit se présenter sous ce format : `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. L’URL qui appelle la fonction déclenchée via HTTP doit se présenter sous ce format : `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. Vous devez obtenir la même réponse d’état que lorsque vous avez utilisé l’application publiée.
 

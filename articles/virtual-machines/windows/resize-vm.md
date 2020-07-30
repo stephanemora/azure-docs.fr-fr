@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552b397a93978d2790a69e9574b4ccf256e478b8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099884"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289633"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 
@@ -126,5 +126,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Windows dans un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Windows dans un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

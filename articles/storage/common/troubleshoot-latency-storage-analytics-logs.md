@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075942"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
 
@@ -97,7 +97,7 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
    Le tableau suivant fournit des informations sur les résultats OperationType et RequestStatus à latence élevée :
 
-   |   |RequestStatus =<br>Succès|RequestStatus =<br>(SAS)NetworkError|Recommandation|
+   | Type d’objet blob |RequestStatus =<br>Succès|RequestStatus =<br>(SAS)NetworkError|Recommandation|
    |---|---|---|---|
    |GetBlob|Oui|Non|[**Opération GetBlob :** RequestStatus = Success](#getblob-operation-requeststatus--success)|
    |GetBlob|Non|Oui|[**Opération GetBlob :** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

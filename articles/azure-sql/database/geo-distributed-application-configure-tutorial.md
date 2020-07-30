@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045025"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutoriel : Implémenter une base de données géo-distribuée (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - Une base de données unique dans Azure SQL Database Pour en créer une :
   - [Le portail Azure](single-database-create-quickstart.md)
   - [L’interface de ligne de commande Microsoft Azure](az-cli-script-samples-content-guide.md)

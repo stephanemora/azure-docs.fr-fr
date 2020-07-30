@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 72d413c5d8bc982d885d889da35b29a3607410cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9ec677e356f5d4e70a49c9de10f0fdb2039917d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078065"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -65,9 +65,9 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 
     * Gérer les [événements en direct](live-events-outputs-concept.md) Media Services v3. 
     * Consulter (et non gérer) les [actifs multimédias](assets-concept.md) v3. 
-    * [Obtenir des informations sur l’accès aux API](access-api-portal.md). 
+    * [Obtenir des informations sur l’accès aux API](./access-api-howto.md). 
 
-    Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](https://docs.microsoft.com/rest/api/media/), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+    Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 * Vous devez provisionner des unités réservées Multimédia (MRU) dans votre compte afin de contrôler la concurrence et les performances de vos travaux, en particulier ceux impliquant une analyse audio ou vidéo. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Vous pouvez gérer les MRU à l’aide de [CLI 2.0 pour Media Services v3](media-reserved-units-cli-how-to.md), du [portail Azure](../previous/media-services-portal-scale-media-processing.md) ou des [API v2](../previous/media-services-dotnet-encoding-units.md). Vous devez provisionner des unités réservées Multimédia, indépendamment de la version (v2 ou v3) des API Media Services que vous utilisez.
 * Des entités Media Services créées avec l’API v3 ne peuvent pas être gérées avec l’API v2.  
 * Toutes les entités de l’API V2 ne s’affichent pas automatiquement dans l’API V3.  Voici quelques exemples d’entités dans les deux versions et qui sont incompatibles :  

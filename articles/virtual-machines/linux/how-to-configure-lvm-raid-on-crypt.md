@@ -3,16 +3,16 @@ title: Configurer LVM et RAID sur des appareils chiffrés – Azure Disk Encrypt
 description: Cet article fournit des instructions sur la configuration de LVM et RAID sur des appareils chiffrés pour des machines virtuelles Linux.
 author: jofrance
 ms.service: security
-ms.topic: article
+ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 746243336d74aefc55df48872fe9dd21e9cd99a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268218"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurer LVM et RAID sur des appareils chiffrés
 
@@ -45,11 +45,11 @@ De la même façon, l’appareil RAID est créé par-dessus la couche chiffrée 
 
 Nous vous recommandons d’utiliser LVM-on-crypt. RAID est un choix possible lorsque LVM ne peut pas être utilisé en raison de limitations spécifiques de l’application ou de l’environnement.
 
-Vous utiliserez l’option **EncryptFormatAll**. Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Vous utiliserez l’option **EncryptFormatAll**. Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Bien que vous puissiez utiliser cette méthode lorsque vous chiffrez également le système d’exploitation, nous chiffrons uniquement les lecteurs de données ici.
 
-Les procédures supposent que vous avez déjà examiné les conditions préalables indiquées dans [Scénarios Azure Disk Encryption sur les machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) et dans [Démarrage rapide : Créer et chiffrer une machine virtuelle Linux avec Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+Les procédures supposent que vous avez déjà examiné les conditions préalables indiquées dans [Scénarios Azure Disk Encryption sur les machines virtuelles Linux](./disk-encryption-linux.md) et dans [Démarrage rapide : Créer et chiffrer une machine virtuelle Linux avec Azure CLI](./disk-encryption-cli-quickstart.md).
 
 La version Azure Disk Encryption à deux passages est sur le point d’être déconseillée et ne doit plus être utilisée sur les nouveaux chiffrements.
 
@@ -460,4 +460,3 @@ df -h
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Résolution des problèmes liés à Azure Disk Encryption](disk-encryption-troubleshooting.md)
-

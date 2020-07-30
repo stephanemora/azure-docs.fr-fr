@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e682232afa401f443ffe8f14f617b075978117ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080044"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -555,7 +555,7 @@ Pour ajouter des entrées de registre aux deux nœuds du cluster de l’instance
 | Nom de la variable |`KeepAliveTime` |
 | Type de variable |REG_DWORD (décimal) |
 | Valeur |120 000 |
-| Lien vers la documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Lien vers la documentation |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 **Tableau 3 :** Changer le premier paramètre TCP/IP
 
@@ -566,7 +566,7 @@ Puis, ajoutez cette entrée de registre Windows aux deux nœuds de cluster Windo
 | Nom de la variable |`KeepAliveInterval` |
 | Type de variable |REG_DWORD (décimal) |
 | Valeur |120 000 |
-| Lien vers la documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Lien vers la documentation |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 **Tableau 4 :** Changer le deuxième paramètre TCP/IP
 

@@ -4,15 +4,15 @@ description: Spécifications pour les machines virtuelles de la série ND.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6b29125087bd60041f85b1b5023646b039bd6a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d39d97e598bdbd653b3c3149396f57afd43a6607
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292092"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -27,7 +27,7 @@ Migration dynamique : Non pris en charge
 Mises à jour avec préservation de la mémoire : Non pris en charge
 
 > [!IMPORTANT]
-> Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est initialement défini sur 0. [Demandez une augmentation du quota de processeurs virtuels](../azure-supportability/resource-manager-core-quotas-request.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).
+> Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est initialement défini sur 0. [Demandez une augmentation du quota de processeurs virtuels](../azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau |
 |---|---|---|---|---|---|---|---|---|

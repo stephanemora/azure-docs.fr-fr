@@ -3,12 +3,12 @@ title: Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 description: Dans cet article, découvrez comment sauvegarder un partage de fichiers Azure Files avec le service Sauvegarde Azure et PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971026"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076997"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Sauvegarder un partage de fichiers Azure en utilisant PowerShell
 
@@ -89,13 +89,13 @@ Le coffre Recovery Services étant une ressource Resource Manager, vous devez le
 
 Pour créer un coffre Recovery Services, procédez comme suit :
 
-1. Si vous n’avez pas de groupe de ressources, créez-en un à l'aide de la cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). Dans l’exemple suivant, nous créons un groupe de ressources dans la région USA Ouest.
+1. Si vous n’avez pas de groupe de ressources, créez-en un à l'aide de la cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Dans l’exemple suivant, nous créons un groupe de ressources dans la région USA Ouest.
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-1. Utilisez la cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) pour créer le coffre. Pour le coffre, spécifiez le même emplacement que celui utilisé pour le groupe de ressources.
+1. Utilisez la cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) pour créer le coffre. Pour le coffre, spécifiez le même emplacement que celui utilisé pour le groupe de ressources.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -103,7 +103,7 @@ Pour créer un coffre Recovery Services, procédez comme suit :
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
 
-Pour afficher tous les coffres de l'abonnement, utilisez [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0) :
+Pour afficher tous les coffres de l'abonnement, utilisez [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) :
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -127,7 +127,7 @@ Stockez l’objet de coffre dans une variable et définissez le contexte du coff
 
 Étant donné que de nombreuses cmdlets Sauvegarde Azure exigent l’objet de coffre Recovery Services en tant qu’entrée, il est judicieux de le stocker dans une variable.
 
-Le contexte du coffre spécifie le type de données protégées dans le coffre. Définissez-le à l'aide de [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Une fois le contexte défini, il s’applique à toutes les cmdlets suivantes.
+Le contexte du coffre spécifie le type de données protégées dans le coffre. Définissez-le à l'aide de [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Une fois le contexte défini, il s’applique à toutes les cmdlets suivantes.
 
 L’exemple suivant définit le contexte pour le coffre **testvault** :
 
@@ -152,9 +152,9 @@ Une stratégie de sauvegarde est associée à au moins une stratégie de rétent
 
 Voici quelques cmdlets pour les stratégies de sauvegarde :
 
-* Affichez la stratégie de rétention de sauvegarde par défaut à l'aide de [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Affichez la planification de la stratégie de sauvegarde par défaut à l'aide de [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Créez une stratégie de sauvegarde à l'aide de [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Vous entrez les objets de stratégie de planification et de rétention.
+* Affichez la stratégie de rétention de sauvegarde par défaut à l'aide de [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* Affichez la planification de la stratégie de sauvegarde par défaut à l'aide de [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* Créez une stratégie de sauvegarde à l'aide de [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). Vous entrez les objets de stratégie de planification et de rétention.
 
 Par défaut, une heure de début est définie dans l’objet de la stratégie de planification. Utilisez l’exemple suivant pour modifier l’heure de début sur l’heure de début souhaitée. L’heure de début souhaitée doit être au format UTC (Universal Coordinated Time). L’exemple suppose que l’heure de début souhaitée est 01:00 AM UTC pour les sauvegardes quotidiennes.
 
@@ -190,7 +190,7 @@ Après avoir défini la stratégie de sauvegarde, vous pouvez l’utiliser pour 
 
 ### <a name="retrieve-a-backup-policy"></a>Récupérer une stratégie de sauvegarde
 
-Récupérez l’objet de stratégie approprié à l'aide de [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Utilisez cette cmdlet pour afficher les stratégies associées à un type de charge de travail ou pour obtenir une stratégie spécifique.
+Récupérez l’objet de stratégie approprié à l'aide de [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy). Utilisez cette cmdlet pour afficher les stratégies associées à un type de charge de travail ou pour obtenir une stratégie spécifique.
 
 #### <a name="retrieve-a-policy-for-a-workload-type"></a>Récupérer une stratégie pour un type de charge de travail
 
@@ -221,7 +221,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 ### <a name="enable-protection-and-apply-the-policy"></a>Activer la protection et appliquer la stratégie
 
-Activez la protection à l'aide de [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Une fois la stratégie associée au coffre, les sauvegardes sont déclenchées conformément à la planification de la stratégie.
+Activez la protection à l'aide de [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Une fois la stratégie associée au coffre, les sauvegardes sont déclenchées conformément à la planification de la stratégie.
 
 L’exemple suivant active la protection du partage de fichiers Azure **testAzureFileShare** dans le compte de stockage **testStorageAcct**, avec la stratégie **dailyafs** :
 
@@ -237,7 +237,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-Pour plus d’informations sur l’obtention d’une liste de partages de fichiers pour un compte de stockage, consultez [cet article](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+Pour plus d’informations sur l’obtention d’une liste de partages de fichiers pour un compte de stockage, consultez [cet article](/powershell/module/az.storage/get-azstorageshare).
 
 ## <a name="important-notice-backup-item-identification"></a>Remarque importante : Identification de l’élément de sauvegarde
 
@@ -262,7 +262,7 @@ Nous vous recommandons de lister les éléments, puis de récupérer leur nom un
 
 ## <a name="trigger-an-on-demand-backup"></a>Déclencher une sauvegarde à la demande
 
-Utilisez [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) pour exécuter une sauvegarde à la demande pour un partage de fichiers Azure protégé :
+Utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) pour exécuter une sauvegarde à la demande pour un partage de fichiers Azure protégé :
 
 1. Récupérez le compte de stockage auprès du conteneur dans le coffre qui contient vos données de sauvegarde à l'aide de [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Pour démarrer un travail de sauvegarde, obtenez des informations sur le partage de fichiers Azure à l'aide de [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).

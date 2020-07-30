@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043629"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
@@ -58,7 +58,7 @@ Un identificateur d’objet a le format général suivant :
 
 Où :  
 
-|||  
+| Élément | Description |  
 |-|-|  
 |`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de coffre de clés sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-type`|Type de l’objet : « keys », « secrets » ou « certificates ».|  

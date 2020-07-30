@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289572"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Déployer une application double pile IPv6 avec un Standard Load Balancer interne dans Azure - PowerShell (préversion)
 
 Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) incluant un sous-réseau et un réseau virtuel double pile, un équilibreur de charge Standard Load Balancer interne avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
-
-> [!Important]
-> La prise en charge du protocole IPv6 par le réseau virtuel Azure est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La procédure de création d’un équilibreur de charge interne compatible IPv6 est quasiment identique à la procédure de création d’un Load Balancer IPv6 exposé à Internet décrite [ici](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). Les seules différences pour créer un équilibreur de charge interne concernent la configuration front-end, comme illustré dans l’exemple PowerShell ci-dessous :
 

@@ -3,12 +3,12 @@ title: Utiliser Azure DevTest Labs pour développeurs | Microsoft Docs
 description: Découvrez les fonctionnalités d’Azure DevTest Labs qui peuvent être utilisées pour satisfaire les exigences du développeur et la procédure détaillée que vous pouvez suivre pour mettre en place un lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293030"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utiliser Azure DevTest Labs pour développeurs
 Azure Labs DevTest peut être utilisé pour implémenter de nombreux scénarios clés, dont celui qui implique l’utilisation de DevTest Labs dans l’hébergement d’ordinateurs de développement pour les développeurs. Dans ce scénario, DevTest Labs offre les avantages suivants :
@@ -45,7 +45,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | --- | --- |
    | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Apprenez à ajouter à la liste verte des images de la Place de marché Azure afin que seules les images souhaitées pour les développeurs soient sélectionnables.|
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin afin que les développeurs puissent créer rapidement une machine virtuelle à l’aide de cette image.|
-   | [Découvrir la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Regardez une vidéo expliquant comment configurer et utiliser une fabrique d’images.|
+   | [Découvrir la fabrique d’images](./devtest-lab-faq.md#blog-post) |Regardez une vidéo expliquant comment configurer et utiliser une fabrique d’images.|
 
 3. **Créer des modèles réutilisables pour ordinateurs de développement** 
    
@@ -124,4 +124,3 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | [Créer un laboratoire à l’aide d’un modèle Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

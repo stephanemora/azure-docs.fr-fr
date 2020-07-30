@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075039"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Storage Gen1 comme stockage par défaut à l’aide de PowerShell
 
@@ -38,7 +38,7 @@ Pour configurer HDInsight de façon à fonctionner avec Data Lake Storage Gen1 �
 Avant de commencer le didacticiel, veillez à ce que vos mots de passe répondent aux exigences suivantes :
 
 * **Un abonnement Azure** : Consultez [Créez votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou version supérieure** : Voir [Guide pratique pour installer et configurer PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1.0 ou version supérieure** : Voir [Guide pratique pour installer et configurer PowerShell](/powershell/azure/).
 * **Kit de développement logiciel (SDK) Windows** : Pour installer le Kit de développement logiciel (SDK) Windows, consultez [Téléchargements et outils pour Windows 10](https://dev.windows.com/downloads). Le Kit de développement logiciel (SDK) vous permet de créer un certificat de sécurité.
 * **Principal de service Azure Active Directory** : Ce didacticiel décrit la procédure de création d’un principal de service dans Azure Active Directory (Azure AD). Toutefois, vous devez être administrateur Azure AD pour pouvoir créer un principal du service. Si vous êtes administrateur, vous pouvez ignorer ce prérequis et poursuivre le didacticiel.
 

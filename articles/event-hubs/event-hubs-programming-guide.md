@@ -3,15 +3,15 @@ title: Guide de programmation .NET - Azure Event Hubs (hérité) | Microsoft 
 description: Cet article explique comment rédiger du code pour Azure Event Hubs à l’aide du SDK Azure .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0186357ec7f0f8541acf33c524a57cdb8e8dc55c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074851"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guide de programmation .NET pour Azure Event Hubs (package Microsoft.Azure.EventHubs hérité)
-Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
+Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](./event-hubs-about.md).
 
 > [!WARNING]
 > Ce guide concerne l'ancien package **Microsoft.Azure.EventHubs**. Nous vous recommandons de [migrer](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) votre code pour utiliser le dernier package [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md).  
@@ -96,7 +96,7 @@ Un lot ne doit pas dépasser la limite de 1 Mo d’un événement. En outre, ch
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Envoi de manière asynchrone et envoi à l'échelle
 
-Vous envoyez des événements à un Event Hub de manière asynchrone. L’envoi en mode asynchrone augmente la vitesse à laquelle un client peut envoyer des événements. La méthode [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) renvoie un objet [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Vous pouvez utiliser la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) sur le client pour contrôler les options de nouvelle tentative du client.
+Vous envoyez des événements à un Event Hub de manière asynchrone. L’envoi en mode asynchrone augmente la vitesse à laquelle un client peut envoyer des événements. La méthode [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) renvoie un objet [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1). Vous pouvez utiliser la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) sur le client pour contrôler les options de nouvelle tentative du client.
 
 ## <a name="event-consumers"></a>Consommateurs d'événements
 La classe [EventProcessorHost][] traite les données à partir des concentrateurs d’événements. Vous devez utiliser cette implémentation lors de la création de lecteurs d'événement sur la plateforme .NET. [EventProcessorHost][] fournit un environnement d'exécution sécurisé, multiprocessus, thread-safe pour des implémentations d’événements qui fournissent également une gestion de contrôle et de location de partition.
@@ -149,8 +149,8 @@ Pour plus d’informations sur la révocation de l’éditeur et l’envoi vers 
 
 Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
-* [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
-* [Qu’est-ce qu’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble de l'API Event Hubs](./event-hubs-samples.md)
+* [Qu’est-ce qu’Event Hubs](./event-hubs-about.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [Informations de référence des API hôtes du processeur d’événements](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

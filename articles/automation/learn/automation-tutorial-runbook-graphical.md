@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185532"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290956"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutoriel : Créer un runbook graphique
 
@@ -32,6 +32,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [compte Automation](../index.yml) pour le stockage du Runbook et l’authentification auprès des ressources Azure. Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 * Une machine virtuelle Azure. Comme vous allez devoir l’arrêter et la démarrer, il ne doit pas s’agir d’une machine virtuelle de production.
+* Si nécessaire, [importez des modules Azure](../shared-resources/modules.md) ou [mettez à jour les modules](../automation-update-azure-modules.md) en fonction des applets de commande que vous utilisez.
 
 ## <a name="step-1---create-runbook"></a>Étape 1 - Création d’un Runbook
 

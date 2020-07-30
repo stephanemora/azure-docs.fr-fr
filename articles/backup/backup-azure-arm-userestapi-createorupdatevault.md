@@ -4,16 +4,16 @@ description: Dans cet article, découvrez comment gérer les opérations de sauv
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079330"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
 
-Les étapes de création d’un coffre Azure Recovery Services à l’aide d’une API REST sont décrites dans la documentation [API REST create vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate). Nous allons utiliser ce document comme référence pour créer un coffre appelé « testVault » dans la région « USA Ouest ».
+Les étapes de création d’un coffre Azure Recovery Services à l’aide d’une API REST sont décrites dans la documentation [API REST create vault](/rest/api/recoveryservices/vaults/createorupdate). Nous allons utiliser ce document comme référence pour créer un coffre appelé « testVault » dans la région « USA Ouest ».
 
 Pour créer ou mettre à jour un coffre Azure Recovery Services, utilisez l’opération *PUT* suivante.
 
@@ -30,7 +30,7 @@ Les en-têtes suivants sont requis :
 | En-tête de requête   | Description |
 |------------------|-----------------|
 | *Content-Type :*  | Obligatoire. Défini sur `application/json`. |
-| *Authorization :* | Obligatoire. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
+| *Authorization :* | Obligatoire. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
 
 Pour plus d’informations sur la création de la demande, consultez [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse) (Composants d’une demande/réponse de l’API REST).
 
@@ -42,8 +42,8 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag facultatif       |
 |location     |  true       |String         |   Emplacement de la ressource      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifie l’identificateur système unique de chaque ressource Azure.     |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
+|sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifie l’identificateur système unique de chaque ressource Azure.     |
 |tags     |         | Object        |     Balises de ressource    |
 
 Notez que le nom de l’espace de stockage et le nom du groupe de ressources sont fournis dans l’URI PUT. Le corps de la requête définit l’emplacement.
@@ -68,8 +68,8 @@ Il existe deux réponses de réussite pour l’opération de création ou de mis
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [Coffre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201 Créé     | [Coffre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Date de création      |
+|200 OK     |   [Coffre](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
+|201 Créé     | [Coffre](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Date de création      |
 
 Pour plus d’informations sur les réponses des API REST, consultez [Process the response message](/rest/api/azure/#process-the-response-message) (Traiter le message de réponse).
 
