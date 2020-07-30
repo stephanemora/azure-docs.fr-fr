@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Envoyer et recevoir des événements avec Go – Az
 description: 'Démarrage rapide : Cet article décrit la procédure à suivre pour créer une application Go qui envoie des événements d’Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320350"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002452"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Démarrage rapide : Envoyer ou recevoir des événements d’Event Hubs à l’aide de Go
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -126,7 +126,7 @@ Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’év
 
 ### <a name="create-a-storage-account-and-container"></a>Créer un compte de stockage et un conteneur
 
-Des états tels que des baux sur des partitions et des points de contrôle dans le flux d’événements sont partagés entre les destinataires à l’aide d’un conteneur Stockage Azure. Vous pouvez créer un compte de stockage et un conteneur avec le Kit de développement logiciel (SDK) Go ou en suivant les instructions fournies dans [Comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
+Des états tels que des baux sur des partitions et des points de contrôle dans le flux d’événements sont partagés entre les destinataires à l’aide d’un conteneur Stockage Azure. Vous pouvez créer un compte de stockage et un conteneur avec le Kit de développement logiciel (SDK) Go ou en suivant les instructions fournies dans [Comptes de stockage Azure](../storage/common/storage-account-create.md).
 
 Des exemples de création d’artefacts de stockage avec le Kit de développement logiciel (SDK) Go sont disponibles dans le [Référentiel d’exemples GO](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) et dans l’exemple correspondant à ce didacticiel.
 

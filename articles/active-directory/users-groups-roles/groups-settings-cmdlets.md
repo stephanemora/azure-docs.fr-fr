@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91eb361d4bcae304734817ee7f57141d6f06415
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd060972e562759fcc1071f2c6549578bd3d4ed9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015712"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur la façon d’empêcher les utilisateurs non-admi
 
 Les paramètres des groupes Office 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Au départ, vous ne voyez aucun objet Paramètres dans votre répertoire, car votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres du groupe Office 365 pour votre répertoire, utiliserez le modèle nommé « Group.Unified ». Pour configurer les paramètres du groupe Office 365 sur un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe Office 365. 
 
-Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour obtenir des instructions sur le téléchargement et l’installation du module sur votre ordinateur, reportez-vous à l’article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Vous pouvez installer la version 2 du module depuis [la galerie PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour obtenir des instructions sur le téléchargement et l’installation du module sur votre ordinateur, reportez-vous à l’article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Vous pouvez installer la version 2 du module depuis [la galerie PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
 
@@ -319,7 +319,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Informations de référence sur la syntaxe des applets de commande
-Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
+Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 

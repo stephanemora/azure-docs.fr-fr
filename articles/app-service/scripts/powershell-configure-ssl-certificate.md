@@ -7,18 +7,18 @@ ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c0e68627691732e6cbcd08b423199164a69193d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532542"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083342"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Lier un certificat TLS/SSL personnalisé à une application web à l’aide de PowerShell
 
 Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis lie le certificat TLS/SSL d’un nom de domaine personnalisé à celle-ci. 
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
 
 - Une connexion avec Azure a été créée à l’aide de la commande `az login`.
 - Vous avez accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.
@@ -53,6 +53,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/).
 
 Vous trouverez des exemples supplémentaires de scripts Azure PowerShell pour Azure App Service Web Apps sur la page [Azure PowerShell Samples](../samples-powershell.md) (Exemples Azure PowerShell).

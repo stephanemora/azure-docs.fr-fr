@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ca9a21d105be6f17c1aa40ae1a0ab7f01c38184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083410"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurer l’interface de transmission de messages pour HPC
 
@@ -200,4 +200,4 @@ La syntaxe ci-dessus suppose un répertoire de base partagé, sinon le répertoi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) sur Azure.
+En savoir plus sur [HPC](/azure/architecture/topics/high-performance-computing/) sur Azure.

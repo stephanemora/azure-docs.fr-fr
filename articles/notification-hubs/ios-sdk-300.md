@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 4f34b3e7567a65dca45fd29b4e8aa9b78a6ced76
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: f43db986f70e64e55225465223b7e324450541a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084334"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutoriel : Envoyer des notifications Push vers des applications iOS avec Azure Notification Hubs (version 3.0.0 préversion 1)
 
@@ -352,7 +352,7 @@ Pour plus d’informations, consultez les articles suivants :
 - [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md)
 - [Utilisation de balises](notification-hubs-tags-segment-push-message.md)
 - [Utilisation des modèles personnalisés](notification-hubs-templates-cross-platform-push-messages.md)
-- [Contrôle d’accès Service Bus avec des signatures d’accès partagé](/azure/service-bus-messaging/service-bus-sas)
+- [Contrôle d’accès Service Bus avec des signatures d’accès partagé](../service-bus-messaging/service-bus-sas.md)
 - [Générer des jetons SAS par programme](/rest/api/eventhub/generate-sas-token)
 - [Sécurité Apple : CommonCrypto](https://developer.apple.com/security/)
 - [Heure d’époque Unix](https://en.wikipedia.org/wiki/Unix_time)

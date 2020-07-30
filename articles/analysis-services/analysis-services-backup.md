@@ -4,17 +4,18 @@ description: Cet article explique comment sauvegarder et restaurer les métadonn
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506993"
 ---
-# <a name="backup-and-restore"></a>Sauvegarde et restauration
+# <a name="analysis-services-database-backup-and-restore"></a>Sauvegarde et restauration de bases de données Analysis Services
 
 La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Services est relativement semblable à celle des Analysis Services locaux. La principale différence réside dans le lieu où vous enregistrez vos fichiers de sauvegarde. Les fichiers de sauvegarde doivent être enregistrés dans un conteneur dans un [compte de stockage Azure](../storage/common/storage-create-storage-account.md). Vous pouvez utiliser un compte de stockage et un conteneur que vous avez déjà, ou bien en créer de nouveaux lors de la configuration des paramètres de stockage de votre serveur.
 

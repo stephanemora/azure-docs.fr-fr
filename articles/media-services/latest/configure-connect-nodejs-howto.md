@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ac82687cb28344f682c58a132f04d71184d5d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74896096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001194"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
@@ -27,7 +27,7 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 - Installez [Node.js](https://nodejs.org/en/download/).
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](./create-account-howto.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 
 > [!IMPORTANT]
 > Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
@@ -70,7 +70,7 @@ npm install azure-arm-mediaservices
 
 1. Créez un fichier .js dans votre éditeur favori.
 1. Ouvrez le fichier et collez-y le code suivant.
-1. Remplacez les valeurs de la section « endpoint config » par celles que vous avez obtenues dans [Accéder aux API](access-api-cli-how-to.md).
+1. Remplacez les valeurs de la section « endpoint config » par celles que vous avez obtenues dans [Accéder aux API](./access-api-howto.md).
 
 ```js
 'use strict';
@@ -131,4 +131,3 @@ node index.js
 ## <a name="next-steps"></a>Étapes suivantes
 
 Explorez la documentation [Informations de référence sur Node.js](/javascript/api/overview/azure/mediaservices/management) de Media Services et regardez les [exemples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) qui montrent comment utiliser l’API Media Services avec node.js.
-

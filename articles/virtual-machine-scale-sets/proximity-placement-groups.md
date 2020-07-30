@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011054"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Aperçu : Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Le groupe de placements de proximité est un regroupement logique utilisé pour 
 
 
 ## <a name="create-a-proximity-placement-group"></a>Créer un groupe de placements de proximité
-Créez un groupe de placements de proximité à l’aide de la cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Créez un groupe de placements de proximité à l’aide de la cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -55,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
 
-Créez un groupe identique dans le groupe de placements de proximité avec `-ProximityPlacementGroup $ppg.Id` pour faire référence à l’ID de groupe de placements de proximité quand vous utilisez [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) pour créer le groupe identique.
+Créez un groupe identique dans le groupe de placements de proximité avec `-ProximityPlacementGroup $ppg.Id` pour faire référence à l’ID de groupe de placements de proximité quand vous utilisez [New-AzVMSS](/powershell/module/az.compute/new-azvmss) pour créer le groupe identique.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999134"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
@@ -204,7 +204,7 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
-1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md).
 2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération. Vérifiez que le disque attaché est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
 3.  Ouvrez une instance d’invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Ensuite, exécutez le script suivant. Ce script suppose que la lettre de lecteur affectée au disque de système d’exploitation attaché est **F**. Remplacez la lettre appropriée par la valeur de votre machine virtuelle.
 
@@ -222,7 +222,7 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](../windows/troubleshoot-recovery-disks-portal.md). Ensuite, vérifiez que le problème est résolu.
+4. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](./troubleshoot-recovery-disks-portal-windows.md). Ensuite, vérifiez que le problème est résolu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

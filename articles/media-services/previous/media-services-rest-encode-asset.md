@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e5523b7c39763fb53d0847b79c70d5ab8b9d3b52
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999970"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Encodage d’une ressource à l’aide de Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86169321"
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop importants pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia.
 
-Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Azure Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur intégré de Media Services (Media Encoder Standard). Vous pouvez également utiliser un encodeur fourni par un partenaire Media Services. Les encodeurs tiers sont disponibles via Place de marché Azure. Vous pouvez spécifier les détails des tâches d’encodage à l’aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez [Présélections de tâches pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
+Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Azure Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur intégré de Media Services (Media Encoder Standard). Vous pouvez également utiliser un encodeur fourni par un partenaire Media Services. Les encodeurs tiers sont disponibles via Place de marché Azure. Vous pouvez spécifier les détails des tâches d’encodage à l’aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez [Présélections de tâches pour Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l’API REST, vous pouvez créer des travaux et les tâches associées de deux manières :
 
@@ -65,7 +65,7 @@ Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’A
 >
 >
 
-L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Quand vous encodez à l’aide de Media Encoder Standard, vous pouvez utiliser les présélections de configuration de tâche spécifiées [ici](https://msdn.microsoft.com/library/mt269960).
+L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Quand vous encodez à l’aide de Media Encoder Standard, vous pouvez utiliser les présélections de configuration de tâche spécifiées [ici](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Demande :
 

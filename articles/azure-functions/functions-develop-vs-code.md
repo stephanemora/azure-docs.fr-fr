@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083121"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -295,7 +295,7 @@ Pour exécuter votre projet Functions localement, vous devez vous conformer à c
 
     | Langage | Condition requise |
     | -------- | --------- |
-    | **C#** | [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Outils CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Outils CLI .NET Core](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Extension de débogueur pour Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou version ultérieure](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extension Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommandé|

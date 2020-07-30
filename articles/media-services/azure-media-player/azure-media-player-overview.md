@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: b6d30aebd4de272ba98fce87f23701b129eacb02
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f3c173c61e9f6d82a51fcaf7e11cda47eb47c1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011703"
 ---
 # <a name="azure-media-player-overview"></a>Présentation du lecteur multimédia Azure #
 
@@ -28,7 +28,7 @@ Pour demander de nouvelles fonctionnalités ou nous faire part de vos idées ou 
 
 ## <a name="license"></a>Licence ##
 
-Le Lecteur multimédia Azure est concédé sous licence, et soumis aux conditions énoncées dans les termes du contrat de licence logiciel Microsoft du Lecteur multimédia Azure. Consultez le [fichier de licence](azure-media-player-license.md) pour connaître l’intégralité des conditions. Pour plus d’informations, consultez la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/default.aspx).
+Le Lecteur multimédia Azure est concédé sous licence, et soumis aux conditions énoncées dans les termes du contrat de licence logiciel Microsoft du Lecteur multimédia Azure. Consultez le [fichier de licence](/legal/azure-media-player/azure-media-player-license) pour connaître l’intégralité des conditions. Pour plus d’informations, consultez la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/default.aspx).
 
 Copyright 2015, Microsoft Corporation.
 

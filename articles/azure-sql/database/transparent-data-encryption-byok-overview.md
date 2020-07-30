@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514717"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387113"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Le coffre de clés et SQL Database/instance gérée doivent appartenir au même abonné Azure Active Directory. Les interactions entre un serveur et un coffre de clés inter-abonnés ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer TDE avec AKV. En savoir plus sur le [déplacement des ressources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La fonctionnalité [suppression réversible](../../key-vault/general/overview-soft-delete.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [la CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Elle ne peut pas être activée via le portail Azure.  
+- La fonctionnalité [suppression réversible](../../key-vault/general/soft-delete-overview.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [la CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Elle ne peut pas être activée via le portail Azure.  
 
 - Accordez au serveur ou à l’instance gérée l’accès au coffre de clés (get, wrapKey, unwrapKey) à l’aide de son identité Azure Active Directory. Lors de l’utilisation du portail Azure, l’identité Azure AD est créée automatiquement. Lors de l’utilisation de PowerShell ou de la CLI, l’identité Azure AD doit être explicitement créée et sa saisie vérifiée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-configure.md) et [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Configurer TDE avec BYOK pour SQL Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 

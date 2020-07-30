@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000038"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
-L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Media Services fournit une API REST qui accepte les deux formats JSON et XML atom+pub. L’API REST Media Services nécessite des en-têtes HTTP spécifiques, que chaque client doit envoyer lors de la connexion à Media Services, ainsi qu’un ensemble d’en-têtes facultatifs. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
 
@@ -130,4 +130,3 @@ Pour savoir comment utiliser l’authentification Azure AD avec l’API REST Med
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

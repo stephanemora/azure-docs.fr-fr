@@ -3,12 +3,12 @@ title: FAQ Live Video Analytics sur IoT Edge – Azure
 description: Cette rubrique fournit des réponses pour les FAQ concernant Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011513"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 
@@ -20,14 +20,14 @@ Quelles variables système peuvent être utilisées dans une définition de topo
 
 |Variable   |Description|
 |---|---|
-|[System.DateTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure.|
 |System.GraphTopologyName   |Représente une topologie de graphique multimédia, et contient le blueprint d’un graphique.|
 |System.GraphInstanceName|  Représente une instance de graphique multimédia ; contient des valeurs de paramètre et référence la topologie.|
 
 ## <a name="configuration-and-deployment"></a>Configuration et déploiement
 
 Puis-je déployer le module multimédia Edge sur un appareil Windows 10 ?
-    * Oui. Consultez l’article [Conteneurs Linux sur Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Oui. Consultez l’article [Conteneurs Linux sur Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Capture des paramètres de caméra IP et RTSP
 

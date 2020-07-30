@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999103"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Résoudre les problèmes de démarrage du système d’exploitation – Capacité d’installation Windows Update
 
@@ -49,7 +49,7 @@ Dans cette situation, le système d’exploitation ne parvient pas à effectuer 
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="free-up-space-on-the-disk"></a>Libérer de l’espace sur le disque
@@ -60,10 +60,10 @@ Pour résoudre ce problème :
 - Procédez à un nettoyage de disque.
 - Défragmentez le lecteur.
 
-1. Vérifiez si le disque est plein. Si la taille du disque est inférieure à 1 To, augmentez-la jusqu’à un maximum de 1 To [à l’aide de PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Vérifiez si le disque est plein. Si la taille du disque est inférieure à 1 To, augmentez-la jusqu’à un maximum de 1 To [à l’aide de PowerShell](../windows/expand-os-disk.md).
 1. Si le disque a déjà une taille de 1 To, vous devrez effectuer un nettoyage de disque.
-   1. Détachez le disque de données [de la machine virtuelle corrompue](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Attachez-le [à une machine virtuelle opérationnelle](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Détachez le disque de données [de la machine virtuelle corrompue](../windows/detach-disk.md).
+   1. Attachez-le [à une machine virtuelle opérationnelle](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Utilisez l’[outil Nettoyage de disque](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) pour libérer de l’espace.
 1. Une fois le redimensionnement et le nettoyage terminés, défragmentez le lecteur à l’aide de la commande suivante :
 
@@ -123,4 +123,4 @@ En fonction du niveau de fragmentation, la défragmentation peut prendre plusieu
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

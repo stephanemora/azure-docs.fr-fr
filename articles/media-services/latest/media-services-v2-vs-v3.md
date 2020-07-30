@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011632"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 par rapport à Media Services v3
 
@@ -28,7 +28,7 @@ Cet article décrit les changements qui ont été introduits dans Azure Media Se
 
 ## <a name="general-changes-from-v2"></a>Modifications générales par rapport à v2
 
-* Pour les ressources créées avec la version v3, Media Services prend en charge uniquement le [chiffrement du stockage côté serveur de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* Pour les ressources créées avec la version v3, Media Services prend en charge uniquement le [chiffrement du stockage côté serveur de Stockage Azure](../../storage/common/storage-service-encryption.md).
     * Vous pouvez utiliser des API v3 avec des ressources créées à l’aide d’API v2 qui disposaient d’un [chiffrement de stockage](../previous/media-services-rest-storage-encryption.md) (AES 256) fourni par Media Services.
     * Vous ne pouvez pas créer de ressources avec le [chiffrement du stockage](../previous/media-services-rest-storage-encryption.md) AES 256 hérité à l’aide d’API v3.
 * Si les propriétés de la [ressource](assets-concept.md) dans v3 sont différentes de celles de v2, voir [comment les propriétés sont mappées](#map-v3-asset-properties-to-v2).
@@ -88,11 +88,11 @@ Les API v3 présentent les différences de fonctionnalités suivantes par rappor
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2
 
-Le tableau suivant montre comment les propriétés de l’[élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)de v3 sont mappées aux propriétés de l’élément multimédia de v2.
+Le tableau suivant montre comment les propriétés de l’[élément multimédia](/rest/api/media/assets/createorupdate#asset)de v3 sont mappées aux propriétés de l’élément multimédia de v2.
 
 |Propriétés de v3|Propriétés de v2|
 |---|---|
-|`id` : (unique) chemin d’accès complet à Azure Resource Manager, voir les exemples dans [Élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id` : (unique) chemin d’accès complet à Azure Resource Manager, voir les exemples dans [Élément multimédia](/rest/api/media/assets/createorupdate)||
 |`name` : (unique) consultez [Convention d’affectation de noms](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id` : valeur (unique) commençant par le préfixe `nb:cid:UUID:`.|
@@ -110,8 +110,8 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 |Option de chiffrement|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services.|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
-|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Prise en charge|Prise en charge|
-|[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge|Non pris en charge|
+|[Storage Service Encryption pour les données au repos](../../storage/common/storage-service-encryption.md)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Prise en charge|Prise en charge|
+|[Chiffrement de stockage côté client](../../storage/common/storage-client-side-encryption.md)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge|Non pris en charge|
 
 <sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.
 

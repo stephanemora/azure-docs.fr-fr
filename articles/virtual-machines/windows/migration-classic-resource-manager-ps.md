@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b869556e1bd49018b2afce27e732a3109b9fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81865943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999120"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migration de ressources IaaS d’un environnement classique vers Azure Resource Manager à l’aide de PowerShell
 
 > [!IMPORTANT]
-> Aujourd'hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette désapprobation et [son impact sur vous](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Aujourd'hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette désapprobation et [son impact sur vous](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
 
@@ -49,7 +49,7 @@ Voici quelques-unes des meilleures pratiques recommandées pour déterminer si v
 ## <a name="step-2-install-the-latest-version-of-powershell"></a>Étape 2 : Installer la version la plus récente de PowerShell
 Il existe deux options principales pour l’installation d’Azure PowerShell : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Cet article est basé sur Azure PowerShell version 2.1.0.
 
-Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/).
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Étape 3 : Vérifier que vous êtes administrateur de l’abonnement
 Pour effectuer cette migration, vous devez être ajouté en tant que coadministrateur de l’abonnement dans le [Portail Azure](https://portal.azure.com).
@@ -221,7 +221,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
 Pour migrer des machines virtuelles dans un service cloud, vous migrez le réseau virtuel. Les machines virtuelles migrent automatiquement avec le réseau virtuel. Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration.
 > [!NOTE]
-> [Migrez une machine virtuelle unique](migrate-single-classic-to-resource-manager.md) créée à l’aide du modèle de déploiement classique en créant une nouvelle machine virtuelle Resource Manager avec la fonctionnalité Disques managés en utilisant les fichiers de disque dur virtuel (système d’exploitation et données) de la machine virtuelle.
+> [Migrez une machine virtuelle unique](./create-vm-specialized-portal.md) créée à l’aide du modèle de déploiement classique en créant une nouvelle machine virtuelle Resource Manager avec la fonctionnalité Disques managés en utilisant les fichiers de disque dur virtuel (système d’exploitation et données) de la machine virtuelle.
 <br>
 
 > [!NOTE]

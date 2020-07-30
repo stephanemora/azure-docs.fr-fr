@@ -3,12 +3,12 @@ title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003741"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Sauvegarder l’état du système Windows vers Azure
 
@@ -40,7 +40,7 @@ Lorsque vous créez un coffre Recovery Services, vérifiez que la redondance du 
 
     ![Options de configuration du stockage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, laissez cette option **inchangée**. Sinon, choisissez l’option **Localement redondant**, qui réduit les coûts de stockage Azure. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy-grs.md) et [localement redondant](../storage/common/storage-redundancy-lrs.md), consultez la [présentation de la redondance du stockage](../storage/common/storage-redundancy.md).
+    Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, laissez cette option **inchangée**. Sinon, choisissez l’option **Localement redondant**, qui réduit les coûts de stockage Azure. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md), consultez la [présentation de la redondance du stockage](../storage/common/storage-redundancy.md).
 
 Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l’état du système Windows.
 
@@ -174,7 +174,7 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 5. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
     > [!NOTE]
-    > L’Agent MARS déclenche la commande SFC /verifyonly dans le cadre des vérifications préalables à chaque sauvegarde de l’état du système. Cela permet de garantir que les fichiers sauvegardés dans le cadre de l’état du système disposent des versions appropriées correspondant à la version de Windows. Découvrez-en plus sur le vérificateur des fichiers système (SFC, System File Checker), consultez [cet article](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > L’Agent MARS déclenche la commande SFC /verifyonly dans le cadre des vérifications préalables à chaque sauvegarde de l’état du système. Cela permet de garantir que les fichiers sauvegardés dans le cadre de l’état du système disposent des versions appropriées correspondant à la version de Windows. Découvrez-en plus sur le vérificateur des fichiers système (SFC, System File Checker), consultez [cet article](/windows-server/administration/windows-commands/sfc).
     >
 
 Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.

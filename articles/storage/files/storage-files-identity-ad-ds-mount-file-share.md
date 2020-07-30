@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 9a8805666e1e162f76cf5fa6f7d828833c573bed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510444"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999596"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Partie 4 : Monter un partage de fichiers à partir d’une machine virtuelle jointe à un domaine
 
@@ -33,9 +33,18 @@ Avant de monter le partage de fichiers, assurez-vous que vous avez tenu compte d
 
 Remplacez les valeurs d’espace réservé par vos propres valeurs, puis utilisez la commande suivante pour monter le partage de fichiers Azure :
 
-```cli
+```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+  net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Si vous rencontrez des problèmes lors du montage en utilisant les informations d’identification AD DS, consultez la page [Impossible de monter Azure Files avec les informations d’identification AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) pour obtenir de l’aide.

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083512"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -62,7 +62,7 @@ Utilisez l’une des méthodes décrites dans cette section pour convertir et re
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Utilisez PowerShell pour convertir le disque
 
-Vous pouvez convertir un disque virtuel à l’aide de la cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) dans PowerShell. Si vous avez besoin d’informations sur l’installation de cette applet de commande, cliquez [ici](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Vous pouvez convertir un disque virtuel à l’aide de la cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) dans PowerShell. Si vous avez besoin d’informations sur l’installation de cette applet de commande, cliquez [ici](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 L’exemple de commande suivant convertit le disque VHDX en disque VHD. Il convertit également le disque à taille dynamique en disque de taille fixe.
 
@@ -86,7 +86,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Utiliser PowerShell pour redimensionner le disque
 
-Vous pouvez redimensionner un disque virtuel à l’aide de la cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) dans PowerShell. Si vous avez besoin d’informations sur l’installation de cette applet de commande, cliquez [ici](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Vous pouvez redimensionner un disque virtuel à l’aide de la cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) dans PowerShell. Si vous avez besoin d’informations sur l’installation de cette applet de commande, cliquez [ici](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 L’exemple suivant redimensionne le disque de 100,5 Mio à 101 Mio pour respecter les exigences d’alignement Azure.
 
@@ -138,7 +138,7 @@ Une fois l’analyse du Vérificateur des fichiers système terminée, installez
    netsh.exe winhttp reset proxy
    ```
 
-    Si la machine virtuelle doit fonctionner avec un proxy spécifique, vous devez ajouter une exception de proxy à l’adresse IP Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) pour que la machine virtuelle puisse se connecter à Azure :
+    Si la machine virtuelle doit fonctionner avec un proxy spécifique, vous devez ajouter une exception de proxy à l’adresse IP Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) pour que la machine virtuelle puisse se connecter à Azure :
 
     ```
     $proxyAddress='<your proxy server>'
@@ -472,7 +472,7 @@ En général, vous exécutez `sysprep.exe` pour créer un modèle à partir duqu
 Si vous souhaitez ne créer qu’une seule machine virtuelle à partir d’un seul disque, vous n’avez pas besoin d’utiliser Sysprep. Au lieu de cela, vous pouvez créer la machine virtuelle à partir d’une *image spécialisée*. Pour obtenir des informations sur la création d’une machine virtuelle à partir d’un disque spécialisé, consultez les pages :
 
 - [Créer une machine virtuelle à partir d’un disque spécialisé](create-vm-specialized.md)
-- [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](./create-vm-specialized-portal.md)
 
 Pour créer une image généralisée, vous devez exécuter Sysprep. Pour plus d’informations, consultez [Utilisation de Sysprep : Une introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -519,4 +519,4 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](upload-generalized-managed.md)
-- [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](troubleshoot-activation-problems.md)
+- [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](../troubleshooting/troubleshoot-activation-problems.md)

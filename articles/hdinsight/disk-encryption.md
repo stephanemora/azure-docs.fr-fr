@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536299"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387844"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Chiffrement de disque de clés gérées par le client
 
@@ -30,7 +30,7 @@ Le disque de ressources et les disques managés sur chaque nœud du cluster sont
 
 Si le pare-feu de coffre de clés est activé sur le coffre de clés dans lequel la clé de chiffrement de disque est stockée, les adresses IP du fournisseur de ressources régionales HDInsight pour la région où le cluster sera déployé doivent être ajoutées à la configuration du pare-feu de coffre de clés. Cela est nécessaire, car HDInsight n’est pas un service de coffre de clés Azure approuvé.
 
-Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé permute, le cluster HDInsight démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés [Suppression réversible](../key-vault/general/overview-soft-delete.md) pour vous protéger contre les scénarios de rançongiciel et de suppression accidentelle. Les coffres de clés sans cette fonctionnalité de protection ne sont pas pris en charge.
+Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé permute, le cluster HDInsight démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés [Suppression réversible](../key-vault/general/soft-delete-overview.md) pour vous protéger contre les scénarios de rançongiciel et de suppression accidentelle. Les coffres de clés sans cette fonctionnalité de protection ne sont pas pris en charge.
 
 |Type de cluster |Disque de système d’exploitation (disque managé) |Disque de données (disque managé) |Disque de données temporaire (SSD local) |
 |---|---|---|---|

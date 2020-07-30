@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001483"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Encoder et décoder des fichiers plats dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -25,7 +25,7 @@ Avant de pouvoir envoyer du contenu XML à un partenaire commercial dans un sc�
 
 * L’application logique dans laquelle vous allez utilisez le connecteur **Fichier plat** et un déclencheur qui démarre le flux de travail de votre application logique. Le connecteur **Fichier plat** fournit uniquement des actions, mais pas de déclencheurs. Vous pouvez utiliser le déclencheur ou une autre action pour transmettre le contenu XML dans votre application logique pour l’encoder ou le décoder. Si vous débutez avec les applications logiques, consultez le guide de [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associé à votre abonnement Azure et [lié à l’application logique](logic-apps-enterprise-integration-accounts.md#link-account) dans laquelle vous prévoyez d’utiliser le connecteur **Fichier plat**. Votre application logique et votre compte d’intégration doivent tous deux exister dans le même emplacement ou dans la même région Azure.
+* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associé à votre abonnement Azure et [lié à l’application logique](./logic-apps-enterprise-integration-create-integration-account.md#link-account) dans laquelle vous prévoyez d’utiliser le connecteur **Fichier plat**. Votre application logique et votre compte d’intégration doivent tous deux exister dans le même emplacement ou dans la même région Azure.
 
 * Un [schéma](logic-apps-enterprise-integration-schemas.md) de fichier plat que vous avez chargé dans votre compte d’intégration pour encoder ou décoder le contenu XML
 

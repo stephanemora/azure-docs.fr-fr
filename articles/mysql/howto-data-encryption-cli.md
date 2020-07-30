@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: e6cb3e5db1c7fae3b0542557d2dae8239e0624f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f73910c528ff65a8c537e779a028860d64561d05
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114616"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386722"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Chiffrement des données pour Azure Database pour MySQL avec Azure CLI
 
@@ -32,15 +32,15 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
   ```
 
-* Pour que vous puissiez utiliser un coffre de clés existant, celui-ci doit avoir les propriétés suivantes à utiliser comme clé gérée par le client :
+* Pour que vous puissiez utiliser un coffre de clés existant, celui-ci doit avoir les propriétés suivantes à utiliser en tant que clé gérée par le client :
 
-  * [Suppression réversible](../key-vault/general/overview-soft-delete.md)
+  * [Suppression réversible](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Protégé contre le vidage](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Protégé contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -92,7 +92,7 @@ Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le 
 * [Créer un serveur de restauration](howto-restore-server-cli.md) 
 * [Créer un serveur réplica en lecture](howto-read-replicas-cli.md) 
 
-### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Quand le serveur est restauré, revalidez le chiffrement des données sur ce dernier.
+### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Une fois le serveur restauré, revalidez le chiffrement des données sur le serveur restauré
 
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>

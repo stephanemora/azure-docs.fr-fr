@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050142"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -77,7 +77,7 @@ Vous pouvez utiliser n’importe quel caractère Unicode dans les étiquettes, �
 
 Chaque valeur de clé est identifiée de manière unique par sa clé et une étiquette pouvant être `null`. Pour interroger un magasin App Configuration afin de connaître des valeurs de clé, vous devez spécifier un modèle. Le magasin App Configuration retourne toutes les valeurs de clé qui correspondent au modèle, ainsi que leurs valeurs et attributs correspondants. Utilisez les modèles de clé suivants dans les appels d’API REST à App Configuration :
 
-| Clé | |
+| Clé | Description |
 |---|---|
 | `key` est omis ou `key=*` | Correspond à toutes les clés |
 | `key=abc` | Correspond exactement au nom de clé **abc** |
@@ -86,7 +86,7 @@ Chaque valeur de clé est identifiée de manière unique par sa clé et une éti
 
 Vous pouvez également inclure les modèles d’étiquette suivants :
 
-| Étiquette | |
+| Étiquette | Description |
 |---|---|
 | `label` est omis ou `label=*` | Correspond à toute étiquette, y compris `null` |
 | `label=%00` | Correspond à l’étiquette `null` |

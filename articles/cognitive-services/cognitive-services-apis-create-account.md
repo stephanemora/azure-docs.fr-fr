@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 00a4f7f6de207d5e8ad1bcd448cc587e3106d3a6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207263"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87316970"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -94,6 +94,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
     ***
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 

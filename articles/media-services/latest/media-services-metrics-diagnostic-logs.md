@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559529"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011649"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
 
@@ -58,7 +58,7 @@ Vous devez également examiner les [quotas et limites de compte](limits-quotas-c
 
 ### <a name="streaming-endpoint"></a>Point de terminaison de streaming
 
-Les métriques de [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) Media Services suivantes sont pris en charge :
+Les métriques de [points de terminaison de streaming](/rest/api/media/streamingendpoints) Media Services suivantes sont pris en charge :
 
 |Nom de métrique|Nom complet|Description|
 |---|---|---|
