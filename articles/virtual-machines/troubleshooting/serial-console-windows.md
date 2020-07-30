@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005937"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -38,7 +38,7 @@ Pour en savoir plus sur la console série pour Linux, consultez [Console série 
 
 - Le compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et le compte de stockage des [diagnostics de démarrage](boot-diagnostics.md)
 
-- Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit avoir une authentification de l’utilisateur par mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
+- Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit avoir une authentification de l’utilisateur par mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](../extensions/vmaccess.md#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 
 * Les [diagnostics de démarrage](boot-diagnostics.md) de la machine virtuelle ou l'instance de groupe de machines virtuelles identiques doivent être activés.
 
@@ -50,7 +50,7 @@ Pour en savoir plus sur la console série pour Linux, consultez [Console série 
 > Si vous ne voyez rien dans la console série, vérifiez que les diagnostics de démarrage sont activés sur votre machine virtuelle ou votre groupe de machines virtuelles identiques.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Activer la console série dans les images personnalisées ou anciennes
-La [console d’administration spéciale (SAC)](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) est activée par défaut dans les nouvelles images Windows Server sur Azure. La console SAC est prise en charge sur les versions serveur de Windows, mais elle n’est pas disponible sur les versions client (par exemple Windows 10, Windows 8 ou Windows 7).
+La [console d’administration spéciale (SAC)](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) est activée par défaut dans les nouvelles images Windows Server sur Azure. La console SAC est prise en charge sur les versions serveur de Windows, mais elle n’est pas disponible sur les versions client (par exemple Windows 10, Windows 8 ou Windows 7).
 
 Pour les anciennes images Windows Server (créées avant février 2018), vous pouvez activer automatiquement la console série via la commande Run du portail Azure. Dans le portail Azure, sélectionnez **Exécuter la commande**, puis sélectionnez la commande nommée **EnableEMS** dans la liste.
 
@@ -76,11 +76,11 @@ Si nécessaire, la console SAC peut aussi être activée hors connexion :
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>Comment savoir si la console SAC est activée ?
 
-Si la [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) n’est pas activée, la console série n’affichera pas l’invite SAC. Parfois, les informations d’intégrité de la machine virtuelle s’affichent, et d’autres fois non. Si vous utilisez une image Windows Server créée avant février 2018, la console SAC ne sera probablement pas activée.
+Si la [console SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) n’est pas activée, la console série n’affichera pas l’invite SAC. Parfois, les informations d’intégrité de la machine virtuelle s’affichent, et d’autres fois non. Si vous utilisez une image Windows Server créée avant février 2018, la console SAC ne sera probablement pas activée.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Activer le menu de démarrage Windows dans la console série
 
-Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows soient affichées dans la console série, vous pouvez ajouter les options supplémentaires suivantes à vos données de configuration de démarrage. Pour plus d’informations, consultez [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows soient affichées dans la console série, vous pouvez ajouter les options supplémentaires suivantes à vos données de configuration de démarrage. Pour plus d’informations, consultez [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Connectez-vous à votre machine virtuelle ou votre groupe de machines virtuelles identiques Windows en utilisant le Bureau à distance.
 
@@ -126,7 +126,7 @@ Pour plus d’informations sur la configuration de Windows pour créer un fichie
 L’utilisation des touches de fonction est activée dans la console série sur les machines virtuelles Windows. Dans la liste déroulante de la console série, la touche F8 permet d’accéder facilement au menu des paramètres de démarrage avancés, mais la console série est compatible avec toutes les autres touches de fonction. Selon l’ordinateur à partir duquel vous utilisez la console série, il peut être nécessaire d’appuyer sur la touche **Fn** + **F1** (ou F2, F3, etc.) de votre clavier.
 
 ### <a name="use-wsl-in-serial-console"></a>Utiliser WSL dans la console série
-Le sous-système Windows pour Linux (WSL) est activé pour Windows Server 2019 ou versions ultérieures. Ainsi, vous pouvez activer WSL afin de l’utiliser dans la console série si vous exécutez Windows Server 2019 ou une version ultérieure. Cette possibilité est particulièrement intéressante pour les utilisateurs qui connaissent également les commandes Linux. Pour obtenir des instructions sur l’activation de WSL pour Windows Server, consultez le [guide d’installation](https://docs.microsoft.com/windows/wsl/install-on-server).
+Le sous-système Windows pour Linux (WSL) est activé pour Windows Server 2019 ou versions ultérieures. Ainsi, vous pouvez activer WSL afin de l’utiliser dans la console série si vous exécutez Windows Server 2019 ou une version ultérieure. Cette possibilité est particulièrement intéressante pour les utilisateurs qui connaissent également les commandes Linux. Pour obtenir des instructions sur l’activation de WSL pour Windows Server, consultez le [guide d’installation](/windows/wsl/install-on-server).
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Redémarrer votre instance de machine virtuelle/groupe de machines virtuelles identiques Windows dans la console série
 Vous pouvez lancer un redémarrage au sein de la console série en accédant au bouton d’alimentation, puis en cliquant sur « Redémarrer la machine virtuelle ». Cette opération lance un redémarrage de la machine virtuelle. Vous voyez ensuite une notification de redémarrage dans le portail Azure.
@@ -147,7 +147,7 @@ L’accès à la console série est limité aux utilisateurs disposant d’un r�
 Toutes les données envoyées sur les canaux sont chiffrées.
 
 ### <a name="audit-logs"></a>Journaux d’audit
-Tous les accès à la console série sont journalisés dans les journaux d’activité [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux d’activité est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
+Tous les accès à la console série sont journalisés dans les journaux d’activité [Diagnostics de démarrage](./boot-diagnostics.md) de la machine virtuelle. L’accès à ces journaux d’activité est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
 
 > [!CAUTION]
 > Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux d’activité Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux d’activité sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle.
@@ -173,7 +173,7 @@ Scénario          | Actions à effectuer dans la console série
 :------------------|:-----------------------------------------
 Règles de pare-feu incorrectes | Accès à la console série et correction des règles de pare-feu Windows.
 Contrôle de la corruption du système de fichiers | Accédez à la console série et récupérez le système de fichiers.
-Problèmes de configuration RDP | Accédez à la console série et modifiez les paramètres. Pour plus d’informations, consultez la [documentation relative au protocole RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Problèmes de configuration RDP | Accédez à la console série et modifiez les paramètres. Pour plus d’informations, consultez la [documentation relative au protocole RDP](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Système de verrouillage du réseau | Accédez à la console série à partir du portail Azure pour gérer le système. Certaines commandes réseau sont répertoriées sur la page [Commandes Windows : CMD et PowerShell](serial-console-cmd-ps-commands.md).
 Interaction avec le chargeur de démarrage | Accédez à BCD par le biais de la console série. Pour plus d’informations, consultez [Activer le menu de démarrage Windows dans la console série](#enable-the-windows-boot-menu-in-the-serial-console).
 

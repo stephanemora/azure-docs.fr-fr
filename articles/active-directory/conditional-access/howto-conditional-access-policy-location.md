@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995120"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518417"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
@@ -43,17 +43,15 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
-   1. Sélectionnez **Terminé**.
-1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud** et sélectionnez **Terminé**.
+1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
 1. Sous **Conditions** > **Emplacement**.
    1. Définissez **Configurer** sur **Oui**
    1. Sous **Inclure**, sélectionnez **Emplacements sélectionnés**
    1. Sélectionnez l’emplacement bloqué que vous avez créé pour votre organisation.
-   1. Cliquez sur **Sélectionner** > **Terminé** > **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**, puis sélectionnez **Terminé**.
-1. Sous **Contrôles d’accès** > **Bloquer**, sélectionnez **Sélectionner**.
+   1. Cliquez sur **Sélectionner**.
+1. Sous **Contrôles d’accès**, sélectionnez **Bloquer l’accès**, puis **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
-1. Sélectionnez **Créer** pour créer votre stratégie.
+1. Sélectionnez **Créer** pour appliquer la stratégie d’accès conditionnel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

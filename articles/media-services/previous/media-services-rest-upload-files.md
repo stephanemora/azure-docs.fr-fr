@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000191"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170783"
 > * [Portail](media-services-portal-upload-files.md)
 > 
 
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’entité [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu. 
+Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’entité [Asset](/rest/api/media/operations/asset) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu. 
 
 Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre opération associée :
 
@@ -45,7 +45,7 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
 - Consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-- Pour plus d’informations, consultez également l’article [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad).
+- Pour plus d’informations, consultez également l’article [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET](./media-services-rest-connect-with-aad.md).
 - Configurez **Postman** tel que décrit dans [Configurer Postman pour les appels d’API REST Media Services](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considérations
@@ -106,7 +106,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d’accès pour l’écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d’entités AccessPolicies. N’oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d’erreur interne de serveur 500. Pour plus d’informations sur AccessPolicies, consultez [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d’accès pour l’écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d’entités AccessPolicies. N’oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d’erreur interne de serveur 500. Pour plus d’informations sur AccessPolicies, consultez [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Définition d’une stratégie d’accès.
 
@@ -121,7 +121,7 @@ Avant de télécharger des fichiers dans le stockage blob, définissez les droit
 
 ### <a name="overview"></a>Vue d’ensemble
 
-Une [ressource](https://docs.microsoft.com/rest/api/media/operations/asset) est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des sous-titres. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
+Une [ressource](/rest/api/media/operations/asset) est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des sous-titres. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
 L’une des propriétés que vous pouvez ajouter lors de la création d’un élément multimédia est **Options**. Vous pouvez spécifier l’une des options de chiffrement suivantes : **Aucun** (valeur par défaut, aucun chiffrement n’est utilisé), **StorageEncrypted** (pour le contenu qui a été déjà chiffré avec le chiffrement du stockage côté client), **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. Lorsque vous disposez d’un élément multimédia chiffré, vous devez configurer une stratégie de remise. Pour plus d'informations, consultez [Configuration des stratégies de distribution de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -144,9 +144,9 @@ Dans cet exemple, vous allez créer un élément multimédia déchiffré.
 
 Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous devez télécharger les fichiers en tant qu’objets blob de blocs. Les objets blob de pages ne sont pas pris en charge par Azure Media Services.  
 
-Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](/rest/api/storageservices/blob-service-rest-api).
 
-Pour recevoir l’URL de chargement réelle, créez un localisateur SAS (voir ci-dessous). Les localisateurs définissent l’heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d’une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d’AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d’informations, consultez la rubrique [Localisateur](https://docs.microsoft.com/rest/api/media/operations/locator).
+Pour recevoir l’URL de chargement réelle, créez un localisateur SAS (voir ci-dessous). Les localisateurs définissent l’heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d’une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d’AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d’informations, consultez la rubrique [Localisateur](/rest/api/media/operations/locator).
 
 Une URL SAS a le format suivant :
 
@@ -175,9 +175,9 @@ Certaines considérations s’appliquent :
 
 Maintenant que vous avez l’URL de chargement, vous devez écrire du code avec les API d’objet blob Azure directement pour charger votre fichier dans le conteneur SAS. Pour plus d’informations, consultez les articles suivants :
 
-- [Utilisation de l’API REST Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Chargement d’objets blob vers un stockage d’objets blob](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Utilisation de l’API REST Stockage Azure](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](/rest/api/storageservices/put-blob)
+- [Chargement d’objets blob vers un stockage d’objets blob](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Charger un fichier avec Postman
 
@@ -209,7 +209,7 @@ Le fichier doit être chargé et ses métadonnées définies.
 
 ## <a name="validate"></a>Valider
 
-Pour valider que le fichier a été chargé avec succès, vous pouvez interroger [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) et comparer **ContentFileSize** (ou d’autres détails) avec ce que vous attendez dans le nouvel élément multimédia. 
+Pour valider que le fichier a été chargé avec succès, vous pouvez interroger [AssetFile](/rest/api/media/operations/assetfile) et comparer **ContentFileSize** (ou d’autres détails) avec ce que vous attendez dans le nouvel élément multimédia. 
 
 Par exemple, l’opération **GET** suivante apporte des données de fichier pour votre fichier multimédia (dans le cas présent, le fichier BigBuckBunny.mp4). La requête utilise les [variables d’environnement](postman-environment.md) définies précédemment.
 
@@ -229,4 +229,3 @@ La réponse contient la taille, le nom et d’autres informations.
 Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
 
 Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche de codage à partir d’un fichier entrant dans le conteneur configuré. Pour plus d’informations, consultez [cet exemple](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

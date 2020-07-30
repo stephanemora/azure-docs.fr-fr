@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71937282"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001160"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Créer et superviser des événements Azure Media Services avec Event Grid à partir d’Azure CLI
 
@@ -31,7 +31,7 @@ Dans cet article, vous allez utiliser Azure CLI pour vous abonner à des événe
 
     Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
 
-- [Créer un compte Media Services](create-account-cli-how-to.md).
+- [Créer un compte Media Services](./create-account-howto.md).
 
     Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
 
@@ -109,4 +109,3 @@ Affichez à nouveau votre application web, et notez qu’un événement de valid
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Charger, encoder et diffuser en continu](stream-files-tutorial-with-api.md)
-

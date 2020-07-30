@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816451"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519011"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -110,6 +110,12 @@ Les classeurs peuvent fournir des requêtes inter-espaces de travail de l’une 
 | Modifier le classeur de manière interactive | Un utilisateur expérimenté qui modifie un classeur existant peut modifier les requêtes qu’il contient, en sélectionnant les espaces de travail cibles à l’aide du sélecteur d’espace de travail dans l’éditeur. | Cette option permet à un utilisateur avancé de modifier facilement des classeurs existants pour travailler avec plusieurs espaces de travail. |
 |
 
+### <a name="cross-workspace-hunting"></a>Chasse dans plusieurs espaces de travail
+
+Azure Sentinel fournit des exemples de requêtes préchargés conçus pour vous aider à prendre en main les tables et le langage de requête et à vous familiariser avec eux. Ces requêtes de chasse intégrées sont élaborées en continu par les chercheurs en sécurité de Microsoft, qui ajoutent de nouvelles requêtes et affinent celles existantes, de manière à vous offrir un point d’entrée pour la recherche de nouvelles détections et identifier les signes d’intrusion qui pourraient ne pas avoir été détectés par vos outils de sécurité.  
+
+Les capacités de chasse dans plusieurs espaces de travail permettent à vos chasseurs de menaces de créer de nouvelles requêtes de chasse ou d’adapter celles existantes pour couvrir plusieurs espaces de travail en utilisant l’opérateur Union et l’expression workspace() comme indiqué ci-dessus.
+
 ## <a name="cross-workspace-management-using-automation"></a>Gestion inter-espaces de travail à l’aide de l’automatisation
 
 Pour configurer et gérer plusieurs espaces de travail Azure Sentinel, vous devez automatiser l’utilisation de l’API de gestion Azure Sentinel. Pour plus d’informations sur l’automatisation du déploiement des ressources Azure Sentinel, notamment les règles d’alerte, les requêtes de repérage, les classeurs et les playbooks, consultez [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885) (Extension d’Azure Sentinel : automatisation des API, de l’intégration et de la gestion).
@@ -122,8 +128,6 @@ Consultez également [Déployer et gérer Azure Sentinel as a Code](https://tech
 Les fonctionnalités suivantes ne sont pas prises en charge dans les espaces de travail :
 
 - Une règle d’alerte planifiée ne peut pas s’exécuter sur plusieurs espaces de travail à l’aide d’une requête inter-espaces de travail.
-
-- Les requêtes de repérage ne prennent pas en charge les requêtes inter-espaces de travail.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gérer les espaces de travail parmi les locataires avec Azure Lighthouse
 

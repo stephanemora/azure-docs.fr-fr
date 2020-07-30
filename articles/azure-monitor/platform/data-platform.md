@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515527"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325574"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -36,7 +36,7 @@ Les [métriques](data-platform-metrics.md) sont des valeurs numériques décriva
 
 Les métriques dans Azure Monitor sont stockées dans une base de données de série chronologique qui est optimisée pour l’analyse des données horodatées. Ainsi, les métriques sont particulièrement adaptées à la génération d’alertes et à la détection rapide de problèmes. Elles peuvent vous donner des informations sur le niveau de performance de votre système, mais elles doivent généralement être combinées avec les journaux pour identifier la cause racine des problèmes.
 
-Des métriques sont disponibles pour l’analyse interactive dans le portail Azure avec [Azure Metrics Explorer](../platform/metrics-getting-started.md). Vous pouvez les ajouter à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données et les utiliser pour [générer des alertes](alerts-metric.md) en quasi-temps réel.
+Des métriques sont disponibles pour l’analyse interactive dans le portail Azure avec [Azure Metrics Explorer](./metrics-getting-started.md). Vous pouvez les ajouter à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données et les utiliser pour [générer des alertes](alerts-metric.md) en quasi-temps réel.
 
 Pour en savoir plus sur les métriques Azure Monitor, notamment sur leurs sources de données, consultez [Métriques dans Azure Monitor](data-platform-metrics.md).
 
@@ -90,3 +90,4 @@ En plus d’utiliser les outils dans Azure pour analyser les données de supervi
 - Découvrez-en plus sur les [métriques dans Azure Monitor](data-platform-metrics.md).
 - Découvrez-en plus sur les [journaux dans Azure Monitor](data-platform-logs.md).
 - Découvrez les [données de surveillance disponibles](data-sources.md) pour différentes ressources dans Azure.
+

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506706"
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -36,6 +36,9 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
     Les deux options **Connexion directe** et **Importation** sont prises en charge. Toutefois, nous recommandons d’utiliser des connexions directes, car le mode d’importation présente des limitations. Plus particulièrement, les performances du serveur pourraient être affectées lors de l’importation. De même, si le modèle doit être actualisé dans le service Power BI, le paramètre **Autoriser l’accès à partir de Power BI** s’applique uniquement lors de la sélection de **Connexion directe**.
 
 5. Entrez vos informations d’identification si elles vous sont demandées. 
+
+   > [!NOTE]
+   > Les comptes à code secret à usage unique ne sont pas pris en charge. 
 
 6. Dans le **Navigateur**, développez le serveur, puis sélectionnez le modèle ou la perspective auquel vous souhaitez vous connecter, puis cliquez sur **Se connecter**. Cliquez sur un modèle ou une perspective pour afficher tous les objets de cette vue.
 

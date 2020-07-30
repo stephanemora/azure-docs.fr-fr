@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557228"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326033"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
 
@@ -138,10 +138,11 @@ La conception actuelle présente les problèmes et les limitations suivants :
 
 Pour obtenir une documentation Azure officielle sur la création d’un principal de service, consultez :
 
-* [Création d’un principal de service à l’aide de PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Création d’un principal de service à l’aide d’Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Création d’un principal de service à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Création d’un principal de service à l’aide de PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Création d’un principal de service à l’aide d’Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Création d’un principal de service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Suggestions
 
 Avez-vous des commentaires à nous adresser concernant l’intégration avec la fonctionnalité Map d’Azure Monitor pour machines virtuelles fonctionnalité Map ou cette documentation ? Consultez notre [page Voix utilisateur](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) qui vous permet de suggérer des fonctionnalités ou de voter pour les suggestions en cours.
+

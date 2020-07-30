@@ -3,16 +3,16 @@ title: Générer des workflows automatisés basés sur l’approbation
 description: 'Tutoriel : Créer un workflow automatisé basé sur l’approbation qui traite les abonnements aux listes de diffusion à l’aide d’Azure Logic Apps'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456608"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132396"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
 
@@ -21,6 +21,7 @@ Ce tutoriel montre comment créer une [application logique](../logic-apps/logic-
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Créez une application logique vide.
 > * Ajouter un déclencheur qui surveille les e-mails et détecte les requêtes d’abonnement.
 > * Ajouter une action qui envoie des e-mails pour approuver ou rejeter ces requêtes.
@@ -41,11 +42,9 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 * Un compte de courrier Office 365 Outlook ou Outlook.com, qui prend en charge les workflows d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
-
 ## <a name="create-your-logic-app"></a>Créer votre application logique
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration** > **Application logique**.
 
@@ -106,7 +105,7 @@ Ajoutez ensuite un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app
 
       ![Ajouter la propriété « Subject Filter » (Filtre d’objet) au déclencheur](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      Pour plus d’informations sur les propriétés du déclencheur, consultez les [informations de référence sur le connecteur Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) ou les [informations de référence sur le connecteur Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+      Pour plus d’informations sur les propriétés du déclencheur, consultez les [informations de référence sur le connecteur Office 365 Outlook](/connectors/office365/) ou les [informations de référence sur le connecteur Outlook.com](/connectors/outlook/).
 
    1. Une fois que la propriété s’affiche dans le déclencheur, entrez le texte suivant : `subscribe-test-members-ML`
 
@@ -145,7 +144,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    Pour l’instant, ignorez la liste de contenu dynamique qui s’affiche lorsque vous cliquez à l’intérieur de certaines zones de modification. Cette liste vous permet de sélectionner la sortie disponible des actions précédentes que vous pouvez utiliser en tant qu’entrées dans votre workflow.
 
-   Pour plus d’informations sur les propriétés de cette action, consultez les [informations de référence sur le connecteur Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) ou les [informations de référence sur le connecteur Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+   Pour plus d’informations sur les propriétés de cette action, consultez les [informations de référence sur le connecteur Office 365 Outlook](/connectors/office365/) ou les [informations de référence sur le connecteur Outlook.com](/connectors/outlook/).
  
 1. Enregistrez votre application logique.
 
@@ -210,7 +209,7 @@ Ajoutez maintenant une action qui ajoute le membre approuvé à votre liste de d
    | **Adresse e-mail** | Oui | <*new-member-email-address*> | Dans la liste de contenu dynamique, sélectionnez le champ **De** sous **À la réception d’un e-mail** pour transmettre l’adresse e-mail du nouveau membre. |
    ||||
 
-   Pour plus d’informations sur les propriétés de cette action, consultez les [informations de référence sur le connecteur MailChimp](https://docs.microsoft.com/connectors/mailchimp/).
+   Pour plus d’informations sur les propriétés de cette action, consultez les [informations de référence sur le connecteur MailChimp](/connectors/mailchimp/).
 
 1. Enregistrez votre application logique.
 

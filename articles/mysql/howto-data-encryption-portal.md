@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: c3bb15e494638d543795ac5b95e2513cb5871a2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dcc8a99480400786a48ff952eb378a57c595464f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118628"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388184"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Chiffrement des données pour Azure Database pour MySQL à l’aide du Portail Azure
 
@@ -22,13 +22,13 @@ Découvrez comment utiliser le Portail Azure pour configurer et gérer le chiffr
 * Vous devez avoir un abonnement Azure et être un administrateur de cet abonnement.
 * Dans Azure Key Vault, créez un coffre de clés et une clé à utiliser pour une clé gérée par le client.
 * Le coffre de clés doit avoir les propriétés suivantes à utiliser en tant que clé gérée par le client :
-  * [Suppression réversible](../key-vault/general/overview-soft-delete.md)
+  * [Suppression réversible](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Protégé contre le vidage](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Protégé contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

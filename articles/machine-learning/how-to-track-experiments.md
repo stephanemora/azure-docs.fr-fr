@@ -3,21 +3,21 @@ title: Journaliser les expériences et métriques Machine Learning
 titleSuffix: Azure Machine Learning
 description: Surveillez vos expériences Azure Machine Learning et les métriques d'exécution pour améliorer le processus de création de modèle. Ajoutez la journalisation à votre script d'entraînement et affichez les résultats enregistrés d’une exécution.  Utilisez run.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675200"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536340"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -108,7 +108,7 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
 
 Utilisez le module __Exécuter un script Python__ pour ajouter une logique de journalisation à vos expériences de concepteur. Si ce workflow vous permet de journaliser n’importe quelle valeur, il est particulièrement utile pour journaliser les métriques du module __Évaluer le modèle__ pour suivre les performances du modèle à travers les différentes exécutions.
 
-1. Connectez un module __Exécuter un script Python__ à la sortie de votre module __Évaluer le modèle__.
+1. Connectez un module __Exécuter un script Python__ à la sortie de votre module __Évaluer le modèle__. __Évaluer le modèle__ peut générer des résultats d’évaluation de deux modèles. L’exemple suivant montre comment enregistrer les métriques de deux ports de sortie dans le niveau d’exécution parent. 
 
     ![Connecter le module Exécuter un script Python au module Évaluer le modèle](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -116,23 +116,29 @@ Utilisez le module __Exécuter un script Python__ pour ajouter une logique de jo
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. Une fois l’exécution du pipeline terminée, vous pouvez voir le *Mean_Absolute_Error* dans la page Expérience.
+
+    ![Connecter le module Exécuter un script Python au module Évaluer le modèle](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## <a name="manage-a-run"></a>Gérer une exécution
 

@@ -2,14 +2,14 @@
 title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524010"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -38,11 +38,10 @@ Azure Container Instances doit disposer d’une autorisation pour envoyer des do
 Pour obtenir l’ID et la clé primaire de l’espace de travail Log Analytics :
 
 1. Accédez à votre espace de travail Log Analytics dans le portail Azure
-1. Sous **Paramètres**, sélectionnez **Paramètres avancés**.
-1. Sélectionnez **Sources connectées** > **Serveurs Windows** (ou **Serveurs Linux**, l’ID et les clés sont les mêmes pour les deux)
+1. Sous **Paramètres**, sélectionnez **Gestion des agents**
 1. Notez :
-   * **ID DE L’ESPACE DE TRAVAIL**
-   * **CLÉ PRIMAIRE**
+   * **ID de l’espace de travail**
+   * **Clé primaire**
 
 ## <a name="create-container-group"></a>Créer un groupe de conteneurs
 
@@ -102,7 +101,9 @@ Vous devriez recevoir une réponse à partir des détails du déploiement de con
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 
-Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour voir les journaux du groupe de conteneurs dans la table `ContainerInstanceLog_CL` :
+Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). 
+
+Pour voir les journaux du groupe de conteneurs dans la table `ContainerInstanceLog_CL` :
 
 1. Accédez à votre espace de travail Log Analytics dans le portail Azure
 1. Sous **Général**, sélectionnez **Journaux**.  

@@ -1,5 +1,5 @@
 ---
-title: Modifications à venir des règles d’ingestion et de mise à plat dans Azure Time Series Insights | Microsoft Docs
+title: Modifications à venir des règles d’ingestion et de mise à plat dans Azure Time Series Insights Gen2 | Microsoft Docs
 description: Modifications de la règle d’ingestion
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 067244aa40256e3cc76239343790974bc3c06481
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f667ca5ad82182fcf40d5c1fbb325f2ea99a7e08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919030"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495106"
 ---
 # <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>Modifications à venir des règles JSON de mise à plat et d’échappement pour les nouveaux environnements
 
-Ces modifications seront appliquées uniquement aux *nouveaux* environnements Azure Time Series Insights de paiement à l’utilisation (PAYG). Ces modifications ne s’appliquent pas aux environnements Standard (S).
+**Ces modifications seront appliquées uniquement aux *nouveaux* environnements Azure Time Series Insights Gen2. Ces modifications ne s’appliquent pas aux environnements Gen1.**
 
-Votre environnement Azure Time Series Insights crée de manière dynamique les colonnes de votre stockage, en suivant un ensemble particulier de conventions d’affectation de noms. Lorsqu’un événement est ingéré, un ensemble de règles est appliqué à la charge utile JSON et aux noms de propriétés. Les modifications apportées à la façon dont les données JSON sont aplaties et stockées entreront en vigueur pour les nouveaux environnements Azure Time Series Insights de paiement à l’utilisation en juillet 2020. Cette modification vous concerne dans les cas suivants :
+Votre environnement Azure Time Series Insights Gen2 crée de manière dynamique les colonnes de votre stockage, en suivant un ensemble particulier de conventions d’affectation de noms. Lorsqu’un événement est ingéré, un ensemble de règles est appliqué à la charge utile JSON et aux noms de propriétés. Les modifications apportées à la façon dont les données JSON sont aplaties et stockées entreront en vigueur pour les nouveaux environnements Azure Time Series Insights Gen2 en juillet 2020. Cette modification vous concerne dans les cas suivants :
 
 * Si votre charge utile JSON contient des objets imbriqués
 *  Si votre charge utile JSON contient des tableaux
@@ -45,15 +45,16 @@ Les tableaux d’objets sont toujours aplatis, ce qui génère plusieurs événe
 
  #### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si votre charge utile contient des caractères spéciaux ou un JSON imbriqué et que vous automatisez la création des expressions de variable du[modèle de série chronologique](.\time-series-insights-update-tsm.md) :
 
-*  Mettez à jour votre code client en exécutant [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) pour qu’il respecte les nouvelles règles d’ingestion. Par exemple, une ancienne [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` doit être mise à jour vers l’une des options ci-dessous :
+*  Mettez à jour votre code client en exécutant [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) pour qu’il respecte les nouvelles règles d’ingestion. Par exemple, une ancienne [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` doit être mise à jour vers l’une des options ci-dessous :
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire [Ajout de la prise en charge du type de données Long](./time-series-insights-long-data-type.md).
+- Lire [Stockage et entrée Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
 
-- Lire [Azure Time Series Insights (préversion) – Stockage et entrée](./time-series-insights-update-storage-ingress.md).
+- En savoir plus sur l’interrogation de vos données à l’aide d’[API de requête de série chronologique](./concepts-query-overview.md).
+
+- En savoir plus sur la [nouvelle syntaxe des expressions de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

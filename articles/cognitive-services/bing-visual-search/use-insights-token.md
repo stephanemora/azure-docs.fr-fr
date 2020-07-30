@@ -10,17 +10,25 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: tracking-python
-ms.openlocfilehash: 733eec452501a829d0162b91aca9ece191d68914
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: dc0097396bbd3d624fd043c54f2f37e434ad5b50
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611422"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87403984"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Utiliser un jeton insights pour obtenir des informations sur une image
 
-L’API Recherche visuelle Bing renvoie des informations sur une image que vous fournissez. Cette image est accessible via son URL, un jeton insights ou par chargement. Pour plus d’informations sur ces options, consultez la section [Qu’est-ce que l’API Recherche visuelle Bing ?](overview.md). Cet article utilise un jeton insights pour la démonstration. Pour obtenir des exemples qui illustrent le chargement d’une image pour obtenir des informations, consultez les démarrages rapides ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+L’API Recherche visuelle Bing renvoie des informations sur une image que vous fournissez. Cette image est accessible via son URL, un jeton insights ou par chargement. Pour plus d’informations sur ces options, consultez la section [Qu’est-ce que l’API Recherche visuelle Bing ?](overview.md). Cet article utilise un jeton insights pour la démonstration. Pour obtenir des exemples qui illustrent le chargement d’une image permettant d’obtenir des informations, consultez les démarrages rapides :
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [Node.JS](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 Si vous envoyez un jeton d’image ou une URL à la recherche visuelle Bing, voici les données de formulaire que vous devez inclure dans le corps de la requête POST. Les données de formulaire doivent inclure l’en-tête `Content-Disposition` et vous devez définir son paramètre `name` sur « knowledgeRequest ». Pour plus d’informations sur l’objet `imageInfo`, reportez-vous à la requête :
 
@@ -59,7 +67,15 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Pour obtenir des exemples qui utilisent le jeton insights, consultez [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
+Pour obtenir des exemples qui utilisent le jeton Insights, consultez :
+
+* [C#](#use-with-c)
+
+* [Java](#use-with-java)
+
+* [Node.JS](#use-with-nodejs)
+
+* [Python](#use-with-python)
 
 ## <a name="use-with-c"></a>Utiliser avec C#
 

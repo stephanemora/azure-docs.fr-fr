@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069151"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Résoudre une erreur de démarrage - Une erreur de lecture de disque s’est produite
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes liés à
 
 ## <a name="symptoms"></a>Symptômes
 
-Lorsque vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour visualiser la capture d’écran de la machine virtuelle, vous constatez que cette capture affiche une invite avec le message « Une erreur de lecture de disque s'est produite. Appuyez sur Ctrl+Alt+Suppr pour redémarrer ».
+Lorsque vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour visualiser la capture d’écran de la machine virtuelle, vous constatez que cette capture affiche une invite avec le message « Une erreur de lecture de disque s'est produite. Appuyez sur Ctrl+Alt+Suppr pour redémarrer ».
 
    ![Message d’erreur : Une erreur de lecture de disque s’est produite. Appuyez sur Ctrl+Alt+Suppr pour redémarrer.](./media/disk-read-error-occurred/1.png)
 
@@ -51,7 +51,7 @@ Ce message d’erreur indique que la structure du disque est endommagée et illi
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="set-partition-status-to-active"></a>Définir l’état de la partition sur Actif
@@ -143,4 +143,4 @@ Les machines virtuelles de première génération doivent d’abord vérifier qu
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

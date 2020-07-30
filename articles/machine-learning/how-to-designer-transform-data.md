@@ -5,17 +5,17 @@ description: Découvrez comment transformer des données dans le concepteur Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203785"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326985"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformer des données dans le concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ Dans cet article, vous apprendrez comment :
 1. Afficher les résultats.
 
 Nous vous recommandons de lire cet article avant l’article sur le [recyclage de modèles de concepteur](how-to-retrain-designer.md). Cet article explique comment utiliser les jeux de données transformés pour effectuer l’apprentissage de plusieurs modèles avec des paramètres de pipeline.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="transform-a-dataset"></a>Transformer un jeu de données
 

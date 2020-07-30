@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000412"
 ---
 # <a name="create-content-keys-with-rest"></a>Création de clés de contenu avec REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
 1. Générez de façon aléatoire une clé AES de 16 octets (pour le chiffrement commun et d’enveloppe) ou AES de 32 octets (chiffrement de stockage). 
    
     Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
-2. Appelez les méthodes [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
+2. Appelez les méthodes [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) et [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
 3. Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
    
    Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement.  Vous trouverez un exemple dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

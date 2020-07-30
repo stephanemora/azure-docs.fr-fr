@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005614"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurer une règle de restriction IP avec un Pare-feu d’applications web pour Azure Front Door
 
@@ -168,7 +168,7 @@ Avant de commencer à configurer une stratégie de restriction d’IP, configure
 #### <a name="set-up-your-powershell-environment"></a>Configurer votre environnement PowerShell
 Azure PowerShell fournit un ensemble de cmdlets qui utilisent le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour gérer des ressources Azure.
 
-Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions sur la page pour vous connecter à PowerShell avec vos informations d’identification Azure, puis installez le module Az.
+Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions sur la page pour vous connecter à PowerShell avec vos informations d’identification Azure, puis installez le module Az.
 
 1. Connectez-vous à Azure avec la commande suivante, puis utilisez une boîte de dialogue interactive pour vous connecter.
     ```

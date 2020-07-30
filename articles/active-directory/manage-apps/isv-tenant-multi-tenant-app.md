@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763242"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386807"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Créer un locataire Azure pour une application multilocataire  
 
@@ -37,7 +37,7 @@ Vous pouvez créer votre abonnement Azure et Azure Active Directory gratuitement
 
    a. **Pour les applications OIDC ou Oath**, [inscrivez votre application](../develop/quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft
 
-   b. **Pour les applications basées sur SAML et WS-Fed**, vous [Configurez des applications avec authentification unique basée sur SAML](configure-single-sign-on-non-gallery-applications.md) à l’aide d’un modèle SAML générique dans Azure AD.
+   b. **Pour les applications basées sur SAML et WS-Fed**, vous [Configurez des applications avec authentification unique basée sur SAML](configure-saml-single-sign-on.md) à l’aide d’un modèle SAML générique dans Azure AD.
 
 Vous pouvez également [convertir une application à locataire unique en application mutualisée](../develop/howto-convert-app-to-be-multi-tenant.md) si nécessaire.
 

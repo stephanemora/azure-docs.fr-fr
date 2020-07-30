@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039189"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
@@ -214,7 +214,7 @@ Pour plus d’informations, consultez la page [JWT token authentication in Azure
 Pour plus d’informations sur Azure AD :
 
 * Vous pouvez trouver des informations pour les développeurs dans le [Guide du développeur Azure Active Directory](../../active-directory/develop/v2-overview.md).
-* Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Problèmes de mise en œuvre
 

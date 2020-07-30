@@ -5,17 +5,18 @@ description: Découvrez comment modifier les clés d’accès du compte Stockage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483310"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387062"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +26,7 @@ Découvrez comment changer les clés d’accès des comptes Stockage Azure utili
 Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’accès d’un compte Stockage Azure. Lorsque vous régénérez la clé d’accès, Azure Machine Learning doit être mis à jour pour utiliser la nouvelle clé. Azure Machine Learning peut utiliser le compte de stockage à la fois pour le stockage des modèles et comme banque de données.
 
 > [!IMPORTANT]
-> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure Key Vault associé à l’espace de travail. Si la [suppression réversible ](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) est activée pour votre coffre de clés, lisez cet article pour la mise à jour des informations d’identification. L’annulation de l’inscription du magasin de données et sa réinscription sous le même nom échouent.
+> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure Key Vault associé à l’espace de travail. Si la [suppression réversible ](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) est activée pour votre coffre de clés, lisez cet article pour la mise à jour des informations d’identification. L’annulation de l’inscription du magasin de données et sa réinscription sous le même nom échouent.
 
 ## <a name="prerequisites"></a>Prérequis
 

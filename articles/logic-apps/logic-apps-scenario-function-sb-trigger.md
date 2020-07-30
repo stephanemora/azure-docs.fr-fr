@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec2225633e5621c51067b64af2968a0dc0f5da87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75428703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001415"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 
@@ -119,11 +119,11 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
    * Cet exemple utilise un type de contenu de message `application/json`, mais vous pouvez le modifier si nécessaire.
    
-   * En raison de la possibilité d’exécution simultanée de fonctions, de volumes élevés ou de charges lourdes, évitez d’instancier la [classe HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) avec l’instruction `using` et de créer directement des instances HTTPClient par requête. Pour plus d’informations, consultez [Utiliser HttpClientFactory pour implémenter des requêtes HTTP résilientes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   * En raison de la possibilité d’exécution simultanée de fonctions, de volumes élevés ou de charges lourdes, évitez d’instancier la [classe HTTPClient](/dotnet/api/system.net.http.httpclient) avec l’instruction `using` et de créer directement des instances HTTPClient par requête. Pour plus d’informations, consultez [Utiliser HttpClientFactory pour implémenter des requêtes HTTP résilientes](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    
    * Si possible, réutilisez l’instance de clients HTTP. Pour plus d’informations, consultez la rubrique [Gérer les connexions dans Azure Functions](../azure-functions/manage-connections.md).
 
-   Cet exemple utilise la [méthode `Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) en mode [asynchrone](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async). Pour plus d’informations, consultez l’article [Programmation asynchrone avec async et await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   Cet exemple utilise la [méthode `Task.Run`](/dotnet/api/system.threading.tasks.task.run) en mode [asynchrone](/dotnet/csharp/language-reference/keywords/async). Pour plus d’informations, consultez l’article [Programmation asynchrone avec async et await](/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;

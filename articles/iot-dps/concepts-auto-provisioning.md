@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4755d3ac30a4f6fdc0568dd88fa0e362d7d140a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066567"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepts de provisionnement automatique
 
@@ -103,10 +103,10 @@ Commencez par suivre le guide de démarrage rapide « Configuration du provisio
 
 Ensuite, continuez avec le guide de démarrage rapide « Provisionner automatiquement un appareil simulé » qui convient le mieux à votre mécanisme d’attestation d’appareil et votre préférence en matière de langage/SDK de service Device Provisioning. Ce guide de démarrage rapide concerne les phases « Inscription d’appareils » et « Configuration et inscription d’appareils » : 
 
-|  | Mécanisme d’attestation d’appareil simulé | SDK/langage de guide de démarrage rapide |  |
-|--|--|--|--|
-|  | Module de plateforme sécurisée (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certificat X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+| Mécanisme d’attestation d’appareil simulé | SDK/langage de guide de démarrage rapide |
+| -------------------------------------- | ----------------------- |
+| Module de plateforme sécurisée (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| Certificat X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
 
 
 

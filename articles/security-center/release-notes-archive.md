@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 19a6764b68a7a06f9777bac94c9f34aaf09aec0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519578"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -126,7 +126,7 @@ Les nouvelles fonctionnalités de cette préversion publique sont les suivantes�
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Évaluation des vulnérabilités des machines virtuelles (préversion)
 
-Les applications installées sur les machines virtuelles peuvent souvent présenter des vulnérabilités susceptibles d’entraîner une violation de ces machines. Nous annonçons que le niveau standard de Security Center comprend une évaluation des vulnérabilités intégrée pour les machines virtuelles sans frais supplémentaires. L’évaluation des vulnérabilités, optimisée par Qualys dans la préversion publique, vous permet d’analyser en continu toutes les applications installées sur une machine virtuelle afin d’épingler celles qui sont vulnérables, et de présenter les résultats sur le portail Security Center. Security Center prend en charge toutes les opérations de déploiement afin que l’utilisateur n’ait aucun travail supplémentaire à accomplir. À l’avenir, nous envisageons de fournir des options d’évaluation des vulnérabilités pour satisfaire aux besoins uniques de nos clients.
+Les applications installées sur les machines virtuelles peuvent souvent présenter des vulnérabilités susceptibles d’entraîner une violation de ces machines. Nous annonçons que le niveau de service Standard de Security Center comprend une évaluation des vulnérabilités intégrée pour les machines virtuelles sans frais supplémentaires. L’évaluation des vulnérabilités, optimisée par Qualys dans la préversion publique, vous permet d’analyser en continu toutes les applications installées sur une machine virtuelle afin d’épingler celles qui sont vulnérables, et de présenter les résultats sur le portail Security Center. Security Center prend en charge toutes les opérations de déploiement afin que l’utilisateur n’ait aucun travail supplémentaire à accomplir. À l’avenir, nous envisageons de fournir des options d’évaluation des vulnérabilités pour satisfaire aux besoins uniques de nos clients.
 
 [Apprenez-en davantage sur l’évaluation des vulnérabilités de vos machines virtuelles Azure](security-center-vulnerability-assessment-recommendations.md).
 

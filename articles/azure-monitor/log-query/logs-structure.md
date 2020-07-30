@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516190"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327291"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.
@@ -89,4 +89,5 @@ Alors que chaque table dans les journaux Azure Monitor a son propre schéma, il 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez à utiliser [l’analytique des journaux d’activité pour créer et modifier des recherches dans les journaux](./log-query-overview.md).
-- Consultez un [didacticiel sur l’écriture de requêtes](../log-query/get-started-queries.md) à l’aide du nouveau langage de requête.
+- Consultez un [didacticiel sur l’écriture de requêtes](./get-started-queries.md) à l’aide du nouveau langage de requête.
+

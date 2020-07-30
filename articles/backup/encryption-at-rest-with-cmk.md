@@ -3,16 +3,16 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172400"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387997"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
-Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK) au lieu d’utiliser des clés gérées par la plateforme, qui sont activées par défaut. Les clés que vous utilisez pour le chiffrement des données de sauvegarde doivent être stockées dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK) au lieu d’utiliser des clés gérées par la plateforme, qui sont activées par défaut. Les clés que vous utilisez pour le chiffrement des données de sauvegarde doivent être stockées dans [Azure Key Vault](../key-vault/index.yml).
 
 La clé de chiffrement utilisée pour le chiffrement des sauvegardes peut être différente de celle utilisée pour la source. Les données sont protégées à l’aide d’une clé de chiffrement des données (DEK) basée sur l’algorithme AES 256, qui est à son tour protégée par vos clés (KEK). Cela vous donne un contrôle total sur les données et les clés. Pour permettre le chiffrement, il est nécessaire que le coffre Recovery Services soit autorisé à accéder à la clé de chiffrement dans le coffre Azure Key Vault. Vous pouvez éventuellement changer de clé, si nécessaire.
 
@@ -31,7 +31,7 @@ Cet article aborde les sujets suivants :
 
 - Pour l’heure, cette fonctionnalité **ne prend pas en charge la sauvegarde à l’aide de l’agent MARS**, et vous ne pourrez peut-être pas utiliser de coffre chiffré par une clé CMK à cette fin. L’agent MARS utilise un chiffrement basé sur une phrase secrète utilisateur. Cette fonctionnalité ne prend pas non plus en charge la sauvegarde de machines virtuelles classiques.
 
-- Elle n’est pas liée à [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), qui utilise le chiffrement basé sur l’invité des disques d’une machine virtuelle à l’aide de BitLocker (pour Windows) et de DM-Crypt (pour Linux)
+- Elle n’est pas liée à [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), qui utilise le chiffrement basé sur l’invité des disques d’une machine virtuelle à l’aide de BitLocker (pour Windows) et de DM-Crypt (pour Linux)
 
 - Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être de type **RSA 2048** uniquement et doivent être à l’état **activé**.
 
@@ -92,7 +92,7 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
 
-Vous devez **activer la suppression réversible et la protection contre le vidage**  sur votre coffre de clés Azure qui stocke votre clé de chiffrement. Cette opération s’effectue dans l’interface utilisateur d’Azure Key Vault comme indiqué ci-dessous. (Vous pouvez aussi définir ces propriétés au moment de créer le coffre de clés). Pour en savoir plus sur ces propriétés Key Vault, consultez [cette page](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Vous devez **activer la suppression réversible et la protection contre le vidage**  sur votre coffre de clés Azure qui stocke votre clé de chiffrement. Cette opération s’effectue dans l’interface utilisateur d’Azure Key Vault comme indiqué ci-dessous. (Vous pouvez aussi définir ces propriétés au moment de créer le coffre de clés). Pour en savoir plus sur ces propriétés Key Vault, consultez [cette page](../key-vault/general/soft-delete-overview.md).
 
 ![Activer la suppression réversible et la protection contre le vidage](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Avant de poursuivre la configuration de la protection, nous vous recommandons vi
 >
 >Si toutes les étapes ci-dessus ont été confirmées, poursuivez alors la configuration de la sauvegarde.
 
-Les processus de configuration et d’exécution de sauvegardes dans un coffre Recovery Services chiffré avec des clés gérées par le client sont les mêmes que pour un coffre qui utilise des clés gérées par la plateforme, sans **aucun changement au niveau de l’expérience**. Cela est vrai pour la [sauvegarde de machines virtuelles Azure](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal), mais aussi pour la sauvegarde des charges de travail s’exécutant dans une machine virtuelle (par exemple, les bases de données [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db), [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup)).
+Les processus de configuration et d’exécution de sauvegardes dans un coffre Recovery Services chiffré avec des clés gérées par le client sont les mêmes que pour un coffre qui utilise des clés gérées par la plateforme, sans **aucun changement au niveau de l’expérience**. Cela est vrai pour la [sauvegarde de machines virtuelles Azure](./quick-backup-vm-portal.md), mais aussi pour la sauvegarde des charges de travail s’exécutant dans une machine virtuelle (par exemple, les bases de données [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md)).
 
 ## <a name="restoring-data-from-backup"></a>Restauration de données à partir d’une sauvegarde
 
 ### <a name="vm-backup"></a>Sauvegarde de machines virtuelles
 
-Les données stockées dans le coffre Recovery Services peuvent être restaurées selon les étapes décrites [ici](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). Si vous restaurez à partir d’un coffre Recovery Services chiffré à l’aide de clés gérées par le client, vous pouvez choisir de chiffrer les données restaurées avec un jeu de chiffrement de disque (DES).
+Les données stockées dans le coffre Recovery Services peuvent être restaurées selon les étapes décrites [ici](./backup-azure-arm-restore-vms.md). Si vous restaurez à partir d’un coffre Recovery Services chiffré à l’aide de clés gérées par le client, vous pouvez choisir de chiffrer les données restaurées avec un jeu de chiffrement de disque (DES).
 
 #### <a name="restoring-vm--disk"></a>Restauration de machine virtuelle/disque
 

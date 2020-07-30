@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Routez les véhicules électriques avec les API de routage Microsoft Azure Maps et Azure Notebooks.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f341179d121af2fa4e5b198aeee2ea65bc6c378c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560391"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133314"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 
@@ -39,7 +39,7 @@ Ce didacticiel présente les procédures suivantes :
 
 Pour suivre ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). 
 
-Pour créer un abonnement de compte Azure Maps, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps). Vous avez besoin d’un abonnement de compte Azure Maps avec le niveau de prix S1. 
+Pour créer un abonnement de compte Azure Maps, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-azure-maps-account). Vous avez besoin d’un abonnement de compte Azure Maps avec le niveau de prix S1. 
 
 Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 

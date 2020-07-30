@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325608"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
@@ -32,12 +32,12 @@ Le tableau suivant répertorie les différentes façons d’utiliser des donnée
 |  | Description |
 |:---|:---|
 | **Analyser** | Utilisez [Metrics Explorer](metrics-charts.md) pour analyser les métriques collectées sur un graphique et comparer des métriques à partir de différentes ressources. |
-| **Visualiser** | Épinglez un graphique à partir de Metrics Explorer dans un [tableau de bord Azure](../learn/tutorial-app-dashboards.md).<br>Créez un [classeur](../platform/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. Exportez les résultats d’une requête dans [Grafana](grafana-plugin.md) pour bénéficier de la création de tableaux de bord et les combiner avec d’autres sources de données. |
+| **Visualiser** | Épinglez un graphique à partir de Metrics Explorer dans un [tableau de bord Azure](../learn/tutorial-app-dashboards.md).<br>Créez un [classeur](./workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. Exportez les résultats d’une requête dans [Grafana](grafana-plugin.md) pour bénéficier de la création de tableaux de bord et les combiner avec d’autres sources de données. |
 | **Alert** | Configurez une [règle d’alerte sur les métriques](alerts-metric.md) qui envoie une notification ou prend [une action de façon automatique](action-groups.md) lorsque la valeur métrique dépasse le seuil défini. |
 | **Automatisation** |  Utilisez la [mise à l’échelle automatique](autoscale-overview.md) pour augmenter ou diminuer les ressources si une valeur métrique dépasse le seuil défini. |
-| **Export** | [Acheminez les métriques vers les journaux d’activité](resource-logs-collect-storage.md) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
-| **Récupérer** | Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide des [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights).<br>Accédez à des valeurs métriques à partir d’une application personnalisée à l’aide de [l’API REST](rest-api-walkthrough.md).<br>Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide de [l’interface de ligne de commande](/cli/azure/monitor/metrics). |
-| **Archive** | [Archivez](..//learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion. |
+| **Export** | [Acheminez les métriques vers les journaux d’activité](./resource-logs.md#send-to-azure-storage) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
+| **Récupérer** | Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide des [cmdlets PowerShell](/powershell/module/az.applicationinsights).<br>Accédez à des valeurs métriques à partir d’une application personnalisée à l’aide de [l’API REST](rest-api-walkthrough.md).<br>Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide de [l’interface de ligne de commande](/cli/azure/monitor/metrics). |
+| **Archive** | [Archivez](./platform-logs-overview.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Comment les données sont-elles structurées dans les métriques Azure Monitor ?
 Les données collectées dans les métriques Azure Monitor sont stockées dans une base de données de série chronologique qui est optimisée pour l’analyse des données horodatées. Chaque jeu de valeurs métriques est une série chronologique avec les propriétés suivantes :
@@ -89,7 +89,7 @@ Il existe trois sources fondamentales pour les métriques collectées par Azure 
 
 Les **métriques de plateforme** sont créées par des ressources Azure et vous donnent une visibilité sur leur intégrité et leurs performances. Chaque type de ressource crée un [ensemble distinct de métriques](metrics-supported.md) sans aucune configuration requise. Les métriques de plateforme sont collectées à partir des ressources Azure toutes les minutes, sauf indication contraire dans la définition de la métrique. 
 
-Les **métriques de SE invité** sont collectés à partir du système d’exploitation invité d’une machine virtuelle. Activez les métriques de SE invité pour les machines virtuelles Windows avec [l’extension de diagnostic Windows (WAD)](../platform/diagnostics-extension-overview.md) et pour les machines virtuelles Linux avec [l’agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
+Les **métriques de SE invité** sont collectés à partir du système d’exploitation invité d’une machine virtuelle. Activez les métriques de SE invité pour les machines virtuelles Windows avec [l’extension de diagnostic Windows (WAD)](./diagnostics-extension-overview.md) et pour les machines virtuelles Linux avec [l’agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
 
 Les **métriques d’application** sont créées par Application Insights pour vos applications supervisées et vous aident à détecter les problèmes de performances et à suivre les tendances dans l’utilisation de votre application. Cela inclut des valeurs comme _Temps de réponse du serveur_ et _Exceptions du navigateur_.
 
@@ -99,7 +99,7 @@ Les **métriques personnalisées** sont des métriques que vous définissez en p
 Pour la plupart des ressources dans Azure, les métriques sont stockées pendant 93 jours. Il existe quelques exceptions :
 
 **Métriques de système d’exploitation invité**
--   **Métriques de système d’exploitation invité classiques**. Il s’agit des compteurs de performances collectés par [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) ou [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md), puis routés vers un compte de stockage Azure. La période de conservation de ces métriques s’élève à 14 jours.
+-   **Métriques de système d’exploitation invité classiques**. Il s’agit des compteurs de performances collectés par [Windows Diagnostic Extension (WAD)](./diagnostics-extension-overview.md) ou [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md), puis routés vers un compte de stockage Azure. La période de conservation de ces métriques s’élève à 14 jours.
 -   **Métriques de système d’exploitation invité envoyées à Azure Monitor Metrics**. Il s’agit des compteurs de performances collectés par [l’extension de diagnostic Windows (WAD)](diagnostics-extension-overview.md) et envoyés au [récepteur de données Azure Monitor](diagnostics-extension-overview.md#data-destinations) ou par le biais de [l’agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) sur des machines Linux. La période de conservation de ces métriques s’élève à 93 jours.
 -   **Métriques de système d’exploitation invité collectées par l’agent Log Analytics**. Il s’agit des compteurs de performances collectés par l’agent Log Analytics et envoyés à un espace de travail Log Analytics. La période de rétention de ces métriques s’élève à 31 jours et peut aller jusqu’à 2 ans.
 
@@ -108,7 +108,7 @@ Pour la plupart des ressources dans Azure, les métriques sont stockées pendant
 
 
 > [!NOTE]
-> Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](resource-logs-collect-storage.md) pour les tendances à long terme.
+> Vous pouvez [envoyer des métriques de plateforme pour les ressources Azure Monitor à un espace de travail Log Analytics](./resource-logs.md#send-to-azure-storage) pour les tendances à long terme.
 
 
 
@@ -119,3 +119,4 @@ Pour la plupart des ressources dans Azure, les métriques sont stockées pendant
 - Apprenez-en davantage sur la [plateforme de données Azure Monitor](data-platform.md).
 - Apprenez-en davantage sur les [données de journal dans Azure Monitor](data-platform-logs.md).
 - Découvrez les [données de surveillance disponibles](data-sources.md) pour différentes ressources dans Azure.
+

@@ -5,17 +5,17 @@ description: Découvrez comment importer des données dans le concepteur Azure M
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
-ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207523"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327002"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importer des données dans le concepteur Azure Machine Learning (préversion)
 
@@ -23,6 +23,8 @@ Dans cet article, vous allez apprendre à importer vos propres données dans le 
 
 * **Jeux de données Azure Machine Learning** - Inscrivez des [jeux de données](concept-data.md#datasets) dans Azure Machine Learning pour activer les fonctionnalités avancées qui vous aident à gérer vos données.
 * **Module Importer des données** - Utilisez le module [Importer des données](algorithm-module-reference/import-data.md) pour accéder directement aux données à partir de sources de données en ligne.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-azure-machine-learning-datasets"></a>Utiliser des jeux de données Azure Machine Learning
 

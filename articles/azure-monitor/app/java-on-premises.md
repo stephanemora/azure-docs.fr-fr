@@ -3,14 +3,15 @@ title: Superviser les applications Java s’exécutant localement – Azure Moni
 description: Analyse des performances des applications (APM) pour les applications Java s’exécutant localement sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
 author: MS-jgol
+ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: aadc9c7bfaa9ad6338015f5dd085b5ab865673f2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326883"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Supervision locale des applications Java sans code – Azure Monitor Application Insights – préversion publique
 
@@ -20,10 +21,10 @@ La supervision des applications Java sans code se caractérise par sa simplicit�
 
 Une fois activé, l’agent Java collecte automatiquement une multitude de demandes, dépendances, journaux et métriques à partir des bibliothèques et infrastructures les plus utilisées.
 
-Veuillez suivre [les instructions détaillées](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) pour tous les environnements, y compris localement.
+Veuillez suivre [les instructions détaillées](./java-in-process-agent.md) pour tous les environnements, y compris localement.
 
  ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir les instructions pour télécharger l’agent Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Obtenir les instructions pour télécharger l’agent Java](./java-in-process-agent.md)
 * [Configurer vos arguments JVM](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args)
 * [Personnaliser la configuration](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options)

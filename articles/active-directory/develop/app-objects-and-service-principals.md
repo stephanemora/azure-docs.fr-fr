@@ -13,12 +13,12 @@ ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604622"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518295"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -47,7 +47,7 @@ Un principal de service est la représentation locale, ou instance d’applicati
 
 Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer un objet principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), d’Azure CLI, de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils.  Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
 
-Le panneau **Applications d’entreprise** dans le portail permet de répertorier et gérer les principaux de service dans un locataire. Vous pouvez voir les autorisations d’un principal de service, les autorisations accordées par l’utilisateur, les utilisateurs ayant accordé ces autorisations, les informations de connexion, et bien plus.
+Le panneau **Applications d’entreprise** dans le portail permet de répertorier et gérer les principaux de service dans un locataire. Vous pouvez voir les autorisations du principal de service, les autorisations accordées par l’utilisateur, les utilisateurs ayant accordé ces autorisations, les informations de connexion, et bien plus.
 
 L’entité [ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet principal de service.
 

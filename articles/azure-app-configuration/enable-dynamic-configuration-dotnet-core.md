@@ -14,16 +14,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fb55b5669c1be43b208a8d86b1676f163015f76f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856493"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278350"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Core
 
-La bibliothèque cliente .NET Core App Configuration permet d’effectuer la mise à jour à la demande d’un ensemble de paramètres de configuration, sans entraîner le redémarrage de l’application. Vous pouvez implémenter cette configuration en obtenant d’abord une instance de `IConfigurationRefresher` parmi les options du fournisseur de configuration, puis en appelant `Refresh` sur cette instance, à n’importe quel endroit de votre code.
+La bibliothèque cliente .NET Core App Configuration permet d’effectuer la mise à jour à la demande d’un ensemble de paramètres de configuration, sans entraîner le redémarrage de l’application. Vous pouvez implémenter cette configuration en obtenant d’abord une instance de `IConfigurationRefresher` parmi les options du fournisseur de configuration, puis en appelant `TryRefreshAsync` sur cette instance, à n’importe quel endroit de votre code.
 
 Pour maintenir les paramètres à jour et éviter trop d’appels au magasin de configuration, un cache est utilisé pour chaque paramètre. Tant que la valeur mise en cache d’un paramètre n’a pas expiré, l’opération d’actualisation ne met pas à jour la valeur, même si celle-ci a été modifiée dans le magasin de configuration. Pour chaque requête, le délai d’expiration par défaut est de 30 secondes. Toutefois, vous pouvez le modifier selon vos besoins.
 
@@ -45,7 +45,7 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
-Ouvrez le fichier *Program.cs* et mettez-le à jour pour ajouter une référence à l’espace de noms `System.Threading.Tasks`, ceci afin de spécifier la configuration de l’actualisation dans la méthode `AddAzureAppConfiguration` et de déclencher l’actualisation manuelle à l’aide de la méthode `Refresh`.
+Ouvrez le fichier *Program.cs* et mettez-le à jour pour ajouter une référence à l’espace de noms `System.Threading.Tasks`, ceci afin de spécifier la configuration de l’actualisation dans la méthode `AddAzureAppConfiguration` et de déclencher l’actualisation manuelle à l’aide de la méthode `TryRefreshAsync`.
 
 ```csharp
 using System;
@@ -84,14 +84,14 @@ class Program
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
 }
 }
 ```
 
-La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `Refresh` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
+La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Vous pouvez récupérer une instance de `IConfigurationRefresher` en appelant la méthode `GetRefresher` dans les options fournies à la méthode `AddAzureAppConfiguration`. Vous pouvez aussi utiliser la méthode `TryRefreshAsync` de cette instance pour déclencher une opération d’actualisation n’importe où dans votre code.
     
 > [!NOTE]
 > Pour un paramètre de configuration, le délai d’expiration du cache par défaut est de 30 secondes. Toutefois, vous pouvez le modifier en appelant la méthode `SetCacheExpiration` de l’initialiseur d’options qui est passé en tant qu’argument à la méthode `ConfigureRefresh`.

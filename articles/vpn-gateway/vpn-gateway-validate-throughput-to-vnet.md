@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998474"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -43,11 +43,11 @@ Le diagramme suivant illustre la connectivité logique d’un réseau local vers
 
 1. Déterminez les exigences de débit de base de votre application.
 1. Déterminez les limites de débit de votre passerelle VPN Azure. Pour obtenir de l’aide, consultez la section « Références SKU de passerelle » sur la page [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md#gwsku).
-1. Déterminez les [instructions de débit de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-sizes.md) pour la taille de votre machine virtuelle.
+1. Déterminez les [instructions de débit de machine virtuelle Azure](../virtual-machines/sizes.md) pour la taille de votre machine virtuelle.
 1. Déterminez la bande passante de votre fournisseur d’accès à Internet (FAI).
 1. Calculez le débit attendu en utilisant la bande passante minimale de la machine virtuelle, de la passerelle VPN ou du fournisseur d'accès à Internet, en mégabits par seconde (/) divisés par huit (8).
 
-Si le débit calculé ne répond pas aux exigences de débit de base de votre application, vous devez augmenter la bande passante de la ressource que vous avez identifiée comme goulot d’étranglement. Pour redimensionner une passerelle VPN Azure, consultez [Modification d’une référence SKU de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour redimensionner une machine virtuelle, consultez [Redimensionner une machine virtuelle](../virtual-machines/virtual-machines-windows-resize-vm.md). Si la bande passante Internet n’est pas celle attendue, vous pouvez également contacter votre fournisseur d’accès à Internet.
+Si le débit calculé ne répond pas aux exigences de débit de base de votre application, vous devez augmenter la bande passante de la ressource que vous avez identifiée comme goulot d’étranglement. Pour redimensionner une passerelle VPN Azure, consultez [Modification d’une référence SKU de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour redimensionner une machine virtuelle, consultez [Redimensionner une machine virtuelle](../virtual-machines/windows/resize-vm.md). Si la bande passante Internet n’est pas celle attendue, vous pouvez également contacter votre fournisseur d’accès à Internet.
 
 > [!NOTE]
 > Le débit de la passerelle VPN est un agrégat de toutes les connexions site à site, réseau virtuel à réseau virtuel et point à site.

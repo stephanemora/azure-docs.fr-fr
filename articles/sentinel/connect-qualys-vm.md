@@ -1,0 +1,55 @@
+---
+title: Connecter les données de la solution Qualys Vulnerability Management à Azure Sentinel | Microsoft Docs
+description: Découvrez comment connecter les données de Qualys Vulnerability Management à Azure Sentinel.
+services: sentinel
+documentationcenter: na
+author: yelevin
+manager: rkarlin
+editor: ''
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: how-to
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/17/2020
+ms.author: yelevin
+ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527937"
+---
+# <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions
+
+Le connecteur Qualys Vulnerability Management (VM) vous permet de connecter facilement tous les journaux de votre solution de sécurité [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’intégration entre Qualys VM et Azure Sentinel utilise Azure Functions pour extraire des données de journal à l’aide de l’API REST.
+
+> [!NOTE]
+> Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+
+## <a name="configure-and-connect-qualys-vm"></a>Configuration et connexion de Qualys VM
+
+Azure Functions peut intégrer et extraire des événements et des journaux directement à partir de Qualys VM et les transmettre à Azure Sentinel.
+
+1. Dans le portail Azure Sentinel, cliquez sur **Connecteurs de données** et sélectionnez le connecteur **Qualys Vulnerability Management**.
+
+1. Sélectionnez **Ouvrir la page du connecteur**.
+
+1. Suivez les instructions de la page **Qualys Vulnerability Management**.
+
+## <a name="find-your-data"></a>Recherche de données
+
+Une fois la connexion établie, les données apparaissent dans Log Analytics sous la table **QualysHostDetection_CL**.
+
+## <a name="validate-connectivity"></a>Valider la connectivité
+
+Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce document, vous avez appris à connecter Qualys VM à Azure Sentinel à l’aide d’applications de fonction Azure. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.

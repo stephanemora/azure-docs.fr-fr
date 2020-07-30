@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981326"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387130"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et Azure CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Cet article explique comment utiliser une clé Azure Key Vault pour Transparent 
 - Créez un coffre Azure Key Vault et une clé pour utiliser TDE.
   - [Instructions pour utiliser un module de sécurité matériel (HSM) et Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - Le coffre de clés doit avoir la propriété suivante à utiliser pour TDE :
-  - [soft-delete](../../key-vault/general/overview-soft-delete.md) et protection contre le vidage
+  - [soft-delete](../../key-vault/general/soft-delete-overview.md) et protection contre le vidage
 - La clé doit avoir les attributs suivants à utiliser pour TDE :
   - Aucune date d’expiration
   - Non activée

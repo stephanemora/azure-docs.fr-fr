@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512977"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -27,11 +27,11 @@ Ce document explique comment utiliser PowerShell dans Cloud Shell dans le [porta
 
 1. Cliquez sur le bouton **Cloud Shell** dans la barre de navigation supérieure du portail Azure
 
-   ![](media/quickstart-powershell/shell-icon.png)
+   ![Capture d’écran montrant comment démarrer Azure Cloud Shell à partir du portail Azure.](media/quickstart-powershell/shell-icon.png)
 
 2. Sélectionnez l’environnement PowerShell à partir de la liste déroulante pour basculer vers le lecteur Azure`(Azure:)`
 
-   ![](media/quickstart-powershell/environment-ps.png)
+   ![Capture d’écran montrant comment sélectionner l’environnement PowerShell pour Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>Exécuter des commandes PowerShell
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398232"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497078"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -66,7 +66,13 @@ Suivez les étapes ci-dessous pour générer les informations ci-dessus :
     cd  
     ```
 
-6. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
+6. Exécutez la commande suivante : Cela permet de connecter un compte authentifié et d’utiliser les requêtes Azure AD.
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Suivez les étapes ci-dessous pour générer les informations ci-dessus :
 
     ```
 
-7. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
+8. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Suivez les étapes ci-dessous pour générer les informations ci-dessus :
 
     ```
 
-8. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
+9. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Intégrer des données d’appareil avec des informations d’identification générées
 

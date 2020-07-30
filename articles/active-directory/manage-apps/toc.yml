@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Tutoriels
   items:
-    - name: Ajouter une application non listée dans la galerie
-      href: add-non-gallery-app.md
     - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
       href: /azure/active-directory/saas-apps/
     - name: Ajouter une application locale via le proxy d’application
@@ -42,6 +40,8 @@
       items:
         - name: Bien démarrer avec l’intégration d’applications
           href: plan-an-application-integration.md
+        - name: Planifier pour des applications non listées dans la galerie
+          href: non-gallery-apps.md
         - name: Planifier le déploiement d’un volet d’accès
           href: access-panel-deployment-plan.md
         - name: Aide pour les développeurs
@@ -106,7 +106,7 @@
             - name: Configurer l’authentification unique SAML
               items:
                 - name: Configurer l’authentification unique SAML
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Personnaliser les attributs et revendications d’un utilisateur
                   items:
                     - name: Configurer des revendications de groupe

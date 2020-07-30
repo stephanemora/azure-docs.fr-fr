@@ -3,16 +3,16 @@ title: Disponibilité géographique et prise en charge des devises pour la place
 description: Disponibilité géographique et prise en charge des devises pour les transactions dans la place de marché commerciale
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120005"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387436"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -43,9 +43,9 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Brésil                              | BR        | BRL\*        |
 | Brunéi Darussalam                              | BN        | USD          |
 | Bulgarie                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Cameroun                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Caïmans (îles)                      | KY        | USD          |
 | Chili                               | CL        | USD          |
 | Chine\**                            | CN        | N/A          |
@@ -110,8 +110,8 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Namibie                             | N/D        | USD          |
 | Népal                               | NP        | USD          |
 | Pays-Bas                         | NL        | EUR          |
-| Nicaragua                           | NI        | USD          |
 | Nouvelle-Zélande                         | NZ        | NZD          |
+| Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norvège                              | Non        | NOK          |
 | Oman                                | OM        | USD          |
@@ -148,15 +148,15 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Tunisie                             | TN        | USD          |
 | Turquie                              | TR        | USD          |
 | Turkménistan                        | TM        | USD          |
-| État de la Cité du Vatican (Saint-Siège)             | VA        | EUR          |
-| Îles Vierges des États-Unis | VI        | USD          |
 | Ouganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |
 | Émirats Arabes Unis                | AE        | USD          |
 | Royaume-Uni                      | Go        | GBP          |
 | États-Unis                       | US        | USD          |
+| États-Unis Îles Vierges                 | VI        | USD          |
 | Uruguay                             | UY        | USD          |
 | Ouzbékistan                          | UZ        | USD          |
+| État de la Cité du Vatican (Saint-Siège)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
 | Yémen                               | YE        | USD          |

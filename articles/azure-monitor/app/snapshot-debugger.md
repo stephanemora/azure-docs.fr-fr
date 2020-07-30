@@ -4,15 +4,15 @@ description: Des captures instantanées de débogage sont collectées automatiqu
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692017"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325642"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
-Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
+Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
 
 Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les instantanés avec Visual Studio 2019 Entreprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
@@ -62,7 +62,7 @@ Lorsqu’une exception s’est produite dans votre application et qu’un instan
 
 ![Page Échecs](./media/snapshot-debugger/failures-page.png)
 
-Sélectionnez une opération ou une exception dans le volet droit pour ouvrir le volet **Détails de la transaction de bout en bout**, puis sélectionnez l’événement d’exception. Si une capture instantanée est disponible pour l’exception donnée, le bouton **Ouvrir la capture instantanée de débogage** s’affiche dans le volet de droite avec les détails de [l’exception](../../azure-monitor/app/asp-net-exceptions.md).
+Sélectionnez une opération ou une exception dans le volet droit pour ouvrir le volet **Détails de la transaction de bout en bout**, puis sélectionnez l’événement d’exception. Si une capture instantanée est disponible pour l’exception donnée, le bouton **Ouvrir la capture instantanée de débogage** s’affiche dans le volet de droite avec les détails de [l’exception](./asp-net-exceptions.md).
 
 ![Bouton Ouvrir la capture instantanée de débogage sur l’exception](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -85,11 +85,11 @@ La capture instantanée téléchargée contient tous les fichiers de symboles d�
 
 ## <a name="how-snapshots-work"></a>Fonctionnement des captures instantanées
 
-Le collecteur de captures instantanées est implémenté en tant que [Processeur d’Application Insights Telemetry](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Lorsque votre application s’exécute, le processeur de télémétrie du collecteur de captures instantanées est ajouté au pipeline de télémétrie de votre application.
-Chaque fois que votre application appelle [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions), le collecteur de captures instantanées calcule un ID de problème à partir du type de l’exception levée et de la méthode de levée de l’exception.
+Le collecteur de captures instantanées est implémenté en tant que [Processeur d’Application Insights Telemetry](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Lorsque votre application s’exécute, le processeur de télémétrie du collecteur de captures instantanées est ajouté au pipeline de télémétrie de votre application.
+Chaque fois que votre application appelle [TrackException](./asp-net-exceptions.md#exceptions), le collecteur de captures instantanées calcule un ID de problème à partir du type de l’exception levée et de la méthode de levée de l’exception.
 Chaque fois que votre application appelle TrackException, un compteur est incrémenté pour l’ID de problème approprié. Lorsque le compteur atteint la valeur `ThresholdForSnapshotting`, l’ID de problème est ajouté à un Plan de collecte.
 
-Le collecteur de captures instantanées analyse également les exceptions à mesure qu’elles sont levées en s’abonnant à l’événement [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Lorsque cet événement se déclenche, l’ID de problème de l’exception est calculé et comparé aux ID de problème figurant dans le Plan de collecte.
+Le collecteur de captures instantanées analyse également les exceptions à mesure qu’elles sont levées en s’abonnant à l’événement [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception). Lorsque cet événement se déclenche, l’ID de problème de l’exception est calculé et comparé aux ID de problème figurant dans le Plan de collecte.
 S’il existe une correspondance, un instantané du processus en cours d’exécution est créé. Un identificateur unique est attribué à l’instantané et l’exception est marquée avec cet identificateur. Après fois que le gestionnaire FirstChanceException a retourné l’exception levée, celle-ci est traitée normalement. Finalement, l’exception atteint à nouveau la méthode TrackException où elle est signalée à Application Insights avec l’identificateur de capture instantanée.
 
 Le processus principal continue à s’exécuter et à assurer le trafic pour les utilisateurs avec une courte interruption. Pendant ce temps, l’instantané est remis au processus du chargeur de capture instantanée. Le chargeur de capture instantanée crée un minidump et le charge sur Application Insights, ainsi que tous les fichiers de symboles (.pdb) pertinents.
@@ -117,7 +117,7 @@ La version 15.2 de Visual Studio 2017 (ou ultérieure) publie les symboles des 
 Pour Calcul Azure et d’autres types, vérifiez que les fichiers de symboles se trouvent dans le même dossier que le fichier .dll de l’application principale (généralement `wwwroot/bin`), ou sont disponibles dans le chemin d’accès actuel.
 
 > [!NOTE]
-> Pour plus d’informations sur les différentes options de symbole disponibles, voir la [documentation de Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Pour plus d’informations sur les différentes options de symbole disponibles, voir la [documentation de Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 ). Pour optimiser les résultats, nous vous recommandons d’utiliser les options « Full », « Portable » ou « Embedded ».
 
 ### <a name="optimized-builds"></a>Optimisation des versions
@@ -138,6 +138,7 @@ Activez le Débogueur de capture instantanée Application Insights pour votre ap
 
 Au-delà du Débogueur de capture instantanée d’Application Insights :
  
-* [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
-* [Diagnostiquer des exceptions dans vos applications web](../../azure-monitor/app/asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions.
-* [Détection intelligente](../../azure-monitor/app/proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.
+* [Définir des points de capture instantanée dans votre code](/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
+* [Diagnostiquer des exceptions dans vos applications web](./asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions.
+* [Détection intelligente](./proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.
+
