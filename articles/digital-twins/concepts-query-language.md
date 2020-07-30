@@ -7,22 +7,25 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187113"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537488"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
 N’oubliez pas que le centre d’Azure Digital Twins est le [**graphique de jumeaux**](concepts-twins-graph.md) construit à partir des  **jumeaux numériques** et des **relations**. Ce graphique peut être interrogé pour obtenir des informations sur les jumeaux numériques et les relations qu’il contient. Ces requêtes sont écrites dans un langage de requête de type SQL personnalisé, appelé **langage de magasin de données des requêtes Azure Digital Twins**.
 
-Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l **’API de requête** Azure Digital Twins. Ceci permet aux développeurs d’écrire des requêtes et d’appliquer des filtres pour rechercher des ensembles de jumeaux numériques dans le graphique des jumeaux, ainsi que d’autres informations sur le scénario Azure Digital Twins.
+Pour soumettre une requête au service à partir d’une application cliente, vous allez utiliser l’[**API de requête**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview) Azure Digital Twins. Ceci permet aux développeurs d’écrire des requêtes et d’appliquer des filtres pour rechercher des ensembles de jumeaux numériques dans le graphique des jumeaux, ainsi que d’autres informations sur le scénario Azure Digital Twins.
 
 ## <a name="query-language-features"></a>Fonctionnalités du langage de requête
 
 Azure Digital Twins fournit des fonctionnalités de requête étendues par rapport au graphique de jumeaux. Les requêtes sont décrites à l’aide de la syntaxe de type SQL, dans un langage de requête similaire au [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) avec de nombreuses fonctionnalités comparables.
+
+> [!NOTE]
+> Toutes les opérations de requête Azure Digital Twins respectent la casse.
 
 Voici les opérations disponibles dans langage de magasin de données des requêtes Azure Digital Twins :
 * Obtenir des jumeaux par propriétés des jumeaux numériques.
@@ -37,4 +40,4 @@ Voici les opérations disponibles dans langage de magasin de données des requê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à écrire des requêtes et consultez des exemples de codes clients dans [Guide pratique : interroger le graphique de jumeaux](how-to-query-graph.md).
+Apprenez à écrire des requêtes et consultez des exemples de codes clients dans [*Guide pratique : Interroger le graphique de jumeaux*](how-to-query-graph.md).

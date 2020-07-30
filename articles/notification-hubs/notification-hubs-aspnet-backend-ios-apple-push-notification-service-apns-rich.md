@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71212193"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530132"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Notifications Push enrichies avec Azure Notification Hubs
 
@@ -31,7 +31,7 @@ Pour attirer les utilisateurs avec des contenus riches instantanés, une applica
 
 Ce didacticiel est compatible avec iOS 7 et 8.
 
-  ![][IOS1]
+  ![Trois captures d’écran : un écran d’application avec un bouton de commande Envoyer, un écran d’accueil sur un appareil et un logo Windows avec un bouton Précédent.][IOS1]
 
 À un niveau élevé :
 
@@ -49,7 +49,7 @@ Ce didacticiel est compatible avec iOS 7 et 8.
 3. Cliquez sur **Afficher tous les fichiers** dans l’Explorateur de solutions et cliquez sur le dossier à **Inclure dans le projet**.
 4. L’image étant sélectionnée, modifiez son action de génération dans la fenêtre Propriétés de la **Ressource incorporée**.
 
-    ![][IOS2]
+    ![Capture d’écran d’Explorateur de solutions. Le fichier image est sélectionné et, dans son volet Propriétés, la ressource incorporée est répertoriée comme action de génération.][IOS2]
 5. Dans `Notifications.cs`, ajoutez les instructions using suivantes :
 
     ```csharp
@@ -146,12 +146,12 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 1. Ouvrez votre projet iOS et activez les notifications à distance en accédant à votre cible d’application principale dans la section **Cibles** .
 2. Cliquez sur **Capacités**, activez **Modes d’arrière-plan** et cochez la case **Notifications à distance**.
 
-    ![][IOS3]
+    ![Capture d’écran du projet iOS montrant l’écran Capacités. Les modes d’arrière-plan sont activés et la case à cocher « Notifications à distance » est sélectionnée.][IOS3]
 3. Ouvrez `Main.storyboard` et assurez-vous d’avoir un contrôleur d’affichage (dénommé Contrôle d’affichage d’accueil dans ce tutoriel) provenant du tutoriel [Envoi de notifications aux utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Ajoutez un **Contrôleur de navigation** à votre table de montage séquentiel et faites-le glisser vers le contrôleur d’affichage d’accueil pour en faire **l’affichage racine** de la navigation. Vérifiez que **Est contrôleur d’affichage initial** dans l’inspecteur d’attributs est sélectionné pour le contrôleur de navigation uniquement.
 5. Ajoutez un **contrôleur d’affichage** à la table de montage séquentiel et ajoutez un **affichage d’image**. Il s’agit de la page que les utilisateurs verront une fois qu’ils souhaiteront en savoir plus en cliquant sur la notification. Votre storyboard doit ressembler à ce qui suit :
 
-    ![][IOS4]
+    ![Capture d’écran d’une table de montage séquentiel. Trois écrans d’application sont visibles : une vue de navigation, une vue d’accueil et une vue d’image.][IOS4]
 6. Cliquez sur le **contrôleur d’affichage d’accueil** dans la table de montage séquentiel et vérifiez que **homeViewController** est défini en tant que **classe personnalisée** et que **ID de table de montage séquentiel** figure sous l’inspecteur d’identité.
 7. Faites de même pour le contrôleur d’affichage d’image avec **imageViewController**.
 8. Ensuite, créez une classe de contrôleur d’affichage intitulée **imageViewController** pour gérer l’interface utilisateur que vous venez de créer.

@@ -1,19 +1,19 @@
 ---
 title: Meilleures pratiques d’utilisation du service Route d’Azure Maps | Microsoft Azure Maps
 description: Découvrez comment définir un itinéraire efficace pour les véhicules à l’aide du service Route de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266693"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132209"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Meilleures pratiques d’utilisation du service Route Azure Maps
 
@@ -31,7 +31,7 @@ Les API Route Directions et Route Matrix du [service Route](https://docs.microso
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour appeler les API Azure Maps, vous avez besoin d’un compte et d’une clé Azure Maps. Pour plus d’informations, voir [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) et [Obtenir une clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account). La clé primaire est également appelée clé d’abonnement principale ou clé d’abonnement.
+Pour appeler les API Azure Maps, vous avez besoin d’un compte et d’une clé Azure Maps. Pour plus d’informations, voir [Créer un compte](quick-demo-map-app.md#create-an-azure-maps-account) et [Obtenir une clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account). La clé primaire est également appelée clé d’abonnement principale ou clé d’abonnement.
 
 Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md). Pour plus d’informations sur la couverture du service Route, consultez la [couverture des itinéraires](routing-coverage.md).
 

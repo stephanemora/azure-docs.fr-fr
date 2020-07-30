@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082628"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -35,7 +35,7 @@ Cet article offre une vue d’ensemble des extensions de machine virtuelle et de
 Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliquant un cas d’utilisation spécifique. Voici quelques exemples :
 
 - Appliquer des configurations DSC (Desired State Configuration) PowerShell à une machine virtuelle avec l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](dsc-overview.md) (en anglais).
-- Configurez la supervision d’une machine virtuelle avec l’extension de machine virtuelle Log Analytics Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurez la supervision d’une machine virtuelle avec l’extension de machine virtuelle Log Analytics Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
 - Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](../../chef/chef-automation.md).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,18 +65,18 @@ Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exp
 
 #### <a name="network-access"></a>Accès réseau
 
-Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
 
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires.
 
-Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui nécessitent un accès au service Stockage Azure ou Azure Active Directory, vous pouvez autoriser l’accès à l’aide d’[étiquettes de service NSG Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour le Stockage ou AzureActiveDirectory.
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui nécessitent un accès au service Stockage Azure ou Azure Active Directory, vous pouvez autoriser l’accès à l’aide d’[étiquettes de service NSG Azure](../../virtual-network/security-overview.md#service-tags) pour le Stockage ou AzureActiveDirectory.
 
 L’agent invité Windows ne prend pas en charge le serveur proxy qui vous permettrait de rediriger les demandes de trafic de l’agent, ce qui signifie que l’agent invité Windows passe par votre proxy personnalisé (si vous en avez un) pour accéder aux ressources sur Internet ou sur l’hôte via l’adresse IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 
-De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
+De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L’exemple ci-après répertorie toutes les extensions disponibles à l’emplacement *WestUS* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Vous pouvez exécuter une extension sur une machine virtuelle existante à l’a
 
 ### <a name="powershell"></a>PowerShell
 
-Il existe plusieurs commandes PowerShell pour l’exécution des extensions. Pour en obtenir la liste, utilisez la commande [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) et appliquez aux données le filtre *Extension* :
+Il existe plusieurs commandes PowerShell pour l’exécution des extensions. Pour en obtenir la liste, utilisez la commande [Get-Command](/powershell/module/microsoft.powershell.core/get-command) et appliquez aux données le filtre *Extension* :
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-Dans l’exemple ci-après, l’extension d’accès aux machines virtuelles (VMAccess) est utilisée pour redéfinir le mot de passe d’administration d’une machine virtuelle Windows sur un mot de passe temporaire. Pour plus d’informations sur l’extension d’accès aux machines virtuelles, consultez [Réinitialiser le service Bureau à distance pour une machine virtuelle Windows](../windows/reset-rdp.md). Après avoir exécuté cette extension, vous devrez réinitialiser le mot de passe lors de votre première connexion :
+Dans l’exemple ci-après, l’extension d’accès aux machines virtuelles (VMAccess) est utilisée pour redéfinir le mot de passe d’administration d’une machine virtuelle Windows sur un mot de passe temporaire. Pour plus d’informations sur l’extension d’accès aux machines virtuelles, consultez [Réinitialiser le service Bureau à distance pour une machine virtuelle Windows](../troubleshooting/reset-rdp.md). Après avoir exécuté cette extension, vous devrez réinitialiser le mot de passe lors de votre première connexion :
 
 ```powershell
 $cred=Get-Credential
@@ -137,7 +137,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Vous pouvez utiliser la commande `Set-AzVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+Vous pouvez utiliser la commande `Set-AzVMExtension` pour démarrer n’importe quelle extension de machine virtuelle. Pour plus d’informations, consultez [Référence Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -315,7 +315,7 @@ Si vous souhaitez obtenir les dernières corrections de bogues des versions mine
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Vérification si l’extension est définie avec la propriété autoUpgradeMinorVersion sur une machine virtuelle
 
-Le modèle de machine virtuelle vous permet de déterminer si l’extension a été provisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
+Le modèle de machine virtuelle vous permet de déterminer si l’extension a été provisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [Get-AzVm](/powershell/module/az.compute/get-azvm) et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -371,7 +371,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
-Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
+Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzVM ](/powershell/module/az.compute/get-azvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -407,7 +407,7 @@ L’état d’exécution de l’extension est également visible dans le portail
 
 ### <a name="rerun-vm-extensions"></a>Réexécuter les extensions de machine virtuelle
 
-Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez la commande [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) comme suit :
+Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez la commande [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) comme suit :
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"

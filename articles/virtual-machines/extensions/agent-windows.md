@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010952"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -71,13 +71,13 @@ $vm | Update-AzVM
 ### <a name="prerequisites"></a>Prérequis
 - L’agent de machine virtuelle Windows a besoin d’au moins Windows Server 2008 (64 bits) pour fonctionner avec le .NET Framework 4.0. Voir [Prise en charge de version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
-- Vérifiez que votre machine virtuelle a accès à l’adresse IP 168.63.129.16. Pour plus d’informations, consultez [Qu’est-ce que l’adresse 168.63.129.16 ?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)
+- Vérifiez que votre machine virtuelle a accès à l’adresse IP 168.63.129.16. Pour plus d’informations, consultez [Qu’est-ce que l’adresse 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ## <a name="detect-the-vm-agent"></a>Détecter l’agent de machine virtuelle
 
 ### <a name="powershell"></a>PowerShell
 
-Avec le module PowerShell pour Azure Resource Manager, vous pouvez récupérer des informations sur les machines virtuelles Azure. Pour afficher des informations concernant une machine virtuelle, par exemple l’état de provisionnement de l’agent de machine virtuelle Azure, utilisez [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) :
+Avec le module PowerShell pour Azure Resource Manager, vous pouvez récupérer des informations sur les machines virtuelles Azure. Pour afficher des informations concernant une machine virtuelle, par exemple l’état de provisionnement de l’agent de machine virtuelle Azure, utilisez [Get-AzVM](/powershell/module/az.compute/get-azvm) :
 
 ```powershell
 Get-AzVM

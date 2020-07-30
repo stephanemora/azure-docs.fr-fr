@@ -3,16 +3,16 @@ title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054910"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
-Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du coffre Recovery Services pour surveiller et gérer vos coffres Recovery Services. Lorsque vous ouvrez un coffre Recovery Services à partir de la liste, le tableau de bord **Vue d’ensemble** du coffre sélectionné s’ouvre. Le tableau de bord fournit des informations détaillées sur le coffre. Il s’y trouve des *vignettes* qui montrent l’état des alertes d’avertissement et des alertes critiques, les travaux de sauvegarde en cours et ceux qui ont échoué, ainsi que la quantité de stockage localement redondant (LRS) et la quantité de stockage géoredondant (GRS) utilisée. Si vous sauvegardez des machines virtuelles Azure dans le coffre, la vignette [**État de la prévérification de sauvegarde** affiche toutes les alertes d’avertissement et toutes les alertes critiques](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). L’image suivante représente le tableau de bord **Vue d’ensemble** pour **Contoso-vault**. La vignette **Éléments de sauvegarde** montre que neuf éléments sont inscrits dans le coffre.
+Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du coffre Recovery Services pour surveiller et gérer vos coffres Recovery Services. Lorsque vous ouvrez un coffre Recovery Services à partir de la liste, le tableau de bord **Vue d’ensemble** du coffre sélectionné s’ouvre. Le tableau de bord fournit des informations détaillées sur le coffre. Il s’y trouve des *vignettes* qui montrent l’état des alertes d’avertissement et des alertes critiques, les travaux de sauvegarde en cours et ceux qui ont échoué, ainsi que la quantité de stockage localement redondant (LRS) et la quantité de stockage géoredondant (GRS) utilisée. Si vous sauvegardez des machines virtuelles Azure dans le coffre, la vignette [**État de la prévérification de sauvegarde** affiche toutes les alertes d’avertissement et toutes les alertes critiques](#backup-pre-check-status). L’image suivante représente le tableau de bord **Vue d’ensemble** pour **Contoso-vault**. La vignette **Éléments de sauvegarde** montre que neuf éléments sont inscrits dans le coffre.
 
 ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -178,7 +178,7 @@ Pour explorer un type d’instance protégée, cliquez sur l’élément corresp
 
 ![Liste des types de sauvegarde](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-La liste des machines virtuelles comprend des données utiles : le groupe de ressources associé, la [prévérification de sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) précédente, l’état de la dernière sauvegarde, et la date du point de restauration le plus récent. Dans la dernière colonne, les points de suspension permettent d’ouvrir le menu pour déclencher les tâches courantes. Les données utiles fournies dans les colonnes sont différentes pour chaque type de sauvegarde.
+La liste des machines virtuelles comprend des données utiles : le groupe de ressources associé, la [prévérification de sauvegarde](#backup-pre-check-status) précédente, l’état de la dernière sauvegarde, et la date du point de restauration le plus récent. Dans la dernière colonne, les points de suspension permettent d’ouvrir le menu pour déclencher les tâches courantes. Les données utiles fournies dans les colonnes sont différentes pour chaque type de sauvegarde.
 
 ![Liste des types de sauvegarde](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -287,4 +287,4 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
-* Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
+* Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](./backup-overview.md)

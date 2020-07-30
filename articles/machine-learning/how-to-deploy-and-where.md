@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146563"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536383"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 Dans cet exemple, la configuration spécifie les paramètres suivants :
 
-* Le fait que le modèle nécessite Python.
-* Le [script d’entrée](#script) qui est utilisé pour gérer les requêtes web envoyées au service déployé.
-* Le fichier Conda qui décrit les packages Python nécessaires à l’inférence.
+* Le modèle nécessite Python
+* Le [script d’entrée](#script) qui est utilisé pour gérer les requêtes web envoyées au service déployé
+* Le fichier Conda qui décrit les packages Python nécessaires à l’inférence
 
 Pour plus d’informations sur l’utilisation d’une image Docker personnalisée avec une configuration d’inférence, consultez le [guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md).
 
@@ -459,7 +459,7 @@ Pour profiler votre modèle, vous aurez besoin des éléments suivants :
 > [!IMPORTANT]
 > À ce stade, nous ne prenons en charge que le profilage des services qui s’attendent à ce que leurs données de requête soient une chaîne, par exemple : chaîne JSON sérialisée, texte, image sérialisée de chaîne, etc. Le contenu de chaque ligne du jeu de données (chaîne) est placé dans le corps de la requête HTTP et envoyé au service qui encapsule le modèle pour le scoring.
 
-Vous trouverez ci-dessous un exemple de création d’un jeu de données d’entrée pour profiler un service qui s’attend à ce que ses données de requête entrantes contiennent une chaîne JSON sérialisée. Dans ce cas, nous avons créé un jeu de données basé sur cent instances du même contenu de données de requête. Dans les scénarios réels, nous vous suggérons d’utiliser des jeux de données plus volumineux contenant différentes entrées, en particulier si votre utilisation ou le comportement des ressources du modèle sont dépendants de l’entrée.
+Vous trouverez ci-dessous un exemple de création d’un jeu de données d’entrée pour profiler un service qui s’attend à ce que ses données de requête entrantes contiennent une chaîne JSON sérialisée. Dans ce cas, nous avons créé un jeu de données basé sur 100 instances du même contenu de données de requête. Dans les scénarios réels, nous vous suggérons d’utiliser des jeux de données plus volumineux contenant différentes entrées, en particulier si votre utilisation ou le comportement des ressources du modèle sont dépendants de l’entrée.
 
 ```python
 import json
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Déployer sur la cible
 
-Le déploiement utilise la configuration de déploiement de configuration de l’inférence pour déployer les modèles. Le processus de déploiement est similaire, quelle que soit la cible de calcul. Le déploiement sur AKS est légèrement différent, car vous devez fournir une référence au cluster AKS.
+Le déploiement utilise la configuration de déploiement de configuration de l’inférence pour déployer les modèles. Le processus de déploiement est similaire, quelle que soit la cible de calcul. Le déploiement sur Azure Kubernetes Service (AKS) est légèrement différent, car vous devez fournir une référence au cluster AKS.
 
 ### <a name="choose-a-compute-target"></a>Choisir une cible de calcul
 
@@ -629,7 +629,7 @@ Consultez [Procéder à un déploiement sur Azure Container Instances](how-to-de
 Consultez [Procéder à un déploiement sur Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>Test A/B (lancement contrôlé)
-Pour plus d’informations, consultez [Lancement contrôlé des modèles ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+Pour plus d’informations, consultez [Lancement contrôlé des modèles ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ## <a name="consume-web-services"></a>Utiliser des services web
 
@@ -913,6 +913,12 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
+Pour noter un modèle, consultez [Utiliser un modèle Machine Learning déployé en tant que service web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). De nombreux projets ONNX utilisent des fichiers protobuf pour stocker de manière compacte les données de formation et de validation, ce qui peut rendre difficile de savoir quel est le format de données attendu par le service. En tant que développeur de modèles, vous devez documenter les éléments suivants pour vos développeurs :
+
+* Format d’entrée (JSON ou binaire)
+* Type et forme des données d’entrée (par exemple, un tableau de floats de forme [100,100,3])
+* Informations relatives au domaine (par exemple, pour une image, l’espace de couleurs, l’ordre des composants et la normalisation des valeurs)
 
 Si vous utilisez Pytorch, l’article [Exporting models from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) (Exportation de modèles de PyTorch vers ONNX) contient des informations sur la conversion et les limitations. 
 

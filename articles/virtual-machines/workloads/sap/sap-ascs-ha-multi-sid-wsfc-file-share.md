@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035976"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure
 
@@ -42,10 +42,10 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 >
 >Le nombre maximal d’instances SAP ASCS/SCS dans un cluster WSFC est égal au nombre maximal d’adresses IP frontales privées pour chaque équilibrage de charge interne Azure.
 >
-> La configuration présentée dans cette documentation n'est pas encore prise en charge dans les [Zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+> La configuration présentée dans cette documentation n'est pas encore prise en charge dans les [Zones de disponibilité Azure](../../../availability-zones/az-overview.md).
 > 
 
-Pour plus d'informations sur les limites de l'équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » de l'article [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager]. Pensez également à utiliser la [référence SKU Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) à la place de la référence SKU de base de l'équilibreur de charge Azure.
+Pour plus d'informations sur les limites de l'équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » de l'article [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager]. Pensez également à utiliser la [référence SKU Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md) à la place de la référence SKU de base de l'équilibreur de charge Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -3,13 +3,14 @@ title: Mise en correspondance d’applications dans Azure Application Insights |
 description: Surveiller des topologies d’applications complexes avec la mise en correspondance d’applications
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367008"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -157,7 +158,7 @@ Pour les applications [ASP.NET Core](asp-net-core.md#adding-telemetryinitializer
 
 **Agent Java**
 
-Pour [l’agent Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) le nom du rôle cloud est défini comme suit :
+Pour [l’agent Java 3.0](./java-in-process-agent.md) le nom du rôle cloud est défini comme suit :
 
 ```json
 {
@@ -259,15 +260,15 @@ Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces �
 
 1. Veillez à utiliser un SDK officiellement pris en charge. Les SDK non pris en charge ou de la communauté ne prennent pas forcément en charge la corrélation.
 
-    Reportez-vous à cet [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) pour obtenir la liste des SDK pris en charge.
+    Reportez-vous à cet [article](./platforms.md) pour obtenir la liste des SDK pris en charge.
 
 2. Mettez à niveau tous les composants avec la dernière version du SDK.
 
-3. Si vous utilisez Azure Functions avec C#, effectuez une mise à niveau vers [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Si vous utilisez Azure Functions avec C#, effectuez une mise à niveau vers [Functions V2](../../azure-functions/functions-versions.md).
 
 4. Vérifiez que [nom du rôle cloud](#set-cloud-role-name) est correctement configuré.
 
-5. S’il vous manque une dépendance, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Sinon, vous pouvez toujours la suivre manuellement avec un [suivi d’appel de dépendance](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. S’il vous manque une dépendance, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](./auto-collect-dependencies.md). Sinon, vous pouvez toujours la suivre manuellement avec un [suivi d’appel de dépendance](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Trop grand nombre de nœuds sur la carte
 
@@ -281,7 +282,7 @@ Pour y remédier, il vous faudra modifier votre instrumentation afin de bien dé
 
 * Le type de dépendance doit représenter le type logique d’une dépendance. Par exemple, HTTP, SQL ou Blob Azure sont des types de dépendances classiques. Il ne doit pas contenir d'ID uniques.
 
-* Le but du nom de rôle cloud est décrit dans la [section ci-dessus](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* Le but du nom de rôle cloud est décrit dans la [section ci-dessus](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commentaires du portail
 

@@ -3,12 +3,12 @@ title: Erreurs de modèle non valide
 description: Décrit comment résoudre les erreurs de modèle non valide quand vous déployez des modèles Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118883"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373808"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -130,7 +130,7 @@ Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant l
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
 
-Vous pouvez voir cette erreur dans les déploiements antérieurs, car vous étiez limité à cinq groupes de ressources cibles dans un déploiement unique. En mai 2020, cette limite a été augmentée à 800 groupes de ressources. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
+Vous pouvez voir cette erreur dans les déploiements antérieurs, car vous étiez limité à cinq groupes de ressources cibles dans un déploiement unique. En mai 2020, cette limite a été augmentée à 800 groupes de ressources. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-scope-deployment.md).
 
 <a id="circular-dependency"></a>
 

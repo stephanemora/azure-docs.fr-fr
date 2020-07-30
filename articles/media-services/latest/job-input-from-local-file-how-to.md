@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001126"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Créer une entrée de travail à partir d’un fichier local
 
@@ -24,7 +24,7 @@ Dans Media Services v3, lorsque vous soumettez des travaux pour traiter vos vid�
 
 ## <a name="prerequisites"></a>Prérequis 
 
-* [Créer un compte Media Services](create-account-cli-how-to.md).
+* [Créer un compte Media Services](./create-account-howto.md).
 * Passer en revue [Gérer les ressources](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Exemple de code .NET
@@ -32,7 +32,7 @@ Dans Media Services v3, lorsque vous soumettez des travaux pour traiter vos vid�
 Le code suivant montre comment créer une ressource d’entrée et l’utiliser comme entrée pour le travail. La fonction CreateInputAsset effectue les actions suivantes :
 
 * Elle crée la ressource
-* Elle récupère une [URL SAP](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) de la ressource
+* Elle récupère une [URL SAP](../../storage/common/storage-sas-overview.md) accessible en écriture vers le [conteneur de stockage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) de la ressource
 * Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ L'extrait de code suivant envoie un travail d'encodage :
 
 ## <a name="job-error-codes"></a>Codes d’erreur des tâches
 
-Consultez [Codes d’erreur](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Consultez [Codes d’erreur](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,26 +3,25 @@ title: Tarification des offres de machine virtuelle – Place de marché Azure
 description: Décrit les trois méthodes disponibles de tarification des offres de machine virtuelle.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115500"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271720"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 
 > [!NOTE]
-> Les API Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les modifications répertoriées dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Trois méthodes sont disponibles la tarification des offres de machine virtuelle : la tarification de cœur personnalisée, la tarification par cœur et la tarification par feuille de calcul.
 
-
-<a name="customized-core-pricing"></a>Tarification de cœur personnalisée
------------------------
+## <a name="customized-core-pricing"></a>Tarification de cœur personnalisée
 
 La tarification est spécifique à chaque combinaison de région et de cœur. Chacune des régions de la liste doit être spécifiée dans la section **virtualMachinePricing**/**regionPrices** de la définition.  Dans votre requête, utilisez les codes devise correspondant à chaque [région](#regions).  L’exemple suivant illustre ces exigences :
 
@@ -66,9 +65,7 @@ La tarification est spécifique à chaque combinaison de région et de cœur. Ch
      }
 ```
 
-
-<a name="per-core-pricing"></a>Tarification par cœur
-----------------
+## <a name="per-core-pricing"></a>Tarification par cœur
 
 Dans ce cas, les éditeurs spécifient un prix en dollars américains pour leur référence SKU, et tous les autres prix sont générés automatiquement. Le prix par cœur est spécifié dans le paramètre **single** de la requête.
 
@@ -84,9 +81,7 @@ Dans ce cas, les éditeurs spécifient un prix en dollars américains pour leur 
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>Tarification par feuille de calcul
--------------------
+## <a name="spreadsheet-pricing"></a>Tarification par feuille de calcul
 
 L'éditeur peut également charger sa feuille de calcul de tarification sur un emplacement de stockage temporaire, puis inclure l’URI dans la requête comme pour d'autres artefacts de fichier. La feuille de calcul est ensuite chargée et traduite pour évaluer la grille de prix spécifiée. Puis l'offre est mise à jour avec les informations de tarification. Les requêtes GET suivantes relatives à l’offre renverront l’URI de la feuille de calcul et les évaluations de prix correspondant à la région.
 
@@ -101,14 +96,11 @@ L'éditeur peut également charger sa feuille de calcul de tarification sur un e
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nouvelles tailles de cœurs ajoutées le 02/07/2019
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>Nouvelles tailles de cœurs ajoutées le 02/07/2019
 
 Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs concernent les tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels.  Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
 
-
-<a name="regions"></a>Régions
--------
+## <a name="regions"></a>Régions
 
 Le tableau suivant présente les différentes régions que vous pouvez spécifier pour la tarification de cœur personnalisée, ainsi que les codes devise correspondants.
 

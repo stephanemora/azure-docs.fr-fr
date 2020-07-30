@@ -3,12 +3,12 @@ title: Utiliser le portail pour charger, encoder et diffuser en streaming du con
 description: Ce guide de démarrage rapide vous montre comment utiliser le portail pour charger, encoder et diffuser en streaming du contenu avec Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053349"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 
@@ -35,7 +35,7 @@ Ce guide de démarrage rapide vous montre comment utiliser le portail Azure pour
 
         Quand vous utilisez le portail Azure, vous pouvez effectuer les opérations suivantes : générer un fichier de sous-titres codés TTML et WebVTT. Vous pouvez utiliser les fichiers ayant ces formats pour rendre les fichiers audio et vidéo accessibles aux personnes malentendantes. Vous pouvez également extraire des mots clés de votre contenu.
 
-        Pour une expérience riche qui vous permet d’extraire des insights de vos fichiers vidéo et audio, utilisez les présélections Media Services v3 (décrites dans [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial-with-api.md). <br/>Si vous souhaitez des informations plus détaillées, utilisez directement [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/).    
+        Pour une expérience riche qui vous permet d’extraire des insights de vos fichiers vidéo et audio, utilisez les présélections Media Services v3 (décrites dans [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial-with-api.md). <br/>Si vous souhaitez des informations plus détaillées, utilisez directement [Video Indexer](../video-indexer/index.yml).    
 * Une fois votre contenu traité, vous pouvez distribuer du contenu multimédia aux lecteurs clients. Pour permettre aux clients d’accéder en lecture aux vidéos de l’actif multimédia de sortie, vous devez créer un **localisateur de streaming**. Durant la création du **localisateur de streaming**, vous devez spécifier une **stratégie de streaming**. Les **stratégies de streaming** vous permettent de définir des protocoles de streaming et des options de chiffrement (le cas échéant) pour vos **localisateurs de streaming**.
     
     Révision :

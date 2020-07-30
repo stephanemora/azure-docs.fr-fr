@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213072"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386229"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -33,7 +33,7 @@ Voici quelques suggestions concernant le contrôle de l’accès à votre coffre
 
 Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.
 
@@ -56,5 +56,5 @@ Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mis
 
 ## <a name="turn-on-recovery-options"></a>Activer les options de récupération
 
-1. Activez la [suppression réversible](overview-soft-delete.md).
+1. Activez la [suppression réversible](soft-delete-overview.md).
 2. Activez la protection contre le vidage si vous souhaitez vous prémunir contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.

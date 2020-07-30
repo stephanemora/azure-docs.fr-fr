@@ -1,5 +1,5 @@
 ---
-title: Activer la réplication pour des machines virtuelles Azure chiffrées dans Azure Site Recovery
+title: Activer la réplication des machines virtuelles Azure chiffrées dans Azure Site Recovery
 description: Cet article décrit comment configurer la réplication pour les machines virtuelles avec des disques activés par les clés gérées par le client d’une région Azure à l’autre à l’aide de Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224109"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528993"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Répliquer des machines avec des disques activées par les clés gérées par le client
 

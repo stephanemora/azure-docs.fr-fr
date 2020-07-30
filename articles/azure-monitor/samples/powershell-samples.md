@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055266"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemples PowerShell Azure Monitor
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -22,10 +22,10 @@ Cet article vous présente des exemples de commandes PowerShell qui vous aideron
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>Configurer PowerShell
-Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez l’article [Guide pratique pour installer et configurer PowerShell](/powershell/azure/overview).
+Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez l’article [Guide pratique pour installer et configurer PowerShell](/powershell/azure/).
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
-Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](/powershell/module/az.applicationinsights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Se connecter et utiliser des abonnements
 Tout d’abord, connectez-vous à votre abonnement Azure.
@@ -53,7 +53,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Récupérer le journal d’activité
-Utilisez la cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog).  Voici quelques exemples courants. Le journal d’activité contient les 90 derniers jours d’opérations. L'utilisation de dates antérieures génère un message d'erreur.  
+Utilisez la cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog).  Voici quelques exemples courants. Le journal d’activité contient les 90 derniers jours d’opérations. L'utilisation de dates antérieures génère un message d'erreur.  
 
 Consultez la date/heure actuelle pour vérifier les valeurs à utiliser dans les commandes ci-dessous :
 ```powershell
@@ -116,7 +116,7 @@ Pour afficher l'historique d'une règle d'alerte spécifique, vous pouvez utilis
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-L’applet de commande `Get-AzAlertHistory` prend en charge différents paramètres. Plus d'informations, consultez [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+L’applet de commande `Get-AzAlertHistory` prend en charge différents paramètres. Plus d'informations, consultez [Get-AlertHistory](/previous-versions/azure/mt282453(v=azure.100)).
 
 ## <a name="retrieve-information-on-alert-rules"></a>Récupérer des informations sur les règles d'alerte
 Toutes les commandes suivantes s’appliquent à un groupe de ressources nommé « montest ».
@@ -139,7 +139,7 @@ Récupérer toutes les règles d'alerte définies pour une ressource cible. Par 
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` prend en charge d'autres paramètres. Consultez [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) pour plus d'informations.
+`Get-AzAlertRule` prend en charge d'autres paramètres. Consultez [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) pour plus d'informations.
 
 ## <a name="create-metric-alerts"></a>Créer des alertes de métriques
 Vous pouvez utiliser la cmdlet `Add-AlertRule` pour créer, mettre à jour ou désactiver une règle d’alerte.
@@ -201,7 +201,7 @@ L'exemple suivant génère une table avec le nom de la mesure et son unité.
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Une liste complète des options disponibles pour `Get-AzMetricDefinition` est disponible dans [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+Une liste complète des options disponibles pour `Get-AzMetricDefinition` est disponible dans [Get-MetricDefinitions](/previous-versions/azure/mt282458(v=azure.100)).
 
 ## <a name="create-and-manage-activity-log-alerts"></a>Créer et gérer les alertes de journal d’activité
 Vous pouvez utiliser l’applet de commande `Set-AzActivityLogAlert` pour définir une alerte de journal d’activité. Pour créer une alerte de journal d’activité, vous devez commencer par définir vos conditions sous la forme d’un dictionnaire de conditions, puis créer une alerte qui utilise ces conditions.
@@ -272,7 +272,7 @@ Enfin, créez le paramètre de mise à l’échelle automatique pour ajouter le 
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Pour plus d’informations sur la gestion des paramètres de mise à l’échelle automatique, voir [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Pour plus d’informations sur la gestion des paramètres de mise à l’échelle automatique, voir [Get-AutoscaleSetting](/previous-versions/azure/mt282461(v=azure.100)).
 
 ## <a name="autoscale-history"></a>Historique de la mise à l'échelle automatique
 L'exemple suivant vous montre comment consulter les dernières mises à l'échelle automatiques et les derniers événements d'alerte. Utilisez la recherche du journal d’activité pour afficher l'historique de mise à l'échelle automatique.
@@ -287,7 +287,7 @@ Vous pouvez utiliser l’applet de commande `Get-AzAutoScaleHistory` pour récup
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Pour plus d’informations, voir [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Pour plus d’informations, voir [Get-AutoscaleHistory](/previous-versions/azure/mt282464(v=azure.100)).
 
 ### <a name="view-details-for-an-autoscale-setting"></a>Afficher les détails d'un paramètre de mise à l'échelle automatique
 Vous pouvez utiliser l’applet de commande `Get-Autoscalesetting` pour récupérer des informations supplémentaires sur le paramètre de mise à l’échelle automatique.
@@ -399,4 +399,3 @@ Notez que la propriété WorkspaceId prend *l’ID de ressource* de l’espace d
 ```
 
 Ces commandes peuvent être combinées pour envoyer des données vers plusieurs destinations.
-

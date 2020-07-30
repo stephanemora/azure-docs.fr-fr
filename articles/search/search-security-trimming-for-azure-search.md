@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553131"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496415"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche cognitive Azure
 
@@ -34,26 +34,29 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche cognitive Azure](search-create-service-portal.md) et d’un [index](search-what-is-an-index.md).  
 
 ## <a name="create-security-field"></a>Créer le champ de sécurité
 
 Vos documents doivent inclure un champ qui spécifie les groupes disposant d’autorisations d’accès. Ces informations constituent les critères de filtre par rapport auxquels les documents sont sélectionnés ou non dans le jeu de résultats retourné à l’émetteur.
 Imaginons que nous disposons d’un index de fichiers sécurisés et qu’un ensemble différent d’utilisateurs a accès à chaque fichier.
+
 1. Ajoutez le champ `group_ids` (vous pouvez choisir n’importe quel nom ici) comme `Collection(Edm.String)`. Vérifiez que le champ a un attribut `filterable` défini avec la valeur `true` pour que les résultats de la recherche soient filtrés en fonction de l’accès dont dispose l’utilisateur. Par exemple, si vous définissez le champ `group_ids` avec la valeur `["group_id1, group_id2"]` pour le document ayant comme `file_name` « secured_file_b », seuls les utilisateurs qui appartiennent à l’ID de groupe « group_id1 » ou « group_id2 » ont accès en lecture au fichier.
+   
    Vérifiez que l’attribut `retrievable` du champ a la valeur `false` pour qu’il ne soit pas retourné dans le cadre de la requête de recherche.
+
 2. Pour les besoins de cet exemple, ajoutez également les champs `file_id` et `file_name`.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Envoi (push) des données à votre index à l’aide de l’API REST
   

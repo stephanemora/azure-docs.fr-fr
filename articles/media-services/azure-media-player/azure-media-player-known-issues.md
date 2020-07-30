@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124633"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043613"
 ---
 # <a name="known-issues"></a>Problèmes connus #
 
@@ -50,7 +50,7 @@ La version actuelle présente les problèmes connus suivants :
 
 - Les ressources audio uniquement ne seront pas lues par la technologie AzureHtml5JS.
   - Si vous souhaitez lire des ressources sans audio, vous pouvez le faire en insérant un fichier audio vierge à l’aide de l’[outil Azure Media Services Explorer](https://aka.ms/amse).
-  - Vous trouverez les instructions pour l’insertion d’une piste audio silencieuse [ici](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio).
+  - Vous trouverez les instructions pour l’insertion d’une piste audio silencieuse [ici](../previous/media-services-advanced-encoding-with-mes.md#silent_audio).
 
 ## <a name="flash"></a>Clignote ##
 

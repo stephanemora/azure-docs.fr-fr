@@ -3,20 +3,20 @@ title: Remplacer les points de terminaison par défaut des SDK Azure Application
 description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions
-ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions, devx-track-javascript
+ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194834"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373128"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
 Pour pouvoir envoyer des données Application Insights vers certaines régions, vous devez remplacer les adresses des points de terminaison par défaut. Chaque SDK nécessite des modifications légèrement différentes, qui sont toutes décrites dans cet article. Ces modifications incluent d’adapter l’exemple de code et de remplacer les valeurs des espaces réservés `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` et `Profile_Query_Endpoint_address` par les adresses réelles des points de terminaison applicables à votre région. Vous trouverez à la fin de cet article des liens vers les adresses des points de terminaison pour les régions où cette configuration est requise.
 
 > [!NOTE]
-> Les [chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) sont la nouvelle méthode préférée pour définir des points de terminaison personnalisés dans Application Insights.
+> Les [chaînes de connexion](./sdk-connection-string.md?tabs=net) sont la nouvelle méthode préférée pour définir des points de terminaison personnalisés dans Application Insights.
 
 ---
 
@@ -77,7 +77,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-Par Azure Functions, il est désormais recommandé d’utiliser des [chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) définies dans les paramètres d’application de la fonction. Pour accéder aux paramètres de l’application pour votre fonction à partir du volet des fonctions, sélectionnez **Paramètres** > **Configuration** > **Paramètre d’application**. 
+Par Azure Functions, il est désormais recommandé d’utiliser des [chaînes de connexion](./sdk-connection-string.md?tabs=net) définies dans les paramètres d’application de la fonction. Pour accéder aux paramètres de l’application pour votre fonction à partir du volet des fonctions, sélectionnez **Paramètres** > **Configuration** > **Paramètre d’application**. 
 
 Nom : Valeur `APPLICATIONINSIGHTS_CONNECTION_STRING` : `Connection String Value`
 
@@ -156,7 +156,7 @@ Pour obtenir des conseils sur la modification du point de terminaison d’ingest
 
 ## <a name="regions-that-require-endpoint-modification"></a>Régions nécessitant une modification des points de terminaison
 
-Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+Actuellement, seules les régions [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) et [Azure Chine](/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
 
 |Région |  Nom du point de terminaison | Valeur |
 |-----------------|:------------|:-------------|
@@ -180,5 +180,5 @@ Si vous utilisez actuellement l’[Application Insights API REST](https://dev.ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les modifications personnalisées relatives à la région Azure Government, consultez les instructions détaillées sur la [supervision et gestion Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-- Pour en savoir plus sur les modifications propres à la région Azure China, consultez le [playbook Azure China](https://docs.microsoft.com/azure/china/).
+- Pour en savoir plus sur les modifications personnalisées relatives à la région Azure Government, consultez les instructions détaillées sur la [supervision et gestion Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights).
+- Pour en savoir plus sur les modifications propres à la région Azure China, consultez le [playbook Azure China](/azure/china/).

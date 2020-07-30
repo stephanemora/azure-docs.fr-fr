@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012312"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
@@ -25,7 +25,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="adlcopy"></a>AdlCopy
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de copier des données du stockage Blob Azure vers Azure Data Lake Store. Il peut également copier des données entre deux comptes Azure Data Lake Store.      |
 | Versions DSVM prises en charge      | Windows      |
@@ -36,7 +36,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="azure-cli"></a>Azure CLI
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil de gestion pour Azure. Il contient également des verbes de commande pour déplacer des données à partir de plateformes de données Azure, telles que le stockage Blob Azure et Azure Data Lake Storage.     |
 | Versions DSVM prises en charge      | Windows, Linux     |
@@ -48,7 +48,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="azcopy"></a>AzCopy
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de copier des données vers et depuis des fichiers locaux, du stockage, des fichiers et des tables Blob Azure.      |
 | Versions DSVM prises en charge      | Windows      |
@@ -60,7 +60,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="azure-cosmos-db-data-migration-tool"></a>Outil de migration de données Azure Cosmos DB
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant d’importer des données à partir de différentes sources dans Azure Cosmos DB, une base de données NoSQL dans le cloud. Sources incluses : fichiers JSON, fichiers CSV, SQL, MongoDB, Stockage de table Azure, Amazon DynamoDB et collections d’API SQL Azure Cosmos DB.      |
 | Versions DSVM prises en charge      | Windows      |
@@ -71,7 +71,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Interface graphique utilisateur pour l’interaction avec les fichiers stockés dans le cloud Azure. |
 | Versions DSVM prises en charge      | Windows      |
@@ -82,7 +82,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="bcp"></a>bcp
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil SQL Server permettant de copier des données entre SQL Server et un fichier de données.      |
 | Versions DSVM prises en charge      | Windows      |
@@ -93,7 +93,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 
 ## <a name="blobfuse"></a>blobfuse
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de monter un conteneur de stockage blob Azure dans le système de fichiers Linux.      |
 | Versions DSVM prises en charge      | Linux      |

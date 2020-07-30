@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655919"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505157"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](../../azure-monitor/platform/itsmc-overview.md).
@@ -39,7 +39,7 @@ Vérifiez que les prérequis suivants sont remplis :
 - L’application web Service Manager (application web) est déployée et configurée. Pour plus d’informations sur l’application web, cliquez [ici](#create-and-deploy-service-manager-web-app-service).
 - Connexion hybride créée et configurée. Plus d’informations : [Configurez la connexion hybride](#configure-the-hybrid-connection).
 - Versions prises en charge de Service Manager :  2012 R2 ou 2016.
-- Rôle utilisateur :  [Opérateur avancé](https://technet.microsoft.com/library/ff461054.aspx).
+- Rôle utilisateur :  [Opérateur avancé](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Procédure de connexion
 
@@ -201,7 +201,7 @@ Vérifiez que les prérequis suivants sont remplis :
 > À la fin, cliquez sur Mettre à jour.
 > 2) **Nous vous recommandons d’établir une procédure interne pour garantir le maintien de la connexion :** en fonction de la durée de vie du jeton d’actualisation pour actualiser le jeton. Assurez-vous d’effectuer les opérations suivantes avant l’expiration prévue du jeton d’actualisation (nous recommandons de le faire quelques jours avant l’expiration de la durée de vie du jeton d’actualisation) :
 >
-> 1. [Effectuez une synchronisation manuelle pour la configuration du connecteur ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Effectuez une synchronisation manuelle pour la configuration du connecteur ITSM](./itsmc-resync-servicenow.md)
 > 2. Révoquez l’ancien jeton d’actualisation, car il n’est pas recommandé, pour des raisons de sécurité, de conserver les anciennes clés. Dans le panneau ServiceNow, recherchez « Système OAuth », puis sélectionnez « Gérer les jetons ». Choisissez l’ancien jeton dans la liste en fonction du nom OAuth et de la date d’expiration.
 > ![SNOW system OAuth definition](media/itsmc-connections/snow-system-oauth.png)
 > 3. Cliquez sur Révoquer l’accès, puis sur Révoquer.
@@ -248,6 +248,10 @@ Exécutez la procédure suivante pour créer une connexion ServiceNow :
 - Vous pouvez créer des incidents à partir d’alertes Log Analytics, d’enregistrements de journaux ou d’alertes Azure dans cette instance ServiceNow.
 
 En savoir plus : [Créer des éléments de travail ITSM à partir d’alertes Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> Dans ServiceNow, il existe une limite horaire du débit des requêtes. Pour configurer la limite, utilisez cette valeur en définissant « Limitation du débit entrant de l’API REST » dans l’instance ServiceNow.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Créer un rôle utilisateur de l’intégration dans l’application ServiceNow
 
