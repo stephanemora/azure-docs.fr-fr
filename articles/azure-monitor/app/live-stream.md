@@ -4,16 +4,16 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4b84088c1213801e61a4c669bccb1a983c999310
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166482"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321936"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
-Supervisez votre application web dynamique en production en utilisant les flux de métriques temps réel à partir d’[Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../azure-monitor/app/profiler.md) et le [débogueur d’instantané](../../azure-monitor/app/snapshot-debugger.md), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
+Supervisez votre application web dynamique en production en utilisant les flux de métriques temps réel à partir d’[Application Insights](./app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](./profiler.md) et le [débogueur d’instantané](./snapshot-debugger.md), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
 
 Avec les flux de métriques temps réel, vous pouvez :
 
@@ -31,7 +31,7 @@ Les métriques temps réel sont actuellement prises en charge pour les applicati
 
 ## <a name="get-started"></a>Bien démarrer
 
-1. [Installez Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) dans votre application.
+1. [Installez Application Insights](../azure-monitor-app-hub.yml) dans votre application.
 2. En plus des packages Application Insights standard, [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) est nécessaire pour activer le flux de métriques temps réel.
 3. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
 
@@ -43,17 +43,17 @@ Les métriques temps réel sont actuellement prises en charge pour les applicati
 
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 
-Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs.
+Vérifiez que les [ports sortants pour le flux de métriques temps réel](./ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>En quoi les flux de métriques temps réel diffèrent-ils de Metrics Explorer et d’Analytique ?
 
 | |Flux temps réel | Metrics Explorer et Analytique |
 |---|---|---|
 |**Latence**|Données affichées en une seconde|Agrégé sur plusieurs minutes|
-|**Pas de conservation des données**|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**Pas de conservation des données**|Les données persistent tant qu’elles se trouvent sur le graphique puis elles sont abandonnées.|[Données conservées pendant 90 jours](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**À la demande**|Les données sont diffusées uniquement tant que le volet Métriques temps réel est ouvert |Les données sont envoyées quand le SDK est installé et activé|
-|**Gratuit**|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
-|**Échantillonnage**|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Gratuit**|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](./pricing.md)
+|**Échantillonnage**|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](./api-filtering-sampling.md)|
 |**Canal de contrôle**|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
 
 ## <a name="select-and-filter-your-metrics"></a>Sélectionner et filtrer vos métriques
@@ -64,7 +64,7 @@ Vous pouvez surveiller un KPI personnalisé en temps réel en appliquant des fil
 
 ![Filtrer le taux de requêtes](./media/live-stream/filter-request.png)
 
-Vous pouvez surveiller une valeur autre qu’un nombre. Les options varient selon le type de flux, qui peut être n’importe quelle télémétrie Application Insights : demandes, dépendances, exceptions, suivis, événements ou métriques. Il peut s’agir d’une [mesure personnalisée](../../azure-monitor/app/api-custom-events-metrics.md#properties) :
+Vous pouvez surveiller une valeur autre qu’un nombre. Les options varient selon le type de flux, qui peut être n’importe quelle télémétrie Application Insights : demandes, dépendances, exceptions, suivis, événements ou métriques. Il peut s’agir d’une [mesure personnalisée](./api-custom-events-metrics.md#properties) :
 
 ![Générateur de requêtes sur le taux de demandes avec métrique personnalisée](./media/live-stream/query-builder-request.png)
 
@@ -206,10 +206,11 @@ Les métriques temps réel sont désactivées par défaut dans le Kit de dévelo
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Pas de données ? Si votre application est dans un réseau protégé : Le Flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](../../azure-monitor/app/ip-addresses.md) sont ouvertes dans votre pare-feu.
+Pas de données ? Si votre application est dans un réseau protégé : Le Flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](./ip-addresses.md) sont ouvertes dans votre pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Utilisation de Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Profiler](../../azure-monitor/app/profiler.md)
-* [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md)
+* [Surveillance de l’utilisation avec Application Insights](./usage-overview.md)
+* [Utilisation de Diagnostic Search](./diagnostic-search.md)
+* [Profiler](./profiler.md)
+* [Débogueur de capture instantanée](./snapshot-debugger.md)
+

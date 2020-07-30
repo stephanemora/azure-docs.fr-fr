@@ -3,16 +3,16 @@ title: Surveiller les performances sur les machines virtuelles Azure - Azure App
 description: Analyse des performances des applications pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024630"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 
-Désormais, l’activation de la supervision pour vos applications web .NET qui s’exécutent sur des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) est plus facile que jamais. Bénéficiez de tous les avantages de l’utilisation de Application Insights sans modifier votre code.
+Désormais, l’activation de la supervision pour vos applications web .NET qui s’exécutent sur des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des [groupes de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/index.yml) est plus facile que jamais. Bénéficiez de tous les avantages de l’utilisation de Application Insights sans modifier votre code.
 
 Cet article vous explique comment activer la supervision Application Insights à l’aide du module Application Insights Agent. De plus, il fournit une aide préliminaire à l’automatisation des déploiements à grande échelle.
 
@@ -30,15 +30,15 @@ Il existe deux manières d’activer la supervision des applications pour les ap
 
     * Pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure, nous recommandons au minimum d’activer ce niveau de supervision. Après cela, en fonction de votre scénario spécifique, vous pouvez évaluer si une instrumentation manuelle est nécessaire.
 
-    * Le module Application Insights Agent collecte automatiquement les mêmes signaux de dépendance prêts à l’emploi que le kit SDK .NET. Pour en savoir plus, consultez [Collecte automatique de dépendance](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net).
+    * Le module Application Insights Agent collecte automatiquement les mêmes signaux de dépendance prêts à l’emploi que le kit SDK .NET. Pour en savoir plus, consultez [Collecte automatique de dépendance](./auto-collect-dependencies.md#net).
         > [!NOTE]
         > Actuellement, seules les applications hébergées sur .NET IIS sont prises en charge. Utilisez un kit SDK pour instrumenter les applications ASP.NET Core, Java et Node.js hébergées sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure.
 
 * **Avec du code** via le kit SDK
 
-    * Cette approche est beaucoup plus personnalisable, mais elle nécessite d’[ajouter une dépendance sur les packages NuGet du SDK Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Cette méthode implique également de gérer vous-même l’installation des mises à jour vers la dernière version des packages.
+    * Cette approche est beaucoup plus personnalisable, mais elle nécessite d’[ajouter une dépendance sur les packages NuGet du SDK Application Insights](./asp-net.md). Cette méthode implique également de gérer vous-même l’installation des mises à jour vers la dernière version des packages.
 
-    * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics).
+    * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](./api-custom-events-metrics.md).
 
 > [!NOTE]
 > Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un SDK, sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](#troubleshooting) ci-après.
@@ -46,10 +46,10 @@ Il existe deux manières d’activer la supervision des applications pour les ap
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Gérer Application Insights Agent pour les applications .NET sur des machines virtuelles Azure à l’aide de PowerShell
 
 > [!NOTE]
-> Avant d’installer l’agent Application Insights, vous aurez besoin d’une chaîne de connexion. [Créez une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) ou copiez la chaîne de connexion à partir d’une ressource Application Insights existante.
+> Avant d’installer l’agent Application Insights, vous aurez besoin d’une chaîne de connexion. [Créez une ressource Application Insights](./create-new-resource.md) ou copiez la chaîne de connexion à partir d’une ressource Application Insights existante.
 
 > [!NOTE]
-> Vous découvrez PowerShell ? Consultez le [Guide de prise en main](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> Vous découvrez PowerShell ? Consultez le [Guide de prise en main](/powershell/azure/get-started-azureps?view=azps-2.5.0).
 
 Installer ou mettre à jour le module Application Insights Agent en tant qu’extension pour des machines virtuelles Azure
 ```powershell
@@ -99,7 +99,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-Vous pouvez également voir les extensions installées dans le [panneau de la machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) au sein du portail.
+Vous pouvez également voir les extensions installées dans le [panneau de la machine virtuelle Azure](../../virtual-machines/extensions/overview.md) au sein du portail.
 
 > [!NOTE]
 > Vérifiez l’installation en cliquant sur Flux de métriques temps réel dans Application Insights Resource associée à la chaîne de connexion que vous avez utilisée pour déployer l’extension de Application Insights Agent. Si vous envoyez des données provenant de plusieurs machines virtuelles, sélectionnez les machines virtuelles Azure cibles sous Nom du serveur. Il peut s’écouler jusqu’à une minute avant le début du transfert des données.

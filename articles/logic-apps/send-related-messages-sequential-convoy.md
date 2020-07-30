@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048662"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envoi de messages connexes dans l’ordre en suivant un convoi séquentiel dans Azure Logic Apps avec Azure Service Bus
 
-Lorsque vous devez envoyer des messages corrélés dans un ordre précis, vous pouvez suivre le [mode de *convoi séquentiel*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) si vous utilisez [Azure Logic Apps](../logic-apps/logic-apps-overview.md) à l’aide du [connecteur Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Les messages corrélés possèdent une propriété qui définit la relation qu’ils entretiennent, comme l’ID de la [session](../service-bus-messaging/message-sessions.md) dans Service Bus.
+Lorsque vous devez envoyer des messages corrélés dans un ordre précis, vous pouvez suivre le [mode de *convoi séquentiel*](/azure/architecture/patterns/sequential-convoy) si vous utilisez [Azure Logic Apps](../logic-apps/logic-apps-overview.md) à l’aide du [connecteur Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Les messages corrélés possèdent une propriété qui définit la relation qu’ils entretiennent, comme l’ID de la [session](../service-bus-messaging/message-sessions.md) dans Service Bus.
 
 Supposons, par exemple, que vous ayez 10 messages pour une session nommée « Session 1 » et 5 autres pour une session nommée « Session 2 », qui sont tous envoyés à la même [file d’attente Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Vous pouvez créer une application logique qui traite les messages de la file d’attente de sorte que tous ceux de la « Session 1 » soient gérés par une seule exécution de déclencheur et que tous ceux de la « Session 2 » soient gérés par la suivante.
 
@@ -29,7 +29,7 @@ Cet article explique comment créer une application logique qui implémente ce m
 
 Pour consulter le fichier JSON de ce modèle, consultez [GitHub : service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Pour plus d’informations, consultez [Mode de convoi séquentiel – Modes de conception cloud de l’architecture Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Pour plus d’informations, consultez [Mode de convoi séquentiel – Modes de conception cloud de l’architecture Azure](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -202,7 +202,7 @@ Pour indiquer les valeurs du déclencheur et des actions dans le modèle **Distr
   | **Fréquence** | Oui | **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois** | Unité de temps de la périodicité à appliquer pour la consultation des messages. <p>**Conseil** : Pour ajouter un **Fuseau horaire** ou une **Heure de début**, sélectionnez ces propriétés dans la liste **Ajouter un nouveau paramètre**. |
   |||||
 
-  Pour plus d’informations sur les déclencheurs, consultez [Service Bus – À la réception d’un message dans une file d’attente (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Le déclencheur génère un [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Pour plus d’informations sur les déclencheurs, consultez [Service Bus – À la réception d’un message dans une file d’attente (peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Le déclencheur génère un [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Après l’initialisation de la session, le flux de travail utilise l’action **Initialisation de variable** pour créer une variable booléenne dont la valeur initiale est `false` et qui indique si les conditions suivantes sont remplies : 
 
@@ -422,4 +422,4 @@ Pour tester votre application logique, envoyez des messages à votre file d’at
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [déclencheurs et actions du connecteur Service Bus](https://docs.microsoft.com/connectors/servicebus/)
+* En savoir plus sur les [déclencheurs et actions du connecteur Service Bus](/connectors/servicebus/)

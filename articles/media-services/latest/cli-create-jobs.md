@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71122390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023414"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemple d’interface de ligne de commande : Créer et envoyer un travail
 
@@ -27,7 +27,7 @@ Dans Media Services v3, lorsque vous soumettez des travaux pour traiter vos vid�
 
 ## <a name="prerequisites"></a>Conditions préalables requises 
 
-[Créer un compte Media Services](create-account-cli-how-to.md).
+[Créer un compte Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -87,4 +87,4 @@ Vous recevez une réponse similaire à celle ci :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[az ams job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)

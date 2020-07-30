@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050321"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -77,7 +77,7 @@ Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit 
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
 3. Dans Gestion des API, attribuez le rôle **Contributeur de services de gestion d’API** à l’utilisateur.
 
-Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](/powershell/azure/overview) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
+Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](/powershell/azure/) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
 
 1. Utilisez l’applet de commande `Connect-AzAccount` pour vous connecter.
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzContext -SubscriptionID <subscriptionGUID>`.

@@ -4,21 +4,21 @@ description: Référence d’Azure Monitor Comprendre les services et le schéma
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515391"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318298"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
 > [!NOTE]
 > Les journaux de ressources étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
 
-Les [journaux de ressource Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de ressource Azure Monitor](./platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources avec des champs spécifiques de services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez l’article sur les [schémas commun et spécifiques de services pour les journaux de ressources Azure](resource-logs-categories.md).
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources avec des champs spécifiques de services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez l’article sur les [schémas commun et spécifiques de services pour les journaux de ressources Azure]().
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 
@@ -711,7 +711,8 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur les journaux de ressources](../../azure-monitor/platform/platform-logs-overview.md)
+* [En savoir plus sur les journaux de ressources](./platform-logs-overview.md)
 * [Diffuser en continu les journaux de ressource vers **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Modifier les paramètres de diagnostic de journal de ressource à l’aide de l’API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Analyser les journaux d’activité du stockage Azure avec Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

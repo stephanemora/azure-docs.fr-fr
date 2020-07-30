@@ -4,17 +4,17 @@ description: Configurer des tests de performances et de charge avec Azure Applic
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024348"
 ---
 # <a name="performance-testing"></a>Tests de performances
 
 > [!NOTE]
-> Le service de test de charge basé sur le cloud a été déprécié. Vous pouvez trouver plus d’informations sur la dépréciation, la disponibilité du service et d’autres services [ici](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Le service de test de charge basé sur le cloud a été déprécié. Vous pouvez trouver plus d’informations sur la dépréciation, la disponibilité du service et d’autres services [ici](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights vous permet de générer des tests de charge pour vos sites web. Comme pour les [tests de disponibilité](monitor-web-app-availability.md), vous pouvez envoyer des requêtes de base ou des [requêtes à plusieurs étapes](availability-multistep.md) à partir d’agents de test Azure dans le monde. Les tests de performances vous permettent de simuler jusqu’à 20 000 utilisateurs simultanés pendant 60 minutes maximum.
 
@@ -36,7 +36,7 @@ Pour créer un test de performances de base, sélectionnez un type de test **Tes
 
 |Paramètre| Valeur maximale
 |----------|------------|
-| Charge utilisateur | 20 000 |
+| Charge utilisateur | 20 000 |
 | Durée (en minutes)  | 60 |  
 
 Une fois votre test créé, cliquez sur **Exécuter le test**.

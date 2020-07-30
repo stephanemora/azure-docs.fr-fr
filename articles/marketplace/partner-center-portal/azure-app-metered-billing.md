@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118934"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320049"
 ---
 # <a name="managed-application-metered-billing"></a>Facturation des applications managées basée sur des mesures 
 
@@ -109,21 +111,13 @@ Le nombre maximal de dimensions pouvant être configurées pour une même offre 
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Si l’un des cas suivants se présente, vous pouvez ouvrir un ticket de support.
+Si vous rencontrez l’un des problèmes suivants, vous pouvez ouvrir un ticket de support.
 
 * Problèmes techniques liés à l’API du service de mesure de la consommation de la Place de marché.
 * Un problème qui doit être remonté en raison d’une erreur ou d’un bogue de votre côté (par exemple un événement d’utilisation incorrect).
 * Tout autre problème lié à la facturation à la consommation.
 
-Suivez les étapes ci-dessous pour envoyer votre ticket de support :
-
-1. Accédez à la [page de support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Les premiers menus déroulants sont automatiquement remplis pour vous. Pour le support de la Place de marché, identifiez la famille de produits comme étant **Services cloud et en ligne** et le produit comme étant **Éditeur Marketplace**. Ne changez pas les sélections préremplies des menus déroulants.
-2. Sous « Sélectionner la version du produit », sélectionnez **Gestion des offres en direct**.
-3. Sous « Sélectionnez la catégorie qui décrit le mieux le problème », choisissez **Azure Application**.
-4. Sous « Sélectionnez un problème décrivant le mieux le vôtre », sélectionnez **Facturation à la consommation**.
-5. Après avoir sélectionné le bouton **Suivant**, vous êtes redirigé vers la page **Détails du problème**, où vous pouvez entrer plus de détails sur votre problème.
-
-Pour plus d’options de support à destination des éditeurs, consultez [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](support.md).
+Suivez les instructions de la section [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](./support.md) pour comprendre les options du éditeur et pour ouvrir un ticket de support auprès de Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

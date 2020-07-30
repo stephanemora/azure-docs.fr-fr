@@ -3,12 +3,13 @@ title: Filtrer les données de télémétrie d’Azure Application Insights dans
 description: Réduisez le trafic de télémétrie en excluant les événements que vous n’avez pas besoin de surveiller.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-java
+ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659915"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372176"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -23,7 +24,7 @@ Les filtres prêts à l’emploi incluent :
 
 > [!NOTE]
 > Les filtres faussent les mesures de votre application. Par exemple, vous pouvez décider que, pour diagnostiquer les réponses lentes, vous allez définir un filtre permettant d’ignorer les temps de réponse rapides. Toutefois, vous devez être conscient que les temps de réponse moyens signalés par Application Insights seront plus lents que la vitesse réelle, et que le nombre de demandes sera inférieur au nombre réel.
-> Si cela pose problème, utilisez plutôt [l’échantillonnage](../../azure-monitor/app/sampling.md).
+> Si cela pose problème, utilisez plutôt [l’échantillonnage](./sampling.md).
 
 ## <a name="setting-filters"></a>Définition de filtres
 
@@ -152,7 +153,7 @@ Exclure les données de télémétrie pour des sources synthétiques spécifique
 
 ### <a name="telemetry-event-filter"></a>Filtre Événements de télémétrie
 
-Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -168,7 +169,7 @@ Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()]
 
 ### <a name="trace-telemetry-filter"></a>Filtre Télémétrie des traces
 
-Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) ou d’un [collecteur framework de journalisation](java-trace-logs.md)).
+Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](./api-custom-events-metrics.md#tracktrace) ou d’un [collecteur framework de journalisation](java-trace-logs.md)).
 
 ```XML
 
@@ -268,4 +269,5 @@ Vous devez créer vos propres paramètres de filtre dans `application.properties
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Échantillonnage](../../azure-monitor/app/sampling.md) : envisagez l’échantillonnage comme une possibilité ne faussant pas vos mesures.
+* [Échantillonnage](./sampling.md) : envisagez l’échantillonnage comme une possibilité ne faussant pas vos mesures.
+

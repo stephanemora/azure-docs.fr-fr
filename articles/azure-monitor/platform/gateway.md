@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305208"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -89,7 +89,7 @@ La passerelle Log Analytics est disponible dans les langues suivantes :
 
 La passerelle Log Analytics prend uniquement en charge les versions 1.0, 1.1 et 1.2 du protocole TLS.  Elle ne prend pas en charge le protocole SSL.  Pour garantir la sécurité des données en transit vers Log Analytics, configurez la passerelle pour qu’elle utilise au moins la version 1.2 du protocole TLS. Les versions antérieures des protocoles SSL ou TLS sont vulnérables. Même si elles permettent la compatibilité descendante, évitez de les utiliser.  
 
-Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Nombre de connexion d’agent prises en charge
 
@@ -149,7 +149,7 @@ Pour installer une passerelle à l’aide de l’Assistant Installation, procéd
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installer la passerelle Log Analytics en utilisant l’interface en ligne de commande
 
-Le fichier téléchargé pour la passerelle est un package Windows Installer qui prend en charge une installation sans assistance à partir de l’interface en ligne de commande ou d’une autre méthode automatisée. Si vous n’êtes pas familiarisé avec les options standards de l’interface de ligne de commande pour Windows Installer, veuillez consulter la page [Options de l’interface en ligne de commande](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+Le fichier téléchargé pour la passerelle est un package Windows Installer qui prend en charge une installation sans assistance à partir de l’interface en ligne de commande ou d’une autre méthode automatisée. Si vous n’êtes pas familiarisé avec les options standards de l’interface de ligne de commande pour Windows Installer, veuillez consulter la page [Options de l’interface en ligne de commande](/windows/desktop/msi/command-line-options).
  
 Le tableau suivant répertorie les paramètres pris en charge par le programme d’installation.
 
@@ -185,11 +185,11 @@ Après l’installation, vous pouvez vérifier que les paramètres sont accepté
 
 ## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau
 
-Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de [l’équilibrage de la charge réseau (NLB) Microsoft](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) ou les équilibreurs de charge basés sur le matériel. L’équilibreur de charge gère le trafic en redirigeant les connexions demandées à partir des agents Log Analytics ou des serveurs d’administration Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
+Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de [l’équilibrage de la charge réseau (NLB) Microsoft](/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) ou les équilibreurs de charge basés sur le matériel. L’équilibreur de charge gère le trafic en redirigeant les connexions demandées à partir des agents Log Analytics ou des serveurs d’administration Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
 
 ### <a name="microsoft-network-load-balancing"></a>Équilibrage de la charge réseau Microsoft
 
-Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge réseau Windows Server 2016, consultez [Équilibrage de charge réseau](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Les étapes suivantes décrivent comment configurer un cluster d’équilibrage de charge réseau Microsoft.  
+Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge réseau Windows Server 2016, consultez [Équilibrage de charge réseau](/windows-server/networking/technologies/network-load-balancing). Les étapes suivantes décrivent comment configurer un cluster d’équilibrage de charge réseau Microsoft.  
 
 1. Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
 2. Ouvrez le Gestionnaire d’équilibrage de charge réseau dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire d’équilibrage de charge réseau**.
@@ -388,4 +388,5 @@ Pour obtenir de l’aide, sélectionnez l’icône en forme de point d’interro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Ajoutez des sources de données](../../azure-monitor/platform/agent-data-sources.md) pour collecter des données provenant de vos sources connectées et les stocker dans votre espace de travail Log Analytics.
+[Ajoutez des sources de données](./agent-data-sources.md) pour collecter des données provenant de vos sources connectées et les stocker dans votre espace de travail Log Analytics.
+

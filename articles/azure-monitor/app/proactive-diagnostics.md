@@ -3,15 +3,15 @@ title: Détection intelligente dans Azure Application Insights | Microsoft Docs
 description: Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: ad6580a0a62d331a7851c47d71b46d3ea6c81468
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305871"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
- La détection intelligente vous informe automatiquement des éventuels problèmes de performances et des défaillances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](../../azure-monitor/app/app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
+ La détection intelligente vous informe automatiquement des éventuels problèmes de performances et des défaillances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](./app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
 
 Vous pouvez accéder aux détections émises par la détection intelligente via les e-mails que vous recevez et à partir du panneau Détection intelligente.
 
@@ -32,8 +32,8 @@ Sélectionnez une détection pour en afficher les détails.
 ## <a name="what-problems-are-detected"></a>Quels sont les problèmes détectés ?
 La fonctionnalité de détection intelligente vous envoie une notification quand elle détecte divers problèmes, notamment :
 
-* [Détection intelligente des anomalies de type échec](../../azure-monitor/app/proactive-failure-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
-* [Détection intelligente des anomalies de performances](../../azure-monitor/app/proactive-performance-diagnostics.md). Vous recevez des notifications si le temps de réponse d’une opération ou la durée d’une dépendance ralentit par rapport à l’historique de la ligne de base ou si nous identifions un modèle anormal dans le temps de réponse ou le temps de chargement de la page.   
+* [Détection intelligente des anomalies de type échec](./proactive-failure-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
+* [Détection intelligente des anomalies de performances](./proactive-performance-diagnostics.md). Vous recevez des notifications si le temps de réponse d’une opération ou la durée d’une dépendance ralentit par rapport à l’historique de la ligne de base ou si nous identifions un modèle anormal dans le temps de réponse ou le temps de chargement de la page.   
 * Les dégradations et problèmes généraux, notamment la [dégradation de Trace](./proactive-trace-severity.md), la [fuite de mémoire](./proactive-potential-memory-leak.md), l’[élévation anormale du volume des exceptions](./proactive-exception-volume.md) et les [anti-modèles de sécurité](./proactive-application-security-detection-pack.md).
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
@@ -53,11 +53,12 @@ Vous pouvez également utiliser les modèles Azure Resource Manager pour modifie
 ## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
-* [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)
-* [Navigateur de recherche](../../azure-monitor/app/diagnostic-search.md)
-* [Analytics : un puissant langage de requête](../../azure-monitor/log-query/get-started-portal.md)
+* [Metrics Explorer](../platform/metrics-charts.md)
+* [Navigateur de recherche](./diagnostic-search.md)
+* [Analytics : un puissant langage de requête](../log-query/get-started-portal.md)
 
 La détection intelligente est entièrement automatique. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
-* [Alertes de mesures configurées manuellement](../../azure-monitor/platform/alerts-log.md)
-* [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [Alertes de mesures configurées manuellement](../platform/alerts-log.md)
+* [Tests web de disponibilité](./monitor-web-app-availability.md) 
+

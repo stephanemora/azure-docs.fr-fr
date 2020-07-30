@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516054"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322412"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -92,7 +92,7 @@ Procédez comme suit.
     - **Description** : Description de la nouvelle règle d’alerte.
     - **Enregistrer l'alerte dans le groupe de ressources** : sélectionnez le groupe de ressources dans lequel vous souhaitez enregistrer cette nouvelle règle.
 
-5. Dans le menu déroulant sous **Groupe d’actions**, spécifiez le groupe d’actions que vous souhaitez affecter à cette nouvelle règle d’alerte. Vous pouvez également [créer un groupe d’actions](../../azure-monitor/platform/action-groups.md) et l’affecter à la nouvelle règle. Pour créer un groupe, sélectionnez **+ Nouveau groupe**.
+5. Dans le menu déroulant sous **Groupe d’actions**, spécifiez le groupe d’actions que vous souhaitez affecter à cette nouvelle règle d’alerte. Vous pouvez également [créer un groupe d’actions](./action-groups.md) et l’affecter à la nouvelle règle. Pour créer un groupe, sélectionnez **+ Nouveau groupe**.
 
 6. Pour activer les règles après les avoir créées, cliquez sur **Oui** dans l’option **Activer la règle lors de la création**.
 7. Sélectionnez **Créer une règle d’alerte**.
@@ -285,7 +285,8 @@ Les ressources de règle d'alerte de journal d'activité peuvent être supprimé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [schéma de webhook des journaux d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Lisez une [présentation des journaux d’activité](../../azure-monitor/platform/activity-log-alerts.md).
-- En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md).  
+- En savoir plus sur le [schéma de webhook des journaux d’activité](./activity-log-alerts-webhook.md).
+- Lisez une [présentation des journaux d’activité](./activity-log-alerts.md).
+- En savoir plus sur les [groupes d’actions](./action-groups.md).  
 - En savoir plus sur les [notifications sur l’intégrité du service](../../service-health/service-notifications.md).
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021373"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
@@ -84,7 +84,7 @@ Avant d’approvisionner l’appliance cloud, vous devez effectuer les préparat
 * Pour l’appliance cloud, [configurez un réseau virtuel sur Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Les régions de stockage Premium sont des régions qui correspondent à la ligne Stockage sur disque dans la liste des [services Azure par région](https://azure.microsoft.com/regions/services/).
 * Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n’est pas valide ou si le serveur DNS n’est pas en mesure de résoudre correctement les adresses IP, la création de l’appliance cloud échoue.
 * Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
-* Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appliance cloud. Ces serveurs doivent répondre aux exigences suivantes :
+* Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/windows/quick-create-portal.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appliance cloud. Ces serveurs doivent répondre aux exigences suivantes :
 
   * Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé.
   * Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appliance cloud.

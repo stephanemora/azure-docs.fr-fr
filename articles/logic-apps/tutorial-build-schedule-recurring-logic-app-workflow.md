@@ -3,16 +3,16 @@ title: Générer des workflows automatisés basés sur la planification
 description: Tutoriel – Créer un workflow automatisé périodique basé sur la planification à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146521"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124848"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps
 
@@ -36,18 +36,16 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-* Un compte de messagerie d’un fournisseur de messagerie pris en charge par Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Ce guide de démarrage rapide utilise un compte Office 365 Outlook. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’interface utilisateur peut être légèrement différente.
+* Un compte de messagerie d’un fournisseur de messagerie pris en charge par Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](/connectors/). Ce guide de démarrage rapide utilise un compte Office 365 Outlook. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’interface utilisateur peut être légèrement différente.
 
   > [!IMPORTANT]
-  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification avec votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification avec votre connecteur Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Pour obtenir la durée de trajet d’un itinéraire, vous avez besoin d’une clé d’accès pour l’API Bing Cartes. Pour obtenir cette clé, suivez les étapes décrites dans l’article indiquant [comment obtenir une clé Bing Cartes](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
-
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
+* Pour obtenir la durée de trajet d’un itinéraire, vous avez besoin d’une clé d’accès pour l’API Bing Cartes. Pour obtenir cette clé, suivez les étapes décrites dans l’article indiquant [comment obtenir une clé Bing Cartes](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration** > **Application logique**.
 
@@ -144,7 +142,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
    | **Nom de connexion** | Oui | BingMapsConnection | Donnez un nom à votre connexion. Cet exemple utilise « BingMapsConnection ». |
-   | **Clé API** | Oui | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez [comment en obtenir une](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Clé API** | Oui | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez [comment en obtenir une](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Renommez l’action à l’aide de cette description : `Get route and travel time with traffic`.
@@ -165,12 +163,12 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    |----------|----------|-------|-------------|
    | **Étape 1** | Oui | <*start-location*> | Début de l’itinéraire. |
    | **Étape 2** | Oui | <*end-location*> | Destination de l’itinéraire. |
-   | **Optimize** | Non  | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez le paramètre « timeWithTraffic ». |
-   | **Unité de distance** | Non  | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet exemple utilise « Mile » comme unité. |
-   | **Mode de déplacement** | Non  | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez le mode « Driving » (Conduite). |
+   | **Optimize** | Non | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez le paramètre « timeWithTraffic ». |
+   | **Unité de distance** | Non | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet exemple utilise « Mile » comme unité. |
+   | **Mode de déplacement** | Non | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez le mode « Driving » (Conduite). |
    ||||
 
-   Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route).
+   Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](/bingmaps/rest-services/routes/calculate-a-route).
 
 1. Enregistrez votre application logique.
 
@@ -196,7 +194,7 @@ Par défaut, l’action **Get route** (Obtenir l’itinéraire) précédente ret
    |----------|----------|-------|-------------|
    | **Nom** | Oui | travelTime | Nom de la variable. Cet exemple utilise « travelTime ». |
    | **Type** | Oui | Integer | Type de données de la variable. |
-   | **Valeur** | Non | Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. |
+   | **Valeur** | Non| Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. |
    ||||
 
    1. Pour créer l’expression pour la propriété **Valeur**, cliquez dans la zone pour faire apparaître la liste à contenu dynamique. Si nécessaire, élargissez la fenêtre du navigateur jusqu’à ce que la liste apparaisse. Dans la liste à contenu dynamique, sélectionnez **Expression**.

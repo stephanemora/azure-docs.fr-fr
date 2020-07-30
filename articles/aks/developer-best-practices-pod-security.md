@@ -2,16 +2,15 @@
 title: Meilleures pratiques du développeur - Sécurité des pods dans Azure Kubernetes Service (AKS)
 description: Découvrez les meilleures pratiques du développeur pour apprendre à sécuriser des pods dans Azure Kubernetes Service (AKS)
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 3a62dcbbec90ec73ded722a6efbbd5907fb21f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320678"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -52,15 +51,16 @@ kind: Pod
 metadata:
   name: security-context-demo
 spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 Consultez votre opérateur de cluster pour déterminer les paramètres de contexte de sécurité dont vous avez besoin. Essayez de concevoir vos applications de manière à réduire les autorisations et accès supplémentaires dont le pod a besoin. Il existe d’autres fonctionnalités de sécurité qui permettent de limiter l’accès en utilisant les paramètres AppArmor et seccomp (environnement informatique sécurisé) qui peuvent être implémentés par les opérateurs du cluster. Pour plus d’informations, consultez [Sécuriser l’accès du conteneur aux ressources][apparmor-seccomp].

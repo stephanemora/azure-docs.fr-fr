@@ -3,12 +3,13 @@ title: Collection d’adresses IP dans Azure Application Insights | Microsoft Do
 description: Compréhension de la gestion des adresses IP et de la géolocalisation avec Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 28a7fa50a06dc8b80c7d8dd284cd88ebe4645da6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807126"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371649"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -27,7 +28,7 @@ Ce comportement est conçu afin d’éviter la collecte inutile de données pers
 
 ## <a name="overriding-default-behavior"></a>Remplacement du comportement par défaut
 
-Bien que le comportement par défaut consiste à réduire la collection de données personnelles, nous offrons toujours la possibilité de collecter et de stocker les données d’adresse IP. Avant de choisir de stocker des données personnelles comme des adresses IP, nous vous recommandons vivement de vérifier que cela ne contrevient pas aux exigences de conformité ou aux réglementations locales auxquelles vous pouvez être soumis. Pour en savoir plus sur la gestion des données personnelles dans Application Insights, consultez les [conseils relatifs aux données personnelles](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+Bien que le comportement par défaut consiste à réduire la collection de données personnelles, nous offrons toujours la possibilité de collecter et de stocker les données d’adresse IP. Avant de choisir de stocker des données personnelles comme des adresses IP, nous vous recommandons vivement de vérifier que cela ne contrevient pas aux exigences de conformité ou aux réglementations locales auxquelles vous pouvez être soumis. Pour en savoir plus sur la gestion des données personnelles dans Application Insights, consultez les [conseils relatifs aux données personnelles](../platform/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Stockage de données d’adresses IP
 
@@ -99,7 +100,7 @@ Si vous devez uniquement modifier le comportement d’une seule ressource de App
 
 ### <a name="rest-api"></a>API REST
 
-La charge utile de l’[API REST](https://docs.microsoft.com/rest/api/azure/) pour apporter les mêmes modifications est la suivante :
+La charge utile de l’[API REST](/rest/api/azure/) pour apporter les mêmes modifications est la suivante :
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -120,7 +121,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Initialiseur de télémétrie
 
-Si vous avez besoin d’une alternative plus flexible que `DisableIpMasking` pour enregistrer tout ou partie des adresses IP, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) pour copier tout ou partie de l’adresse IP dans un champ personnalisé. 
+Si vous avez besoin d’une alternative plus flexible que `DisableIpMasking` pour enregistrer tout ou partie des adresses IP, vous pouvez utiliser un [initialiseur de télémétrie](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) pour copier tout ou partie de l’adresse IP dans un champ personnalisé. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -233,6 +234,6 @@ Les adresses IP nouvellement collectées doivent apparaître dans la colonne `cu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [collecte de données personnelles](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) dans Application Insights.
+* En savoir plus sur la [collecte de données personnelles](../platform/personal-data-mgmt.md) dans Application Insights.
 
 * En savoir plus sur le fonctionnement de la [collecte d’adresses IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) dans Application Insights. (Il s’agit d’un billet de blog externe plus ancien écrit par l’un de nos ingénieurs. Il a été écrit avant le comportement par défaut actuel où l’adresse IP est enregistrée en tant que `0.0.0.0`, mais il examine plus en détail les mécanismes de `ClientIpHeaderTelemetryInitializer` intégré.)

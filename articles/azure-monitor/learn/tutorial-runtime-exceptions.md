@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322429"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -36,7 +36,7 @@ Pour suivre ce tutoriel :
     - Développement Azure
 - Téléchargez et installez le [débogueur d'instantané de Visual Studio](https://aka.ms/snapshotdebugger).
 - Activez le [débogueur de capture instantanée de Visual Studio](../app/snapshot-debugger.md).
-- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../../azure-monitor/app/asp-net.md). 
+- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../app/asp-net.md). 
 - Le didacticiel effectuant le suivi de l’identification d’une exception dans votre application, modifiez le code dans votre environnement de développement ou de test afin de générer une exception. 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -63,7 +63,7 @@ Application Insights collecte les échecs dans votre application et vous permet 
 
     ![Exemples de demande ayant échoué](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Les détails de la demande ayant échoué affiche le diagramme de Gantt qui montre qu’il y avait deux échecs de dépendance dans cette transaction, ce qui est également attribué à plus de 50 % de la durée totale de la transaction. Cette expérience présente toutes les données de télémétrie à travers les composants d’une application distribuée qui sont liés à cet ID d’opération. [En savoir plus sur la nouvelle expérience](../../azure-monitor/app/transaction-diagnostics.md). Vous pouvez sélectionner n’importe quels éléments pour afficher ses détails sur le côté droit. 
+6. Les détails de la demande ayant échoué affiche le diagramme de Gantt qui montre qu’il y avait deux échecs de dépendance dans cette transaction, ce qui est également attribué à plus de 50 % de la durée totale de la transaction. Cette expérience présente toutes les données de télémétrie à travers les composants d’une application distribuée qui sont liés à cet ID d’opération. [En savoir plus sur la nouvelle expérience](../app/transaction-diagnostics.md). Vous pouvez sélectionner n’importe quels éléments pour afficher ses détails sur le côté droit. 
 
     ![Détails des requêtes ayant échoué](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -112,4 +112,5 @@ Si vous connectez Application Insights à un système de suivi tel que Azure Dev
 À présent que vous avez appris à identifier les exceptions runtime, passez au didacticiel suivant pour apprendre à identifier et à diagnostiquer les problèmes de performances.
 
 > [!div class="nextstepaction"]
-> [Identifier les problèmes de performances](../../azure-monitor/learn/tutorial-performance.md)
+> [Identifier les problèmes de performances](./tutorial-performance.md)
+

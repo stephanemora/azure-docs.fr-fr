@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028583"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Gestion de la maintenance planifiée à l’aide de PowerShell
 
 **Cet article s’applique aux machines virtuelles exécutant Linux et Windows.**
 
-Vous pouvez utiliser Azure PowerShell pour savoir quand la [maintenance](maintenance-notifications.md) des machines virtuelles a été planifiée. Les informations de maintenance planifiée sont disponibles à partir de la cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) lorsque vous utilisez le paramètre `-status`.
+Vous pouvez utiliser Azure PowerShell pour savoir quand la [maintenance](maintenance-notifications.md) des machines virtuelles a été planifiée. Les informations de maintenance planifiée sont disponibles à partir de la cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) lorsque vous utilisez le paramètre `-status`.
   
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’impacte la machine virtuelle, l’applet de commande ne retourne pas d’informations de maintenance. 
 
@@ -40,7 +40,7 @@ Les propriétés suivantes sont retournées sous MaintenanceRedeployStatus :
 
 
 
-Vous pouvez également obtenir l'état de maintenance de toutes les machines virtuelles d'un groupe de ressources à l'aide de [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) sans spécifier de machine virtuelle.
+Vous pouvez également obtenir l'état de maintenance de toutes les machines virtuelles d'un groupe de ressources à l'aide de [Get-AzVM](/powershell/module/az.compute/get-azvm) sans spécifier de machine virtuelle.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

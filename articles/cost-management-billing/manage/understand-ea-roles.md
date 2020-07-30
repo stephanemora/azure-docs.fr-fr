@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045142"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124338"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
 
@@ -32,7 +32,7 @@ Le premier administrateur d’inscription configuré pendant le provisionnement 
 
 Par exemple, si le type d’authentification initiale est défini sur Mixte, le Contrat Entreprise sera ajouté en tant que compte Microsoft et le contact de facturation aura des privilèges d’administrateur Contrat Entreprise en lecture seule. Si l’administrateur Contrat Entreprise n’approuve pas l’autorisation de compte Microsoft pour un contact de facturation existant, il peut supprimer l’utilisateur en question et demander au client de rajouter l’utilisateur en tant qu’administrateur en lecture seule avec un compte professionnel ou scolaire défini uniquement au niveau de l’inscription dans le portail EA.
 
-Ces rôles sont spécifiques à la gestion des Contrats Entreprise Azure et s’ajoutent aux rôles intégrés dont Azure doit contrôler l’accès aux ressources. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+Ces rôles sont spécifiques à la gestion des Contrats Entreprise Azure et s’ajoutent aux rôles intégrés dont Azure doit contrôler l’accès aux ressources. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Les sections suivantes décrivent les limitations et les capacités de chaque rôle.
 
@@ -121,4 +121,4 @@ Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégi
 
 - [Gérer l’accès aux informations de facturation pour Azure](manage-billing-access.md)
 - [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
-- [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md)
+- [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md)
