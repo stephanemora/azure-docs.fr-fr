@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254665"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517839"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -146,7 +146,7 @@ Quand vous créez un écouteur, vous choisissez entre le type [*de base* et le t
 
 - Si vous souhaitez que toutes vos demandes (pour tous les domaines) soient acceptées et transmises aux pools back-end, choisissez le type « de base ». Découvrez [comment créer une passerelle d’application avec un écouteur de base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si vous souhaitez transférer les demandes vers des pools back-end différents en fonction de l’en-tête d’*hôte* ou du nom d’hôte, choisissez le type d’écouteur « multisite » ; dans ce cas, vous devez également spécifier un nom d’hôte qui correspond à la demande entrante. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port.
+- Si vous souhaitez transférer les requêtes HTTP vers différents pools principaux en fonction de l’en-tête d’*hôte* ou des noms d’hôte, choisissez le type d’écouteur « multisite » ; dans ce cas, vous devez également spécifier un nom d’hôte qui correspond à la demande entrante. En effet, Application Gateway s’appuie sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur la même adresse IP publique et le même port. Pour en savoir plus, consultez [Hébergement de plusieurs sites à l’aide d’Application Gateway](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Ordre de traitement des
 
@@ -279,12 +279,16 @@ Pour plus d’informations sur la redirection, consultez :
 - [Rediriger le trafic vers un site externe à l’aide de PowerShell](redirect-external-site-powershell.md)
 - [Rediriger le trafic vers un site externe à l’aide de l’interface de ligne de commande](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Réécrire le paramètre d’en-tête HTTP
+### <a name="rewrite-http-headers-and-url"></a>Réécrire les en-têtes et les URL HTTP
 
-Ce paramètre ajoute, supprime et met à jour les en-têtes de demande et réponse HTTP pendant le déplacement des paquets de demande et réponse entre le pool client et le pool back-end. Pour plus d'informations, consultez les pages suivantes :
+En utilisant des règles de réécriture, vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP(S) ainsi que les paramètres du chemin URL et de la chaîne de requête lorsque les paquets de requête et de réponse se déplacent entre le client et des pools principaux via la passerelle d’application.
 
- - [Vue d’ensemble de la réécriture des en-têtes HTTP](rewrite-http-headers.md)
+Vous pouvez régler les en-têtes et les paramètres d’URL sur des valeurs statiques ou d’autres en-têtes et variables de serveur. Cela facilite les cas d’usage importants, tels que l’extraction d’adresses IP des clients, la suppression d’informations sensibles relatives au back-end, le renforcement de la sécurité, etc.
+Pour plus d'informations, consultez les pages suivantes :
+
+ - [Vue d’ensemble de la réécriture des en-têtes HTTP](rewrite-http-headers-url.md)
  - [Configurer la réécriture des en-têtes HTTP](rewrite-http-headers-portal.md)
+ - [Configurer la réécriture d’URL](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Paramètres HTTP
 
@@ -357,7 +361,7 @@ Ce paramètre associe une [sonde personnalisée](application-gateway-probe-overv
 > [!NOTE]
 > La sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Choisir un nom d’hôte à partir d’une adresse back-end
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Choisir un nom d’hôte à partir d’une adresse back-end
 
 Cette fonctionnalité définit dynamiquement l’en-tête de l’*hôte* dans la demande sur le nom d’hôte du pool de back-ends. Elle utilise une adresse IP ou un nom de domaine complet.
 

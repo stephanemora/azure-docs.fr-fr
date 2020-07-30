@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514303"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -42,10 +42,10 @@ Les coffres Recovery Services offrent les fonctionnalités suivantes :
 - Les coffres facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion.
 - Dans chaque abonnement Azure, vous pouvez créer jusqu’à 500 coffres.
 - Vous pouvez superviser les éléments sauvegardés dans un coffre, notamment les machines virtuelles Azure et les ordinateurs locaux.
-- Vous pouvez gérer l’accès au coffre avec le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure.
+- Vous pouvez gérer l’accès au coffre avec le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure.
 - Vous spécifiez le mode de réplication des données dans le coffre pour la redondance :
-  - **Stockage localement redondant (LRS)**  : Pour vous protéger contre des défaillances de centre de données, vous pouvez utiliser un stockage localement redondant. LRS réplique les données vers une unité d’échelle de stockage. [Plus d’informations](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-  - **Stockage géo-redondant (GRS)**  : Pour vous protéger contre des pannes régionales, vous pouvez utiliser un stockage géoredondant. Celui-ci réplique vos données dans une région secondaire. [Plus d’informations](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
+  - **Stockage localement redondant (LRS)**  : Pour vous protéger contre des défaillances de centre de données, vous pouvez utiliser un stockage localement redondant. LRS réplique les données vers une unité d’échelle de stockage. [Plus d’informations](../storage/common/storage-redundancy.md)
+  - **Stockage géo-redondant (GRS)**  : Pour vous protéger contre des pannes régionales, vous pouvez utiliser un stockage géoredondant. Celui-ci réplique vos données dans une région secondaire. [Plus d’informations](../storage/common/storage-redundancy.md)
   - Par défaut, les coffres Recovery Services utilisent un stockage géoredondant.
 
 ## <a name="backup-agents"></a>Agents de sauvegarde
@@ -120,6 +120,17 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 - Lors de la création d’un coffre, une « DefaultPolicy » est également créée, qui peut être utilisé pour sauvegarder des ressources.
 - Toutes les modifications apportées à la période de rétention d’une stratégie de sauvegarde sont appliquées de manière rétroactive à tous les anciens points de récupération en plus des nouveaux.
 
+### <a name="additional-reference"></a>Références supplémentaires 
+
+-   Machine virtuelle Azure : Comment [créer](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) et [modifier](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) une stratégie ? 
+-   Base de données SQL Server dans une machine virtuelle Azure : Comment [créer](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) et [modifier](./manage-monitor-sql-database-backup.md#modify-policy) une stratégie ? 
+-   Partage de fichiers Azure Files : Comment [créer](./backup-afs.md#discover-file-shares-and-configure-backup) et [modifier](./manage-afs-backup.md#modify-policy) une stratégie ? 
+-   SAP HANA : Comment [créer](./backup-azure-sap-hana-database.md#create-a-backup-policy) et [modifier](./sap-hana-db-manage.md#change-policy) une stratégie ? 
+-   MARS : Comment [créer](./backup-windows-with-mars-agent.md#create-a-backup-policy) et [modifier](./backup-azure-manage-mars.md#modify-a-backup-policy) une stratégie ? 
+-   [Existe-t-il des limitations relatives à la planification de la sauvegarde en fonction du type de charge de travail ?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [Qu’advient-il des points de récupération existants si je change la stratégie de conservation ?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architecture : Sauvegarde de machine virtuelle Azure prédéfinie
 
 1. Quand vous activez la sauvegarde pour une machine virtuelle Azure, une sauvegarde s’exécute conformément à la planification que vous spécifiez.
@@ -134,7 +145,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
     - Seuls les blocs de données qui ont changé depuis la dernière sauvegarde sont copiés.
     - Les données ne sont pas chiffrées. Sauvegarde Azure peut sauvegarder des machines virtuelles Azure chiffrées avec Azure Disk Encryption.
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, la sauvegarde peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
-1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](./backup-instant-restore-capability.md).
 
 Vous n'avez pas besoin d'autoriser explicitement la connexion Internet pour sauvegarder vos machines virtuelles Azure.
 

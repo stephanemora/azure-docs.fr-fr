@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 06/21/2020
+ms.date: 07/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130736"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515765"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -30,11 +30,11 @@ Si vous pensez qu'une alerte de métrique aurait dû se déclencher mais que cel
        > [!NOTE] 
        > Les seuils dynamiques nécessitent au moins 3 jours et 30 échantillons de métriques avant de devenir actifs.
 
-2. **Déclenchée mais pas de notification** - Consultez la [liste des alertes déclenchées](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) pour essayer de localiser l'alerte déclenchée. Si l'alerte figure dans la liste, mais que vous rencontrez des problèmes avec certaines de ses actions ou notifications, cliquez [ici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-troubleshoot#action-or-notification-on-my-alert-did-not-work-as-expected) pour en savoir plus.
+2. **Déclenchée mais pas de notification** - Consultez la [liste des alertes déclenchées](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) pour essayer de localiser l'alerte déclenchée. Si l'alerte figure dans la liste, mais que vous rencontrez des problèmes avec certaines de ses actions ou notifications, cliquez [ici](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected) pour en savoir plus.
 
 3. **Déjà active** - Vérifiez si une alerte a déjà été déclenchée sur la série chronologique de métrique pour laquelle vous vous attendiez à recevoir une alerte. Un état est attribué aux alertes de métrique. Autrement dit, une fois qu'une alerte est déclenchée sur une série chronologique de métrique spécifique, aucune alerte supplémentaire n'est déclenchée sur cette série chronologique, même si le problème persiste. Ce choix de conception réduit le bruit. L'alerte est automatiquement résolue lorsque la condition d'alerte n'est pas remplie au bout de trois évaluations consécutives.
 
-4. **Dimensions utilisées** - Si vous avez sélectionné des [valeurs de dimension pour une métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions), la règle d'alerte supervise chaque série chronologique de métrique (comme défini par la combinaison de valeurs de dimension) pour détecter un dépassement de seuil. Pour superviser également la série chronologique de métrique agrégée (sans aucune dimension sélectionnée), configurez une règle d'alerte supplémentaire sur la métrique sans sélectionner de dimensions.
+4. **Dimensions utilisées** - Si vous avez sélectionné des [valeurs de dimension pour une métrique](./alerts-metric-overview.md#using-dimensions), la règle d'alerte supervise chaque série chronologique de métrique (comme défini par la combinaison de valeurs de dimension) pour détecter un dépassement de seuil. Pour superviser également la série chronologique de métrique agrégée (sans aucune dimension sélectionnée), configurez une règle d'alerte supplémentaire sur la métrique sans sélectionner de dimensions.
 
 5. **Agrégation et granularité temporelle** - Si vous visualisez la métrique à l'aide de [graphiques de métriques](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), assurez-vous que :
     * La valeur d'**Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
@@ -49,7 +49,7 @@ Si vous pensez que votre alerte de métrique a été déclenchée à tort, la pr
     > [!NOTE] 
     > Si vous utilisez un type de condition Seuils dynamiques et pensez que les seuils utilisés ne sont pas corrects, envoyez un smiley mécontent en guise de commentaire. Ce commentaire aura un impact sur la recherche algorithmique de l'apprentissage automatique et contribuera à améliorer les détections futures.
 
-2. Si vous avez sélectionné plusieurs valeurs de dimension pour une métrique, l'alerte sera déclenchée lorsqu'**une** métrique de la série chronologique (comme défini par la combinaison de valeurs de dimension) dépassera le seuil. Pour plus d’informations sur l’utilisation des dimensions dans les alertes de métrique, consultez [cette page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions).
+2. Si vous avez sélectionné plusieurs valeurs de dimension pour une métrique, l'alerte sera déclenchée lorsqu'**une** métrique de la série chronologique (comme défini par la combinaison de valeurs de dimension) dépassera le seuil. Pour plus d’informations sur l’utilisation des dimensions dans les alertes de métrique, consultez [cette page](./alerts-metric-overview.md#using-dimensions).
 
 3. Vérifiez la configuration de la règle d'alerte pour vous assurer qu'elle est correcte :
     - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
@@ -65,23 +65,25 @@ Si vous pensez que votre alerte de métrique a été déclenchée à tort, la pr
 5. Si la règle d'alerte a été déclenchée alors que d'autres alertes ont déjà été déclenchées pour superviser les mêmes critères (qui ne sont pas résolus), vérifiez si la règle d'alerte a été configurée avec la propriété *autoMitigate* définie sur **false** (cette propriété ne peut être configurée que par le biais de REST/PowerShell/CLI ; par conséquent, vérifiez le script utilisé pour déployer la règle d'alerte). Dans ce cas, la règle d'alerte ne résout pas automatiquement les alertes déclenchées, et n'exige pas la résolution d'une alerte déclenchée avant un nouveau déclenchement.
 
 
-## <a name="cant-find-metric-to-alert-on---virtual-machines"></a>Métrique introuvable pour déclencher l'alerte - machines virtuelles 
+## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Impossible de trouver la métrique sur laquelle porte l’alerte – métriques d’invités de machines virtuelles
 
-Pour déclencher des alertes liées à des métriques invitées sur des machines virtuelles (pour la mémoire ou l'espace disque), veillez à ce que les paramètres de diagnostic soient configurés de manière à envoyer des données à un récepteur Azure Monitor :
-    * [Pour les machines virtuelles Windows](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)
-    * [Pour les machines virtuelles Linux](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+Pour le bon fonctionnement des alertes relatives aux métriques du système d’exploitation invité de machines virtuelles (par exemple, la mémoire, l’espace disque), assurez-vous d’avoir installé l’agent requis pour collecter ces données dans Azure Monitor Metrics :
+- [Pour les machines virtuelles Windows](./collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Pour les machines virtuelles Linux](./collect-custom-metrics-linux-telegraf.md)
+
+Pour plus d’informations sur la collecte de données à partir du système d’exploitation invité d’une machine virtuelle, voir [ici](../insights/monitor-vm-azure.md#guest-operating-system).
     
 > [!NOTE] 
-> Si vous avez configuré les métriques invitées pour qu'elles soient envoyées à un espace de travail Log Analytics, ces métriques apparaissent sous la ressource de l'espace de travail Log Analytics. Elles commencent à afficher les données **uniquement** après la création d'une règle d'alerte qui les supervise. Pour ce faire, suivez les étapes permettant de [configurer une alerte de métrique pour les journaux](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#configuring-metric-alert-for-logs).
+> Si vous avez configuré les métriques invitées pour qu'elles soient envoyées à un espace de travail Log Analytics, ces métriques apparaissent sous la ressource de l'espace de travail Log Analytics. Elles commencent à afficher les données **uniquement** après la création d'une règle d'alerte qui les supervise. Pour ce faire, suivez les étapes permettant de [configurer une alerte de métrique pour les journaux](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Métrique introuvable pour déclencher l'alerte
 
-Si vous souhaitez déclencher une alerte sur une métrique spécifique mais ne voyez aucune métrique pour la ressource, [vérifiez si le type de ressource est pris en charge pour les alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-near-real-time).
-Si des métriques existent pour la ressource mais qu'une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
+Si vous souhaitez déclencher une alerte sur une métrique spécifique mais ne voyez aucune métrique pour la ressource, [vérifiez si le type de ressource est pris en charge pour les alertes de métrique](./alerts-metric-near-real-time.md).
+Si des métriques existent pour la ressource mais qu'une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](./metrics-supported.md), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Dimension de métrique introuvable pour déclencher l'alerte
 
-Si vous souhaitez déclencher des alertes liées aux [valeurs de dimension spécifiques d'une métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions), mais que vous ne trouvez pas ces valeurs, notez ce qui suit :
+Si vous souhaitez déclencher des alertes liées aux [valeurs de dimension spécifiques d'une métrique](./alerts-metric-overview.md#using-dimensions), mais que vous ne trouvez pas ces valeurs, notez ce qui suit :
 
 1. L’affichage des valeurs de dimension sous la liste **Valeurs de dimension** peut prendre quelques minutes.
 1. Les valeurs de dimension affichées sont basées sur les données de métriques collectées au cours des trois derniers jours
@@ -99,7 +101,7 @@ Lors de la suppression d’une ressource Azure, les règles d’alerte de métri
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Générer des alertes de métrique chaque fois que ma condition est remplie
 
-Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d'alerte de métrique spécifique sans état et être alerté chaque fois qu'une évaluation établit que la condition d'alerte est remplie, créez la règle d'alerte par programmation (par exemple via [Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates), [PowerShell](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1), [REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [CLI](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) et définissez la propriété *autoMitigate* sur « False ».
+Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d'alerte de métrique spécifique sans état et être alerté chaque fois qu'une évaluation établit que la condition d'alerte est remplie, créez la règle d'alerte par programmation (par exemple via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) et définissez la propriété *autoMitigate* sur « False ».
 
 > [!NOTE] 
 > La création d'une règle d'alerte de métrique sans état empêche la résolution des alertes déclenchées. Par conséquent, même si la condition n'est plus remplie, les alertes restent déclenchées jusqu'à la fin de la période de rétention de 30 jours.
@@ -107,12 +109,12 @@ Par défaut, un état est attribué aux alertes de métrique. Par conséquent, a
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de règles d'alerte de métrique trop bas
 
-Le nombre autorisé de règles d'alerte de métrique par abonnement est soumis à des [limites de quota](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Le nombre autorisé de règles d'alerte de métrique par abonnement est soumis à des [limites de quota](../service-limits.md).
 
 Si vous avez atteint la limite de quota, les étapes suivantes peuvent vous aider à résoudre le problème :
 1. Essayez de supprimer ou de désactiver les règles d'alerte de métrique qui ne sont plus utilisées.
 
-2. Utilisez plutôt des règles d’alerte de métrique qui supervisent plusieurs ressources. Avec cette fonctionnalité, une même règle d'alerte peut superviser plusieurs ressources en utilisant une seule règle d'alerte comptabilisée dans le quota. Pour plus d’informations sur cette fonctionnalité et les types de ressources pris en charge, consultez [cette page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Utilisez plutôt des règles d’alerte de métrique qui supervisent plusieurs ressources. Avec cette fonctionnalité, une même règle d'alerte peut superviser plusieurs ressources en utilisant une seule règle d'alerte comptabilisée dans le quota. Pour plus d’informations sur cette fonctionnalité et les types de ressources pris en charge, consultez [cette page](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Si vous avez besoin d'augmenter la limite de quota, ouvrez une demande de support et fournissez les informations suivantes :
 
@@ -135,9 +137,9 @@ Pour vérifier l'utilisation actuelle des règles d'alerte de métrique, procéd
 
 ### <a name="from-api"></a>À partir de l’API
 
-- PowerShell - [Get-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
-- API REST - [Répertorier par abonnement](https://docs.microsoft.com/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- API REST - [Répertorier par abonnement](/rest/api/monitor/metricalerts/listbysubscription)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Gérer les règles d'alerte à l'aide de modèles Resource Manager, de l'API REST, de PowerShell ou d'Azure CLI
 
@@ -145,43 +147,43 @@ Si vous rencontrez des problèmes lors de la création, de la mise à jour, de l
 
 ### <a name="resource-manager-templates"></a>Modèles Resource Manager
 
-- Consultez la liste des [erreurs courantes de déploiement Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) et procédez aux mesures correctives en conséquence
-- Consultez les [exemples de modèles Azure Resource Manager d'alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates) pour vous assurer que vous transmettez correctement tous les paramètres
+- Consultez la liste des [erreurs courantes de déploiement Azure](../../azure-resource-manager/templates/common-deployment-errors.md) et procédez aux mesures correctives en conséquence
+- Consultez les [exemples de modèles Azure Resource Manager d'alertes de métrique](./alerts-metric-create-templates.md) pour vous assurer que vous transmettez correctement tous les paramètres
 
 ### <a name="rest-api"></a>API REST
 
-Consulter le [guide de l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) pour vérifier que vous passez tous les paramètres correctement
+Consulter le [guide de l’API REST](/rest/api/monitor/metricalerts/) pour vérifier que vous passez tous les paramètres correctement
 
 ### <a name="powershell"></a>PowerShell
 
 Veillez à utiliser les cmdlets PowerShell appropriées pour les alertes de métrique :
 
-- Les applets de commande PowerShell pour les alertes de métrique sont disponibles dans le [module Az.Monitor](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1).
-- Veillez à utiliser les cmdlets qui se terminent par « V2 » pour les nouvelles alertes de métrique (non classiques). Par exemple : [Add-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/Add-AzMetricAlertRuleV2?view=azps-3.6.1).
+- Les applets de commande PowerShell pour les alertes de métrique sont disponibles dans le [module Az.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1).
+- Veillez à utiliser les cmdlets qui se terminent par « V2 » pour les nouvelles alertes de métrique (non classiques). Par exemple : [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1).
 
 ### <a name="azure-cli"></a>Azure CLI
 
 Veillez à utiliser les commandes CLI appropriées pour les alertes de métrique :
 
-- Les commandes CLI des alertes de métrique commencent par `az monitor metrics alert`. Consultez la [référence Azure CLI](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest) pour en savoir plus sur la syntaxe.
-- Vous pouvez voir un [exemple illustrant l’utilisation de l’interface CLI pour les alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli).
+- Les commandes CLI des alertes de métrique commencent par `az monitor metrics alert`. Consultez la [référence Azure CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest) pour en savoir plus sur la syntaxe.
+- Vous pouvez voir un [exemple illustrant l’utilisation de l’interface CLI pour les alertes de métrique](./alerts-metric.md#with-azure-cli).
 - Pour déclencher une alerte sur une métrique personnalisée, veillez à faire précéder le nom de la métrique par l’espace de noms de métrique approprié : NAMESPACE.METRIC
 
 ### <a name="general"></a>Général
 
 - Si vous recevez une `Metric not found`erreur :
 
-   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) et non le **nom d'affichage de la métrique**.
+   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](./metrics-supported.md) et non le **nom d'affichage de la métrique**.
 
-   - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d'alerte sur une métrique personnalisée qui n'existe pas encore) et que vous fournissez l'espace de noms de la métrique personnalisée (consultez un exemple de modèle ARM [ici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)).
+   - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d'alerte sur une métrique personnalisée qui n'existe pas encore) et que vous fournissez l'espace de noms de la métrique personnalisée (consultez un exemple de modèle ARM [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)).
 
-- Si vous créez des [alertes de métrique sur les journaux](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs), vérifiez que les dépendances appropriées sont incluses. Consultez [Exemple de modèle](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#resource-template-for-metric-alerts-for-logs).
+- Si vous créez des [alertes de métrique sur les journaux](./alerts-metric-logs.md), vérifiez que les dépendances appropriées sont incluses. Consultez [Exemple de modèle](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 - Si vous créez une règle d'alerte qui contient plusieurs critères, notez les contraintes suivantes :
 
    - Vous ne pouvez sélectionner qu’une seule valeur par dimension au sein de chaque critère
    - Vous ne pouvez pas utiliser « \* » comme valeur de dimension
-   - Lorsque des métriques configurées dans différents critères prennent en charge la même dimension, une valeur de dimension configurée doit être explicitement définie de la même façon pour toutes ces métriques (consultez un exemple de modèle Resource Manager [ici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria)).
+   - Lorsque des métriques configurées dans différents critères prennent en charge la même dimension, une valeur de dimension configurée doit être explicitement définie de la même façon pour toutes ces métriques (consultez un exemple de modèle Resource Manager [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria)).
 
 
 ## <a name="no-permissions-to-create-metric-alert-rules"></a>Aucune autorisation pour créer des règles d'alerte de métrique

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517108"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -186,14 +186,14 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | isBeaconApiDisabled | true | Si la valeur est false, le kit SDK envoie toutes les données de télémétrie à l’aide de l’[API Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | La valeur par défaut est false. Quand l’onglet est fermé, le SDK envoie toutes les données de télémétrie restantes à l’aide de l’[API Beacon](https://www.w3.org/TR/beacon). |
 | sdkExtension | null | Définit le nom de l’extension du kit SDK. Seuls les caractères alphabétiques sont autorisés. Le nom de l’extension est ajouté comme préfixe à la balise 'ai.internal.sdkVersion' (par exemple, 'ext_javascript:2.0.0'). La valeur par défaut est Null. |
-| isBrowserLinkTrackingEnabled | false | La valeur par défaut est false. Si la valeur est true, le kit SDK effectue le suivi de toutes les demandes de [lien de navigateur](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink). |
+| isBrowserLinkTrackingEnabled | false | La valeur par défaut est false. Si la valeur est true, le kit SDK effectue le suivi de toutes les demandes de [lien de navigateur](/aspnet/core/client-side/using-browserlink). |
 | appId | null | AppId est utilisé pour la corrélation entre les dépendances AJAX qui se produisent côté client avec les demandes côté serveur. Lorsque l’API Beacon est activée, elle ne peut pas être utilisée automatiquement, mais peut être définie manuellement dans la configuration. La valeur par défaut est Null |
 | enableCorsCorrelation | false | Si la valeur est true, le kit SDK ajoute deux en-têtes ('Request-Id' et 'Request-Context') à toutes les demandes CORS pour mettre en corrélation les dépendances AJAX sortantes avec les demandes correspondantes côté serveur. La valeur par défaut est false |
 | namePrefix | non défini | Valeur facultative qui sera utilisée comme suffixe de nom pour localStorage et le nom du cookie.
 | enableAutoRouteTracking | false | Effectuer le suivi automatique des modifications de route dans les applications monopages (SPA). Si la valeur est true, chaque modification de route envoie un nouveau Pageview à Application Insights. Les modifications des routes de hachage (`example.com/foo#bar`) sont également enregistrées en tant que nouveaux affichages de page.
 | enableRequestHeaderTracking | false | Si la valeur est true, les en-têtes de requête d’extraction AJAX & Fetch sont suivis, la valeur par défaut est false.
 | enableResponseHeaderTracking | false | Si la valeur est true, les en-têtes de réponse de requête d’extraction AJAX & Fetch sont suivis, la valeur par défaut est false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Définit le mode de traçage distribué. Si le mode AI_AND_W3C ou le mode W3C sont définis, les en-têtes de contexte de trace W3C (traceparent/tracestate) sont générés et inclus dans toutes les demandes sortantes. AI_AND_W3C est fourni à des fins de compatibilité descendante avec tous les services instrumentés Application Insights hérités. Consultez l’exemple [ici](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Définit le mode de traçage distribué. Si le mode AI_AND_W3C ou le mode W3C sont définis, les en-têtes de contexte de trace W3C (traceparent/tracestate) sont générés et inclus dans toutes les demandes sortantes. AI_AND_W3C est fourni à des fins de compatibilité descendante avec tous les services instrumentés Application Insights hérités. Consultez l’exemple [ici](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | La valeur par défaut est false. Si la valeur est true, inclure le texte des données d’erreur de réponse dans l’événement de dépendance sur les demandes AJAX ayant échoué.
 | enableAjaxPerfTracking | false | La valeur par défaut est false. Indicateur pour activer la recherche et l’inclusion de la fenêtre de navigateur supplémentaire. les minutages des performances dans les indicateurs de performances d’Ajax (XHR et fetch) signalés.
 | maxAjaxPerfLookupAttempts | 3 | La valeur par défaut est 3. Nombre maximal de fois où la fenêtre est recherchée. les minutages de performances (si disponibles) sont nécessaires, car tous les navigateurs remplissent la fenêtre de performances avant de signaler la fin de la demande XHR et les requêtes de récupération (fetch) sont ajoutées après son achèvement.
@@ -211,7 +211,7 @@ Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que 
 
 ## <a name="configuration-autotrackpagevisittime"></a>Configuration : autoTrackPageVisitTime
 
-En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) en tant que « métrique basée sur le journal ».
+En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](../platform/metrics-custom-overview.md) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](../platform/metrics-getting-started.md) en tant que « métrique basée sur le journal ».
 
 ## <a name="react-extensions"></a>Extensions React
 
@@ -224,21 +224,21 @@ En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilis
 
 Vous pouvez afficher les données côté navigateur/client en accédant à **Métriques** et en ajoutant les métriques individuelles qui vous intéressent :
 
-![](./media/javascript/page-view-load-time.png)
+![Capture d’écran de la page Métriques dans Application Insights montrant des affichages graphiques de données métriques pour une application web.](./media/javascript/page-view-load-time.png)
 
 Vous pouvez également afficher vos données à partir du kit SDK JavaScript via l’expérience du navigateur dans le portail.
 
 Sélectionnez **Navigateur**, puis choisissez **Échecs** ou **Performances**.
 
-![](./media/javascript/browser.png)
+![Capture d’écran de la page Navigateur dans Application Insights montrant comment ajouter Échecs du navigateur ou Performances du navigateur aux métriques que vous pouvez afficher pour votre application web.](./media/javascript/browser.png)
 
 ### <a name="performance"></a>Performances
 
-![](./media/javascript/performance-operations.png)
+![Capture d’écran de la page Performances dans Application Insights montrant des affichages graphiques des métriques Opérations pour une application web.](./media/javascript/performance-operations.png)
 
 ### <a name="dependencies"></a>Les dépendances
 
-![](./media/javascript/performance-dependencies.png)
+![Capture d’écran de la page Performances dans Application Insights montrant des affichages graphiques des métriques Dépendances pour une application web.](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>Analytics
 
@@ -271,7 +271,7 @@ Vous pouvez lier votre ressource Application Insights à votre propre conteneur 
 
 1. Sélectionnez un élément Télémétrie des exceptions dans le portail Azure pour afficher ses « détails de transaction de bout en bout ».
 2. Identifiez les mappages de source qui correspondent à cette pile d’appels. Le mappage de source doit correspondre au fichier source d’un frame de pile, mais avec le suffixe `.map`
-3. Glissez-déplacez les mappages de source sur la pile des appels dans le portail Azure ![](https://i.imgur.com/Efue9nU.gif)
+3. Glissez-déplacez les mappages de source sur la pile des appels dans le portail Azure ![An animated image showing how to drag and drop source map files from a build folder into the Call Stack window in the Azure portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Version web de base d’Application Insights
 

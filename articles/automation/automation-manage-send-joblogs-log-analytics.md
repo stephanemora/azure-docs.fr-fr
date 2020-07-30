@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004747"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Automation peut envoyer un état de tâche du Runbook et des flux de tâch
 
 Pour commencer à envoyer vos journaux d’activité Automation à des journaux Azure Monitor, vous devez disposer des éléments suivants :
 
-* La version la plus récente d’[Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* La version la plus récente d’[Azure PowerShell](/powershell/azure/).
 * Un espace de travail Log Analytics. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../azure-monitor/overview.md).
 * L’ID de ressource de votre compte Azure Automation.
 

@@ -1,19 +1,19 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327138"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
-Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../../azure-monitor/platform/metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](../../azure-monitor/platform/alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
+Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](./metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](./alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
 
 ## <a name="how-do-metric-alerts-work"></a>Fonctionnement des alertes de métrique
 
@@ -120,6 +120,15 @@ Cette règle surveille si l’utilisation moyenne du processeur pendant les 5 d
 
 L’allongement des périodes passées à vérifier et le nombre de violations peuvent aussi vous permettre de filtrer les alertes de sorte à seulement recevoir une conformément à votre définition d’un écart significatif. [Découvrez-en plus sur les options avancées des seuils dynamiques](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
+> [!NOTE]
+>
+> Nous vous recommandons de choisir une *granularité d’agrégation (période)* supérieure à la *fréquence d’évaluation* afin de réduire la probabilité de manquer la première évaluation de la série chronologique ajoutée dans les cas suivants :
+> - Règle d’alerte métrique qui surveille plusieurs dimensions : quand une combinaison de valeurs de dimension est ajoutée
+> - Règle d’alerte métrique qui surveille plusieurs ressources : quand une ressource est ajoutée à l’étendue
+> - Règle d’alerte métrique qui surveille une métrique qui n’est pas émise en continu (métrique éparse) : lorsque la métrique est émise après une période de plus de 24 heures pendant laquelle elle n’a pas été émise
+
+
+
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
 Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. 
@@ -143,7 +152,7 @@ Vous disposez de trois méthodes pour spécifier l’étendue de la supervision 
 >
 > L’étendue d’une règle d’alerte de métrique multiressource doit contenir au moins une ressource du type de ressource sélectionné.
 
-La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque ressource supervisée.
+La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque ressource supervisée.
 
 > [!NOTE]
 >
@@ -155,12 +164,13 @@ Pour les alertes de métrique, vous êtes généralement informé en moins de 5�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Types de ressources pris en charge pour les alertes de métrique
 
-Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrir comment créer, afficher et gérer des alertes de métrique dans Azure](alerts-metric.md)
-- [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
 - [En savoir plus sur les groupes d’actions](action-groups.md)
 - [En savoir plus sur le type de condition des seuils dynamiques](alerts-dynamic-thresholds.md)
+

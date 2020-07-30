@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 938bae28b1a523e23ea9f8f1ba79bbe6c487d5db
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011768"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -32,9 +32,9 @@ Lisez ces articles avant de commencer :
 * [Terminologie de Live Video Analytics sur IoT Edge](terminology.md)
 * [Concepts relatifs aux graphes multimédia](media-graph-concept.md) 
 * [Enregistrement de vidéo basé sur les événements](event-based-video-recording-concept.md)
-* [Tutoriel : Développement d’un module IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutoriel : Développement d’un module IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Modification de deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* Section expliquant [comment déclarer des routes dans le manifeste de déploiement IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
+* Section expliquant [comment déclarer des routes dans le manifeste de déploiement IoT Edge](../../iot-edge/module-composition.md#declare-routes)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,7 +52,7 @@ Les prérequis pour ce tutoriel sont les suivants :
 * Azure IoT Hub
 * Compte de Stockage Azure
 * Compte Azure Media Services
-* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installé
+* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) installé
 
 ## <a name="concepts"></a>Concepts
 
@@ -135,9 +135,9 @@ Ouvrez src/edge/deployment.objectCounter.template.json. Il existe quatre entré
 * **rtspsim** : Il s’agit du simulateur RTSP.
 * **objectCounter** : Il s’agit du module qui recherche des objets spécifiques dans les résultats de yolov3.
 
-Pour le module objectCounter, consultez la chaîne (${MODULES.objectCounter}) utilisée pour la valeur « image ». Celle-ci se base sur le [tutoriel](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux) sur le développement d’un module IoT Edge. Visual Studio Code reconnaît automatiquement que le code du module objectCounter se trouve sous src/edge/modules/objectCounter. 
+Pour le module objectCounter, consultez la chaîne (${MODULES.objectCounter}) utilisée pour la valeur « image ». Celle-ci se base sur le [tutoriel](../../iot-edge/tutorial-develop-for-linux.md) sur le développement d’un module IoT Edge. Visual Studio Code reconnaît automatiquement que le code du module objectCounter se trouve sous src/edge/modules/objectCounter. 
 
-Lisez [cette section](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) sur la manière de déclarer des routes dans le manifeste de déploiement IoT Edge. Examinez ensuite les routes dans le fichier JSON du modèle. Remarque :
+Lisez [cette section](../../iot-edge/module-composition.md#declare-routes) sur la manière de déclarer des routes dans le manifeste de déploiement IoT Edge. Examinez ensuite les routes dans le fichier JSON du modèle. Remarque :
 
 * LVAToObjectCounter est utilisé pour envoyer certains événements à un point de terminaison du module objectCounter.
 * ObjectCounterToLVA est utilisé pour envoyer un événement déclencheur à un point de terminaison spécifique (qui doit être le nœud source IoT Hub) du module lvaEdge.
@@ -150,7 +150,7 @@ Lisez [cette section](https://docs.microsoft.com/azure/iot-edge/module-compositi
 
 Le manifeste de déploiement définit les modules qui sont déployés sur un périphérique et les paramètres de configuration de ces modules. Effectuez les étapes suivantes pour générer un manifeste à partir du fichier de modèle, puis déployez-le sur le périphérique.
 
-À l’aide de Visual Studio Code, suivez [ces instructions](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) pour vous connecter à Docker. Sélectionnez ensuite **Créer et envoyer (push) la solution IoT Edge**. Utilisez src/edge/deployment.objectCounter.template.json pour cette étape.
+À l’aide de Visual Studio Code, suivez [ces instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) pour vous connecter à Docker. Sélectionnez ensuite **Créer et envoyer (push) la solution IoT Edge**. Utilisez src/edge/deployment.objectCounter.template.json pour cette étape.
 
 ![Créer et envoyer (push) la solution IoT Edge](./media/event-based-video-recording-tutorial/build-push.png)
 
@@ -259,7 +259,7 @@ Pour voir les événements du module objectCounter et du module Live Video Analy
 
 ## <a name="interpret-the-results"></a>Interpréter les résultats 
 
-Quand vous exécutez le graphe multimédia, le module Live Video Analytics sur IoT Edge envoie certains événements opérationnels et de diagnostic au hub IoT Edge. Ces événements sont les messages que vous voyez dans la fenêtre **SORTIE** de Visual Studio Code. Ils contiennent une section body et une section applicationProperties. Pour comprendre ce que ces sections représentent, consultez [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quand vous exécutez le graphe multimédia, le module Live Video Analytics sur IoT Edge envoie certains événements opérationnels et de diagnostic au hub IoT Edge. Ces événements sont les messages que vous voyez dans la fenêtre **SORTIE** de Visual Studio Code. Ils contiennent une section body et une section applicationProperties. Pour comprendre ce que ces sections représentent, consultez [Créer et lire des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Dans les messages suivants, les propriétés de l’application et le contenu du corps sont définis par le module Live Video Analytics.
 
@@ -413,4 +413,4 @@ Si vous envisagez d’essayer les autres tutoriels, tenez-vous en aux ressources
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) avec prise en charge de RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez consulter les caméras IP prenant RTSP en charge dans la [page de produits conformes ONVIF](https://www.onvif.org/conformant-products/) en recherchant les appareils conformes aux profils G, S ou T.
-* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) pour inscrire l’appareil auprès d’Azure IoT Hub.
+* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](../../iot-edge/quickstart-linux.md) pour inscrire l’appareil auprès d’Azure IoT Hub.

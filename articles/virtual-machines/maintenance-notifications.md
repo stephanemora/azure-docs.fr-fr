@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: e65b2c94b5042f857a6ea5fc61136c572b780764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678509"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510036"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
@@ -25,7 +25,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions).
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée à l'administrateur et aux coadministrateurs du service. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, des SMS et des webhooks, en utilisant des [Alertes de journal d’activité](../service-health/alerts-activity-log-service-notifications.md).  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée à l'administrateur et aux coadministrateurs du service. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, des SMS et des webhooks, en utilisant des [Alertes de journal d’activité](../service-health/alerts-activity-log-service-notifications-portal.md).  
 - Quand une notification est envoyée, une *fenêtre en libre-service* est rendue disponible. Durant cette fenêtre, vous pouvez interroger les machines virtuelles affectées et démarrer une maintenance en fonction de vos besoins en matière de planification. La fenêtre en libre-service est généralement d’environ 35 jours.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
@@ -76,13 +76,13 @@ Il est conseillé d’utiliser la maintenance de libre-service dans les cas suiv
 
 **R :** Les machines virtuelles déployées dans un groupe à haute disponibilité ou dans des groupes de machines virtuelles identiques incluent la notion de domaines de mise à jour (UD). Lors de la réalisation de la maintenance, Azure respecte la contrainte de domaine de mise à jour et ne redémarre pas les machines virtuelles à partir de différents domaines de mise à jour (dans le même groupe à haute disponibilité).  Azure attend également au moins 30 minutes avant de passer au groupe de machines virtuelles suivant. 
 
-Pour plus d’informations sur la haute disponibilité, consultez [Disponibilité des machines virtuelles dans Azure](./linux/availability.md).
+Pour plus d’informations sur la haute disponibilité, consultez [Disponibilité des machines virtuelles dans Azure](availability.md).
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 
 **R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux administrateurs d’abonnement (un e-mail par abonnement). Il est possible de configurer des canaux et des destinataires supplémentaires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Dans le cas où vous déployez une machine virtuelle dans une région où la planification de la maintenance est déjà effectuée, vous ne recevez pas la notification. Au lieu de cela, vous devez vérifier l’état de maintenance de la machine virtuelle.
 
-**Q : Je ne vois aucune indication de maintenance planifiée dans le portail, PowerShell ou l’interface CLI. D’où vient le problème ?**
+**Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. D’où vient le problème ?**
 
 **R :** Les informations relatives à la maintenance planifiée sont disponibles pendant une vague d’opérations de maintenance planifiées uniquement pour les machines virtuelles qu’elle impacte. En d’autres termes, si vous ne voyez pas de données, il est possible que la vague d’opérations de maintenance soit déjà terminée (ou qu’elle n’ait pas démarré), ou bien que votre machine virtuelle soit déjà hébergée sur un serveur mis à jour.
 
@@ -122,4 +122,3 @@ Pour plus d’informations sur la haute disponibilité, consultez [Disponibilit�
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également gérer la maintenance planifiée à l’aide d’[Azure CLI](maintenance-notifications-cli.md), d’[Azure PowerShell](maintenance-notifications-powershell.md) ou du [portail](maintenance-notifications-portal.md).
-

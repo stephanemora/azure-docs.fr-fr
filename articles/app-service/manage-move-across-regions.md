@@ -4,14 +4,14 @@ description: Découvrez comment déplacer des ressources App Service d’une ré
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945475"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524852"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Déplacer une application App Service vers une autre région
+# <a name="move-an-app-service-resource-to-another-region"></a>Déplacer une ressource App Service vers une autre région
 
 Cet article décrit comment déplacer vos ressources App Service vers une autre région Azure. Vous pouvez être amené à déplacer vos ressources vers une autre région pour diverses raisons. Par exemple, pour tirer parti d’une nouvelle région Azure, pour déployer des fonctionnalités ou des services disponibles dans des régions spécifiques uniquement, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter des exigences de planification de la capacité.
 

@@ -3,12 +3,13 @@ title: Conservation et stockage des données dans Azure Application Insights | M
 description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540058"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372397"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -38,24 +39,24 @@ Les Kits SDK d’Application Insights sont disponibles pour une variété d’ap
 ## <a name="what-data-does-it-collect"></a>Quelles données collecte-t-il ?
 Il existe trois sources de données :
 
-* Le SDK, que vous intégrez à votre application soit [pendant le développement](../../azure-monitor/app/asp-net.md), soit [au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md). Il existe différents Kits SDK pour différents types d’applications. Il existe également un [Kit SDK pour les pages web](../../azure-monitor/app/javascript.md), qui se charge dans le navigateur de l’utilisateur final en même temps que la page.
+* Le SDK, que vous intégrez à votre application soit [pendant le développement](./asp-net.md), soit [au moment de l’exécution](./monitor-performance-live-website-now.md). Il existe différents Kits SDK pour différents types d’applications. Il existe également un [Kit SDK pour les pages web](./javascript.md), qui se charge dans le navigateur de l’utilisateur final en même temps que la page.
   
-  * Chaque Kit SDK comporte un certain nombre de [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), utilisant diverses techniques pour collecter différents types de données de télémétrie.
+  * Chaque Kit SDK comporte un certain nombre de [modules](./configuration-with-applicationinsights-config.md), utilisant diverses techniques pour collecter différents types de données de télémétrie.
   * Si vous installez le Kit SDK pendant le développement, vous pouvez utiliser ses API pour envoyer votre propre télémétrie, ainsi que les modules standards. Ces données de télémétrie personnalisées peuvent inclure toutes les données que vous souhaitez envoyer.
-* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker et [les serveurs Java EE](../../azure-monitor/app/java-agent.md) peuvent disposer de ces agents.
-* [Les tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) sont des processus exécutés par Microsoft qui envoient des requêtes à votre application web à intervalles réguliers. Les résultats sont envoyés au service Application Insights.
+* Sur certains serveurs web, il existe également des agents qui s’exécutent en même temps que l’application et qui envoient des données de télémétrie concernant l’UC, la mémoire et l’occupation du réseau. Par exemple, les machines virtuelles Azure, les hôtes Docker et [les serveurs Java EE](./java-agent.md) peuvent disposer de ces agents.
+* [Les tests de disponibilité](./monitor-web-app-availability.md) sont des processus exécutés par Microsoft qui envoient des requêtes à votre application web à intervalles réguliers. Les résultats sont envoyés au service Application Insights.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Quel genre de données est collecté ?
 Les principales catégories sont :
 
-* [La télémétrie du serveur web](../../azure-monitor/app/asp-net.md) : requêtes HTTP.  L’URI, le temps nécessaire pour traiter la demande, le code de réponse, l’adresse IP du client. `Session id`.
-* [Les pages web](../../azure-monitor/app/javascript.md) : page, utilisateur et décomptes de sessions. Le temps de chargement de page. Les exceptions. Appels Ajax.
+* [La télémétrie du serveur web](./asp-net.md) : requêtes HTTP.  L’URI, le temps nécessaire pour traiter la demande, le code de réponse, l’adresse IP du client. `Session id`.
+* [Les pages web](./javascript.md) : page, utilisateur et décomptes de sessions. Le temps de chargement de page. Les exceptions. Appels Ajax.
 * Les performances des compteurs : mémoire, UC, E/S, occupation du réseau.
 * Le contexte du client et du serveur : système d’exploitation, paramètres régionaux, type d’appareil, navigateur, résolution d’écran.
-* [Les exceptions](../../azure-monitor/app/asp-net-exceptions.md) et les incidents : **vidages de pile**, `build id`, type d’UC. 
-* [Les dépendances](../../azure-monitor/app/asp-net-dependencies.md) : les appels aux services externes tels que REST, SQL, AJAX. L’URI ou la chaîne de connexion, la durée, la réussite, la commande.
-* [Les tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) : durée et étapes du test, réponses.
-* [Les journaux d’activité de suivi](../../azure-monitor/app/asp-net-trace-logs.md) et [la télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux d’activité ou télémétrie**.
+* [Les exceptions](./asp-net-exceptions.md) et les incidents : **vidages de pile**, `build id`, type d’UC. 
+* [Les dépendances](./asp-net-dependencies.md) : les appels aux services externes tels que REST, SQL, AJAX. L’URI ou la chaîne de connexion, la durée, la réussite, la commande.
+* [Les tests de disponibilité](./monitor-web-app-availability.md) : durée et étapes du test, réponses.
+* [Les journaux d’activité de suivi](./asp-net-trace-logs.md) et [la télémétrie personnalisée](./api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux d’activité ou télémétrie**.
 
 [Plus de détails](#data-sent-by-application-insights).
 
@@ -71,16 +72,16 @@ Pour les pages web, ouvrez la fenêtre de débogage de votre navigateur.
 ![Appuyez sur F12 et ouvrez l’onglet Réseau.](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>Puis-je écrire le code pour filtrer les données de télémétrie avant qu’elles soient envoyées ?
-Cela est possible en écrivant un [plug-in de processeur de télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
+Cela est possible en écrivant un [plug-in de processeur de télémétrie](./api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Combien de temps sont conservées les données ?
-Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 730 jours maximum. Vous pouvez [sélectionner une durée de rétention](./pricing.md#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 jours. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser [l’exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage durant l’ingestion des données. 
+Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 730 jours maximum. Vous pouvez [sélectionner une durée de rétention](./pricing.md#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 jours. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser [l’exportation continue](./export-telemetry.md) pour les copier dans un compte de stockage durant l’ingestion des données. 
 
 Des frais supplémentaires sont facturés pour les données conservées pendant plus de 90 jours. Plus d’informations sur la tarification d’Application Insights sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
-[Les captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant 15 jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
+[Les captures instantanées de débogage](./snapshot-debugger.md) sont stockées pendant 15 jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -233,7 +234,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Données personnelles stockées dans Application Insights
 
-Notre [article Données personnelles Application Insights](../../azure-monitor/platform/personal-data-mgmt.md) traite de ce problème en profondeur.
+Notre [article Données personnelles Application Insights](../platform/personal-data-mgmt.md) traite de ce problème en profondeur.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Mes utilisateurs peuvent-ils désactiver Application Insights ?
 Pas directement. Il n’existe pas de commutateur que vos utilisateurs peuvent utiliser pour désactiver Application Insights.
@@ -286,7 +287,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
 
 > [!NOTE]
-> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](./ip-collection.md) vous présentera vos options.
+> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](./ip-collection.md) vous présentera vos options.
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [https://www.maxmind.com](https://www.maxmind.com).
@@ -295,13 +296,14 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

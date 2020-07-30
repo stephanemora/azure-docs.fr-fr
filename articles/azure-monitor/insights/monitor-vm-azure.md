@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326186"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -134,7 +134,7 @@ Une fois que vous avez configuré la collecte des données de supervision pour u
 |:---|:---|
 | Vue d’ensemble | Affiche les [métriques de plateforme](../platform/data-platform-metrics.md) pour l’hôte de machine virtuelle. Cliquez sur un graphique pour utiliser ces données dans [Metrics Explorer](../platform/metrics-getting-started.md). |
 | Journal d’activité | Les entrées du [journal d’activité](../platform/activity-log.md#view-the-activity-log) sont filtrées pour la machine virtuelle actuelle. |
-| Insights | Ouvre [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) avec la carte de la machine virtuelle sélectionnée. |
+| Insights | Ouvre [Azure Monitor pour machines virtuelles](./vminsights-overview.md) avec la carte de la machine virtuelle sélectionnée. |
 | Alertes | Montre les [alertes](../platform/alerts-overview.md) de la machine virtuelle actuelle.  |
 | Mesures | Ouvre [Metrics Explorer](../platform/metrics-getting-started.md) avec l’étendue définie sur la machine virtuelle actuelle. |
 | Paramètres de diagnostic | Active et configure l’[extension de diagnostic](../platform/diagnostics-extension-overview.md) pour la machine virtuelle actuelle. |
@@ -242,3 +242,4 @@ Pour plus d’informations sur la connexion de votre groupe d’administration S
 
 * [Découvrez comment analyser des données dans des journaux Azure Monitor à l’aide de requêtes de journal.](../log-query/get-started-queries.md)
 * [Découvrez plus d’informations sur les alertes à l’aide des métriques et des journaux dans Azure Monitor.](../platform/alerts-overview.md)
+

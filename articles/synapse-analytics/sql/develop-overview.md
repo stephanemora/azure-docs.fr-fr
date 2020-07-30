@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81426765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070056"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour les fonctionnalités SQL Synapse dans Azure Synapse Analytics
 Cet article contient une liste de ressources pour le pool SQL et des fonctions SQL à la demande (préversion) de SQL Synapse. Les articles recommandés sont répartis dans deux sections : Principaux choix de conception et techniques de développement et de codage.
@@ -25,8 +25,8 @@ Ces articles ont pour but de vous aider à développer l’approche technique op
 ## <a name="key-design-decisions"></a>Choix de conception clés
 Les articles ci-dessous mettent en évidence les concepts et les choix de conception pour le développement SQL Synapse :
 
-|                                                          |   Pool SQL   | SQL à la demande |
-| -----------------------------------------------------    | ---- | ---- |
+| Article | Pool SQL | SQL à la demande |
+| ------- | -------- | ------------- |
 | [Connexions](connect-overview.md)                    | Oui | Oui |
 | [Classes de ressources et concurrence](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Oui    | Non |
 | [Transactions](develop-transactions.md)              | Oui | Non |
@@ -44,8 +44,8 @@ Les articles ci-dessous mettent en évidence les concepts et les choix de concep
 
 Vous trouverez ci-dessous des articles essentiels qui mettent en évidence des techniques de codage, des conseils et des recommandations spécifiques pour le développement :
 
-|                                            | Pool SQL | SQL à la demande |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Article | Pool SQL | SQL à la demande |
+| ------- | -------- | ------------- |
 | [procédures stockées](develop-stored-procedures.md)  | Oui                | Non                      |
 | [Étiquettes](develop-label.md)                           | Oui                | Non                      |
 | [Views](develop-views.md)                             | Oui                | Oui                     |

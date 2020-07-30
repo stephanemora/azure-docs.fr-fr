@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119225"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519731"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
@@ -23,14 +23,17 @@ La plupart des clients commencent par le niveau Gratuit qui leur permet d’éva
 
 ## <a name="feature-availability-by-tier"></a>Disponibilité des fonctionnalités par niveau
 
-Les fonctionnalités sont quasiment toutes disponibles à tous les niveaux, notamment au niveau Gratuit, mais une fonctionnalité ou un flux de travail gourmand en ressources peut ne pas fonctionner correctement si vous ne lui accordez pas les capacités suffisantes. Par exemple, [l’enrichissement de l’IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
-
 Le tableau suivant décrit les contraintes de fonctionnalité liées aux niveaux.
 
 | Fonctionnalité | Limites |
 |---------|-------------|
 | [indexeurs](search-indexer-overview.md) | Les indexeurs ne sont pas disponibles sur S3 HD. |
+| [Enrichissement par IA](search-security-manage-encryption-keys.md) | Fonctionne au niveau Gratuit, mais n’est pas recommandé. |
 | [Clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) | Non disponibles au niveau Gratuit. |
+| [Accès au pare-feu IP](service-configure-firewall.md) | Non disponibles au niveau Gratuit. |
+| [Intégration à Azure Private Link](service-create-private-endpoint.md) | Non disponibles au niveau Gratuit. |
+
+La plupart des fonctionnalités sont disponibles à tous les niveaux, notamment au niveau Gratuit, mais les fonctionnalités gourmandes en ressources peuvent ne pas fonctionner correctement si vous ne leur accordez pas les capacités suffisantes. Par exemple, [l’enrichissement par IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service Gratuit, sauf si le jeu de données est restreint.
 
 ## <a name="tiers-skus"></a>Niveaux (références SKU)
 
@@ -57,10 +60,10 @@ Des informations complémentaires sur les différents niveaux sont disponibles s
 
 Une solution reposant sur Recherche cognitive Azure peut occasionner des coûts de l’une des manières suivantes :
 
-+ Coût fixe du service proprement dit, exécuté 24 h sur 24 et 7 j sur 7avec une configuration minimale (une partition et un réplica)
-+ Coût incrémentiel lors de la montée en puissance (ajout de réplicas ou de partitions)
++ Coût du service proprement dit, exécuté 24 h sur 24 et 7 j sur 7avec une configuration minimale (une partition et un réplica)
++ Ajout de capacité (réplicas ou partitions)
 + Frais de bande passante (transfert de données sortant) 
-+ Recherche cognitive (ajout de Cognitive Services pour l’enrichissement par IA ou utilisation de Stockage Azure pour la base de connaissances)
++ Services complémentaires tels que l’enrichissement par IA (en ajoutant Cognitive Services aux ensembles de compétences qui définissent le traitement de l’IA ou en utilisant le stockage Azure pour la base de connaissances) ou déploiement d’un service de recherche dans un réseau virtuel privé
 
 ### <a name="service-costs"></a>Coûts de service
 
@@ -72,7 +75,7 @@ Lorsque vous estimez le coût d’une solution de recherche, gardez à l’espri
 
 ### <a name="bandwidth-charges"></a>Frais liés à la bande passante
 
-L’utilisation [d’indexeurs Recherche cognitive Azure](search-indexer-overview.md) peut avoir une incidence sur la facturation, selon l’emplacement de vos services. Vous pouvez éliminer totalement les frais de sortie de données si vous créez le service Recherche cognitive Azure dans la même région que vos données. Voici quelques informations issues de la [page de tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) :
+L’utilisation [d’indexeurs](search-indexer-overview.md) peut avoir une incidence sur la facturation, selon l’emplacement de vos services. Vous pouvez éliminer totalement les frais de sortie de données si vous créez le service Recherche cognitive Azure dans la même région que vos données. Voici quelques informations issues de la [page de tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) :
 
 + Microsoft ne facture aucune donnée entrante dans un quelconque service Azure, ni aucune donnée sortante du service Recherche cognitive Azure.
 + Dans les solutions multiservice, il n’existe aucuns frais pour les données qui transitent par le réseau lorsque tous les services se trouvent dans la même région.
@@ -108,7 +111,7 @@ La plupart des clients mettent seulement une partie de la capacité totale en li
 
 ## <a name="how-to-manage-costs"></a>Gestion des coûts
 
-Les suggestions suivantes peuvent vous aider à maintenir les coûts au minimum :
+Les suggestions suivantes peuvent vous aider à réduire les coûts ou à les gérer plus efficacement :
 
 + Créez toutes les ressources dans la même région ou dans le moins de régions possible afin de réduire ou d’éliminer les coûts liés à la bande passante.
 
@@ -141,7 +144,7 @@ La capacité et les coûts d’exécution du service vont de pair. Les niveaux i
 
 Ce sont généralement les exigences métier qui imposent le nombre d’index dont vous aurez besoin. Par exemple, vous devrez peut-être disposer d’un index global pour un référentiel de documents volumineux. Ou vous pourrez avoir besoin de plusieurs index basés sur la région, l’application ou le créneau commercial.
 
-Pour déterminer la taille d’un index, vous devez en [créer un](search-create-index-portal.md). Sa taille repose sur les données importées et la configuration de l’index, notamment si vous activez des suggesteurs, un filtrage et un tri. Pour plus d’informations sur l’impact de la configuration sur la taille, consultez [Créer un index de base](search-what-is-an-index.md).
+Pour déterminer la taille d’un index, vous devez en [créer un](search-what-is-an-index.md). Sa taille repose sur les données importées et la configuration de l’index, notamment si vous activez des suggesteurs, un filtrage et un tri.
 
 Pour la recherche en texte intégral, la structure de données principale constitue une structure d’[index inversé](https://en.wikipedia.org/wiki/Inverted_index), dont les caractéristiques diffèrent de celles des données sources. Dans le cas d’un index inversé, la taille et la complexité sont déterminées par le contenu, et non nécessairement par la quantité de données qui l’alimentent. Une source de données volumineuse avec un haut niveau de redondance peut générer un index plus restreint qu’un jeu de données plus modeste présentant un contenu extrêmement variable. Il est donc généralement impossible de déduire la taille de l’index d’après celle du jeu de données d’origine.
 
@@ -155,7 +158,7 @@ Une méthode possible pour l’estimation de la capacité consiste à commencer 
 
 + [Créez un service gratuit](search-create-service-portal.md).
 + Préparez un petit jeu de données représentatif.
-+ [Générez un index initial sur le portail](search-create-index-portal.md) et notez sa taille. Les fonctionnalités et attributs ont une incidence sur le stockage. Par exemple, l’ajout de suggesteurs (requêtes en cours de frappe) augmente les besoins en stockage. À l’aide du même jeu de données, vous pouvez tenter de créer plusieurs versions d’un index, avec des attributs différents sur chaque champ, pour voir comment les besoins de stockage varient. Pour plus d’informations, voir [« Implications au niveau du stockage » dans Créer un index de base](search-what-is-an-index.md#index-size).
++ [Générez un index initial sur le portail](search-get-started-portal.md) et notez sa taille. Les fonctionnalités et attributs ont une incidence sur le stockage. Par exemple, l’ajout de suggesteurs (requêtes en cours de frappe) augmente les besoins en stockage. À l’aide du même jeu de données, vous pouvez tenter de créer plusieurs versions d’un index, avec des attributs différents sur chaque champ, pour voir comment les besoins de stockage varient. Pour plus d’informations, voir [« Implications au niveau du stockage » dans Créer un index de base](search-what-is-an-index.md#index-size).
 
 Si vous disposez d’une estimation approximative, vous pouvez doubler cette quantité pour budgéter deux index (développement et production), puis choisir votre niveau en conséquence.
 
@@ -171,7 +174,7 @@ Des ressources dédiées peuvent prendre en charge un échantillonnage et des te
     + En revanche, si vous savez que vous devrez traiter des charges de requêtes et d’indexation à grande échelle, choisissez dès le départ un niveau élevé, S2 ou même S3.
     + Enfin, si vous indexez une grande quantité de données et que la charge de requêtes est relativement faible, comme dans le cas d’une application métier interne, commencez par le niveau À stockage optimisé L1 ou L2.
 
-1. [Générez un index initial](search-create-index-portal.md) pour déterminer comment les données sources se traduisent par un index. C’est l’unique façon d’estimer la taille de l’index.
+1. [Générez un index initial](search-what-is-an-index.md) pour déterminer comment les données sources se traduisent par un index. C’est l’unique façon d’estimer la taille de l’index.
 
 1. [Surveillez le stockage, les limites de service, le volume de requêtes et la latence](search-monitor-usage.md) dans le portail. Le portail vous indique le nombre de requêtes par seconde, les requêtes limitées et la latence de recherche. Toutes ces valeurs peuvent vous aider à décider si vous avez sélectionné le niveau adéquat. 
 
