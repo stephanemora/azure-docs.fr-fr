@@ -2,19 +2,19 @@
 title: Guide pratique pour sécuriser une application démon
 titleSuffix: Azure Maps
 description: Utilisez le portail Azure pour gérer l’authentification afin de configurer une application démon approuvée.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988384"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126769"
 ---
 # <a name="secure-a-daemon-application"></a>Sécuriser une application démon
 

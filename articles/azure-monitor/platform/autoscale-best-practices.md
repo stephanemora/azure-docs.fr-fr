@@ -4,12 +4,12 @@ description: Modèles de mise à l’échelle automatique d’Azure pour Web App
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539531"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327053"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [g
   Un paramètre de mise à l’échelle automatique a une valeur d’instances maximum, minimum et par défaut.
 * Une tâche de mise à l’échelle automatique lit la mesure associée à mettre à l’échelle, en vérification qu’elle a dépassé le seuil configuré pour l’augmentation ou la diminution de taille d’instance. Vous pouvez afficher une liste des mesures pour la mise à l’échelle automatique dans la rubrique [Mesures courantes de mise à l’échelle automatique Azure Monitor](autoscale-common-metrics.md).
 * Tous les seuils sont calculés au niveau de l’instance. Par exemple, « effectuer un scale-out d’une instance lorsque l’UC moyenne est supérieure à 80 % quand le nombre d’instances est égal à 2 » signifie effectuer un scale-out lorsque l’UC moyenne sur toutes les instances est supérieure à 80 %.
-* Tous les échecs de mise à l’échelle automatique sont enregistrés dans le journal d’activité. Vous pouvez ensuite configurer une [alerte de journal d’activité](./../../azure-monitor/platform/activity-log-alerts.md) pour être informé par e-mail, SMS ou webhooks à chaque fois qu’un échec de mise à l’échelle automatique se produit.
+* Tous les échecs de mise à l’échelle automatique sont enregistrés dans le journal d’activité. Vous pouvez ensuite configurer une [alerte de journal d’activité](./activity-log-alerts.md) pour être informé par e-mail, SMS ou webhooks à chaque fois qu’un échec de mise à l’échelle automatique se produit.
 * De même, toutes les opérations de mise à l’échelle réussies sont consignées dans le journal d’activité. Vous pouvez ensuite configurer une alerte de journal d’activité pour être informé par e-mail, SMS ou webhooks à chaque fois qu’une opération de mise à l’échelle automatique se termine avec succès. Vous pouvez également configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie via l’onglet Notifications du paramètre de mise à l’échelle automatique.
 
 ## <a name="autoscale-best-practices"></a>Meilleures pratiques relatives à la mise à l’échelle automatique
@@ -151,3 +151,4 @@ Outre l’activation des alertes de journal d’activité, vous pouvez configure
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de scale-in/scale-out automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

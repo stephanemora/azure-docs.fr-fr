@@ -3,12 +3,12 @@ title: Sauvegarder des fichiers dans des machines virtuelles Azure Stack
 description: Utilisez Sauvegarde Azure pour sauvegarder et restaurer des fichiers et applications Azure Stack dans votre environnement Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032763"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Sauvegarder des fichiers et applications sur Azure Stack
 
@@ -44,7 +44,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recommande de placer toutes les données qui partageront la même stratégie de protection dans un seul groupe de protection. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommande de placer toutes les données qui partageront la même stratégie de protection dans un seul groupe de protection. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](/system-center/dpm/create-dpm-protection-groups).
 
 4. Dans l’écran **Sélectionner la méthode de protection des données**, entrez le nom du groupe de protection. Cochez la case **I want short-term protection using:** (Je souhaite une protection à court terme avec :) et **I want online protection** (Je souhaite une protection en ligne). Cliquez sur **Suivant**.
 
@@ -133,5 +133,5 @@ Pour voir les entités du serveur de sauvegarde Azure sur le portail Azure, vous
 
 Pour plus d’informations sur l’utilisation d’un serveur de sauvegarde Azure pour protéger d’autres charges de travail, voir les articles suivants :
 
-* [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Sauvegarder SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Sauvegarder un batterie de serveurs SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+* [Sauvegarder SQL Server](./backup-mabs-sql-azure-stack.md)

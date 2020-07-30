@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028360"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Résoudre les erreurs d’arrêt de Windows : échec d’initialisation du service d’annuaire
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes liés à
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez l’outil [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que la machine virtuelle doit être redémarrée en raison d’une erreur, affichant le code d’arrêt **0xC00002E1** dans Windows Server 2008 R2 ou **0xC00002E2** dans Windows Server 2012 ou version ultérieure.
+Lorsque vous utilisez l’outil [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que la machine virtuelle doit être redémarrée en raison d’une erreur, affichant le code d’arrêt **0xC00002E1** dans Windows Server 2008 R2 ou **0xC00002E2** dans Windows Server 2012 ou version ultérieure.
 
 ![L’écran de démarrage de Windows Server 2012 indique « Votre ordinateur a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. »](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -62,7 +62,7 @@ Cette erreur peut être causée par l’une des conditions suivantes :
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour préparer une machine virtuelle de réparation.
+1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="free-up-space-on-disk"></a>Libérer de l’espace sur le disque
@@ -70,11 +70,11 @@ Cette erreur peut être causée par l’une des conditions suivantes :
 Étant donné que le disque est maintenant attaché à une machine virtuelle de réparation, vérifiez que le disque contenant la base de données interne Active Directory dispose de suffisamment d’espace pour fonctionner correctement.
 
 1. Vérifiez si le disque est plein en cliquant avec le bouton droit sur le lecteur et en sélectionnant **Propriétés**.
-1. Si le disque dispose de moins de 300 Mo d’espace libre, [augmentez-le jusqu’à un maximum de 1 To en utilisant PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Si le disque dispose de moins de 300 Mo d’espace libre, [augmentez-le jusqu’à un maximum de 1 To en utilisant PowerShell](../windows/expand-os-disk.md).
 1. Si le disque a atteint 1 To d’espace utilisé, nettoyez le disque.
 
-   1. Utilisez PowerShell pour [détacher le disque de données](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) de la machine virtuelle défaillante.
-   1. Une fois qu’il est détaché de la machine virtuelle défaillante, [attachez le disque de données](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) à une machine virtuelle opérationnelle.
+   1. Utilisez PowerShell pour [détacher le disque de données](../windows/detach-disk.md#detach-a-data-disk-using-powershell) de la machine virtuelle défaillante.
+   1. Une fois qu’il est détaché de la machine virtuelle défaillante, [attachez le disque de données](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) à une machine virtuelle opérationnelle.
    1. Utilisez l’[outil Nettoyage de disque](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) pour libérer de l’espace supplémentaire.
 
 1. **Facultatif** : si plus d’espace est nécessaire, ouvrez une instance CMD et entrez la commande `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` pour défragmenter le lecteur :
@@ -183,7 +183,7 @@ Pour activer la collecte de l’image mémoire et la console série, exécutez l
 
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-1. Suivez l’[étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour réassembler la machine virtuelle.
+1. Suivez l’[étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour réassembler la machine virtuelle.
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>Reconfigurer la stratégie de réseau de zone de stockage
 

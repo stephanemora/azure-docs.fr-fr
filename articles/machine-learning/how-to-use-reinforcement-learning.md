@@ -5,17 +5,17 @@ description: Apprenez à utiliser l’apprentissage par renforcement Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.custom: tracking-python
-ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 7a9c367c1669aab18da5a7cb1f7d732f9b8aee9e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203286"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319063"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -168,6 +168,8 @@ else:
      # For a more detailed view of current AmlCompute status, use get_status()
     print(head_compute_target.get_status().serialize())
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="worker-computing-cluster"></a>Cluster de calcul Worker
 

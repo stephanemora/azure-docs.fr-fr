@@ -3,19 +3,19 @@ title: Exploration des journaux d’activité .NET dans Application Insights
 description: Effectuer une recherche dans les journaux d’activité générés par Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829531"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321324"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
 Envoyez des journaux de suivi de diagnostic pour votre application ASP.NET/ASP.NET Core à partir de ILogger, NLog, log4Net ou System.Diagnostics.Trace vers [Azure Application Insights][start]. Pour les applications Python, envoyez des journaux de traçage de diagnostics à l’aide d’AzureLogHandler dans OpenCensus Python pour Azure Monitor. Vous pourrez ensuite les explorer et y effectuer des recherches. Ces journaux d’activité sont fusionnés avec d’autres fichiers journaux provenant de votre application, ce qui vous permet d’identifier les traces associées à chaque demande d’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
 
 > [!NOTE]
-> Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [**Application Insights TrackTrace()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) directement.
+> Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace) directement.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Installation de la journalisation sur votre application
@@ -34,7 +34,7 @@ Installez le framework de journalisation de votre choix dans votre projet, ce qu
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Configuration d’Application Insights pour la collecte des journaux d’activité
-Si vous ne l’avez pas encore fait, [ajoutez Application Insights à votre projet](../../azure-monitor/app/asp-net.md). Une option permettant d’inclure le collecteur de journaux doit s’afficher.
+Si vous ne l’avez pas encore fait, [ajoutez Application Insights à votre projet](./asp-net.md). Une option permettant d’inclure le collecteur de journaux doit s’afficher.
 
 Vous pouvez également cliquer avec le bouton droit sur votre projet dans l’Explorateur de solutions pour **configurer Application Insights**. Sélectionnez l’option **Configure trace collection** (Configurer la collecte des traces).
 
@@ -84,7 +84,7 @@ Si vous préférez log4net ou NLog, utilisez :
 ```
 
 ## <a name="use-eventsource-events"></a>Utiliser les événements EventSource
-Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
+Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -100,7 +100,7 @@ Pour chaque source, vous pouvez définir les paramètres suivants :
  * **Keywords** (facultatif) spécifie la valeur entière de combinaisons de mots clés à utiliser.
 
 ## <a name="use-diagnosticsource-events"></a>Utiliser les événements DiagnosticSource
-Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) de façon à les envoyer à Application Insights en tant que traces. Commencez par installer le package NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Ensuite, modifiez la section « TelemetryModules » du fichier [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
+Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) de façon à les envoyer à Application Insights en tant que traces. Commencez par installer le package NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Ensuite, modifiez la section « TelemetryModules » du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -113,7 +113,7 @@ Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource]
 Pour chaque DiagnosticSource à tracer, ajoutez une entrée avec l’attribut **Name** défini sur le nom de votre DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Utiliser les événements ETW
-Vous pouvez configurer les événements du suivi d’événements pour Windows (ETW, Event Tracing for Windows) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EtwCollector`. Ensuite, modifiez la section « TelemetryModules » du fichier [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
+Vous pouvez configurer les événements du suivi d’événements pour Windows (ETW, Event Tracing for Windows) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EtwCollector`. Ensuite, modifiez la section « TelemetryModules » du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 > [!NOTE] 
 > Les événements ETW peuvent uniquement être collectés si le processus hébergeant le Kit de développement logiciel (SDK) s’exécute sous une identité membre des Utilisateurs ou Administrateurs du journal de performances.
@@ -158,7 +158,7 @@ Cela vous permettrait, dans [Recherche][diagnostic], de filtrer facilement tous 
 ## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler pour OpenCensus Python
 Le gestionnaire de journaux Azure Monitor vous permet d’exporter des journaux Python vers Azure Monitor.
 
-Instrumentez votre application avec le [kit SDK OpenCensus Python](../../azure-monitor/app/opencensus-python.md) pour Azure Monitor.
+Instrumentez votre application avec le [kit SDK OpenCensus Python](./opencensus-python.md) pour Azure Monitor.
 
 Cet exemple montre comment envoyer un journal relatif aux avertissements à Azure Monitor.
 
@@ -185,14 +185,14 @@ Vous pouvez par exemple :
 * Enregistrer la configuration d’une page en tant que favori
 
 > [!NOTE]
->Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité *d’échantillonnage adaptatif* peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
+>Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité *d’échantillonnage adaptatif* peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Dépannage
 ### <a name="how-do-i-do-this-for-java"></a>Comment faire pour Java ?
-Dans l’instrumentation sans code Java (recommandé), les journaux sont collectés directement, à l’aide de l’[agent Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+Dans l’instrumentation sans code Java (recommandé), les journaux sont collectés directement, à l’aide de l’[agent Java 3.0](./java-in-process-agent.md).
 
-Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [adaptateurs de journaux Java](../../azure-monitor/app/java-trace-logs.md).
+Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [adaptateurs de journaux Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Le menu contextuel du projet ne contient aucune option Application Insights
 * Assurez-vous que Developer Analytics Tools est installé sur l’ordinateur de développement. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis recherchez **Developer Analytics Tools**. S’il n’est pas dans l’onglet **Installé**, ouvrez l’onglet **En ligne** et installez-le.
@@ -200,7 +200,7 @@ Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [ada
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Aucune option d’adaptateur de journalisation dans l’outil de configuration
 * Installez d’abord l’infrastructure de journalisation.
-* Si vous utilisez System.Diagnostics.Trace, assurez-vous qu’il est [configuré dans *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Si vous utilisez System.Diagnostics.Trace, assurez-vous qu’il est [configuré dans *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Vérifiez que vous disposez de la dernière version d’Application Insights. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis ouvrez l’onglet **Mises à jour**. Si **Developer Analytics Tools** est présent, sélectionnez-le pour le mettre à jour.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>J’obtiens le message d’erreur « Instrumentation key cannot be empty » (La clé d’instrumentation ne peut pas être vide).
@@ -210,10 +210,10 @@ Vous avez probablement installé le package Nuget de l’adaptateur de journalis
 Le passage des événements et des demandes dans le pipeline peut prendre un certain temps.
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
-Plusieurs facteurs affectent la quantité de données conservées. Consultez la section [Limites](../../azure-monitor/app/api-custom-events-metrics.md#limits) de la page sur les métriques d’événement client pour plus d’informations.
+Plusieurs facteurs affectent la quantité de données conservées. Consultez la section [Limites](./api-custom-events-metrics.md#limits) de la page sur les métriques d’événement client pour plus d’informations.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Je ne vois pas certaines entrées de journal que j’attendais
-Si votre application envoie de grandes quantités de données et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
+Si votre application envoie de grandes quantités de données et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](./sampling.md)
 
 ## <a name="next-steps"></a><a name="add"></a>Étapes suivantes
 
@@ -224,9 +224,10 @@ Si votre application envoie de grandes quantités de données et si vous utilise
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[qna]: ../faq.md
+[start]: ./app-insights-overview.md
+

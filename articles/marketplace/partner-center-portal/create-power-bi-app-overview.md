@@ -4,15 +4,15 @@ description: Cet article décrit les étapes principales de la publication d’u
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317601"
 ---
 # <a name="power-bi-app-creation-overview"></a>Vue d’ensemble de la création d’applications Power BI
 

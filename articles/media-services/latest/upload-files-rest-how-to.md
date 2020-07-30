@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57839c82af71f7cedfe1b3c77095210d273be4a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091842"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Charger des fichiers dans un compte Media Services v3 à l’aide de REST
 
-Dans Media Services, vous chargez vos fichiers numériques dans un conteneur d'objets blob associé à une ressource. L’entité [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers). Une fois les fichiers chargés dans le conteneur de la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu.
+Dans Media Services, vous chargez vos fichiers numériques dans un conteneur d'objets blob associé à une ressource. L’entité [Asset](/rest/api/media/operations/asset) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers). Une fois les fichiers chargés dans le conteneur de la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu.
 
 Cet article explique comment charger un fichier local à l'aide de REST.
 

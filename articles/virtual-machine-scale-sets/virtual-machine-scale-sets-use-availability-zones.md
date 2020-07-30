@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029312"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -92,7 +92,7 @@ Pour obtenir un exemple complet de groupe identique dans une zone unique et de r
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant interzone
 
-Pour créer un groupe identique redondant interzone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard*. Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes interzone. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
+Pour créer un groupe identique redondant interzone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard*. Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes interzone. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `--zones`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet*, est créé dans les zones *1,2,3* :
 
@@ -209,7 +209,7 @@ Pour créer un groupe identique redondant interzone, spécifiez plusieurs valeur
 }
 ```
 
-Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzones. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
+Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzones. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour obtenir un exemple complet de groupe identique redondant interzone et de ressources réseau, consultez [cet exemple de modèle Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

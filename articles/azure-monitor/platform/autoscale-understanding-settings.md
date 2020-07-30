@@ -4,12 +4,12 @@ description: Il s’agit d’une description détaillée des paramètres de mise
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317465"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.
@@ -301,8 +301,9 @@ Par exemple, choisissons un groupe de machines virtuelles avec une capacité act
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la mise à l’échelle automatique, consultez les ressources suivantes :
 
-* [Vue d’ensemble de la mise à l’échelle automatique](../../azure-monitor/platform/autoscale-overview.md)
-* [Mesures courantes pour la mise à l’échelle automatique dans Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Vue d’ensemble de la mise à l’échelle automatique](./autoscale-overview.md)
+* [Mesures courantes pour la mise à l’échelle automatique dans Azure Monitor](./autoscale-common-metrics.md)
+* [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](./autoscale-best-practices.md)
+* [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](./autoscale-webhook-email.md)
 * [Paramètres de mise à l’échelle automatique](/rest/api/monitor/autoscalesettings)
+

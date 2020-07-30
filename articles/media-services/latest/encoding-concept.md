@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220160"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053330"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Encodage vidéo et audio avec Media Services
 
@@ -29,7 +29,7 @@ Les vidéos sont généralement fournies aux appareils et aux applications par [
 > [!IMPORTANT]
 > Media Services ne facture pas les travaux annulés ou erronés. Par exemple, un travail qui a atteint 50 % de progression et qui est annulé n’est pas facturé à hauteur de 50 % des minutes du travail. Vous n’êtes facturé que pour les travaux terminés.
 
-* Pour le téléchargement progressif, vous pouvez utiliser Azure Media Services afin de convertir un fichier multimédia numérique (mezzanine) en fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) qui contient la vidéo encodée avec le codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) et le son encodé avec le codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Ce fichier MP4 est écrit dans un actif multimédia dans votre compte de stockage. Vous pouvez utiliser les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé l’actif multimédia de sortie avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Pour le téléchargement progressif, vous pouvez utiliser Azure Media Services afin de convertir un fichier multimédia numérique (mezzanine) en fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) qui contient la vidéo encodée avec le codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) et le son encodé avec le codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Ce fichier MP4 est écrit dans un actif multimédia dans votre compte de stockage. Vous pouvez utiliser les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé l’actif multimédia de sortie avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services pour [lister les URL de conteneurs d’actifs multimédias](/rest/api/media/assets/listcontainersas). 
 * Pour préparer le contenu pour une diffusion en streaming à débit adaptatif, le fichier mezzanine doit être encodé à plusieurs débits (du plus élevé au plus faible). Pour garantir une transition appropriée de la qualité, le débit et la résolution de la vidéo sont réduits en parallèle. Il en résulte ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de débits (voir [Échelle de débit adaptatif générée automatiquement](autogen-bitrate-ladder.md)). Vous pouvez utiliser Media Services pour encoder vos fichiers mezzanine à plusieurs débits binaires. Dans ce cas, vous obtiendrez un ensemble de fichiers MP4 et de fichiers de configuration de diffusion en continu associés écrits dans une ressource de votre compte de stockage. Vous pouvez ensuite utiliser la fonctionnalité d’[empaquetage dynamique](dynamic-packaging-overview.md) dans Media Services pour diffuser la vidéo par le biais de protocoles de streaming tels que [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) et [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Vous devrez pour cela créer un [localisateur de streaming](streaming-locators-concept.md) et générer des URL de streaming correspondant aux protocoles pris en charge, qui peuvent ensuite être remises aux appareils/applications en fonction de leurs fonctionnalités.
 
 Le diagramme suivant illustre le workflow d’encodage à la demande avec l’empaquetage dynamique.
@@ -40,7 +40,7 @@ Cette rubrique vous explique comment encoder votre contenu avec Media Services v
 
 ## <a name="transforms-and-jobs"></a>Transformations et travaux
 
-Pour encoder avec Media Services v3, vous devez créer une [transformation](https://docs.microsoft.com/rest/api/media/transforms) et un [travail](https://docs.microsoft.com/rest/api/media/jobs). La transformation définit une recette à appliquer pour vos paramètres et sorties d’encodage ; le travail est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
+Pour encoder avec Media Services v3, vous devez créer une [transformation](/rest/api/media/transforms) et un [travail](/rest/api/media/jobs). La transformation définit une recette à appliquer pour vos paramètres et sorties d’encodage ; le travail est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
 
 Lors de l’encodage avec Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Dans Media Services v3, vous utilisez l’encodeur standard pour coder vos fichiers. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé.
 
@@ -72,9 +72,9 @@ La vidéo d’entrée peut être stockée sous la forme d’une ressource Media 
 
 ### <a name="creating-job-input-with-subclipping"></a>Création d’une entrée de travail avec sous-clipage
 
-Quand vous encodez une vidéo, vous pouvez spécifier qu’il faut également découper le fichier source et produire une sortie qui possède uniquement une partie souhaitée de la vidéo d’entrée. Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](https://docs.microsoft.com/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset).
+Quand vous encodez une vidéo, vous pouvez spécifier qu’il faut également découper le fichier source et produire une sortie qui possède uniquement une partie souhaitée de la vidéo d’entrée. Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset).
 
-Vous pouvez faire en sorte de créer un [travail](https://docs.microsoft.com/rest/api/media/jobs/create) avec un seul clip d’une vidéo à la demande ou d’une archive en temps réel (un événement enregistré). L’entrée de travail peut être un actif multimédia ou une URL HTTPS.
+Vous pouvez faire en sorte de créer un [travail](/rest/api/media/jobs/create) avec un seul clip d’une vidéo à la demande ou d’une archive en temps réel (un événement enregistré). L’entrée de travail peut être un actif multimédia ou une URL HTTPS.
 
 > [!TIP]
 > Si vous souhaitez diffuser un sous-clip de votre vidéo sans réencoder la vidéo, utilisez des [manifestes de préfiltrage avec empaquetage dynamique](filters-dynamic-manifest-overview.md).
@@ -92,7 +92,7 @@ Media Services prend en charge les préréglages d’encodage intégrés suivant
 
 ### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
-[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) est utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard.
+[BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) est utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard.
 
 Les préréglages suivants sont actuellement pris en charge :
 
@@ -109,13 +109,13 @@ Les préréglages suivants sont actuellement pris en charge :
 - **EncoderNamedPreset.H264SingleBitrate720p** : produit un fichier MP4 où la vidéo est encodée avec le codec H.264 à 4500 kbits/s et une hauteur d’image de 720 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 64 kbits/s.
 - **EncoderNamedPreset.H264SingleBitrateSD** : produit un fichier MP4 où la vidéo est encodée avec le codec H.264 à 2200 kbits/s et une hauteur d’image de 480 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 64 kbits/s.
 
-Pour afficher la liste des préréglages la plus récente, consultez [Préréglages intégrés à utiliser pour l’encodage de vidéos](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Pour afficher la liste des préréglages la plus récente, consultez [Préréglages intégrés à utiliser pour l’encodage de vidéos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 Pour voir comment sont utilisés les préréglages, consultez [Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. Utilisez ce préréglage lors de la personnalisation des préréglages de transformation.
+[StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. Utilisez ce préréglage lors de la personnalisation des préréglages de transformation.
 
 #### <a name="considerations"></a>Considérations
 
@@ -136,7 +136,7 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 ## <a name="preset-schema"></a>Schéma de préréglage
 
-Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 

@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321885"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
@@ -19,7 +19,7 @@ Cet article explique comment configurer une application logique pour qu’elle c
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](../../azure-monitor/platform/action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
+Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](./action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
 
 Le processus général est le suivant :
 
@@ -128,7 +128,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 14. En haut du **Concepteur d’applications logiques**, sélectionnez **Enregistrer** pour enregistrer votre application logique.
 
-15. Ouvrez votre groupe d’actions existant et ajoutez une action pour référencer l’application logique. Si vous n’avez pas de groupe d’actions, voir [Créer et gérer des groupes d’actions sur le portail Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) pour en créer un. N’oubliez pas d’enregistrer vos modifications.
+15. Ouvrez votre groupe d’actions existant et ajoutez une action pour référencer l’application logique. Si vous n’avez pas de groupe d’actions, voir [Créer et gérer des groupes d’actions sur le portail Azure](./action-groups.md) pour en créer un. N’oubliez pas d’enregistrer vos modifications.
 
     ![Mettre à jour le groupe d’actions](media/action-groups-logic-app/update-action-group.png "Mettre à jour le groupe d’actions")
 
@@ -294,7 +294,7 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
 Logic Apps propose plusieurs connecteurs qui vous permettent de déclencher des actions dans un large éventail d’applications et de bases de données. Slack, SQL Server, Oracle, Salesforce en sont quelques exemples. Pour plus d’informations sur les connecteurs, consultez [Connecteurs Logic App](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Dans une [vue d’ensemble des alertes du journal d’activité Azure](../../azure-monitor/platform/alerts-overview.md), découvrez comment recevoir des alertes.  
-* Découvrez comment [configurer des alertes lorsqu’une notification Azure Service Health est publiée](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md).
+* Dans une [vue d’ensemble des alertes du journal d’activité Azure](./alerts-overview.md), découvrez comment recevoir des alertes.  
+* Découvrez comment [configurer des alertes lorsqu’une notification Azure Service Health est publiée](../../service-health/alerts-activity-log-service-notifications-portal.md).
+* En savoir plus sur les [groupes d’actions](./action-groups.md).
 

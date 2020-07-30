@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029941"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
@@ -254,7 +254,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Définition d'interpolations  
  Les interpolations vous permettent de définir la forme de la pente utilisée pour calculer les scores. Le score allant d'élevé à faible, la pente est toujours décroissante, mais l’interpolation détermine la courbe de la pente descendante. Les interpolations utilisables sont les suivantes :  
 
-|||  
+| Interpolation | Description |  
 |-|-|  
 |`linear`|pour les éléments qui s’inscrivent dans la plage de max à min, la valorisation appliquée décroît de manière constante. L'interpolation de type Linear est l'interpolation par défaut pour un profil de calcul de score.|  
 |`constant`|Pour les éléments qui s'inscrivent dans la plage du début à la fin, une valorisation constante est appliquée aux résultats du classement.|  

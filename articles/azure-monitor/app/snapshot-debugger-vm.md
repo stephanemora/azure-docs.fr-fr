@@ -6,12 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325676"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 
@@ -21,11 +21,11 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurer la collecte de captures instantanées pour les applications ASP.NET
 
-1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web](../../azure-monitor/app/asp-net.md).
+1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web](./asp-net.md).
 
 2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
-3. Si nécessaire, personnalisez la configuration du Débogueur de capture instantanée ajoutée à [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configuration du Débogueur de capture instantanée par défaut est pratiquement vide et tous les paramètres sont facultatifs. Voici un exemple illustrant une configuration équivalente à la configuration par défaut :
+3. Si nécessaire, personnalisez la configuration du Débogueur de capture instantanée ajoutée à [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). La configuration du Débogueur de capture instantanée par défaut est pratiquement vide et tous les paramètres sont facultatifs. Voici un exemple illustrant une configuration équivalente à la configuration par défaut :
 
     ```xml
     <TelemetryProcessors>
@@ -59,12 +59,12 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
     </TelemetryProcessors>
     ```
 
-4. Des captures instantanées sont collectées uniquement sur des exceptions signalées à Application Insights. Dans certains cas (par exemple, des versions plus anciennes de la plateforme .NET), il se peut que vous deviez [configurer la collecte des exceptions](../../azure-monitor/app/asp-net-exceptions.md#exceptions) afin de voir celles-ci avec des captures instantanées dans le portail.
+4. Des captures instantanées sont collectées uniquement sur des exceptions signalées à Application Insights. Dans certains cas (par exemple, des versions plus anciennes de la plateforme .NET), il se peut que vous deviez [configurer la collecte des exceptions](./asp-net-exceptions.md#exceptions) afin de voir celles-ci avec des captures instantanées dans le portail.
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configurer la collecte de captures instantanées pour les applications utilisant ASP.NET Core 2.0 ou une version ultérieure
 
-1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web ASP.NET Core](../../azure-monitor/app/asp-net-core.md).
+1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web ASP.NET Core](./asp-net-core.md).
 
     > [!NOTE]
     > Être sûr que votre application fait référence à la version 2.1.1 ou plus récente, du package Microsoft.ApplicationInsights.AspNetCore.
@@ -151,7 +151,7 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>Configurer la collecte de captures instantanées pour d’autres applications .NET
 
-1. Si votre application n’est pas instrumentée avec Application Insights, commencez par [activer Application Insights et définir la clé d’instrumentation](../../azure-monitor/app/windows-desktop.md).
+1. Si votre application n’est pas instrumentée avec Application Insights, commencez par [activer Application Insights et définir la clé d’instrumentation](./windows-desktop.md).
 
 2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
@@ -180,3 +180,4 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
 - Générez du trafic vers votre application pouvant déclencher une exception. Attendez ensuite 10 à 15 minutes le temps que des captures instantanées soient envoyées à l’instance Application Insights.
 - Consultez [Captures instantanées](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) dans le portail Azure.
 - Pour obtenir de l’aide sur la résolution des problèmes liés au débogueur de capture instantanée, consultez [Résolution des problèmes liés au Débogueur de capture instantanée](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+

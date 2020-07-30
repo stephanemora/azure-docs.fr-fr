@@ -4,12 +4,12 @@ description: Modèle de données du contexte de télémétrie d’Application In
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322667"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexte de télémétrie : Modèle de données Application Insights
 
@@ -39,14 +39,14 @@ Longueur maximale : 64
 
 ## <a name="operation-id"></a>ID d’opération
 
-Identificateur unique de l’opération racine. Cet identificateur permet de regrouper les données de télémétrie pour plusieurs composants. Pour plus d’informations, consultez [Corrélation de la télémétrie](../../azure-monitor/app/correlation.md). L’ID d’opération est créé par une demande ou par la vue d’une page. Le reste de la télémétrie définit ce champ sur la valeur correspondant à la demande ou à la vue de page qui la contient. 
+Identificateur unique de l’opération racine. Cet identificateur permet de regrouper les données de télémétrie pour plusieurs composants. Pour plus d’informations, consultez [Corrélation de la télémétrie](./correlation.md). L’ID d’opération est créé par une demande ou par la vue d’une page. Le reste de la télémétrie définit ce champ sur la valeur correspondant à la demande ou à la vue de page qui la contient. 
 
 Longueur maximale : 128
 
 
 ## <a name="parent-operation-id"></a>ID d’opération parent
 
-Identificateur unique du parent immédiat de l’élément de télémétrie. Pour plus d’informations, consultez [Corrélation de la télémétrie](../../azure-monitor/app/correlation.md).
+Identificateur unique du parent immédiat de l’élément de télémétrie. Pour plus d’informations, consultez [Corrélation de la télémétrie](./correlation.md).
 
 Longueur maximale : 128
 
@@ -76,7 +76,7 @@ Longueur maximale : 64
 
 ID d’utilisateur anonyme. Représente l’utilisateur final de l’application. Quand des données de télémétrie sont envoyées à partir d’un service, le contexte d’utilisateur concerne l’utilisateur qui a lancé l’opération dans le service.
 
-[L’échantillonnage](../../azure-monitor/app/sampling.md) est une des techniques pour réduire la quantité de données de télémétrie collectées. L’algorithme d’échantillonnage tente de prélever des échantillons dans ou en dehors de toute la télémétrie corrélée. L’ID d’utilisateur anonyme est utilisé pour la génération de score d’échantillonnage. L’ID d’utilisateur anonyme doit donc être une valeur suffisamment aléatoire. 
+[L’échantillonnage](./sampling.md) est une des techniques pour réduire la quantité de données de télémétrie collectées. L’algorithme d’échantillonnage tente de prélever des échantillons dans ou en dehors de toute la télémétrie corrélée. L’ID d’utilisateur anonyme est utilisé pour la génération de score d’échantillonnage. L’ID d’utilisateur anonyme doit donc être une valeur suffisamment aléatoire. 
 
 Utiliser l’ID d’utilisateur anonyme pour stocker un nom d’utilisateur est une utilisation incorrecte du champ. Utilisez un ID d’utilisateur authentifié.
 
@@ -127,6 +127,7 @@ Longueur maximale : 256
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [étendre et filtrer la télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
+- Découvrez comment [étendre et filtrer la télémétrie](./api-filtering-sampling.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](data-model.md).
-- Découvrez la [configuration](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la collection de propriétés de contexte standard.
+- Découvrez la [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la collection de propriétés de contexte standard.
+

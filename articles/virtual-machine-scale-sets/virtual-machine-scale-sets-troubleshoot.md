@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029431"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
 **Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale ), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
@@ -73,7 +73,7 @@ Parmi les éléments à prendre en considération :
     Si les données ne sont pas visibles, cela implique que le problème provient de l’extension de diagnostic en cours d’exécution sur les machines virtuelles. Si les données sont présentes, cela implique un problème lié à vos règles de mise à l’échelle ou au service Insights. Vérifiez le [statut Azure](https://azure.microsoft.com/status/).
     
     Une fois que vous avez effectué ces étapes, si vous rencontrez toujours des problèmes de mise à l’échelle automatique, vous pouvez essayer les ressources suivantes : 
-    * Lisez les forums à partir de la [page de questions Microsoft Q&A ](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html) ou de [Stack Overflow](https://stackoverflow.com/questions/tagged/azure). 
+    * Lisez les forums à partir de la [page de questions Microsoft Q&A ](/answers/topics/azure-virtual-machines.html) ou de [Stack Overflow](https://stackoverflow.com/questions/tagged/azure). 
     * Enregistrez un appel au support. Soyez prêt à partager le modèle et une vue de vos données de performance.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

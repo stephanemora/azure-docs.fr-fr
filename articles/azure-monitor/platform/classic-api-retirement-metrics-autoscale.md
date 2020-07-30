@@ -4,12 +4,12 @@ description: Les API classiques de métriques et de mise à l’échelle automat
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317380"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Suppression par Azure Monitor d’API du modèle de déploiement classique pour les métriques et la mise à l’échelle automatique
 
@@ -21,7 +21,7 @@ Les mêmes opérations sont prises en charge via un ensemble d’API Azure Resou
 
 Si vous gérez la mise à l’échelle automatique via le portail Azure, le [nouveau SDK Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI ou les modèles Resource Manager, aucune action n’est nécessaire.  
 
-Si vous consommez des métriques via le portail Azure ou divers [services partenaires de surveillance](../../azure-monitor/platform/partners.md), aucune action n’est nécessaire. Microsoft collabore avec les partenaires de surveillance pour migrer vers les nouvelles API.
+Si vous consommez des métriques via le portail Azure ou divers [services partenaires de surveillance](./partners.md), aucune action n’est nécessaire. Microsoft collabore avec les partenaires de surveillance pour migrer vers les nouvelles API.
 
 ## <a name="who-is-affected"></a>Qui est affecté
 
@@ -89,3 +89,4 @@ Si vous avez des questions, contactez-nous MonitorClassicAPIhelp@microsoft.com.
 
 - [API REST plus récentes pour Azure Monitor](/rest/api/monitor/) 
 - [SDK Azure Monitor plus récent](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

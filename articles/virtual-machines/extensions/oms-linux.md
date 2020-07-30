@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736651"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029091"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
@@ -204,7 +204,7 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 
 | Code d'erreur | Signification | Action possible |
 | :---: | --- | --- |
-| 9 | Activation appelée prématurément | [Mettez à jour l’agent Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) à la dernière version disponible. |
+| 9 | Activation appelée prématurément | [Mettez à jour l’agent Azure Linux](./update-linux-agent.md) à la dernière version disponible. |
 | 10 | La machine virtuelle est déjà connectée à un espace de travail Log Analytics | Pour connecter la machine virtuelle à l’espace de travail spécifié dans le schéma d’extension, définissez stopOnMultipleConnections sur la valeur false dans les paramètres publics ou supprimez cette propriété. Cette machine virtuelle est facturée une fois pour chaque espace de travail auquel elle est connectée. |
 | 11 | Configuration non valide fournie à l’extension | Suivez les exemples précédents pour définir toutes les valeurs de propriété du déploiement. |
 | 17 | Échec d’installation du package Log Analytics | 

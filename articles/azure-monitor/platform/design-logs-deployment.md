@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317282"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -25,7 +25,7 @@ Un espace de travail Log Analytics offre :
 
 * Un emplacement géographique pour le stockage des données.
 * L’isolation des données en accordant à différents utilisateurs des droits d’accès suivant l’une de nos stratégies de conception recommandées.
-* Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [rétention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et la [limitation des données](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](./manage-cost-storage.md#changing-pricing-tier), la [rétention](./manage-cost-storage.md#change-the-data-retention-period) et la [limitation des données](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Cet article fournit une présentation détaillée des considérations relatives à la conception et à la migration, une présentation du contrôle d’accès ainsi que des implémentations de conception recommandées pour votre service informatique.
 
@@ -47,12 +47,12 @@ Aujourd’hui, les services informatiques sont modélisés à l’aide d’un mo
 
 Quand vous utilisez les agents Log Analytics pour collecter des données, vous devez comprendre ce qui suit pour planifier le déploiement de votre agent :
 
-* Pour collecter des données à partir d’agents Windows, vous pouvez [configurer chaque agent pour qu’il rend compte à un ou plusieurs espaces de travail](../../azure-monitor/platform/agent-windows.md), même s’il rend compte à un groupe d’administration System Center Operations Manager. L’agent Windows peut rendre compte à quatre espaces de travail au maximum.
+* Pour collecter des données à partir d’agents Windows, vous pouvez [configurer chaque agent pour qu’il rend compte à un ou plusieurs espaces de travail](./agent-windows.md), même s’il rend compte à un groupe d’administration System Center Operations Manager. L’agent Windows peut rendre compte à quatre espaces de travail au maximum.
 * L’agent Linux ne prend pas en charge l’hébergement multiple et peut uniquement rendre compte à un seul espace de travail.
 
 Si vous utilisez System Center Operations Manager 2012 R2 ou une version ultérieure :
 
-* Chaque groupe d’administration Operations Manager peut être [connecté à un seul espace de travail](../platform/om-agents.md). 
+* Chaque groupe d’administration Operations Manager peut être [connecté à un seul espace de travail](./om-agents.md). 
 * Les ordinateurs Linux rendant compte à un groupe d’administration doivent être configurés pour rendre compte directement à un espace de travail Log Analytics. Si vos ordinateurs Linux rendent déjà compte directement à un espace de travail et que vous souhaitez les superviser avec Operations Manager, effectuez les étapes suivantes pour [qu’ils rendent compte à un groupe d’administration Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * Vous pouvez installer l’agent Windows Log Analytics sur l’ordinateur Windows et faire en sorte qu’il rende compte à la fois à Operations Manager intégré à un espace de travail et à un autre espace de travail.
 
@@ -166,3 +166,4 @@ Lors de la planification de votre migration vers ce modèle, prenez en compte le
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour implémenter les contrôles et les autorisations de sécurité recommandés dans ce guide, consultez [Gérer l’accès aux journaux](manage-access.md).
+
