@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 06/03/2020
-ms.openlocfilehash: d8ace63ed99b8fc857f61b9211068e37e3bac412
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: bb66f215241755ae0fbcef3c95f5ea67a686a4fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84514558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092573"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-table-api-table-using-azure-cli"></a>Créer un verrou de ressource pour une table de l’API Table Azure Cosmos DB à partir d’Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "84514558"
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cette rubrique vous demande d’exécuter Azure CLI version 2.6.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
-> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent via le SDK Table Cosmos DB, le SDK Table Stockage Azure, les outils qui se connectent via des clés de compte ou le portail Azure, à moins que le compte Cosmos DB soit d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention des modifications à partir des SDK](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent via le SDK Table Cosmos DB, le SDK Table Stockage Azure, les outils qui se connectent via des clés de compte ou le portail Azure, à moins que le compte Cosmos DB soit d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention des modifications à partir des SDK](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="sample-script"></a>Exemple de script
 

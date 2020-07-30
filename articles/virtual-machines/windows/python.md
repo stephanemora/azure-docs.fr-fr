@@ -4,16 +4,16 @@ description: Apprenez à utiliser Python pour créer et gérer une machine virtu
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551973"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284453"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
@@ -32,7 +32,7 @@ Ces étapes prennent environ 20 minutes.
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Dans la page Charges de travail, sélectionnez **Développement Python**, puis cliquez sur **Installer**. Dans le résumé, vous pouvez voir que **Python 3 64 bits (3.6.0)** est automatiquement sélectionné pour vous. Si vous avez déjà installé Visual Studio, vous pouvez ajouter la charge de travail Python en utilisant le Lanceur de Visual Studio.
+1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](/visualstudio/install/install-visual-studio). Dans la page Charges de travail, sélectionnez **Développement Python**, puis cliquez sur **Installer**. Dans le résumé, vous pouvez voir que **Python 3 64 bits (3.6.0)** est automatiquement sélectionné pour vous. Si vous avez déjà installé Visual Studio, vous pouvez ajouter la charge de travail Python en utilisant le Lanceur de Visual Studio.
 2. Après avoir installé et démarré Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
 3. Cliquez sur **Modèles** > **Python** > **Application Python**, entrez *monProjetPython* comme nom pour le projet, sélectionnez l’emplacement du projet, puis cliquez sur **OK**.
 
@@ -566,6 +566,5 @@ Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de donnée
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../../resource-manager-troubleshoot-deployments-portal.md).
-- En savoir plus sur la [Bibliothèque Python Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../../azure-resource-manager/templates/deployment-history.md).
+- En savoir plus sur la [Bibliothèque Python Azure](/python/api/overview/azure/?view=azure-python)

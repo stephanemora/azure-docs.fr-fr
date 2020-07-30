@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391976"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323823"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -115,7 +116,7 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 ### <a name="1164"></a><a name="1.16.4"></a>1.16.4
 * Correction d’un bogue dans les plages de clés de partition en lecture pour une requête.
 
-### <a name="1163"></a><a name="1.16.3"/>1.16.3
+### <a name="1163"></a><a name="1.16.3"></a>1.16.3
 * Correction d’un bogue au niveau de la définition de la taille de l’en-tête du jeton de continuation en mode DirectHttps.
 
 ### <a name="1162"></a><a name="1.16.2"></a>1.16.2

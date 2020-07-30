@@ -3,14 +3,15 @@ title: 'Démarrage rapide : Analytique d’une application web Java avec Azure 
 description: 'Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537506"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326917"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
@@ -131,7 +132,7 @@ Le kit de développement logiciel (SDK) d’Application Insights recherche la cl
 2. Variable d’environnement : APPINSIGHTS_INSTRUMENTATIONKEY
 3. Configuration de l'application : *ApplicationInsights.xml*
 
-Vous pouvez également [définir la clé dans le code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+Vous pouvez également [définir la clé dans le code](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -172,7 +173,7 @@ Cliquez sur un type de demande spécifique pour afficher les instances individue
 ![Explorer un exemple de vue spécifique](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics : Tirez parti d’un puissant langage de requête.
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](../../azure-monitor/app/analytics.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](../log-query/log-query-overview.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/java-get-started/0025.png)
 
@@ -264,7 +265,7 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
   * `tabular`: les données du compteur de performances sont au format ligne de tableau
 
 #### <a name="windows-performance-counters"></a>Compteurs de performances Windows
-Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
+Chaque [compteur de performances Windows](/windows/win32/perfctrs/performance-counters-portal) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
 ```XML
     <PerformanceCounters>
@@ -307,16 +308,17 @@ Application Insights peut tester votre site web à intervalles réguliers pour v
 * [Surveillance des appels de dépendance](java-agent.md)
 * [Surveillance des compteurs de performances Unix](java-collectd.md)
 * Ajoutez [la surveillance à vos pages web](javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.
-* Écrivez [télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
-* Utilisez [Analytics](../../azure-monitor/app/analytics.md) pour des requêtes puissantes sur les données de télémétrie de votre application
+* Écrivez [télémétrie personnalisée](./api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
+* Utilisez [Analytics](../log-query/log-query-overview.md) pour des requêtes puissantes sur les données de télémétrie de votre application
 * Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

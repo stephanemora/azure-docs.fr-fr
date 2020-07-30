@@ -4,16 +4,16 @@ description: Découvrez comment personnaliser les canaux de télémétrie dans l
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318927"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canaux de télémétrie dans Application Insights
 
-Les canaux de télémétrie font partie intégrante des [SDK Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Ils gèrent la mise en mémoire tampon des données de télémétrie et leur transmission au service Application Insights. Les versions .NET et .NET Core des SDK intègrent deux canaux de télémétrie : `InMemoryChannel` et `ServerTelemetryChannel`. Cet article décrit chaque canal en détail, notamment comment personnaliser leur comportement.
+Les canaux de télémétrie font partie intégrante des [SDK Azure Application Insights](./app-insights-overview.md). Ils gèrent la mise en mémoire tampon des données de télémétrie et leur transmission au service Application Insights. Les versions .NET et .NET Core des SDK intègrent deux canaux de télémétrie : `InMemoryChannel` et `ServerTelemetryChannel`. Cet article décrit chaque canal en détail, notamment comment personnaliser leur comportement.
 
 ## <a name="what-are-telemetry-channels"></a>Que sont les canaux de télémétrie ?
 
@@ -39,7 +39,7 @@ Les kits SDK .NET et .NET Core d’Application Insights intègrent deux canaux 
 
 Vous configurez un canal de télémétrie en l’ajoutant à la configuration de télémétrie active. Pour les applications ASP.NET, la configuration implique de définir l’instance du canal de télémétrie sur `TelemetryConfiguration.Active`, ou de modifier `ApplicationInsights.config`. Pour les applications ASP.NET Core, la configuration implique d’ajouter le canal au conteneur d’injection de dépendance.
 
-Les sections suivantes présentent des exemples de configuration du paramètre `StorageFolder` pour le canal dans différents types d’applications. `StorageFolder` est juste l’un des paramètres configurables. Pour obtenir la liste complète des paramètres de configuration, consultez la [section des paramètres](telemetry-channels.md#configurable-settings-in-channels) plus loin dans cet article.
+Les sections suivantes présentent des exemples de configuration du paramètre `StorageFolder` pour le canal dans différents types d’applications. `StorageFolder` est juste l’un des paramètres configurables. Pour obtenir la liste complète des paramètres de configuration, consultez la [section des paramètres](#configurable-settings-in-channels) plus loin dans cet article.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Configuration avec ApplicationInsights.config pour les applications ASP.NET
 
@@ -166,5 +166,6 @@ Comme chaque SDK pour Application Insights, les canaux sont open source. Lisez e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Échantillonnage](../../azure-monitor/app/sampling.md)
-* [Résolution des problèmes avec les SDK](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Échantillonnage](./sampling.md)
+* [Résolution des problèmes avec les SDK](./asp-net-troubleshoot-no-data.md)
+

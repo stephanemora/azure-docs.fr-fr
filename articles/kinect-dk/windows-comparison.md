@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, V2, Azure Kinect, comparaison, Kit de développement logiciel (SDK), différences, matériel, logiciels
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67454184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031573"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparaison entre Azure Kinect et Kinect pour Windows v2
 
@@ -22,8 +22,8 @@ Le matériel et les kits de développement logiciel (SDK) Azure Kinect DK prése
 
 Les grandes différences entre le kit de développement Azure Kinect et Kinect pour Windows v2 sont répertoriées dans le tableau suivant.
 
-|    |      | Azure Kinect DK |  Kinect pour Windows v2 |
-|----------|---------------|--------| ------------|
+| Fonctionnalité | Type | Azure Kinect DK | Kinect pour Windows v2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Audio** | Détails  | Tableau circulaire pour 7 micros | Tableau linéaire pour 4 micros |
 | **Capteur de mouvement** | Détails | Accéléromètre sur 3 axes Gyroscope sur 3 axes | Accéléromètre sur 3 axes |
 | **Caméra RVB**    | Détails | 3840 x 2160 px @30 i/s | 1920 x 1080 px @30 i/s |

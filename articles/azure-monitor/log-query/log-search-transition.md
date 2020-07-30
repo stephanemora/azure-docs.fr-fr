@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324758"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Passer de la recherche dans les journaux d’activité Log Analytics aux journaux d’activité Azure Monitor
 La recherche dans les journaux d’activité Log Analytics vient d’être remplacée par une nouvelle expérience d’analyse des journaux d’activité Azure Monitor. Actuellement, la page de recherche dans les journaux d’activité est toujours accessible par le biais de l’élément de menu **Journaux d’activité (classiques)** de la page **Espaces de travail Log Analytics** dans le portail Azure, mais elle sera supprimée le 15 février 2019. Cet article décrit les différences entre les deux expériences pour vous aider à remplacer la recherche dans les journaux. 
@@ -44,7 +44,7 @@ Pour enregistrer la requête actuelle dans les journaux d’activité Azure Moni
 ![Enregistrer une requête de journal](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
-Avec la recherche dans les journaux, vos requêtes enregistrées sont disponibles par le biais de l’élément de barre d’action **Recherches enregistrées**. Dans les journaux d’activité Azure Monitor, accédez aux requêtes enregistrées à partir de l’[Explorateur de requêtes](../log-query/get-started-portal.md#save-queries).
+Avec la recherche dans les journaux, vos requêtes enregistrées sont disponibles par le biais de l’élément de barre d’action **Recherches enregistrées**. Dans les journaux d’activité Azure Monitor, accédez aux requêtes enregistrées à partir de l’[Explorateur de requêtes](./get-started-portal.md#save-queries).
 
 ![Explorateur de requêtes](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ Dans les journaux d’activité Azure Monitor, [créez une alerte à partir de l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en plus sur la nouvelle [expérience des journaux d’activité Azure Monitor](get-started-portal.md).
+

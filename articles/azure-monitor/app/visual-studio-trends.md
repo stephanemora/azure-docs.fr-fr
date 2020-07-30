@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318162"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
 L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
@@ -21,7 +21,7 @@ L’outil Tendances Application Insights visualise l’évolution des événemen
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Configurer votre application web pour Application Insights
 
-Si vous ne l’avez pas encore fait, [configurez votre application web pour Application Insights](../../azure-monitor/app/app-insights-overview.md). Elle pourra ainsi envoyer les données de télémétrie au portail Application Insights. L’outil Tendances lit les données de télémétrie à partir de ce portail.
+Si vous ne l’avez pas encore fait, [configurez votre application web pour Application Insights](./app-insights-overview.md). Elle pourra ainsi envoyer les données de télémétrie au portail Application Insights. L’outil Tendances lit les données de télémétrie à partir de ce portail.
 
 L’outil Tendances Application Insights est disponible dans Visual Studio 2015 Update 3 et versions ultérieures.
 
@@ -98,7 +98,7 @@ L’outil Tendances peut mettre en évidence des bulles d’événements anormal
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 |  |  |
 | --- | --- |
-| **[Utilisation d’Application Insights dans Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. |![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/visual-studio-trends/34.png) |
-| **[Ajouter des données](../../azure-monitor/app/asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Utilisation du portail Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Utilisation d’Application Insights dans Visual Studio](./visual-studio.md)**<br/>Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. |![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/visual-studio-trends/34.png) |
+| **[Ajouter des données](./asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/visual-studio-trends/64.png) |
+| **[Utilisation du portail Application Insights](./overview-dashboard.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

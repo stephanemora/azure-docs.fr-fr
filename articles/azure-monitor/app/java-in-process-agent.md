@@ -3,12 +3,12 @@ title: Superviser les applications Java sur tout environnement - Azure Monitor A
 description: Supervision des performances des applications Java s’exécutant dans tout environnement sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014335"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights - préversion publique
 
@@ -32,11 +32,11 @@ Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` aux a
 
 Les arguments JVM standard incluent `-Xmx512m` et `-XX:+UseG1GC`. Par conséquent, si vous savez où ajouter ces derniers, vous savez déjà où ajouter celui-ci.
 
-Pour obtenir une aide supplémentaire sur la configuration des arguments JVM de votre application, consultez [Préversion 3.0 : conseils pour la mise à jour de vos arguments JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+Pour obtenir une aide supplémentaire sur la configuration des arguments JVM de votre application, consultez [Préversion 3.0 : conseils pour la mise à jour de vos arguments JVM](./java-standalone-arguments.md).
 
 **3. Pointer l’agent vers votre ressource Application Insights**
 
-Si vous n’avez pas encore de ressource Application Insights, vous pouvez en créer une en suivant les étapes décrites dans le [guide de création de ressources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Si vous n’avez pas encore de ressource Application Insights, vous pouvez en créer une en suivant les étapes décrites dans le [guide de création de ressources](./create-new-resource.md).
 
 Pointez l’agent sur votre ressource Application Insights, soit en définissant une variable d’environnement :
 
@@ -80,7 +80,7 @@ Dans le fichier `ApplicationInsights.json`, vous pouvez également configurer :
 * Proxy HTTP
 * Autodiagnostics
 
-Pour plus d’informations, consultez [Préversion publique 3.0 : options de configuration](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+Pour plus d’informations, consultez [Préversion publique 3.0 : options de configuration](./java-standalone-config.md).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Demandes, dépendances, journaux et métriques collectés automatiquement
 

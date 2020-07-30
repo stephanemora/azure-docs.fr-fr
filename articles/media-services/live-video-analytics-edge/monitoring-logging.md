@@ -3,12 +3,12 @@ title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060451"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -98,7 +98,7 @@ Live Video Analytics sur IoT Edge émet des événements ou des données de tél
      }
    }
    ```
-Les événements émis par le module sont envoyés au [hub IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub), et depuis ce dernier, ils peuvent être routés vers d’autres destinations. 
+Les événements émis par le module sont envoyés au [hub IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), et depuis ce dernier, ils peuvent être routés vers d’autres destinations. 
 
 ## <a name="controlling-events"></a>Contrôle des événements
 
@@ -110,7 +110,7 @@ Vous pouvez utiliser les propriétés de jumeau de module suivantes, comme décr
    
 Les événements analytiques sont générés par des nœuds comme le processeur de détection de mouvement ou le processeur d’extension HTTP, et le récepteur du hub IoT est utilisé pour les envoyer au hub IoT Edge. 
 
-Vous pouvez contrôler le [routage de tous les événements ci-dessus](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) par le biais d’une propriété voulue du jumeau de module $edgeHub (dans le manifeste de déploiement) :
+Vous pouvez contrôler le [routage de tous les événements ci-dessus](../../iot-edge/module-composition.md#declare-routes) par le biais d’une propriété voulue du jumeau de module $edgeHub (dans le manifeste de déploiement) :
 
 ```
  "$edgeHub": {
@@ -126,14 +126,14 @@ Vous pouvez contrôler le [routage de tous les événements ci-dessus](https://d
  }
 ```
 
-Dans l’exemple ci-dessus, lvaEdge correspond au nom du module Live Video Analytics sur IoT Edge, et la règle de routage suit le schéma défini dans les [déclarations de routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+Dans l’exemple ci-dessus, lvaEdge correspond au nom du module Live Video Analytics sur IoT Edge, et la règle de routage suit le schéma défini dans les [déclarations de routes](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Pour veiller à ce que les événements analytiques atteignent le hub IoT Edge, il doit y avoir un nœud récepteur du hub IoT en aval d’un nœud de processeur de détection de mouvement et/ou d’un nœud de processeur d’extension HTTP.
 
 ## <a name="event-schema"></a>Schéma d’événement
 
-Les événements proviennent de l’appareil Edge et peuvent être utilisés sur cet appareil ou dans le cloud. Les événements générés par Live Video Analytics sur IoT Edge sont conformes au [modèle de messagerie en streaming](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) établi par Azure IoT Hub, avec des propriétés système, des propriétés d’application et un corps.
+Les événements proviennent de l’appareil Edge et peuvent être utilisés sur cet appareil ou dans le cloud. Les événements générés par Live Video Analytics sur IoT Edge sont conformes au [modèle de messagerie en streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) établi par Azure IoT Hub, avec des propriétés système, des propriétés d’application et un corps.
 
 ### <a name="summary"></a>Résumé
 
@@ -200,7 +200,7 @@ L’heure de l’événement est décrite dans la chaîne ISO8601 et correspond 
 
 ## <a name="logging"></a>Journalisation
 
-Comme avec d’autres modules IoT Edge, vous pouvez également [examiner les journaux de conteneur](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) sur l’appareil Edge. Les informations écrites dans les journaux peuvent être contrôlées par les [propriétés de jumeau de module](module-twin-configuration-schema.md) suivantes :
+Comme avec d’autres modules IoT Edge, vous pouvez également [examiner les journaux de conteneur](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) sur l’appareil Edge. Les informations écrites dans les journaux peuvent être contrôlées par les [propriétés de jumeau de module](module-twin-configuration-schema.md) suivantes :
 
 * logLevel
 
@@ -222,7 +222,7 @@ Comme avec d’autres modules IoT Edge, vous pouvez également [examiner les jou
 
 Dans certains cas, vous aurez peut-être besoin de générer des journaux plus détaillés que ceux décrits ci-dessus, pour aider le support Azure à résoudre un problème. Deux étapes sont nécessaires pour cela.
 
-Tout d’abord, vous [liez le stockage du module au stockage de l’appareil](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) par le biais de createOptions. Si vous examinez un [modèle de manifeste de déploiement](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) à partir des démarrages rapides, vous voyez :
+Tout d’abord, vous [liez le stockage du module au stockage de l’appareil](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) par le biais de createOptions. Si vous examinez un [modèle de manifeste de déploiement](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) à partir des démarrages rapides, vous voyez :
 
 ```
 "createOptions": {

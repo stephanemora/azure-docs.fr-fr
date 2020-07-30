@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79137320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060369"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
@@ -80,8 +80,8 @@ Les documents suivants contiennent des dispositions qui, par référence à ce t
 | [MPEGDASH]        | Information technology – Dynamic adaptive streaming over HTTP (DASH) – Part 1: Media presentation description and segment formats. Mai 2014. Publié. URL : https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Information technology -- Multimedia application format (MPEG-A) -- Part 19 : Common media application format (CMAF) for segmented media. Janvier 2018. Publié. URL : https://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | [ISO/IEC 7] Technologies de l'information -- Technologies des systèmes MPEG -- Partie 7 : Cryptage commun des fichiers au format de fichier de médias de la base ISO. Février 2016. Publié. URL : https://www.iso.org/standard/68042.html                   |
-| [MS-SSTR]         | [« Microsoft Smooth Streaming Protocol », 15 mai 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
-| [MS-SSTR-Ingest]  | [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
+| [MS-SSTR]         | [« Microsoft Smooth Streaming Protocol », 15 mai 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR-Ingest]  | [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. Août 2017. Informatif. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | [RTMP]            | [« Adobe’s Real-Time Messaging Protocol », 21 décembre 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |

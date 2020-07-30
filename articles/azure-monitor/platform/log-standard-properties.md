@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325268"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
@@ -211,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en plus sur le stockage des [données de journal Azure Monitor](../log-query/log-query-overview.md).
-- Obtenez une leçon sur [l'écriture de requêtes de journaux](../../azure-monitor/log-query/get-started-queries.md).
-- Obtenez une leçon sur l’[association de tables dans les requêtes de journaux](../../azure-monitor/log-query/joins.md).
+- Obtenez une leçon sur [l'écriture de requêtes de journaux](../log-query/get-started-queries.md).
+- Obtenez une leçon sur l’[association de tables dans les requêtes de journaux](../log-query/joins.md).
+

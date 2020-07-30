@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321868"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory (méthode héritée)
 
@@ -340,4 +340,5 @@ La dernière étape consiste à consulter l’espace de travail Log Analytics po
 Dans cet article, vous avez créé une application logique pour lire des journaux d’activité Azure à partir d’un Event Hub et les envoyer à l’espace de travail Log Analytics pour analyse. Pour en savoir plus sur la visualisation de données dans un espace de travail, notamment sur la création de tableaux de bords, consultez le didacticiel consacré à ce sujet.
 
 > [!div class="nextstepaction"]
-> [Didacticiel Visualiser des données de recherche dans les journaux](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Didacticiel Visualiser des données de recherche dans les journaux](../learn/tutorial-logs-dashboards.md)
+

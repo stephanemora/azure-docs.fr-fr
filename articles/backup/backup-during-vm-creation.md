@@ -3,12 +3,12 @@ title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032848"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -30,7 +30,7 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 
 2. Dans la Place de marché Azure, cliquez sur **Calcul**, puis sélectionnez une image de machine virtuelle.
 
-3. Configurez la machine virtuelle conformément aux instructions [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
+3. Configurez la machine virtuelle conformément aux instructions [Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux](../virtual-machines/linux/quick-create-portal.md).
 
 4. Sous l’onglet **Gestion**, dans **Activer la sauvegarde**, cliquez sur **Activé**.
 5. Sauvegarde Azure sauvegarde dans un coffre Recovery Services. Cliquez sur **Créer** si vous n’avez pas de coffre.

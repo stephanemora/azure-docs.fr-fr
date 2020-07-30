@@ -3,19 +3,19 @@ title: Analyse des performances et de l’utilisation pour les applications de b
 description: Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323415"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
-Les applications hébergées en local, dans Azure, et dans d’autres clouds peuvent toutes tirer profit d’Application Insights. La seule limitation réside dans la nécessité d’[autoriser la communication](../../azure-monitor/app/ip-addresses.md) vers le service Application Insights. Pour analyser des applications de plateforme Windows universelle (UWP), nous vous recommandons [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
+Les applications hébergées en local, dans Azure, et dans d’autres clouds peuvent toutes tirer profit d’Application Insights. La seule limitation réside dans la nécessité d’[autoriser la communication](./ip-addresses.md) vers le service Application Insights. Pour analyser des applications de plateforme Windows universelle (UWP), nous vous recommandons [Visual Studio App Center](../learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Pour envoyer la télémétrie à Application Insights à partir d’une application Windows Classic
-1. Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+1. Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](./create-new-resource.md). 
 2. Copiez la clé d'instrumentation.
 3. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application et ajoutez Microsoft.ApplicationInsights.WindowsServer. (Ou choisissez Microsoft.ApplicationInsights si vous souhaitez simplement l’API de base, sans les modules de collecte de données de télémétrie standard.)
 4. Définissez la clé d’instrumentation dans votre code :
@@ -27,7 +27,7 @@ Les applications hébergées en local, dans Azure, et dans d’autres clouds peu
     `<InstrumentationKey>`*votre clé*`</InstrumentationKey>` 
    
     Si vous utilisez ApplicationInsights.config, assurez-vous que ses propriétés dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
-5. [Utilisez l’API](../../azure-monitor/app/api-custom-events-metrics.md) pour envoyer les données de télémétrie.
+5. [Utilisez l’API](./api-custom-events-metrics.md) pour envoyer les données de télémétrie.
 6. Exécutez votre application et consultez la télémétrie dans la ressource que vous avez créée dans le Portail Azure.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Exemple de code
@@ -175,7 +175,8 @@ namespace WindowsFormsApp2
 > Bien qu’il soit possible techniquement d’utiliser un processeur de télémétrie comme décrit précédemment, même avec un [niveau de prix Entreprise existant (par nœud)](./pricing.md#legacy-enterprise-per-node-pricing-tier), vous vous exposez à un risque de surfacturation du fait de l’incapacité à distinguer correctement les nœuds soumis à un tarif par nœud.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Création d’un tableau de bord](../../azure-monitor/app/overview-dashboard.md)
-* [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md)
-* [Exploration des mesures](../../azure-monitor/platform/metrics-charts.md)
+* [Création d’un tableau de bord](./overview-dashboard.md)
+* [Recherche de diagnostic](./diagnostic-search.md)
+* [Exploration des mesures](../platform/metrics-charts.md)
 * [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
+

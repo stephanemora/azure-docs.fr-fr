@@ -3,17 +3,17 @@ title: Modèle de données d’Azure Application Insights | Microsoft Docs
 description: Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1577e56960edcb1941c5d7b73ef44c514706d4e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324384"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
-Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../azure-monitor/app/app-insights-overview.md) au portail.
+Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](./app-insights-overview.md) au portail.
 Vous verrez ces propriétés dans les données issues d’une [exportation continue](export-telemetry.md).
-Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) et dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md).
+Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](../platform/metrics-charts.md) et dans [Recherche de diagnostic](./diagnostic-search.md).
 
 Points à noter :
 
@@ -144,7 +144,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
-| context.user.authAcquisitionDate |string |[Utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authAcquisitionDate |string |[Utilisateur authentifié](./api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |string | |
@@ -152,23 +152,23 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | internal.data.id |string | `Unique id` attribué lorsqu’un élément est ingéré dans Application Insights |
 
 ## <a name="events"></a>Événements
-Événements personnalisés générés par [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+Événements personnalisés générés par [TrackEvent()](./api-custom-events-metrics.md#trackevent).
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| event [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| event [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | event [0] name |string |Nom de l’événement.  Longueur maximale 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceptions
-Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le serveur et dans le navigateur.
+Signale des [exceptions](./asp-net-exceptions.md) sur le serveur et dans le navigateur.
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| basicException [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -192,7 +192,7 @@ Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le s
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Messages de suivi
-Envoyé par [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) et par les [adaptateurs de journalisation](../../azure-monitor/app/asp-net-trace-logs.md).
+Envoyé par [TrackTrace](./api-custom-events-metrics.md#tracktrace) et par les [adaptateurs de journalisation](./asp-net-trace-logs.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |
@@ -202,14 +202,14 @@ Envoyé par [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tr
 | message [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>Dépendance distante
-Envoyé par TrackDependency. Utilisé pour consigner les performances et l’utilisation des [appels aux dépendances](../../azure-monitor/app/asp-net-dependencies.md) dans le serveur, et des appels AJAX dans le navigateur.
+Envoyé par TrackDependency. Utilisé pour consigner les performances et l’utilisation des [appels aux dépendances](./asp-net-dependencies.md) dans le serveur, et des appels AJAX dans le navigateur.
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Par exemple, « home/index » |
-| remoteDependency [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| remoteDependency [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |nombre |Délai de l’appel à la fin de la réponse par la dépendance |
 | remoteDependency [0] `id` |string | |
@@ -223,11 +223,11 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] urlData.host |string |Longueur maximale 200 |
 
 ## <a name="requests"></a>Demandes
-Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
+Envoyées par [TrackRequest](./api-custom-events-metrics.md#trackrequest). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| request [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple : 4 =&gt; 25 %. |
+| request [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple : 4 =&gt; 25 %. |
 | request [0] durationMetric.value |nombre |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] `id` |string |`Operation id` |
 | request [0] name |string |GET/POST + base d’URL  Longueur maximale 250 |
@@ -258,11 +258,11 @@ Les valeurs de contexte représentent la version de système d’exploitation et
 | clientPerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>Affichages de pages
-Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
+Envoyé par trackPageView() ou [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| view [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| view [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |entier |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
 | view [0] name |string |Titre de la page.  Longueur maximale 250 |
 | view [0] url |string | |
@@ -271,13 +271,13 @@ Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custo
 | view [0] urlData.host |string | |
 
 ## <a name="availability"></a>Disponibilité
-Consigne les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md).
+Consigne les [tests web de disponibilité](./monitor-web-app-availability.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |nombre |1.0 ou 0.0 |
-| availability [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| availability [0] count |entier |100 / (taux d’[échantillonnage](./sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |entier | |
 | availability [0] durationMetric.name |string | |
@@ -345,12 +345,13 @@ Les autres champs ont vocation à autoriser l’agrégation des mesures dans le 
 
 Dans les tableaux ci-dessus, nous avons volontairement omis les champs rarement utilisés count, min, max, stdDev et sampledValue.
 
-Au lieu de pré-agréger les mesures, vous pouvez utiliser l’ [échantillonnage](../../azure-monitor/app/sampling.md) si vous avez besoin de réduire le volume de télémétrie.
+Au lieu de pré-agréger les mesures, vous pouvez utiliser l’ [échantillonnage](./sampling.md) si vous avez besoin de réduire le volume de télémétrie.
 
 ### <a name="durations"></a>Durées
 Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde. Ainsi, 10000000.0 représente 1s.
 
 ## <a name="see-also"></a>Voir aussi
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 * [Exportation continue](export-telemetry.md)
 * [Exemples de code](export-telemetry.md#code-samples)
+

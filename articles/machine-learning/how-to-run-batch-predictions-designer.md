@@ -5,17 +5,17 @@ description: Découvrez comment entraîner un modèle et configurer un pipeline 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319607"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,6 +34,8 @@ Pour configurer les services de scoring par lots à l'aide du kit de développem
 ## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous disposez déjà d'un pipeline de formation. Pour accéder à une présentation guidée du concepteur, suivez la [première partie du tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md). 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>Créer un pipeline d’inférence par lots
 

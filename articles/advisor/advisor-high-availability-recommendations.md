@@ -3,12 +3,12 @@ title: Améliorer la fiabilité d’une application avec Advisor
 description: Utilisez Azure Advisor pour garantir et améliorer la fiabilité de vos déploiements Azure vitaux pour l’entreprise.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057679"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Améliorer la fiabilité d’une application à l’aide d’Azure Advisor
 
@@ -59,7 +59,7 @@ Si un profil Traffic Manager est configuré pour le routage géographique, le tr
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utiliser la suppression réversible sur le compte de stockage Azure pour enregistrer et récupérer des données après une suppression ou un remplacement accidentel
 
-Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. La suppression réversible vous permet de récupérer les données en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels la suppression réversible n’est pas activée et vous suggère de l’activer.
+Activez la [suppression réversible](../storage/blobs/soft-delete-overview.md) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. La suppression réversible vous permet de récupérer les données en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels la suppression réversible n’est pas activée et vous suggère de l’activer.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurer votre passerelle VPN en mode actif/actif à des fins de résilience de connexion
 
@@ -107,7 +107,7 @@ Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes 
 À partir du 1er juillet 2020, vous ne pourrez plus créer de nouveaux clusters Spark en utilisant Spark 2.1 ou 2.2 sur HDInsight 3.6. Vous ne pourrez plus créer de nouveaux clusters Spark en utilisant Spark 2.3 sur HDInsight 4.0. Les clusters existants s’exécuteront en l’état sans support de Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Activer la réplication des machines virtuelles
-Les machines virtuelles pour lesquelles la réplication n’est pas activée vers une autre région ne sont pas résilientes face aux pannes régionales. La réplication des machines virtuelles réduit les impacts négatifs sur l’activité en cas de panne d’une région Azure. Advisor détecte les machines virtuelles sur lesquelles la réplication n’est pas activée et recommande de l’activer. Lorsque vous activez la réplication, en cas de panne, vous pouvez rapidement faire apparaître vos machines virtuelles dans une région Azure distante. [En savoir plus sur la réplication de machines virtuelles.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Les machines virtuelles pour lesquelles la réplication n’est pas activée vers une autre région ne sont pas résilientes face aux pannes régionales. La réplication des machines virtuelles réduit les impacts négatifs sur l’activité en cas de panne d’une région Azure. Advisor détecte les machines virtuelles sur lesquelles la réplication n’est pas activée et recommande de l’activer. Lorsque vous activez la réplication, en cas de panne, vous pouvez rapidement faire apparaître vos machines virtuelles dans une région Azure distante. [En savoir plus sur la réplication de machines virtuelles.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans Advisor
 

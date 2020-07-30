@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 3b718a0a67381e2b1eb19d2397ecf86e4a9c196d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090125"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Comment encoder une transformation personnalisée avec Azure CLI
 
@@ -32,7 +32,7 @@ Lorsque vous créez des préréglages personnalisés, les considérations suivan
 
 ## <a name="prerequisites"></a>Prérequis
 
-[Créer un compte Media Services](create-account-cli-how-to.md).
+[Créer un compte Media Services](./create-account-howto.md).
 
 Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 

@@ -5,16 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891610"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324180"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
-Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Ces dépendances sont visualisées dans les vues [Cartographie d’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) et [Diagnostics des transactions](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Ces dépendances sont visualisées dans les vues [Cartographie d’application](./app-map.md) et [Diagnostics des transactions](./transaction-diagnostics.md) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -62,7 +62,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 
 > [!NOTE]
 > \* Sauf prise en charge de programmation réactive.
-> <br>† Installation de [Agent JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java) requise.
+> <br>† Installation de [Agent JVM](./java-agent.md#install-the-application-insights-agent-for-java) requise.
 
 ## <a name="nodejs"></a>Node.js
 
@@ -88,9 +88,10 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Configurez le suivi des dépendances personnalisé pour [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Configurez le suivi des dépendances personnalisé pour [Java](../../azure-monitor/app/java-agent.md).
-- Configurez le suivi personnalisé des dépendances pour [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Écrire des données de télémétrie des dépendances personnalisées](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
-- Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.
+- Configurez le suivi des dépendances personnalisé pour [.NET](./asp-net-dependencies.md).
+- Configurez le suivi des dépendances personnalisé pour [Java](./java-agent.md).
+- Configurez le suivi personnalisé des dépendances pour [OpenCensus Python](./opencensus-python-dependency.md).
+- [Écrire des données de télémétrie des dépendances personnalisées](./api-custom-events-metrics.md#trackdependency)
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](./data-model.md).
+- Découvrez quelles [plateformes](./platforms.md) sont prises en charge par Application Insights.
+

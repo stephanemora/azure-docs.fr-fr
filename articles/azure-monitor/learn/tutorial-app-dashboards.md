@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318417"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -31,7 +31,7 @@ Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des
 
 Pour suivre ce tutoriel :
 
-- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../../azure-monitor/app/asp-net.md).
+- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -127,4 +127,5 @@ Azure Application Insights Logs (Analytics) étant un service distinct, vous dev
 À présent que vous avez appris à créer des tableaux de bord personnalisés, jetez un coup d’œil au reste de la documentation d’Application Insights, notamment à une étude de cas.
 
 > [!div class="nextstepaction"]
-> [Diagnostics profonds](../../azure-monitor/app/devops.md)
+> [Diagnostics profonds](../app/devops.md)
+

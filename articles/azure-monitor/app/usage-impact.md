@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797905"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323704"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analyse de l’impact avec Application Insights
 
@@ -28,7 +28,7 @@ Mais l’analyse des performances n’est qu’une partie de ce que peut faire I
 ![Conversion de capture d’écran par les navigateurs](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Votre ressource Application Insights doit contenir des pages consultées ou des événements personnalisés pour pouvoir utiliser l’outil Impact. [Découvrez comment configurer votre application pour collecter des vues de page automatiquement à l’aide du Kit de développement logiciel (SDK) JavaScript Application Insights](../../azure-monitor/app/javascript.md). Gardez également à l’esprit que, dans la mesure où vous analysez une corrélation, la taille de l’échantillon est importante.
+> Votre ressource Application Insights doit contenir des pages consultées ou des événements personnalisés pour pouvoir utiliser l’outil Impact. [Découvrez comment configurer votre application pour collecter des vues de page automatiquement à l’aide du Kit de développement logiciel (SDK) JavaScript Application Insights](./javascript.md). Gardez également à l’esprit que, dans la mesure où vous analysez une corrélation, la taille de l’échantillon est importante.
 >
 >
 
@@ -80,10 +80,11 @@ Le calcul effectué par Impact dépend au final de l’analyse : par métrique o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](./api-custom-events-metrics.md#trackevent) ou des [affichages de page](./api-custom-events-metrics.md#page-views).
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
     - [Entonnoirs](usage-funnels.md)
     - [Rétention](usage-retention.md)
     - [Flux d’utilisateurs](usage-flows.md)
-    - [Classeurs](../../azure-monitor/platform/workbooks-overview.md)
+    - [Classeurs](../platform/workbooks-overview.md)
     - [Ajouter du contexte utilisateur](usage-send-user-context.md)
+

@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032882"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 
@@ -32,7 +32,7 @@ D’autres prérequis et limitations sont disponibles dans l’article [Sauvegar
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 
-Pour sauvegarder la batterie de serveurs SharePoint, vous configurez la protection pour SharePoint à l’aide de ConfigureSharePoint.exe, puis créez un groupe de protection dans DPM. Pour obtenir des instructions, consultez [Configurer la sauvegarde](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) dans la documentation DPM.
+Pour sauvegarder la batterie de serveurs SharePoint, vous configurez la protection pour SharePoint à l’aide de ConfigureSharePoint.exe, puis créez un groupe de protection dans DPM. Pour obtenir des instructions, consultez [Configurer la sauvegarde](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) dans la documentation DPM.
 
 ## <a name="monitoring"></a>Surveillance
 

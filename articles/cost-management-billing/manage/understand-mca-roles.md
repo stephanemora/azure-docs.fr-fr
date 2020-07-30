@@ -3,19 +3,19 @@ title: Rôles de facturation pour des Contrats clients Microsoft - Azure
 description: Découvrez-en plus sur les rôles de facturation des comptes de facturation Azure dans le cadre des Contrats client Microsoft.
 author: amberbhargava
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207207"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286578"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft
 
-Pour gérer votre compte de facturation dans le cadre d'un Contrat client Microsoft, utilisez les rôles décrits dans les sections suivantes. Ces rôles s'ajoutent aux rôles intégrés dont Azure doit contrôler l'accès aux ressources. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+Pour gérer votre compte de facturation dans le cadre d'un Contrat client Microsoft, utilisez les rôles décrits dans les sections suivantes. Ces rôles s'ajoutent aux rôles intégrés dont Azure doit contrôler l'accès aux ressources. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. Vérifiez que vous avez accès à un Contrat client Microsoft.
 

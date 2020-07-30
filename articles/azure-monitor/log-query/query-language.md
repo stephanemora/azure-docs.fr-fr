@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505735"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325387"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
 
@@ -26,15 +26,15 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 
 ## <a name="concepts"></a>Concepts
 
-- [Analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) donne une vue d’ensemble synthétique des requêtes de journal et décrit la structure des données de journal Azure Monitor.
+- [Analyser les données de journal dans Azure Monitor](./log-query-overview.md) donne une vue d’ensemble synthétique des requêtes de journal et décrit la structure des données de journal Azure Monitor.
 - [Afficher et analyser les données de journal dans Azure Monitor](./log-query-overview.md) décrit les portails permettant de créer et d’exécuter des requêtes de journal.
 
 ## <a name="reference"></a>Informations de référence
 
 - [Référence du langage de requête](/azure/kusto/query) représente la ressource complète disponible sur le langage de requête Kusto.
 - [Différences propres au langage de requête de journal Azure Monitor](data-explorer-difference.md) décrit les différences existant entre les versions du langage de requête Kusto.
-- [Propriétés standard dans les enregistrements de journaux Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) décrit les propriétés communes à toutes les données de journal Azure Monitor.
-- [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) explique comment écrire des requêtes de journal qui utilisent des données provenant de plusieurs espaces de travail Log Analytics et applications Application Insights.
+- [Propriétés standard dans les enregistrements de journaux Azure Monitor](../platform/log-standard-properties.md) décrit les propriétés communes à toutes les données de journal Azure Monitor.
+- [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](./cross-workspace-query.md) explique comment écrire des requêtes de journal qui utilisent des données provenant de plusieurs espaces de travail Log Analytics et applications Application Insights.
 
 ## <a name="examples"></a>Exemples
 
@@ -58,3 +58,4 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Accédez à la [documentation de référence complète du langage de requête Kusto](/azure/kusto/query/).
+

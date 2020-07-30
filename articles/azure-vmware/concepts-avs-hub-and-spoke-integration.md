@@ -3,16 +3,16 @@ title: 'Concept : intégrer un déploiement Azure VMware Solution (AVS) dans un
 description: Apprenez-en plus sur les recommandations relatives à l’intégration d’un déploiement Azure VMware Solution (AVS) dans une architecture hub and spoke existante ou nouvelle sur Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 82937e04fc0a5101c353702b92b6b068d027d7ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d95ed81c5188eab0dc508f5320549c4a402e151
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374958"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062920"
 ---
 # <a name="integrate-azure-vmware-solution-avs-in-a-hub-and-spoke-architecture"></a>Intégrer Azure VMware Solution (AVS) dans une architecture hub and spoke
 
-Dans cet article, nous fournissons des recommandations relatives à l’intégration d’un déploiement Azure VMware Solution (AVS) dans une [architecture Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) existante ou nouvelle sur Azure. 
+Dans cet article, nous fournissons des recommandations relatives à l’intégration d’un déploiement Azure VMware Solution (AVS) dans une [architecture Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existante ou nouvelle sur Azure. 
 
 Le scénario Hub and Spoke suppose un environnement de cloud hybride avec des charges de travail sur :
 
@@ -24,7 +24,7 @@ Le scénario Hub and Spoke suppose un environnement de cloud hybride avec des ch
 
 Le *Hub* est un réseau virtuel Azure qui centralise la connectivité à votre cloud privé local et AVS. Les *Spokes* sont des réseaux virtuels appairés avec le Hub pour permettre la communication entre des réseaux virtuels.
 
-Le trafic entre le centre de données local, le cloud privé AVS et le Hub passe par des connexions ExpressRoute. Les réseaux virtuels Spoke contiennent généralement des charges de travail IaaS, mais ils peuvent avoir des services PaaS comme [App Service Environment](../app-service/environment/intro.md), qui a une intégration directe avec le réseau virtuel, ou d’autres services PaaS avec [Azure Private Link](https://docs.microsoft.com/azure/private-link/) activé. 
+Le trafic entre le centre de données local, le cloud privé AVS et le Hub passe par des connexions ExpressRoute. Les réseaux virtuels Spoke contiennent généralement des charges de travail IaaS, mais ils peuvent avoir des services PaaS comme [App Service Environment](../app-service/environment/intro.md), qui a une intégration directe avec le réseau virtuel, ou d’autres services PaaS avec [Azure Private Link](../private-link/index.yml) activé. 
 
 Le diagramme illustre un exemple de déploiement Hub and Spoke dans Azure connecté au cloud local et AVS via ExpressRoute.
 
@@ -50,7 +50,7 @@ L’architecture possède les composants majeurs suivants :
 
     -   **Spoke IaaS :** Un spoke IaaS héberge des charges de travail IaaS Azure, y compris des groupes à haute disponibilité de machines virtuelles et des groupes de machines virtuelles identiques, ainsi que les composants réseau correspondants.
 
-    -   **Spoke PaaS :** Un spoke PaaS héberge des services PaaS Azure à l’aide de l’adressage privé grâce au [Point de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) et à la [Liaison privée](https://docs.microsoft.com/azure/private-link/private-link-overview).
+    -   **Spoke PaaS :** Un spoke PaaS héberge des services PaaS Azure à l’aide de l’adressage privé grâce au [Point de terminaison privé](../private-link/private-endpoint-overview.md) et à la [Liaison privée](../private-link/private-link-overview.md).
 
 -   **Pare-feu Azure :** Agit en tant qu’élément central pour segmenter le trafic entre les Spokes, le local et AVS.
 
@@ -58,7 +58,7 @@ L’architecture possède les composants majeurs suivants :
 
 ## <a name="network-and-security-considerations"></a>Considérations relatives au réseau et à la sécurité
 
-Les connexions ExpressRoute permettent au trafic de circuler entre les sites locaux, AVS et l’infrastructure du réseau Azure. AVS utilise le service [Global Reach d’ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour implémenter cette connectivité.
+Les connexions ExpressRoute permettent au trafic de circuler entre les sites locaux, AVS et l’infrastructure du réseau Azure. AVS utilise le service [Global Reach d’ExpressRoute](../expressroute/expressroute-global-reach.md) pour implémenter cette connectivité.
 
 La connectivité locale peut également utiliser le service Global Reach d’ExpressRoute, mais ce n’est pas obligatoire.
 
@@ -72,11 +72,11 @@ La connectivité locale peut également utiliser le service Global Reach d’Exp
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Flux de trafic de réseau virtuel AVS vers Hub":::
 
 
-Pour plus d’informations sur la mise en réseau AVS et les concepts d’interconnexion, consultez la [Documentation produit AVS](https://docs.microsoft.com/azure/azure-vmware/concepts-networking).
+Pour plus d’informations sur la mise en réseau AVS et les concepts d’interconnexion, consultez la [Documentation produit AVS](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentation du trafic
 
-Le [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/) est la partie centrale de la topologie Hub and Spoke, déployée sur le réseau virtuel Hub. Utilisez le Pare-feu Azure ou une autre appliance virtuelle réseau prise en charge par Azure pour établir des règles de trafic et segmenter la communication entre les différents Spokes, les charges de travail locales et AVS.
+Le [Pare-feu Azure](../firewall/index.yml) est la partie centrale de la topologie Hub and Spoke, déployée sur le réseau virtuel Hub. Utilisez le Pare-feu Azure ou une autre appliance virtuelle réseau prise en charge par Azure pour établir des règles de trafic et segmenter la communication entre les différents Spokes, les charges de travail locales et AVS.
 
 Créez des tables de routage pour diriger le trafic vers le Pare-feu Azure.  Pour les réseaux virtuels Spoke, créez un itinéraire qui définit l’itinéraire par défaut vers l’interface interne du Pare-feu Azure. Ainsi, lorsqu’une charge de travail dans le réseau virtuel doit atteindre l’espace d’adressage AVS, le pare-feu peut l’évaluer et appliquer la règle de trafic correspondante pour l’autoriser ou la refuser.  
 
@@ -104,7 +104,7 @@ L’Application Gateway Azure V1 et V2 ont été testées avec des applications 
 
 Accédez à l’environnement AVS avec JumpBox, qui est une machine virtuelle Windows 10 ou Windows Server déployée dans le sous-réseau de service partagé au sein du réseau virtuel Hub.
 
-Pour des raisons de sécurité, il est recommandé de déployer le service [Microsoft Azure Bastion](https://docs.microsoft.com/azure/bastion/) au sein du réseau virtuel Hub. Azure Bastion fournit un accès RDP et SSH transparent aux machines virtuelles déployées sur Azure sans avoir à approvisionner des adresses IP publiques pour ces ressources. Une fois que vous avez configuré le service Azure Bastion, vous pouvez accéder à la machine virtuelle sélectionnée à partir du Portail Azure. Après avoir établi la connexion, un nouvel onglet s’ouvre et affiche le bureau JumpBox et, à partir de ce bureau, vous pouvez accéder au plan de gestion du cloud privé AVS.
+Pour des raisons de sécurité, il est recommandé de déployer le service [Microsoft Azure Bastion](../bastion/index.yml) au sein du réseau virtuel Hub. Azure Bastion fournit un accès RDP et SSH transparent aux machines virtuelles déployées sur Azure sans avoir à approvisionner des adresses IP publiques pour ces ressources. Une fois que vous avez configuré le service Azure Bastion, vous pouvez accéder à la machine virtuelle sélectionnée à partir du Portail Azure. Après avoir établi la connexion, un nouvel onglet s’ouvre et affiche le bureau JumpBox et, à partir de ce bureau, vous pouvez accéder au plan de gestion du cloud privé AVS.
 
 > [!IMPORTANT]
 > N’attribuez pas d’adresse IP publique à la machine virtuelle JumpBox ou exposez le port 3389/TCP à l’Internet public. 
@@ -137,21 +137,19 @@ Vous pouvez configurer des serveurs locaux et AVS avec des redirecteurs conditio
 
 ## <a name="identity-considerations"></a>Identité - Éléments à prendre en compte
 
-À des fins d’identité, la meilleure approche consiste à déployer au moins un contrôleur de domaine AD sur le Hub, à l’aide du sous-réseau de service partagé, idéalement deux d’entre eux dans le mode distribué dans une zone ou un groupe à haute disponibilité de machines virtuelles. Consultez [Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) pour étendre votre domaine AD local à Azure.
+À des fins d’identité, la meilleure approche consiste à déployer au moins un contrôleur de domaine AD sur le Hub, à l’aide du sous-réseau de service partagé, idéalement deux d’entre eux dans le mode distribué dans une zone ou un groupe à haute disponibilité de machines virtuelles. Consultez [Centre des architectures Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) pour étendre votre domaine AD local à Azure.
 
 En outre, déployez un autre contrôleur de domaine sur le côté AVS pour agir en tant qu’identité et source DNS au sein de l’environnement vSphere.
 
 Pour vCenter et SSO, définissez une source d’identité dans le Portail Azure, sur **Gérer \> Identité \> Sources d’identité**.
 
-Comme meilleure pratique recommandée, intégrez [domaine AD avec Azure Active Directory](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad).
+Comme meilleure pratique recommandée, intégrez [domaine AD avec Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
-[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+[Azure Architecture Center]: /azure/architecture/
 
-[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Hub & Spoke topology]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 
-[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
+[Azure networking documentation]: ../networking/index.yml
 
 <!-- LINKS - internal -->
-
-

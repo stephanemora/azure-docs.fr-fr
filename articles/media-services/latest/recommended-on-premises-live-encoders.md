@@ -9,16 +9,16 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030663"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux vérifiés
 
-Dans Azure Media Services, un [Événement en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. L’Événement en temps réel reçoit les flux d’entrée en direct de l’une des deux manières suivantes.
+Dans Azure Media Services, un [Événement en temps réel](/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. L’Événement en temps réel reçoit les flux d’entrée en direct de l’une des deux manières suivantes.
 
 * Un encodeur live local envoie à l'Événement en temps réel un flux RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n'est pas activé pour effectuer un encodage en temps réel avec Media Services. Les flux ingérés transitent par les Événements en temps réel sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Nous recommandons que l’encodeur live envoie des flux multidébits au lieu d’un flux à vitesse de transmission unique vers un événement en direct pass-through pour permettre le streaming à débit adaptatif vers le client. 
 

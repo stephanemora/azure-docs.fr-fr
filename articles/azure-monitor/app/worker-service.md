@@ -3,12 +3,12 @@ title: Application Insights pour les applications Service Worker (applications n
 description: Surveillance des applications .NET Core/.NET Framework non HTTP avec Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ae146c6c010f067973c9fbae4c90bd1116d7c21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499203"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325404"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
@@ -542,7 +542,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisez l’API](../../azure-monitor/app/api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue détaillée des performances et de l’utilisation de votre application.
-* [Suivre les dépendances supplémentaires non suivies automatiquement](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Enrichir ou filtrer les données de télémétrie collectées automatiquement](../../azure-monitor/app/api-filtering-sampling.md).
+* [Utilisez l’API](./api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue détaillée des performances et de l’utilisation de votre application.
+* [Suivre les dépendances supplémentaires non suivies automatiquement](./auto-collect-dependencies.md).
+* [Enrichir ou filtrer les données de télémétrie collectées automatiquement](./api-filtering-sampling.md).
 * [Injection de dépendances dans ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+

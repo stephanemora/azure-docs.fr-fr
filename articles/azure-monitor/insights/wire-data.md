@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424463"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325149"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -167,7 +167,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 
 Suivez les étapes ci-dessous afin de configurer la solution Wire Data pour vos espaces de travail.
 
-1. Activez la solution Activity Log Analytics à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions de supervision à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution Activity Log Analytics à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions de supervision à partir de la galerie de solutions](./solutions.md).
 2. Installez l’agent de dépendances sur chacun des ordinateurs sur lesquels vous souhaitez récupérer des données. L’agent de dépendances peut surveiller les connexions aux voisins immédiats ; par conséquent, vous n’avez pas forcément besoin d’un agent sur chaque ordinateur.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ L’agent de dépendances s’installe sur les ordinateurs sous Windows par le b
 
 Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaque ordinateur exécutant Windows :
 
-1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Windows hébergés dans votre environnement](../../azure-monitor/platform/agent-windows.md).
+1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Windows hébergés dans votre environnement](../platform/agent-windows.md).
 2. Téléchargez l’agent de dépendances Windows en suivant le lien de la section précédente, puis exécutez-le à l’aide de la commande suivante : `InstallDependencyAgent-Windows.exe`
 3. Suivez les instructions de l’Assistant pour installer l’agent.
 4. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Pour les agents Windows, le répertoire des journaux d’activité est %Programfiles%\Microsoft Dependency Agent\logs.
@@ -208,7 +208,7 @@ L’agent de dépendances s’installe sur les ordinateurs Linux par le biais de
 
 Procédez comme suit pour installer l’agent de dépendances sur chaque ordinateur Linux :
 
-1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Linux hébergés dans votre environnement](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Linux hébergés dans votre environnement](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Téléchargez l’agent de dépendances Linux en suivant le lien de la section précédente, puis installez-le en tant que racine à l’aide de la commande suivante : sh InstallDependencyAgent-Linux64.bin.
 3. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est : /var/opt/microsoft/dependency-agent/log.
 
@@ -416,4 +416,5 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lancez une recherche dans les journaux d’activité](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.
+- [Lancez une recherche dans les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.
+
