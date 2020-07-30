@@ -3,16 +3,16 @@ title: Utiliser des méthodes directes dans Live Video Analytics sur IoT Edge �
 description: Live Video Analytics sur IoT Edge expose plusieurs méthodes directes. Les méthodes directes sont basées sur les conventions décrites dans cette rubrique.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091825"
 ---
 # <a name="direct-methods"></a>Méthodes directes
 
-Live Video Analytics sur IoT Edge expose plusieurs méthodes directes qui peuvent être appelées à partir d’IoT Hub. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où le plan d’action immédiate est différent selon que l’appareil a été en mesure ou non de répondre. Pour plus d’informations, consultez [Comprendre et appeler des méthodes directes à partir d’IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Live Video Analytics sur IoT Edge expose plusieurs méthodes directes qui peuvent être appelées à partir d’IoT Hub. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où le plan d’action immédiate est différent selon que l’appareil a été en mesure ou non de répondre. Pour plus d’informations, consultez [Comprendre et appeler des méthodes directes à partir d’IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Cette rubrique décrit ces méthodes et conventions.
 

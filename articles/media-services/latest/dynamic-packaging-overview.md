@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090108"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetage dynamique dans Media Services v3
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services peut être utilisé pour encoder de nombreux form
 Dans Media Services, un [point de terminaison de streaming](streaming-endpoint-concept.md) (origine) représente un service d’empaquetage dynamique (juste-à-temps) à l’origine qui permet de distribuer votre contenu en direct et à la demande directement à une application de lecture cliente. Il utilise un des protocoles de diffusion multimédia en continu courants mentionnés dans la section suivante. L’*empaquetage dynamique* est une fonctionnalité standard sur tous les points de terminaison de streaming (Standard ou Premium).
 
 > [!NOTE]
-> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple les transformations et les travaux), utilisez l’[API REST](https://docs.microsoft.com/rest/api/media/), l’[interface CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple les transformations et les travaux), utilisez l’[API REST](/rest/api/media/), l’[interface CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Pour préparer vos fichiers sources en vue de leur distribution
 
@@ -126,7 +126,7 @@ Pour plus d’informations sur le streaming en direct dans Media Services v3, co
 L’empaquetage dynamique prend en charge les fichiers MP4 contenant de la vidéo encodée au format [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
-> Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’*empaquetage dynamique*. L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en H.265 via les API v2 existantes.
+> Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’*empaquetage dynamique*. L’[encodeur Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) prend en charge l’encodage en H.265 via les API v2 existantes.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio pris en charge par l’empaquetage dynamique
 

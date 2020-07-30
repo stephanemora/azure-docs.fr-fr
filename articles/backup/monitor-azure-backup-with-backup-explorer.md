@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser l'Explorateur de sauvegarde p
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092794"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Superviser vos sauvegardes avec l’Explorateur de sauvegarde
 
@@ -94,8 +94,8 @@ Sélectionnez l'icône « Épingler » disponible en haut de chaque tableau ou
 
 ## <a name="cross-tenant-views"></a>Vues multilocataires
 
-Si vous êtes un utilisateur d'Azure Lighthouse et que vous disposez d'un accès délégué aux abonnements de plusieurs environnements de locataires, vous pouvez utiliser le filtre d'abonnement par défaut. Pour afficher les abonnements dont vous souhaitez consulter les données, sélectionnez l'icône « Filtre » en haut à droite du portail Azure. Lorsque vous utilisez cette fonctionnalité, l'Explorateur de sauvegarde regroupe les informations de tous les coffres répartis sur les différents abonnements que vous avez sélectionnés. Pour en savoir plus, consultez [Présentation d'Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
+Si vous êtes un utilisateur d'Azure Lighthouse et que vous disposez d'un accès délégué aux abonnements de plusieurs environnements de locataires, vous pouvez utiliser le filtre d'abonnement par défaut. Pour afficher les abonnements dont vous souhaitez consulter les données, sélectionnez l'icône « Filtre » en haut à droite du portail Azure. Lorsque vous utilisez cette fonctionnalité, l'Explorateur de sauvegarde regroupe les informations de tous les coffres répartis sur les différents abonnements que vous avez sélectionnés. Pour en savoir plus, consultez [Présentation d'Azure Lighthouse](../lighthouse/overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrir comment utiliser Azure Monitor pour obtenir des insights sur vos données de sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Découvrir comment utiliser Azure Monitor pour obtenir des insights sur vos données de sauvegarde](./backup-azure-monitoring-use-azuremonitor.md)

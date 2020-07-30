@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092760"
 ---
 # <a name="rendering-using-azure"></a>Rendu à l’aide d’Azure
 
@@ -79,7 +79,7 @@ Plusieurs méthodes permettent d’utiliser Azure Batch, toutes s’appliquant �
 * API :
   * Écrivez du code à l’aide de l’API [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) ou d’autres API prises en charge.  Les développeurs peuvent intégrer les fonctionnalités Azure Batch dans leurs applications ou workflows existants, dans le cloud ou en local.  Par exemple, le [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilise l’API Python Batch pour appeler Batch, la création et la gestion de pools, l’envoi de travaux et de tâches, et la surveillance de l’état.
 * Outils de ligne de commande :
-  * Vous pouvez utiliser la [ligne de commande Azure](/cli/azure/) ou [Azure PowerShell](/powershell/azure/overview) pour écrire un script d’utilisation de Batch.
+  * Vous pouvez utiliser la [ligne de commande Azure](/cli/azure/) ou [Azure PowerShell](/powershell/azure/) pour écrire un script d’utilisation de Batch.
   * En particulier, la prise en charge des modèles CLI Batch facilite considérablement la création de pools et l’envoi de travaux.
 * Interfaces utilisateur :
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client multiplateforme qui permet également de gérer et de surveiller des comptes Batch, mais qui fournit des fonctionnalités plus riches que l’interface utilisateur du portail Azure.  Un ensemble de modèles de pool et de travail personnalisés pour chaque application prise en charge est fourni et peut être utilisé pour créer facilement des pools et envoyer des travaux.

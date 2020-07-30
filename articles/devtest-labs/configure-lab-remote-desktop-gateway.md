@@ -3,12 +3,12 @@ title: Configurer un labo pour utiliser une passerelle des services Bureau à di
 description: Découvrez comment configurer un labo dans Azure DevTest Labs avec une passerelle des services Bureau à distance afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483837"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288074"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -36,7 +36,7 @@ Pour utiliser la fonctionnalité d’authentification du jeton DevTest Labs, il
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Exigences relatives aux machines de passerelle des services Bureau à distance
 - Un certificat TLS/SSL doit être installé sur la machine de passerelle pour gérer le trafic HTTPS. Le certificat doit correspondre le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou au nom de domaine complet de la machine elle-même s’il n’en existe qu’une. Les certificats TLS/SSL utilisant des caractères génériques ne fonctionnent pas.  
 - Un certificat de signature installé sur la ou les machines de passerelle. Créez un certificat de signature à l’aide du script [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1).
-- Installez le module d’[authentification enfichable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) qui prend en charge l’authentification du jeton pour la passerelle des services Bureau à distance. `RDGatewayFedAuth.msi`, qui est fourni avec des [images System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807), est un exemple de ce type de module. Pour plus d’informations sur System Center, consultez la [documentation de System Center](https://docs.microsoft.com/system-center/) et les [détails des tarifs](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Installez le module d’[authentification enfichable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) qui prend en charge l’authentification du jeton pour la passerelle des services Bureau à distance. `RDGatewayFedAuth.msi`, qui est fourni avec des [images System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807), est un exemple de ce type de module. Pour plus d’informations sur System Center, consultez la [documentation de System Center](/system-center/) et les [détails des tarifs](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Le serveur de passerelle peut gérer les requêtes adressées à `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
     gateway-hostname est le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou le nom de domaine complet de la machine elle-même s’il n’en existe qu’une. `{lab-machine-name}` est le nom de la machine de labo que vous essayez de connecter, et `{port-number}` est le port sur lequel la connexion sera établie.  Par défaut, ce port est le port 3389.  Toutefois, si la machine virtuelle utilise la fonctionnalité d’[adresse IP partagée](devtest-lab-shared-ip.md) dans DevTest Labs, le port sera différent.
@@ -159,5 +159,3 @@ Suivez ces étapes afin de configurer un exemple de solution pour la batterie de
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les services Bureau à distance, consultez l’article suivant : [Documentation des services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

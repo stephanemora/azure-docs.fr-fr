@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294921"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309339"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -22,7 +22,7 @@ Cette méthode peut être utilisée lors du déploiement de nouvelles ressources
 
 Vous pouvez configurer les paramètres suivants pour une règle de détection intelligente :
 - Si la règle est activée (la valeur par défaut est **true**.)
-- Si les e-mails doivent être envoyés aux utilisateurs associés aux rôles [Lecteur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) et [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) de l’abonnement à la suite d’une détection (la valeur par défaut est **true**).
+- Si les e-mails doivent être envoyés aux utilisateurs associés aux rôles [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) et [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de l’abonnement à la suite d’une détection (la valeur par défaut est **true**).
 - Les destinataires d’e-mails supplémentaires qui doivent recevoir une notification lorsqu’une détection est trouvée.
     -  La configuration relative aux e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_.
 
@@ -192,6 +192,7 @@ Ce modèle Azure Resource Manager montre comment configurer une règle d’alert
 
 En savoir plus sur la détection automatique :
 
-- [Défaillances](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Fuites de mémoire](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Anomalies de performance](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Défaillances](./proactive-failure-diagnostics.md)
+- [Fuites de mémoire](./proactive-potential-memory-leak.md)
+- [Anomalies de performance](./proactive-performance-diagnostics.md)
+

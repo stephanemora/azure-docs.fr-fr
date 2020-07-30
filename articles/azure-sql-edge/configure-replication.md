@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667877"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282770"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurer la réplication sur Azure SQL Edge (préversion) 
 
@@ -24,7 +24,7 @@ Vous pouvez configurer une instance d’Azure SQL Edge en tant que titulaire d�
   
 - L’instance d’Azure SQL Edge doit être titulaire d’un abonnement par émission de données pour un serveur de publication.
 - Le serveur de publication et le serveur de distribution peuvent être :
-   - Une instance de SQL Server exécutée localement ou une instance de SQL Server exécutée sur une machine virtuelle Azure. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). Les instances de SQL Server doivent utiliser une version ultérieure à SQL Server 2016.
+   - Une instance de SQL Server exécutée localement ou une instance de SQL Server exécutée sur une machine virtuelle Azure. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). Les instances de SQL Server doivent utiliser une version ultérieure à SQL Server 2016.
    - Une instance d’Azure SQL Managed Instance. SQL Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Pour plus d’informations, consultez [Réplication avec SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - La base de données de distribution et les agents de réplication ne peuvent pas être placés sur une instance d’Azure SQL Edge.  

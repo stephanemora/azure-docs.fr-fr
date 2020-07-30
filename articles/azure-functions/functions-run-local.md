@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170358"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085144"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Il existe trois versions d’Azure Functions Core Tools. La version que vous uti
 
 + **Version 1.x** : Prend en charge la version 1.x du runtime Azure Functions. Cette version des outils est uniquement prise en charge sur les ordinateurs Windows et est installée à partir d’un [package npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 3.x/2.x**](#v2) : Prend en charge la [version 3.x ou 2.x du runtime Azure Functions](functions-versions.md). Ces versions prennent en charge [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) et [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) et utilisent des gestionnaires de package spécifiques à la plateforme ou npm pour l’installation.
++ [**Version 3.x/2.x**](#v2) : Prend en charge la [version 3.x ou 2.x du runtime Azure Functions](functions-versions.md). Ces versions prennent en charge [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) et [Linux](?tabs=linux#v2) et utilisent des gestionnaires de package spécifiques à la plateforme ou npm pour l’installation.
 
 Sauf indication contraire, les exemples de cet article concernent la version 3.x.
 
@@ -48,7 +48,7 @@ Sauf indication contraire, les exemples de cet article concernent la version 3.
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Versions 3.x et 2.x
 
-La version 3.x ou 2.x des outils utilise le runtime Azure Functions qui repose sur .NET Core. Cette version est prise en charge sur tous les supports des plateformes .NET Core, notamment [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) et [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+La version 3.x ou 2.x des outils utilise le runtime Azure Functions qui repose sur .NET Core. Cette version est prise en charge sur tous les supports des plateformes .NET Core, notamment [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) et [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Vous pouvez contourner l’obligation d’installer le kit SDK .NET Core en utilisant des [bundles d’extension].
@@ -240,7 +240,7 @@ Si aucune chaîne de connexion de stockage valide n’est définie pour [`AzureW
 
 ### <a name="get-your-storage-connection-strings"></a>Obtenir vos chaînes de connexion de stockage
 
-Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-create-storage-account.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
+Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-account-create.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
 
 - Dans le [Azure portal], recherchez et sélectionnez **Comptes de stockage**. 
   ![Sélectionner des comptes de stockage à partir du Portail Azure](./media/functions-run-local/select-storage-accounts.png)
@@ -343,7 +343,7 @@ func start
 ```
 func start
 ```
-Cette commande doit être [exécutée dans un environnement virtuel](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+Cette commande doit être [exécutée dans un environnement virtuel](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -574,7 +574,7 @@ Les journaux de diffusion en continu de ce type nécessitent que l’intégratio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment développer, tester et publier des fonctions Azure en utilisant Azure Functions Core Tools [module Microsoft Learn](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/). Azure Functions Core Tools est [open source et hébergé sur GitHub](https://github.com/azure/azure-functions-cli).  
+Découvrez comment développer, tester et publier des fonctions Azure en utilisant Azure Functions Core Tools [module Microsoft Learn](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/). Azure Functions Core Tools est [open source et hébergé sur GitHub](https://github.com/azure/azure-functions-cli).  
 Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problème GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->

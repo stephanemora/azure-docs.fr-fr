@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74901275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038730"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gérer les points de terminaison de streaming avec le SDK .NET  
 
 >[!NOTE]
->Consultez l’article de [présentation](media-services-streaming-endpoints-overview.md). Consultez aussi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Consultez l’article de [présentation](media-services-streaming-endpoints-overview.md). Consultez aussi [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 Le code de cet article montre comment effectuer les tâches suivantes à l’aide du kit SDK Azure Media Services pour .NET :
 
@@ -150,4 +150,3 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

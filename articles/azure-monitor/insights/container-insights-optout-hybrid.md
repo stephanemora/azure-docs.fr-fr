@@ -3,12 +3,12 @@ title: Arrêter la surveillance de votre cluster Kubernetes hybride | Microsoft 
 description: Cet article décrit comment arrêter la surveillance de votre cluster Kubernetes hybride à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091196"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Arrêter la surveillance de votre cluster hybride
 
@@ -120,4 +120,4 @@ Le changement de configuration peut prendre quelques minutes. Étant donné que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si l’espace de travail Log Analytics a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Si l’espace de travail Log Analytics a été créé uniquement pour prendre en charge la surveillance du cluster et qu’il n’est plus nécessaire, vous devez le supprimer manuellement. Si vous n’êtes pas familiarisé avec la suppression d’un espace de travail, consultez la rubrique [Supprimer un espace de travail Azure Log Analytics](../platform/delete-workspace.md).

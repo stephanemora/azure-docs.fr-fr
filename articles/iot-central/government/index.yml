@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f244a01815962febf4a9ba8165b1687f500587b9
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: a036b23d460fc5c638f36ff0dbca9bcda11cd39c
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024742"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87335919"
 landingContent:
 - title: Créer des solutions destinées au secteur public
   linkLists:
@@ -38,13 +38,9 @@ landingContent:
     - text: Configurer un modèle d’appareil
       url: ../core/howto-set-up-template.md
     - text: Connexion d'un appareil
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Connecter un appareil IoT Plug-and-Play (préversion)
-      url: ../core/tutorial-connect-pnp-device.md
+      url: ../core/tutorial-connect-device.md
   - linkListType: how-to-guide
     links:
-    - text: Préparer et connecter un kit de développement IoT MX Chip
-      url: ../core/howto-connect-devkit.md
     - text: Connecter d’autres clouds IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Rester connecté

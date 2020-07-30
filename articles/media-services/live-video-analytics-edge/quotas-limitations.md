@@ -3,12 +3,12 @@ title: Quotas de Live Video Analytics sur IoT Edge - Azure
 description: Cet article décrit les quotas et limitations de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091808"
 ---
 # <a name="quotas-and-limitations"></a>Quotas et limitations
 
@@ -47,11 +47,8 @@ Avec la préversion, il existe des limitations sur les différents nœuds qui pe
 * Processeur de porte de signal
    * Doit être immédiatement en aval de la source RTSP.
 * Récepteur de ressources 
-   * Il ne peut exister qu’un seul nœud de ce type par topologie de graphe.
-      * Si un récepteur de ressources est utilisé, un récepteur de fichiers ne peut pas être présent, et inversement.
    * Doit être immédiatement en aval de la source RTSP ou du processeur de porte de signal.
 * Récepteur de fichiers
-   * Il ne peut exister qu’un seul nœud de ce type par topologie de graphe (consultez la remarque ci-dessus relative au récepteur de ressources).
    * Doit être immédiatement en aval du processeur de porte de signal.
    * Ne peut pas être immédiatement en aval du processeur d’extension HTTP ou du processeur de détection de mouvement
 * Récepteur IoT Hub

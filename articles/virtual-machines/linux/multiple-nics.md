@@ -4,16 +4,16 @@ description: Découvrez comment créer une machine virtuelle Linux dotée de plu
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c6b6dcf748b0c6ef6162e9f20726123673abb33
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706679"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283263"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 
@@ -167,7 +167,7 @@ Les modèles Azure Resource Manager utilisent des fichiers JSON déclaratifs pou
 }
 ```
 
-En savoir plus sur la [création de plusieurs instances à l’aide de *copy*](../../resource-group-create-multiple.md). 
+En savoir plus sur la [création de plusieurs instances à l’aide de *copy*](../../azure-resource-manager/templates/copy-resources.md). 
 
 Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à un nom de ressource permettant de créer `myNic1`, `myNic2`, etc. Voici un exemple d’ajout de la valeur d’index :
 

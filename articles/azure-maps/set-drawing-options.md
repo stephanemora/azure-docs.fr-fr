@@ -1,19 +1,20 @@
 ---
 title: Module Outils de dessin | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à définir des données d’options de dessin à l’aide du kit SDK Web Microsoft Azure Maps
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334307"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282821"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utiliser le module Outils de dessin
 

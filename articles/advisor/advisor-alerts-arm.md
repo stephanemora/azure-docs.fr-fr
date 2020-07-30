@@ -4,12 +4,12 @@ description: Créer des alertes Azure Advisor pour les nouvelles recommandations
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: ef15891cc01d0481c6253023de262f14dce0ec81
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057822"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Démarrage rapide : Créer des alertes Azure Advisor sur les nouvelles recommandations à l’aide d’un modèle Resource Manager
 
@@ -17,7 +17,7 @@ Cet article explique comment configurer une alerte pour les nouvelles recommanda
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Chaque fois qu’Azure Advisor détecte une nouvelle recommandation pour l’une de vos ressources, un événement est stocké dans le [journal d’activité Azure](/azure/azure-monitor/platform/activity-logs-overview). Vous pouvez configurer des alertes pour ces événements à partir d’Azure Advisor en utilisant une expérience de création d’alertes spécifique aux recommandations. Vous pouvez sélectionner un abonnement et éventuellement un groupe de ressources afin de spécifier les ressources pour lesquelles vous souhaitez recevoir des alertes.
+Chaque fois qu’Azure Advisor détecte une nouvelle recommandation pour l’une de vos ressources, un événement est stocké dans le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md). Vous pouvez configurer des alertes pour ces événements à partir d’Azure Advisor en utilisant une expérience de création d’alertes spécifique aux recommandations. Vous pouvez sélectionner un abonnement et éventuellement un groupe de ressources afin de spécifier les ressources pour lesquelles vous souhaitez recevoir des alertes.
 
 Vous pouvez également déterminer les types de recommandations à l’aide des propriétés suivantes :
 

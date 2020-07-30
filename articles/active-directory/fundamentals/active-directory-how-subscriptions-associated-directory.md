@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025336"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -85,7 +85,7 @@ La modification du répertoire de l’abonnement est une opération de niveau de
 
 Après avoir associé un abonnement à un autre annuaire, vous pouvez être amené à effectuer les tâches suivantes pour reprendre le cours des opérations :
 
-- Si vous avez des coffres de clés, vous devez modifier l''ID de locataire des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/general/subscription-move-fix.md).
+- Si vous avez des coffres de clés, vous devez modifier l''ID de locataire des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/general/move-subscription.md).
 
 - Si vous utilisiez des identités managées attribuées par le système pour les ressources, vous devez réactiver ces identités. Si vous utilisiez des identités managées affectées par l’utilisateur pour les ressources, vous devez réactiver ces identités. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../managed-identities-azure-resources/overview.md).
 

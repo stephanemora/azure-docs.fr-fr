@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091791"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Conception de modèles hybrides de sous-systèmes de DRM 
 
@@ -103,7 +103,7 @@ Sur la base des explications de la section précédente, les cinq scénarios hyb
 |AMS|Tiers|Extérieur|Non|Non|Exemple 4|
 |Tiers|Tiers|AMS|Oui|Non|    
 
-Dans les exemples, la protection PlayReady fonctionne à la fois pour DASH et la diffusion en continu lisse. Les URL de vidéos ci-dessous sont des URL de diffusion en continu lisse. Pour obtenir l’URL DASH correspondante, il vous suffit d’ajouter « (format=mpd-time-csf) ». Vous pouvez utiliser le lecteur [Azure Media Test](https://aka.ms/amtest) pour effectuer des tests dans un navigateur. Il vous permet de configurer le protocole de diffusion en continu à utiliser, sous la technologie de votre choix. IE11 et Microsoft Edge sur Windows 10 prennent en charge PlayReady via EME. Pour plus d’informations, consultez [ce billet de blog sur l’outil de test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+Dans les exemples, la protection PlayReady fonctionne à la fois pour DASH et la diffusion en continu lisse. Les URL de vidéos ci-dessous sont des URL de diffusion en continu lisse. Pour obtenir l’URL DASH correspondante, il vous suffit d’ajouter « (format=mpd-time-csf) ». Vous pouvez utiliser le lecteur [Azure Media Test](https://aka.ms/amtest) pour effectuer des tests dans un navigateur. Il vous permet de configurer le protocole de diffusion en continu à utiliser, sous la technologie de votre choix. IE11 et Microsoft Edge sur Windows 10 prennent en charge PlayReady via EME. Pour plus d’informations, consultez [ce billet de blog sur l’outil de test](/azure/media-services/previous/offline-playready-streaming-windows-10).
 
 ### <a name="sample-1"></a>Exemple 1
 
@@ -142,4 +142,3 @@ Afficher les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

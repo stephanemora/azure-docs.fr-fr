@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314218"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 
@@ -184,16 +184,6 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
      ![Tableau de bord Power BI complété affichant deux vignettes pour les appels frauduleux](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>En savoir plus sur Power BI
-
-Ce didacticiel montre comment créer quelques types de visualisations d’un jeu de données. Power BI peut vous aider à créer d’autres outils d’analyse décisionnelle clients pour votre organisation. Pour plus d’idées, consultez les ressources suivantes :
-
-* Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [prise en main de Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) .
-* Pour plus d’informations sur la configuration d’une sortie de travail Stream Analytics vers Power BI ainsi que sur l’utilisation des groupes Power BI, passez en revue la section [Power BI](stream-analytics-define-outputs.md#power-bi) de l’article sur les [sorties Stream Analytics](stream-analytics-define-outputs.md). 
-* Pour plus d’informations sur l’utilisation de Power BI en général, consultez [Tableaux de bord dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>En savoir plus sur les limites et les meilleures pratiques
 Actuellement, Power BI peut être appelé environ une fois par seconde. Les éléments visuels de streaming prennent en charge des paquets de 15 Ko. Au-delà de cette taille, ils échouent (mais les transmissions de type push continuent de fonctionner). En raison de cette limite, Power BI s’applique naturellement dans les cas où Azure Stream Analytics débouche sur une réduction significative de la charge des données. Nous vous recommandons d’utiliser une fenêtre bascule ou une fenêtre récurrente pour vous assurer que la transmission de type push des données est effectuée au plus une fois par seconde et que votre requête respecte les exigences de débit.
 
@@ -234,12 +224,9 @@ De même, si un travail démarre après l’expiration du jeton, une erreur se p
 
 Une fois que l’autorisation a été actualisée avec Power BI, une alerte verte apparaît dans la zone d’autorisation pour indiquer que le problème a été résolu.
 
-## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Sorties Stream Analytics](stream-analytics-define-outputs.md)
 * [Références sur le langage des requêtes Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
