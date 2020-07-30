@@ -3,12 +3,12 @@ title: Réduire les coûts de service grâce à Azure Advisor
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078559"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284368"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Réduire les coûts de service à l’aide d’Azure Advisor
 
@@ -89,7 +89,7 @@ Pour économiser jusqu’à 60 %, nous vous recommandons de stocker vos instant
 En utilisant les renseignements quant à la taille totale, aux transactions et au nombre d’objets du stockage Blob Azure, Advisor détecte si vous devez activer la gestion du cycle de vie afin de hiérarchiser les données sur un ou plusieurs de vos comptes de stockage. Il vous invite à créer des règles de gestion du cycle de vie pour hiérarchiser automatiquement vos données dans les stockages Froid ou Archive afin d’optimiser vos coûts de stockage tout en conservant vos données dans le stockage Blob Azure pour la compatibilité des applications.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Créer une recommandation de disque de système d’exploitation éphémère
-Le [disque de système d’exploitation éphémère](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) vous permet d’effectuer les opérations suivantes : 
+Le [disque de système d’exploitation éphémère](../virtual-machines/ephemeral-os-disks.md) vous permet d’effectuer les opérations suivantes : 
 - Réduire les coûts de stockage pour les disques de système d’exploitation. 
 - Diminuer la latence de lecture/écriture sur les disques de système d’exploitation. 
 - Obtenir des opérations de réinitialisation de machine virtuelle plus rapides en rétablissant le système d’exploitation (et le disque temporaire) à son état d’origine.
@@ -114,4 +114,3 @@ Pour en savoir plus sur les recommandations d’Advisor, consultez les ressource
 * [Recommandations d’Advisor en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations d’Advisor en matière de sécurité](advisor-security-recommendations.md)
 * [Recommandations d’Advisor en matière d’excellence opérationnelle](advisor-operational-excellence-recommendations.md)
-

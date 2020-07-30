@@ -3,12 +3,12 @@ title: Liste de contrôle de disponibilité de production Azure Service Fabric
 description: Préparez votre application Service Fabric et votre cluster de production en suivant les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610028"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282056"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
@@ -22,7 +22,7 @@ Votre application et le cluster sont prêts à accepter le trafic de production�
 1. Utilisez une référence (SKU) D2v2 ou supérieure pour le type de nœud principal. Il est recommandé de choisir une référence (SKU) avec une capacité de disque dur d’au moins 50 Go.
 1. Les clusters de production doivent être [sécurisés](service-fabric-cluster-security.md). Pour un exemple de configuration de cluster sécurisé, regardez ce [modèle de cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Utilisez des noms communs pour les certificats, et évitez d’utiliser des certificats auto-signés.
 1. Ajoutez [des contraintes de ressources sur les conteneurs et les services](service-fabric-resource-governance.md), afin qu’ils ne consomment pas plus de 75 % des ressources du nœud. 
-1. Comprenez et définissez le [niveau de durabilité](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Le niveau de durabilité Silver ou un niveau supérieur sont recommandés pour les types de nœuds exécutant des charges de travail avec état. Le type de nœud principal doit avoir le niveau de durabilité Silver ou un niveau supérieur.
+1. Comprenez et définissez le [niveau de durabilité](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Le niveau de durabilité Silver ou un niveau supérieur sont recommandés pour les types de nœuds exécutant des charges de travail avec état.
 1. Comprenez et choisissez le [niveau de fiabilité](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) du type de nœud. Une fiabilité de niveau Silver ou d’un niveau supérieur est recommandée.
 1. Chargez vos charges de travail et testez-les à l’échelle afin d’identifier les [besoins en capacité](service-fabric-cluster-capacity.md) pour votre cluster. 
 1. Vos services et applications sont surveillés, et les journaux des applications sont générés et stockés avec génération d’alertes. Consultez, par exemple, [Ajouter la journalisation à votre application Service Fabric](service-fabric-how-to-diagnostics-log.md) et [Surveiller les conteneurs avec les journaux Azure Monitor](service-fabric-diagnostics-oms-containers.md).

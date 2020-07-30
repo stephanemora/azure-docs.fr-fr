@@ -3,12 +3,12 @@ title: Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 description: Configurez votre environnement Azure VMware Solution pour sauvegarder des machines virtuelles à l’aide du serveur de sauvegarde Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079534"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 
@@ -309,7 +309,7 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
    * **Base de données** : **DatabaseName** doit être **ReportServer$\<SQLInstanceName>** .
    * **URL du portail web** : **Répertoire virtuel** doit être **Reports_\<SQLInstanceName>** .
 
-   [En savoir plus](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sur la configuration de SSRS.
+   [En savoir plus](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sur la configuration de SSRS.
 
    > [!NOTE]
    > Les [Conditions des services en ligne Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (OST) régissent la gestion des licences pour SQL Server utilisé comme base de données pour le serveur de sauvegarde Azure. D’après les OST, SQL Server fourni avec le serveur de sauvegarde Azure peut être utilisé uniquement comme base de données pour le serveur de sauvegarde Azure.
@@ -319,7 +319,7 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
 1. Fournissez un emplacement pour l’installation des fichiers du serveur de sauvegarde Microsoft Azure puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être configurés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et le stockage sur disque](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être configurés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et le stockage sur disque](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Paramètres d’installation du programme d’installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Passez au didacticiel suivant pour découvrir comment configurer la sauvegarde d
 
 > [!div class="nextstepaction"]
 > [Configurer la sauvegarde des machines virtuelles de Azure VMware Solution](backup-avs-vms-with-mabs.md)
-

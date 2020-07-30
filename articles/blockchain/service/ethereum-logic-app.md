@@ -4,16 +4,16 @@ description: Utilisez le connecteur Ethereum Blockchain avec Azure Logic Apps po
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077041"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 
-Utilisez le [connecteur Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) avec [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
+Utilisez le [connecteur Ethereum Blockchain](/connectors/blockchainethereum/) avec [Azure Logic Apps](../../logic-apps/index.yml) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
 
 ## <a name="prerequisites"></a>Prérequis
 

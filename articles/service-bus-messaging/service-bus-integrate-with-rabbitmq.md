@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071625"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Intégration de RabbitMQ à Azure Service Bus
 
@@ -90,7 +90,7 @@ Avant de pouvoir utiliser cette chaîne de connexion, vous devez la convertir au
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convertir la chaîne de connexion":::
 
-Maintenant, ouvrez le plug-in de gestion de RabbitMQ dans nos navigateurs [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) et accédez à `Admin -> Shovel Management`, où vous pouvez ajouter Shovel qui prendra en charge l’envoi de messages d’une file d’attente RabbitMQ à votre file d’attente Azure Service Bus.
+Maintenant, ouvrez le plug-in de gestion de RabbitMQ dans nos navigateurs `http://localhost:15672/#/dynamic-shovels` et accédez à `Admin -> Shovel Management`, où vous pouvez ajouter Shovel qui prendra en charge l’envoi de messages d’une file d’attente RabbitMQ à votre file d’attente Azure Service Bus.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Ajouter RabbitMQ Shovel":::
 

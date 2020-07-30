@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082764"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -20,7 +20,7 @@ Cet article apporte des solutions à certaines erreurs de configuration courante
 Cet article explique comment vérifier les ports et autoriser l’accès racine à un système NAS. Il contient également des informations détaillées sur des problèmes moins courants susceptibles de provoquer l’échec de la création de cibles de stockage NFS.
 
 > [!TIP]
-> Avant de suivre ce guide, consultez [Prérequis des cibles de stockage NFS](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Avant de suivre ce guide, consultez [Prérequis des cibles de stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Si la solution à votre problème n’est pas indiquée ici, veuillez [ouvrir un ticket de support](hpc-cache-support-ticket.md) pour que le Support technique et Service Microsoft puisse examiner et résoudre le problème avec vous.
 

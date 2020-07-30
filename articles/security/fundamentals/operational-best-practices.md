@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204733"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283467"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -182,7 +182,7 @@ Il est extrêmement important que vous conceviez une application suffisamment r�
 
 Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../../cloud-services/cloud-services-choose-me.md).
 
-Pour [Machines virtuelles Azure](/azure/virtual-machines/windows/overview), vérifiez que votre architecture de machine virtuelle inclut plusieurs machines virtuelles et que chaque machine virtuelle est dans un [groupe à haute disponibilité](/azure/virtual-machines/virtual-machines-windows-manage-availability). Nous vous recommandons d’utiliser des groupes de machines virtuelles identiques pour les fonctionnalités de mise à l’échelle automatique.
+Pour [Machines virtuelles Azure](../../virtual-machines/windows/overview.md), vérifiez que votre architecture de machine virtuelle inclut plusieurs machines virtuelles et que chaque machine virtuelle est dans un [groupe à haute disponibilité](../../virtual-machines/windows/tutorial-availability-sets.md). Nous vous recommandons d’utiliser des groupes de machines virtuelles identiques pour les fonctionnalités de mise à l’échelle automatique.
 
 **Bonne pratique** : Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Implémentez des conceptions sécurisées pour vos applications à l’aide des fonctionnalités intégrées à la plateforme Azure.  
 **Détail** : Plus la taille (surface d’exposition) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) et [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).

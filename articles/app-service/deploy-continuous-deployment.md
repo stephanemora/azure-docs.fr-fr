@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 847de2c2c8916558d542473d9b7c80fd5552dbf7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 51b6be8b4deffd81da6c0b714bc6afeff4b06ab2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437236"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073943"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
@@ -177,7 +177,7 @@ Pour les applications Windows, vous pouvez configurer manuellement le déploieme
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Examiner les problèmes courants liés au déploiement continu](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Utilisation d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Utilisation d'Azure PowerShell](/powershell/azure/)
 * [Documentation de Git](https://git-scm.com/documentation)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 

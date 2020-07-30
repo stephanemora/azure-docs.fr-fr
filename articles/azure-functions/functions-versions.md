@@ -3,12 +3,12 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 29dd4a1ea60c463655c5b9a17fedcf6d51eee927
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081676"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -91,7 +91,7 @@ Voici les changements à prendre en considération avant de mettre à niveau une
 
 #### <a name="net"></a>.NET
 
-* [Les opérations de serveur synchrones sont désactivées par défaut](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Les opérations de serveur synchrones sont désactivées par défaut](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### <a name="changing-version-of-apps-in-azure"></a>Changement de la version des applications dans Azure
 

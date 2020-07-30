@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287255"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Stocker des données en périphérie avec le Stockage Blob Azure sur IoT Edge
 
@@ -173,7 +173,10 @@ Spécifiez votre appareil IoT Edge en tant que point de terminaison d’objets b
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
-
+ 
+ > [!IMPORTANT]
+ > Azure IoT Edge respecte la casse lorsque vous effectuez des appels de modules, et le SDK de stockage utilise également des minuscules par défaut. Même si le nom du module dans la [place de marché Azure](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) est **AzureBlobStorageonIoTEdge**, le passage de ce dernier en minuscules permet de s’assurer que vos connexions au module de stockage Blob Azure sur IoT Edge ne sont pas interrompues.
+ 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Exemples de démarrage rapide de Stockage Blob Azure
 
 La documentation du Stockage Blob Azure comprend des guides de démarrage rapide avec des exemples de code dans différents langages. Vous pouvez exécuter ces exemples pour tester le Stockage Blob Azure sur IoT Edge en changeant le point de terminaison des objets blob pour le connecter à votre module de stockage d’objets blob local.

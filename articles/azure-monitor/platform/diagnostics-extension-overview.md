@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007994"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
@@ -34,7 +34,7 @@ Les principales différences à prendre en compte sont les suivantes :
 
 - L’extension Diagnostics Azure peut être utilisée uniquement avec des machines virtuelles Azure. L’agent Log Analytics peut être utilisé avec des machines virtuelles dans Azure, dans d’autres clouds et en local.
 - L’extension Diagnostics Azure envoie des données à Stockage Azure, à [Azure Monitor Metrics](data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics collecte des données dans des [journaux d’activité Azure Monitor](data-platform-logs.md).
-- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](/azure/security-center/).
+- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Coûts
 Il n’y a aucun coût lié à l’extension Diagnostics Azure, mais vous pouvez être facturé pour les données ingérées. Consultez les [tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) appliqués pour la destination dans laquelle vous collectez les données.
@@ -50,8 +50,8 @@ Les tableaux suivants listent les données qui peuvent être collectées par l�
 | Compteurs de performance | Valeurs numériques mesurant les performances de différents aspects du système d’exploitation et des charges de travail. |
 | Journaux d’activité IIS             | Informations sur l’utilisation des sites web IIS s’exécutant sur le système d’exploitation invité. |
 | Journaux d’activité d’application     | Messages de trace écrits par votre application. |
-| Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
-| [Journaux d’activité ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus. |
+| Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) |
+| [Journaux d’activité ETW basés sur les manifestes](/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus. |
 | Vidages sur incident (journaux d’activité)   | Informations sur l’état du processus si une application plante. |
 | Journaux basés sur des fichiers    | Journaux d’activité créés par votre application ou votre service. |
 | Journaux de diagnostic de l’agent | Informations sur Diagnostics Azure lui-même. |
@@ -117,4 +117,3 @@ Pour plus d’informations sur l’installation et la configuration des extensio
 
 * Apprenez à [utiliser les compteurs de performances dans les diagnostics Azure](../../cloud-services/diagnostics-performance-counters.md).
 * Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables de stockage Azure, consultez [Résolution des problèmes des diagnostics Azure](diagnostics-extension-troubleshooting.md).
-

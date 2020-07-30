@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105921"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327886"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -310,6 +310,7 @@ Parfois, les journaux personnalisés proviennent de sources qui ne sont pas dire
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Présentation de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
+* Consultez [Présentation de l’agent Log Analytics](./log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 
-* Pour configurer la collecte de données à partir de machines virtuelles Azure, voir [Collecter des données sur les machines virtuelles Azure](../../azure-monitor/learn/quick-collect-azurevm.md).
+* Pour configurer la collecte de données à partir de machines virtuelles Azure, voir [Collecter des données sur les machines virtuelles Azure](../learn/quick-collect-azurevm.md).
+

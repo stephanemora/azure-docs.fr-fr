@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082050"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Les étapes suivantes vous guident à travers les paramétrages nécessaires pou
 
 * Les deux réseaux virtuels ont déjà été créés. Pour créer un réseau virtuel Azure Resource Manager, consultez [Créer un groupe de ressources et un réseau virtuel](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Pour créer un réseau virtuel classique, consultez [Créer un réseau virtuel (Classic)](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
-* Vous avez installé les dernières applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
+* Vous avez installé les dernières applets de commande PowerShell. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/) . Veillez à installer à la fois les applets de commande de gestion des services et Resource Manager (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Exemples de paramètres
 

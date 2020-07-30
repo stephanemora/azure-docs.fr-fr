@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077678"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure Synapse Analytics
 
@@ -42,9 +42,6 @@ Les mesures suivantes sont disponibles dans le Portail Azure pour Synapse SQL. C
 | Pourcentage d’accès au cache    | (accès au cache/échecs d’accès au cache) * 100, où la valeur « accès au cache » correspond à la somme de tous les accès aux segments de columnstore dans le cache de disque SSD local et la valeur « échecs d’accès au cache » correspond aux échecs des segments de columnstore dans le cache de disque SSD local cumulés dans tous les nœuds | Moy, Min, Max    |
 | Pourcentage de cache utilisé   | (cache utilisé/capacité du cache) * 100, ou la valeur « cache utilisé » correspond à la somme de tous les octets présents dans le cache de disque SSD local pour tous les nœuds et la valeur « capacité du cache » correspond à la somme de la capacité de stockage du disque SSD local dans tous les nœuds | Moy, Min, Max    |
 | Pourcentage de tempdb locale | Utilisation de la tempdb locale sur tous les nœuds de calcul. Des valeurs sont émises toutes les cinq minutes | Moy, Min, Max    |
-| Taille du stockage de données (en Go) | Taille totale de la base de données. Cela comprend l’espace utilisé, l’espace réservé et l’espace non alloué. L’espace non alloué est conservé pour la base de données afin d’optimiser les performances des requêtes et du chargement. | SUM |
-| Taille de la récupération d’urgence (en Go) | Taille totale de la sauvegarde géographique effectuée toutes les 24 heures | SUM |
-| Taille du stockage des captures instantanées (en Go) | Taille totale des captures instantanées prises pour fournir des points de restauration de base de données. Cela comprend les captures instantanées automatisées et définies par l’utilisateur. | SUM |
 
 Points importants à prendre en compte lors de l’affichage des métriques et de la définition des alertes :
 

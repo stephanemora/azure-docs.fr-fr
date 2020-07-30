@@ -8,12 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790515"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327716"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -53,7 +55,7 @@ Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-d
 
 Il existe deux services de stockage vers lesquels IoT Hub peut acheminer des messages : les comptes de [stockage d’objets Blob Azure](../storage/blobs/storage-blobs-introduction.md) et [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Les comptes Azure Data Lake Storage sont des comptes de stockage compatibles avec [l’espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) basés sur le stockage d’objets Blob. Les deux utilisent des objets Blob pour leur stockage.
 
-IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison existant. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64. Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le schéma suivant illustre la façon de sélectionner le format d’encodage dans le portail Azure.
+IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison existant. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64. Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Le schéma suivant illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 

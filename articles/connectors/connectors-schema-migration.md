@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75666786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281444"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrer des applications logiques vers la dernière version du schéma
 
@@ -40,4 +40,5 @@ Voici quelques-unes des meilleures pratiques pour la migration de vos applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez à [migrer manuellement vos applications logiques](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Apprenez à [migrer manuellement vos applications logiques](../logic-apps/logic-apps-schema-2016-04-01.md)
+

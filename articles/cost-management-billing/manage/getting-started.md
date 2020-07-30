@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1b63b0316b8314e4c5107ddd3f1d22c1d59cbb08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281801"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -216,14 +216,14 @@ Parfois, vous ne savez pas quels coûts récents ont entraîné des changements 
 Une simple ressource peut générer des frais sur plusieurs produits et services Azure. Pour en savoir plus, consultez la page des [prix de chaque service Azure](https://azure.microsoft.com/pricing/#product-pricing). Par exemple, vous pouvez créer les compteurs suivants pour suivre l’utilisation d’une machine virtuelle créée dans Azure. Les prix peuvent varier d’un compteur à l’autre.
 
 - Heures de calcul
-- Heures d’adresse IP
-- Transfert de données entrant
+- Heures pour l’adresse IP
+- Transfert de données en réception
 - Transfert de données sortant
-- Disques managés Standard
+- Disque managé standard
 - Opérations disque managées Standard
 - E/S standard - Disque
-- E/S standard - Lecture d’objet blob
-- E/S standard - Écriture d’objet blob
+- E/S standard - Lecture d’objet blob de blocs
+- E/S standard - Écriture d’objet blob de blocs
 - E/S standard - Suppression d’objet blob
 
 Une fois la machine virtuelle créée, chaque compteur commence à émettre des enregistrements d’utilisation. L’utilisation et le prix du compteur font l’objet d’un suivi dans le système de mesure d’Azure. Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation.

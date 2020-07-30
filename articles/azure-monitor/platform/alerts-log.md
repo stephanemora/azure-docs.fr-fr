@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505599"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327495"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -77,8 +77,8 @@ Le terme **Alerte de journal** décrit les alertes dans le cadre desquelles une 
 1. Choisissez la fréquence à laquelle l’alerte s’exécute dans **Fréquence**. 
 
     Les **alertes de journal** peuvent reposer sur les éléments suivants :
-    - [Nombre d’enregistrements](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules) : une alerte est créée si le nombre d’enregistrements retournés par la requête est supérieur ou inférieur à la valeur indiquée.
-    - [Mesure de métriques](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) : une alerte est créée si chaque *valeur d’agrégation* dans les résultats dépasse la valeur de seuil indiquée et s’il existe un *regroupement* selon la valeur choisie. Le nombre de violations d’une alerte est le nombre de fois où que le seuil est dépassé pendant la période choisie. Vous pouvez spécifier le nombre total de violations pour obtenir toutes les combinaisons de violations dans les résultats ou les violations consécutives pour exiger que les violations aient lieu dans des échantillons consécutifs.
+    - [Nombre d’enregistrements](./alerts-unified-log.md#number-of-results-alert-rules) : une alerte est créée si le nombre d’enregistrements retournés par la requête est supérieur ou inférieur à la valeur indiquée.
+    - [Mesure de métriques](./alerts-unified-log.md#metric-measurement-alert-rules) : une alerte est créée si chaque *valeur d’agrégation* dans les résultats dépasse la valeur de seuil indiquée et s’il existe un *regroupement* selon la valeur choisie. Le nombre de violations d’une alerte est le nombre de fois où que le seuil est dépassé pendant la période choisie. Vous pouvez spécifier le nombre total de violations pour obtenir toutes les combinaisons de violations dans les résultats ou les violations consécutives pour exiger que les violations aient lieu dans des échantillons consécutifs.
 
 
 1. Cliquez sur **Done**. 
@@ -100,7 +100,7 @@ Le terme **Alerte de journal** décrit les alertes dans le cadre desquelles une 
     Certaines fonctionnalités supplémentaires sont disponibles pour vous permettre de passer outre les actions par défaut :
 
     - **E-mail de notification** : remplace *l’objet de l’e-mail* envoyé via le groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
-    - **Inclure la charge utile JSON personnalisée** : remplace le JSON de webhook utilisé par les groupes d’actions, si le groupe d’actions contient un type de webhook. Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md). L’option d’affichage de Webhook est fournie pour vérifier le format à l’aide d’exemples de données JSON.
+    - **Inclure la charge utile JSON personnalisée** : remplace le JSON de webhook utilisé par les groupes d’actions, si le groupe d’actions contient un type de webhook. Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](./alerts-log-webhook.md). L’option d’affichage de Webhook est fournie pour vérifier le format à l’aide d’exemples de données JSON.
 
         ![Remplacements d’actions pour les alertes de journal](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ L’exemple json ci-dessus peut par exemple être enregistré en tant que sample
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerte de journal avec requête inter-ressources à l'aide du modèle de ressource Azure
 
-Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [création de règles de requête planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) avec [requête inter-ressources de recherche dans les journaux](../../azure-monitor/log-query/cross-workspace-query.md) pour une [alerte de journal de type Mesure de métriques](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), et avec des exemples de jeux de données comme variables.
+Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [création de règles de requête planifiées](/rest/api/monitor/scheduledqueryrules/createorupdate) avec [requête inter-ressources de recherche dans les journaux](../log-query/cross-workspace-query.md) pour une [alerte de journal de type Mesure de métriques](./alerts-unified-log.md#metric-measurement-alert-rules), et avec des exemples de jeux de données comme variables.
 
 ```json
 
@@ -319,7 +319,7 @@ L’API Azure Monitor - [Règles de requêtes planifiées](/rest/api/monitor/sch
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres d’action pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule).
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres des groupes d’actions pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction).
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de condition de déclenchement pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction).
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de condition de déclenchement de métrique pour une [alerte de journal de type mesure de métriques](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition).
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de condition de déclenchement de métrique pour une [alerte de journal de type mesure de métriques](./alerts-unified-log.md#metric-measurement-alert-rules). Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition).
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule): cmdlet PowerShell permettant de répertorier les règles d’alerte de journal existantes ou une règle d’alerte de journal spécifique.
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule): cmdlet PowerShell permettant d’activer ou de désactiver une règle d’alerte de journal.
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule) : cmdlet PowerShell permettant de supprimer une règle d’alerte de journal existante.
@@ -363,7 +363,8 @@ Une fois l’opération réussie, le code 201 est retourné pour signaler la cr�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [alertes de journal dans les alertes Azure ](../../azure-monitor/platform/alerts-unified-log.md)
-* Comprendre les [actions Webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md)
+* En savoir plus sur les [alertes de journal dans les alertes Azure ](./alerts-unified-log.md)
+* Comprendre les [actions Webhook pour les alertes de journal](./alerts-log-webhook.md)
 * En savoir plus sur [Application Insights](../log-query/log-query-overview.md)
 * Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).
+

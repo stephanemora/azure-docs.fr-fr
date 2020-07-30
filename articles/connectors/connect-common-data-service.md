@@ -7,16 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997822"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284113"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Créer et gérer des enregistrements dans Common Data Service à l’aide d’Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](https://docs.microsoft.com/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Common Data Service et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Common Data Service, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Common Data Service et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Common Data Service, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
 
 Cet article vous explique comment générer une application logique qui crée un enregistrement de tâche quand un enregistrement de prospect est créé.
 
@@ -24,10 +24,10 @@ Cet article vous explique comment générer une application logique qui crée un
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Un [environnement Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), qui est un espace dans lequel votre organisation stocke, gère et partage des données d’entreprise et une base de données de Common Data Service. Pour plus d’informations, consultez ces ressources :<p>
+* Un [environnement Common Data Service](/power-platform/admin/environments-overview), qui est un espace dans lequel votre organisation stocke, gère et partage des données d’entreprise et une base de données de Common Data Service. Pour plus d’informations, consultez ces ressources :<p>
 
-  * [Découvrir : Prise en main de Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Power Platform - Présentation des environnements](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Découvrir : Prise en main de Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Power Platform - Présentation des environnements](/power-platform/admin/environments-overview)
 
 * Connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md) et application logique à partir de laquelle vous voulez accéder aux enregistrements dans votre base de données Common Data Service. Pour démarrer votre application logique avec un déclencheur Common Data Service, vous avez besoin d’une application logique vide. Si vous débutez avec les applications logiques Azure, consultez le guide de [Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -51,7 +51,7 @@ Pour cet exemple, ajoutez le déclencheur Common Data Service qui se déclenche 
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Environment** | Oui | L’environnement à surveiller, par exemple « Production Ventes Fabrikam ». Pour plus d’informations, consultez [Power Platform - Présentation des environnements](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Environment** | Oui | L’environnement à surveiller, par exemple « Production Ventes Fabrikam ». Pour plus d’informations, consultez [Power Platform - Présentation des environnements](/power-platform/admin/environments-overview). |
    | **Nom de l’entité** | Oui | L’entité à superviser, par exemple, « Leads » (Prospects) |
    | **Portée** | Oui | La source qui a créé le nouvel enregistrement, par exemple, un utilisateur de votre unité commerciale ou n’importe quel utilisateur de votre organisation. Cet exemple utilise « Business unit » (Unité commerciale). |
    ||||
@@ -126,7 +126,7 @@ Pour les actions qui retournent des enregistrements, telles que l’action **Lis
 
    ![Entrer une requête de filtre ODATA pour le filtrage des enregistrements](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Pour plus d’informations sur les `$filter`options de requête système , consultez [Common Data Service - Filtrer les résultats](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Pour plus d’informations sur les `$filter`options de requête système , consultez [Common Data Service - Filtrer les résultats](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Répertorier les enregistrements en fonction d’une commande
 
@@ -140,7 +140,7 @@ Pour les actions qui retournent des enregistrements, telles que l’action **Lis
 
    ![Entrer une requête de filtre ODATA pour le tri des enregistrements](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Pour plus d’informations sur les `$orderby`options de requête système , consultez [Common Data Service - Trier les résultats](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Pour plus d’informations sur les `$orderby`options de requête système , consultez [Common Data Service - Trier les résultats](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Types de données de champ
 
@@ -166,7 +166,7 @@ Cet exemple montre comment l'action **Créer un enregistrement** crée un nouvel
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour des informations techniques sur la description Swagger du connecteur, comme les déclencheurs, les actions, les limites et d’autres détails, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/commondataservice/).
+Pour des informations techniques sur la description Swagger du connecteur, comme les déclencheurs, les actions, les limites et d’autres détails, consultez la [page de référence du connecteur](/connectors/commondataservice/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

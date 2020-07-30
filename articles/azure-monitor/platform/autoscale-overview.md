@@ -4,17 +4,17 @@ description: Mise à l’échelle automatique dans Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4403c2957cb2d2d9d4af98d64cdb5177ae3d0726
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073482"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
 
-La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) et [Cluster Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/).
+La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [services Gestion des API](../../api-management/api-management-key-concepts.md) et [Cluster Azure Data Explorer](/azure/data-explorer/).
 
 > [!NOTE]
 > Azure dispose de deux méthodes de mise à l’échelle automatique. L’ancienne version de la mise à l’échelle automatique s’applique aux machines virtuelles (groupes à haute disponibilité). Cette fonctionnalité assure une prise en charge limitée et nous vous recommandons de migrer vers les jeux de mise à l’échelle de machine virtuelle pour une prise en charge plus rapide et plus fiable de la mise à l’échelle automatique. Un lien sur la façon d’utiliser l’ancienne technologie est inclus dans cet article.  
@@ -74,12 +74,12 @@ La mise à l’échelle automatique utilise la terminologie et la structure suiv
 
 ![Structure de règle, de profil et de paramètre de mise à l’échelle automatique Azure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-La liste complète des descriptions et champs configurables est disponible dans [l’API REST de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931928.aspx).
+La liste complète des descriptions et champs configurables est disponible dans [l’API REST de mise à l’échelle automatique](/rest/api/monitor/autoscalesettings).
 
 Pour plus d’exemples de code, consultez
 
 * [Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](autoscale-virtual-machine-scale-sets.md)  
-* [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Paramètres de mise à l’échelle automatique](/rest/api/monitor/autoscalesettings)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Mise à l’échelle horizontale/verticale
 La mise à l’échelle automatique s’effectue uniquement horizontalement, ce qui correspond à une augmentation (« out ») ou à une diminution (« in ») du nombre d’instances de machine virtuelle.  La mise à l’échelle horizontale est plus flexible dans un environnement cloud, car elle vous permet d’exécuter des milliers de machines virtuelles pour gérer la charge.
@@ -90,29 +90,28 @@ La mise à l’échelle verticale est différente. Elle conserve le même nombre
 Vous pouvez configurer la mise à l’échelle automatique via
 
 * [Azure portal](autoscale-get-started.md)
-* [PowerShell](powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Interface de ligne de commande interplateforme (CLI)](../samples/cli-samples.md#autoscale)
-* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [API REST Azure Monitor](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique
 | Service | Schéma et documentation |
 | --- | --- |
 | Web Apps |[Mise à l’échelle des applications web](autoscale-get-started.md) |
 | Cloud Services |[Mise à l’échelle automatique d’un service cloud](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Machines virtuelles : Classique |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Machines virtuelles : Classique |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Machines virtuelles : Groupes identiques Windows |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Machines virtuelles : Groupes identiques Linux |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Machines virtuelles : Exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](autoscale-virtual-machine-scale-sets.md) |
-| Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-| Clusters Azure Data Explorer|[Gérer la mise à l’échelle des clusters Azure Data Explorer pour prendre en compte les fluctuations de la demande](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Montez une application en puissance dans Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
-| Logic Apps |[Ajout de la fonctionnalité d’environnement de service d’intégration (ISE)](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
+| Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](../../api-management/api-management-howto-autoscale.md)
+| Clusters Azure Data Explorer|[Gérer la mise à l’échelle des clusters Azure Data Explorer pour prendre en compte les fluctuations de la demande](/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Montez une application en puissance dans Azure App Service](../../app-service/manage-scale-up.md)|
+| Logic Apps |[Ajout de la fonctionnalité d’environnement de service d’intégration (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la mise à l’échelle automatique, utilisez les guides sur la mise à l’échelle automatique répertoriés précédemment ou consultez les ressources suivantes :
 
 * [Mesures courantes pour la mise à l’échelle automatique dans Azure Monitor](autoscale-common-metrics.md)
 * [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](autoscale-best-practices.md)
 * [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](autoscale-webhook-email.md)
-* [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Paramètres de mise à l’échelle automatique](/rest/api/monitor/autoscalesettings)
 * [Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

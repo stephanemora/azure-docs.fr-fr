@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079551"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -21,7 +21,7 @@ ms.locfileid: "82980896"
 
 ## <a name="metrics-in-azure"></a>Métriques dans Azure
 
-Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que vos applications envoient les mesures personnalisées à Azure à l’aide de l’[API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Extension Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou par l’[API REST Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que vos applications envoient les mesures personnalisées à Azure à l’aide de l’[API Application Insights pour les événements et mesures personnalisés](../app/api-custom-events-metrics.md), [Extension Windows Azure Diagnostics (WAD)](./diagnostics-extension-overview.md), ou par l’[API REST Azure Monitor](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Créer des vues contenant plusieurs métriques et graphiques
 
@@ -176,5 +176,4 @@ Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-  Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, Voir [Créer des tableaux de bord d’indicateur de performance clé](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards).
-
+  Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, Voir [Créer des tableaux de bord d’indicateur de performance clé](../learn/tutorial-app-dashboards.md).

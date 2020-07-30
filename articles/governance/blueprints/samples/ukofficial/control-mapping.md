@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078990"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -27,6 +27,9 @@ Le blueprint vous aide à vérifier que le transfert d’informations avec les s
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 - Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - Déployer des prérequis pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
+- L'application web ne doit pas être accessible via HTTPS
+- Function App ne doit pas être accessible via HTTPS
+- L'application API doit uniquement être accessible via HTTPS
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protection des données au repos
 
@@ -107,27 +110,27 @@ Ce blueprint affecte également des définitions Azure Policy qui permettent de 
 
 Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
+- Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 
 Ce blueprint vous aide à appliquer des mots de passe forts en affectant des définitions Azure Policy qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ou d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- Déployer des prérequis pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- Déployer des prérequis pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 
 Ce blueprint vous permet également de contrôler l’accès aux ressources Azure en affectant des définitions Azure Policy. Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources. Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
+- Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
+- Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
+- Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
+- Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
 - Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
 - Faire l’audit des machines virtuelles n’utilisant aucun disque managé
@@ -145,36 +148,6 @@ Outre l’utilisation de plus de 25 stratégies pour une gestion sécurisée app
 - Le débogage à distance devrait être désactivé pour Function App
 - Le débogage à distance doit être désactivé pour l'application web
 - Le débogage à distance doit être désactivé pour l’application API
-- L'application web ne doit pas être accessible via HTTPS
-- Function App ne doit pas être accessible via HTTPS
-- L'application API doit uniquement être accessible via HTTPS
-
-## <a name="12-secure-service-administration"></a>12 Administration sécurisée des services
-
-Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire ou d’écriture, ainsi que les comptes avec des autorisations de propriétaire ou d’écriture pour lesquels l’authentification multifacteur n’est pas activée.
-
-Les systèmes utilisés pour l’administration d’un service cloud bénéficieront d’un accès hautement privilégié à ce service. Toute compromission de ces systèmes aurait des impacts significatifs : possibilité de contourner les contrôles de sécurité, de voler ou manipuler de grands volumes de données, etc. Les méthodes utilisées par les administrateurs du fournisseur de services pour gérer le service opérationnel doivent être conçues pour atténuer les risques d’exploitation qui pourraient compromettre la sécurité du service. Si ce principe n’est pas implémenté, une personne malveillante pourrait trouver les moyens de contourner les contrôles de sécurité afin de voler ou de manipuler d’importants volumes de données.
-
-- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
-- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
-- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
-
-Ce blueprint affecte des définitions Azure Policy afin de vérifier l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft.
-
-- Un administrateur Azure Active Directory doit être approvisionné pour les serveurs SQL
-- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
-
-Ce blueprint affecte également des définitions Azure Policy qui permettent de déterminer les comptes devant en priorité faire l’objet d’une révision, notamment des comptes déconseillés et des comptes externes avec des autorisations élevées. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions Azure Policy pour auditer un compte déconseillé dont la suppression doit être envisagée.
-
-- Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
-
-Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
-
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informations d’audit pour les utilisateurs
 

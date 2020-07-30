@@ -3,12 +3,12 @@ title: Limites et quotas de mise à l’échelle dans votre laboratoire Azure De
 description: Cet article explique comment mettre à l’échelle votre labo dans Azure DevTest Labs. Affichez vos quotas et limites d’utilisation, et demandez une augmentation.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477089"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287307"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Limites et quotas de mise à l’échelle dans votre laboratoire Azure DevTest Labs
 Lorsque vous travaillez dans DevTest Labs, vous pouvez remarquer un certain nombre de limites par défaut qui s’appliquent à certaines ressources Azure, ce qui peut affecter le service DevTest Labs. Ces limites sont appelées **quotas**.
@@ -20,7 +20,7 @@ Vous pouvez utiliser chaque ressource Azure jusqu’à ce que vous ayez atteint 
 
 Par exemple, chaque abonnement possède un quota par défaut de 20 cœurs. Par conséquent, si vous créez des machines virtuelles dans votre laboratoire avec quatre cœurs, vous pouvez uniquement créer cinq machines virtuelles.
 
-La page [Abonnement Azure et limites de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) dresse la liste des quotas les plus courants pour les ressources Azure. Les ressources couramment utilisées dans un laboratoire, et pour lesquelles vous pouvez rencontrer des quotas, incluent les noyaux de machine virtuelle, les adresses IP publiques, l’interface réseau, les disques managés, l’attribution de rôle RBAC et les circuits ExpressRoute.
+La page [Abonnement Azure et limites de service](../azure-resource-manager/management/azure-subscription-service-limits.md) dresse la liste des quotas les plus courants pour les ressources Azure. Les ressources couramment utilisées dans un laboratoire, et pour lesquelles vous pouvez rencontrer des quotas, incluent les noyaux de machine virtuelle, les adresses IP publiques, l’interface réseau, les disques managés, l’attribution de rôle RBAC et les circuits ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Voir votre utilisation et les quotas
 Ces étapes vous montrent comment afficher les quotas actuels de votre abonnement pour des ressources Azure spécifiques, ainsi que le pourcentage utilisé pour chaque quota.
@@ -37,7 +37,7 @@ Ces étapes vous montrent comment afficher les quotas actuels de votre abonnemen
    ![Quotas et utilisation](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Demander plus de ressources dans votre abonnement
-Si vous atteignez le plafond d’un quota, la limite par défaut d’une ressource dans un abonnement peut être augmentée jusqu’à une limite maximale, comme décrit dans [Abonnement Azure et limites de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Si vous atteignez le plafond d’un quota, la limite par défaut d’une ressource dans un abonnement peut être augmentée jusqu’à une limite maximale, comme décrit dans [Abonnement Azure et limites de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 Ces étapes vous montrent comment demander une augmentation du quota au moyen du [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 

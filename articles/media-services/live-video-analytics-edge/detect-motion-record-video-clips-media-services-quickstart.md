@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074403"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -655,7 +655,7 @@ L’instance de graphe que vous avez créée et activée ci-dessus utilise le n�
 
 Remarquez les propriétés suivantes dans les messages ci-dessus
 
-* Chaque message contient une section « body » et une section « applicationProperties ». Pour comprendre ce que ces sections représentent, lisez l’article [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Chaque message contient une section « body » et une section « applicationProperties ». Pour comprendre ce que ces sections représentent, lisez l’article [Créer et lire des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * Le premier message est un événement de diagnostic, MediaSessionEstablished, indiquant que le nœud source RTSP (objet) a pu établir une connexion avec le simulateur RTSP et commence à recevoir un flux en direct (simulé).
 * « Subject » dans applicationProperties fait référence au nœud dans la topologie de graphe à partir duquel le message a été généré. Dans ce cas, le message provient du nœud source RTSP.
 * « eventType » dans applicationProperties indique qu’il s’agit d’un événement de diagnostic.

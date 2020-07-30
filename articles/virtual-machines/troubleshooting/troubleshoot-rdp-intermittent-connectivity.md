@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087297"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074314"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Le Bureau à distance se déconnecte fréquemment sur une machine virtuelle Azure
 
@@ -95,7 +95,7 @@ Pour résoudre ce problème, utilisez le contrôle série ou [réparez la machin
 
 ### <a name="repair-the-vm-offline"></a>Réparer la machine virtuelle en mode hors connexion
 
-1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md).
 2. Une fois le disque de système d’exploitation attaché à une machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Disk Management. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
 3. Sur le disque du système d’exploitation que vous avez attaché, accédez au dossier **\windows\system32\config**. Copiez tous les fichiers dans ce dossier de sauvegarde pour le cas où une restauration serait requise.
 4. Démarrez l’Éditeur du Registre (regedit.exe).
@@ -184,8 +184,3 @@ Pour résoudre ce problème, utilisez le contrôle série ou [réparez la machin
 
 ## <a name="need-help"></a>Vous avez besoin d’aide ? 
 Contactez le support technique. Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
-
-
-
-

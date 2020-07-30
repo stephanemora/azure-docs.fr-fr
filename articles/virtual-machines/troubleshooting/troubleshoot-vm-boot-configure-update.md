@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079840"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
 
@@ -45,7 +45,7 @@ Si le problème n’est pas résolu après que vous avez attendu que les modific
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
 1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
-2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md).
 3. Connectez-vous à la machine virtuelle de récupération à l’aide du Bureau à distance. 
 4. Si le disque du système d’exploitation est chiffré, vous devez désactiver le chiffrement avant de passer à l’étape suivante. Pour plus d’informations, consultez [Déchiffrer le disque de système d’exploitation chiffré sur la machine virtuelle qui ne peut pas démarrer](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -99,7 +99,7 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](./troubleshoot-recovery-disks-portal-windows.md).
 4. Démarrez la machine virtuelle et accédez à la console série.
 5. Sélectionnez **Envoyer une interruption non masquable (NMI)** pour déclencher l’image mémoire.
     ![image sur l’emplacement où envoyer une interruption non masquable](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)

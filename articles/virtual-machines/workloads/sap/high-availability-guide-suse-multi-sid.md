@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 89d7ca3e37b107dce3f832499db45e0506c3fa64
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074007"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -91,7 +91,7 @@ Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 
 Les machines virtuelles participant au cluster doivent être dimensionnées de manière à exécuter toutes les ressources, en cas de basculement. Chaque SID SAP peut basculer indépendamment des autres dans le cluster à haute disponibilité multi-SID.  Si vous utilisez l'isolation SBD, les appareils SBD peuvent être partagés entre plusieurs clusters.  
 
-Pour obtenir une haute disponibilité, SAP NetWeaver nécessite des partages NFS hautement disponibles. Dans cet exemple, nous partons du principe que les partages NFS SAP sont hébergés sur un [serveur de fichiers NFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) hautement disponible, susceptible d'être utilisé par plusieurs systèmes SAP. Ou que les partages sont déployés sur des [volumes NFS Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+Pour obtenir une haute disponibilité, SAP NetWeaver nécessite des partages NFS hautement disponibles. Dans cet exemple, nous partons du principe que les partages NFS SAP sont hébergés sur un [serveur de fichiers NFS](./high-availability-guide-suse-nfs.md) hautement disponible, susceptible d'être utilisé par plusieurs systèmes SAP. Ou que les partages sont déployés sur des [volumes NFS Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
 ![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -101,7 +101,7 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite des partages NFS
 > [!TIP]
 > Le clustering multi-SID de SAP ASCS/ERS relève d'une solution particulièrement complexe. Il s'avère plus difficile à implémenter. En outre, il implique plus d'effort administratif lors de l’exécution d’activités de maintenance (application de correctifs au système d’exploitation, par exemple). Avant de procéder à l'implémentation, prenez le temps de planifier soigneusement le déploiement et tous les composants impliqués, tels que les machines virtuelles, montages NFS, adresses IP virtuelles, configurations d’équilibreur de charge, etc.  
 
-Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons d’utiliser [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal).  
+Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons d’utiliser [Standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 La liste suivante présente la configuration de l’équilibreur de charge (A)SCS et ERS pour cet exemple de cluster multi-SID avec trois systèmes SAP. Vous aurez besoin d’une adresse IP frontale, de sondes d’intégrité et de règles d’équilibrage de charge distinctes pour chaque instance ASCS et ERS des différents SID. Attribuez toutes les machines virtuelles qui font partie du cluster ASCS/ASCS à un pool principal.  
 
@@ -147,23 +147,23 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
 
 
 > [!Note]
-> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
 
 ## <a name="sap-nfs-shares"></a>Partages NFS SAP
 
 SAP NetWeaver nécessite un stockage partagé pour le répertoire de transport, de profil, etc. Pour un système SAP hautement disponible, il est important de disposer de partages NFS hautement disponibles. Vous devrez déterminer l’architecture de vos partages NFS SAP. Vous pouvez notamment créer un [cluster NFS hautement disponible sur des machines virtuelles Azure sur SUSE Linux Enterprise Server][nfs-ha], et celui-ci peut être partagé entre plusieurs systèmes SAP. 
 
-Vous pouvez également déployer les partages sur des [volumes NFS Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Avec Azure NetApp Files, vous bénéficiez d’une haute disponibilité intégrée pour les partages NFS SAP.
+Vous pouvez également déployer les partages sur des [volumes NFS Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  Avec Azure NetApp Files, vous bénéficiez d’une haute disponibilité intégrée pour les partages NFS SAP.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>Déployer le premier système SAP dans le cluster
 
 Après avoir déterminé l’architecture des partages NFS SAP, déployez le premier système SAP dans le cluster, en suivant la documentation correspondante.
 
-* Si vous utilisez un serveur NFS hautement disponible, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Si vous utilisez des volumes NFS Azure NetApp Files, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files).
+* Si vous utilisez un serveur NFS hautement disponible, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse.md).  
+* Si vous utilisez des volumes NFS Azure NetApp Files, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](./high-availability-guide-suse-netapp-files.md).
 
 Les documents répertoriés ci-dessus vous guident tout au long des étapes de préparation des infrastructures nécessaires, de création du cluster, de préparation du système d’exploitation pour l’exécution de l’application SAP.  
 
@@ -189,7 +189,7 @@ Cette documentation suppose ce qui suit :
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Préparer l’installation de SAP NetWeaver
 
-1. Ajoutez une configuration pour le système récemment déployé (à savoir, **NW2**, **NW3**) à l'instance Azure Load Balancer existante. Pour ce faire, consultez [Déployer Azure Load Balancer manuellement via le portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal). Ajustez les adresses IP, les ports de sonde d’intégrité et les règles d’équilibrage de charge pour votre configuration.  
+1. Ajoutez une configuration pour le système récemment déployé (à savoir, **NW2**, **NW3**) à l'instance Azure Load Balancer existante. Pour ce faire, consultez [Déployer Azure Load Balancer manuellement via le portail Azure](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal). Ajustez les adresses IP, les ports de sonde d’intégrité et les règles d’équilibrage de charge pour votre configuration.  
 
 2. **[A]** Configurez la résolution de noms pour les systèmes SAP supplémentaires. Vous pouvez utiliser un serveur DNS ou modifier `/etc/hosts` sur tous les nœuds. Cet exemple vous explique comment utiliser le fichier `/etc/hosts`.  Adaptez les adresses IP et les noms d’hôte à votre environnement. 
 
@@ -236,8 +236,8 @@ Cette documentation suppose ce qui suit :
 
    Mettez à jour le fichier `/etc/auto.direct` avec les systèmes de fichiers pour les systèmes SAP supplémentaires que vous déployez sur le cluster.  
 
-   * Si vous utilisez un serveur de fichiers NFS, suivez les instructions contenues [ici](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#prepare-for-sap-netweaver-installation)
-   * Si vous utilisez Azure NetApp Files, suivez les instructions contenues [ici](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#prepare-for-sap-netweaver-installation) 
+   * Si vous utilisez un serveur de fichiers NFS, suivez les instructions contenues [ici](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)
+   * Si vous utilisez Azure NetApp Files, suivez les instructions contenues [ici](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 
 
    Vous devrez redémarrer le service `autofs` pour monter les partages récemment ajoutés.  
 
@@ -561,17 +561,17 @@ Cette documentation suppose ce qui suit :
 
 Finalisez votre installation SAP en procédant comme suit :
 
-* [Préparer vos serveurs d'applications SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#2d6008b0-685d-426c-b59e-6cd281fd45d7)
-* [Installer une instance SGBD](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#install-database)
-* [Installer un serveur d’applications SAP principal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#sap-netweaver-application-server-installation)
+* [Préparer vos serveurs d'applications SAP NetWeaver](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [Installer une instance SGBD](./high-availability-guide-suse.md#install-database)
+* [Installer un serveur d’applications SAP principal](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
 * Installer une ou plusieurs instances d’application SAP supplémentaires
 
 ## <a name="test-the-multi-sid-cluster-setup"></a>Tester la configuration de cluster multi-SID
 
 Les tests suivants sont un sous-ensemble des cas de test dans les guides des meilleures pratiques de SUSE. Ils sont inclus pour des raisons pratiques. Pour obtenir la liste complète des tests de cluster, reportez-vous à la documentation suivante :
 
-* Si vous utilisez un serveur NFS hautement disponible, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Si vous utilisez des volumes NFS Azure NetApp Files, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files).
+* Si vous utilisez un serveur NFS hautement disponible, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse.md).  
+* Si vous utilisez des volumes NFS Azure NetApp Files, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](./high-availability-guide-suse-netapp-files.md).
 
 Consultez systématiquement les guides des meilleures pratiques SUSE et effectuez tous les tests supplémentaires qui pourraient y être ajoutés.  
 Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, avec trois systèmes SAP installés.  
