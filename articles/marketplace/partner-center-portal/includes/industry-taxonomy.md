@@ -7,12 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/17/2020
 ms.custom: include file
-ms.openlocfilehash: b2ac8a8937745a94aeeb13d3de98c9c607971ff7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d61e16a7cbdcfe713f6d7162e0322a6ed11e415e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121834"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317638"
 ---
 Éventuellement, sélectionnez jusqu’à deux secteurs et deux marchés verticaux sous chaque secteur d’activité. Ces catégories sont utilisées pour afficher votre offre lorsqu’un secteur d’activité et des segments verticaux sont indiqués dans les filtres de recherche et appliqués dans la vitrine. Si votre offre cible un secteur d’activité ou un segment vertical précis, expliquez comment elle aide les secteurs ou les segments verticaux sélectionnés dans la description de l’offre. Dans le cas contraire, si votre offre n’est pas spécifique à un secteur, n’effectuez aucune sélection et laissez cette section vide.
 

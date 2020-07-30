@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662176"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324554"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
@@ -184,7 +184,8 @@ Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)
 - [Fonctions d’agrégation](aggregations.md)
-- [Agrégations avancées](advanced-aggregations.md)
+- [Agrégations avancées]()
 - [JSON et structures de données](json-data-structures.md)
 - [Joins](joins.md)
 - [Graphiques](charts.md)
+

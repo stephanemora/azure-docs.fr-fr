@@ -1,19 +1,19 @@
 ---
 title: Ajouter une couche Open Geospatial Consortium (OGC) | Microsoft Azure Maps
 description: Découvrez comment superposer une couche OGC sur la carte et comment utiliser les différentes options de la classe OgcMapLayer.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334296"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128554"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Ajouter une couche fournie par l’Open Geospatial Consortium (OGC)
 
@@ -28,7 +28,7 @@ Les sections suivantes décrivent les fonctionnalités du service de carte web p
 - GetFeatureInfo requiert que le service prenne en charge `EPSG:4326` ou gère les reprojections. 
 - Opérations prises en charge :
 
-    | | |
+    | Opération | Description |
     | :-- | :-- |
     | GetCapabilities | Récupère les métadonnées relatives au service avec les capacités prises en charge |
     | GetMap | Récupère une image de carte pour une région spécifiée |
@@ -42,7 +42,7 @@ Les sections suivantes décrivent les fonctionnalités du service de carte web p
 - L’identificateur TileMatrix doit être une valeur entière qui correspond à un niveau de zoom sur la carte. Sur une carte Azure, le niveau de zoom est une valeur comprise entre `"0"` et `"22"`. Ainsi, `"0"` est pris en charge, contrairement à `"00"`.
 - Opérations prises en charge :
 
-    | | |
+    | Opération | Description |
     | :-- | :-- |
     | GetCapabilities | Récupère les opérations et fonctionnalités prises en charge |
     | GetTile | Récupère les images d’une mosaïque particulière |

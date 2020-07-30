@@ -3,12 +3,12 @@ title: Tableau de bord de vue d’ensemble d’Azure Application Insights | Micr
 description: Analysez les applications avec des fonctionnalités Azure Application Insights et de tableau de bord de vue d’ensemble.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669894"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322531"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -57,6 +57,7 @@ Si vous sélectionnez **Configurer les paramètres de vignette** et définissez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Entonnoirs](../../azure-monitor/app/usage-funnels.md)
-- [Rétention](../../azure-monitor/app/usage-retention.md)
-- [Flux d’utilisateurs](../../azure-monitor/app/usage-flows.md)
+- [Entonnoirs](./usage-funnels.md)
+- [Rétention](./usage-retention.md)
+- [Flux d’utilisateurs](./usage-flows.md)
+

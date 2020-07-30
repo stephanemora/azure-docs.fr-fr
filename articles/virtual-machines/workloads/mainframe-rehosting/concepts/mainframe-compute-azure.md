@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76288929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998933"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Déplacer le calcul mainframe vers Azure
 
@@ -94,13 +94,13 @@ L'approche consiste à migrer les LPAR vers des machines virtuelles individuelle
 
 L'un des avantages d'une solution basée sur Azure est la possibilité d’effectuer un scale-out. Cette montée en charge permet à une application de disposer d'une capacité de calcul presque illimitée. Azure prend en charge plusieurs méthodes pour effectuer un scale-out de la puissance de calcul :
 
-- **Équilibrage de la charge sur un cluster.** Dans ce scénario, une application peut utiliser un [ équilibreur de charge](/azure/load-balancer/load-balancer-overview) ou un gestionnaire de ressources pour répartir la charge de travail entre plusieurs machines virtuelles dans un cluster. Si une plus grande capacité de calcul est nécessaire, des machines virtuelles supplémentaires sont ajoutées au cluster.
+- **Équilibrage de la charge sur un cluster.** Dans ce scénario, une application peut utiliser un [ équilibreur de charge](../../../../load-balancer/load-balancer-overview.md) ou un gestionnaire de ressources pour répartir la charge de travail entre plusieurs machines virtuelles dans un cluster. Si une plus grande capacité de calcul est nécessaire, des machines virtuelles supplémentaires sont ajoutées au cluster.
 
-- **Jeux de mise à l’échelle de machine virtuelle.** Dans ce scénario de rafales, une application peut monter en charge avec d’autres [ressources de calcul](/azure/virtual-machine-scale-sets/overview) selon l’utilisation de la machine virtuelle. Lorsque la demande diminue, le nombre de machines virtuelles d'un groupe identique peut également diminuer, ce qui garantit une utilisation efficace de la puissance de calcul.
+- **Jeux de mise à l’échelle de machine virtuelle.** Dans ce scénario de rafales, une application peut monter en charge avec d’autres [ressources de calcul](../../../../virtual-machine-scale-sets/overview.md) selon l’utilisation de la machine virtuelle. Lorsque la demande diminue, le nombre de machines virtuelles d'un groupe identique peut également diminuer, ce qui garantit une utilisation efficace de la puissance de calcul.
 
-- **Mise à l’échelle PaaS.** Les offres PaaS d'Azure mettent à l'échelle les ressources de calcul. Par exemple, [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) alloue des ressources de calcul pour répondre à l'augmentation du volume des demandes.
+- **Mise à l’échelle PaaS.** Les offres PaaS d'Azure mettent à l'échelle les ressources de calcul. Par exemple, [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) alloue des ressources de calcul pour répondre à l'augmentation du volume des demandes.
 
-- **Clusters Kubernetes.** Les applications sur Azure peuvent utiliser des [clusters Kubernetes](/azure/aks/concepts-clusters-workloads) afin de calculer des services pour des ressources spécifiques. Azure Kubernetes Service (AKS) est un service géré qui g_re les nœuds, les pools et les clusters Kubernetes sur Azure.
+- **Clusters Kubernetes.** Les applications sur Azure peuvent utiliser des [clusters Kubernetes](../../../../aks/concepts-clusters-workloads.md) afin de calculer des services pour des ressources spécifiques. Azure Kubernetes Service (AKS) est un service géré qui g_re les nœuds, les pools et les clusters Kubernetes sur Azure.
 
 Pour choisir la bonne méthode de montée en charge des ressources de calcul, il est important de comprendre en quoi Azure et les mainframes diffèrent. L’élément le plus important est comment - ou si - les données sont partagées par les ressources de calcul. Dans Azure, les données (par défaut) ne sont généralement pas partagées par plusieurs machines virtuelles. Si un partage de données est requis par plusieurs machines virtuelles dans un cluster de calcul avec montée en charge, les données partagées doivent résider dans une ressource qui prend en charge cette fonctionnalité. Sur Azure, le partage de données implique un stockage, comme nous le verrons dans la section suivante.
 
@@ -115,7 +115,7 @@ Chaque niveau peut fournir des services de reprise d’activité après sinistre
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Migration de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Réhébergement du mainframe sur des machines virtuelles Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Réhébergement du mainframe sur des machines virtuelles Azure](../overview.md)
 - [Déplacement du stockage du mainframe vers Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Ressources IBM

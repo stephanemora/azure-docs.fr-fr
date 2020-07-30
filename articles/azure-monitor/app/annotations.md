@@ -3,16 +3,16 @@ title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010711"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320661"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
-Des annotations indiquent où vous avez déployé une nouvelle build, ou d’autres événements importants. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le système de génération [Azure DevOps Services.Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Vous pouvez également créer des annotations pour tout événement en les créant à partir de PowerShell.
+Des annotations indiquent où vous avez déployé une nouvelle build, ou d’autres événements importants. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le système de génération [Azure DevOps Services.Azure Pipelines](/azure/devops/pipelines/tasks/). Vous pouvez également créer des annotations pour tout événement en les créant à partir de PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Annotations de mise en production avec la build Azure Pipelines
 
@@ -34,7 +34,7 @@ Vous ne devez installer l’extension qu’une seule fois pour votre organisatio
 
 Créez une clé API distincte pour chacun de vos modèles de mise en production Azure Pipelines.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. Si vous n’en avez pas, [créez une ressource Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. Si vous n’en avez pas, [créez une ressource Application Insights](./app-insights-overview.md).
    
 1. Ouvrez l’onglet **Accès à l’API** et copiez l’**ID d’Application Insights**.
    
@@ -115,5 +115,6 @@ Vous pouvez modifier le script, par exemple, pour créer des annotations pour le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer des éléments de travail](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation avec PowerShell](../../azure-monitor/app/powershell.md)
+* [Créer des éléments de travail](./diagnostic-search.md#create-work-item)
+* [Automation avec PowerShell](./powershell.md)
+

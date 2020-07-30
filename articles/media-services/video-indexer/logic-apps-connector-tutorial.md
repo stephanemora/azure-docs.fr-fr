@@ -1,19 +1,19 @@
 ---
 title: Tutoriel sur les connecteurs Video Indexer avec Logic Apps et Power Automate.
 description: Ce tutoriel montre comment bénéficier de nouvelles expériences et opportunités de monétisation grâce aux connecteurs Video Indexer avec Logic Apps et Power Automate.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047097"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutoriel : utiliser Video Indexer avec Logic Apps et Power Automate
 
@@ -64,7 +64,7 @@ Ensuite, accédez à l’action « Créer l’URI SAP par chemin d’accès »
 
 ![URI SAS par chemin](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Renseignez [l’emplacement et l’ID de votre compte](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) pour obtenir le jeton de compte Video Indexer.
+Renseignez [l’emplacement et l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton de compte Video Indexer.
 
 ![Obtenir le jeton d’accès au compte](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Pour configurer ce flux, vous devez fournir à nouveau votre clé API Video Inde
 
 Pour votre déclencheur, vous verrez un champ d’URL HTTP POST. L’URL ne sera générée qu’une fois que vous aurez enregistré votre flux ; toutefois, vous en aurez besoin à un moment donné. Nous y reviendrons. 
 
-Renseignez [l’emplacement et l’ID de votre compte](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) pour obtenir le jeton de compte Video Indexer.  
+Renseignez [l’emplacement et l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton de compte Video Indexer.  
 
 Accédez à l’action « Obtenir un index vidéo » et renseignez les paramètres requis. Pour ID vidéo, spécifiez l’expression suivante : triggerOutputs()['queries']['id'] 
 

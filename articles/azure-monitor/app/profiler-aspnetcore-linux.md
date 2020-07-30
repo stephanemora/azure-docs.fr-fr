@@ -6,18 +6,18 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6ef67addba2bcc96cfb51f9f217d7d43e729bdf4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539905"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324112"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profiler des applications web ASP.NET Core Azure Linux avec Application Insights Profiler
 
 Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
-Découvrez combien de temps vous consacrez à chaque méthode de votre application web en production quand vous utilisez [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler est désormais disponible pour les applications web ASP.NET Core qui sont hébergées dans Linux sur Azure App Service. Ce guide fournit des instructions détaillées sur la façon dont les traces du profileur peuvent être collectées pour les applications web ASP.NET Core Linux.
+Découvrez combien de temps vous consacrez à chaque méthode de votre application web en production quand vous utilisez [Application Insights](./app-insights-overview.md). Application Insights Profiler est désormais disponible pour les applications web ASP.NET Core qui sont hébergées dans Linux sur Azure App Service. Ce guide fournit des instructions détaillées sur la façon dont les traces du profileur peuvent être collectées pour les applications web ASP.NET Core Linux.
 
 Après avoir terminé cette procédure pas à pas, votre application peut collecter des traces du profileur telles que les traces qui sont présentées dans l’image. Dans cet exemple, la trace du profileur indique qu’une requête web particulière est lente, car le temps est passé en attente. Le *chemin réactif* dans le code qui ralentit l’application est indiqué par une icône en forme de flamme. La méthode **About** dans la section **HomeController** ralentit l’application web, car la méthode appelle la fonction **Thread.Sleep**.
 
@@ -149,7 +149,7 @@ Pour plus d’options de déploiement, consultez [cet article](../../app-service
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Ajouter Application Insights pour contrôler vos applications web
 
-1. [Créez une ressource Application Insights](./../../azure-monitor/app/create-new-resource.md ).
+1. [Créez une ressource Application Insights](./create-new-resource.md).
 
 2. Copiez la valeur **iKey** de la ressource Application Insights et définissez les paramètres suivants dans vos applications web :
 
@@ -171,3 +171,4 @@ Pour plus d’options de déploiement, consultez [cet article](../../app-service
 Si vous utilisez des conteneurs personnalisés qui sont hébergés par Azure App Service, suivez les instructions dans [Activer le profileur de service pour l’application ASP.NET Core en conteneur](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) pour activer Application Insights Profiler.
 
 Signalez tout problème ou suggestion sur le dépôt GitHub Application Insights : [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+

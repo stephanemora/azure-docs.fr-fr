@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052109"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Charges de travail Red Hat sur Azure
 
@@ -45,7 +45,7 @@ Azure propose également des images Red Hat Gold (`rhel-byos`). Ces images peuve
 
 ### <a name="generation-2-images"></a>Images de 2e génération
 
-Les machines virtuelles de 2e génération fournissent quelques nouvelles fonctionnalités par rapport aux machines virtuelles de 1re génération. Pour plus d’informations, consultez la [documentation sur la 2e génération](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). En ce qui concerne les images RHEL, la principale différence est la suivante : les machines virtuelles de 2e génération utilisent une interface UEFI et non une interface de microprogramme BIOS. Par ailleurs, au moment du démarrage, elles utilisent une table de partition GUID et non un enregistrement de démarrage principal. L’utilisation d’une table de partition GUID permet, entre autres, des tailles de disque de système d’exploitation supérieures à 2 To. De plus, les [machines virtuelles de la série Mv2](../../mv2-series.md) s’exécutent uniquement sur les images de 2e génération.
+Les machines virtuelles de 2e génération fournissent quelques nouvelles fonctionnalités par rapport aux machines virtuelles de 1re génération. Pour plus d’informations, consultez la [documentation sur la 2e génération](../../linux/generation-2.md). En ce qui concerne les images RHEL, la principale différence est la suivante : les machines virtuelles de 2e génération utilisent une interface UEFI et non une interface de microprogramme BIOS. Par ailleurs, au moment du démarrage, elles utilisent une table de partition GUID et non un enregistrement de démarrage principal. L’utilisation d’une table de partition GUID permet, entre autres, des tailles de disque de système d’exploitation supérieures à 2 To. De plus, les [machines virtuelles de la série Mv2](../../mv2-series.md) s’exécutent uniquement sur les images de 2e génération.
 
 Les images RHEL de 2e génération sont disponibles sur la Place de Marché Azure. Recherchez « gen2 » dans la référence SKU d’image dans la liste complète des images qui s’affiche quand vous utilisez l’interface Azure CLI. Accédez à l’onglet **Avancé** durant le processus de déploiement de la machine virtuelle pour déployer une machine virtuelle de 2e génération.
 

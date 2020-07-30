@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: 17754eb7e9e3d1a3f11386d85ed1a40424cb233c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: c495e4135195d05dbb20c993f436cb42bd55fff6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090805"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-sql-api-database-and-container-using-azure-powershell"></a>Créer un verrou de ressource pour une base de données et un conteneur d’API SQL Azure Cosmos à l’aide d’Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "85127068"
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
 > [!IMPORTANT]
-> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent via un SDK Cosmos DB, les outils qui se connectent via des clés de compte ou le portail Azure, à moins que le compte Cosmos DB soit d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention des modifications à partir des SDK](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> Les verrous de ressources ne fonctionnent pas pour les modifications apportées par les utilisateurs qui se connectent via un SDK Cosmos DB, les outils qui se connectent via des clés de compte ou le portail Azure, à moins que le compte Cosmos DB soit d’abord verrouillé avec la propriété `disableKeyBasedMetadataWriteAccess` activée. Pour en savoir plus sur l’activation de cette propriété, consultez [Prévention des modifications à partir des SDK](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="sample-script"></a>Exemple de script
 

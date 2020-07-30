@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
-ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68dfdf5357d73cc3b01d19cad61525404ab955f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050152"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 
 Le tableau suivant contient des liens vers des scripts Bash pour Azure App Configuration avec l’interface de ligne de commande Azure.
 
-| | |
+| Script | Description |
 |-|-|
 |**Créer**||
 | [Créer un magasin App Configuration](./scripts/cli-create-service.md) | Crée un groupe de ressources et une instance de magasin App Configuration.  |

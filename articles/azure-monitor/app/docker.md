@@ -3,12 +3,12 @@ title: Surveiller les applications Docker dans Azure Application Insights | Micr
 description: Vous pouvez visualiser les compteurs de performances, les événements et les exceptions Docker dans Application Insights, avec les données de télémétrie des applications en conteneur.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539922"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324418"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Analyse des applications Docker dans Application Insights (déconseillé)
 
@@ -23,15 +23,15 @@ Lorsque vous exécutez l’[image Application Insights](https://hub.docker.com/r
 
 * Télémétrie de cycle de vie de tous les conteneurs en cours d'exécution sur l'hôte : démarrage, arrêt, et ainsi de suite.
 * Compteurs de performance pour tous les conteneurs. Processeur, mémoire, utilisation du réseau, et bien plus encore.
-* Si vous avez [installé le SDK Application Insights pour Java](../../azure-monitor/app/java-get-started.md) dans les applications en cours d’exécution dans les conteneurs, toutes les données de télémétrie de ces applications auront des propriétés supplémentaires identifiant l’ordinateur hôte et le conteneur. Par exemple, si vous avez des instances d’une application en cours d’exécution dans plusieurs hôtes, vous pouvez facilement filtrer la télémétrie d’application par hôte.
+* Si vous avez [installé le SDK Application Insights pour Java](./java-get-started.md) dans les applications en cours d’exécution dans les conteneurs, toutes les données de télémétrie de ces applications auront des propriétés supplémentaires identifiant l’ordinateur hôte et le conteneur. Par exemple, si vous avez des instances d’une application en cours d’exécution dans plusieurs hôtes, vous pouvez facilement filtrer la télémétrie d’application par hôte.
 
 ## <a name="set-up-your-application-insights-resource"></a>Configuration de votre ressource Application Insights
 
-1. Connectez-vous au [portail Microsoft Azure](https://azure.com) et ouvrez la ressource Application Insights pour votre application ou [créez-en une](../../azure-monitor/app/create-new-resource.md ). 
+1. Connectez-vous au [portail Microsoft Azure](https://azure.com) et ouvrez la ressource Application Insights pour votre application ou [créez-en une](./create-new-resource.md). 
    
-    *Quelle ressource dois-je utiliser ?* Si les applications en cours d’exécution sur votre hôte ont été développées par quelqu’un d’autre, vous devez [créer une ressource Application Insights](../../azure-monitor/app/create-new-resource.md ). C'est ce qui vous permet d'afficher et d'analyser les données de télémétrie. (Sélectionnez « Général » comme type d’application.)
+    *Quelle ressource dois-je utiliser ?* Si les applications en cours d’exécution sur votre hôte ont été développées par quelqu’un d’autre, vous devez [créer une ressource Application Insights](./create-new-resource.md). C'est ce qui vous permet d'afficher et d'analyser les données de télémétrie. (Sélectionnez « Général » comme type d’application.)
    
-    Toutefois, si vous êtes le développeur des applications, nous espérons que vous avez [ajouté le Kit SDK Application Insights](../../azure-monitor/app/java-get-started.md) à chacune d'elles. Si en fait elles sont toutes des composants d'une application d'entreprise unique, vous pouvez toutes les configurer pour envoyer la télémétrie à une ressource, puis vous utiliserez cette même ressource pour afficher les données de performances et du cycle de vie de Docker. 
+    Toutefois, si vous êtes le développeur des applications, nous espérons que vous avez [ajouté le Kit SDK Application Insights](./java-get-started.md) à chacune d'elles. Si en fait elles sont toutes des composants d'une application d'entreprise unique, vous pouvez toutes les configurer pour envoyer la télémétrie à une ressource, puis vous utiliserez cette même ressource pour afficher les données de performances et du cycle de vie de Docker. 
    
     Un troisième scénario est que vous avez développé la plupart des applications, mais vous utilisez des ressources distinctes pour afficher les données de télémétrie. Dans ce cas, vous pouvez créer une ressource distincte pour les données de Docker.
 
@@ -54,7 +54,7 @@ Maintenant que vous avez défini un emplacement pour l'affichage des données de
 Une seule image Application Insights est requise par hôte Docker. Si votre application est déployée sur plusieurs hôtes Docker, répétez la commande sur chaque hôte.
 
 ## <a name="update-your-app"></a>Mise à jour de votre application
-Si votre application est instrumentée avec le [SDK Application Insights pour Java](../../azure-monitor/app/java-get-started.md), ajoutez la ligne suivante dans le fichier ApplicationInsights.xml de votre projet, sous l’élément `<TelemetryInitializers>` :
+Si votre application est instrumentée avec le [SDK Application Insights pour Java](./java-get-started.md), ajoutez la ligne suivante dans le fichier ApplicationInsights.xml de votre projet, sous l’élément `<TelemetryInitializers>` :
 
 ```xml
 
@@ -73,7 +73,7 @@ Vous verrez bientôt des données arriver à partir de l'application Docker, en 
 ### <a name="docker-container-events"></a>Événements du conteneur Docker
 ![exemple](./media/docker/13.png)
 
-Pour examiner les événements individuels, cliquez sur [Rechercher](../../azure-monitor/app/diagnostic-search.md). Utilisez le système de recherche et de filtre pour rechercher des événements particuliers. Cliquez sur un événement pour obtenir plus de détails.
+Pour examiner les événements individuels, cliquez sur [Rechercher](./diagnostic-search.md). Utilisez le système de recherche et de filtre pour rechercher des événements particuliers. Cliquez sur un événement pour obtenir plus de détails.
 
 ### <a name="exceptions-by-container-name"></a>Exceptions par nom de conteneur
 ![exemple](./media/docker/14.png)
@@ -90,7 +90,7 @@ Les données de télémétrie envoyées par l’application instrumentée avec l
 
 *Comment obtenir des données de télémétrie à partir de l’application elle-même ?*
 
-* Installez le Kit SDK Application Insights dans l’application. Découvrez comment faire pour : les [applications web Java](../../azure-monitor/app/java-get-started.md), les [applications web Windows](../../azure-monitor/app/asp-net.md).
+* Installez le Kit SDK Application Insights dans l’application. Découvrez comment faire pour : les [applications web Java](./java-get-started.md), les [applications web Windows](./asp-net.md).
 
 ## <a name="video"></a>Vidéo
 
@@ -98,6 +98,7 @@ Les données de télémétrie envoyées par l’application instrumentée avec l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Application Insights pour Java](../../azure-monitor/app/java-get-started.md)
-* [Application Insights pour Node.js](../../azure-monitor/app/nodejs.md)
-* [Application Insights pour ASP.NET](../../azure-monitor/app/asp-net.md)
+* [Application Insights pour Java](./java-get-started.md)
+* [Application Insights pour Node.js](./nodejs.md)
+* [Application Insights pour ASP.NET](./asp-net.md)
+

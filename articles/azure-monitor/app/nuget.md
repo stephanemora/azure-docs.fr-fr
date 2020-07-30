@@ -3,12 +3,12 @@ title: Packages NuGet Application Insights Azure Monitor
 description: Liste de packages NuGet Azure Monitor Application Insights pour ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27a3d89b4a64de159535d346641c21616833e21b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309951"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 
@@ -79,7 +79,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Active la collecte des données de runtime pour les applications x64 | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Active la collecte des données de runtime pour les applications x86. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
+Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](./monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
 
 ## <a name="additional-packages"></a>Packages supplémentaires
 
@@ -90,6 +90,7 @@ Ces packages font partie des fonctionnalités essentielles de la supervision du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Supervisez [ASP.NET Core](../../azure-monitor/app/asp-net-core.md).
-- Profilez des [applications web Azure Linux](../../azure-monitor/app/profiler-aspnetcore-linux.md) ASP.NET Core.
-- Déboguez des [instantanés](../../azure-monitor/app/snapshot-debugger.md) ASP.NET.
+- Supervisez [ASP.NET Core](./asp-net-core.md).
+- Profilez des [applications web Azure Linux](./profiler-aspnetcore-linux.md) ASP.NET Core.
+- Déboguez des [instantanés](./snapshot-debugger.md) ASP.NET.
+

@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Connecter un appareil (Python)
           href: tutorial-connect-device-python.md
-        - name: Connecter un appareil Plug-and-Play (préversion)
-          href: tutorial-connect-pnp-device.md
         - name: Créer un modèle d’appareil de passerelle
           href: tutorial-define-gateway-device-type.md
         - name: Connecter un appareil IoT Edge
@@ -79,8 +77,6 @@
       items:
         - name: Configurer un modèle d’appareil
           href: howto-set-up-template.md
-        - name: Préparer et connecter un kit de développement IoT MXChip
-          href: howto-connect-devkit.md
         - name: Préparer et connecter un kit de développement Azure Sphere
           href: howto-connect-sphere.md
         - name: Préparer et connecter un appareil RuuviTag
