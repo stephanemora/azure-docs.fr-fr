@@ -3,12 +3,12 @@ title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099264"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372380"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -138,6 +138,7 @@ Les utilisations possibles de list* sont indiquées dans le tableau suivant.
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -664,7 +665,7 @@ La propriété **ManagedBy** est retournée uniquement pour les groupes de resso
 
 ### <a name="remarks"></a>Notes
 
-La fonction `resourceGroup()` ne peut pas être utilisée dans un modèle qui est [déployé au niveau abonnement](deploy-to-subscription.md). Elle n’est utilisable que dans les modèles déployés sur un groupe de ressources. Vous pouvez utiliser la fonction `resourceGroup()` dans un [modèle lié ou imbriqué (avec portée interne)](linked-templates.md) qui cible un groupe de ressources, même lorsque le modèle parent est déployé dans l’abonnement. Dans ce scénario, le modèle lié ou imbriqué est déployé au niveau du groupe de ressources. Pour plus d’informations sur le ciblage d’un groupe de ressources dans un déploiement au niveau de l’abonnement, consultez [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
+La fonction `resourceGroup()` ne peut pas être utilisée dans un modèle qui est [déployé au niveau abonnement](deploy-to-subscription.md). Elle n’est utilisable que dans les modèles déployés sur un groupe de ressources. Vous pouvez utiliser la fonction `resourceGroup()` dans un [modèle lié ou imbriqué (avec portée interne)](linked-templates.md) qui cible un groupe de ressources, même lorsque le modèle parent est déployé dans l’abonnement. Dans ce scénario, le modèle lié ou imbriqué est déployé au niveau du groupe de ressources. Pour plus d’informations sur le ciblage d’un groupe de ressources dans un déploiement au niveau de l’abonnement, consultez [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-scope-deployment.md).
 
 Une utilisation courante de la fonction resourceGroup consiste à créer des ressources dans le même emplacement que le groupe de ressources. L’exemple suivant utilise l’emplacement du groupe de ressources pour une valeur de paramètre par défaut.
 
@@ -679,7 +680,7 @@ Une utilisation courante de la fonction resourceGroup consiste à créer des res
 
 Vous pouvez également utiliser la fonction resourceGroup pour appliquer des balises du groupe de ressources à une ressource. Pour plus d’informations, voir [Appliquer les balises d’un groupe de ressources](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs groupes de ressources, vous pouvez spécifier l’étendue de l’évaluation de la fonction resourceGroup. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
+Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs groupes de ressources, vous pouvez spécifier l’étendue de l’évaluation de la fonction resourceGroup. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-scope-deployment.md).
 
 ### <a name="resource-group-example"></a>Exemple de groupe de ressources
 
@@ -889,7 +890,7 @@ La fonction retourne les informations au format suivant :
 
 ### <a name="remarks"></a>Notes
 
-Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs abonnements, vous pouvez spécifier l’étendue de l’évaluation de la fonction subscription. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
+Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs abonnements, vous pouvez spécifier l’étendue de l’évaluation de la fonction subscription. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-scope-deployment.md).
 
 ### <a name="subscription-example"></a>Exemple d’abonnement
 
