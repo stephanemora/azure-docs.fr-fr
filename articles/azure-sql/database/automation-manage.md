@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3d785edb82e62363dd96d9fd67447f1be7ffe8f5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013978"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Gérer des bases de données dans Azure SQL Database avec Azure Automation
 
@@ -34,7 +34,7 @@ Réduisez les coûts opérationnels et dégagez du temps pour votre personnel in
 
 ## <a name="how-azure-automation-can-help-manage-your-databases"></a>Comment Azure Automation peut vous aider à gérer vos bases de données
 
-Azure Automation vous permet de gérer les bases de données Azure SQL Database à l'aide des [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) disponibles dans les [outils Azure PowerShell ](/powershell/azure/overview). Azure Automation met à votre disposition ces cmdlets PowerShell pour Azure SQL Database afin de vous permettre d'effectuer toutes vos tâches de gestion SQL Database au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d’autres services Azure, afin d’automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+Azure Automation vous permet de gérer les bases de données Azure SQL Database à l'aide des [cmdlets PowerShell](/powershell/module/servicemanagement/azure.service/#sql) disponibles dans les [outils Azure PowerShell ](/powershell/azure/). Azure Automation met à votre disposition ces cmdlets PowerShell pour Azure SQL Database afin de vous permettre d'effectuer toutes vos tâches de gestion SQL Database au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d’autres services Azure, afin d’automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Azure Automation a également la possibilité de communiquer directement avec les serveurs SQL en exécutant des commandes SQL à l'aide de PowerShell.
 

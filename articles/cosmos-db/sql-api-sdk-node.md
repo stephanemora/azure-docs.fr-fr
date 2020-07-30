@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53745baa3883108295a76ec299e8347d68419336
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391959"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386093"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel .Node.js Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "85391959"
 |---------|---------|
 |Télécharger le SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Documentation de l’API  |  [Documentation de référence sur le SDK JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
-|Instructions d’installation du SDK  |  [Instructions d’installation](https://github.com/Azure/azure-cosmos-js#installation)
+|Instructions d’installation du SDK  |  [Instructions d’installation](https://github.com/Azure/azure-sdk-for-js)
 |Contribuer au SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Exemples | [Exemples de code Node.js](sql-api-nodejs-samples.md)
 | Tutoriel pour bien démarrer | [Bien démarrer avec le SDK JavaScript](sql-api-nodejs-get-started.md)

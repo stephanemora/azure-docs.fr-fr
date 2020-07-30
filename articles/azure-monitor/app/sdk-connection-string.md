@@ -5,13 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
+ms.custom: devx-track-javascript
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482120"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383628"
 ---
 # <a name="connection-strings"></a>Chaînes de connexion
 
@@ -31,12 +32,12 @@ Scénarios client dans lesquels nous visualisons l’impact le plus important :
 
 - Exceptions de pare-feu ou redirections de proxy 
 
-    Quand la supervision d’un serveur web intranet est nécessaire, notre solution antérieure demandait aux clients d’ajouter des points de terminaison de service individuels à leur configuration. Vous pourrez trouver plus d’informations [ici](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Quand la supervision d’un serveur web intranet est nécessaire, notre solution antérieure demandait aux clients d’ajouter des points de terminaison de service individuels à leur configuration. Vous pourrez trouver plus d’informations [ici](../faq.md#can-i-monitor-an-intranet-web-server). 
     Les chaînes de connexion offrent une meilleure alternative en réduisant cet effort à un seul paramètre. La simple modification d’un préfixe et d’un suffixe permet de renseigner tous les points de terminaison et de les rediriger automatiquement vers les services appropriés. 
 
 - Environnements cloud souverains ou hybrides
 
-    Les utilisateurs peuvent envoyer des données à une [région Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) définie.
+    Les utilisateurs peuvent envoyer des données à une [région Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) définie.
     Les chaînes de connexion vous permettent de définir des paramètres de point de terminaison pour vos serveurs intranet ou des paramètres cloud hybrides. 
 
 ## <a name="getting-started"></a>Prise en main
@@ -274,14 +275,15 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Prise en main lors de l’exécution avec :
 
-* [Applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Serveur IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure](./azure-vm-vmss-apps.md)
+* [Serveur IIS](./monitor-performance-live-website-now.md)
+* [Azure Web Apps](./azure-web-apps.md)
 
 Prise en main pendant le développement avec :
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.JS](./nodejs.md)
+* [Python](./opencensus-python.md)
+

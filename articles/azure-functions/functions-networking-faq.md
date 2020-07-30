@@ -1,17 +1,15 @@
 ---
 title: Questions fréquentes concernant les réseaux dans Azure Functions
 description: Répond à certaines questions courantes concernant les réseaux dans Azure Functions.
-author: alexkarcher-msft
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75409524"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385906"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquentes concernant les réseaux dans Azure Functions
 
@@ -55,7 +53,7 @@ Vous pouvez également déclencher une fonction à partir d’autres ressources 
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Comment déployer mon application de fonction dans un réseau virtuel ?
 
-Un déploiement dans App Service Environment est le seul moyen de créer une application de fonction qui se trouve entièrement dans un réseau virtuel. Pour plus d’informations sur l’utilisation d’un équilibreur de charge interne avec App Service Environment, commencez par lire l’article [Créer et utiliser un équilibreur de charge interne avec App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Un déploiement dans App Service Environment est le seul moyen de créer une application de fonction qui se trouve entièrement dans un réseau virtuel. Pour plus d’informations sur l’utilisation d’un équilibreur de charge interne avec App Service Environment, commencez par lire l’article [Créer et utiliser un équilibreur de charge interne avec App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 Si vous avez seulement besoin d’un accès unidirectionnel aux ressources d’un réseau virtuel ou d’un isolement réseau moins complet, consultez [Vue d’ensemble des réseaux Azure Functions](functions-networking-options.md).
 

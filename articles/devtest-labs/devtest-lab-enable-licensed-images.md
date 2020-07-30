@@ -3,12 +3,12 @@ title: Activer une image sous licence dans votre laboratoire Azure DevTest Labs 
 description: Découvrez comment activer une image sous licence dans Azure DevTest Labs à l’aide du portail Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481015"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286510"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
     ![Fenêtre Configurer le déploiement par programmation](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Les machines virtuelles Data Science sont des images de machines virtuelles Azure pré-installées, configurées et testées avec plusieurs outils populaires fréquemment utilisés pour l’analytique des données, l’apprentissage automatique et la formation de l’intelligence artificielle. [Présentation d’Azure Data Science Virtual Machine pour Linux et Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) fournit une grande quantité d’informations sur les machines virtuelles DSVM.
+   > Les machines virtuelles Data Science sont des images de machines virtuelles Azure pré-installées, configurées et testées avec plusieurs outils populaires fréquemment utilisés pour l’analytique des données, l’apprentissage automatique et la formation de l’intelligence artificielle. [Présentation d’Azure Data Science Virtual Machine pour Linux et Windows](../machine-learning/data-science-virtual-machine/overview.md) fournit une grande quantité d’informations sur les machines virtuelles DSVM.
    >
    >
 
@@ -78,7 +78,7 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 
-- [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas? (Images personnalisées ou formules ?)](./devtest-lab-faq.md#blog-post)
 - [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Étapes suivantes

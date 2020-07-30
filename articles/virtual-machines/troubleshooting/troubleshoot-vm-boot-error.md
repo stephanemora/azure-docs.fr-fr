@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284674"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Démarrage de la machine virtuelle Linux sur Grub Rescue
 
@@ -35,7 +35,7 @@ Suivez les étapes d’atténuation ci-dessous en fonction de l’erreur qui s�
 * Si vous obtenez l’erreur **Système de fichiers inconnu**, cela peut être dû à la corruption du système de fichiers de la partition de démarrage ou à une configuration incorrecte du noyau.
 
    * En cas de problèmes liés au système de fichiers, suivez les étapes de l’article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * En cas de problèmes liés au noyau, suivez les étapes de l’article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems) ou [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
+   * En cas de problèmes liés au noyau, suivez les étapes de l’article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/) ou [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Erreur : File not found (Fichier introuvable)
 

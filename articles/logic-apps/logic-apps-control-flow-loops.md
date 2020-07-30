@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066337"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -162,7 +162,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
 > [!NOTE]
 > Ces étapes utilisent Office 365 Outlook, mais vous pouvez utiliser n’importe quel fournisseur de messagerie pris en charge par Logic Apps. 
-> [Vérifiez la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent. 
+> [Vérifiez la liste des connecteurs ici](/connectors/). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent. 
 
 1. Créez une application logique vide. Dans le Concepteur d’application logique, sous la zone de recherche, choisissez **Tout**. Recherchez « récurrence ». 
    Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Récurrence - Planification**
@@ -335,7 +335,7 @@ Cet exemple de boucle « Until » appelle un point de terminaison HTTP, qui cr
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-* Pour toute question, consultez la [page de questions Microsoft Q&A pour Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pour toute question, consultez la [page de questions Microsoft Q&A pour Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, rendez-vous sur le [site de commentaires des utilisateurs Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes

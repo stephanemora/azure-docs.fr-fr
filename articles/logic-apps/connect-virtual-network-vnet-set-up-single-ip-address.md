@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066394"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurer une adresse IP unique pour un ou plusieurs environnements de service d’intégration dans Azure Logic Apps
 
@@ -96,8 +96,8 @@ Cette rubrique montre comment router le trafic sortant via un Pare-feu Azure, ma
    * [Configurer une règle de réseau](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Logique de traitement des règles de pare-feu Azure](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Questions fréquentes (FAQ) sur le pare-feu Azure](../firewall/firewall-faq.md)
-   * [Azure PowerShell : New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI : az network firewall network-rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure PowerShell : New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
+   * [Azure CLI : az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
