@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051352"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -93,7 +93,7 @@ Le schéma d’une autorité de certification se présente comme suit :
     }
 ```
 
-Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) :
+Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) :
 
 1. Démarrez Windows PowerShell avec les privilèges administrateur.
 2. Installez le module Azure AD, version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou ultérieure.
@@ -122,7 +122,7 @@ Pour récupérer les autorités de certification approuvées qui sont définies 
 
 ### <a name="add"></a>Ajouter
 
-Pour créer une autorité de certification approuvée, utilisez l’applet de commande [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) et définissez l’attribut **crlDistributionPoint** à une valeur correcte :
+Pour créer une autorité de certification approuvée, utilisez l’applet de commande [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) et définissez l’attribut **crlDistributionPoint** à une valeur correcte :
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

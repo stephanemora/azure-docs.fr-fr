@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e730201812005a9b469a964e4acd081ebe86b100
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063947"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.TagsByResource
 
@@ -18,7 +18,7 @@ Contrôle permettant d’associer des [balises](../management/tag-resources.md) 
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.tagsbyresource.png)
+![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft-common-tagsbyresource.png)
 
 ## <a name="schema"></a>schéma
 

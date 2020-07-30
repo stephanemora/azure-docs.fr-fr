@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: ff1b35ec036996dfa452d92632c8fc6ede22d82f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6849046211ae4216f181dd8ef0ca391c2876363c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203252"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291787"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte pour Go
 
@@ -29,7 +29,7 @@ ms.locfileid: "86203252"
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+* Un abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * La dernière version de [Go](https://golang.org/dl/)
 * Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="créez une ressource Analyse de texte"  target="_blank">Créer une ressource Analyse de texte <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. 
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Analyse de texte. Vous effectuerez cette opération ultérieurement dans le guide de démarrage rapide.

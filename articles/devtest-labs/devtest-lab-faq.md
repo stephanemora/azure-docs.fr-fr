@@ -3,12 +3,12 @@ title: FAQ Azure DevTest Labs | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537480"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289372"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -36,7 +36,7 @@ Notre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
 - Postez une question à la fin de ce Forum aux questions.
-- Pour atteindre un public plus large, postez une question dans la [page de questions Microsoft Q&A sur Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
+- Pour atteindre un public plus large, postez une question dans la [page de questions Microsoft Q&A sur Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
 - Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>Qu’est-ce qu’un compte Microsoft ?

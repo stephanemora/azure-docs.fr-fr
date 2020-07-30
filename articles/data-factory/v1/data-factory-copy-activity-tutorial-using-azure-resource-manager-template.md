@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 549c85f92434504b931f0325959beb17ae92afba
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053900"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Lisez l’article [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises**.
-* Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer la dernière version d’Azure PowerShell sur votre ordinateur. Dans ce didacticiel, vous utilisez PowerShell pour déployer des entités Data Factory. 
+* Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/) pour installer la dernière version d’Azure PowerShell sur votre ordinateur. Dans ce didacticiel, vous utilisez PowerShell pour déployer des entités Data Factory. 
 * (Facultatif) Consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour en savoir plus sur les modèles Azure Resource Manager.
 
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel

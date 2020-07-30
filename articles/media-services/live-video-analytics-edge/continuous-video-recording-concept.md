@@ -3,12 +3,12 @@ title: Enregistrement de vidéo en continu – Azure
 description: L’enregistrement de vidéo continu (CVR) fait référence au processus d’enregistrement vidéo continu à partir d’une source vidéo. Cette rubrique explique ce qu’est le CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043304"
 ---
 # <a name="continuous-video-recording"></a>Enregistrement de vidéo continu  
 
@@ -34,7 +34,7 @@ Live Video Analytics sur IoT Edge prend en charge le fonctionnement dans des con
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-Les deux dernières propriétés sont pertinentes pour l’enregistrement résilient (toutes deux sont également des propriétés requises pour un nœud récepteur de ressources). La propriété localMediaCachePath indique au récepteur de ressources d’utiliser ce chemin d’accès au dossier pour mettre en cache les données multimédia avant de les charger dans la ressource. Vous pouvez consulter [cet article](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) pour comprendre comment le module Edge peut utiliser le stockage local de votre appareil. La propriété localMediaCacheMaximumSizeMiB définit la quantité d’espace disque que le récepteur de ressources peut utiliser comme cache (1 Mio = 1024 * 1024 octets). 
+Les deux dernières propriétés sont pertinentes pour l’enregistrement résilient (toutes deux sont également des propriétés requises pour un nœud récepteur de ressources). La propriété localMediaCachePath indique au récepteur de ressources d’utiliser ce chemin d’accès au dossier pour mettre en cache les données multimédia avant de les charger dans la ressource. Vous pouvez consulter [cet article](../../iot-edge/how-to-access-host-storage-from-module.md) pour comprendre comment le module Edge peut utiliser le stockage local de votre appareil. La propriété localMediaCacheMaximumSizeMiB définit la quantité d’espace disque que le récepteur de ressources peut utiliser comme cache (1 Mio = 1024 * 1024 octets). 
 
 Si votre module Edge perd la connectivité pendant une très longue période et que le contenu stocké dans le dossier cache atteint la valeur localMediaCacheMaximumSizeMiB, le récepteur de ressources commencera à supprimer les données du cache, en commençant par les données les plus anciennes. Par exemple, si l’appareil a perdu la connexion à 10 h et que le cache atteint la limite maximale à 18 h, le récepteur de ressources commence à supprimer les données enregistrées à 10 h. 
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentation sur la préversion d’IoT Plug-and-Play
-summary: La préversion d’IoT Plug-and-Play vous permet de définir un modèle d’appareil qui permettra aux solutions cloud de comprendre automatiquement votre appareil et de commencer à interagir avec lui, le tout sans devoir écrire de code pour l’appareil.
+title: Documentation IoT Plug-and-Play Preview Refresh
+summary: IoT Plug-and-Play vous permet de définir un modèle d’appareil qui permettra aux solutions cloud de comprendre automatiquement votre appareil et de commencer à interagir avec lui.
 metadata:
-  title: Documentation sur la préversion d’IoT Plug-and-Play
-  description: La préversion d’IoT Plug-and-Play vous permet de définir un modèle d’appareil qui permettra aux solutions cloud de comprendre automatiquement votre appareil et de commencer à interagir avec lui, le tout sans devoir écrire de code pour l’appareil.
+  title: Architecture d’IoT Plug-and-Play Preview
+  description: IoT Plug-and-Play Preview permet aux créateurs de solutions d’intégrer des appareils dans une solution sans configuration manuelle. Cet article présente les principaux éléments de l’architecture qui rendent cela possible.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 9469adb901c2da5f814088aa8eb59121889a0b78
-  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80998290"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337362"
 landingContent:
 - title: À propos d’IoT Plug-and-Play
   linkLists:
@@ -24,51 +24,41 @@ landingContent:
     links:
     - text: Qu’est ce qu’IoT Plug-and-Play ?
       url: overview-iot-plug-and-play.md
-  - linkListType: video
-    links:
-    - text: Présentation d’IoT Plug-and-Play
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
-- title: Développer des appareils
+    - text: Mises à jour Preview Refresh 2020
+      url: overview-iot-plug-and-play-preview-updates.md
+- title: Créer des appareils
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Connecter un exemple d’appareil à IoT Hub
-      url: quickstart-connect-pnp-device-c-windows.md
-    - text: Connecter un exemple d’appareil à IoT Central
-      url: ../iot-central/core/tutorial-connect-pnp-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-    - text: Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil
-      url: quickstart-create-pnp-device-windows.md
-  - linkListType: tutorial
-    links:
-    - text: Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
-      url: tutorial-pnp-visual-studio-code.md
-    - text: Générer un appareil prêt pour la certification
-      url: tutorial-build-device-certification.md
-    - text: Certifier votre appareil
-      url: tutorial-certification-test.md
-  - linkListType: how-to-guide
-    links:
-    - text: Utiliser Azure IoT Tools pour Visual Studio Code
-      url: howto-develop-with-vs-vscode.md
-    - text: Intégrer au portail Azure Certified pour IoT
-      url: howto-onboard-portal.md
+    - text: Connecter un exemple d’appareil à IoT Hub (C)
+      url: quickstart-connect-device-c.md
+    - text: Connecter un exemple d’appareil à IoT Hub (C#)
+      url: quickstart-connect-device-csharp.md
+    - text: Connecter un exemple d’appareil à IoT Hub (Java)
+      url: quickstart-connect-device-java.md
+    - text: Connecter un exemple d’appareil à IoT Hub (Node.js)
+      url: quickstart-connect-device-node.md
+    - text: Connecter un exemple d’appareil à IoT Hub (Python)
+      url: quickstart-connect-device-python.md
   - linkListType: concept
     links:
-    - text: Interfaces communes
-      url: concepts-common-interfaces.md
+    - text: Guide du développeur
+      url: concepts-developer-guide.md
+    - text: Conventions IoT Plug-and-Play
+      url: concepts-convention.md
+    - text: Components
+      url: concepts-components.md
 - title: Créer des solutions
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Interagir avec un appareil connecté à votre solution
-      url: quickstart-connect-pnp-device-solution-node.md
+    - text: Interagir avec un appareil à partir de votre solution (Node.js)
+      url: quickstart-service-node.md
+    - text: Interagir avec un appareil à partir de votre solution (Python)
+      url: quickstart-service-python.md
   - linkListType: concept
     links:
-    - text: Découverte de modèles
-      url: concepts-model-discovery.md
-    - text: Interfaces communes
-      url: concepts-common-interfaces.md
-  - linkListType: how-to-guide
-    links:
-    - text: Se connecter à des appareils depuis votre solution
-      url: howto-develop-solution.md
+    - text: Architecture
+      url: concepts-architecture.md
+    - text: Jumeaux numériques
+      url: concepts-digital-twin.md

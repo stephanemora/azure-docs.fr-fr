@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090975"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -49,7 +49,7 @@ La valeur par défaut de DefaultBackupTasksThreshold est **20**.
 
 3. Enregistrer vos modifications et fermez le fichier.
 4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Si cette méthode est utile quand l’application de sauvegarde consomme beaucoup de ressources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) offre un moyen plus générique de spécifier des limites quant aux quantités de ressources (processeur, E/S physiques et mémoire) utilisables par les requêtes d’application entrantes.
+ Si cette méthode est utile quand l’application de sauvegarde consomme beaucoup de ressources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) offre un moyen plus générique de spécifier des limites quant aux quantités de ressources (processeur, E/S physiques et mémoire) utilisables par les requêtes d’application entrantes.
 
 > [!NOTE]
 > Dans l’expérience utilisateur, vous pouvez planifier autant de sauvegardes que vous le souhaitez à un moment donné, mais elles seront traitées dans une fenêtre glissante de 5, par exemple, conformément à l’exemple ci-dessus.

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c4f315593da270155998c3c5bba8def2778f0d41
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 3ba2b2c3924f7fea481907b825ba5a04ab50b0bf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889178"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290323"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utiliser Azure CLI pour arrêter et supprimer une machine virtuelle dans un laboratoire dans Azure DevTest Labs
 
@@ -45,6 +45,6 @@ Ce script utilise les commandes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 D’autres exemples de scripts CLI Azure Lab Services sont disponibles dans les [exemples CLI pour Azure Lab Services](../samples-cli.md).

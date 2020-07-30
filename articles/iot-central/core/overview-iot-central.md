@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337175"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -63,11 +63,8 @@ Ce modèle d’appareil inclut les éléments suivants :
 
 ### <a name="create-device-templates"></a>Créer des modèles d’appareils
 
-[IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils en vous évitant d’écrire du code d’appareil incorporé. Au cœur d’IoT Plug-and-Play (préversion) se trouve un schéma de capacité d’appareil qui décrit les capacités d’appareil. Dans une application IoT Central, les modèles d’appareil utilisent ces modèles de capacité d’appareil IoT Plug-and-Play (préversion).
-
 Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
-- Importez un modèle de fonctionnalité d’appareil à partir du [catalogue d’appareils Azure Certified pour IoT](https://aka.ms/iotdevcat), puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 - Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de fonctionnalité d’appareil dans le code de votre appareil.
 - Créez un modèle de capacité d’appareil avec du code Visual Studio et publiez le modèle dans un référentiel. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil à votre application IoT Central. IoT Central recherche le modèle de capacité d’appareil dans le référentiel et crée automatiquement un modèle d’appareil simple.
 - Créez un modèle de fonctionnalité d’appareil mobile avec Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de fonctionnalité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
@@ -149,7 +146,6 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 - IoT Central est disponible aux États-Unis, en Europe, en Asie-Pacifique, en Australie, au Royaume-Uni et au Japon.
 - Vous ne pouvez pas utiliser le modèle d’application **Application personnalisée (hérité)** au Royaume-Uni et au Japon.
 - Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
-- La prise en charge d’[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) est en préversion et réservée à certaines régions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -158,7 +154,6 @@ Maintenant que vous avez une vue d’ensemble d’IoT Central, voici quelques é
 - Découvrez les [technologies et services Azure disponibles pour créer des solutions IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Vous familiariser avec [l’interface utilisateur de Azure IoT Central](overview-iot-central-tour.md).
 - Mise en route avec la [création d’une application Azure IoT Central](quick-deploy-iot-central.md).
-- Découvrez plus en détail [IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Découvrez comment [connecter un appareil Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Découvrez plus en détail les [technologies et services Azure IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 

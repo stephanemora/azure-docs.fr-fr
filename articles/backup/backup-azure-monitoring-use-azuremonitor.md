@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054616"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -56,7 +56,7 @@ Utilisez un groupe d’actions pour spécifier un canal de notification. Pour vo
 
 Vous pouvez satisfaire à toutes les exigences en matière d’alertes et de supervision à partir de Log Analytics seul, ou vous pouvez utiliser Log Analytics pour compléter les notifications intégrées.
 
-Pour plus d’informations, consultez [Créer, afficher et gérer les alertes de journal avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) et [Créer et gérer des groupes d’actions dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Pour plus d’informations, consultez [Créer, afficher et gérer les alertes de journal avec Azure Monitor](../azure-monitor/platform/alerts-log.md) et [Créer et gérer des groupes d’actions dans le portail Azure](../azure-monitor/platform/action-groups.md).
 
 ### <a name="sample-kusto-queries"></a>Exemples de requêtes Kusto
 
@@ -180,7 +180,7 @@ Pour identifier le journal approprié et créer une alerte :
 
 2. Sélectionnez le nom de l’opération pour voir les détails correspondants.
 3. Sélectionnez **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
-4. Créez une alerte en suivant les étapes de [Créer, afficher et gérer des alertes de journal d’activité avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+4. Créez une alerte en suivant les étapes de [Créer, afficher et gérer des alertes de journal d’activité avec Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
 
    ![Nouvelle règle d’alerte](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -193,8 +193,8 @@ Vous pouvez voir toutes les alertes créées à partir des journaux d’activit�
 Même si vous pouvez recevoir des notifications via des journaux d’activité, nous vous recommandons vivement d’utiliser Log Analytics plutôt que des journaux d’activité pour la supervision à grande échelle. Voici pourquoi :
 
 - **Scénarios limités** : Les notifications via des journaux d’activité s’appliquent seulement aux sauvegardes de machines virtuelles Azure. Les notifications doivent être configurées pour chaque coffre Recovery Services.
-- **Ajustement de la définition** : L’activité de sauvegarde planifiée ne correspond pas à la définition la plus récente des journaux d’activité. Au lieu de cela, elle s’aligne sur les [journaux de ressources](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Cet alignement entraîne des effets inattendus quand les données qui transitent via le canal du journal d’activité changent.
-- **Problèmes avec le canal du journal d’activité** : Dans les coffres Recovery Services, les journaux d’activité qui sont injectés depuis Sauvegarde Azure suivent un nouveau modèle. Malheureusement, ce changement affecte la génération des journaux d’activité dans Azure Government, Azure Allemagne et Azure Chine 21Vianet. Si les utilisateurs de ces services cloud créent ou configurent des alertes à partir de journaux d’activité dans Azure Monitor, les alertes ne sont pas déclenchées. De plus, dans toutes les régions publiques Azure, si un utilisateur [collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), ces journaux n’apparaissent pas.
+- **Ajustement de la définition** : L’activité de sauvegarde planifiée ne correspond pas à la définition la plus récente des journaux d’activité. Au lieu de cela, elle s’aligne sur les [journaux de ressources](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Cet alignement entraîne des effets inattendus quand les données qui transitent via le canal du journal d’activité changent.
+- **Problèmes avec le canal du journal d’activité** : Dans les coffres Recovery Services, les journaux d’activité qui sont injectés depuis Sauvegarde Azure suivent un nouveau modèle. Malheureusement, ce changement affecte la génération des journaux d’activité dans Azure Government, Azure Allemagne et Azure Chine 21Vianet. Si les utilisateurs de ces services cloud créent ou configurent des alertes à partir de journaux d’activité dans Azure Monitor, les alertes ne sont pas déclenchées. De plus, dans toutes les régions publiques Azure, si un utilisateur [collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics](../azure-monitor/platform/activity-log.md), ces journaux n’apparaissent pas.
 
 Utilisez un espace de travail Log Analytics pour la supervision et la génération d’alertes à grande échelle pour toutes vos charges de travail protégées par Sauvegarde Azure.
 

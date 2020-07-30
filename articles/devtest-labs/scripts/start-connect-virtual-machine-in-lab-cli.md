@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 2159e594f0cc6a43905f3562c0ad6f3e3c9984fe
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: a38e0eacdba2c37a18c41f307e4a8120e0e6285d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84889233"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290331"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utiliser Azure CLI pour démarrer une machine virtuelle dans un laboratoire dans Azure DevTest Labs
 
@@ -44,6 +44,6 @@ Ce script utilise les commandes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 D’autres exemples de scripts CLI Azure Lab Services sont disponibles dans les [exemples CLI pour Azure Lab Services](../samples-cli.md).

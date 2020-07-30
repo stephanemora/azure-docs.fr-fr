@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Connecter SQL à la demande à Power BI Desktop et créer un rapport'
+title: Connecter SQL à la demande à Power BI Desktop et créer un rapport
 description: Dans ce tutoriel, vous allez apprendre à connecter SQL à la demande dans Azure Synapse Analytics à Power BI Desktop, et à créer un rapport de démonstration basé sur une vue.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2f4a1ab6dc2f5cb8576931ea5fc1da85f5597624
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089173"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutoriel : Utiliser SQL à la demande avec Power BI Desktop et créer un rapport
 

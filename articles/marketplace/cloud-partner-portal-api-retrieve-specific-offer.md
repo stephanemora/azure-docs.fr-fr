@@ -4,19 +4,20 @@ description: L’API récupère l’offre spécifiée dans l’espace de noms du
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271839"
 ---
-<a name="retrieve-a-specific-offer"></a>Récupérer une offre en particulier
-=========================
+# <a name="retrieve-a-specific-offer"></a>Récupérer une offre en particulier
 
 > [!NOTE]
-> Les API Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les modifications répertoriées dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Récupère l’offre spécifiée dans l’espace de noms du serveur de publication.  
 
@@ -34,10 +35,7 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 
 ```
 
-
-<a name="uri-parameters"></a>Paramètres URI
---------------
-
+## <a name="uri-parameters"></a>Paramètres URI
 
 | **Nom**    | **Description**                                                                          | **Type de données** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
@@ -48,9 +46,7 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 | api-version | Dernière version de l’API                                                                    | Date          |
 |  |  |  |
 
-
-<a name="header"></a>En-tête
-------
+## <a name="header"></a>En-tête
 
 |  **Nom**          |   **Valeur**            |
 |  ---------------   |  --------------        |
@@ -58,9 +54,7 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 |  Autorisation     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-<a name="body-example"></a>Exemple de corps
-------------
+## <a name="body-example"></a>Exemple de corps
 
 ### <a name="response"></a>response
 
@@ -175,7 +169,6 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 }
 ```
 
-
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
 |  **Nom**       |   **Description**                                                                                                               |
@@ -189,7 +182,6 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 |  changedTime    | Date/heure UTC de la dernière modification de l’offre                                                                                   |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 
 | **Code**  | **Description**                                                                                                                 |
@@ -199,7 +191,6 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 |  403      | `Forbidden` : le client n’a pas accès à l’espace de noms spécifié.                                                        |
 |  404      | `Not found` : l’entité spécifiée n’existe pas. Le client doit vérifier les valeurs publisherId et offerId, ainsi que la version (si elle est spécifiée).      |
 |  |  |
-
 
 ### <a name="offer-status"></a>État de l’offre
 

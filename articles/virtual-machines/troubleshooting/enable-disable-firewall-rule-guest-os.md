@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058768"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
 
@@ -77,7 +77,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez atténuer les risques suivants à l’aide de l’autre machine virtuelle.
 
-1.  Sur la machine virtuelle de dépannage, téléchargez [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Sur la machine virtuelle de dépannage, téléchargez [PSTools](/sysinternals/downloads/pstools).
 
 2.  Ouvrez une instance CMD, puis accédez à la machine virtuelle via son adresse IP interne (DIP). 
 

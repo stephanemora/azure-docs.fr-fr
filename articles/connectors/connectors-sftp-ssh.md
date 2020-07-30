@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286612"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -23,6 +23,7 @@ Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent de
 > Actuellement, le connecteur SFTP-SSH ne prend pas en charge les serveurs SFTP suivants :
 > 
 > * IBM DataPower
+> * MessageWay
 > * OpenText Secure MFT
 > * OpenText GXS
 
@@ -254,7 +255,7 @@ Si vous ne pouvez pas éviter ou retarder le déplacement du fichier, vous pouve
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sftpwithssh/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE nécessite des blocs pour utiliser les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
@@ -262,3 +263,4 @@ Pour plus d’informations techniques sur ce connecteur, notamment au sujet des 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
+

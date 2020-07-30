@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 22f3fd44fbeb3d951d4add7b90a0e9aebd863ebf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 159ded093f278672a8251263f7bab1050a945e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085841"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -92,11 +92,11 @@ Les noms de définition d’image peuvent contenir des lettres majuscules ou min
 
 Vérifiez que le type de votre définition d’image est approprié. Si vous avez généralisé la machine virtuelle (à l’aide de Sysprep pour Windows ou de waagent -deprovision pour Linux), vous devez créer une définition d’image généralisée à l’aide de la commande `--os-state generalized`. Si vous souhaitez utiliser la machine virtuelle sans supprimer de comptes d’utilisateur, créez une définition d’image spécialisée à l’aide de la commande `--os-state specialized`.
 
-Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../virtual-machines/linux/shared-image-galleries.md#image-definitions).
 
 Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
+Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -137,7 +137,7 @@ az sig image-version create \
 > [!NOTE]
 > Vous devez attendre que la version d’image soit totalement intégrée et répliquée avant de pouvoir utiliser la même image managée pour créer une autre version d’image.
 >
-> Vous pouvez également stocker votre image dans le Stockage Premium, en ajoutant `--storage-account-type  premium_lrs`, ou dans le [stockage redondant interzone](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), en ajoutant `--storage-account-type  standard_zrs`, quand vous créez la version de l’image.
+> Vous pouvez également stocker votre image dans le Stockage Premium, en ajoutant `--storage-account-type  premium_lrs`, ou dans le [stockage redondant interzone](../storage/common/storage-redundancy.md), en ajoutant `--storage-account-type  standard_zrs`, quand vous créez la version de l’image.
 >
 
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Pour plus d’informations sur le partage de ressources à l’aide de RBAC, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Pour plus d’informations sur le partage de ressources à l’aide de RBAC, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

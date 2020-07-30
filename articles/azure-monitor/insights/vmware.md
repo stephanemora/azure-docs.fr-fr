@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664777"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322905"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -27,7 +27,7 @@ La solution utilise la fonctionnalité syslog native de l’hôte ESXi pour tran
 ## <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-* Ajoutez la solution VMware Monitoring à votre abonnement en suivant la procédure décrite dans [Installer une solution de supervision](../insights/solutions.md#install-a-monitoring-solution).
+* Ajoutez la solution VMware Monitoring à votre abonnement en suivant la procédure décrite dans [Installer une solution de supervision](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Hôtes VMware ESXi pris en charge
 vSphere ESXi Host 5.5, 6.0 et 6.5
@@ -156,7 +156,7 @@ L’enregistrement de requêtes de journal est une fonctionnalité standard dans
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
-Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
+Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Que dois-je faire avec les paramètres d’hôte ESXi ? Quel sera l’impact sur mon environnement actuel ?
@@ -200,3 +200,4 @@ Il peut y avoir plusieurs raisons :
 * Utiliser des [requêtes de journal](../log-query/log-query-overview.md) dans Log Analytics pour afficher des données détaillées sur l’hôte VMware.
 * [Créer vos propres tableaux de bord](../learn/tutorial-logs-dashboards.md) affichant des données de l’hôte VMware.
 * [Créer des alertes](../platform/alerts-overview.md) lorsque des événements d’hôte VMware spécifiques se produisent.
+

@@ -3,12 +3,12 @@ title: Détecter les événements de mouvement et d’émission - Azure
 description: Ce guide de démarrage rapide vous montre comment utiliser Live Video Analytics sur IoT Edge pour détecter les événements de mouvement et d’émission, en appelant par programmation des méthodes directes.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091910"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Démarrage rapide : Détecter les événements de mouvement et d’émission
 
@@ -36,7 +36,7 @@ Ce tutoriel nécessite les ressources Azure suivantes :
 * IoT Hub
 * Compte de stockage
 * Compte Azure Media Services
-* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installé
+* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) installé
 
 Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) pour déployer les ressources nécessaires dans votre abonnement Azure. Pour ce faire, procédez comme suit :
 
@@ -228,7 +228,7 @@ Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
 ## <a name="interpret-results"></a>Interpréter les résultats
 
-Quand vous exécutez le graphe multimédia, les résultats du nœud processeur de détection de mouvement passe par le nœud récepteur IoT Hub pour atteindre le hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** de Visual Studio Code contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quand vous exécutez le graphe multimédia, les résultats du nœud processeur de détection de mouvement passe par le nœud récepteur IoT Hub pour atteindre le hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** de Visual Studio Code contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Dans les messages suivants, le module Live Video Analytics définit les propriétés de l’application et le contenu du corps.
 

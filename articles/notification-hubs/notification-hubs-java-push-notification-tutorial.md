@@ -16,12 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ecfd6bf9d20309619155bf35c87bdb4c08665f73
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322939"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 
@@ -30,7 +31,7 @@ ms.locfileid: "86169542"
 Cette rubrique décrit les principales fonctionnalités du nouveau kit de développement logiciel (SDK) Java officiel pour Azure Notification Hub, entièrement pris en charge.
 Il s’agit d’un projet open source et vous pouvez afficher tout le code du Kit de développement logiciel (SDK) sur [Kit SDK Java].
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Python/Ruby en utilisant l’interface REST de Notification Hub, comme décrit dans la rubrique MSDN [API REST de Notification Hub](https://msdn.microsoft.com/library/dn223264.aspx). Ce kit de développement logiciel Java fournit un wrapper fin par rapport aux interfaces REST dans Java.
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Python/Ruby en utilisant l’interface REST de Notification Hub, comme décrit dans la rubrique MSDN [API REST de Notification Hub](/previous-versions/azure/reference/dn223264(v=azure.100)). Ce kit de développement logiciel Java fournit un wrapper fin par rapport aux interfaces REST dans Java.
 
 Le SDK prend en charge :
 
@@ -387,7 +388,7 @@ Cette rubrique vous a montré comment créer un client REST Java simple pour Not
   * [Envoi de notifications multiplateforme aux utilisateurs authentifiés]
 
 [Kit SDK Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Prise en main de Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Envoi des dernières nouvelles]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Envoi de dernières nouvelles localisées]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

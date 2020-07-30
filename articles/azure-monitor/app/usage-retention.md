@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323534"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
-La fonction de rétention [d’Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
+La fonction de rétention [d’Azure Application Insights](./app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -54,7 +54,7 @@ Ou dans le code de serveur ASP.NET :
    telemetry.TrackEvent("won game");
 ```
 
-[Familiarisez-vous avec l’écriture d’événements personnalisés](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[Familiarisez-vous avec l’écriture d’événements personnalisés](./api-custom-events-metrics.md#trackevent).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -63,5 +63,6 @@ Ou dans le code de serveur ASP.NET :
     - [Utilisateurs, sessions, événements](usage-segmentation.md)
     - [Entonnoirs](usage-funnels.md)
     - [Flux d’utilisateurs](usage-flows.md)
-    - [Classeurs](../../azure-monitor/platform/workbooks-overview.md)
+    - [Classeurs](../platform/workbooks-overview.md)
     - [Ajouter du contexte utilisateur](usage-send-user-context.md)
+

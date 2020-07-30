@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091349"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -65,7 +65,7 @@ Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un n
 
 Pour définir des autorisations au niveau des fichiers et des répertoires, consultez l’un des articles suivants :
 
-|||
+| Environnement | Article |
 |--------|-----------|
 |Explorateur de stockage Azure |[Utiliser l’Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Utiliser .NET pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|

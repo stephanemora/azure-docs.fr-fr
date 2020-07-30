@@ -3,8 +3,8 @@ title: 'Tutoriel : Migrer Oracle en ligne vers Azure Database pour PostgreSQL'
 titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer une migration en ligne d’Oracle en local ou sur des machines virtuelles vers Azure Database pour PostgreSQL à l’aide d’Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087762"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutoriel : Migrer Oracle vers Azure Database pour PostgreSQL en ligne à l’aide de DMS (préversion)
 

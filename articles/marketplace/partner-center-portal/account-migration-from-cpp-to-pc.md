@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520151"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289335"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -59,7 +59,7 @@ Les entreprises qui souhaitent s’associer à Microsoft doivent rejoindre le Mi
 
 Si vous n’êtes pas membre du Microsoft Partner Network, vous pouvez [vous inscrire ici](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) pour obtenir un ID MPN. Prenez note de votre ID MPN, car vous devrez l’entrer pendant le processus d’activation du compte.
 
-Pour en savoir plus sur le Microsoft Partner Network, consultez [Rejoindre le Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) sur le site web des partenaires. Pour en savoir plus sur les avantages dont bénéficient les éditeurs de logiciels indépendants membres du Microsoft Partner Network, consultez le [hub de ressources pour éditeurs de logiciels indépendants](https://partner.microsoft.com/isv-resource-hub).  
+Pour en savoir plus sur le Microsoft Partner Network, consultez [Rejoindre le Microsoft Partner Network](https://partner.microsoft.com/membership) sur le site web des partenaires. Pour en savoir plus sur les avantages dont bénéficient les éditeurs de logiciels indépendants membres du Microsoft Partner Network, consultez le [hub de ressources pour éditeurs de logiciels indépendants](https://partner.microsoft.com/isv-resource-hub).  
 
 ## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Déplacer des offres Dynamics 365 et PowerApps vers l’Espace partenaires
 
