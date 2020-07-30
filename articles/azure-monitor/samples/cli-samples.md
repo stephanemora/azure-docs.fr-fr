@@ -6,19 +6,19 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 5433eeff4c01c136e62cb71a53fafcae3a81859b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081370"
 ---
 # <a name="azure-monitor-cli-samples"></a>Exemples d’interface CLI Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas déjà installé Azure CLI, suivez les instructions d’[installation d’Azure CLI](/cli/azure/install-azure-cli). Vous pouvez également utiliser [Azure Cloud Shell](/azure/cloud-shell) pour exécuter l’interface CLI en tant qu’expérience interactive dans votre navigateur. Pour obtenir la documentation de référence complète sur l’ensemble des commandes disponibles, consultez la [documentation de référence sur l’interface de ligne de commande Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Si vous n’avez pas déjà installé Azure CLI, suivez les instructions d’[installation d’Azure CLI](/cli/azure/install-azure-cli). Vous pouvez également utiliser [Azure Cloud Shell](/azure/cloud-shell) pour exécuter l’interface CLI en tant qu’expérience interactive dans votre navigateur. Pour obtenir la documentation de référence complète sur l’ensemble des commandes disponibles, consultez la [documentation de référence sur l’interface de ligne de commande Azure Monitor](/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 La première étape consiste à vous connecter à votre compte Azure.
@@ -206,4 +206,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

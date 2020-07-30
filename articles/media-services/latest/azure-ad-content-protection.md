@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001398"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutoriel : Protection de contenu de bout en bout avec Azure AD
 
@@ -48,13 +48,13 @@ Nous allons utiliser les versions et les concepts suivants. Nous vous recommando
 Même si ce n’est pas indispensable, nous vous recommandons de vous familiariser avec les concepts suivants avant de commencer ce tutoriel :
 
 * La gestion des droits numériques (DRM)
-* [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Azure Media Services (AMS) v3](./media-services-overview.md)
 * Les [stratégies de clé de contenu](content-key-policy-concept.md) AMS utilisant l’API AMS v3, le portail Azure ou l’[outil Azure Media Services Explorer (AMSE)](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Les points de terminaison Azure AD v2 sur la [plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-* L’authentification cloud moderne comme [OAuth 2.0 et OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * Le [flux du code d’autorisation dans OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) et la raison pour laquelle PKCE est nécessaire
-  * [Autorisations déléguées et autorisations d’application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* Le [jeton JWT](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), ses revendications et la substitution de la clé de signature (inclus dans l’exemple).
+* Les points de terminaison Azure AD v2 sur la [plateforme d’identité Microsoft](../../active-directory/develop/index.yml)
+* L’authentification cloud moderne comme [OAuth 2.0 et OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * Le [flux du code d’autorisation dans OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) et la raison pour laquelle PKCE est nécessaire
+  * [Autorisations déléguées et autorisations d’application](../../active-directory/develop/developer-glossary.md#permissions)
+* Le [jeton JWT](../../active-directory/develop/access-tokens.md), ses revendications et la substitution de la clé de signature (inclus dans l’exemple).
 
 ### <a name="prerequisite-code-and-installations"></a>Installations et code prérequis
 
@@ -63,7 +63,7 @@ Même si ce n’est pas indispensable, nous vous recommandons de vous familiaris
 * Une installation de Node.js. Téléchargez Node.js ici : [https://nodejs.org](https://nodejs.org). NPM est fourni avec l’installation.
 * Un [abonnement Azure](https://azure.microsoft.com/free/).
 * Un compte Azure Media Services (AMS).
-* @azure/msal-browser v2.0, qui fait partie de la famille des SDK de la [bibliothèque MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) pour les différentes plateformes clientes
+* @azure/msal-browser v2.0, qui fait partie de la famille des SDK de la [bibliothèque MSAL](../../active-directory/develop/msal-overview.md) pour les différentes plateformes clientes
 * La dernière version du [lecteur multimédia Azure](https://github.com/Azure-Samples/azure-media-player-samples) (inclus dans l’exemple).
 * Des informations d’identification FPS Apple, si vous souhaitez inclure la gestion des droits numériques (DRM) FairPlay et le certificat d’application hébergé avec CORS, qui est accessible via JavaScript côté client.
 
@@ -98,7 +98,7 @@ La conception du sous-système est illustrée dans le diagramme suivant.  Le sou
 
 ![Capture d’écran montrant l’analyse des jetons JWT](media/aad-ams-content-protection/subsystem.svg)
 
-Pour plus d’informations sur le sous-système, consultez [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control).
+Pour plus d’informations sur le sous-système, consultez [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](./design-multi-drm-system-with-access-control.md).
 
 ## <a name="understand-the-single-page-app"></a>Comprendre l’application monopage
 
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-La revendication *groups* est membre d’un [ensemble de revendications restreint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) dans Azure AD.
+La revendication *groups* est membre d’un [ensemble de revendications restreint](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) dans Azure AD.
 
 #### <a name="test"></a>Test
 

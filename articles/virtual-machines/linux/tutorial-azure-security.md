@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080095"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Linux
 
@@ -57,7 +57,7 @@ L’agent de collecte de données de Security Center est alors installé sur tou
 
 ## <a name="set-up-a-security-policy"></a>Configurer une stratégie de sécurité
 
-Les stratégies de sécurité permettent de définir les éléments pour lesquels Security Center collecte des données et formule des recommandations. Vous pouvez appliquer des stratégies de sécurité différentes à différents ensembles de ressources Azure. Bien que par défaut les ressources Azure soient évaluées pour tous les éléments de la stratégie, vous pouvez désactiver des éléments individuels de la stratégie pour toutes les ressources ou pour un groupe de ressources Azure. Pour obtenir des informations détaillées sur les stratégies de sécurité de Security Center, consultez [Définir des stratégies de sécurité dans Azure Security Center](../../security-center/security-center-policies.md). 
+Les stratégies de sécurité permettent de définir les éléments pour lesquels Security Center collecte des données et formule des recommandations. Vous pouvez appliquer des stratégies de sécurité différentes à différents ensembles de ressources Azure. Bien que par défaut les ressources Azure soient évaluées pour tous les éléments de la stratégie, vous pouvez désactiver des éléments individuels de la stratégie pour toutes les ressources ou pour un groupe de ressources Azure. Pour obtenir des informations détaillées sur les stratégies de sécurité de Security Center, consultez [Définir des stratégies de sécurité dans Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Pour configurer une stratégie de sécurité pour l’intégralité d’un abonnement :
 
@@ -134,4 +134,3 @@ Passez au didacticiel suivant pour en savoir plus sur la création d’un pipeli
 
 > [!div class="nextstepaction"]
 > [Créer une infrastructure d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

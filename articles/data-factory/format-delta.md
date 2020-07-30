@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: 74c2e738153b1afa5c90f4769b6d9b0e982af363
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044522"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta dans Azure Data Factory
 
@@ -22,6 +22,8 @@ Cet article explique comment copier des données vers et depuis un lac Delta sto
 
 > [!NOTE]
 > Le connecteur de format Delta pour les flux de données de mappage est actuellement disponible en préversion publique.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -37,7 +39,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Système de fichiers | Conteneur/système de fichiers du lac Delta | Oui | String | fileSystem |
 | Chemin d’accès du dossier | Chemin direct au lac Delta | Oui | String | folderPath |
 | Type de compression | Type de compression de la table Delta | non | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | compressionLevel |
+| Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | `Optimal` ou `Fastest` | compressionLevel |
 | Voyage dans le temps | Indiquez si vous souhaitez interroger un instantané plus ancien de table Delta | non | Interroger par timestamp : Timestamp <br> Interroger par version : Integer | timestampAsOf <br> versionAsOf |
 
 #### <a name="import-schema"></a>Importer un schéma
@@ -73,7 +75,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 | Système de fichiers | Conteneur/système de fichiers du lac Delta | Oui | String | fileSystem |
 | Chemin d’accès du dossier | Chemin direct au lac Delta | Oui | String | folderPath |
 | Type de compression | Type de compression de la table Delta | non | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | compressionLevel |
+| Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | `Optimal` ou `Fastest` | compressionLevel |
 | Nettoyer | Spécifiez le seuil de rétention en heures pour les anciennes versions de table. Une valeur inférieure ou égale à 0 correspond par défaut à 30 jours | Oui | Integer | vacuum |
 | Mettre à jour la méthode | Spécifiez les opérations de mise à jour autorisées sur le lac Delta. Pour les méthodes autres qu’insert, une transformation de modification de ligne précédente est requise afin de marquer des lignes. | Oui | `true` ou `false` | deletable <br> insertable <br> updateable <br> upsertable |
 

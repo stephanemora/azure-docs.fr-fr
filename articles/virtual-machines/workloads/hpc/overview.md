@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76271018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083427"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Calcul haute performance sur des machines virtuelles de la série H
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur la configuration d’InfiniBand sur vos machines 
 
 ## <a name="get-started"></a>Bien démarrer
 
-Décidez d’abord quelle machine virtuelle de la série H vous allez utiliser. Pour plus d’informations sur les machines virtuelles optimisées pour HPC, consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md). Pour les spécifications, consultez [Tailles des machines virtuelles de calcul haute performance](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Décidez d’abord quelle machine virtuelle de la série H vous allez utiliser. Pour plus d’informations sur les machines virtuelles optimisées pour HPC, consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md). Pour les spécifications, consultez [Tailles des machines virtuelles de calcul haute performance](../../sizes-hpc.md).
 
 Une fois que vous avez sélectionné et créé une machine virtuelle pour votre application, vous devez la configurer en activant InfiniBand. Pour découvrir comment activer InfiniBand sur les machines virtuelles Windows et Linux, consultez [Activer InfiniBand](enable-infiniband.md).
 
@@ -51,4 +51,4 @@ Une fois que vous avez choisi la série de votre machine virtuelle, configurez I
 
 - Pour plus d’informations sur les spécifications et les principales différences, consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md).
 
-- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

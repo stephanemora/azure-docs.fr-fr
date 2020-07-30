@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327274"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 
 
 Le schéma varie selon votre mode d’accès au journal :
  
-- Les schémas décrits dans cet article sont ceux utilisés quand vous accédez au journal d’activité à partir de l’[API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Il s’agit aussi du schéma qui est utilisé quand vous sélectionnez l’option **JSON** pour afficher un événement sur le portail Azure.
+- Les schémas décrits dans cet article sont ceux utilisés quand vous accédez au journal d’activité à partir de l’[API REST](/rest/api/monitor/activitylogs). Il s’agit aussi du schéma qui est utilisé quand vous sélectionnez l’option **JSON** pour afficher un événement sur le portail Azure.
 - Consultez la section finale [Schéma du compte de stockage et des hubs d’événements](#schema-from-storage-account-and-event-hubs) pour connaître le schéma utilisé quand vous envoyez le journal d’activité à Stockage Azure ou Azure Event Hubs à l’aide d’un [paramètre de diagnostic](diagnostic-settings.md).
-- Consultez [Informations de référence sur Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/) pour connaître le schéma utilisé quand vous envoyez le journal d’activité vers un espace de travail Log Analytics à l’aide d’un [paramètre de diagnostic ](diagnostic-settings.md).
+- Consultez [Informations de référence sur Azure Monitor](/azure/azure-monitor/reference/) pour connaître le schéma utilisé quand vous envoyez le journal d’activité vers un espace de travail Log Analytics à l’aide d’un [paramètre de diagnostic ](diagnostic-settings.md).
 
 
 ## <a name="categories"></a>Catégories
-Chaque événement dans le journal d’activité est associé à l’une des catégories décrites dans le tableau suivant. Consultez les sections ci-dessous pour obtenir des détails supplémentaires sur chaque catégorie et sur le schéma qu’elles utilisent quand vous accédez au journal d’activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](resource-logs-stream-event-hubs.md). Un mappage des propriétés au [schéma des journaux de ressources](diagnostic-logs-schema.md) est fourni dans la dernière section de l’article.
+Chaque événement dans le journal d’activité est associé à l’une des catégories décrites dans le tableau suivant. Consultez les sections ci-dessous pour obtenir des détails supplémentaires sur chaque catégorie et sur le schéma qu’elles utilisent quand vous accédez au journal d’activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](./resource-logs.md#send-to-azure-event-hubs). Un mappage des propriétés au [schéma des journaux de ressources](./resource-logs-schema.md) est fourni dans la dernière section de l’article.
 
 | Catégorie | Description |
 |:---|:---|
@@ -214,7 +214,7 @@ Cette catégorie contient l’enregistrement de tout incident de l’état d’i
   }
 }
 ```
-Reportez-vous à l’article [Notifications d’intégrité du service](./../../azure-monitor/platform/service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
+Reportez-vous à l’article [Notifications d’intégrité du service](../../service-health/service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
 
 ## <a name="resource-health-category"></a>Catégorie Resource Health
 Cette catégorie contient l’enregistrement de tout événement d’intégrité de la ressource survenu dans vos ressources Azure. Par exemple, cette catégorie peut comporter le type d’événement suivant : « L’état d’intégrité de la machine virtuelle est passé à Indisponible ». Les événements d’intégrité de ressource peuvent représenter l’un des quatre états d’intégrité : Disponible, Indisponible, Détérioré et Inconnu. En outre, les événements d’intégrité de ressource peuvent être initiés par la plateforme ou initiés par l’utilisateur.
@@ -793,10 +793,10 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schéma à partir du compte de stockage et des Event Hubs
-Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](diagnostic-logs-schema.md). Le tableau ci-dessous fournit un mappage des propriétés des schémas ci-dessus au schéma des journaux de ressources.
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](./resource-logs-schema.md). Le tableau ci-dessous fournit un mappage des propriétés des schémas ci-dessus au schéma des journaux de ressources.
 
 > [!IMPORTANT]
-> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
+> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](/azure/azure-monitor/platform/resource-logs-blob-format).
 
 
 | Propriété du schéma des journaux de ressource | Propriété du schéma de l’API REST Journal d’activité | Notes |

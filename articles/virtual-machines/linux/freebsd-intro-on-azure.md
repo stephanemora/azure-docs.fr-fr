@@ -3,16 +3,16 @@ title: Présentation de FreeBSD sur Azure
 description: Apprenez à utiliser des machines virtuelles FreeBSD sur Azure
 author: thomas1206
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2959904029643e5345590bd49f81b231c49771d4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286306"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Présentation de FreeBSD sur Azure
 Cet article offre une vue d’ensemble de l’exécution d’une machine virtuelle FreeBSD dans Azure.
@@ -31,7 +31,7 @@ L’agent est responsable de la communication entre la machine virtuelle FreeBSD
 Comme pour les versions futures de FreeBSD, la stratégie consiste à rester à jour et à rendre disponibles les dernières versions dès qu’elles sont publiées par l’équipe d’ingénieurs de lancement de FreeBSD.
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Créer une machine virtuelle FreeBSD avec Azure CLI sur FreeBSD
-Vous devez d’abord installer [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) à l’aide de la commande suivante sur une machine FreeBSD.
+Vous devez d’abord installer [Azure CLI](/cli/azure/get-started-with-azure-cli) à l’aide de la commande suivante sur une machine FreeBSD.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

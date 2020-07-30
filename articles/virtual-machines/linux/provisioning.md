@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307061"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080146"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisionnement de machines virtuelles Linux Azure
 Lorsque vous créez une machine virtuelle à partir d’une image généralisée (Shared Image Gallery ou image managée), le plan de contrôle vous permet de créer une machine virtuelle et de lui transmettre des paramètres. Ce processus porte le nom de *provisionnement* de machines virtuelles. Pendant le provisionnement, la plateforme met les valeurs de paramètres de création de machine virtuelle nécessaires (nom d’hôte, nom d’utilisateur, mot de passe, clés SSH, customData) à la disposition de la machine virtuelle lors de son démarrage. 
 
 Un agent de provisionnement intégré à l’image interagit avec la plateforme, en se connectant à plusieurs interfaces de provisionnement indépendantes, définit les propriétés et indique à la plateforme qu’il a terminé. 
 
-Les agents de provisionnement peuvent être l’[agent Linux Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) ou [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Ce sont des [prérequis](create-upload-generic.md) pour la création d’images généralisées.
+Les agents de provisionnement peuvent être l’[agent Linux Azure](../extensions/agent-linux.md) ou [cloud-init](./using-cloud-init.md). Ce sont des [prérequis](create-upload-generic.md) pour la création d’images généralisées.
 
-Les agents de provisionnement prennent en charge toutes les [distributions Linux Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) approuvées, et vous trouverez dans de nombreux cas les images des distributions approuvées fournies avec cloud-init et l’agent Linux. Vous pouvez ainsi faire en sorte que cloud-init gère le provisionnement avant que l’agent Linux ne prenne en charge la gestion des [extensions Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). La prise en charge des extensions signifie que la machine virtuelle sera alors éligible pour prendre en charge d’autres services Azure, tels que la réinitialisation de mot de passe de machine virtuelle, Supervision Azure, Sauvegarde Azure, Azure Disk Encryption, etc.
+Les agents de provisionnement prennent en charge toutes les [distributions Linux Azure](./endorsed-distros.md) approuvées, et vous trouverez dans de nombreux cas les images des distributions approuvées fournies avec cloud-init et l’agent Linux. Vous pouvez ainsi faire en sorte que cloud-init gère le provisionnement avant que l’agent Linux ne prenne en charge la gestion des [extensions Azure](../extensions/features-windows.md). La prise en charge des extensions signifie que la machine virtuelle sera alors éligible pour prendre en charge d’autres services Azure, tels que la réinitialisation de mot de passe de machine virtuelle, Supervision Azure, Sauvegarde Azure, Azure Disk Encryption, etc.
 
 Une fois le provisionnement terminé, cloud-init s’exécute à chaque démarrage. Cloud-init supervise les modifications apportées à la machine virtuelle, telles que les changements de mise en réseau, le montage et le formatage du disque éphémère, et le démarrage de l’agent Linux. L’agent Linux s’exécute continuellement sur le serveur, en recherchant un « état de l’objectif » (nouvelle configuration) à partir de la plateforme Azure. Par conséquent, chaque fois que vous installez des extensions, l’agent est en mesure de les traiter.
 

@@ -1,17 +1,17 @@
 ---
-title: Créer une instance de cache Azure HPC Cache
-description: Comment créer une instance de cache Azure HPC Cache
+title: Utiliser l’espace de noms agrégé d’Azure HPC Cache
+description: Comment planifier l’espace de noms virtuel pour votre compte Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045805"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497027"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
@@ -30,7 +30,7 @@ Par exemple, imaginez un système dans lequel une instance Azure HPC Cache est u
 Les données des modèle sont stockées dans un centre de données et les informations nécessaires à ce travail sont stockées dans les sous-répertoires suivants :
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 Le système de stockage du centre de données expose les exportations suivantes :
 
@@ -52,10 +52,10 @@ Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de 
 
 Les chemins sources NFS étant des sous-répertoires d’une même exportation, vous devez définir plusieurs chemins d’espaces de noms à partir de la même cible de stockage.
 
-| Nom d’hôte de la cible de stockage  | Chemin de l’exportation NFS      | Chemin du sous-répertoire | Chemin de l’espace de noms    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Adresse IP ou nom d’hôte* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Adresse IP ou nom d’hôte* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Nom d’hôte de la cible de stockage  | Chemin de l’exportation NFS     | Chemin du sous-répertoire | Chemin de l’espace de noms    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Adresse IP ou nom d’hôte* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *Adresse IP ou nom d’hôte* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Une application cliente peut monter le cache et accéder facilement aux chemins d’espaces de noms agrégés ``/source``, ``/templates/sku798`` et ``/templates/sku980``.
 

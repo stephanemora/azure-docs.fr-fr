@@ -3,12 +3,13 @@ title: Résolution des problèmes d'Application Insights dans un projet web Jav
 description: 'Guide de dépannage : surveillance des applications Java en direct avec Application Insights.'
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484794"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372516"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -24,7 +25,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Attendez une minute, puis cliquez sur Actualiser. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez également les actualiser manuellement. L’intervalle d’actualisation dépend de l’intervalle de temps sur lequel porte le graphique.
 * Vérifiez que vous disposez d’une clé d’instrumentation définie dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet) ou configurée en tant que variable d’environnement.
 * Vérifiez qu’aucun nœud `<DisableTelemetry>true</DisableTelemetry>` ne se trouve dans le fichier .xml.
-* Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com. Consultez la [liste complète des exceptions de pare-feu](../../azure-monitor/app/ip-addresses.md)
+* Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com. Consultez la [liste complète des exceptions de pare-feu](./ip-addresses.md)
 * Dans le panneau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
 * [Activez la journalisation](#debug-data-from-the-sdk) en ajoutant un élément `<SDKLogger />` sous le nœud racine dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet), puis vérifiez les entrées précédées de AI : INFO/WARN/ERROR pour tout journal d’activité suspect. 
 * Assurez-vous que le fichier ApplicationInsights.xml approprié a été correctement chargé par le Kit de développement logiciel (SDK) Java, en vérifiant que le message de sortie de la console « Le fichier de configuration a été trouvé » s’affiche.
@@ -38,7 +39,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Examinez-vous la ressource AI appropriée ? Mettez en correspondance l’iKey de votre application à la ressource où est attendue la télémétrie. Il doit s’agir du même élément.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Je ne vois pas toutes les données que j’attends
-* Ouvrez la page Utilisation et estimation des coûts et vérifiez si [l’échantillonnage](../../azure-monitor/app/sampling.md) est en cours. (Une transmission de 100 % signifie que l’échantillonnage n’est pas activé). Le service Application Insights peut être défini pour n’accepter qu’une fraction des données de télémétrie provenant de votre application. Cela vous permet de respecter votre quota mensuel de télémétrie.
+* Ouvrez la page Utilisation et estimation des coûts et vérifiez si [l’échantillonnage](./sampling.md) est en cours. (Une transmission de 100 % signifie que l’échantillonnage n’est pas activé). Le service Application Insights peut être défini pour n’accepter qu’une fraction des données de télémétrie provenant de votre application. Cela vous permet de respecter votre quota mensuel de télémétrie.
 * L’échantillonnage du SDK est-il activé ? Le cas échéant, les données sont échantillonnées à la fréquence spécifiée pour l’ensemble des types applicables.
 * Exécutez-vous une version antérieure du SDK Java ? À partir de la version 2.0.1, nous avons introduit un mécanisme de tolérance de panne destinée à gérer les défaillances intermittentes du réseau et du serveur principal, ainsi que la persistance des données sur les lecteurs locaux.
 * Déplorez-vous une limitation en raison d’une télémétrie excessive ? Si vous activez la journalisation INFO, vous observez un message faisant état de la limitation de l’application. Notre limite actuelle est de 32 000 éléments de télémétrie/seconde.
@@ -193,11 +194,11 @@ Application Insights utilise `org.apache.http`. Cet élément a été déplacé 
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

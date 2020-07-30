@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284079"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -20,7 +20,7 @@ Cet article explique comment vous pouvez accéder et gérer les fichiers stocké
 
 Supposons que vous disposez d’un outil qui est mis à jour sur un site web Azure. Celui-ci agit comme le déclencheur de votre application logique. Lorsque cet événement se produit, votre application logique peut mettre à jour un fichier dans votre conteneur de stockage Blob, qui est une action dans votre application logique.
 
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur Stockage Blob Azure](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Les applications logiques n’ont pas directement accès aux comptes de stockage qui sont derrière des pare-feu dans la même région qu’elles. Pour contourner ce problème, placez vos applications logiques et votre compte de stockage dans des régions différentes. Pour plus d’informations sur l’activation de l’accès à partir d’Azure Logic Apps aux comptes de stockage derrière des pare-feu, consultez la section [Accéder aux comptes de stockage derrière des pare-feu](#storage-firewalls) plus loin dans cette rubrique.
@@ -137,7 +137,7 @@ Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le co
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/azureblobconnector/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/azureblobconnector/).
 
 > [!NOTE]
 > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
@@ -194,7 +194,7 @@ Pour configurer l’exception et la prise en charge des identités gérées, sui
 1. Dans le flux de travail de votre application logique, ajoutez et configurez l’action ou le déclencheur HTTP pour accéder au compte de stockage ou à l’entité.
 
    > [!IMPORTANT]
-   > Pour les appels de déclencheur ou d’action HTTP sortants aux comptes de stockage Azure, assurez-vous que l’en-tête de la demande comprend la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter sur le compte de stockage. Pour plus d’informations, consultez [Authentifier l’accès avec une identité managée](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) et [Gestion des versions pour les services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > Pour les appels de déclencheur ou d’action HTTP sortants aux comptes de stockage Azure, assurez-vous que l’en-tête de la demande comprend la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter sur le compte de stockage. Pour plus d’informations, consultez [Authentifier l’accès avec une identité managée](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) et [Gestion des versions pour les services Stockage Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. Sur cette action, [sélectionnez l’identité gérée](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) à utiliser pour l’authentification.
 
@@ -207,3 +207,4 @@ Si vous utilisez un niveau dédié pour la [Gestion des API](../api-management/a
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
+

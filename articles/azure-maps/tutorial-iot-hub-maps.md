@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Implémenter l’analytique spatiale IoT | Microsoft Azure Maps'
 description: Intégrez IoT Hub aux API du service Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2bb5876424730e55d15cc52aeb98aa04af040821
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318924"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133399"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -110,7 +110,7 @@ Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps 
 
-Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps au niveau tarifaire S1. Effectuez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) pour obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-azure-maps-account) pour créer un abonnement de compte Azure Maps au niveau tarifaire S1. Effectuez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) pour obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 
 

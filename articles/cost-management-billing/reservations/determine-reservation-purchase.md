@@ -4,15 +4,15 @@ description: Cet article vous permet de déterminer la réservation à acheter.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9e5657211e640c741dbf1bf2b5473a3ea5e10487
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628603"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287303"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Déterminer la réservation à acheter
 

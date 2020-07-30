@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539735"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326169"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -96,7 +96,7 @@ De nombreux services incluent des données de supervision dans leur page **Vue d
 
 
 ### <a name="insights-and-solutions"></a>Insights et solutions 
-Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [insights](../insights/insights-overview.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor. Des [solutions](../insights/solutions.md) fournissent une logique de supervision prédéfinie basée sur les journaux d’activité Azure Monitor. 
+Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [insights](./insights-overview.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor. Des [solutions](./solutions.md) fournissent une logique de supervision prédéfinie basée sur les journaux d’activité Azure Monitor. 
 
 Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à partir de **Supervision** dans le menu de chaque ressource. Accédez à tous les insights et à toutes les solutions à partir du menu **Azure Monitor**.
 
@@ -164,3 +164,4 @@ Utilisez **Alertes** dans le menu d’une ressource pour afficher les alertes et
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les journaux de ressources des différents services Azure.  
+

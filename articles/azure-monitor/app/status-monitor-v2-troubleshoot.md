@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041396"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser les outils de résolution des problèmes pour constater un 
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflit avec la configuration partagée IIS
 
-Si vous avez un cluster de serveurs web, il se peut que vous utilisiez une [configuration partagée](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Si vous avez un cluster de serveurs web, il se peut que vous utilisiez une [configuration partagée](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 HttpModule ne peut pas être injecté dans cette configuration partagée.
 Exécutez la commande Enable sur chaque serveur web pour installer la DLL dans chaque GAC (Global Assembly Cache).
 

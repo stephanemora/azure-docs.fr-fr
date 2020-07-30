@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080945"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Démarrage rapide : Créer un hub de notification Azure avec Azure CLI
 
@@ -95,7 +95,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Si le `--name` que vous avez indiqué dans la commande `az notification-hub namespace create` n’est pas disponible ou ne respecte pas les [règles de nommage et restrictions pour les ressources Azure](/azure/azure-resource-manager/management/resource-name-rules), Azure CLI répond avec la sortie de console suivante :
+   Si le `--name` que vous avez indiqué dans la commande `az notification-hub namespace create` n’est pas disponible ou ne respecte pas les [règles de nommage et restrictions pour les ressources Azure](../azure-resource-manager/management/resource-name-rules.md), Azure CLI répond avec la sortie de console suivante :
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 1. Lister les stratégies d’accès d’un hub de notification.
 
-   Azure Notification Hubs utilise la [sécurité de signature d’accès partagé](/azure/notification-hubs/notification-hubs-push-notification-security) par le biais de stratégies d’accès.  Deux stratégies sont créées automatiquement quand vous créez un hub de notification.  Les chaînes de connexion de ces stratégies sont nécessaires pour configurer les notifications Push.  La commande [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fournit une liste de noms de stratégie avec les groupes de ressources correspondants.
+   Azure Notification Hubs utilise la [sécurité de signature d’accès partagé](./notification-hubs-push-notification-security.md) par le biais de stratégies d’accès.  Deux stratégies sont créées automatiquement quand vous créez un hub de notification.  Les chaînes de connexion de ces stratégies sont nécessaires pour configurer les notifications Push.  La commande [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fournit une liste de noms de stratégie avec les groupes de ressources correspondants.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 3. Lister les clés et les chaînes de connexion d’une stratégie d’accès du hub de notification
 
-   Il existe deux jeux de clés et de chaînes de connexion pour chaque stratégie d’accès.  Vous en aurez besoin pour [configurer un hub de notification](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Pour lister les clés et les chaînes de connexion d’une stratégie d’accès du hub de notification, utilisez la commande [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
+   Il existe deux jeux de clés et de chaînes de connexion pour chaque stratégie d’accès.  Vous en aurez besoin pour [configurer un hub de notification](./configure-notification-hub-portal-pns-settings.md).  Pour lister les clés et les chaînes de connexion d’une stratégie d’accès du hub de notification, utilisez la commande [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

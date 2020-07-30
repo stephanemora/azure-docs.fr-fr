@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054438"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287805"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - Concevoir des solutions résilientes
 
@@ -48,7 +48,7 @@ Il est extrêmement important que vous conceviez une application suffisamment r�
 
 L’extensibilité correspond à la capacité d’un système à traiter une charge accrue. Concevez vos applications de sorte qu’elles puissent être [mises à l’échelle horizontalement](/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.
 
-Pour [Azure App Service](/azure/app-service/app-service-value-prop-what-is), sélectionnez un [plan App Service](/azure/app-service/overview-hosting-plans) qui offre plusieurs instances. Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](/azure/cloud-services/cloud-services-choose-me). Pour [Machines virtuelles Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vérifiez que votre architecture de machines virtuelles inclut plusieurs machines virtuelles et que chacune d’elles figure dans un [groupe à haute disponibilité](/azure/virtual-machines/virtual-machines-windows-manage-availability). Nous vous recommandons d’utiliser des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) pour les fonctionnalités de mise à l’échelle automatique.
+Pour [Azure App Service](/azure/app-service/app-service-value-prop-what-is), sélectionnez un [plan App Service](/azure/app-service/overview-hosting-plans) qui offre plusieurs instances. Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](/azure/cloud-services/cloud-services-choose-me). Pour [Machines virtuelles Azure](../../virtual-machines/index.yml), vérifiez que votre architecture de machines virtuelles inclut plusieurs machines virtuelles et que chacune d’elles figure dans un [groupe à haute disponibilité](../../virtual-machines/windows/tutorial-availability-sets.md). Nous vous recommandons d’utiliser des [groupes de machines virtuelles identiques](../../virtual-machine-scale-sets/overview.md) pour les fonctionnalités de mise à l’échelle automatique.
 
 ### <a name="defense-in-depth"></a>Défense en profondeur
 

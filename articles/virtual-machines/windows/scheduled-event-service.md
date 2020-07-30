@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999018"
 ---
 # <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
 
@@ -25,7 +25,7 @@ Dans cet article, nous allons vous montrer comment vous pouvez utiliser des év�
 
 Scheduled Events est disponible dans le cadre d’[Azure Instance Metadata Service](instance-metadata-service.md), qui est disponible sur chaque machine virtuelle Azure. Les clients peuvent écrire l’automatisation pour interroger le point de terminaison de leurs machines virtuelles afin de rechercher les notifications de maintenance planifiées et d’appliquer des mesures d’atténuation comme l’enregistrement de l’état et la mise hors connexion de la machine virtuelle. Nous vous conseillons de créer une automatisation pour enregistrer les événements planifiés afin de disposer d’un journal d’audit des événements de maintenance Azure. 
 
-Dans cet article, nous allons vous guider tout au long de la capture des événements de maintenance planifiés dans Log Analytics. Ensuite, nous allons déclencher des actions de notification de base, comme l’envoi d’un e-mail à votre équipe et l’obtention d’une vue historique de tous les événements qui ont affecté vos machines virtuelles. Pour l’agrégation et l’automatisation des événements, nous allons utiliser [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace), mais vous pouvez utiliser n’importe quelle solution de surveillance pour collecter ces journaux et déclencher l’automatisation.
+Dans cet article, nous allons vous guider tout au long de la capture des événements de maintenance planifiés dans Log Analytics. Ensuite, nous allons déclencher des actions de notification de base, comme l’envoi d’un e-mail à votre équipe et l’obtention d’une vue historique de tous les événements qui ont affecté vos machines virtuelles. Pour l’agrégation et l’automatisation des événements, nous allons utiliser [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md), mais vous pouvez utiliser n’importe quelle solution de surveillance pour collecter ces journaux et déclencher l’automatisation.
 
 ![Diagramme montrant le cycle de vie des événements](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Pour cet exemple, vous devez créer une [machine virtuelle Windows dans un group
 
 Ne supprimez pas le groupe de ressources à la fin du tutoriel.
 
-Vous devrez également [créer un espace de travail Log Analytics](/azure/azure-monitor/learn/quick-create-workspace) que nous utiliserons pour agréger les informations à partir des machines virtuelles dans le groupe à haute disponibilité.
+Vous devrez également [créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) que nous utiliserons pour agréger les informations à partir des machines virtuelles dans le groupe à haute disponibilité.
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement
 
@@ -112,7 +112,7 @@ Nous souhaitons maintenant connecter un espace de travail Log Analytics à la ma
 1. Recherchez et sélectionnez **MyCollectorVM**. 
 1. Sur la nouvelle page de **myCollectorVM**, sélectionnez **Se connecter**.
 
-Cette opération installe l’[agent Microsoft Monitoring](/azure/virtual-machines/extensions/oms-windows) sur votre machine virtuelle. La connexion de votre machine virtuelle à l’espace de travail et l’installation de l’extension peuvent prendre quelques minutes. 
+Cette opération installe l’[agent Microsoft Monitoring](../extensions/oms-windows.md) sur votre machine virtuelle. La connexion de votre machine virtuelle à l’espace de travail et l’installation de l’extension peuvent prendre quelques minutes. 
 
 ## <a name="configure-the-workspace"></a>Configurer l’espace de travail
 
@@ -132,7 +132,7 @@ Cette opération installe l’[agent Microsoft Monitoring](/azure/virtual-machin
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Création d’une règle d’alerte avec Azure Monitor 
 
 
-Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](/azure/azure-monitor/log-query/get-started-portal) suivante pour rechercher les événements planifiés.
+Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](../../azure-monitor/log-query/get-started-portal.md) suivante pour rechercher les événements planifiés.
 
 1. En haut de la page, sélectionnez **Journaux** et collez le code suivant dans la zone de texte :
 

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078666"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS dans Azure Logic Apps
 
@@ -388,7 +388,7 @@ Pour afficher la définition JSON de l’action de réponse et de la définition
 
 #### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de la sécurité de l’URL ?
 
-**R** : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure à l’aide d’une [signature d’accès partagé (SAP)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être exécutée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
+**R** : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure à l’aide d’une [signature d’accès partagé (SAP)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être exécutée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
 > [!IMPORTANT]
 > Pour les systèmes de production et les systèmes ayant un niveau de sécurité supérieur, nous vous déconseillons fortement d’appeler votre application logique directement à partir du navigateur pour les raisons suivantes :

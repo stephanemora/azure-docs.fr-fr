@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304188"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Tableau de bord analytique Évaluations et avis dans l’Espace partenaires
 
@@ -24,7 +26,7 @@ Cet article donne des informations sur le tableau de bord Évaluations et avis d
 
 ## <a name="access-the-dashboard"></a>Accéder au tableau de bord
 
-Dans le tableau de bord [Place de marché commerciale](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) de l’Espace partenaires, développez la section **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** et sélectionnez **Évaluations et avis**.
+Dans le tableau de bord [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) de l’Espace partenaires, développez la section **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** et sélectionnez **Évaluations et avis**.
 
 Le tableau de bord affiche une représentation graphique de l’activité client suivante :
 

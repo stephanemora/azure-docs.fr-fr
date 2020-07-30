@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008096"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager
 Dans Azure Monitor, les [paramètres de diagnostic](diagnostic-settings.md) indiquent où envoyer les [journaux de plateforme](platform-logs-overview.md) collectés par les ressources et la plateforme Azure dont ils dépendent. Cet article fournit des détails et des exemples sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) dans le cadre de la création et de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations.
@@ -30,7 +30,7 @@ Pour plus d'informations, consultez [Déployer des ressources à l’aide de mod
 
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
-Pour les journaux de ressources, ajoutez une ressource de type `<resource namespace>/providers/diagnosticSettings` au modèle. La section Propriétés obéit au format décrit dans [Paramètres de diagnostic - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Fournissez un `category` dans la section `logs` pour chacune des catégories valides correspondant à la ressource que vous souhaitez collecter. Ajoutez la propriété `metrics` pour collecter des mesures de ressources sur les mêmes destinations si la [ressource prend en charge les métriques](metrics-supported.md).
+Pour les journaux de ressources, ajoutez une ressource de type `<resource namespace>/providers/diagnosticSettings` au modèle. La section Propriétés obéit au format décrit dans [Paramètres de diagnostic - Créer ou mettre à jour](/rest/api/monitor/diagnosticsettings/createorupdate). Fournissez un `category` dans la section `logs` pour chacune des catégories valides correspondant à la ressource que vous souhaitez collecter. Ajoutez la propriété `metrics` pour collecter des mesures de ressources sur les mêmes destinations si la [ressource prend en charge les métriques](metrics-supported.md).
 
 Voici un modèle collectant une catégorie de journal de ressources pour une ressource donnée vers un espace de travail Log Analytics, un compte de stockage et un Event Hub.
 
@@ -144,7 +144,7 @@ Voici un exemple créant un paramètre de diagnostic pour un paramètre de mise 
 ```
 
 ## <a name="activity-log"></a>Journal d’activité
-Pour le journal d’activité Azure, ajoutez une ressource de type `Microsoft.Insights/diagnosticSettings`. Les catégories disponibles sont répertoriées dans [Catégories du journal d’activité](activity-log-view.md#categories-in-the-activity-log). Voici un modèle collectant toutes les catégories du journal d’activité vers un espace de travail Log Analytics, un compte de stockage et un Event Hub.
+Pour le journal d’activité Azure, ajoutez une ressource de type `Microsoft.Insights/diagnosticSettings`. Les catégories disponibles sont répertoriées dans [Catégories du journal d’activité](./activity-log.md#view-the-activity-log). Voici un modèle collectant toutes les catégories du journal d’activité vers un espace de travail Log Analytics, un compte de stockage et un Event Hub.
 
 
 ```json

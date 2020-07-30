@@ -3,12 +3,12 @@ title: Ajouter des balises à un laboratoire dans Azure DevTest Labs | Microsoft
 description: Découvrez comment ajouter une balise à un laboratoire dans Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483004"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287591"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Ajouter des balises à un laboratoire dans Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Les limites suivantes s’appliquent aux balises :
 * Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
 * Les ressources d’un groupe de ressources n’héritent pas des balises appliquées à ce groupe de ressources.
 
-[Utiliser des balises pour organiser vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) fournit des détails supplémentaires sur l’utilisation de balises dans Azure, y compris la gestion des balises à l’aide de PowerShell ou d’Azure CLI.
+[Utiliser des balises pour organiser vos ressources Azure](../azure-resource-manager/management/tag-resources.md) fournit des détails supplémentaires sur l’utilisation de balises dans Azure, y compris la gestion des balises à l’aide de PowerShell ou d’Azure CLI.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21d910fb0e0992b35aa19ce65fc216734e30265c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391477"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515862"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -47,4 +47,4 @@ Ce tableau reflète les limites de débit de différentes API.
 
 Les limites des types de données et des champs dans les documents DTDL pour les modèles Azure Digital Twins sont disponibles dans la documentation des spécifications sur GitHub : [DTDL (Digital Twins Definition Language) – version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Pour plus d’informations sur la latence des requêtes et d’autres instructions sur l’écriture de requêtes en préversion, consultez [Guide pratique pour interroger le graphe de jumeau](../articles/digital-twins/how-to-query-graph.md).
+Pour plus d’informations sur la latence des requêtes et d’autres instructions sur l’écriture de requêtes en préversion, consultez [*Guide pratique : Interroger le graphique de jumeaux*](../articles/digital-twins/how-to-query-graph.md).

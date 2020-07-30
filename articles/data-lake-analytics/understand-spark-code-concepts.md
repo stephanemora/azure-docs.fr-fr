@@ -1,19 +1,17 @@
 ---
 title: Comprendre les concepts de code Apache Spark pour les développeurs U-SQL d’Azure Data Lake Analytics.
 description: Cet article décrit les concepts d’Apache Spark pour aider les développeurs U-SQL à comprendre les concepts du code Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: d7cdcd5a3b176b60bb7801b37a831f8feb08c21f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106490"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132345"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Comprendre le code Apache Spark pour les développeurs U-SQL
 
@@ -131,7 +129,7 @@ Le tableau suivant donne les types équivalents en Spark, Scala et PySpark pour 
 Pour plus d'informations, consultez les pages suivantes :
 
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Types Spark SQL et DataFrames](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Types Spark SQL et DataFrames](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Types valeur Scala](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 

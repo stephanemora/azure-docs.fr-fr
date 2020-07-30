@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005410"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limitation du débit du pare-feu d’applications web à l’aide d’Azure PowerShell
 La règle de limitation du débit du pare-feu d'applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées de la part des clients sur une durée d'une minute.
@@ -25,7 +25,7 @@ Avant de configurer une stratégie de limitation du débit, configurez votre env
 ### <a name="set-up-your-powershell-environment"></a>Configurer votre environnement PowerShell
 Azure PowerShell fournit un ensemble d’applets de commande qui utilisent le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour gérer vos ressources Azure. 
 
-Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions données pour vous connecter avec vos informations d’identification Azure, puis installer le module Az PowerShell.
+Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) sur votre ordinateur local et l’utiliser sur n’importe quelle session PowerShell. Suivez les instructions données pour vous connecter avec vos informations d’identification Azure, puis installer le module Az PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Se connecter à Azure avec une boîte de dialogue interactive
 ```

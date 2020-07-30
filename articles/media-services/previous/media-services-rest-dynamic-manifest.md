@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000310"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Création de filtres avec l’API REST Media Services Azure 
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ Cet article montre comment utiliser les API REST pour créer, mettre à jour et 
 ## <a name="types-used-to-create-filters"></a>Types utilisés pour créer des filtres
 Les types suivants sont utilisés lors de la création de filtres :  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect et FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filter](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect et FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -217,7 +217,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## <a name="update-filters"></a>Mise à jour des filtres
-Utilisez les opérations PATCH, PUT ou MERGE pour mettre à jour un filtre avec de nouvelles valeurs de propriété.  Pour plus d'informations sur ces opérations, consultez [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Utilisez les opérations PATCH, PUT ou MERGE pour mettre à jour un filtre avec de nouvelles valeurs de propriété.  Pour plus d'informations sur ces opérations, consultez [PATCH, PUT, MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 Si vous mettez à jour un filtre, il peut falloir jusqu’à deux minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de ce filtre (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ce filtre peut entraîner des défaillances du lecteur. Effacez le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.  
 
@@ -371,4 +371,3 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
-

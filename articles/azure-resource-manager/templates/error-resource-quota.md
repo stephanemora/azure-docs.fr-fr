@@ -4,11 +4,11 @@ description: Décrit comment résoudre les erreurs liées aux quotas de ressourc
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007790"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Résoudre les erreurs liées aux quotas de ressources
 
