@@ -458,12 +458,15 @@
         - name: Requête paramétrable
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
-        - name: LINQ to SQL
-          displayName: 'linq, .NET'
-          href: sql-query-linq-to-sql.md
         - name: Exécution de requêtes SQL
           displayName: 'query performance, query execution'
           href: sql-query-execution.md
+        - name: Pagination
+          displayName: 'page, paging, continuation, token, pagination'
+          href: sql-query-pagination.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
     - name: Utiliser un compte Azure Cosmos
       href: account-overview.md
     - name: Conteneurs et éléments
@@ -671,7 +674,7 @@
             - name: Gérer à l’aide de PowerShell
               href: powershell-samples-cassandra.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples-cassandra.md
+              href: cli-samples.md
     - name: API MongoDB
       items:
         - name: Vue d’ensemble
@@ -765,7 +768,7 @@
             - name: Gérer à l’aide de PowerShell
               href: powershell-samples-mongodb.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples-mongodb.md
+              href: cli-samples.md
             - name: Résolution des problèmes courants
               href: mongodb-troubleshoot.md
     - name: API Gremlin
@@ -825,7 +828,7 @@
             - name: Gérer à l’aide de PowerShell
               href: powershell-samples-gremlin.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples-gremlin.md
+              href: cli-samples.md
         - name: Informations de référence
           items:
             - name: En-têtes de réponse
@@ -896,7 +899,7 @@
             - name: Gérer à l’aide de PowerShell
               href: powershell-samples-table.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples-table.md
+              href: cli-samples.md
         - name: Informations de référence
           items:
             - name: .NET

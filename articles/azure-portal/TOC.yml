@@ -12,9 +12,13 @@
   items:
     - name: Créer une machine virtuelle dans le portail
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
-    - name: Créer un tableau de bord - Modèle ARM
-      displayName: Resource Manager
-      href: quick-create-template.md
+    - name: Création d’un tableau de bord
+      items:
+        - name: Azure PowerShell
+          href: quickstart-portal-dashboard-powershell.md
+        - name: Modèle ARM
+          displayName: Resource Manager
+          href: quick-create-template.md
 - name: Concepts
   items:
     - name: Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle

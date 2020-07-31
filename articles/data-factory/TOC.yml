@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime d’intégration
       href: concepts-integration-runtime.md
-    - name: Réseau virtuel managé
-      href: managed-virtual-network-private-endpoint.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
@@ -588,6 +586,8 @@
           href: data-factory-service-identity.md
         - name: Chiffrement à clé gérée par le client
           href: enable-customer-managed-key.md
+        - name: Réseau virtuel managé
+          href: managed-virtual-network-private-endpoint.md
     - name: Surveillance et gestion
       items:
         - name: Surveiller visuellement
@@ -732,6 +732,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flux de données
           href: data-flow-troubleshoot-guide.md
+        - name: Outil Copier des données
+          href: copy-data-tool-troubleshoot-guide.md
         - name: Runtimes d’intégration auto-hébergés
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Runtime d’intégration Azure SSIS

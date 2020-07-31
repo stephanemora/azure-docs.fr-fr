@@ -16,6 +16,7 @@
   expanded: true
   items:
     - name: Studio
+      expanded: true
       items:
         - name: Concepteur (glisser-déposer)
           items:
@@ -37,6 +38,7 @@
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
     - name: Kit de développement logiciel (SDK) Python
+      expanded: true
       items:
         - name: Créer votre première expérience ML
           items:
