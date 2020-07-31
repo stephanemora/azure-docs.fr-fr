@@ -220,11 +220,11 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Sécuriser
       items:
-        - name: Configurer des pare-feu
+        - name: Autoriser l’accès depuis des adresses IP spécifiques
           href: service-bus-ip-filtering.md
-        - name: Configurer des points de terminaison de service de réseau virtuel
+        - name: Autoriser l’accès depuis des réseaux virtuels spécifiques
           href: service-bus-service-endpoints.md
-        - name: Configurer des points de terminaison privés
+        - name: Autoriser l’accès via des points de terminaison privés
           href: private-link-service.md
         - name: Configurer les clés gérées par le client
           href: configure-customer-managed-key.md

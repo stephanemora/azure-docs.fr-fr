@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: Afficher votre activité de connexion récente
       href: my-account-portal-sign-ins-page.md
-- name: Aide relative aux informations de sécurité (préversion)
+    - name: Changer les paramètres de votre portail
+      href: my-account-portal-settings.md
+- name: Aide sur les informations de sécurité
   items:
     - name: Ajouter des informations de sécurité pendant la connexion
       href: security-info-setup-signin.md

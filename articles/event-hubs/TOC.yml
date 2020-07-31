@@ -206,11 +206,11 @@
           href: event-hubs-management-libraries.md
     - name: Sécuriser
       items:
-        - name: Configurer le pare-feu IP
+        - name: Autoriser l’accès depuis des adresses IP spécifiques
           href: event-hubs-ip-filtering.md
-        - name: Configurer des points de terminaison de service de réseau virtuel
+        - name: Autoriser l’accès depuis des réseaux virtuels spécifiques
           href: event-hubs-service-endpoints.md
-        - name: Configurer des points de terminaison privés
+        - name: Autoriser l’accès via des points de terminaison privés
           href: private-link-service.md
         - name: Configurer les clés gérées par le client
           href: configure-customer-managed-key.md

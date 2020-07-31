@@ -42,6 +42,8 @@
   items:
     - name: Utiliser Form Recognizer avec Recherche cognitive
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Utiliser Form Recognizer avec AI Builder
+      href: tutorial-ai-builder.md
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement

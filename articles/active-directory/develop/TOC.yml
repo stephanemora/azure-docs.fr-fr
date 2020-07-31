@@ -512,6 +512,8 @@
           href: active-directory-claims-mapping.md
         - name: Configurer des revendications facultatives
           href: active-directory-optional-claims.md
+        - name: Utiliser des attributs d’extension de schéma d’annuaire dans les revendications
+          href: active-directory-schema-extensions.md
         - name: Configurer les durées de vie des jetons
           href: active-directory-configurable-token-lifetimes.md
         - name: Gérer les changements de cookie SameSite dans le navigateur Chrome
