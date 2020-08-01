@@ -848,7 +848,7 @@
         - name: Charger un disque dur virtuel sur un disque - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Importer/exporter un disque de manière sécurisée - Portail
-          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Redimensionner un disque
           href: expand-os-disk.md
         - name: Utiliser l’Explorateur Stockage pour gérer les disques

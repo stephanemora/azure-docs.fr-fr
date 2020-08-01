@@ -58,8 +58,6 @@
               href: scenario-route-through-nva.md
             - name: Router via une NVA - personnalisé (préversion)
               href: scenario-route-through-nvas-custom.md
-            - name: Pare-feu Azure - Interhub (préversion)
-              href: scenario-route-between-hubs-firewall.md
             - name: Pare-feu Azure - personnalisé
               href: scenario-route-between-vnets-firewall.md
     - name: Supervision

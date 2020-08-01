@@ -71,8 +71,6 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Changer dynamiquement le niveau de service d’un volume
-      href: dynamic-change-volume-service-level.md
     - name: Développer
       items:
         - name: API REST

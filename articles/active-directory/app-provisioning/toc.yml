@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Attribut source manquant
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Le travail de provisionnement est lent
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: Journaux d’approvisionnement
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Créer un point de terminaison SCIM et configurer le provisionnement
