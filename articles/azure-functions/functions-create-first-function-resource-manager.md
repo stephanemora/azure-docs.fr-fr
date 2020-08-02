@@ -1,24 +1,28 @@
 ---
 title: Créer votre première fonction à l’aide de modèles Azure Resource Manager
-description: Créez et déployez sur Azure une fonction serverless déclenchée via HTTP simple à l’aide d’un modèle Azure Resource Manager.
+description: Créez et déployez sur Azure une simple fonction serverless déclenchée par HTTP à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081710"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Démarrage rapide : Créer et déployer des ressources Azure Functions à partir d’un modèle Resource Manager
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Démarrage rapide : Créer et déployer des ressources Azure Functions à partir d’un modèle ARM
 
-Dans cet article, vous utilisez un modèle Azure Resource Manager pour créer une fonction qui répond à des requêtes HTTP. 
+Dans cet article, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une fonction qui répond à des requêtes HTTP. 
 
 Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,13 +52,11 @@ Choisissez l’un des onglets suivants, suivez le lien, puis effectuez la sectio
 
 Une fois que vous avez créé votre projet localement, vous créez les ressources nécessaires à l’exécution de votre nouvelle fonction dans Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Créer une application de fonction serverless dans Azure
+## <a name="review-the-template"></a>Vérifier le modèle
 
-### <a name="review-the-template"></a>Vérifier le modèle
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Les quatre ressources Azure suivantes sont créées par ce modèle :
 
@@ -63,7 +65,7 @@ Les quatre ressources Azure suivantes sont créées par ce modèle :
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) : création d’une application de fonction.
 + [**Microsoft.Insights/Components**](/azure/templates/microsoft.insights/components) : création d’une instance Application Insights à des fins de supervision.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli-interactive

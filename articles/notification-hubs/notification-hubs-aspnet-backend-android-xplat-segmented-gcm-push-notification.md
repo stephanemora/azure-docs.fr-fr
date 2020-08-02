@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 68f10b02cec45863bc5dbdbc322adbfbdfbe38f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127306"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323976"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutoriel : Envoyer des notifications Push à des appareils Android spécifiques avec Google Cloud Messaging (déprécié)
 
@@ -120,7 +120,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
     La présentation graphique de votre fichier `main_activity.xml` doit ressembler à l’image suivante :
 
-    ![][A1]
+    ![Capture d’écran d’un environnement de développement, avec un écran d’application visible. L’application répertorie les catégories d’actualités qui ont été ajoutées au code.][A1]
 3. Créez une classe `Notifications` dans le même package que votre classe `MainActivity`.
 
     ```java
@@ -338,8 +338,8 @@ Dans ce didacticiel, vous avez envoyé des notifications de diffusion à des app
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253

@@ -4,15 +4,15 @@ description: Découvrez les points importants à prendre en compte avant l’ach
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807779"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287627"
 ---
 # <a name="buy-a-reservation"></a>Acheter une réservation
 
@@ -36,7 +36,10 @@ Vous disposez de trois options pour définir l’étendue d’une réservation, 
 
 - **Étendue de groupe de ressources unique** : applique la remise sur réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
 - **Étendue d’abonnement unique** : applique la remise sur réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
-- **Étendue partagée** : applique la remise sur réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les clients avec un Contrat Client Microsoft, l’étendue de facturation correspond au profil de facturation. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation.
+    - Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. L’étendue partagée de réservation inclut plusieurs locataires Active Directory dans une inscription.
+    - Pour les clients avec un Contrat Client Microsoft, l’étendue de facturation correspond au profil de facturation.
+    - Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
 
 Lors de l’application des remises de réservation sur votre utilisation, Azure traite la réservation dans l’ordre suivant :
 

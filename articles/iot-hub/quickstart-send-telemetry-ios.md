@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
-description: Dans ce démarrage rapide, vous exécutez un exemple d’application iOS pour envoyer des données de télémétrie simulées à un hub IoT et lire les données de télémétrie provenant du hub IoT à traiter dans le cloud.
+title: Démarrage rapide de l’envoi de télémétrie à Azure IoT Hub (iOS)
+description: Exécutez un exemple d’application iOS pour envoyer une télémétrie simulée à un hub IoT et lire les données de télémétrie provenant du hub IoT à traiter dans le cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 04/03/2019
-ms.openlocfilehash: dd6ad0a3bc20821f51fcb4637dd4af18a6c3ec84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061567"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT (iOS)
 

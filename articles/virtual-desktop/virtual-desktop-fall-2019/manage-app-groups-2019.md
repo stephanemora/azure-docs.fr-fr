@@ -1,6 +1,6 @@
 ---
-title: Gérer des groupes d’applications pour Windows Virtual Desktop - Azure
-description: Explique comment configurer des locataires Windows Virtual Desktop dans Azure Active Directory.
+title: Gérer des groupes d’applications pour Windows Virtual Desktop (classique) – Azure
+description: Explique comment configurer des locataires Windows Virtual Desktop (classique) dans Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 55c2ed5f9066d85643588f77806bbd41e92dd16b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613945"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284980"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../manage-app-groups.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer les objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../manage-app-groups.md).
 
 Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Windows Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
 

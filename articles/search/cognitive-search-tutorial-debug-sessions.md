@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510980"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290681"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences
 
@@ -73,7 +73,7 @@ Dans cette section, Postman et une collection fournie sont utilisés pour créer
 1. Sous **Fichiers** > **Nouveau**, sélectionnez la collection à importer.
 1. Une fois la collection importée, développez la liste des actions (...).
 1. Cliquez sur **Modifier**.
-1. Entrez le nom de votre searchService (par exemple, si le point de terminaison est https://mydemo.search.windows.net, le nom du service est « mydemo »).
+1. Entrez le nom de votre searchService (par exemple, si le point de terminaison est `https://mydemo.search.windows.net`, le nom du service est « `mydemo` »).
 1. Entrez la valeur apiKey avec la clé primaire ou secondaire de votre service de recherche.
 1. Entrez la valeur storageConnectionString à partir de la page des clés de votre compte de Stockage Azure.
 1. Entrez la valeur containerName pour le conteneur que vous avez créé dans le compte de stockage.

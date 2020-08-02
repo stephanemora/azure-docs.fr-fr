@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084005"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Démarrage rapide : Intégrer vos machines virtuelles Azure Stack à Security Center
 Après avoir intégré votre abonnement Azure, vous pouvez activer Security Center pour protéger vos machines virtuelles en cours d’exécution sur Azure Stack en ajoutant l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** à partir de la Place de marché Azure Stack.
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide vous montre comment ajouter l’extension de machi
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-Vous devez avoir un abonnement Azure sur le niveau Standard de Security Center pour commencer ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Security Center Standard gratuitement pendant 30 jours. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
+Pour commencer ce démarrage rapide, vous devez avoir un abonnement Azure au niveau standard de Security Center. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau standard de Security Center gratuitement pendant 30 jours. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Sélectionner votre espace de travail dans Azure Security Center
 

@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 54b5e3f0ed2fd10fa04305fdefbec725143f62c5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 142a78dbb994a28d267294ce3b3d86e32f52bb45
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421948"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298790"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,6 +70,8 @@ Vous devez associer un `LanguageUnderstandingModel` au module de reconnaissance 
 > Si vous avez besoin d’aide pour trouver cette valeur, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
+
+Cet exemple utilise la fonction `AddIntent()` pour ajouter des intentions individuellement. Si vous souhaitez ajouter toutes les intentions d’un modèle, utilisez `AddAllIntents(model)` et transmettez le modèle. 
 
 ## <a name="recognize-an-intent"></a>Reconnaître une intention
 

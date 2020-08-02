@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : créer un pool SQL Synapse (préversion) à l’aide de Synapse Studio'
+title: 'Démarrage rapide : créer un pool Synapse SQL à l’aide de Synapse Studio'
 description: Créez un pool SQL Synapse à l’aide de Synapse Studio en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036571"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Démarrage rapide : créer un pool SQL Synapse (préversion) à l’aide de Synapse Studio
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Démarrage rapide : créer un pool Synapse SQL à l’aide de Synapse Studio
 
 Azure Synapse Analytics propose différents moteurs d’analytique pour vous aider à ingérer, transformer, modéliser et analyser vos données. Un pool SQL offre des fonctionnalités de calcul et de stockage basées sur T-SQL. Après avoir créé un pool SQL dans votre espace de travail Synapse, vous pouvez charger, modéliser, traiter et distribuer les données pour obtenir plus rapidement des insights.
 

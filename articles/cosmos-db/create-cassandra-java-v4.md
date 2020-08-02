@@ -1,5 +1,5 @@
 ---
-title: Créer une application Java à l’aide de l’API Cassandra d’Azure Cosmos DB
+title: Application Java avec l’API Cassandra d’Azure Cosmos DB utilisant le Kit de développement logiciel (SDK) Java 4.0
 description: Ce guide de démarrage rapide montre comment utiliser l’API Cassandra Azure Cosmos DB pour créer une application de profil avec le portail Azure et Java
 ms.service: cosmos-db
 author: TheovanKraay
@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 59ea78fed27b41199699d5413f605288bbf1a608
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118387"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319199"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API Cassandra d’Azure Cosmos DB (pilote v4)
 
@@ -155,7 +155,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Afficher et copier un nom d’utilisateur depuis la page Chaîne de connexion du portail Azure":::
 
-2. Utilisez le ![bouton Copier](./media/create-cassandra-java/copy-button-azure-portal.png) à droite de l’écran pour copier la valeur POINT DE CONTACT.
+2. Utilisez le bouton :::image type="icon" source="./media/create-cassandra-java/copy-button-azure-portal.png"::: sur le côté droit de l’écran pour copier la valeur de POINT DE CONTACT.
 
 3. Ouvrez le fichier *config.properties* à partir du dossier *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources*. 
 

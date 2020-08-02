@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202132"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386076"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -27,7 +27,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 ou version ultérieure - Si ce n'est déjà fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 ou version ultérieure - Si ce n'est déjà fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/). 
 
 >[!NOTE]
 > Il existe une version obsolète de notre fichier de mise en forme de sortie Key Vault PowerShell qui **peut** se charger dans votre environnement à la place de la version correcte. Nous prévoyons de publier une version mise à jour de PowerShell avec la correction nécessaire de la mise en forme de sortie ; cette rubrique sera mise à jour à cette occasion. D’ici là, si vous rencontrez ce problème de mise en forme, voici comment le contourner :
@@ -206,7 +206,7 @@ Comme les clés, les secrets sont gérés avec leurs propres commandes :
 
 Vous pouvez gérer les certificats à l’aide des commandes ci-dessous :
 
-- Supprimer un certificat nommé SQLPassword : 
+- Supprimer un certificat : 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -285,5 +285,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Autres ressources
 
-- Pour obtenir une vue d’ensemble de la fonctionnalité de suppression réversible de Key Vault, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](overview-soft-delete.md).
+- Pour obtenir une vue d’ensemble de la fonctionnalité de suppression réversible de Key Vault, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](soft-delete-overview.md).
 - Pour obtenir une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](overview.md)

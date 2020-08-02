@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure pour .NET afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/20/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528551"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285286"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v11 pour .NET
 
 Familiarisez-vous avec la bibliothèque de client Stockage Blob Azure v11 pour .NET. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
 
 > [!NOTE]
-> Ce guide de démarrage rapide utilise une version héritée de la bibliothèque de client Stockage Blob Azure. Pour démarrer avec la dernière version, consultez [Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET](storage-quickstart-blobs-dotnet.md).
+> Ce guide de démarrage rapide utilise une version héritée de la bibliothèque de client Stockage Blob Azure. Pour démarrer avec la dernière version, consultez [Démarrage rapide : Bibliothèque de client de stockage d’objets blob Azure v12 pour .NET](storage-quickstart-blobs-dotnet.md).
 
 Utilisez la bibliothèque cliente Stockage Blob Azure pour .NET afin de :
 

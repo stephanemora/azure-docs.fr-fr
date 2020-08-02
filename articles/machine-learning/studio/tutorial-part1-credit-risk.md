@@ -1,6 +1,5 @@
 ---
-title: 'Tutoriel 1 : Prédire le risque de crédit'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutoriel ML Studio (classique) : Prédire le risque de crédit – Azure'
 description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio (classique). Ce tutoriel est la première partie d’une série de tutoriels qui en compte trois.  Il montre comment créer un espace de travail, charger des données, puis créez une expérience.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 author: sdgilley
@@ -10,14 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e2edd7930ba4555748791210ad303c54f93c347
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8e2d0cd0d9aa567cfab9e2fef66ad6363e59d53
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086107"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324894"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutoriel 1 : Prédire le risque de crédit – Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -175,7 +177,7 @@ L’étape suivante de ce tutoriel consiste à créer une expérience dans Machi
 
 ### <a name="prepare-the-data"></a>Préparer les données
 
-Vous pouvez afficher les 100 premières lignes des données et quelques informations statistiques sur l’ensemble du jeu de données : Cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et sélectionnez **Visualiser**.  
+Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données : pour ce faire, cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et en sélectionnez **Visualiser**.  
 
 Le fichier de données étant dépourvu d’en-têtes de colonne, Studio (classique) a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
 
@@ -311,6 +313,6 @@ Vous êtes maintenant prêt à entraîner et à évaluer des modèles pour ces d
 > [Tutoriel 2 - Entraîner et évaluer des modèles](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
+[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data

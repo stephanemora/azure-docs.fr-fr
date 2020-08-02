@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147013"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307197"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -37,11 +37,9 @@ Une fois que votre administrateur de projet a [créé un projet d’étiquetage]
 
 1. Sélectionnez **Étiquetage des données** sur le côté gauche pour trouver le projet.  
 
-1. Sélectionnez le nom du projet dans la liste.
-
 ## <a name="understand-the-labeling-task"></a>Comprendre la tâche d’étiquetage
 
-Une fois que vous avez sélectionné le projet, en haut de la page, sélectionnez **Label data** (Étiqueter les données).
+Dans le tableau des projets d’étiquetage de données, sélectionnez **Lien d’étiquette** pour votre projet.
 
 Les instructions qui s’affichent varient en fonction de votre projet. Elles décrivent le type de données auquel vous êtes confronté, indiquent comment prendre vos décisions et fournissent d’autres informations pertinentes. Après avoir lu ces informations, en haut de la page, sélectionnez **Tâches**.  Ou bien, au bas de la page, sélectionnez **Commencer l’étiquetage**.
 
@@ -65,6 +63,10 @@ Lorsque toutes les images de la page sont balisées, Azure active le bouton **En
 Une fois que vous avez envoyé les étiquettes relatives aux données disponibles, Azure actualise la page en affichant un nouvel ensemble d’images provenant de la file d’attente de travail.
 
 ### <a name="assisted-machine-learning-preview"></a>Machine Learning assisté (préversion) 
+
+> [!IMPORTANT]
+> L’apprentissage automatique assisté est actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
 

@@ -6,14 +6,14 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4ffbab992732c39054818b9b4f21871687b05dcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66743326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083138"
 ---
-# <a name="create-waf-custom-rules-with-azure-powershell"></a>Créer des règles de pare-feu d’applications web personnalisées avec Azure PowerShell
+# <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Créer des règles personnalisées de pare-feu d’applications web (WAF) avec Azure PowerShell
 
 Ce script crée un pare-feu d’applications web Application Gateway qui utilise des règles personnalisées. Les règles personnalisées bloquent le trafic si l’en-tête de la requête contient User-Agent *evilbot*.
 
@@ -70,5 +70,5 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les règles de pare-feu d’applications web personnalisées, consultez [Règles personnalisées pour un pare-feu d’applications web](../custom-waf-rules-overview.md).
-- Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+- Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/).
 - Vous trouverez d’autres exemples de scripts PowerShell de passerelle d’application dans la [documentation sur Azure Application Gateway](../powershell-samples.md).

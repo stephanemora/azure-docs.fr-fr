@@ -1,6 +1,6 @@
 ---
-title: Attribution de rôle de principal du service Windows Virtual Desktop - Azure
-description: Guide pratique pour créer des principaux de service et attribuer des rôles à l’aide de PowerShell dans Windows Virtual Desktop.
+title: Attribution de rôle de principal du service Windows Virtual Desktop (classique) – Azure
+description: Comment créer des principaux de service et attribuer des rôles avec PowerShell dans Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117724"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270088"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell dans Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop.
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
 
 Les principaux de service sont des identités, que vous pouvez créer dans Azure Active Directory pour attribuer des rôles et des autorisations dans un but précis. Dans Windows Virtual Desktop, vous pouvez créer un principal de service pour :
 

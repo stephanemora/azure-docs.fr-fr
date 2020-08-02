@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058282"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -407,7 +407,7 @@ Pour plus d’informations, consultez [Autorisations et consentement dans le poi
 
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
 
-Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web. La page d’accueil correspond à l’URL HTTPS qui est spécifiée dans les informations d’inscription de votre application, dans le portail d’inscription des applications de Microsoft. Cette page comprend le message de bienvenue *« Hello \<utilisateur> »* , un lien pour se déconnecter et un lien pour afficher les revendications de l’utilisateur. Le lien des revendications de l’utilisateur établit une connexion au contrôleur des revendications que vous avez créé précédemment.
+Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web. La page d’accueil correspond à l’URL HTTPS qui est spécifiée dans les informations d’inscription de votre application, dans le portail d’inscription des applications de Microsoft. Cette page inclut le message de bienvenue *« Hello \<user> »* , un lien pour se déconnecter et un lien pour afficher les revendications de l’utilisateur. Le lien des revendications de l’utilisateur établit une connexion au contrôleur des revendications que vous avez créé précédemment.
 
 ### <a name="view-the-users-claims"></a>Afficher les revendications de l’utilisateur
 
@@ -468,13 +468,13 @@ Vous pouvez limiter l’accès de connexion aux comptes d’utilisateurs d’une
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : Utiliser une méthode personnalisée pour valider les émetteurs
 
-Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, consultez la rubrique relative à la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, consultez la rubrique relative à la [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment des applications web peuvent appeler des API web.
 
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Découvrir comment créer l’application utilisée dans ce guide de démarrage rapide
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Découvrir comment créer l’application utilisée dans ce guide de démarrage rapide
 
 Découvrez plus d’informations sur les applications web appelant des API web avec la plateforme d’identité Microsoft :
 

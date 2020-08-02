@@ -3,17 +3,17 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372142"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -123,9 +123,9 @@ Quelle que soit la stratégie, les administrateurs généraux et les agents d’
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Activer la stratégie de visualisation des frais d’utilisation d’Azure
 
-Les partenaires utilisent les informations suivantes pour activer la stratégie de visualisation des frais d’utilisation d’Azure pour leurs clients.
+Pour afficher et mettre à jour la stratégie, vous devez être membre du groupe **agent d’administration**. Utilisez les informations suivantes pour activer la stratégie permettant aux clients d’afficher les frais d’utilisation d’Azure.
 
-Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez le compte de facturation Contrat Partenaire Microsoft approprié, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation.
+Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez l’étendue de facturation appropriée dans la zone Étendue de facturation, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation.
 
 Dans la liste des clients, sélectionnez le client auquel vous souhaitez donner l’autorisation de voir les coûts.
 

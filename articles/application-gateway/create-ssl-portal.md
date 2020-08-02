@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024490"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290112"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt TLS à l’aide du portail Azure
 
@@ -158,7 +158,7 @@ Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool 
 
 5. Pour **Paramètre HTTP**, sélectionnez **Créer nouveau** pour créer un nouveau paramètre HTTP. Le paramètre HTTP détermine le comportement de la règle de routage. Dans la fenêtre **Ajouter un paramètre HTTP** qui s’ouvre, entrez *myHTTPSetting* pour le **Nom du paramètre HTTP**. Acceptez les valeurs par défaut pour les autres paramètres de la fenêtre **Ajouter un paramètre HTTP**, puis sélectionnez **Ajouter** pour revenir à la fenêtre **Ajouter une règle de routage**. 
 
-   ![Créer une passerelle d’application : Paramètre HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Créer une passerelle d’application : paramètre HTTP":::
 
 6. Dans la fenêtre **Ajouter une règle de routage**, sélectionnez **Ajouter** pour enregistrer la règle de routage et revenir à l’onglet **Configuration**.
 
@@ -250,7 +250,7 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
 
     ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Dans la barre d’adresse de votre navigateur, tapez *https://\<adresse IP de votre passerelle\>* .
+2. Dans la barre d’adresses de votre navigateur, tapez *https://\<your application gateway ip address\>* .
 
    Pour accepter l’avertissement de sécurité si vous avez utilisé un certificat auto-signé, sélectionnez **Détails** (ou **Avancé** sur Chrome), puis accédez à la page web :
 

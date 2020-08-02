@@ -1,6 +1,6 @@
 ---
-title: Configurer des alertes de service pour le Windows Virtual Desktop - Azure
-description: Comment configurer Azure Service Health pour recevoir des notifications de service pour Windows Virtual Desktop.
+title: Configurer des alertes de service pour Windows Virtual Desktop (classique) – Azure
+description: Comment configurer Azure Service Health pour recevoir des notifications de service pour Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259762"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283382"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Tutoriel : Configurer des alertes de service
+# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Tutoriel : Configurer des alertes de service pour Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../set-up-service-alerts.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../set-up-service-alerts.md).
 
 Vous pouvez utiliser Azure Service Health pour surveiller les problèmes de service et les avis d’intégrité pour Windows Virtual Desktop. Azure Service Health peut vous envoyer des notifications avec différents types d’alertes (par exemple, e-mail ou SMS), vous aider à comprendre l’effet d’un problème et vous tenir informé de son évolution. Azure Service Health peut également vous aider à réduire les temps d’arrêt, vous préparer à la maintenance planifiée et aux changements susceptibles d’affecter la disponibilité de vos ressources.
 

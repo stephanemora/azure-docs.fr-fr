@@ -1,6 +1,5 @@
 ---
-title: 'Tutoriel 2 : Entraîner des modèles de risque de crédit'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutoriel ML Studio (classique) 2 : Entraîner des modèles de risque de crédit - Azure'
 description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio (classique). Ce tutoriel est la deuxième partie d’une série de tutoriels qui en compte trois. Il montre comment entraîner et évaluer des modèles.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 author: sdgilley
@@ -10,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c88a7e2a74d4ad7b9ee353b24c46e36d4365db5e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79217872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324877"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutoriel 2 : Former des modèles de risque de crédit - Azure Machine Learning Studio (classique)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
 
@@ -65,14 +65,14 @@ Configurez d’abord le modèle d’arbre de décision optimisé.
 
 1. Recherchez le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] dans la palette des modules et faites-le glisser sur le canevas.
 
-1. Recherchez le module [Former le modèle][train-model], faites-le glisser sur le canevas et connectez la sortie du module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] au port d’entrée de gauche du module [Former le modèle][train-model].
+1. Recherchez le module [Former le modèle][train-model], faites-le glisser sur la zone de dessin et connectez la sortie du module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] au port d’entrée de gauche du module [Former le modèle][train-model].
    
    Le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] initialise le modèle générique, tandis que le module [Former le modèle][train-model] utilise les données d’apprentissage pour former le modèle. 
 
-1. Connectez la sortie de gauche du module [Exécuter un script R][execute-r-script] de gauche au port d’entrée de droite du module [Former le modèle][train-model] (dans ce tutoriel, vous avez [utilisé les données provenant du côté gauche](#train) du module Fractionner les données pour la formation).
+1. Connectez la sortie de gauche du module [Exécuter un script R][execute-r-script] de gauche au port d’entrée de droite du module [Entraîner le modèle][train-model] (dans ce tutoriel, vous avez [utilisé les données provenant du côté gauche](#train) du module Fractionner les données pour l’entraînement).
    
    > [!TIP]
-   > Pour cette expérience, vous n’avez pas besoin de deux des entrées et de l’une des sorties du module [Exécuter un script R][execute-r-script]. Vous pouvez donc les laisser détachées. 
+   > Pour cette expérience, vous n’avez pas besoin de deux des entrées et de l’une des sorties du module [Exécuter un script R][execute-r-script]. Vous pouvez donc les laisser détachées. 
    > 
    > 
 
@@ -137,7 +137,7 @@ Vous utilisez les données de test exclues par le module [Fractionner les donné
 
 1. Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur le canevas.
 
-1. Connectez le module [Former le modèle][train-model], relié au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree], au port d’entrée de gauche du module [Noter le modèle][score-model].
+1. Connectez le module [Former le modèle][train-model] relié au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree], au port d’entrée de gauche du module [Noter le modèle][score-model].
 
 1. Connectez le module [Exécuter le script R][execute-r-script] (nos données de test) au port d’entrée de droite du module [Noter le modèle][score-model].
 
@@ -163,7 +163,7 @@ Pour évaluer les deux résultats de notation et les comparer, vous utilisez un 
 
 1. Recherchez le module [Évaluer le modèle][evaluate-model] et faites-le glisser vers le canevas.
 
-1. Connectez le port de sortie du module [Noter le modèle][score-model], associé au modèle Arbre de décision optimisé, au port d’entrée de gauche du module [Évaluer le modèle][evaluate-model].
+1. Connectez le port de sortie du module [Noter le modèle][score-model] associé au modèle Arbre de décision optimisé, au port d’entrée gauche du module [Évaluer le modèle][evaluate-model].
 
 1. Connectez l’autre module [Noter le modèle][score-model] au port d’entrée de droite.  
 

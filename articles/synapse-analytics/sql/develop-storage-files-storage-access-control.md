@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255708"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283450"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -87,6 +87,11 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | *Identité managée* | Prise en charge      | Prise en charge        | Prise en charge     |
 | *Identité de l’utilisateur*    | Prise en charge      | Prise en charge        | Prise en charge     |
 
+
+> [!IMPORTANT]
+> Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle RBAC affecté à l’identité managée.
+>
+
 ## <a name="credentials"></a>Informations d'identification
 
 Pour interroger un fichier situé dans Stockage Azure, votre point de terminaison SQL à la demande a besoin d’informations d’identification qui contiennent les informations d’authentification. Deux types d’informations d’identification sont utilisés :
@@ -109,11 +114,7 @@ Pour utiliser des informations d’identification, un utilisateur doit disposer 
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Pour rendre l’expérience de pass-through Azure AD plus fluide, tous les utilisateurs auront, par défaut, le droit d’utiliser les informations d’identification `UserIdentity`. Pour ce faire, vous devez exécuter automatiquement l’instruction suivante lors du provisionnement de l’espace de travail Azure Synapse :
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+Pour rendre l’expérience de pass-through Azure AD plus fluide, tous les utilisateurs auront, par défaut, le droit d’utiliser les informations d’identification `UserIdentity`.
 
 ## <a name="server-scoped-credential"></a>Informations d’identification incluses dans l’étendue du serveur
 
@@ -243,7 +244,7 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
@@ -288,7 +289,7 @@ L’utilisateur de base de données peut lire le contenu des fichiers à partir 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

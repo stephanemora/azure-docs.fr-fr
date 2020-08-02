@@ -3,12 +3,12 @@ title: Évaluer des serveurs physiques en vue d’une migration vers Azure avec 
 description: Décrit comment évaluer des serveurs physiques locaux pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080765"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171383"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Évaluer les serveurs physiques à l’aide d’Azure Migrate : Évaluation du serveur
 
@@ -179,13 +179,14 @@ Configurez l’appliance pour la première fois.
 À présent, connectez-vous à partir de l’appliance aux serveurs physiques à découvrir, puis démarrez la découverte.
 
 1. Cliquez sur **Ajouter des informations d’identification** pour spécifier les informations d’identification du compte que l’appliance utilisera pour découvrir les serveurs.  
-2. Spécifiez le **système d’exploitation**, un nom convivial pour les informations d’identification ainsi que le nom d’utilisateur et le mot de passe. Cliquez ensuite sur **Ajouter**.
+2. Connectez-vous avec le nom d’utilisateur et le mot de passe. La connexion avec une clé n’est pas prise en charge. L’utilisateur doit également être une connexion racine ou faire partie du groupe Administrateurs local.
+3. Spécifiez le **système d’exploitation**, un nom convivial pour les informations d’identification ainsi que le nom d’utilisateur et le mot de passe. Cliquez ensuite sur **Ajouter**.
 Vous pouvez ajouter plusieurs informations d’identification pour les serveurs Windows et Linux.
 4. Cliquez sur **Ajouter un serveur**, puis spécifiez les détails du serveur - nom de domaine complet (FQDN)/adresse IP et nom convivial des informations d’identification (une entrée par ligne) - pour vous connecter au serveur.
-3. Cliquez sur **Valider**. Après validation, la liste des serveurs qui peuvent être découverts s’affiche.
+5. Cliquez sur **Valider**. Après validation, la liste des serveurs qui peuvent être découverts s’affiche.
     - Si la validation échoue pour un serveur, passez en revue l’erreur en pointant sur l’icône dans la colonne **État**. Corrigez les problèmes et recommencez la validation.
     - Pour supprimer un serveur, sélectionnez > **Supprimer**.
-4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
+6. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
 
 Ceci démarre la découverte. Il faut environ 1 minute et demie par serveur pour que les métadonnées du serveur détecté apparaissent dans le portail Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble - Interroger des données dans le stockage avec SQL à la demande (préversion)
+title: Interroger des données dans le stockage avec SQL à la demande (préversion)
 description: Cet article explique comment interroger le stockage Azure à l’aide de la ressource SQL à la demande (préversion) au sein d’Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259683"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386654"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Interroger des fichiers de stockage avec des ressources SQL à la demande (préversion) dans Synapse SQL
 
@@ -54,7 +54,7 @@ Pour obtenir des exemples d’utilisation, consultez l’article [Interroger des
 
 ## <a name="query-csv-files"></a>Interroger des fichiers CSV
 
-Pour interroger les données sources Parquet, utilisez FORMAT = 'CSV'. Vous pouvez spécifier le schéma du fichier CSV dans le cadre de la fonction `OPENROWSET` quand vous interrogez des fichiers CSV :
+Pour interroger les données sources CSV, utilisez FORMAT = 'CSV'. Vous pouvez spécifier le schéma du fichier CSV dans le cadre de la fonction `OPENROWSET` quand vous interrogez des fichiers CSV :
 
 ```sql
 SELECT * FROM
@@ -186,7 +186,7 @@ Par défaut, la fonction `OPENROWSET` associe le chemin et le nom de champ de la
 - Si la propriété est introuvable au niveau de l’élément column_name spécifié, la fonction retourne une erreur.
 - Si la propriété est introuvable au niveau de l’élément column_name précisé, en fonction du [mode de chemin](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), la fonction retourne une erreur en mode strict, ou retourne la valeur Null en mode lax.
 
-Pour obtenir des exemples de requêtes, consultez la section Accéder aux éléments à partir de colonnes imbriquées dans l’article [Interroger des types imbriqués Parquet](query-parquet-nested-types.md#access-elements-from-nested-columns).
+Pour obtenir des exemples de requêtes, consultez la section Accéder aux éléments à partir de colonnes imbriquées dans l’article [Interroger des types imbriqués Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Accéder aux éléments à partir de colonnes répétées
 

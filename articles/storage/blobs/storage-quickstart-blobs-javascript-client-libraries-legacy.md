@@ -6,21 +6,24 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161123"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282039"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Démarrage rapide : Gérer les objets blob avec le SDK JavaScript v10 dans le navigateur
 
 Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec du code JavaScript exécuté entièrement dans le navigateur. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous utiliserez des mesures de sécurité nécessaires pour sécuriser l’accès à votre compte de stockage Blob.
+
+> [!NOTE]
+> Ce guide de démarrage rapide utilise une version héritée de la bibliothèque de client Stockage Blob Azure. Pour démarrer avec la dernière version, consultez [Démarrage rapide : Gérer les objets blob avec le SDK JavaScript v12 dans un navigateur](quickstart-blobs-javascript-browser.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +43,7 @@ Revenez au portail Azure et sélectionnez votre compte de stockage. Pour défini
 
 Le tableau suivant décrit chaque paramètre CORS et explique les valeurs utilisées pour définir la règle.
 
-|Paramètre  |Valeur  | Description |
+|Paramètre  |Value  | Description |
 |---------|---------|---------|
 | Origines autorisées | * | Accepte une liste délimitée par des virgules de domaines définis comme origines acceptables. La configuration de la valeur sur `*` autorise tous les domaines à accéder au compte de stockage. |
 | Méthodes autorisées     | delete, get, head, merge, post, options et put | Répertorie les verbes HTTP autorisés à s’exécuter sur le compte de stockage. Dans le cadre de ce démarrage rapide, sélectionnez toutes les options disponibles. |

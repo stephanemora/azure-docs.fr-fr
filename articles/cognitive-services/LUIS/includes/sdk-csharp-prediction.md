@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 2ba136cd479da0cd394b5e5afe6ebe7c22b539d5
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 4bf86c616420bb049e1d7a82ad0e942e6eb7b36f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732083"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369252"
 ---
 Utilisez la bibliothèque cliente de prédiction Language Understanding (LUIS) pour .NET afin de :
 
@@ -31,46 +31,6 @@ Utilisez la bibliothèque cliente de prédiction Language Understanding (LUIS) p
 * Un ID d’application LUIS : utilisez l’ID d’application IoT publique `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La requête utilisateur utilisée dans le code du guide de démarrage rapide est propre à cette application.
 
 ## <a name="setting-up"></a>Configuration
-
-### <a name="create-an-environment-variable"></a>Créer une variable d’environnement
-
-En utilisant votre clé et le nom de votre ressource, créez deux variables d’environnement pour l’authentification :
-
-* `LUIS_PREDICTION_KEY` : clé de ressource pour l’authentification de vos requêtes.
-* `LUIS_ENDPOINT_NAME` : nom de ressource associé à votre clé.
-
-Utilisez les instructions pour votre système d’exploitation.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
-setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
-```
-
-Après avoir ajouté la variable d’environnement, redémarrez la fenêtre de console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-Après avoir ajouté la variable d’environnement, exécutez `source ~/.bashrc` depuis la fenêtre de console pour appliquer les changements.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Modifiez votre profil `.bash_profile` et ajoutez la variable d’environnement :
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-Après avoir ajouté la variable d’environnement, exécutez `source .bash_profile` depuis la fenêtre de console pour appliquer les changements.
-
----
 
 ### <a name="create-a-new-c-application"></a>Créer une application C#
 
@@ -134,13 +94,7 @@ Ces extraits de code montrent comment effectuer les opérations suivantes avec l
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-1. Créez des variables pour la clé, le nom et l’ID d’application :
-
-    Créez une variable pour gérer votre clé de prédiction extraite à partir d’une variable d’environnement nommée `LUIS_PREDICTION_KEY`. Si vous avez créé la variable d’environnement après le lancement de l’application, l’éditeur, l’IDE ou le shell l’exécutant doit être fermé et rechargé pour accéder à la variable. Les méthodes seront créées ultérieurement.
-
-    Créez une variable pour conserver votre nom de ressource `LUIS_ENDPOINT_NAME`.
-
-    Créez une variable pour l’ID d’application sous forme de variable d’environnement nommée `LUIS_APP_ID`. Définissez la variable d’environnement sur l’application IoT publique :
+1. Créez des variables pour la clé, le nom de la ressource, l’ID de l’application et l’emplacement de publication. Définissez l’ID d’application sur l’application IoT publique :
 
     **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
 

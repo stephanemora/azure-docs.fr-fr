@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134445"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289293"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
@@ -58,7 +58,7 @@ Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restau
     ![Régions primaires et secondaires de machine virtuelle](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Pour les machines qui exécutent l’extension Site Recovery version 9.28.x.x et supérieure avec le [Correctif cumulatif 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery nettoie les machines de la région secondaire de reprise d’activité après sinistre, une fois la restauration automatique effectuée et les machines virtuelles reprotégées. Il n’est pas nécessaire de supprimer manuellement les machines virtuelles et les cartes d’interface réseau dans la région secondaire. Si vous désactivez complètement la réplication après une restauration automatique, Site Recovery nettoie les disques de la région de reprise d’activité après sinistre, en plus des machines virtuelles et des cartes d’interface réseau.
+> Pour les machines utilisant des disques managés et exécutant l’extension Site Recovery versions 9.28.x.x et supérieures avec le [Correctif cumulatif 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery nettoie les machines de la région secondaire de reprise d’activité après sinistre, une fois la restauration automatique effectuée et les machines virtuelles reprotégées. Il n’est pas nécessaire de supprimer manuellement les machines virtuelles et les cartes d’interface réseau dans la région secondaire. Notez que les machines virtuelles dotées de disques non managés ne sont pas nettoyées. Si vous désactivez complètement la réplication après une restauration automatique, Site Recovery nettoie les disques de la région de reprise d’activité après sinistre, en plus des machines virtuelles et des cartes d’interface réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

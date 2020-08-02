@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Bibliothèque de client Azure Key Vault pour Python
+title: Démarrage rapide – Bibliothèque cliente Python Azure Key Vault – Gérer les secrets
 description: Découvrez comment créer, récupérer et supprimer des secrets d’un coffre de clés Azure à l’aide de la bibliothèque cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c8546d159d920fc728f0bf6413d84d7b19bbe09c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 135ad450f7b0491200aeafd470e7a551d577e96a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285547"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Python
+# <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente des secrets Azure Key Vault pour Python
 
 Bien démarrer avec la bibliothèque de client Azure Key Vault pour Python. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
 
@@ -33,7 +33,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 ou version ultérieure
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) dans une fenêtre de terminal Linux.
 
@@ -55,70 +55,19 @@ pip install azure.identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Créer un groupe de ressources et un coffre de clés
 
-Ce guide de démarrage rapide utilise un coffre de clés Azure créé au préalable. Vous pouvez créer un coffre de clés en suivant les étapes décrites dans le [guide de démarrage rapide d’Azure CLI](quick-create-cli.md), le [guide de démarrage rapide d’Azure PowerShell](quick-create-powershell.md) ou le [guide de démarrage rapide du portail Azure](quick-create-portal.md). Vous pouvez aussi exécuter les commandes Azure CLI ci-dessous.
-
-> [!Important]
-> Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
-```
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### <a name="create-a-service-principal"></a>Créer un principal du service
 
-Le moyen le plus simple d’authentifier une application cloud Python consiste à utiliser une identité managée. Pour plus d’informations, consultez [Utiliser une identité managée App Service pour accéder à Azure Key Vault](../general/managed-identity.md). 
-
-Cependant, pour des raisons de simplicité, ce guide de démarrage rapide crée une application pour poste de travail, qui nécessite l’utilisation d’un principal de service et d’une stratégie de contrôle d’accès. Votre principal de service nécessite un nom unique au format « http://&lt;nom_unique_mon_principal_de_service&gt; ».
-
-Créez un principal de service à l’aide de la commande Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
-
-```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
-```
-
-Cette opération retourne une série de paires clé/valeur. 
-
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
-
-Prenez note des valeurs de clientId et de clientSecret, car nous allons les utiliser dans l’étape [Définir des variables d'environnement](#set-environmental-variables) ci-dessous.
+[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Accorder au principal de service l’accès à votre coffre de clés
 
-Créez une stratégie d’accès pour votre coffre de clés qui accorde l’autorisation à votre principal de service en passant le clientId à la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Accordez au principal de service les autorisations get, list et set sur les clés et les secrets.
-
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
-```
+[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### <a name="set-environmental-variables"></a>Définir des variables d’environnement
 
-La méthode DefaultAzureCredential dans notre application s’appuie sur trois variables d’environnement : `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` et `AZURE_TENANT_ID`. Définissez ces variables sur les valeurs clientId, clientSecret et tenantId que vous avez notées à l’étape [Créer un principal de service](#create-a-service-principal) au format `export VARNAME=VALUE`. (Cette méthode définit seulement les variables pour votre interpréteur de commandes actuel et les processus créés depuis celui-ci ; pour ajouter ces variables de façon permanente à votre environnement, modifiez votre fichier `/etc/environment `.) 
-
-Vous devrez également enregistrer votre nom de coffre de clés en tant que variable d’environnement appelée `KEY_VAULT_NAME`.
-
-```console
-export AZURE_CLIENT_ID=<your-clientID>
-
-export AZURE_CLIENT_SECRET=<your-clientSecret>
-
-export AZURE_TENANT_ID=<your-tenantId>
-
-export KEY_VAULT_NAME=<your-key-vault-name>
-````
+[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -207,7 +156,7 @@ from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
 keyVaultName = os.environ["KEY_VAULT_NAME"]
-KVUri = "https://" + keyVaultName + ".vault.azure.net"
+KVUri = f"https://{keyVaultName}.vault.azure.net"
 
 credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)
@@ -217,7 +166,7 @@ secretName = "mySecret"
 print("Input the value of your secret > ")
 secretValue = raw_input()
 
-print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...")
+print(f"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}` ...")
 
 client.set_secret(secretName, secretValue)
 
@@ -225,14 +174,14 @@ print(" done.")
 
 print("Forgetting your secret.")
 secretValue = ""
-print("Your secret is '" + secretValue + "'.")
+print(f"Your secret is {secretValue}.")
 
-print("Retrieving your secret from " + keyVaultName + ".")
+print(f"Retrieving your secret from {keyVaultName}.")
 
 retrieved_secret = client.get_secret(secretName)
 
-print("Your secret is '" + retrieved_secret.value + "'.")
-print("Deleting your secret from " + keyVaultName + " ...")
+print(f"Your secret is '{retrieved_secret.value}'.")
+print(f"Deleting your secret from {keyVaultName} ...")
 
 client.delete_secret(secretName)
 

@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 504ba9106cc9d617858e8fad7ea421c8707707b3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171268"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369253"
 ---
 Utilisez la bibliothèque de client du runtime LUIS (Language Understanding) pour Node.js afin de disposer des prédictions suivantes :
 
 * Prédiction par emplacement
 * Prédiction par version
 
-[Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Package du runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Package du runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,8 +35,6 @@ Utilisez la bibliothèque de client du runtime LUIS (Language Understanding) pou
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenir votre clé de runtime LUIS (Language Understanding)
 
 Obtenez votre [clé de runtime](../luis-how-to-azure-subscription.md) en créant une ressource de runtime LUIS. Notez votre clé et le point de terminaison de celle-ci pour l’étape suivante.
-
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-javascript-nodejs-file"></a>Créer un fichier JavaScript (Node.js)
 
@@ -75,13 +73,11 @@ Ces extraits de code vous montrent comment effectuer les opérations suivantes a
 
 1. Créez des variables pour vos propres informations LUIS nécessaires :
 
-    Ajoutez des variables pour gérer votre clé de prédiction tirée d’une variable d’environnement nommée `LUIS_RUNTIME_KEY`. Si vous avez créé la variable d’environnement après le lancement de l’application, l’éditeur, l’IDE ou le shell l’exécutant doit être fermé et rechargé pour accéder à la variable. Les méthodes seront créées ultérieurement.
-
-    Créez une variable pour conserver votre nom de ressource `LUIS_RUNTIME_ENDPOINT`.
-
+    Ajoutez des variables pour gérer votre clé de prédiction et votre clé de point de terminaison. 
+    
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=Variables)]
 
-1. Créez une variable pour l’ID d’application sous forme de variable d’environnement nommée `LUIS_APP_ID`. Définissez la variable d’environnement en fonction de l’application IoT publique, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Créez une variable pour définir l’emplacement publié `production`.
+1. Créez une variable pour l’ID d’application nommé `LUIS_APP_ID`. Définissez la variable en fonction de l’application IoT publique **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Créez une variable pour définir l’emplacement publié `production`.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=OtherVariables)]
 

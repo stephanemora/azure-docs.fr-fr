@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319267"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,9 +146,7 @@ Dans cette partie du tutoriel, vous allez passer du rôle d’*administrateur de
 
 1. Dans [Machine Learning Studio](https://ml.azure.com), sélectionnez **Étiquetage des données** sur le côté gauche pour rechercher votre projet.  
 
-1. Sélectionnez le nom du projet dans la liste.
-
-1. En dessous du nom du projet, sélectionnez **Label data** (Étiqueter les données).
+1. Sélectionnez **Lien d’étiquette** pour le projet.
 
 1. Lisez les instructions, puis sélectionnez **Tâches**.
 

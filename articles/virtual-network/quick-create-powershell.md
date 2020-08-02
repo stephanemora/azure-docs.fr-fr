@@ -1,7 +1,7 @@
 ---
 title: Créer un réseau virtuel - Démarrage rapide - Azure PowerShell
 titlesuffix: Azure Virtual Network
-description: Dans ce démarrage rapide, vous découvrez comment créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé entre elles et avec Internet.
+description: Dans ce démarrage rapide, vous allez créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure de communiquer entre elles et avec Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707461"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291935"
 ---
-# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Démarrage rapide : Créer un réseau virtuel à l’aide de PowerShell
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Démarrage rapide : Créer un réseau virtuel à l’aide de PowerShell
 
 Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé entre elles et avec Internet. Dans ce guide de démarrage rapide, vous allez apprendre à créer un réseau virtuel. Après avoir créé un réseau virtuel, déployez deux machines virtuelles dans le réseau virtuel. Vous vous connectez alors aux machines virtuelles depuis Internet et vous communiquez en privé sur le réseau virtuel.
 

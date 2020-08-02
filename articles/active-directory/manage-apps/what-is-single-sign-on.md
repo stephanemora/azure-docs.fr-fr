@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223888"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387538"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 
@@ -71,9 +71,9 @@ L’authentification unique SAML est prise en charge pour les applications qui u
 - SAML 2.0
 - Un certificat de fournisseur d'identité WS-Federation
 
-Pour configurer une application SaaS pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-non-gallery-applications.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
+Pour configurer une application SaaS pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-saml-single-sign-on.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
 
-Pour configurer une application pour WS-Federation, procédez de la même façon que pour configurer une application pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-non-gallery-applications.md). Lors de l’étape de configuration de l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD par le point de terminaison `https://login.microsoftonline.com/<tenant-ID>/wsfed` WS-Federation.
+Pour configurer une application pour WS-Federation, procédez de la même façon que pour configurer une application pour l’authentification unique via SAML. Lors de l’étape de configuration de l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD par le point de terminaison `https://login.microsoftonline.com/<tenant-ID>/wsfed` WS-Federation.
 
 Pour configurer une application locale pour l’authentification unique via SAML, consultez [Authentification unique via SAML pour applications locales par le biais du proxy d’application](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -198,8 +198,8 @@ Vos utilisateurs ne voient pas de différence quand ils se connectent pour utili
 Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Articles connexes
+* [Série de démarrages rapides sur la gestion des applications](view-applications-portal.md)
 * [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurer l’authentification unique SAML](configure-single-sign-on-non-gallery-applications.md)
 * [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configurer l’authentification liée](configure-linked-sign-on.md)
 * [Introduction à la gestion de l’accès aux applications](what-is-access-management.md)

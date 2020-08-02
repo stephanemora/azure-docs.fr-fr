@@ -1,6 +1,6 @@
 ---
-title: Pool d’hôtes Windows Virtual Desktop Place de marché Azure - Azure
-description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide de la Place de marché Azure.
+title: Pool d’hôtes Windows Virtual Desktop (classique) de la Place de marché Azure – Azure
+description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop (classique) à l’aide de la Place de marché Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256847"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291306"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutoriel : Créer un pool d’hôtes en utilisant la Place de marché Azure
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutoriel : Créer un pool d’hôtes dans Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../create-host-pools-azure-marketplace.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../create-host-pools-azure-marketplace.md).
 
 Dans ce tutoriel, vous allez apprendre à créer un pool d’hôtes avec un locataire Windows Virtual Desktop à l’aide d’une offre de la Place de marché Microsoft Azure.
 

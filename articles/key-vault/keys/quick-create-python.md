@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Bibliothèque de client Azure Key Vault pour Python
+title: Démarrage rapide – Bibliothèque cliente Python Azure Key Vault – Gérer les clés
 description: Découvrez comment créer, récupérer et supprimer des clés dans un coffre de clés Azure à l’aide de la bibliothèque cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: fe88cfc71959cfa0e78c9e6129853afee248fd37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060983"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Python
+# <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente des clés Azure Key Vault pour Python
 
 Bien démarrer avec la bibliothèque de client Azure Key Vault pour Python. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
 
@@ -33,7 +33,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 ou version ultérieure
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) dans une fenêtre de terminal Linux.
 

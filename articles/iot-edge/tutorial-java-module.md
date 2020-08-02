@@ -11,12 +11,13 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- devx-track-java
+ms.openlocfilehash: d40ab7a7173265812483e29127e9f8fd919dc4a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733080"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323330"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer des modules Java IoT Edge pour les appareils Linux
 
@@ -79,7 +80,7 @@ Créez un modèle de solution Java que vous pouvez personnaliser avec votre prop
    | Select module template (Sélectionner un modèle de module) | Choisissez **Module Java**. |
    | Provide value for groupId (Fournir une valeur pour l’ID de groupe) | Entrez une valeur pour l’ID de groupe ou acceptez la valeur par défaut (**com.edgemodule**). |
    | Provide a module name (Nommer le module) | Nommez votre module **JavaModule**. |
-   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br>Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/javamodule. |
+   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br>Le dépôt d’images final ressemble à \<registry name\>.azurecr.io/javamodule. |
 
    ![Fourniture du référentiel d’images Docker](./media/tutorial-java-module/repository.png)
 

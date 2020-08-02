@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040513"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code
 
@@ -102,7 +102,7 @@ Sélectionnez `New` > `All Parameters`, puis sélectionnez un nom et un emplacem
 
 Cette action crée un fichier de paramètres et le mappe avec le modèle à partir duquel il a été créé. Vous pouvez voir et modifier le mappage actuel entre le modèle et le fichier de paramètres dans la barre d’état Visual Studio Code lorsque vous sélectionnez le modèle en question.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Image montrant le mappage de fichier de modèle/paramètre dans la barre d’état de Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Maintenant que le fichier de paramètres a été mappé au modèle, l’extension valide à la fois le modèle et le fichier de paramètres. Pour voir cette validation à l’œuvre, ajoutez une valeur à deux caractères au paramètre `storageAccountName` dans le fichier de paramètres, puis enregistrez le fichier.
 

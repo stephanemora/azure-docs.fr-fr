@@ -1,25 +1,25 @@
 ---
-title: 'Tutoriel 3 : Déployer un modèle de risque de crédit'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'Tutoriel ML Studio (classique) 3 : Déployer des modèles de risque de crédit – Azure'
 description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio (classique). Ce tutoriel est la troisième partie d’une série de tutoriels qui en compte trois. Il montre comment déployez un modèle en tant que service web.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques, déployer, service web
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204151"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324860"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio (classique)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est le **troisième tutoriel d’une série qui en compte trois**.
 
@@ -227,7 +227,10 @@ Dans l’étape précédente de ce tutoriel, vous avez déployé un service web 
 Il s’agit d’un service web Azure qui peut recevoir et renvoyer des données de deux manières à l’aide d’API REST :  
 
 * **Demande/Réponse** : l'utilisateur envoie une ou plusieurs lignes de crédit au service en utilisant le protocole HTTP et le service répond avec un ou plusieurs jeux de résultats.
-* **Exécution en lots** : l'utilisateur stocke une ou plusieurs lignes de données de crédit dans le stockage d'objets blob Azure, puis envoie l'emplacement du stockage d'objets blob au service. Le service évalue toutes les lignes de données dans l'objet blob d'entrée, enregistre les résultats dans un autre objet blob et renvoie l'URL de ce conteneur.  
+* **Exécution en lots** : l'utilisateur stocke une ou plusieurs lignes de données de crédit dans le stockage d'objets blob Azure, puis envoie l'emplacement du stockage d'objets blob au service. Le service évalue toutes les lignes de données dans l'objet blob d'entrée, enregistre les résultats dans un autre objet blob et renvoie l'URL de ce conteneur. 
+
+> [!NOTE]
+> Les noms de colonnes de fonctionnalités dans Studio (classique) **respectent la casse**. Assurez-vous que les noms de colonnes dans vos données d’entrée pour l’appel du service web sont les mêmes que dans le jeu de données d’apprentissage.
 
 Pour plus d’informations sur l’accès au service web et sur son utilisation, consultez [Utilisation d’un service web Microsoft Azure Machine Learning à l’aide d’un modèle d’application web](/azure/machine-learning/studio/consume-web-services).
 

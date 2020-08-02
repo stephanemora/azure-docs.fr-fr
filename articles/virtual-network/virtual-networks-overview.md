@@ -1,6 +1,6 @@
 ---
 title: Réseau virtuel Azure | Microsoft Docs
-description: Découvrez les concepts et les fonctionnalités du réseau virtuel Azure.
+description: Découvrez les concepts et fonctionnalités d’Azure Virtual Network, dont l’espace d’adressage, les sous-réseaux, les régions et les abonnements.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040603"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386994"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -27,7 +27,7 @@ Le réseau virtuel Azure (VNet) est le bloc de construction fondamental pour vot
 ## <a name="vnet-concepts"></a>Concepts de réseau virtuel
 
 - **Espace d’adressage :** Lors de la création d’un réseau virtuel, vous devez spécifier un espace d’adressage IP privé personnalisé à l’aide d’adresses (RFC 1918) publiques et privées. Azure attribue aux ressources d’un réseau virtuel une adresse IP privée à partir de l’espace d’adressage que vous attribuez. Par exemple, si vous déployez une machine virtuelle dans un réseau virtuel avec l’espace d’adressage 10.0.0.0/16, la machine virtuelle reçoit une adresse IP privée telle que 10.0.0.4.
-- **Sous-réseaux :** Les sous-réseaux vous permettent de segmenter le réseau virtuel en sous-réseaux, et d’allouer une partie de l’espace d’adressage du réseau virtuel à chaque sous-réseau. Vous pouvez ensuite déployer des ressources Azure dans un sous-réseau spécifique. Comme dans un réseau traditionnel, les sous-réseaux vous permettent de segmenter votre espace d’adressage de réseau virtuel en segments appropriées pour le réseau interne de l’organisation. Cela améliore également l’efficacité l’allocation d’adresse. Vous pouvez sécuriser des ressources au sein de sous-réseaux à l’aide de Groupes de sécurité réseau. Pour plus d’informations, voir [Groupes de sécurité](security-overview.md).
+- **Sous-réseaux :** Les sous-réseaux vous permettent de segmenter le réseau virtuel en sous-réseaux, et d’allouer une partie de l’espace d’adressage du réseau virtuel à chaque sous-réseau. Vous pouvez ensuite déployer des ressources Azure dans un sous-réseau spécifique. Comme dans un réseau traditionnel, les sous-réseaux vous permettent de segmenter votre espace d’adressage de réseau virtuel en segments appropriées pour le réseau interne de l’organisation. Cela améliore également l’efficacité l’allocation d’adresse. Vous pouvez sécuriser des ressources au sein de sous-réseaux à l’aide de Groupes de sécurité réseau. Pour plus d’informations, consultez [Groupes de sécurité réseau](security-overview.md).
 - **Régions** : Un réseau virtuel s’étend à une seule région/zone. Toutefois, plusieurs réseaux virtuels de différentes régions peuvent être connectés à l’aide du peering de réseau virtuel.
 - **Abonnement :** Un réseau virtuel est limité à un abonnement. Vous pouvez implémenter plusieurs réseaux virtuels au sein de chaque [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) Azure et de chaque [région](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) Azure.
 
@@ -67,7 +67,7 @@ Vous pouvez connecter vos ordinateurs et réseaux locaux à un réseau virtuel �
 
 Vous pouvez filtrer le trafic réseau entre les sous-réseaux à l’aide d’une des deux options suivantes :
 
-- **Groupes de sécurité :** les groupes de sécurité réseau et les groupes de sécurité d'application peuvent contenir plusieurs règles de sécurité entrantes et sortantes qui vous permettent de filtrer le trafic vers et en provenance des ressources par source et adresse IP de destination, port et protocole. Pour en savoir plus, consultez [Groupes de sécurité réseau](security-overview.md#network-security-groups) et [Groupes de sécurité d’application](security-overview.md#application-security-groups).
+- **Groupes de sécurité réseau :** les groupes de sécurité réseau et les groupes de sécurité d'application peuvent contenir plusieurs règles de sécurité entrantes et sortantes qui vous permettent de filtrer le trafic vers et en provenance des ressources par source et adresse IP de destination, port et protocole. Pour en savoir plus, consultez [Groupes de sécurité réseau](security-overview.md#network-security-groups) et [Groupes de sécurité d’application](security-overview.md#application-security-groups).
 - **Appliances virtuelles réseau :** une appliance virtuelle réseau est une machine virtuelle exécutant une fonction réseau, telle qu’un pare-feu, l’optimisation du WAN ou une autre fonction réseau. Pour afficher la liste des appliances virtuelles réseau disponibles que vous pouvez déployer dans un réseau virtuel, consultez [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Router le trafic

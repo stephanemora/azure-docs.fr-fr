@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: cb8b3b58f1029a722121f491d202e245300d1aee
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 40b738c0f074f06b2f15a260cacda876aa78daf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060805"
 ---
 # <a name="azure-load-balancer-concepts"></a>Concepts relatifs à Azure Load Balancer
 
@@ -42,9 +42,9 @@ Pour plus d’informations, consultez [Configuration du mode de distribution pou
 
 L’image suivante montre la distribution basée sur le hachage :
 
-  ![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
+![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
 
-  *Figure : Distribution basée sur le hachage*
+*Figure : Distribution basée sur le hachage*
 
 ## <a name="application-independence-and-transparency"></a>Indépendance d’application et transparence
 
@@ -54,16 +54,38 @@ L’équilibreur de charge n’interagit pas directement avec TCP, UDP ou la cou
 * Les charges utiles d’application sont transparentes pour l’équilibreur de charge. Toutes les applications UDP ou TCP peuvent être prises en charge.
 * Étant donné que l’équilibreur de charge n’interagit pas avec la charge utile TCP et fournit le déchargement TLS, vous pouvez générer des scénarios chiffrés complets. L’utilisation de l’équilibreur de charge permet d’obtenir de vastes systèmes de scale-out pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle. Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.
 
-## <a name="load-balancer-terminology"></a>Terminologie Load Balancer
-| Concept | Qu’est-ce que cela signifie ? | Document détaillé |
-| ---------- | ---------- | ----------|
-Connexions sortantes | Les flux du pool de back-ends vers des adresses IP publiques sont mappés au front-end. Azure traduit les connexions sortantes en l’adresse IP front-end publique par le biais de la règle de trafic sortant d’équilibrage de charge. Cette configuration offre les avantages suivants. Elle permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service. Elle facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées comme des adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés. La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines réduit la charge liée à l’implémentation de listes vertes de destinataires.| Pour en savoir plus sur SNAT (Source Network Address Translation) et Azure Load Balancer, consultez [SNAT et Azure Load Balancer](load-balancer-outbound-connections.md).
-Zones de disponibilité | L’équilibreur de charge standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles. Ces fonctionnalités sont incrémentielles pour tous les équilibreurs de charge standard fournis.  Des configurations de zones de disponibilité sont disponibles pour les deux types d’équilibreur de charge standard : public et interne. Un front-end redondant interzone résiste aux défaillances de zone en utilisant une infrastructure dédiée dans toutes les zones simultanément. En outre, vous pouvez garantir un serveur frontal dans une zone spécifique. Un serveur front-end zonal est pris en charge par une infrastructure dédiée dans une seule zone. L’équilibrage de charge entre les zones est disponible pour le pool de back-ends. Toute ressource de machine virtuelle d’un réseau virtuel peut faire partie d’un pool de back-ends. Un équilibreur de charge De base ne prend pas en charge les zones.| Pour plus d’informations, consultez [Présentation détaillée des fonctionnalités liées aux zones de disponibilité](load-balancer-standard-availability-zones.md) et [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
-| Ports HA | Vous pouvez configurer des règles d’équilibrage de charge pour les ports HA afin de mettre à l’échelle votre application et d’améliorer sa fiabilité. Ces règles fournissent l’équilibrage de charge par flux sur les ports de courte durée de l’adresse IP front-end de l’équilibreur de charge interne. Cette fonctionnalité s’avère utile quand il est difficile ou qu’il n’est pas souhaitable de spécifier les ports individuels. Une règle de ports HA vous permet de créer des scénarios actif-passif ou actif-actif n+1. Ces scénarios sont destinés aux appliances virtuelles réseau et à toute application qui nécessite de grandes plages de ports entrants. Une sonde d’intégrité peut être utilisée pour déterminer quels back-ends devraient recevoir de nouveau flux.  Vous pouvez utiliser un groupe de sécurité réseau pour émuler un scénario de plage de ports. L’équilibreur de charge de base ne prend pas en charge les ports HA. | Consultez [Présentation détaillée des ports HA](load-balancer-ha-ports-overview.md).
-| Plusieurs serveurs frontaux | L’équilibreur de charge prend en charge plusieurs règles avec plusieurs front-ends.  Standard Load Balancer étend cette fonctionnalité aux scénarios sortants. Les règles de trafic sortant sont l’inverse d’une règle de trafic entrant. La règle de trafic sortant crée une association pour les connexions sortantes. L’équilibreur de charge standard utilise tous les front-ends associés à une ressource de machine virtuelle via une règle d’équilibrage de charge. De plus, un paramètre sur la règle de l’équilibrage de charge vous permet de supprimer une règle d’équilibrage de charge pour les besoins de la connectivité sortante, ce qui permet de sélectionner des front-ends spécifiques, y compris aucun. À des fins de comparaison, l’équilibreur de charge De base sélectionne un front-end unique au hasard. Vous n’avez pas la possibilité de contrôler quel front-end est sélectionné.|
+## <a name="outbound-connections"></a>Connexions sortantes 
+
+Les flux du pool de back-ends vers des adresses IP publiques sont mappés au front-end. Azure traduit les connexions sortantes en l’adresse IP front-end publique par le biais de la règle de trafic sortant d’équilibrage de charge. Cette configuration offre les avantages suivants. Elle permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service. Elle facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées comme des adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés. La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines réduit la charge liée à l’implémentation de listes vertes de destinataires. Pour en savoir plus sur SNAT (Source Network Address Translation) et Azure Load Balancer, consultez [SNAT et Azure Load Balancer](load-balancer-outbound-connections.md).
+
+## <a name="availability-zones"></a>Zones de disponibilité 
+
+L’équilibreur de charge standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles. Les configurations de zones de disponibilité sont disponibles pour les deux types de Standard Load Balancer : public et interne. Un front-end redondant interzone survit à des échecs de zone en utilisant une infrastructure dédiée dans toutes les zones simultanément. En outre, vous pouvez garantir un serveur frontal dans une zone spécifique. Un serveur front-end zonal est pris en charge par une infrastructure dédiée dans une seule zone. L’équilibrage de charge entre les zones est disponible pour le pool de back-ends. Toute ressource de machine virtuelle d’un réseau virtuel peut faire partie d’un pool de back-ends. L’équilibreur de charge de base ne prend pas en charge les zones. Pour plus d’informations, consultez [Présentation détaillée des fonctionnalités liées aux zones de disponibilité](load-balancer-standard-availability-zones.md) et [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
+
+## <a name="ha-ports"></a>Ports HA
+
+Vous pouvez configurer des règles d’équilibrage de charge pour les ports HA afin de mettre à l’échelle votre application et d’améliorer sa fiabilité. Ces règles fournissent l’équilibrage de charge par flux sur les ports de courte durée de l’adresse IP front-end de l’équilibreur de charge interne. Cette fonctionnalité s’avère utile quand il est difficile ou qu’il n’est pas souhaitable de spécifier les ports individuels. Une règle de ports HA vous permet de créer des scénarios actif-passif ou actif-actif n+1. Ces scénarios sont destinés aux appliances virtuelles réseau et à toute application qui nécessite de grandes plages de ports entrants. Une sonde d’intégrité peut être utilisée pour déterminer quels back-ends devraient recevoir de nouveau flux.  Vous pouvez utiliser un groupe de sécurité réseau pour émuler un scénario de plage de ports. L’équilibreur de charge de base ne prend pas en charge les ports HA. Consultez une [discussion détaillée sur les ports HA](load-balancer-ha-ports-overview.md).
+
+## <a name="multiple-frontends"></a>Plusieurs serveurs frontaux 
+
+L’équilibreur de charge prend en charge plusieurs règles avec plusieurs front-ends.  Standard Load Balancer étend cette fonctionnalité aux scénarios sortants. Les règles de trafic sortant sont l’inverse d’une règle de trafic entrant. La règle de trafic sortant crée une association pour les connexions sortantes. L’équilibreur de charge standard utilise tous les front-ends associés à une ressource de machine virtuelle via une règle d’équilibrage de charge. De plus, un paramètre sur la règle de l’équilibrage de charge vous permet de supprimer une règle d’équilibrage de charge pour les besoins de la connectivité sortante, ce qui permet de sélectionner des front-ends spécifiques, y compris aucun. À des fins de comparaison, l’équilibreur de charge De base sélectionne un front-end unique au hasard. Vous n’avez pas la possibilité de contrôler quel front-end est sélectionné.
+
+## <a name="floating-ip"></a>IP flottante
+
+Dans certains scénarios d’application, il est préférable ou nécessaire que plusieurs instances d’application utilisent le même port sur une machine virtuelle du pool principal. Des exemples courants de réutilisation de port incluent le clustering pour la haute disponibilité, les appliances réseau virtuelles, ainsi que l’exposition de plusieurs points de terminaison TLS sans nouveau chiffrement. Si vous souhaitez réutiliser le port principal pour plusieurs règles, vous devez activer la fonctionnalité d’adresse IP flottante dans la définition des règles.
+
+**Adresse IP flottante** est le terme Azure désignant une partie de ce que l’on appelle le « retour direct du serveur » (Direct Server Return, DSR). La configuration DSR comprend deux parties : 
+
+- une topologie de flux ;
+- un schéma de mappage d’adresses IP.
+
+Du point de vue de la plate-forme, Azure Load Balancer fonctionne toujours dans une topologie de flux DSR, que l’adresse IP flottante soit activée ou non. Cela signifie que la partie sortante d’un flux est toujours correctement réécrite pour retourner directement à l’origine.
+À défaut d’adresse IP flottante, Azure expose un schéma de mappage d’adresse IP d’équilibrage de charge traditionnel pour faciliter l’utilisation (adresse IP des instances de machine virtuelle). L’activation de l’adresse IP flottante modifie le mappage de l’adresse IP à l’adresse IP frontale de l’équilibreur de charge afin de permettre davantage de flexibilité. En savoir plus [ici](load-balancer-multivip-overview.md).
 
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitations
+
+- Une adresse IP flottante n’est actuellement pas prise en charge sur des configurations IP secondaires pour des scénarios d’équilibrage de charge interne.
 
 - Une règle d’équilibreur de charge ne peut pas s’étendre sur deux réseaux virtuels.  Les front-ends et leurs instances back-end doivent être dans le même réseau virtuel.  
 

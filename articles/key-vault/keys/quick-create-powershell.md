@@ -1,28 +1,26 @@
 ---
-title: 'Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault'
+title: Créer et récupérer des attributs d’une clé dans Azure Key Vault – Azure CLI
 description: Démarrage rapide montrant comment définir et récupérer une clé dans Azure Key Vault à l’aide d’Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c407c10327a80de6b3df18a3db3978468c9f8da0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4ebd3cc605b396f72d063f3fc506df9020ec3a5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061006"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault à l’aide d’Azure PowerShell
 
 Dans ce guide de démarrage rapide, vous créez un coffre de clés dans Azure Key Vault avec Azure PowerShell. Azure Key Vault est un service cloud qui fonctionne comme un magasin des secrets sécurisé. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Pour plus d’informations sur Key Vault, consultez la [présentation](../general/overview.md). Azure PowerShell vous permet de créer et gérer des ressources Azure à l’aide de commandes ou de scripts. Une fois que vous avez terminé, vous allez stocker une clé.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -60,8 +58,6 @@ La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous v
 * **URI du coffre** : dans l’exemple, il s’agit de https://Contoso-Vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Une fois le coffre créé, votre compte Azure est le seul compte autorisé à exécuter des actions sur ce nouveau coffre.
-
-![Sortie après l’exécution de la commande de création du coffre de clés](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="add-a-key-to-key-vault"></a>Ajouter une clé à Key Vault
 

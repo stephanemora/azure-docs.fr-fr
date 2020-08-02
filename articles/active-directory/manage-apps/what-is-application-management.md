@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055203"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386008"
 ---
 # <a name="what-is-application-management"></a>Qu’est-ce que la gestion des applications ?
 
@@ -63,7 +63,7 @@ Il existe quatre types d’applications principaux que vous pouvez ajouter à vo
 
 - **Applications personnalisées** : Quand vous créez vos propres applications métier, vous pouvez les intégrer à Azure AD pour prendre en charge l’authentification unique. En inscrivant votre application dans Azure AD, vous pouvez contrôler sa stratégie d’authentification. Pour plus d’informations, consultez l’[aide pour les développeurs](developer-guidance-for-integrating-applications.md).
 
-- **Applications hors galerie** : Apportez vos propres applications ! Prenez en charge l’authentification unique pour les autres applications en les ajoutant à Azure AD. Il existe plusieurs façons d’intégrer une application. Certaines d’entre elles sont indiquées ci-dessous. Pour plus d’informations, consultez [Configurer l’authentification unique pour les applications hors galerie](configure-single-sign-on-non-gallery-applications.md).
+- **Applications hors galerie** : Apportez vos propres applications ! Prenez en charge l’authentification unique pour les autres applications en les ajoutant à Azure AD. Il existe plusieurs façons d’intégrer une application. Certaines d’entre elles sont indiquées ci-dessous. Pour plus d’informations, consultez [Configurer l’authentification unique SAML](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >Vous pouvez intégrer Azure AD à une application, même si elle n’est pas déjà préconfigurée et qu’elle ne figure pas déjà dans la galerie d’applications. Vous pouvez **intégrer Azure AD avec n’importe lequel** des éléments suivants :
@@ -93,8 +93,6 @@ Pour les applications axées sur les ressources humaines, ou d’autres applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Afficher les applications déjà configurées dans votre locataire Azure AD](view-applications-portal.md)
-- [Démarrage rapide : Ajouter une application de la galerie à votre locataire Azure AD](add-application-portal.md)
-- [Ajouter une application de la galerie à votre organisation Azure AD](add-gallery-app.md)
+- [Série de démarrages rapides sur la gestion des applications dans Azure AD](view-applications-portal.md)
 - [Bien démarrer avec l’intégration d’applications](plan-an-application-integration.md)
 - [Découvrir comment automatiser l’attribution d’utilisateurs](../app-provisioning/user-provisioning.md)

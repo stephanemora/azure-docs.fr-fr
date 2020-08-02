@@ -4,12 +4,12 @@ description: Découvrez comment préparer des machines locales pour la migration
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077977"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -127,6 +127,18 @@ Pour les autres versions, préparez les machines comme cela est résumé dans le
 **Supprimer la règle udev** | Supprimez toutes les règles udev qui réservent des noms d’interface basés sur l’adresse mac, etc. | Supprimez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Mettre à jour les interfaces réseau** | Mettez à jour les interfaces réseau pour recevoir l’adresse IP basée sur DHCP.nst | Mettez-les à jour manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Activer ssh** | Vérifiez que ssh est activé et que le service sshd est configuré pour démarrer automatiquement au redémarrage.<br/><br/> Vérifiez que les requêtes de connexion ssh entrantes ne sont pas bloquées par le pare-feu du système d’exploitation ou par des règles de script.| Activez-le manuellement pour toutes les versions autres que celles indiquées ci-dessus.
+
+Le tableau suivant récapitule les étapes accomplies automatiquement pour les systèmes d’exploitation répertoriés ci-dessus.
+
+| Action                                      | Migration VMware basée sur un agent | Migration VMware sans agent | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Installer Hyper\-V Integration Services pour Linux | Oui                           | Oui                        | Inutile |
+| Activer la journalisation de la console série Azure         | Oui                           | Oui                        | Non         |
+| Mettre à jour le fichier de mappage d’appareils                      | Oui                           | Non                         | Non         |
+| Mettre à jour les entrées fstab                        | Oui                           | Oui                        | Non         |
+| Supprimer la règle udev                            | Oui                           | Oui                        | Non         |
+| Mettre à jour les interfaces réseau                   | Oui                           | Oui                        | Non         |
+| Activer ssh                                  | Non                            | Non                         | Non         |
 
 Apprenez-en davantage sur les étapes nécessaires à l’[exécution d’une machine virtuelle Linux sur Azure](../virtual-machines/linux/create-upload-generic.md) et obtenez des instructions pour certaines distributions Linux très répandues.
 

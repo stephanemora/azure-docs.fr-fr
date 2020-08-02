@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75564801"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387611"
 ---
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
@@ -25,17 +25,18 @@ Si vous ne disposez pas d’un registre de conteneurs, suivez ces étapes pour e
 
    | Champ | Valeur |
    | ----- | ----- |
-   | Nom du registre | Fournissez un nom unique. |
-   | Subscription | Sélectionnez un abonnement dans la liste déroulante. |
+   | Abonnement | Sélectionnez un abonnement dans la liste déroulante. |
    | Resource group | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
+   | Nom du registre | Fournissez un nom unique. |
    | Location | Choisissez un emplacement proche de vous. |
-   | Utilisateur administrateur | Définissez ce champ sur **Activer**. |
    | SKU | Sélectionnez **De base**. |
 
 3. Sélectionnez **Create** (Créer).
 
 4. Une fois votre registre de conteneurs créé, accédez à celui-ci, puis dans le volet gauche, sélectionnez **Clés d’accès** dans le menu situé sous **Paramètres**.
 
-5. Copiez les valeurs pour **Serveur de connexion**, **Nom d’utilisateur** et **Mot de passe**, et conservez-les dans un endroit pratique et approprié. Vous utilisez ces valeurs dans le tutoriel pour permettre l’accès au registre de conteneurs.
+5. Cliquez pour permettre à l’utilisateur administrateur d’afficher le **nom d’utilisateur** et le **mot de passe** pour votre registre de conteneurs.
+
+6. Copiez les valeurs pour **Serveur de connexion**, **Nom d’utilisateur** et **Mot de passe**, et conservez-les dans un endroit pratique et approprié. Vous utilisez ces valeurs dans le tutoriel pour permettre l’accès au registre de conteneurs.
 
    ![Copiez le serveur de connexion, le nom d’utilisateur et le mot de passe pour le registre de conteneurs.](./media/iot-edge-create-container-registry/registry-access-key.png)

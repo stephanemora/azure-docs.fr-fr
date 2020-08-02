@@ -1,5 +1,5 @@
 ---
-title: Créer un disque managé à partir d’une capture instantanée - Exemple CLI
+title: Créer un disque managé à partir d’une capture instantanée (Linux) – Exemple d’interface de ligne de commande
 description: Exemples de script Azure CLI - Créer un disque managé à partir d’une capture instantanée
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c0c009573393a65d901634fca8de3cf03df6b874
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c5e9e16b81c0befb6524a284d63fb2e106bff7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085314"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Créer un disque managé à partir d’une capture instantanée avec l’interface de ligne de commande
+# <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>Créer un disque managé à partir d’une capture instantanée avec l’interface de ligne de commande (Linux)
 
 Ce script crée un disque managé à partir d’une capture instantanée. Utilisez-le pour restaurer une machine virtuelle à partir de captures instantanées de disques de système d’exploitation et de données. Créez des disques managés de système d’exploitation et de données à partir des captures instantanées respectives, puis créez une machine virtuelle en joignant les disques managés. Vous pouvez également restaurer les disques de données d’une machine virtuelle existante en joignant les disques de données créés à partir de captures instantanées.
 
@@ -42,13 +42,13 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 | Commande | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtient toutes les propriétés d’une capture instantanée en utilisant les propriétés de nom et de groupe de ressources de la capture instantanée. La propriété de l’identifiant est utilisée pour créer le disque managé.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crée un disque managé à l’aide de l’identifiant d’une capture instantanée managée. |
+| [az snapshot show](/cli/azure/snapshot) | Obtient toutes les propriétés d’une capture instantanée en utilisant les propriétés de nom et de groupe de ressources de la capture instantanée. La propriété de l’identifiant est utilisée pour créer le disque managé.  |
+| [az disk create](/cli/azure/disk) | Crée un disque managé à l’aide de l’identifiant d’une capture instantanée managée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Créer une machine virtuelle en joignant un disque managé en tant que disque de système d’exploitation](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle et de disques managés dans la [documentation relative aux machines virtuelles Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

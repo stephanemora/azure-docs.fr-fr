@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252434"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385775"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Démarrage rapide : Créer un budget avec un modèle ARM
 
@@ -29,13 +29,31 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Le modèle ARM prend uniquement en charge les abonnements Azure pour les Contrats Entreprise (EA). Les autres types d’abonnements ne sont pas pris en charge par le modèle.
-
-Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. Vous ne pouvez cependant pas créer des budgets pour les comptes de facturation Contrat Entreprise. Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets.
-
-Une fois qu’un budget est créé, vous devez disposer au minimum d’un accès en lecture à votre compte Azure pour voir les budgets.
-
 Si vous disposez d’un nouvel abonnement, vous ne pouvez pas créer un budget ou utiliser les autres fonctionnalités de Cost Management tout de suite. Vous risquez de devoir attendre jusqu’à 48 heures avant de pouvoir utiliser toutes les fonctionnalités de Cost Management.
+
+Les budgets sont pris en charge pour les types suivants d’étendues et de types de comptes Azure :
+
+- Étendues du contrôle d’accès en fonction du rôle Azure
+    - Groupes d’administration
+    - Abonnement
+- Étendues Contrat Entreprise
+    - Compte de facturation
+    - department
+    - Compte d’inscription
+- Contrats individuels
+    - Compte de facturation
+- Étendues Contrat client Microsoft
+    - Compte de facturation
+    - Profil de facturation
+    - Section de facture
+    - Customer
+- Étendues AWS
+    - Compte externe
+    - Abonnement externe
+
+Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
+
+Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur.
 
 Les autorisations, ou étendues, Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 Une seule ressource Azure est définie dans le modèle :
 
@@ -63,27 +81,29 @@ Une seule ressource Azure est définie dans le modèle :
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
-   [![Modèle Resource Manager, Créer un budget, portail de déploiement](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Modèle Resource Manager, Créer un budget, portail de déploiement]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Abonnement** : sélectionnez un abonnement Azure.
-    * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**, ou sélectionnez un groupe de ressources existant.
-    * **Emplacement** : sélectionnez un emplacement. Par exemple, **USA Centre**.
+    * **Groupe de ressources** : si nécessaire, sélectionnez un groupe de ressources ou **créez-en un**.
+    * **Région**: sélectionnez une région Azure. Par exemple, **USA Centre**.
     * **Nom du budget** : entrez le nom pour le budget. Il doit être unique au sein d’un groupe de ressources. Seuls les caractères alphanumériques, le trait de soulignement et les traits d’union sont autorisés.
-    * **Montant** : entrez le montant total du coût ou la quantité totale d’utilisation que le budget doit suivre.
-    * **Catégorie de budget** : sélectionnez la catégorie de budget. Le budget effectue le suivi soit du **Coût**, soit de l’**Utilisation**.
+    * **Montant** : entrez le montant total du coût à suivre avec le budget.
     * **Fragment de temps** : entrez la durée couverte par un budget. Les valeurs autorisées sont Mensuel, Trimestriel ou Annuel. Le budget se réinitialise à la fin du fragment de temps.
     * **Date de début** : entrez la date de début avec le premier jour du mois au format AAAA-MM-JJ. La date de début ultérieure ne doit pas être supérieure à trois mois à compter du jour actuel. Vous pouvez spécifier une date de début passée avec la période Fragment de temps.
-    * **Date de fin** : entrez la date de fin du budget au format AAAA-MM-JJ. Si cette valeur n’est pas fournie, la valeur par défaut est définie sur 10 ans à compter de la date de début.
-    * **Opérateur** : sélectionnez un opérateur de comparaison. Les valeurs possibles sont EqualTo, GreaterThan ou GreaterThanOrEqualTo.
-    * **Seuil** : entrez une valeur de seuil pour la notification. Une notification est envoyée quand le coût dépasse le seuil. Il est toujours exprimé en pourcentage et doit être compris entre 0 et 1 000.
-    * **E-mails de contact** : entrez une liste d’adresses e-mail auxquelles envoyer la notification de budget quand le seuil est dépassé. Le format attendu est `["user1@domain.com","user2@domain.com"]`.
+    * **Date de fin** : entrez la date de fin du budget au format AAAA-MM-JJ. 
+    * **Premier seuil** : entrez une valeur de seuil pour la première notification. Une notification est envoyée quand le coût dépasse le seuil. Il est toujours exprimé en pourcentage et doit être compris entre 0 et 1 000.
+    * **Deuxième seuil** : entrez une valeur de seuil pour la deuxième notification. Une notification est envoyée quand le coût dépasse le seuil. Il est toujours exprimé en pourcentage et doit être compris entre 0 et 1 000.
     * **Rôles de contact** : entrez une liste de rôles de contact auxquels envoyer la notification de budget quand le seuil est dépassé. Les valeurs par défaut sont Propriétaire, Contributeur et Lecteur. Le format attendu est `["Owner","Contributor","Reader"]`.
+    * **E-mails de contact** : entrez une liste d’adresses e-mail auxquelles envoyer la notification de budget quand un seuil est dépassé. Le format attendu est `["user1@domain.com","user2@domain.com"]`.
     * **Groupes de contacts** : entrez une liste d’ID de ressources de groupes d’actions, sous la forme d’URI de ressource complets, auxquels envoyer la notification de budget quand le seuil est dépassé. Elle accepte un tableau de chaînes. Le format attendu est `["action group resource ID1","action group resource ID2"]`. Si vous ne voulez pas utiliser de groupes d’actions, entrez `[]`.
-    * **Filtre de ressources** : entrez une liste de filtres pour les ressources. Le format attendu est `["Resource Filter Name1","Resource Filter Name2"]`. Si vous ne voulez pas appliquer de filtre, entrez `[]`. Si vous entrez un filtre de ressources, vous devez également entrer des valeurs de **filtres de compteurs**.
-    * **Filtre de compteurs** : entrez une liste de filtres sur les compteurs, obligatoires pour les budgets ayant la catégorie de budget **Utilisation**. Le format attendu est `["Meter Filter Name1","Meter Filter Name2"]`. Si vous n’avez pas entré de **filtre de ressources**, entrez `[]`.
-    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
+    * **Valeurs de filtre de groupe de ressources** Entrez une liste de noms de groupes de ressources à filtrer. Le format attendu est `["Resource Group Name1","Resource Group Name2"]`. Si vous ne voulez pas appliquer de filtre, entrez `[]`. 
+    * **Valeurs de filtre de catégorie de compteur** Entrez une liste de catégories de compteurs de service Azure. Le format attendu est `["Meter Category1","Meter Category2"]`. Si vous ne voulez pas appliquer de filtre, entrez `[]`.
+   
+3. En fonction de votre type d’abonnement Azure, effectuez l’une des actions suivantes :
+   - Sélectionnez **Revoir + créer**.
+   - Prenez connaissance des conditions générales, cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**, puis cochez sélectionnez **Acheter**.
 
-3. Sélectionnez **Achat**. Une fois le budget correctement déployé, vous recevez une notification :
+4. Si vous avez sélectionné **Vérifier + créer**, votre modèle est validé. Sélectionnez **Create** (Créer).  
 
    ![Modèle Resource Manager, budget, notification du portail de déploiement](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

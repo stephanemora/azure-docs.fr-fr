@@ -1,6 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une expérience de science des données'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Démarrage rapide : Créer une expérience de science des données – Azure'
 description: Ce guide de démarrage rapide sur l’apprentissage automatique vous montre comment créer une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282549"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio (classique)
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

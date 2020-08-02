@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496047"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387334"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Métadonnées partagées Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Le modèle de métadonnées partagées prend en charge le modèle d’entrepôt 
 
 La synchronisation des objets se produit de façon asynchrone. Il y a un délai de quelques secondes avant que les objets apparaissent dans le contexte SQL. Une fois qu’ils apparaissent, ils peuvent être interrogés, mais ils ne peuvent pas être mis à jour ni modifiés par les moteurs SQL qui y ont accès.
 
-## <a name="which-metadata-objects-are-shared"></a>Quels sont les objets de métadonnées partagés ?
+## <a name="shared-metadata-objects"></a>Objets métadonnées partagés
 
 Spark vous permet de créer des bases de données, des tables externes, des tables gérées et des vues. Comme un moteur Spark est nécessaire aux vues Spark pour traiter l’instruction SQL Spark de définition, qui ne peuvent pas être traitées par un moteur SQL, seules les bases de données et les tables externes et gérées qu’elles contiennent et qui suivent le format de stockage Parquet sont partagées avec le moteur SQL de l’espace de travail. Les vues Spark sont partagées uniquement par les instances de pool Spark.
 

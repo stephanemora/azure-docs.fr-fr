@@ -1,6 +1,5 @@
 ---
-title: Utiliser des exemples de jeux de données
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Utiliser les exemples de jeux de données – Azure'
 description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio (classique). Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43f26133cb7fe36a399e2d98ca3e2129b88f52e8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321837"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326305"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 [top]: #machine-learning-sample-datasets
 
@@ -335,7 +337,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
   <li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li>
   <li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li>
   <li>La colonne Date a été fractionnée en plusieurs colonnes distinctes indiquant l'année, le mois et le jour.</li>
-  <li>Les colonnes suivantes ont été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Les colonnes suivantes avaient été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

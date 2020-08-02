@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290666"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -84,7 +84,7 @@ Tous ces composants sont installés ensemble sur une seule machine locale, appel
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
 
 
-1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMWare vSphere.
+1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMware vSphere.
 2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**.
 
      ![Modèle OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 Une fois le serveur de configuration configuré, vous devez l’inscrire dans le coffre.
 
-1. À partir de la console du client vSphere de VMware, activez la machine virtuelle.
+1. À partir de la console du client VMware vSphere, activez la machine virtuelle.
 2. La machine virtuelle démarre sur une expérience d’installation de Windows Server 2016. Acceptez le contrat de licence et entrez un mot de passe administrateur.
 3. Une fois l’installation terminée, connectez-vous à la machine virtuelle en tant qu’administrateur.
 4. L’outil de configuration d’Azure Site Recovery démarre en quelques secondes la première fois que vous vous connectez.
@@ -169,6 +169,8 @@ Sélectionnez et vérifiez les ressources cibles.
 
 - La stratégie est automatiquement associée au serveur de configuration.
 - Par défaut, une stratégie de correspondance est automatiquement créée pour la restauration automatique. Par exemple, si la stratégie de réplication est **rep-policy**, la stratégie de restauration automatique correspond alors à **rep-policy-failback**. Cette stratégie n’est utilisée qu’à partir du moment où vous initiez une restauration automatique à partir d’Azure.
+
+Remarque : Dans le scénario VMware vers Azure, l’instantané de cohérence en cas d’incident est pris à un intervalle de 5 minutes.
 
 ## <a name="enable-replication"></a>Activer la réplication
 

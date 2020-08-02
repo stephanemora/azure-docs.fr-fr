@@ -11,21 +11,25 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996492"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171567"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
 Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le contrôle d’accès basé sur un rôle Azure (RBAC Azure) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
 Le contrôle RBAC Azure est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui propose une gestion affinée des accès des ressources Azure.
+
+Cette vidéo fournit une vue d’ensemble rapide du RBAC Azure.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
 ## <a name="what-can-i-do-with-azure-rbac"></a>Comment utiliser le contrôle RBAC Azure ?
 
@@ -65,6 +69,10 @@ Azure inclut plusieurs [rôles intégrés](built-in-roles.md) que vous pouvez ut
 - [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) : vous permet de gérer l’accès des utilisateurs aux ressources Azure.
 
 Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de [contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et gérer des machines virtuelles. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](custom-roles.md).
+
+Cette vidéo fournit une vue d’ensemble rapide des rôles intégrés et des rôles personnalisés.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Azure propose des opérations de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage. Pour plus d’informations, consultez [Comprendre les définitions de rôle Azure](role-definitions.md).
 

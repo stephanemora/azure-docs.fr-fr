@@ -1,6 +1,5 @@
 ---
-title: Qu’est-ce que ML Studio (classique) ?
-titleSuffix: Azure
+title: Présentation de ML Studio (classique) - Azure
 description: Azure Machine Learning Studio (classique) est un outil de glisser-déplacer qui permet de créer rapidement des modèles à partir d’une bibliothèque prête à l’emploi d’algorithmes et de modules.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b0e09cfe855e017c297cbad1667eef81726d3da
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326203"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Qu'est-ce que Machine Learning Studio (classique) ?
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

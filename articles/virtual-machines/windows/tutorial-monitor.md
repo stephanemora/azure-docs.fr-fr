@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: c60d27cb75526d801880658846a6b61760f4bf7e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508081"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323568"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser une machine virtuelle Windows dans Azure
 
@@ -93,7 +93,7 @@ Pour activer la supervision de votre machine virtuelle Azure avec Azure Monitor 
     La liste présélectionne l’espace de travail par défaut et l’emplacement où la machine virtuelle est déployée dans l’abonnement. 
 
     >[!NOTE]
-    >Pour créer un espace de travail Log Analytics pour stocker les données de surveillance de la machine virtuelle, consultez [Créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Votre espace de travail Log Analytics doit appartenir à l’une des [régions prises en charge](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Pour créer un espace de travail Log Analytics pour stocker les données de surveillance de la machine virtuelle, consultez [Créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). L’espace de travail doit appartenir à l’une des [régions prises en charge](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Après avoir activé la supervision, vous devrez peut-être attendre plusieurs minutes avant de pouvoir voir les métriques de performances de la machine virtuelle.
 

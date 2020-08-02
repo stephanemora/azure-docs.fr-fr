@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103957"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306109"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
-Cet article fournit des informations sur l’utilisation de la version précédente d’Azure Migrate.
+Cet article fournit des informations sur l’utilisation de la version précédente d’Azure Migrate. 
 
 
 Il existe deux versions du service Azure Migrate :
 
 - **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. [Apprenez-en davantage](whats-new.md) sur les nouveautés de cette version.
-- **Version précédente** : Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. Si vous avez encore besoin d’utiliser des projets Azure Migrate créés dans la version précédente, voici ce que vous pouvez et ne pouvez pas faire :
+- **Version précédente** : Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. Les projets de la version précédente sont appelés projets classiques dans cet article. Si vous avez encore besoin d’utiliser des projets Azure Migrate créés dans la version précédente, voici ce que vous pouvez et ne pouvez pas faire :
     - Vous ne pouvez plus créer de projets de migration.
     - Nous vous recommandons de ne pas effectuer de nouvelles découvertes.
     - Vous pouvez toujours accéder aux projets existants.
@@ -31,7 +31,7 @@ Il existe deux versions du service Azure Migrate :
 
 ## <a name="upgrade-between-versions"></a>Mise à niveau entre versions
 
-Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Au lieu de cela, vous devez [créer un projet Azure Migrate](how-to-add-tool-first-time.md) et y ajouter des outils d’évaluation et de migration.
+Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un projet Azure Migrate](create-manage-projects.md) et y [ajouter des outils d’évaluation et de migration](how-to-add-tool-first-time.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si un espace de travail Log Analytics est attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
 
 ## <a name="find-projects-from-previous-version"></a>Rechercher des projets de la version précédente
 
@@ -39,7 +39,16 @@ Recherchez des projets de la version précédente comme suit :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure Migrate**. 
 2. Le tableau de bord Azure Migrate affiche une notification et un lien permettant d’accéder aux anciens projets Azure Migrate.
-3. Cliquez sur le lien pour ouvrir des projets v1.
+3. Cliquez sur le lien pour ouvrir des projets classiques.
+
+## <a name="delete-projects-from-previous-version"></a>Supprimer des projets de la version précédente
+
+Pour rechercher et supprimer des projets de la version précédente, procédez comme suit :
+
+1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure Migrate**. 
+2. Le tableau de bord Azure Migrate affiche une notification et un lien permettant d’accéder aux anciens projets Azure Migrate.
+3. Cliquez sur le lien pour ouvrir des projets classiques.
+4. Sélectionnez le projet à supprimer et supprimez-le. 
 
 
 ## <a name="create-an-assessment"></a>Créer une évaluation
@@ -118,7 +127,7 @@ Clients Windows 7, 8 et 10 | Azure assure un support avec [abonnement Visual Stu
 Windows 10 Pro Desktop | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md). | Préparé pour Azure sous condition
 Windows Vista, XP Professionnel | Non pris en charge. La machine pourrait démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Linux | Azure approuve ces [systèmes d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). D’autres systèmes d’exploitation Linux pourraient démarrer dans Azure, mais nous recommandons d’effectuer une mise à niveau du système d’exploitation vers une version approuvée avant de migrer vers Azure. | Disponible pour Azure si la version est approuvée.<br/><br/>Préparé pour Azure sous condition si la version n’est pas approuvée.
-Autres systèmes d’exploitation<br/><br/> Par exemple, Oracle Solaris, Apple Mac OS, FreeBSD, etc. | Azure n’approuve pas ces systèmes d’exploitation. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’installer un système d’exploitation pris en charge avant de migrer vers Azure.  
+Autres systèmes d’exploitation<br/><br/> Par exemple, Oracle Solaris, Apple macOS, FreeBSD, etc. | Azure n’approuve pas ces systèmes d’exploitation. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’installer un système d’exploitation pris en charge avant de migrer vers Azure.  
 Système d’exploitation spécifié comme **Autre** dans vCenter Server | Azure Migrate ne peut pas identifier le système d’exploitation dans ce cas. | État de la préparation inconnu. Vérifiez que le système d’exploitation en cours d’exécution sur la machine virtuelle est pris en charge dans Azure.
 Systèmes d’exploitation 32 bits | La machine peut démarrer dans Azure, mais il est possible qu’Azure ne fournisse pas une prise en charge complète. | Préparé pour Azure sous condition. Envisagez de mettre à niveau le système d’exploitation 32 bits de la machine vers un système d’exploitation 64 bits avant de migrer vers Azure.
 
@@ -201,7 +210,7 @@ Pour utiliser la visualisation des dépendances, vous associez un espace de trav
 1. Pour attacher un espace de travail Log Analytics à un projet, dans **Vue d’ensemble**, accédez à **Essentials**, puis cliquez sur **Requiert une configuration**.
 2. Vous pouvez créer un espace de travail ou attacher un espace de travail existant :
   - Pour créer un espace de travail, spécifiez un nom. L’espace de travail est créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
-  - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Seuls les espaces de travail créés dans une région [Service Map prise en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) sont répertoriés. Pour attacher un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
+  - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Seuls les espaces de travail créés dans une région [Service Map prise en charge](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) sont répertoriés. Pour attacher un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
 
 > [!NOTE]
 > Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.

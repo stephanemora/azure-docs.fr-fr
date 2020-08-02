@@ -4,12 +4,12 @@ description: Découvrez comment exécuter la migration avec agent des machines v
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119257"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290200"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -195,7 +195,7 @@ Téléchargez le modèle comme suit :
 
 Après avoir téléchargé le modèle OVF, importez-le dans VMware pour créer l’application de réplication sur une machine virtuelle VMware exécutant Windows Server 2016.
 
-1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMWare vSphere.
+1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi à l’aide du client VMware vSphere.
 2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**. 
 3. Dans **Sélectionner une source**, saisissez l’emplacement du modèle OVF téléchargé.
 4. Dans **Examiner les détails**, sélectionnez **Suivant**.

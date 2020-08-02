@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Bibliothèque de client Azure Key Vault pour Python
+title: Démarrage rapide – Bibliothèque de client Python Azure Key Vault – Gérer les certificats
 description: Découvrez comment créer, récupérer et supprimer des certificats dans un coffre de clés Azure à l’aide de la bibliothèque cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: abbe07d96daf5848d01cd1f4943d4969fe1e59d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043716"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Python
+# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour Python
 
 Bien démarrer avec la bibliothèque de client Azure Key Vault pour Python. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
 
@@ -33,7 +33,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 ou version ultérieure
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) dans une fenêtre de terminal Linux.
 

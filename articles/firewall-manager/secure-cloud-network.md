@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563651"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084702"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure Firewall Manager
 
@@ -27,41 +27,41 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer le réseau virtuel spoke
 > * Créer un hub virtuel sécurisé
-> * Connecter les réseaux virtuels hub et spoke
-> * Créer une stratégie de pare-feu et sécuriser votre hub
+> * Connecter les réseaux virtuels en étoile
 > * Acheminer le trafic vers votre hub
+> * Déployer les serveurs
+> * Créer une stratégie de pare-feu et sécuriser votre hub
 > * Tester le pare-feu
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Créer une architecture hub and spoke
 
-Commencez par créer un réseau virtuel en étoile où vous pouvez placer vos serveurs.
+Commencez par créer un réseau virtuel en étoile où placer vos serveurs.
 
-### <a name="create-a-spoke-virtual-network-and-subnets"></a>Créer un réseau virtuel et des sous-réseaux en étoile
+### <a name="create-two-spoke-virtual-networks-and-subnets"></a>Créer deux réseaux virtuels en étoile et des sous-réseaux
+
+Les deux réseaux virtuels comporteront chacun un serveur de charge de travail et seront protégés par le pare-feu.
 
 1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
 2. Sous **Mise en réseau**, sélectionnez **Réseau virtuel**.
 2. Pour **Abonnement**, sélectionnez votre abonnement.
-1. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez **FW-Manager** comme nom, puis sélectionnez **OK**.
+1. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez **fw-manager** comme nom, puis sélectionnez **OK**.
 2. Pour **Nom**, entrez **Spoke-01**.
 3. Pour **Région**, sélectionnez **(États-Unis) USA Est**.
 4. Sélectionnez **Suivant : Adresses IP**.
-1. Pour **Espace d’adressage**, acceptez la valeur par défaut **10.0.0.0/16**.
-3. Sous **Nom du sous-réseau**, sélectionnez **Par défaut**.
-4. Changez le nom du sous-réseau en **Workload-SN**.
-5. Pour **Plage d’adresses de sous-réseau**, tapez **10.0.1.0/24**.
-6. Sélectionnez **Enregistrer**.
-
-Créez ensuite un sous-réseau pour un serveur intermédiaire.
-
-1. Sélectionnez **Ajouter un sous-réseau**.
-4. Pour **Nom du sous-réseau**, tapez **Jump-SN**.
-5. Pour **Plage d’adresses du sous-réseau**, entrez **10.0.2.0/24**.
+1. Pour **Espace d’adressage**, tapez **10.1.0.0/16**.
+3. Sélectionnez **Ajouter un sous-réseau**.
+4. Tapez **Workload-01-SN**.
+5. Pour **Plage d’adresses du sous-réseau**, entrez **10.1.1.0/24**.
 6. Sélectionnez **Ajouter**.
+1. Sélectionnez **Vérifier + créer**.
+2. Sélectionnez **Créer**.
 
-Maintenant, créez le réseau virtuel.
+Répétez cette procédure pour créer un autre réseau virtuel similaire :
 
-1. Sélectionnez **Revoir + créer**.
-2. Sélectionnez **Create** (Créer).
+Nom : **Spoke-02**<br>
+Espace d’adressage : **10.2.0.0/16**<br>
+Nom du sous-réseau : **Charge de travail-02-SN**<br>
+Plage d’adresses du sous-réseau : **10.2.1.0/24**
 
 ### <a name="create-the-secured-virtual-hub"></a>Créer le hub virtuel sécurisé
 
@@ -71,29 +71,96 @@ Créez votre hub virtuel sécurisé à l’aide de Firewall Manager.
 2. Dans la zone de recherche, entrez **Firewall Manager** et sélectionnez **Firewall Manager**.
 3. Dans la page **Firewall Manager**, sélectionnez **Voir les hubs virtuels sécurisés**.
 4. Dans la page **Firewall Manager | Hubs virtuels sécurisés**, sélectionnez **Créer un hub virtuel sécurisé**.
-5. Pour **Groupe de ressources**, sélectionnez **FW-Manager**.
+5. Pour **Groupe de ressources**, sélectionnez **fw-manager**.
 7. Pour **Région**, sélectionnez **USA Est**.
 1. Pour le **nom du hub virtuel sécurisé**, entrez **Hub-01**.
-2. Pour **Espace d’adressage du hub**, entrez **10.1.0.0/16**.
+2. Pour **Espace d’adressage du hub**, entrez **10.0.0.0/16**.
 3. Pour le nom du nouveau WAN virtuel, entrez **Vwan-01**.
 4. Laissez la case à cocher **Inclure la passerelle VPN pour activer les Partenaires de sécurité de confiance** désactivée.
-5. Sélectionnez **Suivant : Pare-feu Azure**.
+5. Sélectionnez **Suivant : Pare-feu Azure**.
 6. Acceptez le paramètre **Pare-feu Azure** **Activé** par défaut, puis sélectionnez **Suivant : Partenaires de sécurité de confiance**.
 7. Acceptez le paramètre **Partenaire de sécurité de confiance** **Désactivé** par défaut, puis sélectionnez **Suivant : Vérifier + créer**.
 8. Sélectionnez **Create** (Créer). Le déploiement prend environ 30 minutes.
 
-### <a name="connect-the-hub-and-spoke-vnets"></a>Connecter les réseaux virtuels hub et spoke
+Vous pouvez désormais obtenir l’adresse IP publique du pare-feu.
 
-Vous pouvez maintenant appairer les réseaux virtuels hub et spoke.
+1. Une fois le déploiement terminé, dans le portail Azure, sélectionnez **Tous les services**.
+1. Tapez **firewall manager**, puis sélectionnez **Firewall Manager**.
+2. Sélectionnez **Hubs virtuels sécurisés**.
+3. Sélectionnez **hub-01**.
+7. Sélectionnez **Configuration d’adresse IP publique**.
+8. Notez l’adresse IP publique à utiliser ultérieurement.
 
-1. Sélectionnez le groupe de ressources **FW-Manager**, puis le WAN virtuel **Vwan-01**.
+### <a name="connect-the-hub-and-spoke-virtual-networks"></a>Connecter les réseaux virtuels en étoile
+
+À présent, vous pouvez appairer les réseaux virtuels en étoile.
+
+1. Sélectionnez le groupe de ressources **fw-manager**, puis le WAN virtuel **Vwan-01**.
 2. Sous **Connectivité**, sélectionnez **Connexions de réseau virtuel**.
 3. Sélectionnez **Ajouter une connexion**.
-4. Pour **Nom de la connexion**, entrez **hub-spoke**.
+4. Pour **Nom de la connexion**, entrez **hub-spoke-01**.
 5. Pour **Hubs**, sélectionnez **Hub-01**.
-6. Pour **Groupe de ressources**, sélectionnez **FW-Manager**.
+6. Pour **Groupe de ressources**, sélectionnez **fw-manager**.
 7. Pour **Réseau virtuel**, sélectionnez **Spoke-01**.
 8. Sélectionnez **Create** (Créer).
+
+Répétez la procédure pour connecter le réseau virtuel **spoke-02** : nom de la connexion -**hub-spoke-02**
+
+### <a name="configure-the-hub-and-spoke-routing"></a>Configurer le routage en étoile
+
+Dans le portail Azure, ouvrez Cloud Shell et exécutez la commande Azure PowerShell suivante pour configurer le routage en étoile requis.
+
+```azurepowershell
+$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
+                  -HubName hub-01 -Name noneRouteTable
+$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+             -ParentResourceName hub-01
+
+$vnetConn = $vnetConns[0]
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
+Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+   -ParentResourceName hub-01 -Name $vnetConn.Name `
+   -RoutingConfiguration $vnetConn.RoutingConfiguration
+
+$vnetConn = $vnetConns[1]
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
+$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
+Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
+   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
+```
+
+## <a name="deploy-the-servers"></a>Déployer les serveurs
+
+1. Dans le portail Azure, sélectionnez **Créer une ressource**.
+2. Sélectionnez **Windows Server 2016 Datacenter** dans la liste **Populaire**.
+3. Entrez ces valeurs pour la machine virtuelle :
+
+   |Paramètre  |Valeur  |
+   |---------|---------|
+   |Resource group     |**fw-manager**|
+   |Nom de la machine virtuelle     |**Srv-workload-01**|
+   |Région     |**(États-Unis) USA Est**|
+   |Nom d’utilisateur de l’administrateur     |Entrez un nom d’utilisateur|
+   |Mot de passe     |Entrez un mot de passe|
+
+4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, sélectionnez **Aucun**.
+6. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.
+7. Acceptez les disques par défaut, puis sélectionnez **Suivant : Mise en réseau**.
+8. Sélectionnez **Spoke-01** pour le réseau virtuel, puis **Workload-01-SN** pour le sous-réseau.
+9. Pour **Adresse IP publique**, sélectionnez **Aucune**.
+11. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.
+12. Sélectionnez **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
+13. Vérifiez les paramètres sur la page de récapitulatif, puis sélectionnez **Créer**.
+
+Utilisez les informations du tableau suivant pour configurer une autre machine virtuelle nommée **Srv-Workload-02**. Le reste de la configuration est le même que pour la machine virtuelle **Srv-workload-01**.
+
+|Paramètre  |Valeur  |
+|---------|---------|
+|Réseau virtuel|**Spoke-02**|
+|Subnet|**Charge de travail-02-SN**|
+
+Une fois les serveurs déployés, sélectionnez une ressource de serveur, puis, dans **Mise en réseau**, notez l’adresse IP privée de chaque serveur.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Créer une stratégie de pare-feu et sécuriser votre hub
 
@@ -102,25 +169,58 @@ Une stratégie de pare-feu définit des collections de règles pour diriger le t
 1. Dans Firewall Manager, sélectionnez **Voir les stratégies de Pare-feu Azure**.
 2. Sélectionnez **Créer une stratégie de pare-feu Azure**.
 3. Sous **Détails de la stratégie**, pour **Nom**, entrez **Policy-01** et pour **Région**, sélectionnez **USA Est**.
-4. Sélectionnez **Suivant : Règles**.
-5. Dans l’onglet **Règles**, sélectionnez **Ajouter une collection de règles**.
-6. Dans la page **Ajouter une collection de règles**, entrez **RC-01** pour **Nom**.
-7. Pour **Type de collection de règles**, sélectionnez **Application**.
-8. Pour **Priorité**, tapez **100**.
-9. Vérifiez que **Action de collection de règles** est défini sur **Autoriser**.
-10. Pour **Nom**, entrez **Allow-msft**.
-11. Pour **Type de source**, sélectionnez **Adresse IP**.
-12. Pour **Source**, tapez **\*** .
-13. Pour **Protocole**, entrez **http,https**.
-14. Vérifiez que **Type de destination** est défini sur **FQDN**.
-15. Pour **Destination**, entrez **\*.microsoft.com**.
-16. Sélectionnez **Ajouter**.
-17. Sélectionnez **Suivant : Renseignement sur les menaces**.
-18. Sélectionnez **Suivant : Hubs**.
-19. Sous l’onglet **Hubs**, sélectionnez **Associer des hubs virtuels**.
-20. Sélectionnez **Hub-01**, puis **Ajouter**.
-21. Sélectionnez **Revoir + créer**.
-22. Sélectionnez **Create** (Créer).
+4. Sélectionnez **Suivant : Paramètres DNS (préversion)** .
+1. Sélectionnez **Suivant : Règles**.
+2. Dans l’onglet **Règles**, sélectionnez **Ajouter une collection de règles**.
+3. Dans la page **Ajouter une collection de règles**, entrez **App-RC-01** pour **Nom**.
+4. Pour **Type de collection de règles**, sélectionnez **Application**.
+5. Pour **Priorité**, tapez **100**.
+6. Vérifiez que **Action de collection de règles** est défini sur **Autoriser**.
+7. Pour **Nom**, entrez **Allow-msft**.
+8. Pour **Type de source**, sélectionnez **Adresse IP**.
+9. Pour **Source**, tapez **\*** .
+10. Pour **Protocole**, entrez **http,https**.
+11. Vérifiez que **Type de destination** est défini sur **FQDN**.
+12. Pour **Destination**, entrez **\*.microsoft.com**.
+13. Sélectionnez **Ajouter**.
+
+Ajoutez une règle DNAT pour pouvoir connecter un bureau à distance à la machine virtuelle **Srv-Workload-01**.
+
+1. Sélectionnez **Ajouter une collection de règles**.
+2. Pour **Nom**, tapez **DNAT-rdp**.
+3. Comme **Type de collection de règles**, sélectionnez **DNAT**.
+4. Pour **Priorité**, tapez **100**.
+5. Pour **Nom**, entrez **Allow-rdp**.
+6. Pour **Type de source**, sélectionnez **Adresse IP**.
+7. Pour **Source**, tapez **\*** .
+8. Pour **Protocole**, sélectionnez **TCP**.
+9. Pour **Ports de destination**, tapez **3389**.
+10. Pour **Type de destination**, sélectionnez **Adresse IP**.
+11. Pour **Destination**, tapez l’adresse IP publique du pare-feu que vous avez notée précédemment.
+12. Pour **Adresses traduites**, tapez l’adresse IP privée de  **Srv-Workload-01** que vous avez notée précédemment.
+13. Dans le champ **Port traduit**, tapez **3389**.
+14. Sélectionnez **Ajouter**.
+
+Ajoutez une règle de réseau afin de pouvoir connecter un bureau à distance de **Srv-Workload-01** à **Srv-Workload-02**.
+
+1. Sélectionnez **Ajouter une collection de règles**.
+2. Dans le champ **Nom**, tapez **vnet-hub**.
+3. Comme **Type de collection de règles**, sélectionnez **Réseau**.
+4. Pour **Priorité**, tapez **100**.
+5. Pour le **Nom** de la règle, tapez **Allow-vnet**.
+6. Pour **Type de source**, sélectionnez **Adresse IP**.
+7. Pour **Source**, tapez **\*** .
+8. Pour **Protocole**, sélectionnez **TCP**.
+9. Pour **Ports de destination**, tapez **3389**.
+9. Pour **Type de destination**, sélectionnez **Adresse IP**.
+10. Pour **Destination**, tapez l’adresse IP privée **Srv-Workload-02** que vous avez notée précédemment.
+11. Sélectionnez **Ajouter**.
+1. Sélectionnez **Suivant : Renseignement sur les menaces**.
+2. Sélectionnez **Suivant : Hubs**.
+3. Sous l’onglet **Hubs**, sélectionnez **Associer des hubs virtuels**.
+4. Sélectionnez **Hub-01**, puis **Ajouter**.
+5. Sélectionnez **Revoir + créer**.
+6. Sélectionnez **Create** (Créer).
 
 Cette opération peut prendre environ cinq minutes voire plus.
 
@@ -139,67 +239,13 @@ Vous devez maintenant vérifier que le trafic réseau est acheminé via votre pa
 
 ## <a name="test-your-firewall"></a>Tester votre pare-feu
 
-Pour tester vos règles de pare-feu, vous devez déployer deux serveurs. Vous allez déployer Workload-Srv dans le sous-réseau Workload-SN pour tester les règles de pare-feu, et Jump-Srv pour pouvoir utiliser Bureau à distance pour vous connecter à partir d’Internet puis vous connecter à Workload-Srv.
+Pour tester vos règles de pare-feu, vous allez connecter un bureau à distance à l’aide de l’adresse IP publique du pare-feu, qui est traduite en **Srv-Workload-01**. À partir de là, vous allez utiliser un navigateur pour tester la règle d’application et connecter un bureau à distance à **Srv-Workload-02** pour tester la règle de réseau.
 
-### <a name="deploy-the-servers"></a>Déployer les serveurs
-
-1. Dans le portail Azure, sélectionnez **Créer une ressource**.
-2. Sélectionnez **Windows Server 2016 Datacenter** dans la liste **Populaire**.
-3. Entrez ces valeurs pour la machine virtuelle :
-
-   |Paramètre  |Valeur  |
-   |---------|---------|
-   |Resource group     |**FW-Manager**|
-   |Nom de la machine virtuelle     |**Jump-Srv**|
-   |Région     |**(États-Unis) USA Est**|
-   |Nom d’utilisateur de l’administrateur     |Entrez un nom d’utilisateur|
-   |Mot de passe     |Entrez un mot de passe|
-
-4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**.
-5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)** .
-6. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.
-7. Acceptez les disques par défaut, puis sélectionnez **Suivant : Mise en réseau**.
-8. Vérifiez que **Spoke-01** est sélectionné pour le réseau virtuel et que le sous-réseau est **Jump-SN**.
-9. Pour **Adresse IP publique**, acceptez le nom par défaut de la nouvelle adresse IP publique (Jump-Srv-ip).
-11. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.
-12. Sélectionnez **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
-13. Vérifiez les paramètres sur la page de récapitulatif, puis sélectionnez **Créer**.
-
-Utilisez les informations du tableau suivant pour configurer une autre machine virtuelle appelée **Workload-Srv**. Le reste de la configuration est identique à celle de la machine virtuelle Srv-Jump.
-
-|Paramètre  |Valeur  |
-|---------|---------|
-|Subnet|**Workload-SN**|
-|Adresse IP publique|**Aucun**|
-|Aucun port d’entrée public|**Aucun**|
-
-### <a name="add-a-route-table-and-default-route"></a>Ajouter une table de route et un itinéraire par défaut
-
-Pour autoriser une connexion Internet sur Jump-Srv, vous devez créer une table de route et un itinéraire de passerelle par défaut vers Internet depuis le sous-réseau **Jump-SN**.
-
-1. Dans le portail Azure, sélectionnez **Créer une ressource**.
-2. Entrez **table de route** dans la zone de recherche, puis sélectionnez **Table de route**.
-3. Sélectionnez **Create** (Créer).
-4. Entrez **RT-01** pour **Nom**.
-5. Sélectionnez votre abonnement, **FW-Manager** pour le groupe de ressources et **(États-Unis) USA Est** pour la région.
-6. Sélectionnez **Create** (Créer).
-7. Une fois le déploiement terminé, sélectionnez la table de route **RT-01**.
-8. Sélectionnez **Itinéraires**, puis **Ajouter**.
-9. Entrez **jump-to-inet** pour **Nom de l’itinéraire**.
-10. Entrez **0.0.0.0/0** pour **Préfixe d’adresse**.
-11. Sélectionnez **Internet** pour **Type de tronçon suivant**.
-12. Sélectionnez **OK**.
-13. Une fois le déploiement terminé, sélectionnez **Sous-réseaux**, puis **Associer**.
-14. Sélectionnez **Spoke-01** pour **Réseau virtuel**.
-15. Sélectionnez **Jump-SN** pour **Sous-réseau**.
-16. Sélectionnez **OK**.
-
-### <a name="test-the-rules"></a>Tester les règles
+### <a name="test-the-application-rule"></a>Tester la règle d’application
 
 À présent, testez les règles de pare-feu pour vérifier qu’elles fonctionnent comme prévu.
 
-1. Dans le portail Azure, passez en revue les paramètres réseau pour la machine virtuelle **Workload-Srv** et notez l’adresse IP privée.
-2. Connectez un bureau à distance à la machine virtuelle **Jump-Srv**, puis connectez-vous. À partir de là, ouvrez une connexion de bureau distant à l’adresse IP privée **Workload-Srv**.
+1. Connectez un bureau à distance à l’adresse IP publique du pare-feu, puis connectez-vous.
 
 3. Ouvrez Internet Explorer et accédez à https://www.microsoft.com.
 4. Sélectionnez **OK** > **Fermer** sur les alertes de sécurité d’Internet Explorer.
@@ -210,11 +256,20 @@ Pour autoriser une connexion Internet sur Jump-Srv, vous devez créer une table 
 
    Vous devriez être bloqué par le pare-feu.
 
-Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
+À présent que vous avez vérifié que la règle d’application de pare-feu fonctionne :
 
 * Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 
+### <a name="test-the-network-rule"></a>Tester la stratégie réseau
 
+Testez à présent la règle de réseau.
+
+- Ouvrez un bureau à distance à l’adresse IP privée **Srv-Workload-02**.
+
+   Un bureau à distance doit se connecter à **Srv-Workload-02**.
+
+Maintenant que vous avez vérifié que la règle de réseau du pare-feu fonctionne :
+* Vous pouvez connecter un bureau à distance à un serveur situé dans un autre réseau virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
