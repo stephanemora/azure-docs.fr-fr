@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343997"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063265"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ Le résultat indique qu’une adresse IP est active : il s’agit de l’adress
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Vérifier la connectivité à l’aide de SSMS (SQL Server Management Studio)
 > [!NOTE]
-> Utilisez le **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients. Toute tentative de connexion directe à l’adresse IP échoue. Ce comportement est normal dans la mesure où le point de terminaison privé route le trafic vers la passerelle SQL dans la région et où le nom de domaine complet doit être spécifié pour que les connexions réussissent.
+> Utilisez le **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients (`<server>.database.windows.net`). Toute tentative de connexion directe à l’adresse IP ou utilisant le nom de domaine complet de la liaison privée (`<server>.privatelink.database.windows.net`) échouera. Ce comportement est normal dans la mesure où le point de terminaison privé route le trafic vers la passerelle SQL dans la région et où le nom de domaine complet correct doit être spécifié pour que les connexions réussissent.
 
 Suivez les étapes décrites ici afin d’utiliser [SSMS pour vous connecter à la base de données SQL](connect-query-ssms.md). Une fois que vous êtes connecté à la base de données SQL à l’aide de SSMS, exécutez la requête suivante pour vérifier que la connexion est établie à partir de l’adresse IP privée de la machine virtuelle Azure :
 

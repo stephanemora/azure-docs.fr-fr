@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/23/2020
-ms.openlocfilehash: 540175f02660717793ded667f9c07de8549ec2f5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 07/17/2020
+ms.openlocfilehash: cd58df3936092310e1a26aeedc3ba7599849359c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024093"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer des paramètres de diagnostic destinés à une ressource Azure. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -348,6 +348,140 @@ L’exemple suivant crée un paramètre de diagnostic pour une base de données 
 }
 ```
 
+## <a name="diagnostic-setting-for-recovery-services-vault"></a>Paramètre de diagnostic pour le coffre Recovery Services
+L’exemple suivant crée un paramètre de diagnostic pour un coffre Azure Recovery Services en ajoutant une ressource de type `microsoft.recoveryservices/vaults/providers/diagnosticSettings` au modèle. Cet exemple spécifie le mode de collecte comme décrit dans [Journaux de ressources Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Spécifiez `Dedicated` ou `AzureDiagnostics` pour la propriété `logAnalyticsDestinationType`.
+
+### <a name="template-file"></a>Fichier de modèle
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "recoveryServicesName": {
+            "type": "String"
+        },
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "microsoft.recoveryservices/vaults/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('recoveryServicesName'), '/Microsoft.Insights/', parameters('settingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "metrics": [],
+                "logs": [
+                    {
+                        "category": "AzureBackupReport",
+                        "enabled": false
+                    },
+                    {
+                        "category": "CoreAzureBackup",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AddonAzureBackupJobs",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AddonAzureBackupAlerts",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AddonAzureBackupPolicy",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AddonAzureBackupStorage",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AddonAzureBackupProtectedInstance",
+                        "enabled": true
+                    },
+                    {
+                        "category": "AzureSiteRecoveryJobs",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryEvents",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryReplicatedItems",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryReplicationStats",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryRecoveryPoints",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryReplicationDataUploadRate",
+                        "enabled": false
+                    },
+                    {
+                        "category": "AzureSiteRecoveryProtectedDiskDataChurn",
+                        "enabled": false
+                    }
+                ],
+                "logAnalyticsDestinationType": "Dedicated"
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Fichier de paramètres
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "recoveryServicesName": {
+        "value": "my-vault"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

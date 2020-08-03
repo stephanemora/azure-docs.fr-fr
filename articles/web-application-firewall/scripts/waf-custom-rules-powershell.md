@@ -1,5 +1,5 @@
 ---
-title: 'Exemple de script Azure PowerShell : Créer des règles WAF personnalisées'
+title: Exemple de script Azure PowerShell utilisant des règles WAF personnalisées
 description: 'Échantillon de script Azure PowerShell : créer des règles personnalisées de pare-feu d’applications web sur Application Gateway'
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: 950f71c284268a9aa2773eb57213e266622d85bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73509553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035569"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Créer des règles de pare-feu d’applications web personnalisées avec Azure PowerShell
 
@@ -71,4 +71,4 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les règles de pare-feu d’applications web personnalisées, consultez [Règles personnalisées pour un pare-feu d’applications web](../ag/custom-waf-rules-overview.md).
-- Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+- Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/).

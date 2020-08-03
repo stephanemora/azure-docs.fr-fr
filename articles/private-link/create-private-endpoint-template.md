@@ -1,6 +1,6 @@
 ---
 title: Créer un point de terminaison privé dans Azure Private Link
-description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager pour créer un point de terminaison privé.
+description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer un point de terminaison privé.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071496"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un point de terminaison privé à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Démarrage rapide : Créer un point de terminaison privé à l’aide d’un modèle Resource Manager
 
-Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager pour créer un point de terminaison privé.
+Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer un point de terminaison privé.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Vous pouvez également suivre ce guide de démarrage rapide en utilisant le [portail Azure](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md) ou l’interface [Azure CLI](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Configuration requise
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-Vous avez besoin d’un compte Azure associé à un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
 
-## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
+## <a name="prerequisites"></a>Prérequis
+
+Vous devez avoir un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="review-the-template"></a>Vérifier le modèle
 
 Ce modèle crée un point de terminaison privé pour une instance d’Azure SQL Database.
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ Plusieurs ressources Azure sont définies dans le modèle :
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : l’interface réseau de la machine virtuelle.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : la machine virtuelle utilisée pour tester la connexion privée avec le point de terminaison privé sur l’instance de SQL Database.
 
-### <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="deploy-the-template"></a>Déployer le modèle
 
-Voici comment déployer le modèle Azure Resource Manager sur Azure :
+Voici comment déployer le modèle ARM sur Azure :
 
 1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez **Déployer sur Azure**. Le modèle crée le point de terminaison privé, l’instance de SQL Database, l’infrastructure réseau et la machine virtuelle à valider.
 
@@ -61,12 +63,12 @@ Voici comment déployer le modèle Azure Resource Manager sur Azure :
 2. Sélectionnez ou créez votre groupe de ressources.
 3. Entrez le nom de connexion de l’administrateur SQL et le mot de passe associé.
 4. Saisissez le nom d’utilisateur et le mot de passe administrateur de la machine virtuelle.
-5. Lisez les clauses des conditions générales. Si vous acceptez, sélectionnez **J’accepte les conditions générales mentionnées ci-dessus** > **Acheter**. Le déploiement peut prendre 20 minutes ou plus.
+5. Lisez la déclaration des conditions générales. Si vous acceptez, sélectionnez **J’accepte les conditions générales mentionnées ci-dessus** > **Acheter**. Le déploiement peut prendre 20 minutes ou plus.
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 
 > [!NOTE]
-> Le modèle Azure Resource Manager génère un nom unique pour la ressource de la machine virtuelle myVm<b>{uniqueid}</b> et pour celle de SQL Database sqlserver<b>{uniqueid}</b>. Remplacez **{uniqueid}** par la valeur générée.
+> Le modèle Resource Manager génère un nom unique pour la ressource de la machine virtuelle myVm<b>{uniqueid}</b> et pour celle de SQL Database sqlserver<b>{uniqueid}</b>. Remplacez la valeur générée pour **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -74,7 +76,7 @@ Connectez-vous à la machine virtuelle _myVm{uniqueid}_ via Internet comme suit�
 
 1. Dans la barre de recherche du portail, saisissez _myVm{uniqueid}_ .
 
-2. Sélectionnez **Connecter**. **Se connecter à la machine virtuelle** s’ouvre.
+2. Sélectionnez **Connecter**. **Se connecter à une machine virtuelle** s’ouvre.
 
 3. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( _.rdp_) et le télécharge sur votre ordinateur.
 
@@ -82,7 +84,7 @@ Connectez-vous à la machine virtuelle _myVm{uniqueid}_ via Internet comme suit�
 
    a. Si vous y êtes invité, sélectionnez **Connexion**.
 
-   b. Entrez le nom d’utilisateur et le mot de passe que vous avez indiqués lors de la création de la machine virtuelle.
+   b. Entrez le nom d’utilisateur et le mot de passe spécifiés quand vous avez créé la machine virtuelle.
 
       > [!NOTE]
       > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle.

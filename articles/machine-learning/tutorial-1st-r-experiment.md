@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 53b1c22e93c342373cae2bbb14958f4810a79630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092318"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> Le SDK R Azure Machine Learning est actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dans ce tutoriel, vous allez utiliser le kit SDK R Azure Machine Learning (préversion) pour créer un modèle de régression logistique qui prédit la probabilité de décès au cours d’un accident de voiture. Vous verrez comment les ressources cloud Azure Machine Learning fonctionnent avec R afin de fournir un environnement scalable pour entraîner et déployer un modèle.  
 

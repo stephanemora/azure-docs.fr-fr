@@ -1,5 +1,5 @@
 ---
-title: Optimiser les travaux Spark pour les performances dans Azure Synapse Analytics
+title: Optimiser les performances des travaux Spark
 description: Cet article présente Apache Spark dans Azure Synapse Analytics et les différents concepts.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089258"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimiser les travaux Apache Spark (préversion) dans Azure Synapse Analytics
 

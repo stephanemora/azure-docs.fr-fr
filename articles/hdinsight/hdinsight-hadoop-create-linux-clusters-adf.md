@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 41482af619ad94ee059fc11a74581fa30c2e7011
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7353366af14ca785c5635e1bde8101c1d71cd47f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079117"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutoriel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
 
@@ -37,7 +37,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Le [module Az](https://docs.microsoft.com/powershell/azure/overview) PowerShell installé.
+* Le [module Az](https://docs.microsoft.com/powershell/azure/) PowerShell installé.
 
 * Un principal de service Azure Active Directory. Une fois que vous avez créé le principal de service, n’oubliez pas de récupérer **l’ID d’application** et la **clé d’authentification** en suivant les instructions dans l’article dont le lien est indiqué ci-après. Vous aurez besoin de ces valeurs plus loin dans ce didacticiel. En outre, vérifiez que ce principal de service est membre du rôle *Contributeur* de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour savoir comment récupérer les valeurs requises et attribuer les rôles adéquats, consultez [Créer un principal de service Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -339,7 +339,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     * Vous voyez un emplacement **adfgerstarted/outputfolder** qui contient la sortie du script Hive qui a été exécuté dans le cadre du pipeline.
 
-    * Vous voyez un conteneur **adfhdidatafactory-\<nom_service_lié>-\<horodatage>** . Ce conteneur est l’emplacement de stockage par défaut du cluster HDInsight qui a été créé dans le cadre de l’exécution du pipeline.
+    * Vous voyez un conteneur **adfhdidatafactory-\<linked-service-name>-\<timestamp>** . Ce conteneur est l’emplacement de stockage par défaut du cluster HDInsight qui a été créé dans le cadre de l’exécution du pipeline.
 
     * Vous voyez un conteneur **adfjobs** qui contient les journaux d’activité des tâches Azure Data Factory.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076387"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutoriel : Répondre à des incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Dans ce didacticiel, vous apprendrez à :
@@ -32,7 +32,7 @@ Security center analyse continuellement vos charges de travail de cloud hybride 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-Pour parcourir les fonctionnalités traitées dans ce tutoriel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
+Pour parcourir les fonctionnalités couvertes dans ce tutoriel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="scenario"></a>Scénario
 Contoso a récemment migré une partie de ses ressources locales dans Azure, notamment certaines bases de données SQL et charges de travail métier reposant sur des machines virtuelles. L’équipe principale de réponse aux incidents de sécurité informatique (CSIRT) de Contoso rencontre aujourd’hui des difficultés pour étudier les problèmes de sécurité car les renseignements sur la sécurité ne sont pas intégrés à leurs outils actuels de réponse aux incidents. Cette absence d’intégration pose un problème durant l’étape de détection (trop de faux positifs) et durant les étapes d’évaluation et de diagnostic. Dans le cadre de la migration, l’équipe a décidé d’opter pour Security Center pour l’aider à résoudre ce problème.
@@ -98,12 +98,13 @@ Vous pouvez utiliser les fonctionnalités de recherche dans Security Center pour
 Pour effectuer une recherche, ouvrez le tableau de bord **Security Center**, cliquez sur **Recherche** dans le volet de navigation de gauche, sélectionnez l’espace de travail contenant les entités sur lesquelles vous souhaitez effectuer des recherches, saisissez la requête de recherche, et cliquez sur le bouton de recherche.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
+
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez de suivre les tutoriels et les guides de démarrage rapide suivants, conservez le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
 3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
+4. Sélectionnez **Gratuit** pour changer d’abonnement et passer du niveau standard au niveau Gratuit.
 5. Sélectionnez **Enregistrer**.
 
 Si vous voulez désactiver l’approvisionnement automatique :

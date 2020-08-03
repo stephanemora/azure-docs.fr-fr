@@ -3,20 +3,20 @@ title: Exemple de script Azure PowerShell - Configurer le VPN de point à site a
 description: Configurez le VPN de point à site avec l’authentification par certificat Azure native à l’aide de certificats auto-signés. Cet article se base sur PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/10/2020
 ms.author: alzam
-ms.openlocfilehash: 6a82aedb20adb404cad6a51644b13a59be85ac2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a76cad8cb89e016d231566089ce30a337ea91d8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75867222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086963"
 ---
-# <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Créer une passerelle VPN et ajouter une configuration de point à site à l’aide de PowerShell
+# <a name="configure-a-point-to-site-vpn-using-native-azure-certificate-authentication"></a>Configurer un réseau VPN de point à site à l’aide de l’authentification par certificat Azure native
 
 Ce script crée une passerelle VPN basée sur un itinéraire et ajoute une configuration de point à site à l’aide de l’authentification par certificat Azure native
 
@@ -121,4 +121,4 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/).
