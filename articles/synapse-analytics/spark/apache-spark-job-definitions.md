@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065631"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutoriel : Créer une définition de travail Apache Spark dans Synapse Studio
 
@@ -24,7 +24,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 * Créer une définition de travail Apache Spark pour PySpark (Python)
 * Créer une définition de travail Apache Spark pour Spark(Scala)
-* Créer une définition de travail Apache Spark pour .NET Spark(C#)
+* Créer une définition de travail Apache Spark pour .NET Spark (C#/F#)
 * Envoyer une définition de travail Apache Spark en tant que traitement par lots
 * Ajouter une définition de travail Apache Spark dans le pipeline
 
@@ -42,7 +42,7 @@ Dans cette section, vous allez créer une définition de travail Apache Spark po
 
 1. Ouvrez [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Vous pouvez accéder aux [exemples de fichiers pour la création de définitions de travaux Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python), et télécharger les fichiers **wordcount.jar** et **shakespear.txt**. Téléchargez ensuite ces fichiers dans le stockage Azure : Cliquez sur **Données**, sélectionnez **Comptes de stockage**, puis chargez les fichiers associés à votre système de fichiers ADLS Gen2. Ignorez cette étape si vos fichiers se trouvent déjà dans le stockage Azure. 
+2. Vous pouvez accéder aux [exemples de fichiers pour la création de définitions de travaux Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python), et télécharger les fichiers **wordcount.py** et **shakespear.txt**. Téléchargez ensuite ces fichiers dans le stockage Azure : Cliquez sur **Données**, sélectionnez **Comptes de stockage**, puis chargez les fichiers associés à votre système de fichiers ADLS Gen2. Ignorez cette étape si vos fichiers se trouvent déjà dans le stockage Azure. 
 
      ![chargement du fichier python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -57,9 +57,9 @@ Dans cette section, vous allez créer une définition de travail Apache Spark po
      |  Propriété   | Description   |  
      | ----- | ----- |  
      |Nom de la définition de travail| Entrez un nom pour votre définition de travail Apache Spark. Ce nom peut être mis à jour à tout moment jusqu’à ce qu’il soit publié. Exemple : `job definition sample`|
-     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier PY à partir de votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/fileexists.py`|
-     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `shakespeare.txt`|
-     |Fichiers de référence| Fichiers supplémentaires utilisés en guise de référence dans le fichier de définition principal. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/shakespeare.txt`|
+     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier PY à partir de votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://…/path/to/wordcount.py`|
+     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Fichiers de référence| Fichiers supplémentaires utilisés en guise de référence dans le fichier de définition principal. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. |
      |Pool Spark| Le travail sera envoyé au pool Apache Spark sélectionné.|
      |Version de Spark| Version d’Apache Spark exécutée par le pool Apache Spark.|
      |Exécuteurs| Nombre d’exécuteurs à attribuer dans le pool Apache Spark spécifié pour le travail.|
@@ -92,9 +92,9 @@ Dans cette section, vous allez créer une définition de travail Apache Spark po
      |  Propriété   | Description   |  
      | ----- | ----- |  
      |Nom de la définition de travail| Entrez un nom pour votre définition de travail Apache Spark. Ce nom peut être mis à jour à tout moment jusqu’à ce qu’il soit publié. Exemple : `job definition sample`|
-     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier JAR à partir de votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/wordcount.jar`|
+     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier JAR à partir de votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://…/path/to/wordcount.jar`|
      |Main class name| Identificateur complet ou classe principale qui se trouve dans le fichier de définition principal. Exemple : `WordCount`|
-     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/result`|
+     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Fichiers de référence| Fichiers supplémentaires utilisés en guise de référence dans le fichier de définition principal. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage.|
      |Pool Spark| Le travail sera envoyé au pool Apache Spark sélectionné.|
      |Version de Spark| Version d’Apache Spark exécutée par le pool Apache Spark.|
@@ -109,9 +109,9 @@ Dans cette section, vous allez créer une définition de travail Apache Spark po
      ![publication de la définition scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
 
-## <a name="create-an-apache-spark-job-definition-for-net-sparkc"></a>Créer une définition de travail Apache Spark pour .NET Spark(C#)
+## <a name="create-an-apache-spark-job-definition-for-net-sparkcf"></a>Créer une définition de travail Apache Spark pour .NET Spark (C#/F#)
 
-Dans cette section, vous allez créer une définition de travail Apache Spark pour .NET Spark(C#).
+Dans cette section, vous créez une définition de travail Apache Spark pour .NET Spark (C#/F#).
  1. Ouvrez [Azure Synapse Studio](https://web.azuresynapse.net/).
 
  2. Vous pouvez accéder aux [exemples de fichiers pour la création de définitions de travaux Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET), et télécharger les fichiers **wordcount.zip** et **shakespear.txt**. Téléchargez ensuite ces fichiers dans le stockage Azure : Cliquez sur **Données**, sélectionnez **Comptes de stockage**, puis chargez les fichiers associés à votre système de fichiers ADLS Gen2. Ignorez cette étape si vos fichiers se trouvent déjà dans le stockage Azure. 
@@ -125,13 +125,14 @@ Dans cette section, vous allez créer une définition de travail Apache Spark po
  4. Sélectionnez **.NET Spark(C#/F#)** dans la liste déroulante Langage de la fenêtre principale Définition de travail Apache Spark.
 
  5. Renseignez les informations pour la définition de travail Apache Spark. Vous pouvez copier les exemples d’informations.
+    
      |  Propriété   | Description   |  
      | ----- | ----- |  
      |Nom de la définition de travail| Entrez un nom pour votre définition de travail Apache Spark. Ce nom peut être mis à jour à tout moment jusqu’à ce qu’il soit publié. Exemple : `job definition sample`|
-     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier ZIP contenant votre application .NET pour Apache Spark (c’est-à-dire, le fichier exécutable principal, les DLL contenant les fonctions définies par l’utilisateur et d’autres fichiers nécessaires) à partir de votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/wordcount.zip`|
+     |Fichier de définition principal| Fichier principal utilisé pour le travail. Sélectionnez un fichier ZIP contenant votre application .NET pour Apache Spark (c’est-à-dire le fichier exécutable principal, les DLL contenant les fonctions définies par l’utilisateur et d’autres fichiers nécessaires) dans votre stockage. Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage. Exemple : `abfss://…/path/to/wordcount.zip`|
      |Fichier exécutable principal| Fichier exécutable principal dans le fichier ZIP de définition principal. Exemple : `WordCount`|
-     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/result`|
-     |Fichiers de référence| Fichiers supplémentaires nécessaires aux nœuds worker pour l’exécution de l’application .NET pour Apache Spark qui n’est pas incluse dans le fichier ZIP de définition principal (autrement dit, les fichiers jar dépendants, les DLL supplémentaires de fonctions définies par l’utilisateur et d’autres fichiers de configuration). Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage.|
+     |Arguments de ligne de commande| Arguments facultatifs du travail. Exemple : `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Fichiers de référence| Fichiers supplémentaires nécessaires aux nœuds Worker pour l’exécution de l’application .NET pour Apache Spark qui n’est pas incluse dans le fichier ZIP de définition principal (autrement dit, les fichiers jar dépendants, les DLL supplémentaires de fonctions définies par l’utilisateur et d’autres fichiers de configuration). Vous pouvez sélectionner **Charger le fichier** pour charger le fichier sur un compte de stockage.|
      |Pool Spark| Le travail sera envoyé au pool Apache Spark sélectionné.|
      |Version de Spark| Version d’Apache Spark exécutée par le pool Apache Spark.|
      |Exécuteurs| Nombre d’exécuteurs à attribuer dans le pool Apache Spark spécifié pour le travail.|  
@@ -163,7 +164,7 @@ Après avoir créé une définition de travail Apache Spark, vous pouvez l’env
 
  1. Cliquez sur **Superviser**, puis sélectionnez l’option **Applications Spark**. Vous pouvez trouver l’application Apache Spark envoyée.
 
-     ![Affichez l’application Spark](./media/apache-spark-job-definitions/view-spark-application.png)
+     ![Afficher l’application Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
  2. Cliquez ensuite sur l’application Apache Spark pour ouvrir la fenêtre **LogQuery**. Vous pouvez voir la progression de l’exécution du travail dans **LogQuery**.
      

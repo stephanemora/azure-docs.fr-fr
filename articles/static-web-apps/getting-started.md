@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089496"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Démarrage rapide : Création de votre première application web statique
 
@@ -68,8 +68,8 @@ Maintenant que le référentiel est créé, vous pouvez créer une application w
 
 - Accéder au [portail Azure](https://portal.azure.com)
 - Cliquez sur **Create a Resource** (Créer une ressource).
-- Recherchez **Static Web Apps**.
-- Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
+- Recherchez **Applications web statiques**
+- Cliquez sur **Applications web statiques (préversion)**
 - Cliquez sur **Créer**
 
 ### <a name="basics"></a>Concepts de base
@@ -96,6 +96,9 @@ Une fois que vous êtes connecté avec GitHub, entrez les informations relatives
 - Cliquez sur le bouton **Suivant : Compiler >** pour modifier la configuration de build.
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Bouton Compilation suivante":::
+
+> [!NOTE]
+>  En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
 
 ### <a name="build"></a>Build
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081115"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutoriel : Développer des modules IoT Edge pour les appareils Linux
 
@@ -134,7 +134,7 @@ Dans la palette de commandes Visual Studio Code, recherchez et sélectionnez **A
    | Provide a solution name (Nommer la solution) | Entrez un nom descriptif pour votre solution ou acceptez le nom par défaut (**EdgeSolution**). |
    | Select module template (Sélectionner un modèle de module) | Choisissez **Module C#** . |
    | Provide a module name (Nommer le module) | Acceptez la valeur par défaut **SampleModule**. |
-   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le dépôt d’images final ressemble à \<nom_registre\>.azurecr.io/samplemodule. |
+   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final se présente comme ceci :\<registry name\>.azurecr.io/samplemodule. |
 
    ![Fourniture du référentiel d’images Docker](./media/tutorial-develop-for-linux/image-repository.png)
 
@@ -219,6 +219,12 @@ Fournissez les informations d’identification du registre de conteneurs à Dock
    ```
 
    Il se peut que vous receviez un avertissement de sécurité recommandant d’utiliser `--password-stdin`. Bien qu’il s’agisse de la bonne pratique recommandée pour les scénarios de production, elle n’est pas pertinente pour ce tutoriel. Pour plus d’informations, consultez les informations de référence sur [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   
+3. Connexion à Azure Container Registry
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### <a name="build-and-push"></a>Générer et envoyer (push)
 
@@ -262,7 +268,7 @@ Visual Studio Code ayant désormais accès à votre registre de conteneurs, il e
 Si vous rencontrez des erreurs lors de la génération et de l’envoi (push) de votre image de module, elles sont souvent liées à la configuration de Docker sur votre machine de développement. Pour passer en revue votre configuration, effectuez les vérifications suivantes :
 
 * Avez-vous exécuté la commande `docker login` en utilisant les informations d’identification que vous avez copiées à partir de votre registre de conteneurs ? Ces informations d’identification sont différentes de celles que vous utilisez pour vous connecter à Azure.
-* Votre référentiel de conteneurs est-il correct ? A-t-il les noms de registre de conteneur et de module appropriés ? Ouvrez le fichier **module.json** dans le dossier SampleModule pour vérifier. La valeur du dépôt doit ressembler à **\<nom_registre\>.azurecr.io/samplemodule**.
+* Votre référentiel de conteneurs est-il correct ? A-t-il les noms de registre de conteneur et de module appropriés ? Ouvrez le fichier **module.json** dans le dossier SampleModule pour vérifier. La valeur du référentiel doit se présenter comme ceci : **\<registry name\>.azurecr.io/samplemodule**.
 * Si vous avez utilisé un autre nom que **SampleModule** pour votre module, ce nom est-il cohérent dans l’ensemble de la solution ?
 * Votre machine exécute-t-elle le même type de conteneurs que celui que vous générez ? Ce tutoriel concerne les appareils Linux IoT Edge ; Visual Studio Code doit donc indiquer **amd64** ou **arm32v7** dans la barre latérale, et Docker Desktop doit exécuter des conteneurs Linux.  
 

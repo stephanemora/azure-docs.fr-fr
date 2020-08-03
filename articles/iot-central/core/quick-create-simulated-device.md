@@ -3,17 +3,17 @@ title: Démarrage rapide – Ajouter un appareil simulé à Azure IoT Central
 description: Ce guide de démarrage rapide montre comment créer un modèle d’appareil et ajouter un appareil simulé à votre application IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81001128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001947"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central
 
@@ -64,7 +64,7 @@ Les étapes suivantes vous montrent comment utiliser le catalogue d’appareils 
 
 ### <a name="add-cloud-properties"></a>Ajouter des propriétés du cloud
 
-Un modèle d’appareil peut inclure des propriétés du cloud. Les propriétés du cloud existent uniquement dans l’application IoT Central, et ne sont jamais envoyées à un appareil ni reçues à partir d’un appareil.
+Un modèle d’appareil peut inclure des propriétés du cloud. Les propriétés du cloud existent uniquement dans l’application IoT Central, et ne sont jamais envoyées à un appareil ni reçues à partir d’un appareil. Pour ajouter une propriété cloud :
 
 1. Sélectionnez **Propriétés du cloud**, puis **+ Ajouter une propriété cloud**. Utilisez les informations du tableau suivant pour ajouter deux propriétés cloud à votre modèle d’appareil :
 
@@ -134,17 +134,19 @@ Pour ajouter un appareil simulé à votre application, utilisez le modèle d’a
 
 Vous pouvez désormais interagir avec les vues qui ont été créées par le créateur pour le modèle d’appareil en utilisant les données simulées :
 
-1. Sélectionnez votre appareil simulé dans la page **Appareils**.
+1. Sélectionnez votre appareil simulé dans la page **Appareils** :
 
-1. La vue **Vue d’ensemble** affiche un tracé des données de télémétrie simulées :
+    * La vue **Vue d’ensemble** affiche un tracé des données de télémétrie simulées :
 
-    ![Vue Vue d’ensemble](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Vue Vue d’ensemble](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. La vue **À propos** affiche des valeurs de propriétés, notamment les propriétés cloud que vous avez ajoutées à la vue.
+    * La vue **À propos** affiche des valeurs de propriétés, notamment les propriétés cloud que vous avez ajoutées à la vue.
 
-1. La vue **Commandes** vous permet d’exécuter des commandes, comme **Clignoter**, sur l’appareil.
+    * La vue **Commandes** vous permet d’exécuter des commandes, comme **Clignoter**, sur l’appareil.
 
-1. La vue **Gérer les appareils** est le formulaire que vous avez créé pour permettre à l’opérateur de gérer l’appareil.
+    * La vue **Gérer les appareils** est le formulaire que vous avez créé pour permettre à l’opérateur de gérer l’appareil.
+
+    * La vue **Données brutes** vous permet d’afficher les valeurs de propriété et les données de télémétrie brutes envoyées par l’appareil. Cette vue est utile pour déboguer les appareils.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>Utiliser un appareil simulé pour améliorer les vues
 

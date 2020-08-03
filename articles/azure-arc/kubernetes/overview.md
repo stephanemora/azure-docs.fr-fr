@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Cet article fournit une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 4f07c0e5e01648984514701cd4838f85478d86af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050054"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Qu’est-ce que Kubernetes avec Azure Arc (préversion) ?
 
@@ -24,9 +24,8 @@ Pour connecter un cluster Kubernetes à Azure, l’administrateur du cluster doi
 
 Kubernetes avec Azure Arc prend en charge le protocole SSL standard pour sécuriser les données en transit. Par ailleurs, les données sont chiffrées au repos dans une base de données Azure Cosmos DB pour garantir leur confidentialité.
  
- > [!NOTE]
-> Kubernetes avec Azure Arc est en préversion. Nous ne la recommandons pas pour les charges de travail de production. 
-
+> [!NOTE]
+> Kubernetes avec Azure Arc est en préversion. Nous ne la recommandons pas pour les charges de travail de production.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge 
 
@@ -40,7 +39,6 @@ Kubernetes avec Azure Arc prend en charge ces scénarios :
 
 * Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes. 
 
- 
 ## <a name="supported-regions"></a>Régions prises en charge 
 
 Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions : 

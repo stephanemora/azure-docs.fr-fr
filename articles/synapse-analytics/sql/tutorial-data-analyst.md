@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel sur les analystes de données : Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)'
+title: Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)
 description: Dans ce tutoriel, vous allez apprendre à effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande (préversion) et à visualiser les résultats dans Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089139"
 ---
-# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio (préversion)
+# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Utiliser SQL à la demande pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio
 
 Dans ce tutoriel, vous apprenez à effectuer des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande, puis en visualisant les résultats dans Azure Synapse Studio.
 

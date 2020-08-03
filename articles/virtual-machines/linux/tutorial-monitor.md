@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 02ebdfc0fe3fd39f29a64fdb49a3f0d37b007097
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526960"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313674"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser une machine virtuelle Linux dans Azure
 
@@ -140,7 +140,7 @@ Pour activer la supervision de votre machine virtuelle Azure avec Azure Monitor 
     La liste présélectionne l’espace de travail par défaut et l’emplacement où la machine virtuelle est déployée dans l’abonnement. 
 
     >[!NOTE]
-    >Pour créer un espace de travail Log Analytics pour stocker les données de surveillance de la machine virtuelle, consultez [Créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Votre espace de travail Log Analytics doit appartenir à l’une des [régions prises en charge](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Pour créer un espace de travail Log Analytics pour stocker les données de surveillance de la machine virtuelle, consultez [Créer un espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). L’espace de travail doit appartenir à l’une des [régions prises en charge](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Après avoir activé la supervision, vous devrez peut-être attendre plusieurs minutes avant de pouvoir voir les métriques de performances de la machine virtuelle.
 

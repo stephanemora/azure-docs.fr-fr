@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070103"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -21,19 +21,19 @@ Cet article explique ce que sont les points de terminaison privés managés dans
 
 ## <a name="managed-private-endpoints"></a>Points de terminaison privés managés
 
-Les points de terminaison privés managés sont des points de terminaison privés créés sur le réseau virtuel d’espace de travail managé qui établissent une liaison privée vers des ressources Azure. Azure Synapse gère ces points de terminaison privés à votre place.
+Les points de terminaison privés managés sont des points de terminaison privés créés sur le Réseau virtuel Microsoft Azure d’espace de travail managé qui établissent une liaison privée vers des ressources Azure. Azure Synapse gère ces points de terminaison privés à votre place.
 
-Azure Synapse prend en charge les liaisons privées. Une liaison privée vous permet d’accéder à des services Azure (tels que Stockage Azure, Azure Cosmos DB et Azure SQL Data Warehouse) et à des services clients/partenaires hébergés par Azure à partir de votre réseau virtuel Azure en toute sécurité.
+Azure Synapse prend en charge les liaisons privées. Une liaison privée vous permet d’accéder à des services Azure (tels que Stockage Azure, Azure Cosmos DB et Azure SQL Data Warehouse) et à des services clients/partenaires hébergés par Azure à partir de votre Réseau virtuel Azure en toute sécurité.
 
-Quand vous utilisez une liaison privée, le trafic entre votre réseau virtuel et l’espace de travail transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
+Quand vous utilisez une liaison privée, le trafic entre votre Réseau virtuel et l’espace de travail transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
-Un point de terminaison privé utilise une adresse IP privée de votre réseau virtuel pour placer de fait le service sur votre réseau virtuel. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
+Le point de terminaison privé utilise une adresse IP privée de votre Réseau virtuel pour placer de fait le service dans votre Réseau virtuel. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
->Les points de terminaison privés managés sont uniquement pris en charge dans les espaces de travail Azure Synapse avec un réseau virtuel d’espace de travail managé.
+>Les points de terminaison privés managés sont uniquement pris en charge dans les espaces de travail Azure Synapse avec un Réseau virtuel d’espace de travail managé.
 
 >[!NOTE]
->Tout le trafic sortant en provenance du réseau virtuel d’espace de travail managé via des points de terminaison privés sera bloqué à l’avenir. Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure externes à l’espace de travail. 
+>Tout le trafic sortant en provenance du Réseau virtuel d’espace de travail managé via des points de terminaison privés sera bloqué à l’avenir. Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure externes à l’espace de travail. 
 
 Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Synapse. Un workflow d’approbation est lancé. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
 
@@ -43,7 +43,7 @@ Seule une instance de point de terminaison privé managé dans un état approuv�
 
 ## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>Points de terminaison privés managés pour pool SQL et SQL à la demande
 
-Le pool SQL et SQL à la demande sont des fonctionnalités d’analytique dans votre espace de travail Azure Synapse. Ces fonctionnalités utilisent une infrastructure multi-locataire qui n’est pas déployée sur le [réseau virtuel d’espace de travail managé](./synapse-workspace-managed-vnet.md).
+Le pool SQL et SQL à la demande sont des fonctionnalités d’analytique dans votre espace de travail Azure Synapse. Ces fonctionnalités utilisent une infrastructure multilocataire qui n’est pas déployée sur le [Réseau virtuel d’espace de travail managé](./synapse-workspace-managed-vnet.md).
 
 Quand un espace de travail est créé, Azure Synapse crée deux points de terminaison privés managés vers le pool SQL et SQL à la demande dans cet espace de travail. 
 

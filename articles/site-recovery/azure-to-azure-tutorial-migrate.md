@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076106"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -82,8 +82,9 @@ Les étapes suivantes montrent comment préparer la machine virtuelle en vue du 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Créer le coffre dans n’importe quelle région, sauf la région source
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-1. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com)
+1. Dans Rechercher, tapez Recovery Services > cliquez sur Coffres Recovery Services.
+1. Dans le menu Coffres Recovery Services, cliquez sur +Ajouter.
 1. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 1. Créez le groupe de ressources **ContosoRG**.
 1. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique dans la page de [détails de tarification Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
