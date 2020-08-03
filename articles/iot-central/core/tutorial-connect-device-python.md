@@ -3,17 +3,17 @@ title: Tutoriel – Connecter une application cliente Python générique à Azur
 description: Ce tutoriel vous explique comment, en tant que développeur d’appareils, connecter un appareil exécutant une application cliente Python à votre application Azure IoT Central. Vous créez un modèle d’appareil en important un modèle de capacité d’appareil et vous ajoutez des vues qui vous permettent d’interagir avec un appareil connecté.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 98aa452e8b0b5cf04edd319298c2b35e6097148e
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: d7093895392cb26e25e8054f0cdcb6870ce9e18a
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336103"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central (Python)
 
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-* Une application Azure IoT Central créée avec le modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+* Une application Azure IoT Central créée avec le modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md). L’application doit avoir été créée à partir du 14/07/2020.
 * Une machine de développement où [Python](https://www.python.org/) version 3.7 ou ultérieure est installé. Vous pouvez exécuter `python3 --version` au niveau de la ligne de commande pour vérifier la version. Python est disponible pour un large éventail de systèmes d’exploitation. Les instructions de ce tutoriel supposent que vous exécutez la commande **python3** à l’invite de commandes Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -214,18 +214,18 @@ Les étapes suivantes vous montrent comment créer une application cliente Pytho
 
     Un opérateur peut afficher la charge utile de réponse dans l’historique des commandes.
 
-1. Ajoutez les fonctions suivantes à l’intérieur de la fonction `main` pour gérer les mises à jour de propriétés envoyées à partir de votre application IoT Central :
+1. Ajoutez les fonctions suivantes à l’intérieur de la fonction `main` pour gérer les mises à jour de propriétés envoyées depuis votre application IoT Central. Le message que l’appareil envoie en réponse à la [mise à jour de la propriété accessible en écriture](concepts-telemetry-properties-commands.md#writeable-property-types) doit inclure les champs `av` et `ac`. Le champ `ad` est facultatif :
 
     ```python
       async def name_setting(value, version):
         await asyncio.sleep(1)
         print(f'Setting name value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'name' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       async def brightness_setting(value, version):
         await asyncio.sleep(5)
         print(f'Setting brightness value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'brightness' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       settings = {
         'name': name_setting,
@@ -261,7 +261,7 @@ Les étapes suivantes vous montrent comment créer une application cliente Pytho
 
       if device_client is not None and device_client.connected:
         print('Send reported properties on startup')
-        await device_client.patch_twin_reported_properties({'state': 'true'})
+        await device_client.patch_twin_reported_properties({'state': 'true', 'processorArchitecture': 'ARM', 'swVersion': '1.0.0'})
         tasks = asyncio.gather(
           send_telemetry(),
           command_listener(),
@@ -304,11 +304,14 @@ Vous pouvez voir comment l’appareil répond aux commandes et aux mises à jour
 
 ![Observer l’application cliente](media/tutorial-connect-device-python/run-application-2.png)
 
+## <a name="view-raw-data"></a>Voir les données brutes
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil en utilisant Python, les prochaines étapes suggérées sont les suivantes :
 
-* Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
 * Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
 * Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
 

@@ -9,18 +9,21 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
-ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/10/2020
+ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092281"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Dans ce tutoriel, vous allez utiliser le Machine Learning automatisé, ou ML automatisé, dans Azure Machine Learning Studio afin de créer un modèle de prévision de série chronologique qui prédit la demande de location pour un service de vélos en libre-service.
+
+>[!IMPORTANT]
+> L’expérience de ML automatisé dans Azure Machine Learning Studio est en préversion. Certaines fonctionnalités peuvent ne pas être prises en charge ou avoir des capacités limitées.
 
 Pour obtenir un exemple de modèle de classification, consultez [Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -41,7 +44,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Bien démarrer dans Azure Machine Learning Studio
 
-Pour les besoins de ce tutoriel, vous allez créer l’exécution de votre expérience de ML automatisé dans Azure Machine Learning Studio, une interface centralisée qui comprend des outils de Machine Learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Studio n’est pas prise en charge par les navigateurs Internet Explorer.
+Pour ce tutoriel, vous allez créer l’exécution de votre expérience de ML automatisé dans Azure Machine Learning Studio, une interface web centralisée qui comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour des utilisateurs de science des données de tous niveaux de compétence. Studio n’est pas prise en charge par les navigateurs Internet Explorer.
 
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -113,8 +116,11 @@ Une fois vos données chargées et configurées, configurez votre cible de calcu
         Champ | Description | Valeur pour le tutoriel
         ----|---|---
         Nom du calcul |Nom unique qui identifie votre contexte de calcul.|bike-compute
+        Type de&nbsp;machine&nbsp;virtuelle|Sélectionnez le type de machine virtuelle pour votre calcul.|Processeur (CPU)
         Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.|Standard_DS12_V2
-        Nœuds min./max. (dans les paramètres avancés)| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
+        Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
+        Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
+        Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None
   
         1. Sélectionnez **Créer** pour accéder à la cible de calcul. 
 
@@ -130,23 +136,23 @@ Terminez la configuration de votre expérience de ML automatisé en spécifiant 
 
 1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez **Prévisions de série chronologique** comme type de tâche de Machine Learning.
 
-1. Sélectionnez **date** comme **Colonne d’heure** et laissez **Regrouper par colonne(s)** vide. 
+1. Sélectionnez **date** comme **Colonne Heure** et laissez **Identificateurs de séries chronologiques** vide. 
 
-    1. Sélectionnez **Afficher des paramètres de configuration supplémentaires** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement, et de spécifier les paramètres de votre prévision. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
+1. L’**horizon de prévision** est la période dans le futur pour laquelle vous voulez faire des prédictions.  Décochez Détection automatique et tapez 14 dans le champ. 
 
-  
-        Configurations&nbsp;supplémentaires|Description|Valeur&nbsp;pour&nbsp;le tutoriel
-        ------|---------|---
-        Métrique principale| Métrique d’évaluation selon laquelle l’algorithme de Machine Learning sera mesuré.|Erreur quadratique moyenne normalisée
-        Caractérisation automatique| Active le prétraitement. Cela comprend le nettoyage automatique des données, la préparation et la transformation pour générer des caractéristiques synthétiques.| Activer
-        Expliquer le meilleur modèle (préversion)| Montre automatiquement l’explicabilité sur le meilleur modèle créé par le ML automatisé.| Activer
-        Algorithmes bloqués | Algorithmes que vous souhaitez exclure du travail de formation| Arbres aléatoires extrêmes
-        Paramètres de prévision supplémentaires| Ces paramètres contribuent à améliorer la justesse de votre modèle. <br><br> _**Horizon de prévision**_  : durée dans le futur pendant laquelle vous souhaitez faire des prévisions <br> _**Décalages de cibles de prévision**_  : jusqu’où vous voulez construire les décalages d’une variable cible <br> _**Fenêtre dynamique cible**_  : spécifie la taille de la fenêtre dynamique sur laquelle des caractéristiques telles que *max, min* et *somme* seront générées. |Horizon de prévision : 14 <br> Décalages&nbsp;de cibles de&nbsp;prévision : None <br> Taille&nbsp;de la&nbsp;fenêtre dynamique&nbsp;cible : None
-        Critère de sortie| Lorsqu’une condition est remplie, la tâche d’entraînement est arrêtée. |Durée&nbsp;de la tâche&nbsp;de formation : 3 <br> Seuil&nbsp;de score&nbsp;de métrique : None
-        Validation | Choisissez un type de validation croisée et un nombre de tests.|Type de validation :<br>&nbsp;validation croisée&nbsp;k-fold <br> <br> Nombre de validations : 5
-        Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 6
-        
-        Sélectionnez **Enregistrer**.
+1. Sélectionnez **Afficher des paramètres de configuration supplémentaires** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement, et de spécifier les paramètres de votre prévision. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
+
+    Configurations&nbsp;supplémentaires|Description|Valeur&nbsp;pour&nbsp;le tutoriel
+    ------|---------|---
+    Métrique principale| Métrique d’évaluation selon laquelle l’algorithme de Machine Learning sera mesuré.|Erreur quadratique moyenne normalisée
+    Expliquer le meilleur modèle| Montre automatiquement l’explicabilité sur le meilleur modèle créé par le ML automatisé.| Activer
+    Algorithmes bloqués | Algorithmes que vous souhaitez exclure du travail de formation| Arbres aléatoires extrêmes
+    Paramètres de prévision supplémentaires| Ces paramètres contribuent à améliorer la justesse de votre modèle. <br><br> _**Décalages de cibles de prévision**_  : antériorité avec laquelle vous voulez construire les décalages d’une variable cible <br> _**Fenêtre dynamique cible**_  : spécifie la taille de la fenêtre dynamique sur laquelle des caractéristiques telles que *max, min* et *somme* seront générées. | <br><br>Décalages&nbsp;de cibles de&nbsp;prévision : None <br> Taille&nbsp;de la&nbsp;fenêtre dynamique&nbsp;cible : None
+    Critère de sortie| Lorsqu’une condition est remplie, la tâche d’entraînement est arrêtée. |Durée&nbsp;de la tâche&nbsp;de formation : 3 <br> Seuil&nbsp;de score&nbsp;de métrique : None
+    Validation | Choisissez un type de validation croisée et un nombre de tests.|Type de validation :<br>&nbsp;validation croisée&nbsp;k-fold <br> <br> Nombre de validations : 5
+    Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 6
+    
+    Sélectionnez **Enregistrer**.
 
 ## <a name="run-experiment"></a>Exécuter une expérience
 
@@ -163,7 +169,7 @@ Accédez à l’onglet **Modèles** pour voir les algorithmes (modèles) testés
 
 En attendant que toutes les modèles d’expérience se terminent, sélectionnez le **Nom de l’algorithme** d’un modèle terminé pour explorer ses performances en détail. 
 
-L’exemple suivant parcourt les onglets **Détails du modèle** et **Visualisations** pour voir les propriétés, métriques et graphiques de performances du modèle sélectionné. 
+L’exemple suivant parcourt les onglets **Détails** et **Métriques** pour montrer les propriétés, les métriques et les graphiques de performances du modèle sélectionné. 
 
 ![Détails de l’exécution](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -173,11 +179,15 @@ Dans Azure Machine Learning Studio, le Machine Learning automatisé vous permet 
 
 Pour cette expérience, le déploiement sur un service web signifie que la société de vélos en libre-service dispose désormais d’une solution web itérative et scalable pour prévoir la demande de location. 
 
-Une fois l’exécution terminée, revenez à la page **Détails de l’exécution** et sélectionnez l’onglet **Modèles**.
+Une fois l’exécution terminée, revenez à la page d’exécution du parent en sélectionnant **Exécution 1** en haut de votre écran.
 
-Dans ce contexte d’expérience, **StackEnsemble** est considéré comme le meilleur modèle selon la métrique **Erreur quadratique moyenne normalisée**.  Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
+Dans la section **Récapitulatif du meilleur modèle**, **StackEnsemble** est considéré comme étant le meilleur modèle dans le contexte de cette expérience selon la métrique **Erreur quadratique moyenne normalisée**.  
 
-1. Sélectionnez le bouton **Déployer le meilleur modèle** en bas à gauche.
+Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
+
+1. Sélectionnez **StackEnsemble** pour ouvrir la page spécifique au modèle.
+
+1. Sélectionnez le bouton **Déployer** situé dans la partie supérieure gauche de l’écran.
 
 1. Renseignez le volet **Déployer un modèle** de la façon suivante :
 
@@ -193,8 +203,7 @@ Dans ce contexte d’expérience, **StackEnsemble** est considéré comme le mei
 
 1. Sélectionnez **Déployer**.  
 
-    Un message vert de réussite apparaît en haut de l’écran **Exécuter** pour indiquer que le déploiement a été correctement démarré. La progression du déploiement est indiquée  
-    dans le volet **Modèle recommandé** sous **État du déploiement**.
+    Un message vert de réussite apparaît en haut de l’écran **Exécuter**, indiquant que le déploiement a été correctement démarré. Vous pouvez voir la progression du déploiement dans le volet **Récapitulatif du modèle** sous **État du déploiement**.
     
 Une fois le déploiement terminé, vous disposez d’un service web opérationnel pour générer des prédictions. 
 

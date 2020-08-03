@@ -1,16 +1,16 @@
 ---
-title: Exécuter une charge de travail parallèle
+title: Exécuter une charge de travail parallèle à l’aide de l’API .NET
 description: Didacticiel - Transcoder des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: d8a5db6c6c63d680514e21bef0e5a8bc6b3ea550
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062589"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 

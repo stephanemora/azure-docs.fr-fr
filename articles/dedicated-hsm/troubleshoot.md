@@ -1,5 +1,5 @@
 ---
-title: Présentation d’HSM dédié - HSM dédié Azure | Microsoft Docs
+title: Résoudre les problèmes liés à Azure Dedicated HSM – Azure Dedicated HSM | Microsoft Docs
 description: La présentation du service HSM dédié Azure offre dans Azure des fonctionnalités de stockage de clés qui répondent à la certification FIPS 140-2 de niveau 3
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c398049cfe1d5ec2ee090d4fabf8008803efecb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074990"
 ---
-# <a name="troubleshooting"></a>Dépannage
+# <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Résolution des problèmes du service Azure Dedicated HSM
 
 Le service Azure Dedicated HSM remplit deux fonctions distinctes : d’une part, l’inscription et le déploiement dans Azure des appareils HSM avec leurs composants réseau sous-jacents et, d’autre part, la configuration des appareils HSM en vue de leur utilisation/intégration avec une charge de travail ou une application donnée. Bien que les appareils HSM Thales Luna Network dans Azure soient les mêmes que ceux que vous pouvez acheter directement auprès de Thales, le fait qu’ils constituent une ressource dans Azure crée des considérations uniques. Ces considérations ainsi que les bonnes pratiques et insights en matière de dépannage sont documentés ici pour garantir la bonne visibilité des informations critiques et l’accès à celles-ci. Une fois le service en place, des informations définitives sont disponibles par le biais de demandes de support adressées directement à Microsoft ou à Thales. 
 

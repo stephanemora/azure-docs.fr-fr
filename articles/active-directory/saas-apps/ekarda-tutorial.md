@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Ekarda
 
@@ -151,12 +151,12 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Administrateur** -> **Mon compte**.
 
-    ![Configuration d’Ekarda](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Configuration d’Ekarda](./media/ekarda-tutorial/ekarda.png)    
 
 1. Au bas de la page, vous trouverez la section **PARAMÈTRES SAML** dans laquelle vous allez configurer cette intégration SAML.
 1. Dans la page suivante, effectuez les étapes suivantes :
 
-    ![Configuration d’Ekarda](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Configuration d’Ekarda](./media/ekarda-tutorial/ekarda1.png)
 
     a. Cliquez sur le lien **Métadonnées du fournisseur de services** et enregistrez-les en tant que fichier sur votre ordinateur.
 
@@ -186,7 +186,7 @@ Quand vous cliquez sur la vignette Ekarda dans le volet d’accès, vous devez �
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
@@ -194,7 +194,8 @@ Quand vous cliquez sur la vignette Ekarda dans le volet d’accès, vous devez �
 
 - [Essayer Ekarda avec Azure AD](https://aad.portal.azure.com/)
 
+- Utilisez la [solution eCard d’entreprise d’Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) pour permettre à un nombre quelconque d’employés d’envoyer des eCards personnalisées avec le logo de votre entreprise à leurs clients et collègues. Apprenez-en davantage sur le provisionnement d’[Ekarda en tant que solution d’authentification unique](https://support.ekarda.com/#SSO-Implementation).
+
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Guide pratique pour protéger Ekarda avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

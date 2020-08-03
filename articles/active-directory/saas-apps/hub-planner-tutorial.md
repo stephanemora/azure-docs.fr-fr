@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 35bd80c2501f9e4c24093f861479f993d85d9c02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034171"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hub Planner
 
@@ -90,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support client de Hub Planner](mailto:hello@hubplanner.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Ces valeurs sont celles que vous utiliserez. La seule modification que vous devez effectuer consiste à remplacer \<SUBDOMAIN\> dans l’**URL de connexion** par le sous-domaine que vous avez reçu lorsque vous vous êtes inscrit à Hub Planner. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -99,6 +99,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Hub Planner**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -131,11 +132,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-hub-planner-sso"></a>Configurer l’authentification unique Hub Planner
 
-Pour configurer l’authentification unique côté **Hub Planner**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Hub Planner](mailto:hello@hubplanner.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Hub Planner**, vous devez vous connecter à votre compte Hub Planner et effectuer les tâches suivantes. 
 
 ### <a name="install-the-extension-in-hub-planner"></a>Installer l’extension dans Hub Planner
 
-Pour activer la fonctionnalité SSO, vous devez d’abord activer l’extension. En tant que propriétaire du compte ou qu’utilisateur disposant d’autorisations équivalentes, effectuez les étapes suivantes :
+Pour activer la fonctionnalité d’authentification unique, vous devez d’abord activer l’extension. En tant que propriétaire du compte ou qu’utilisateur disposant d’autorisations équivalentes, effectuez les étapes suivantes :
 
 1. Accédez à **Settings**.
 1. Dans le menu latéral, sélectionnez **Gérer les extensions** > **Ajouter/supprimer des extensions**.
@@ -165,7 +166,7 @@ Quand vous cliquez sur la vignette Hub Planner dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

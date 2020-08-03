@@ -3,12 +3,12 @@ title: Organiser vos ressources avec des groupes d’administration - Azure Gove
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963680"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132923"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -100,9 +100,9 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 \*: Contributeur MG et lecteur MG autorisent uniquement les utilisateurs à effectuer ces actions sur l’étendue du groupe d’administration.  
 \*\* : Les attributions de rôles sur le groupe d’administration racine ne sont pas nécessaires pour déplacer un abonnement ou un groupe d’administration. Consultez [Gérer vos ressources avec des groupes d’administration](manage.md) pour des détails sur le déplacement d’éléments dans la hiérarchie.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
+## <a name="azure-custom-role-definition-and-assignment"></a>Définition et attribution d’un rôle personnalisé Azure
 
-La prise en charge des rôles RBAC personnalisés pour les groupes d’administration est actuellement en préversion et comprend certaines [limitations](#limitations). Vous pouvez définir l’étendue d’un groupe d’administration dans l’étendue attribuable de la définition de rôle. Ce rôle RBAC personnalisé est alors ensuite attribuable dans ce groupe d’administration ainsi que tout groupe d’administration, abonnement, groupe de ressources ou ressource dont il est parent. Ce rôle personnalisé hérite ensuite la hiérarchie comme n’importe quel rôle intégré.  
+La prise en charge des rôles personnalisés Azure pour les groupes d’administration est en préversion et comprend certaines [limitations](#limitations). Vous pouvez définir l’étendue d’un groupe d’administration dans l’étendue attribuable de la définition de rôle. Ce rôle personnalisé Azure est alors attribuable dans ce groupe d’administration ainsi que tout groupe d’administration, abonnement, groupe de ressources ou ressource dont il est parent. Ce rôle personnalisé hérite ensuite la hiérarchie comme n’importe quel rôle intégré.  
 
 ### <a name="example-definition"></a>Exemple de définition
 

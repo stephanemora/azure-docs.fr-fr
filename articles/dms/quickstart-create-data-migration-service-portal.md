@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087779"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 
@@ -30,6 +30,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 Ouvrez votre navigateur web, accédez au [portail Microsoft Azure](https://portal.azure.com/), puis saisissez vos informations de connexion au portail.
 
 Il s’ouvre par défaut sur le tableau de bord des services.
+
+> [!NOTE]
+> Vous pouvez créer jusqu’à 10 instances de DMS par abonnement. Si vous avez besoin d’un plus grand nombre d’instances, veuillez créer un ticket de support.
 
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 

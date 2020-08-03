@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013264"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure avec .NET
 
@@ -28,7 +28,7 @@ Pour suivre ce guide de démarrage rapide :
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Kit SDK .NET Core 3.1 ou version ultérieure](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -51,7 +51,7 @@ Utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-lat
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Notez la valeur `vaultUri` renvoyée, qui sera au format « https://<nom-de-votre-coffre>.vault.azure.net/ ». Elle sera utilisée à l’étape [Mettre à jour le code](#update-the-code).
+Notez la valeur `vaultUri` retournée, qui est au format « https://&lt;nom_de_votre_coffre_de_clés&gt;.vault.azure.net/ ». Elle sera utilisée à l’étape [Mettre à jour le code](#update-the-code).
 
 Vous pouvez maintenant placer un secret dans votre coffre de clés avec la commande [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Définissez le nom de votre secret sur « MySecret » et la valeur sur « Success! ».
 

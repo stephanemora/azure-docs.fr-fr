@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075338"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutoriel : Bien démarrer avec les requêtes Log Analytics
 
@@ -189,7 +189,7 @@ Pour enregistrer une requête :
    
    Pour enregistrer une requête en tant que fonction, entrez un **Alias de fonction**, qui est un nom abrégé utilisé par les autres requêtes pour appeler cette requête.
    
-1. Entrez une **Catégorie** sous laquelle afficher la requête dans l’**Explorateur de requêtes**.
+1. Si vous êtes dans un espace de travail Log Analytics, spécifiez une **catégorie** que l’**Explorateur de requêtes** devra utiliser pour la requête. (Les catégories ne sont pas disponibles pour les requêtes Application Insights.)
    
 1. Sélectionnez **Enregistrer**.
    
@@ -202,6 +202,10 @@ Pour charger une requête enregistrée, sélectionnez **Explorateur de requêtes
 
 ### <a name="export-and-share-queries"></a>Exporter et partager des requêtes
 Pour exporter une requête, sélectionnez **Exporter** dans la barre supérieure, puis sélectionnez **Exporter au format CSV - Toutes les colonnes**, **Exporter au format CSV - Colonnes affichées** ou **Exporter vers Power BI (requête M)** dans la liste déroulante.
+
+La vidéo suivante montre comment intégrer Log Analytics à Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Pour partager un lien vers une requête, sélectionnez **Copier le lien** dans la barre supérieure, puis sélectionnez **Copier le lien vers la requête**, **Copier le texte de la requête** ou **Copier les résultats de la requête** pour copier dans le Presse-papiers. Vous pouvez envoyer le lien de la requête à d’autres utilisateurs qui ont accès au même espace de travail.
 

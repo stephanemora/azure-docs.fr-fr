@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 65062b886000a9a0e19dec7d72bf27ab1e1790eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016919"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Kisi Physical Security
 
@@ -85,9 +85,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://identity.kms.kisi.io/saml/<DOMAIN>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.kisi.io/saml/metadata`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://identity.kms.kisi.io/saml/<DOMAIN>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api.kisi.io/saml/consume/<DOMAIN>`
+
+    > [!NOTE] 
+    > `DOMAIN` est un identificateur alphanumérique en minuscule affecté à l’organisation par Kisi. Il n’est **pas** identique au nom de domaine DNS de l’organisation.*
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -101,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     ![image](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application Kisi Physical Security s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient passés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
+
     | Nom | Attribut source|
     | ---------------| --------- |
     | FirstName | user.givenname |
@@ -119,7 +122,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
@@ -150,7 +153,7 @@ Pour configurer l’authentification unique côté **Kisi Physical Security**, v
 
 Dans cette section, un utilisateur nommé Britta Simon est créé dans Kisi Physical Security. Kisi Physical Security prend en charge le provisionnement d’utilisateurs juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Kisi Physical Security, il en est créé un après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

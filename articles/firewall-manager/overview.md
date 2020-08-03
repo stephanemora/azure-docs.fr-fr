@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563751"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384767"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -81,10 +81,10 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |La division du trafic n’est pas prise en charge.|Le fractionnement du trafic Office 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Par conséquent, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Office 365 via le service partenaire.|Enquête sur la division du trafic au niveau du hub.
 |Un seul hub virtuel sécurisé par région.|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région.|Créez plusieurs réseaux étendus virtuels dans une région.|
 |Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Enquête|
-|La communication entre les hubs ne fonctionne pas pour les hubs virtuels sécurisés|La communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore prise en charge.|Enquête|
+|La communication entre les hubs ne transite pas par le hub virtuel sécurisé|La communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore prise en charge ; toutefois, la communication de hub à hub fonctionne toujours.|Enquête|
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter la [vue d’ensemble du déploiement d’Azure Firewall Manager](deployment-overview.md)
+- Passer en revue [Vue d’ensemble du déploiement d’Azure Firewall Manager](deployment-overview.md)
 - En savoir plus sur les [hubs virtuels sécurisés](secured-virtual-hub.md)

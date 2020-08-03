@@ -3,12 +3,12 @@ title: Analyser une vidéo en direct à l’aide de votre propre modèle - Azur
 description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027662"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170624"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Démarrage rapide : Analyser une vidéo en direct à l’aide de votre propre modèle
 
@@ -184,7 +184,7 @@ Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélect
 
 ## <a name="interpret-results"></a>Interpréter les résultats
 
-Quand vous exécutez le graphe multimédia, les résultats du nœud processeur d’extension HTTP passe par le nœud récepteur IoT Hub au hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quand vous exécutez le graphe multimédia, les résultats du nœud processeur d’extension HTTP passe par le nœud récepteur IoT Hub au hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Dans les messages suivants, le module Live Video Analytics définit les propriétés de l’application et le contenu du corps. 
 
@@ -284,8 +284,9 @@ Si vous envisagez d’essayer d’autres guides de démarrage rapide, conservez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Essayez une [version sécurisée du modèle YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) et déployez-la sur l’appareil IOT Edge. 
+
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez rechercher les caméras IP qui prennent RTSP en charge dans la page des produits [conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).

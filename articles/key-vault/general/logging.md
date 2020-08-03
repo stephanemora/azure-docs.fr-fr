@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090584"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -43,7 +43,7 @@ Pour obtenir des informations générales sur Key Vault, consultez [Qu’est-ce 
 Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
-* Azure PowerShell, version 1.0.0 ou ultérieure. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `$PSVersionTable.PSVersion`.  
+* Azure PowerShell, version 1.0.0 ou ultérieure. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `$PSVersionTable.PSVersion`.  
 * Espace de stockage suffisant sur Azure pour vos journaux d’activité de coffre de clés.
 
 ## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Se connecter à l’abonnement du coffre de clés
@@ -70,7 +70,7 @@ Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous all
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-L’opération qui consiste à faire pointer PowerShell vers l’abonnement adéquat constitue une étape importante, en particulier si plusieurs abonnements sont associés à votre compte. Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+L’opération qui consiste à faire pointer PowerShell vers l’abonnement adéquat constitue une étape importante, en particulier si plusieurs abonnements sont associés à votre compte. Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/).
 
 ## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Créer un compte de stockage pour vos journaux
 
@@ -97,7 +97,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Activer la journalisation à l’aide d’Azure PowerShell
 
-Pour activer la journalisation de Key Vault, nous allons utiliser la cmdlet **Set-AzDiagnosticSetting**, ainsi que les variables que nous avons créées pour le nouveau compte de stockage et le coffre de clés. Nous allons également définir l’indicateur **-Enabled** sur **$true** et la catégorie sur **AuditEvent** (la seule catégorie pour la journalisation de Key Vault) :
+Pour activer la journalisation de Key Vault, nous allons utiliser la cmdlet **Set-AzDiagnosticSetting**, ainsi que les variables que nous avons créées pour le nouveau compte de stockage et le coffre de clés. Nous allons également définir l’indicateur **-Enabled** sur **$true** et la catégorie sur `AuditEvent` (la seule catégorie pour la journalisation de Key Vault) :
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -271,7 +271,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 | **resourceId** |ID de ressource Azure Resource Manager. Pour les journaux d’activité de coffre de clés, il s’agit toujours de l’ID de ressource du coffre de clés. |
 | **operationName** |Nom de l’opération, comme indiqué dans le tableau suivant. |
 | **operationVersion** |Version d’API REST demandée par le client. |
-| **category** |Type de résultat. Pour les journaux Key Vault, **AuditEvent** est la seule valeur disponible. |
+| **category** |Type de résultat. Pour les journaux Key Vault, `AuditEvent` est la seule valeur disponible. |
 | **resultType** |Résultat de la requête d’API REST. |
 | **resultSignature** |État HTTP |
 | **resultDescription** |Description supplémentaire du résultat le cas échéant. |
@@ -279,7 +279,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 | **callerIpAddress** |Adresse IP du client qui a effectué la requête. |
 | **correlationId** |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
 | **identity** |Identité issue du jeton qui a été présenté dans la requête d’API REST. Il s’agit généralement d’un « utilisateur », d’un « principal de service » ou de la « utilisateur + appId », comme dans le cas d’une requête résultant d’une cmdlet Azure PowerShell. |
-| **properties** |Informations variables en fonction de l’opération (**operationName**). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de requête d’API REST exacte et le code d’état HTTP. En outre, lorsqu’un objet est renvoyé suite à une requête (par exemple, **KeyCreate** ou **VaultGet**), ce champ contient également l’URI de clé (sous la forme « id »), l’URI de coffre ou l’URI de secret. |
+| **properties** |Informations variables en fonction de l’opération (**operationName**). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de requête d’API REST exacte et le code d’état HTTP. En outre, quand un objet est retourné suite à une requête (par exemple, **KeyCreate** ou **VaultGet**), ce champ contient également l’URI de la clé (sous la forme `id`), l’URI du coffre ou l’URI du secret. |
 
 Les valeurs du champ **operationName** sont indiquées au format *ObjectVerb*. Par exemple :
 
@@ -321,9 +321,9 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utiliser les journaux Azure Monitor
 
-Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux **AuditEvent** Key Vault. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin. 
+Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux `AuditEvent` de Key Vault. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin. 
 
-Pour plus d’informations, notamment sur la procédure de configuration correspondante, consultez l’article [Azure Key Vault solution in Azure Monitor logs](../../azure-monitor/insights/azure-key-vault.md) (Solution Azure Key Vault dans les journaux Azure Monitor). Cet article contient également les instructions adéquates si vous devez effectuer une migration à partir de l’ancienne solution Key Vault qui était disponible dans la préversion des journaux Azure Monitor. Lorsque vous utilisiez cette dernière, vous commenciez par acheminer vos journaux vers un compte de stockage Azure avant de configurer les journaux Azure Monitor pour la lecture des données à cet emplacement.
+Pour plus d’informations, notamment sur la procédure de configuration correspondante, consultez [Azure Key Vault dans Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a><a id="next"></a>Étapes suivantes
 

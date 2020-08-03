@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116922"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutoriel : Envoyer des notifications Push en fonction du lieu avec Notification Hubs et les données spatiales Bing
 
@@ -63,7 +63,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 
     Ce fichier au format pipe représente l’entité suivante :
 
-    ![Capture d’écran des quais de San Francisco, avec un polygone rouge délimitant la zone des jetées.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Capture d’écran d’une carte du front de mer de San Francisco, avec un polygone rouge délimitant la zone des jetées.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Sur la page **Télécharger une source de données**, effectuez les actions suivantes :
    1. Sélectionnez **pipe** dans **format de données**.
    2. Recherchez et sélectionnez le fichier `NotificationHubGeofence.pipe` créé à l’étape précédente.
@@ -164,7 +164,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
     }
     ```
 
-    Pour en savoir plus sur l’obtention de l’emplacement de l’utilisateur dans les applications UWP, consultez [Obtenir l’emplacement de l’utilisateur](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Pour en savoir plus sur l’obtention de l’emplacement de l’utilisateur dans les applications UWP, consultez [Obtenir l’emplacement de l’utilisateur](/windows/uwp/maps-and-location/get-location).
 5. Pour vérifier que l’obtention de l’emplacement fonctionne correctement, accédez au code de votre page d’accueil (`MainPage.xaml.cs`). Créez un gestionnaire d’événements pour l’événement `Loaded` dans le constructeur `MainPage`.
 
     ```csharp
@@ -393,7 +393,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 Vous devrez peut-être suivre quelques étapes supplémentaires pour vous assurer que la solution est prête pour la production.
 
-1. Tout d’abord, assurez-vous que la clôture virtuelle est dynamique. Cette opération nécessite des actions supplémentaires avec l’API Bing pour pouvoir télécharger les nouvelles limites au sein de la source de données existante. Pour plus d’informations, consultez la [documentation de l’API des services de données spatiales Bing](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Tout d’abord, assurez-vous que la clôture virtuelle est dynamique. Cette opération nécessite des actions supplémentaires avec l’API Bing pour pouvoir télécharger les nouvelles limites au sein de la source de données existante. Pour plus d’informations, consultez la [documentation de l’API des services de données spatiales Bing](/bingmaps/spatial-data-services/).
 2. Ensuite, vous pouvez cibler les participants appropriés par [balisage](notification-hubs-tags-segment-push-message.md)pour garantir une remise correcte.
 
-La solution indiquée dans ce didacticiel décrit un scénario dans lequel vous disposez d’un large choix de plateformes cibles. La clôture virtuelle n’a donc pas été limitée à des fonctionnalités spécifiques du système. Ceci dit, la plateforme Windows universelle offre des fonctionnalités [prêtes à l’emploi pouvant détecter les clôtures virtuelles](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+La solution indiquée dans ce didacticiel décrit un scénario dans lequel vous disposez d’un large choix de plateformes cibles. La clôture virtuelle n’a donc pas été limitée à des fonctionnalités spécifiques du système. Ceci dit, la plateforme Windows universelle offre des fonctionnalités [prêtes à l’emploi pouvant détecter les clôtures virtuelles](/windows/uwp/maps-and-location/set-up-a-geofence).

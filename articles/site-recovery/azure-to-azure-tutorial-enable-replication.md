@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a3cec6cb009e3d83d22f3f2a4140afe16db180a8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134495"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372924"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -94,7 +94,7 @@ Azure Site Recovery fournit trois rôles intégrés pour contrôler les opérati
 
 - **Site Recovery Reader** : Ce rôle dispose des autorisations pour afficher toutes les opérations de gestion de Site Recovery. Ce rôle est tout indiqué pour un responsable de suivi informatique, qui peut surveiller l’état de protection actuel et envoyer des billets d’assistance.
 
-Apprenez-en davantage sur les [rôles intégrés RBAC Azure](../role-based-access-control/built-in-roles.md).
+Découvrez plus d’informations sur les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication-for-a-vm"></a>Activer la réplication pour une machine virtuelle
 

@@ -5,19 +5,15 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: a456709fffd8b4bc0f1c7eb25281980daea2edb6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 29c386b7e12c24e712ee24e887b8e25609ffaeeb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537415"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124553"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Préparer une instance Azure Digital Twins
 
-Pour suivre ce tutoriel, vous avez besoin d’une instance **Azure Digital Twins** à programmer. 
+Pour suivre ce tutoriel, vous avez besoin d’une instance **Azure Digital Twins** à programmer. Si vous disposez déjà d’une instance Azure Digital Twins configurée lors d’une tâche précédente, vous pouvez utiliser cette instance et passer à la section suivante.
 
-Si vous disposez déjà d’une instance Azure Digital Twins configurée lors d’une tâche précédente, vous pouvez utiliser cette instance et passer à la section suivante.
-
-Sinon, procédez comme suit pour configurer votre instance :
-1. **Créez une instance** en suivant les instructions qui figurent dans [*Procédure : Créer une instance Azure Digital Twins*](../articles/digital-twins/how-to-set-up-instance.md). 
-2. **Configurez une inscription d’application Azure Active Directory pour votre instance** avec la section *Créer une inscription d’application* de [*Procédure : Authentifier une application cliente*](../articles/digital-twins/how-to-authenticate-client.md#create-an-app-registration).
+Dans le cas contraire, **configurez une instance et l’authentification** à l’aide des instructions fournies dans le [*Guide pratique : Configurer une instance et l’authentification*](../articles/digital-twins/how-to-set-up-instance-scripted.md). Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.

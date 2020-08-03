@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Node.js sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240199"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006942"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes avec Visual Studio Code et Node.js - Azure Dev Spaces
 
@@ -140,7 +140,7 @@ Sélectionnez **Déboguer**, puis **Arrêter le débogage** pour arrêter le dé
 
 Changez le mode de débogage en **Attacher à un serveur (AZDS)** et démarrez le service :
 
-![](media/get-started-node/attach-nodejs.png)
+![Capture d’écran de l’interface utilisateur VS Code avec l’option Attacher au serveur (AZDS) sélectionnée.](media/get-started-node/attach-nodejs.png)
 
 Cette commande génère et exécute votre service dans Azure Dev Spaces. Elle démarre également un processus [nodemon](https://nodemon.io) dans le conteneur de votre service et y attache VS Code. Le processus *nodemon* permet les redémarrages automatiques quand des modifications sont apportées au code source, permettant ainsi un développement plus rapide de la boucle interne, similaire au développement sur votre machine locale.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application .NET Core sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002775"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes : Visual Studio Code et .NET Core - Azure Dev Spaces
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Enregistrez le fichier . Cliquez sur *Déboguer*, puis sur *Redémarrer le débogage* ou, dans la *barre d’outils de débogage*, cliquez sur le bouton *Redémarrer le débogage*.
 
-![La barre d’outils de débogage est un petit volet situé en haut au centre de la page (juste en dessous du titre de la page). Le bouton Redémarrer affiche une flèche circulaire, et est mis en surbrillance. Quand l’utilisateur fait passer le curseur sur le bouton, une image s’affiche en indiquant « Redémarrer (Ctrl + Maj + F5) ».](media/common/debug-action-refresh.png)
+![La barre d’outils de débogage est un petit volet situé en haut au centre de la page (juste en dessous du titre de la page). Le bouton Redémarrer affiche une flèche circulaire, et est mis en surbrillance. Le positionnement du curseur sur le bouton a pour effet d’afficher « Redémarrer (Ctrl+Maj+ F5) ».](media/common/debug-action-refresh.png)
 
 Ouvrez votre service dans un navigateur et notez que votre message mis à jour est affiché.
 

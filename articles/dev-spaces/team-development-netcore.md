@@ -5,12 +5,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour développer en équipe une application .NET Core dans Azure Kubernetes Service.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 69434c6168bfadbf3291c6efe85fb2f1934c8d11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f83dbea53427d88043537a5039f4071d974a9786
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013607"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio Code avec Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Votre exemple d’application n’est pas très complexe pour le moment. Mais lo
 * Certains développeurs ont recours à la simulation ou à des objets fictifs, pour la plupart de leurs dépendances de service. Cette approche peut aider, mais la gestion de ces objets fictifs peut rapidement impacter les coûts de développement. De plus, cette approche amène votre environnement de développement à se différencier considérablement de celui de production, permettant ainsi à des bogues subtils de se glisser.
 * Il s’ensuit que les tests d’intégration, quels qu’ils soient, s’avèrent alors difficiles. Les tests d’intégration ne peuvent être effectués qu’après validation, ce qui signifie que vous verrez les problèmes plus tard dans le cycle de développement.
 
-    ![](media/common/microservices-challenges.png)
+    ![Image illustrant les relations entre un service d’application et ses dépendances pour montrer la complexité du test d’intégration.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Travailler dans un espace de développement partagé
 Avec Azure Dev Spaces, vous pouvez configurer un espace de développement *partagé* dans Azure. Chaque développeur peut se concentrer sur sa partie de l’application et peut développer de manière itérative du *code avant validation* dans un espace de développement qui contient déjà tous les autres services et ressources de cloud nécessaires à leurs scénarios. Les dépendances sont toujours à jour et la façon de travailler des développeurs reflète celle des équipes de production.
@@ -53,7 +53,7 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 
 1. Clonez l’[exemple d’application Dev Spaces](https://github.com/Azure/dev-spaces) : `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Extrayez la branche distante *azds_updates* : `git checkout -b azds_updates origin/azds_updates`
-1. Sélectionnez l’espace _dev_ : `azds space select --name dev`. Quand vous êtes invité à sélectionner un espace dev parent, sélectionnez _\<aucun\>_ .
+1. Sélectionnez l’espace _dev_ : `azds space select --name dev`. Quand vous êtes invité à sélectionner un espace de développement parent, sélectionnez _\<none\>_ .
 1. Accédez au répertoire _mywebapi_ et exécutez : `azds up -d`
 1. Accédez au répertoire _webfrontend_ et exécutez : `azds up -d`
 1. Exécutez `azds list-uris` pour voir le point de terminaison public de _webfrontend_
@@ -91,7 +91,7 @@ Quand vous y êtes invité, sélectionnez _dev_ comme **espace de développement
 
 Conformément à notre hypothèse de départ, nous avons utilisé le nom _scott_ pour le nouvel espace afin que ses homologues puissent identifier qui travaille dans celui-ci. Mais vous pouvez lui donner n’importe quel nom et faire montre de souplesse dans sa signification, comme _sprint4_ ou _démo_. Quoi qu’il en soit, _dev_ sert de base de référence à tous les développeurs qui travaillent sur une partie de cette application :
 
-![](media/common/ci-cd-space-setup.png)
+![Diagramme montrant un espace de développement simple.](media/common/ci-cd-space-setup.png)
 
 Exécutez la commande `azds space list` pour afficher une liste de tous les espaces dans l’environnement de développement. La colonne _Sélectionné_ indique l’espace que vous avez actuellement sélectionné (true/false). Dans votre cas, l’espace nommé _dev/scott_ a été automatiquement sélectionné lors de sa création. Vous pouvez sélectionner un autre espace à tout moment avec la commande `azds space select`.
 

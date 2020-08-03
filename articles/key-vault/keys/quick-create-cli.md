@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault'
+title: Créer et récupérer les attributs d’une clé dans Azure Key Vault - Azure CLI
 description: Démarrage rapide montrant comment définir et récupérer une clé dans Azure Key Vault à l’aide d’Azure CLI
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: defc5317c127d771786989748e404285ca0c0584
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e9d56f0ad2da696eb683ea393ad75254ba3ce954
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061304"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault avec Azure CLI
 
@@ -75,7 +75,7 @@ az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection 
 
 Vous pouvez maintenant référencer cette clé que vous avez ajoutée à Azure Key Vault à l’aide de son URI. Utilisez **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** pour obtenir la version actuelle. 
 
-Pour voir la clé stockée précédemment :
+Pour afficher la clé stockée précédemment :
 
 ```azurecli
 

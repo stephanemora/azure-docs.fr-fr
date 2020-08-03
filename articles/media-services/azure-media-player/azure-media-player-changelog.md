@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281342"
 ---
 # <a name="changelog"></a>Journal des modifications #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (mise à jour officielle du 1er juin 2020)
+
+### <a name="bug-fixes-235"></a>Correctifs de bogues 2.3.5
+
+- [Accessibilité] L’écouteur de la touche Échap dans le volet Options est attaché au document
+- [Accessibilité] Empêcher la disparition de l’interface utilisateur du lecteur si la barre de contrôle ou le menu Options contient le focus
+- La barre de contrôle affiche un temps horloge incorrect quand les paramètres d’affichage du temps horloge sont activés
+
+### <a name="changes-235"></a>Modifications 2.3.5
+
+- Ajout et documentation d’un message d’erreur pour le code d’erreur 0x00400005
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (mise à jour officielle du 4 mars 2020)
+
+### <a name="bug-fixes-234"></a>Correctifs de bogues 2.3.4
+
+- Impossible de définir PlayReady overrideLicenseAcquistionUrl
+- Impossible de lire du contenu avec des discontinuités
+- [Accessibilité] La valeur de l’attribut ID pour l’alerte du lecteur d’écran doit être unique
+- [Accessibilité] Lors de la navigation dans la boîte de dialogue de paramètres Sous-titres, le focus se déplace hors de la boîte de dialogue
+
+### <a name="changes-234"></a>Modifications 2.3.4
+
+- Journaliser Content-Length après un téléchargement réussi pour faciliter l’analyse des erreurs de déchiffrement 2.3.3 (mise à jour officielle du 12 novembre 2019)
+
+### <a name="features-234"></a>Fonctionnalités 2.3.4
+
+- Ajout de la prise en charge de l’affichage du temps horloge d’une vidéo sous forme de superposition et dans la barre de contrôle
+
+### <a name="bug-fixes-234"></a>Correctifs de bogues 2.3.4
+
+- Le commutateur de piste audio fonctionne, mais génère sur IE 11 et Windows 7 l’erreur « L’objet ne gère pas la propriété ou la méthode 'enabled' »
+- Le commutateur de piste audio échoue quand le tampon est entièrement chargé
+- Le commutateur de piste audio échoue quand l’utilisateur interrompt la vidéo et bascule entre les pistes audio très rapidement
+- [Accessibilité] Info-bulles non définies pour le contrôle vidéo sous le lecteur vidéo
+- Boutons de volume manquants sur HTML5 selon le moment auquel « loadstart » est reçu
+- [Accessibilité] Impossible de définir le texte de remplacement pour l’image d’affiche
+- [Accessibilité] Le focus de l’application est perdu après la sélection de l’option « Terminé » dans la boîte de dialogue des paramètres des légendes
+- [Accessibilité] Des attributs ARIA incorrects sont définis pour « video » sous « segments preview »
+
+### <a name="changes-234"></a>Modifications 2.3.4
+
+- Piste/étiquette de légende vide supprimée lors de la lecture TLS sur iOS et MacOS Safari
+- Réduction du nombre d’erreurs 412 pour les légendes IMSC1
+- Générer un avertissement dans la console pour 10 réponses de légende IMSC1 vides consécutives pour faciliter le débogage en direct
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (mise à jour officielle du 9 octobre 2019)
+
+### <a name="features"></a>Fonctionnalités
+
+-Ajout de la prise en charge de PlayReady pour la lecture DASH pour le navigateur Chromium Edge
+
+### <a name="bug-fixes-232"></a>Correctifs de bogues 2.3.2
+
+- La vitesse de lecture actuelle n’est pas affichée dans le menu Vitesse de lecture, sauf si l’utilisateur la définit manuellement
+- [Accessibilité] Le volet « Paramètres » n’est pas réduit avec la touche Échap
+- [Accessibilité] La touche de raccourci AMP « M » ne fonctionne pas quand le narrateur est activé
+
+### <a name="changes-232"></a>Modifications 2.3.2
+
+- Pour les navigateurs qui ne prennent pas en charge le codec audio E-AC3, les pistes audio E-AC3 sont masquées dans le menu Piste audio.
+- Pour les navigateurs qui prennent en charge le codec audio E-AC3, une piste audio E-AC3 est sélectionnée par défaut.
+- Pour les navigateurs qui ne prennent pas en charge le changement de codec audio, les pistes audio dont le codec diffère de celui de la piste sélectionnée sont masquées dans le menu Piste audio.
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (mise à jour officielle du 12 août 2019)
+
+### <a name="features-231"></a>Fonctionnalités 2.3.1
+
+- Signaler un événement lors de la réception de zones de message pendant une lecture DASH - Ajout de la prise en charge de l’affichage des pistes audio ce-3 dans le menu Audio sur les navigateurs qui prennent en charge ce-3 et de la possibilité de passer d’une piste audio aac à ec3 et vice versa uniquement sur le navigateur Edge basé sur Chromimum
+
+### <a name="bug-fixes-231"></a>Correctifs de bogues 2.3.1
+
+- Le menu Piste audio est endommagé après la suppression des pistes ec-3
+- La durée actuelle peut être supérieure à la durée de la vidéo
+- La définition de la vitesse de lecture via initialSpeed ne fonctionne pas
+- Parfois, après une recherche, le lecteur semble coincé
+- Sur Edge et IE, sur un écran tactile, après avoir effectué un zoom sur une page, le fait d’appuyer ou de pointer sur la barre de recherche ne permet pas d’obtenir avec précision le segment correct de la vidéo
+- [Accessibilité] L’étiquette Aria pour la lecture/pause n’est pas explicite pour le lecteur vidéo, mise en correspondance de l’erreur de segment actif introuvable pour flashSS avec la bonne erreur AMP
+- [Accessibilité] Les rôles Aria utilisés pour la lecture/pause doivent être conformes aux valeurs valides (.vjs-text-track-display)
+- [Accessibilité] Certains rôles ARIA doivent se trouver dans des parents particuliers
+- [Accessibilité] Aucune info-bulle n’est définie pour le bouton de lecture/pause du lecteur vidéo. Les légendes IMSC1 peuvent disparaître après une recherche dans la mémoire tampon audio/vidéo actuelle.
+
+### <a name="changes-231"></a>Modifications 2.3.1
+
+- Lors de l’obtention d’une erreur segmentDecryptError et si le lecteur se trouve dans la périphérie en direct, le lecteur actualise le manifeste au lieu d’essayer le segment suivant.
+- Enrichissement de la journalisation pour le diagnostic
+- Mise à jour de la documentation afin d’inclure la prise en charge de FairPlay for iOS Safari
+- Ajout d’un exemple pour le « srclang » de l’option IMSC1
+- Ajout des remplacements padding, textPadding et boxShadow pour les pistes de texte.
+- Ajout d’un code d’erreur (0x0020025B) pour bien indiquer que l’échec du téléchargement du segment est dû à l’absence de connexion Internet, au lieu de simplement lever une erreur 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (publication officielle du 30 avril 2019)
+
+### <a name="features-230"></a>Fonctionnalités 2.3.0
+
+- Ajout de la prise en charge des légendes IMSC1 pour DASH
+- Ajout de la prise en charge des ressources vidéo uniquement pour DASH
+- Ajout de l’API presentationTimeOffsetInSec
+
+### <a name="bug-fixes-230"></a>Correctifs de bogues 2.3.0
+
+- Le profil d’heuristiques AMP LowLatency interfère avec la lecture vidéo iOS. Les paramètres d’activation (« mute ») et de désactivation (« unmute ») du son pour certaines langues ont des traductions erronées
+- La valeur aria-valuenow du curseur de la barre de progression est parfois incorrecte
+- La valeur de rôle aria de l’affichage de la piste de texte est incorrecte
+
+### <a name="changes-230"></a>Modifications 2.3.0
+
+- Les journaux incluent maintenant la taille des fragments multimédias téléchargés
+- Suppression de la prise en charge d’IE 9 et d’IE 10
+- Mise à jour de l’exemple CEA708 pour illustrer l’alignement à gauche des légendes
+- Inclusion de MediaError.message dans les journaux pour les échecs de lecture
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (mise à jour officielle du 22 février 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "83698310"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (mise à jour officielle du 9 janvier 2019) ##
 
-### <a name="features"></a>Fonctionnalités ###
+### <a name="features-223"></a>Fonctionnalités 2.2.3 ###
 
 - [Fonctionnalité][HLS] Ajout du menu de pistes audio pour la lecture HLS de Safari
 
@@ -72,7 +184,7 @@ ms.locfileid: "83698310"
 
 ### <a name="changes"></a>Modifications ###
 
-- [Modification][Sous-titrage en direct] Changement du nom de l’API pour les sous-titres CEA de 608 à 708. Pour plus d’informations, consultez [Paramètres des sous-titres CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->.
+- [Modification][Sous-titrage en direct] Changement du nom de l’API pour les sous-titres CEA de 608 à 708. Pour plus d’informations, consultez [Paramètres des sous-titres CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->.
 
 ## <a name="220-official-release"></a>2.2.0 (publication officielle) ##
 

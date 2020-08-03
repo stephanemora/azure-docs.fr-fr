@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536542"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125188"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -111,7 +111,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
     | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez **2** pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
     | | |
 
-3. Sélectionnez **OK**.
+3. Laissez les autres valeurs par défaut et sélectionnez **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
     | Port principal | Entrez **80**. |
     | Pool principal | Sélectionnez **MyBackendPool**.|
     | Sonde d’intégrité | Sélectionnez **myHealthProbe**. |
-    | Créer des règles de trafic sortant implicites | Sélectionnez **Oui**. </br> Pour plus d’informations, notamment sur la configuration avancée des règles de trafic sortant, consultez : </br> [Connexions sortantes dans Azure](load-balancer-outbound-connections.md) </br> [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide du portail Azure](configure-load-balancer-outbound-portal.md)
+    | Créer des règles de trafic sortant implicites | Sélectionnez **Non**.
 
 4. Laissez les autres valeurs par défaut, puis sélectionnez **OK**.
 
@@ -237,6 +237,49 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Zone de disponibilité | **2** |**3**|
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant|
 
+## <a name="create-outbound-rule-configuration"></a>Créer une configuration de règle de trafic sortant
+Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT sortante pour les machines virtuelles dans le pool principal. 
+
+Pour plus d’informations sur les connexions sortantes, consultez [Connexions sortantes dans Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Créer une règle de trafic sortant
+
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
+
+2. Sous **Paramètres**, sélectionnez **Règles de trafic sortant**, puis **Ajouter**.
+
+3. Pour configurer les règles de trafic sortant, utilisez les valeurs suivantes :
+
+    | Paramètre | Value |
+    | ------- | ----- |
+    | Name (Name) | Entrez **myOutboundRule**. |
+    | Adresse IP du serveur frontal | Sélectionnez **Créer nouveau**. </br> Dans **Nom**, entrez **LoadBalancerFrontEndOutbound**. </br> Sélectionnez **Adresse IP** ou **Préfixe d’adresse IP**. </br> Sélectionnez **Créer** sous **Adresse IP publique** ou **Préfixe d’adresse IP publique**. </br> Pour Nom, entrez **myPublicIPOutbound** ou **myPublicIPPrefixOutbound**. </br> Sélectionnez **OK**. </br> Sélectionnez **Ajouter**.|
+    | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes**.|
+    | Réinitialisation du protocole TCP | Sélectionnez **Enabled**.|
+    | Pool principal | Sélectionnez **Créer nouveau**. </br> Entrez **myBackendPoolOutbound** dans **Name**. </br> Sélectionnez **Ajouter**. |
+    | Allocation de port -> Allocation de port | Sélectionnez **Choisir manuellement le nombre de ports de sortie** |
+    | Ports de sortie -> Choisir par | Sélectionnez **Ports par instance** |
+    | Ports de sortie -> Ports par instance | Entrez **10000**. |
+
+4. Sélectionnez **Ajouter**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Ajouter des machines virtuelles au pool sortant
+
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
+
+2. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** .
+
+3. Sélectionnez **myBackendPoolOutbound**.
+
+4. Dans **Réseau virtuel**, sélectionnez **myVNet**.
+
+5. Dans **Machines virtuelles**, sélectionnez **+ Ajouter**.
+
+6. Cochez les cases en regard de **myVM1**, **myVM2** et **myVM3**. 
+
+7. Sélectionnez **Ajouter**.
+
+8. Sélectionnez **Enregistrer**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Option n°2 : Créer un équilibreur de charge (référence SKU De base)](#tab/option-1-create-load-balancer-basic)
 
@@ -310,7 +353,7 @@ Créez le pool d’adresses principal **myBackendPool** afin d’inclure des mac
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name (Name) | Entrez **myBackendPool**. |
+    | Nom | Entrez **myBackendPool**. |
     | Réseau virtuel | Sélectionnez **myVNet**. |
     | Associé à | Sélectionnez **Machines virtuelles** |
 
@@ -441,9 +484,10 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Nom |  **myVM2** |**myVM3**|
     | Groupe à haute disponibilité| Sélectionnez **myAvailabilitySet** | Sélectionnez **myAvailabilitySet**|
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant|
+
 ---
 
-### <a name="install-iis"></a>Installer IIS
+## <a name="install-iis"></a>Installer IIS
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis dans la liste de ressources, sélectionnez **myVM1** qui se trouve dans le groupe de ressources **myResourceGroupLB**.
 

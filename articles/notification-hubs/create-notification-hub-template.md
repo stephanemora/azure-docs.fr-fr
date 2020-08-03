@@ -1,6 +1,6 @@
 ---
 title: Création d’un hub de notification Azure à l’aide d’un modèle Azure Resource Manager
-description: Découvrez comment créer un hub de notification Azure à l’aide d’un modèle Azure Resource Manager.
+description: Découvrez comment créer un hub de notification Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -10,37 +10,37 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a1e947c80ae48ae507d0712e62084538165918be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022444"
 ---
-# <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Démarrage rapide : Création d’un hub de notification Azure à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Démarrage rapide : Création d’un hub de notification à l’aide d’un modèle Resource Manager
 
 Azure Notification Hubs est un moteur d’envoi (push) simple d’utilisation et à grande échelle qui permet d’envoyer des notifications à n’importe quelle plateforme (iOS, Android, Windows, Kindle, etc.) à partir de n’importe quel back-end (cloud ou local). Pour plus d’informations sur le service, consultez [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Ce guide de démarrage rapide utilise un modèle Azure Resource Manager pour créer un espace de noms Azure Notification Hubs et un hub de notification nommé **MyHub** dans cet espace de noms.
+Ce guide de démarrage rapide utilise un modèle Azure Resource Manager (modèle ARM) pour créer un espace de noms Azure Notification Hubs et un hub de notification nommé **MyHub** dans cet espace de noms.
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun.
+Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="create-a-notification-hubs-namespace-and-hub"></a>Création d’un espace de noms Notification Hubs et d’un hub
+## <a name="review-the-template"></a>Vérifier le modèle
 
-### <a name="review-the-template"></a>Vérifier le modèle
-
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
 :::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
 
-* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/2017-04-01/namespaces)
-* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/2017-04-01/namespaces/notificationhubs)
+* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
+* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -86,4 +86,4 @@ Write-Host "Press [ENTER] to continue..."
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

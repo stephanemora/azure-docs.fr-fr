@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault'
+title: 'Démarrage rapide : Définir et voir les certificats Azure Key Vault - Azure PowerShell'
 description: Démarrage rapide montrant comment définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecb9262a96d1c9857283de00224950d9bc7a583f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043909"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault avec Azure PowerShell
 
@@ -61,8 +61,6 @@ La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous v
 * **URI du coffre** : dans l’exemple, il s’agit de https://Contoso-Vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Une fois le coffre créé, votre compte Azure est le seul compte autorisé à exécuter des actions sur ce nouveau coffre.
-
-![Sortie après l’exécution de la commande de création du coffre de clés](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="add-a-certificate-to-key-vault"></a>Ajouter un certificat à Key Vault
 

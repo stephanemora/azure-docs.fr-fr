@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio pour développer en équipe une application .NET Core dans Azure Kubernetes Service.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072974"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio avec Azure Dev Spaces
 
@@ -36,7 +36,7 @@ Votre exemple d’application n’est pas complexe pour le moment. Mais lorsque 
 * Certains développeurs ont recours à la simulation ou à des objets fictifs, pour la plupart de leurs dépendances de service. Cette approche peut aider, mais la gestion de ces objets fictifs peut rapidement impacter les coûts de développement. En outre, cette approche entraîne des différences entre votre environnement de développement et votre environnement de production, ce qui peut provoquer des bogues subtils.
 * Il s’ensuit que les tests d’intégration, quels qu’ils soient, s’avèrent alors difficiles. Les tests d’intégration ne peuvent être effectués qu’après validation, ce qui signifie que vous verrez les problèmes plus tard dans le cycle de développement.
 
-    ![](media/common/microservices-challenges.png)
+    ![Image illustrant les relations entre un service d’application et ses dépendances pour montrer la complexité du test d’intégration.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Travailler dans un espace de développement partagé
 Avec Azure Dev Spaces, vous pouvez configurer un espace de développement *partagé* dans Azure. Chaque développeur peut se concentrer sur sa partie de l’application et peut développer de manière itérative du *code avant validation* dans un espace de développement qui contient déjà tous les autres services et ressources de cloud nécessaires à leurs scénarios. Les dépendances sont toujours à jour et la façon de travailler des développeurs reflète celle des équipes de production.
@@ -63,8 +63,8 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**.
 1. Sélectionnez l’onglet **Debug** (Déboguer) sur la gauche pour afficher les paramètres d’Azure Dev Spaces.
 1. Sélectionnez **Modifier** pour créer l’espace qui doit être utilisé lorsque vous aurez appuyé sur les touches F5 ou Ctrl + F5 pour ce service.
-1. Dans la liste déroulante Espace, sélectionnez **\<Créer un espace…\>** .
-1. Vérifiez que l’espace parent est défini sur **\<aucun\>** , puis entrez le nom **dev** pour l’espace. Cliquez sur OK.
+1. Dans la liste déroulante Espace, sélectionnez **\<Create New Space…\>** .
+1. Vérifiez que l’espace parent est défini sur **\<none\>** , puis entrez le nom **dev** pour l’espace. Cliquez sur OK.
 1. Appuyez sur Ctrl + F5 pour exécuter _mywebapi_ sans le débogueur attaché.
 1. Basculez vers la fenêtre Visual Studio contenant le projet _webfrontend_, puis appuyez sur Ctrl + F5 pour l’exécuter également.
 
@@ -88,17 +88,17 @@ Procédez comme suit pour créer un nouvel espace :
 2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**.
 3. Sélectionnez l’onglet **Debug** (Déboguer) sur la gauche pour afficher les paramètres d’Azure Dev Spaces.
 4. Ici, vous pouvez modifier ou créer le cluster et/ou l’espace qui sera utilisé lorsque vous appuyez sur F5 ou Ctrl + F5. *Assurez-vous que l’espace de développement Azure que vous avez créé précédemment est sélectionné*.
-5. Dans la liste déroulante Espace, sélectionnez **\<Créer un espace…\>** .
+5. Dans la liste déroulante Espace, sélectionnez **\<Create New Space…\>** .
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Capture d’écran montrant la sélection de l’option « Créer un espace » dans la liste déroulante Espace de la section Déboguer de la page de propriétés du projet dans l’Explorateur de solutions Visual Studio](media/get-started-netcore-visualstudio/Settings.png)
 
 6. Dans la boîte de dialogue **Ajouter un espace**, définissez l’espace parent sur **dev**, puis saisissez un nom pour le nouvel espace. Vous pouvez utiliser votre nom pour le nouvel espace (par exemple « Scott ») pour que vos collègues sachent que c’est le vôtre. Cliquez sur **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Capture d’écran montrant la boîte de dialogue Ajouter un espace pour l’ajout d’un nouvel espace de développement en vue d’un développement en équipe](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. Vous devriez maintenant voir votre cluster AKS et un nouvel espace sélectionné dans la page des propriétés du projet.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Capture d’écran montrant le cluster AKS « MyAKS » et l’espace « scott » sélectionnés dans la section Déboguer de la page de propriétés du projet dans l’Explorateur de solutions Visual Studio](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Mettre à jour du code pour *mywebapi*
 
@@ -117,7 +117,7 @@ Procédez comme suit pour créer un nouvel espace :
 
 Voici un diagramme qui vous aidera à comprendre comment les différents espaces fonctionnent. Le chemin violet indique une requête via l’espace _dev_, qui est le chemin par défaut utilisé si aucun espace n’est ajouté à l’URL. Le chemin rose indique une requête via l’espace _dev/scott_.
 
-![](media/common/Space-Routing.png)
+![Diagramme montrant les différences de noms de chemins et le routage des requêtes dans le nouvel espace « dev/scott » et l’espace « dev » par défaut.](media/common/Space-Routing.png)
 
 Cette fonctionnalité intégrée à Azure Dev Spaces vous permet de tester le code de bout en bout dans un environnement partagé sans que chaque développeur n’ait à recréer la pile de services complète dans son espace. Ce routage nécessite que les en-têtes de propagation soient transférés dans le code de votre application, comme illustré dans l’étape précédente de ce guide.
 

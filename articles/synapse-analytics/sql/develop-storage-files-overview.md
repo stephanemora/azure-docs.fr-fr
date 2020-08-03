@@ -1,5 +1,5 @@
 ---
-title: Accéder aux fichiers sur le stockage avec SQL à la demande (préversion) dans Synapse SQL
+title: Accéder aux fichiers sur le stockage dans SQL à la demande (préversion)
 description: Décrit l’interrogation des fichiers de stockage avec des ressources SQL à la demande (préversion) dans Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046870"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Accès au stockage externe dans Synapse SQL (à la demande)
 
@@ -43,7 +43,7 @@ L’utilisateur peut accéder au stockage à l’aide des règles d’accès sui
 - Utilisateur Azure AD : OPENROWSET utilise l’identité Azure AD de l’appelant pour accéder au Stockage Azure ou pour accéder au stockage avec un accès anonyme.
 - Utilisateur SQL : OPENROWSET accède au stockage avec un accès anonyme.
 
-Les principaux SQL peuvent également utiliser OPENROWSET pour interroger directement des fichiers protégés par des jetons SAS ou l’identité managée de l’espace de travail. Si un utilisateur SQL exécute cette fonction, un utilisateur avancé disposant de l’autorisation ALTER ANY CREDENTIAL doit créer des informations d’identification de portée serveur qui correspondent à l’URL dans la fonction (à l’aide du nom et du conteneur de stockage) et accorder l’autorisation REFERENCES pour ces informations d’identification à l’appelant de la fonction OPENROWSET :
+Les principaux SQL peuvent également utiliser OPENROWSET pour interroger directement des fichiers protégés par des jetons SAS ou l’identité managée de l’espace de travail. Si un utilisateur SQL exécute cette fonction, un utilisateur avancé disposant de l’autorisation `ALTER ANY CREDENTIAL` doit créer des informations d’identification de portée serveur qui correspondent à l’URL dans la fonction (à l’aide du nom et du conteneur de stockage) et accorder l’autorisation REFERENCES pour ces informations d’identification à l’appelant de la fonction OPENROWSET :
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ DATABASE SCOPED CREDENTIAL spécifie comment accéder aux fichiers sur la source
 L’appelant doit disposer de l’une des autorisations suivantes pour exécuter la fonction OPENROWSET :
 
 - L’une des autorisations pour exécuter OPENROWSET :
-  - ADMINISTER BULK OPERATION permet à la connexion d’exécuter la fonction OPENROWSET.
-  - ADMINISTER DATABASE BULK OPERATION permet à l’utilisateur de portée base de données d’exécuter la fonction OPENROWSET.
+  - `ADMINISTER BULK OPERATIONS` permet à la connexion d’exécuter la fonction OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS` permet à l’utilisateur de portée base de données d’exécuter la fonction OPENROWSET.
 - REFERENCES DATABASE SCOPED CREDENTIAL sur les informations d’identification référencées dans la source de données externe (EXTERNAL DATA SOURCE)
 
 #### <a name="accessing-anonymous-data-sources"></a>Accès à des sources de données anonymes
@@ -151,13 +151,13 @@ Le tableau suivant présente les autorisations nécessaires pour les opérations
 
 | Requête | Autorisations requises|
 | --- | --- |
-| OPENROWSET(BULK) sans source de données | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN`ou la connexion SQL doit avoir REFERENCES CREDENTIAL::\<URL> pour le stockage protégé par SAS |
-| OPENROWSET(BULK) avec source de données sans informations d’identification | `ADMINISTER BULK ADMIN` ou `ADMINISTER DATABASE BULK ADMIN` |
-| OPENROWSET(BULK) avec source de données avec informations d’identification | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` ou `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OPENROWSET(BULK) sans source de données | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS`ou la connexion SQL doit avoir REFERENCES CREDENTIAL::\<URL> pour le stockage protégé par SAS |
+| OPENROWSET(BULK) avec source de données sans informations d’identification | `ADMINISTER BULK OPERATIONS` ou `ADMINISTER DATABASE BULK OPERATIONS` |
+| OPENROWSET(BULK) avec source de données avec informations d’identification | `REFERENCES DATABASE SCOPED CREDENTIAL` et soit `ADMINISTER BULK OPERATIONS` soit `ADMINISTER DATABASE BULK OPERATIONS` |
 | CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` et `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT` et `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECT FROM EXTERNAL TABLE | `SELECT TABLE` et `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | Pour créer une table : `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` et `ALTER ANY EXTERNAL FILE FORMAT`. Pour lire les données : `ADMIN BULK OPERATIONS` ou `REFERENCES CREDENTIAL` ou `SELECT TABLE` pour chaque table/vue/fonction dans la requête + autorisation de lecture/écriture sur le stockage |
+| CETAS | Pour créer une table : `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` et `ALTER ANY EXTERNAL FILE FORMAT`. Pour lire les données : `ADMINISTER BULK OPERATIONS` ou `REFERENCES CREDENTIAL` ou `SELECT TABLE` pour chaque table/vue/fonction dans la requête + autorisation de lecture/écriture sur le stockage |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

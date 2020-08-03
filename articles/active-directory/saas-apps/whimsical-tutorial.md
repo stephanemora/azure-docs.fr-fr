@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401ca1a22b47555f530e1785e25653269403812c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1c16f83be4cd10f53705633b9c4f4eb522c8408e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058169"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Whimsical
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Whimsical pour lequel l’authentification unique est activée
+* Espace de travail d’équipe Whimsical.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://whimsical.com/@<TENANT_NAME>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Whimsical](mailto:help@whimsical.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Vos valeurs spécifiques sont visibles sur l’écran de configuration SAML dans les paramètres de l’espace de travail Whimsical. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application Whimsical s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -146,7 +146,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-whimsical-sso"></a>Configurer l’authentification unique Whimsical
 
-Pour configurer l’authentification unique côté **Whimsical**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Whimsical](mailto:help@whimsical.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Whimsical**, vous devez charger le fichier **XML de métadonnées de fédération** que vous venez de télécharger dans les [paramètres de votre espace de travail](https://whimsical.com/workspace/settings).
+
+![Configuration SAML de l’espace de travail Whimsical](media/whimsical-tutorial/saml-setup.png)
+
+Le chargement du fichier **XML de métadonnées de fédération** devrait être la seule étape que vous devez effectuer dans Whimsical pour configurer la connexion d’authentification unique SAML.
 
 ### <a name="create-whimsical-test-user"></a>Créer un utilisateur de test Whimsical
 

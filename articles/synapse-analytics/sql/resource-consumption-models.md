@@ -1,5 +1,5 @@
 ---
-title: Consommation de ressources SQL dans Synapse Analytics
+title: Consommation de ressources Synapse SQL
 description: Découvrez les modèles de consommation Synapse SQL dans Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112754"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369014"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consommation de ressources SQL dans Synapse Analytics
+# <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
 Cet article décrit les modèles de consommation des ressources de Synapse SQL (préversion).
 
@@ -99,7 +99,7 @@ Le pool SQL est un système de Scale-out qui peut fournir des quantités import
 
 La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Les rôles intégrés pour les ressources Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
+Les rôles intégrés Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
 
 #### <a name="view-current-dwu-settings"></a>Afficher les paramètres d’unités DWU actuels
 

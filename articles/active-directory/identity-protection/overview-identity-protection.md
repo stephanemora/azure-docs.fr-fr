@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019609"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Présentation d’Azure Active Directory Identity Protection
 
@@ -71,7 +71,7 @@ Vous trouverez des informations supplémentaires dans l'article [Procédure : E
 
 ## <a name="exporting-risk-data"></a>Exportation des données liées aux risques
 
-Les données d'Identity Protection peuvent être exportées vers d'autres outils à des fins d'archivage, d'examen et de mise en corrélation. Les API basées sur Microsoft Graph permettent aux organisations de collecter ces données pour un traitement ultérieur dans un outil tel que SIEM. Pour plus d'informations sur l'accès à l'API Identity Protection, consultez l'article [Prise en main d'Azure Active Directory Identity Protection et de Microsoft Graph](howto-identity-protection-graph-api.md).
+Les données d’Identity Protection peuvent être exportées vers d’autres outils à des fins d’archivage, d’examen et de mise en corrélation. Les API basées sur Microsoft Graph permettent aux organisations de collecter ces données pour un traitement ultérieur dans un outil tel que SIEM. Pour plus d'informations sur l'accès à l'API Identity Protection, consultez l'article [Prise en main d'Azure Active Directory Identity Protection et de Microsoft Graph](howto-identity-protection-graph-api.md).
 
 Pour en savoir plus sur l'intégration des informations d'Identity Protection dans Azure Sentinel, consultez l'article [Connecter des données depuis Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 

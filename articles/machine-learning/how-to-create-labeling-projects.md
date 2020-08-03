@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146540"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326439"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -21,11 +21,11 @@ ms.locfileid: "86146540"
 
 L’étiquetage de grandes quantités de données est souvent un casse-tête dans les projets de Machine Learning. Les projets qui ont un composant de vision par ordinateur, par exemple la classification d’images ou la détection d’objet, nécessitent généralement des étiquettes pour des milliers d’images.
  
-[Azure Machine Learning](https://ml.azure.com/) vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage (préversion publique). Il vous permet de coordonner les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. Machine Learning prend en charge la classification d’images (multiétiquette ou multiclasse) ainsi que l’identification d’objets avec des cadres englobants.
+L’étiquetage des données [Azure Machine Learning](https://ml.azure.com/) vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage. Il vous permet de coordonner les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. Machine Learning prend en charge la classification d’images (multiétiquette ou multiclasse) ainsi que l’identification d’objets avec des cadres englobants.
 
-Azure Machine Learning effectue un suivi de la progression et gère la file d’attente des tâches d’étiquetage incomplètes.
+L’étiquetage des données effectue un suivi de la progression et gère la file d’attente des tâches d’étiquetage incomplètes.
 
-Vous pouvez démarrer et arrêter le projet, et superviser la progression de l’étiquetage. Vous pouvez exporter des données étiquetées au format COCO ou en tant que jeu de données Azure Machine Learning.
+Vous pouvez démarrer et arrêter le projet, ainsi que contrôler la progression de l’étiquetage. Vous pouvez passer en revue les données étiquetées et les exporter au format COCO ou en tant que jeu de données Azure Machine Learning.
 
 > [!Important]
 > Seuls les projets d’étiquetage de classification des images et d’identification des objets sont actuellement pris en charge. De plus, les images de données doivent être disponibles dans un magasin de données blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.)
@@ -57,9 +57,9 @@ Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom ap
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Assistant Création de projet d’étiquetage":::
 
-* Choisissez **Classification d’images multiclasses** pour les projets où vous souhaitez appliquer uniquement une *seule classe* d’un ensemble de classes à une image.
-* Choisissez **Classification d’images multiétiquettes** pour les projets où vous souhaitez appliquer *une ou plusieurs* étiquettes d’un ensemble de classes à une image. Par exemple, vous pouvez étiqueter la photo d’un chien avec *dog* (chien) et *daytime* (jour).
-* Choisissez **Identification d’objet (cadre englobant)** pour les projets où vous souhaitez affecter une classe et un cadre englobant à chaque objet d’une image.
+* Choisissez **Classification d'images (plusieurs classes)** pour les projets où vous souhaitez appliquer uniquement une *seule étiquette* d’un ensemble d’étiquettes à une image.
+* Choisissez **Classification d’images (plusieurs étiquettes)** pour les projets où vous souhaitez appliquer *une ou plusieurs* étiquettes d’un ensemble d’étiquettes à une image. Par exemple, vous pouvez étiqueter la photo d’un chien avec *dog* (chien) et *daytime* (jour).
+* Choisissez **Identification d’objet (cadre englobant)** pour les projets où vous souhaitez affecter une étiquette et un cadre englobant à chaque objet d’une image.
 
 Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
 
@@ -148,6 +148,10 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
+> [!IMPORTANT]
+> L’étiquetage assisté par ML est actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 La page **ML assisted labeling** (Étiquetage assisté par ML) vous permet de déclencher des modèles Machine Learning automatiques pour accélérer la tâche d’étiquetage. Au début de votre projet d’étiquetage, les images sont mélangées dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos images appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
 
 Sélectionnez *Enable ML assisted labeling* (Activer l’étiquetage assisté par ML) et spécifiez un GPU pour activer l’étiquetage assisté, qui se compose de deux phases :
@@ -183,14 +187,54 @@ Une fois le projet d’étiquetage initialisé, certains de ses aspects sont non
 > Cette page peut ne pas s’actualiser automatiquement. Après une pause, actualisez donc manuellement la page pour que l’état du projet indique **Créé**.
 
 ## <a name="run-and-monitor-the-project"></a>Exécuter et surveiller le projet
+Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez le projet dans la page **Étiquetage des données** principale pour voir les détails du projet.
 
-Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez le projet dans la page **Étiquetage des données** principale pour accéder à **Détails du projet**. L’onglet **Tableau de bord** affiche la progression de la tâche d’étiquetage.
+Pour mettre en pause ou redémarrer le projet, changez l’état **En cours d’exécution** en haut à droite. Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
+
+### <a name="dashboard"></a>tableau de bord
+
+L’onglet **Tableau de bord** affiche la progression de la tâche d’étiquetage.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Tableau de bord d’étiquetage des données":::
+
+Le graphique de progression indique le nombre d’éléments qui ont été étiquetés et le nombre d’éléments en attente d’étiquetage.  Il se peut que les éléments en attente :
+
+* N’aient pas encore été ajoutés à une tâche
+* Aient été inclus dans une tâche qui a été assignée à un étiqueteur mais qui n’est pas encore terminée 
+* Soient dans la file d’attente des tâches à affecter
+
+La section centrale affiche la file d’attente des tâches à affecter. Lorsque l’étiquetage assisté par ML est désactivé, cette section indique le nombre de tâches manuelles à affecter. Lorsque l’étiquetage assisté par ML est activé, les éléments suivants s’affichent également :
+
+* Tâches contenant des éléments en cluster dans la file d’attente
+* Tâches contenant des éléments pré-étiquetés dans la file d’attente
+
+En outre, lorsque l’étiquetage assisté par ML est activé, une petite barre de progression s’affiche lors de la prochaine exécution de l’apprentissage.  Les sections Expériences fournissent des liens pour chaque exécution Machine Learning.
+
+* Apprentissage : effectue l’apprentissage d’un modèle pour prédire les étiquettes
+* Validation : détermine si la prédiction de ce modèle est utilisée pour l’étiquetage préalable des éléments 
+* Inférence : exécution de prédiction pour les nouveaux éléments
+* Caractérisation : éléments de clusters (uniquement pour les projets de classification d’images)
+
+Dans la partie droite se trouve une distribution des étiquettes pour les tâches qui sont terminées.  Notez que, dans certains types de projets, un élément peut avoir plusieurs étiquettes, auquel cas le nombre total d’étiquettes peut être supérieur au nombre total d’éléments.
+
+### <a name="data-tab"></a>Onglet Données
 
 Sous l’onglet **Données**, vous pouvez voir votre jeu de données et passer en revue les données étiquetées. Si vous voyez des données étiquetées de manière incorrecte, sélectionnez-les, puis choisissez **Rejeter**. Les étiquettes sont alors supprimées et les données replacées en file d’attente des données sans étiquette.
 
-Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer** . Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
+### <a name="details-tab"></a>Onglet Détails
 
-Vous pouvez étiqueter des données directement à partir de la page **Détails du projet** en sélectionnant **Étiqueter les données**.
+Affichez les détails de votre projet.  Dans cet onglet, vous pouvez :
+
+* Afficher les détails du projet et les jeux de données d’entrée
+* Activer l’actualisation incrémentielle
+* Afficher les détails du conteneur de stockage utilisé pour stocker les sorties étiquetées dans votre projet
+* Ajouter des étiquettes à votre projet
+* Modifier les instructions que vous donnez à vos étiquettes
+* Modifier les détails de l’étiquetage assisté par ML, notamment l’activation/la désactivation
+
+### <a name="access-for-labelers"></a>Accès pour les étiqueteurs
+
+Toute personne ayant accès à votre espace de travail peut étiqueter les données de votre projet.  Vous pouvez également personnaliser les autorisations associées à vos étiquettes afin que l’utilisateur puisse accéder aux étiquettes, mais pas à d’autres parties de l’espace de travail ou à votre projet d’étiquetage.  Pour plus d’informations, consultez [Gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md) et découvrez comment créer le [rôle personnalisé Étiqueteur](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Ajouter une nouvelle classe d’étiquette à un projet
 
@@ -199,7 +243,7 @@ Durant le processus d’étiquetage, vous pouvez constater que des étiquettes s
 Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes suivantes :
 
 1. Sélectionnez le projet dans la page **Étiquetage des données** principale.
-1. En haut de la page, sélectionnez **Suspendre** pour cesser l’activité des étiqueteurs.
+1. En haut à droite de la page, basculez **En cours d’exécution** sur **Mis en pause** pour arrêter les étiqueteurs dans leur activité.
 1. Sélectionnez l’onglet **Détails**.
 1. Dans la liste à gauche, sélectionnez **Classes d’étiquette**.
 1. En haut de la liste, sélectionnez **+ Ajouter des étiquettes** ![Ajouter une étiquette](media/how-to-create-labeling-projects/add-label.png).
@@ -208,7 +252,7 @@ Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes su
     * Recommencer en conservant toutes les étiquettes existantes.  Choisissez cette option pour marquer toutes les données comme non étiquetées, mais en conservant les étiquettes existantes comme étiquettes par défaut pour les images précédemment étiquetées.
     * Continuer en conservant toutes les étiquettes existantes. Choisissez cette option pour laisser toutes les données déjà étiquetées telles quelles et commencer à utiliser la nouvelle étiquette pour les données qui ne sont pas encore étiquetées.
 1. Modifiez votre page d’instructions au besoin pour la ou les nouvelles étiquettes.
-1. Une fois toutes les nouvelles étiquettes ajoutées, sélectionnez **Démarrer** en haut de la page pour redémarrer le projet.  
+1. Une fois que vous avez ajouté toutes les nouvelles étiquettes, en haut à droite de la page, basculez **Mis en pause** sur **En cours d’exécution** pour redémarrer le projet.  
 
 ## <a name="export-the-labels"></a>Exporter les étiquettes
 

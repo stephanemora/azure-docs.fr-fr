@@ -8,16 +8,20 @@ ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9bb94ee63873dea321af252a4380a7aab10df6ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071482"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser Python afin de se connecter à Azure Database pour PostgreSQL et d’interroger les données – Serveur unique
 
 Dans ce guide de démarrage rapide, vous utilisez Azure Database pour PostgreSQL à l’aide de Python sur macOS, Ubuntu Linux ou Windows. Le démarrage rapide détaille la connexion à la base de données et l’utilisation d’instructions SQL pour interroger, mettre à jour, insérer ou supprimer des données. Cet article suppose que vous connaissez Python, mais que vous ne connaissez pas Azure Database pour PostgreSQL.
+
+> [!TIP]
+> Si vous envisagez de créer une application Django avec PostgreSQL, consultez le tutoriel [Déployer une application web Django avec PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md).
+
 
 ## <a name="prerequisites"></a>Prérequis
 

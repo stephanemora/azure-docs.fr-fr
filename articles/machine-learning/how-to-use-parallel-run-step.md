@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 475c5b3073b25c79b57a2ab507af642a8af3547f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288868"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,13 +27,13 @@ Avec ParallelRunStep, il est facile de mettre à l’échelle des inférences ho
 
 Dans cet article, vous apprenez à effectuer les tâches suivantes :
 
-> * Configuration des ressources Machine Learning.
-> * Configuration des entrées et de la sortie des données d’inférence par lots.
-> * Préparation du modèle de classification d’image pré-entraîné et basé sur le jeu de données [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
-> * Écriture de votre script d’inférence.
-> * Création d’un [pipeline Machine Learning](concept-ml-pipelines.md) contenant ParallelRunStep et exécution de l’inférence par lots sur les images de test MNIST. 
-> * Nouvelle soumission d’une exécution d’inférence par lots avec de nouveaux paramètres et entrées de données. 
-> * Affichez les résultats.
+> 1. Configuration des ressources Machine Learning.
+> 1. Configuration des entrées et de la sortie des données d’inférence par lots.
+> 1. Préparation du modèle de classification d’image pré-entraîné et basé sur le jeu de données [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
+> 1.  Écriture de votre script d’inférence.
+> 1. Création d’un [pipeline Machine Learning](concept-ml-pipelines.md) contenant ParallelRunStep et exécution de l’inférence par lots sur les images de test MNIST. 
+> 1. Nouvelle soumission d’une exécution d’inférence par lots avec de nouveaux paramètres et entrées de données. 
+> 1. Affichez les résultats.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -100,6 +100,8 @@ else:
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ## <a name="configure-inputs-and-output"></a>Configurer les entrées et la sortie
 
@@ -203,16 +205,16 @@ model = Model.register(model_path="models/",
 Le script *doit contenir* deux fonctions :
 - `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global. Cette fonction est appelée une seule fois au début du processus.
 -  `run(mini_batch)`: cette fonction s’exécute pour chaque instance de `mini_batch`.
-    -  `mini_batch`: ParallelRunStep appellera la méthode d’exécution et passera soit une liste, soit un dataframe Pandas en tant qu’argument à la méthode. Chaque entrée de mini_batch sera un chemin de fichier si l’entrée est un FileDataset, ou un dataframe Pandas si l’entrée est un TabularDataset.
-    -  `response`: la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de l’exécution d’une entrée dans le mini-lot d’entrée. Vérifiez que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper l’entrée au résultat de la sortie de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie, mais pas nécessairement dans l’ordre. Vous devez utiliser une clé dans la sortie pour la mapper à l’entrée.
+    -  `mini_batch` : `ParallelRunStep` va appeller la méthode d’exécution, et passer une liste ou un `DataFrame` Pandas en tant qu’argument à la méthode. Chaque entrée de mini_batch sera un chemin de fichier si l’entrée est un `FileDataset`, ou un `DataFrame` Pandas si l’entrée est un `TabularDataset`.
+    -  `response` : la méthode run() doit retourner un `DataFrame` Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de l’exécution d’une entrée dans le mini-lot d’entrée. Vérifiez que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper l’entrée au résultat de la sortie de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie, mais pas nécessairement dans l’ordre. Vous devez utiliser une clé dans la sortie pour la mapper à l’entrée.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -287,7 +289,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig` est la configuration principale de l’instance `ParallelRunStep` dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, dont toutes les entrées suivantes :
 - `entry_script`: script utilisateur utilisé comme un chemin de fichier local qui sera exécuté en parallèle sur plusieurs nœuds. Si `source_directory` est présent, utilisez un chemin relatif. Dans le cas contraire, utilisez un chemin accessible sur la machine.
-- `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (Facultatif ; la valeur par défaut est `10` fichiers pour FileDataset et `1MB` pour TabularDataset.)
+- `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (Facultatif ; la valeur par défaut est `10` fichiers pour `FileDataset` et `1MB` pour `TabularDataset`.)
     - Pour `FileDataset`, il s’agit du nombre de fichiers avec une valeur minimale de `1`. Vous pouvez combiner plusieurs fichiers dans un mini-lot.
     - Pour `TabularDataset`, il s’agit de la taille des données. Par exemple, il peut s’agir des valeurs `1024`, `1024KB`, `10MB` ou `1GB`. `1MB` est la valeur recommandée. Le mini-lot de `TabularDataset` ne franchira jamais les limites du fichier. Par exemple, si vous avez des fichiers .csv de différentes tailles, le plus petit fichier aura une taille de 100 Ko et le plus grand une taille de 10 Mo. Si vous définissez `mini_batch_size = 1MB`, les fichiers dont la taille est inférieure à 1 Mo seront traités ensemble comme un mini-lot. Les fichiers dont la taille est supérieure à 1 Mo seront répartis dans plusieurs mini-lots.
 - `error_threshold`: nombre d’échecs d’enregistrement pour `TabularDataset` et d’échecs de fichiers pour `FileDataset` qui doivent être ignorés pendant le traitement. Si le nombre d’erreurs présentes dans la totalité de l’entrée dépasse cette valeur, le travail est annulé. Le seuil d’erreur concerne la totalité de l’entrée et non le mini-lot envoyé à la méthode `run()`. La plage est la suivante : `[-1, int.max]`. La partie `-1` indique qu’il faut ignorer tous les échecs au cours du traitement.
@@ -304,7 +306,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: délai d’attente de l’appel de la méthode `run()`, en secondes. (Facultatif ; la valeur par défaut est `60`.)
 - `run_max_try`: nombre maximal de tentatives de `run()` pour un mini-lot. `run()` a échoué si une exception est levée, ou si rien n’est retourné lorsque `run_invocation_timeout` est atteint (facultatif ; la valeur par défaut est `3`). 
 
-Vous pouvez spécifier `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` et `run_max_try` en tant que `PipelineParameter` ; ainsi, lorsque vous soumettez à nouveau une exécution de pipeline, vous pouvez ajuster les valeurs des paramètres. Dans cet exemple, vous utilisez PipelineParameter pour `mini_batch_size` et `Process_count_per_node`, et vous modifierez ces valeurs quand vous soumettrez à nouveau une exécution ultérieurement. 
+Vous pouvez spécifier `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` et `run_max_try` en tant que `PipelineParameter` ; ainsi, lorsque vous soumettez à nouveau une exécution de pipeline, vous pouvez ajuster les valeurs des paramètres. Dans cet exemple, vous utilisez `PipelineParameter` pour `mini_batch_size` et `Process_count_per_node`, et vous changez ces valeurs quand vous soumettez à nouveau une exécution ultérieurement. 
 
 Cet exemple suppose que vous utilisez le script `digit_identification.py` abordé précédemment. Si vous utilisez votre propre script, changez les paramètres `source_directory` et `entry_script` en conséquence.
 
@@ -394,7 +396,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## <a name="view-the-results"></a>View the results
 
-Les résultats de l’exécution ci-dessus sont écrits dans le magasin de données spécifié dans l’objet PipelineData comme données de sortie, qui dans ce cas sont appelées *inférences*. Les résultats sont stockés dans le conteneur d’objets blob par défaut. Vous pouvez accéder à votre compte de stockage et observer via l’Explorateur Stockage que le chemin de fichier est azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+Les résultats de l’exécution ci-dessus sont écrits dans le `DataStore` spécifié dans l’objet `PipelineData` comme données de sortie, qui dans le cas présent sont appelées des *inférences*. Les résultats sont stockés dans le conteneur d’objets blob par défaut. Vous pouvez accéder à votre compte de stockage et observer via l’Explorateur Stockage que le chemin de fichier est azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
 
 Vous pouvez également télécharger ces données pour voir les résultats. Voici l’exemple de code permettant d’afficher les 10 premières lignes.
 

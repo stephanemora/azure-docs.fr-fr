@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001823"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutoriel : Déployer et parcourir pas à pas un modèle d’application de surveillance continue des patients
 
@@ -85,7 +85,10 @@ Si vous cliquez sur l’onglet **Device templates** (Modèles d’appareils), vo
 >[!div class="mx-imgBorder"] 
 >![Modèle d’appareil Smart Vitals Patch](media/smart-vitals-device-template.png)
 
-Si vous cliquez sur l’onglet **Device groups** (Groupes d’appareils), vous pourrez aussi constater que des groupes d’appareils sont créés automatiquement pour ces modèles d’appareils.
+### <a name="device-groups"></a>Groupes d’appareils 
+Les groupes d’appareils vous permettent de regrouper logiquement un ensemble d’appareils pour effectuer des requêtes ou des opérations en bloc sur ceux-ci. 
+
+Si vous cliquez sur l’onglet Groupes d’appareils, vous voyez que nous avons créé des groupes d’appareils par défaut pour chacun des modèles d’appareils dans l’application. Vous remarquerez que nous avons aussi créé deux exemples de groupes d’appareils supplémentaires appelés « Provision devices » (Appareils de provisionnement) et « Devices with outdated firmware » (Appareils avec microprogramme obsolète). Nous allons utiliser ces exemples de groupes d’appareils comme entrées pour exécuter des [travaux](#jobs).
 
 ### <a name="rules"></a>Règles
 
@@ -100,6 +103,13 @@ En accédant à l’onglet de règles, vous constaterez la présence de trois r�
 >[!div class="mx-imgBorder"] 
 >![Règle Brace temperature high rule (Température élevée de l’attelle)](media/brace-temp-rule.png)
 
+### <a name="jobs"></a>travaux
+
+Les travaux vous permettent d’exécuter des opérations en bloc sur un ensemble d’appareils, en utilisant des [groupes d’appareils](#device-groups) comme entrée. Nous avons amorcé le modèle d’application avec deux exemples de travaux qu’un opérateur de solution pourrait être amené à exécuter à un moment donné du cycle de vie des appareils :
+* **Mettre à jour le microprogramme des genouillères** : Ce travail va rechercher les appareils dans le groupe d’appareils « Devices with outdated firmware » et exécutera une commande pour mettre à jour ces appareils vers la dernière version du microprogramme de la genouillère. Cet exemple de travail suppose que les appareils peuvent recevoir une commande « update » et récupérer directement les fichiers de microprogramme à partir du cloud.  
+
+* **Reprovisionner des appareils** : Si vous avez un ensemble d’appareils qui ont été récemment retournés à l’hôpital et doivent être reprovisionnés pour l’ensemble suivant de patients, vous pouvez exécuter ce travail pour mettre à jour vos appareils de provisionnement en bloc. Dans ce cas, nous prenons tous les appareils d’un groupe d’appareils appelé « Provision devices » et nous exécutons une commande pour les « reprovisionner ». 
+
 ### <a name="devices"></a>Appareils
 
 Cliquez sur l’onglet **Devices** (Appareils), puis sélectionnez une instance de **Smart Knee Brace**. Vous constatez alors qu’il existe trois vues qui permettent d’explorer les informations sur l’appareil que vous avez sélectionné. Ces vues sont créées et publiées au moment de générer le modèle de l’appareil, ce qui signifie qu’elles sont identiques sur tous les appareils que vous connectez ou simulez.
@@ -112,6 +122,10 @@ L’onglet **Commands** (Commandes) vous permet d’exécuter des commandes qui 
 
 >[!div class="mx-imgBorder"] 
 >![Vues de l’attelle de genou Smart Knee Brace](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>Exportation de données
+
+L’exportation de données vous permet d’exporter les données de vos appareil IoT Central en continu vers d’autres services Azure, notamment l’[API Azure pour FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

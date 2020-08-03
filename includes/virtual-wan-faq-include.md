@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143898"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374845"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -233,9 +233,17 @@ Si un hub virtuel apprend la même route à partir de plusieurs hubs distants, l
 
 Le transit entre ER et ER s’effectue toujours via Global Reach. Les passerelles de hub virtuel sont déployées dans les régions DC ou Azure. Lorsque deux circuits ExpressRoute se connectent via Global Reach, il n’est pas nécessaire que le trafic fasse tout le chemin à partir des routeurs de périphérie vers le contrôleur de domaine du hub virtuel.
 
-### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>Existe-il un concept de poids dans les circuits Azure Virtual WAN ou les connexions VPN ?
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-expressroute-circuits-or-vpn-connections"></a>Existe-il un concept de poids dans les circuits ExpressRoute Azure Virtual WAN ou les connexions VPN ?
 
 Lorsque plusieurs circuits ExpressRoute sont connectés à un hub virtuel, le poids du routage sur la connexion fournit un mécanisme permettant à ExpressRoute dans le hub virtuel de préférer un circuit à l’autre. Il n’existe aucun mécanisme permettant de définir un poids sur une connexion VPN. Azure préfère toujours une connexion ExpressRoute à une connexion VPN au sein d’un hub individuel.
+
+### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Un réseau étendu virtuel préfère-t-il ExpressRoute à un VPN pour le trafic sortant d’Azure ?
+
+Oui 
+
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Lorsqu’un hub Virtual WAN dispose d’un circuit ExpressRoute et d’un site VPN qui lui est connecté, qu’est-ce qui ferait qu’une route de connexion VPN serait préférable à ExpressRoute ?
+
+Quand un circuit ExpressRoute est connecté à un hub virtuel, les routeurs de périphérie Microsoft constituent le premier nœud pour la communication entre l’environnement local et Azure. Ces routeurs de périphérie communiquent avec les passerelles ExpressRoute du WAN virtuel qui, à leur tour, apprennent les routes auprès du routeur de hub virtuel, qui contrôle toutes les routes entre les diverses passerelles dans le WAN virtuel. Les routeurs de périphérie Microsoft traitent les routes ExpressRoute de hub virtuel avec une préférence plus élevée que les routes apprises à partir de l’environnement local. Quelle qu’en soit la raison, si la connexion VPN devient le support principal à partir duquel le hub virtuel apprend les routes (p. ex., les scénarios de basculement entre ExpressRoute et VPN), à moins que le site VPN possède un chemin AS plus long, le hub virtuel continue à partager les routes apprises via le VPN avec la passerelle ExpressRoute, ce qui fait que les routeurs de périphérie Microsoft préfèrent les routes VPN aux routes locales. 
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Lorsque deux hubs (hub 1 et 2) sont connectés et qu’un circuit ExpressRoute est connecté comme un nœud papillon aux deux hubs, quel est le chemin d’un réseau virtuel connecté au hub 1 lui permettant d’atteindre un réseau virtuel connecté dans le hub 2 ?
 
@@ -244,6 +252,10 @@ Le comportement actuel consiste à préférer le chemin du circuit ExpressRoute 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
 
 IPv6 n’est pas pris en charge dans le hub Virtual WAN et ses passerelles. Si vous disposez d’un réseau virtuel qui prend en charge IPv6 et que vous voulez le connecter à Virtual WAN, ce scénario n’est pas pris en charge actuellement.
+
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Quelle est la version d’API recommandée pour être utilisée par les scripts qui automatisent différentes fonctionnalités de réseau étendu virtuel ?
+
+Cela nécessite au minimum la version 05-01-2020 (1er mai 2020). 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quelles sont les différences entre les types de Virtual WAN (de base et standard) ?
 

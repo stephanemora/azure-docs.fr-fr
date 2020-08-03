@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086793"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Créer un rôle personnalisé pour l’agent d’isolation
 
-Suivez le tutoriel [Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Suivez le tutoriel [Créer un rôle personnalisé Azure à l’aide d’Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Le fichier JSON doit se présenter ainsi :
 
@@ -951,17 +951,17 @@ Nous allons suivre le guide permettant de [créer les ressources de groupe de di
 
 1. Utilisez l’une des commandes suivantes en fonction de l’environnement choisi précédemment pour créer la ressource `ag_cluster` dans le groupe de disponibilité `ag1`.
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Vérifiez que votre ressource est bien en ligne avant d’exécuter la commande suivante :
 

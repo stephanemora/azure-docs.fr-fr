@@ -5,15 +5,15 @@ services: iot-central
 author: dominicbetts
 ms.service: iot-central
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002033"
 ---
 ## <a name="create-a-device-template"></a>Créer un modèle d’appareil
 
@@ -79,12 +79,11 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel au modèle d
 
 1. Dans la page **Appareils**, sélectionnez le modèle d’appareil **Capteur environnemental**.
 
-    > [!TIP]
-    > Veillez à sélectionner le modèle à utiliser avant de sélectionner **+ Nouveau**. Dans le cas contraire, vous créerez un appareil non associé.
-
 1. Sélectionnez **+Nouveau**.
 
-1. Veillez à ce que l’option **Simulé** soit définie sur **Désactivé**. Sélectionnez ensuite **Créer**.
+1. Dans la boîte de dialogue **Créer un appareil**, assurez-vous que **Capteur d’environnement** est le type de modèle et que **Simuler cet appareil ?** est défini sur **Non**.
+
+1. Sélectionnez ensuite **Créer**.
 
 Cliquez sur le nom de l’appareil, puis sélectionnez **Connexion**. Prenez note des informations de connexion de l’appareil dans la page **Connexion de l’appareil** – **Étendue de l’ID**, **ID de l’appareil** et **Clé primaire**. Vous avez besoin de ces valeurs pour créer votre code d’appareil :
 

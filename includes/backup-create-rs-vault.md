@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: backup
 author: dcurwin
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003740"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -51,6 +51,10 @@ Pour créer un coffre Recovery Services, effectuez les étapes suivantes.
       > Si vous ne connaissez pas avec certitude l’emplacement de la source de données, fermez la boîte de dialogue. Accédez à la liste de vos ressources dans le portail. Si vous possédez des sources de données dans plusieurs régions, créez un coffre Recovery Services pour chaque région. Créez le coffre du premier emplacement avant de créer celui d’un autre emplacement. Il est inutile de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde. Le coffre Recovery Services et Sauvegarde Azure gèrent cela automatiquement.
       >
       >
+
+1. Après avoir défini les valeurs, sélectionnez **Vérifier + créer**.
+
+    ![Créer le coffre Recovery Services](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Quand vous êtes prêt à créer le coffre Recovery Services, sélectionnez **Créer**.
 

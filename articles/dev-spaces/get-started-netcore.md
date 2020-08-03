@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application .NET Core sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9c73c191054c9eee183a762d0a029d6c8dc431ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013638"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Créer un espace de développement Kubernetes : Visual Studio Code et .NET Core avec Azure Dev Spaces
 
@@ -20,7 +20,7 @@ Dans ce guide, vous allez apprendre à :
 - Développer du code de façon itérative dans des conteneurs en utilisant VS Code et la ligne de commande.
 - Développer et tester votre code de façon productive dans un environnement d’équipe.
 
-> [!Note]
+> [!NOTE]
 > **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
@@ -33,7 +33,7 @@ Connectez-vous à Azure. Saisissez la commande suivante dans une fenêtre de ter
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Si vous avez plusieurs abonnements Azure...
@@ -126,7 +126,7 @@ En surveillant la sortie de la commande pendant que celle-ci s’exécute, vous 
 - Des informations relatives aux points de terminaison du conteneur s’affichent. Dans notre cas, nous attendons une URL HTTP publique.
 - En supposant que les étapes ci-dessus se sont correctement déroulées, vous devriez commencer à voir la sortie `stdout` (et `stderr`) lorsque le conteneur démarre.
 
-> [!Note]
+> [!NOTE]
 > Ces étapes nécessitent davantage de temps lors de la première exécution de la commande `up` ; les exécutions suivantes s’effectuent plus rapidement.
 
 ### <a name="test-the-web-app"></a>Tester l’application web
@@ -155,10 +155,9 @@ Identifiez l’URL publique pour le service dans la sortie de la commande `up`. 
 
 Pour voir votre application web, ouvrez l’URL publique dans un navigateur. En outre, notez que la sortie de `stdout` et `stderr` est diffusée dans la fenêtre de terminal *azds trace* lorsque vous interagissez avec votre application web. Vous verrez également des informations de suivi pour les requêtes HTTP lorsqu’elles passent par le système. Cela facilite le suivi des appels multiservice complexes pendant le développement. L’instrumentation ajoutée par Dev Spaces fournit ce suivi des requêtes.
 
-![Fenêtre de terminal de azds trace](media/get-started-netcore/azds-trace.png)
+![Fenêtre de terminal a z d s trace](media/get-started-netcore/azds-trace.png)
 
-
-> [!Note]
+> [!NOTE]
 > En plus de l’URL publique, vous pouvez utiliser en guise d’alternative l’URL `http://localhost:<portnumber>` affichée dans la sortie de la console. Si vous utilisez l’URL localhost, le conteneur semble s’exécuter en local. En réalité, il s’exécute dans AKS. Azure Dev Spaces utilise la fonctionnalité de *redirection des ports* de Kubernetes pour mapper le port localhost sur le conteneur en cours d’exécution dans AKS. Cela facilite l’interaction avec le service à partir de votre machine locale.
 
 ### <a name="update-a-content-file"></a>Mettre à jour un fichier de contenu
@@ -191,9 +190,9 @@ Toutefois, vous allez découvrir à la section suivante une *méthode encore plu
 
 Dans cette section, vous utiliserez VS Code pour déboguer directement notre conteneur exécuté dans Azure. Vous apprendrez aussi à obtenir une boucle modification-exécution-test plus rapide.
 
-![](media/common/edit-refresh-see.png)
+![Le schéma montre une boucle de développement avec trois phases : Modifier le code, Actualiser le conteneur et Voir la mise à jour.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initialiser des ressources de débogage avec l’extension VS Code
@@ -203,16 +202,16 @@ Ouvrez la **Palette de commandes** (à partir du menu **Affichage | Palette de c
 
 Celle-ci ajoute la configuration de débogage pour Azure Dev Spaces sous le dossier `.vscode`. Cette commande ne doit pas être confondue avec la commande `azds prep`, qui configure le projet pour le déploiement.
 
-![](media/common/command-palette.png)
+![La capture d’écran montre la sélection de la commande « Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces » dans la fenêtre de la palette de commandes.](media/common/command-palette.png)
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Sélectionner la configuration de débogage AZDS
 1. Pour ouvrir l’affichage de débogage, cliquez sur l’icône Débogage dans la **barre d’activités** située sur le côté de VS Code.
 1. Sélectionnez **Lancer .NET Core (AZDS)** comme configuration de débogage active.
 
-![](media/get-started-netcore/debug-configuration.png)
+![La capture d’écran représente le coin supérieur gauche de la fenêtre Visual Studio Code. L’icône de débogage est mise en surbrillance, le panneau de gauche s’intitule « DEBUG » (DÉBOGUER), et une liste déroulante à droite du titre affiche « .NET Core Launch (AZDS) » (Lancement de .NET Core (AZDS)).](media/get-started-netcore/debug-configuration.png)
 
-> [!Note]
+> [!NOTE]
 > Si la palette de commandes ne présente aucune commande Azure Dev Spaces, vérifiez que vous avez installé l’extension VS Code pour Azure Dev Spaces. Assurez-vous que l’espace de travail que vous avez ouvert dans VS Code correspond au dossier contenant azds.yaml.
 
 
@@ -221,10 +220,10 @@ Pour déboguer votre code dans Kubernetes, appuyez sur **F5**.
 
 Comme avec la commande `up`, le code est synchronisé avec l’espace de développement, et un conteneur est créé et déployé dans Kubernetes. Cette fois-ci, le débogueur est bien entendu joint au conteneur distant.
 
-> [!Tip]
+> [!TIP]
 > La barre d’état VS Code devient orange, indiquant que le débogueur est attaché. Elle affiche également une URL interactive, que vous pouvez utiliser pour ouvrir votre site.
 
-![](media/common/vscode-status-bar-url.png)
+![La capture d’écran montre le bas de la fenêtre de Visual Studio Code. La barre d’état orange est la dernière ligne. Elle contient l’U R L qui ouvre le site web.](media/common/vscode-status-bar-url.png)
 
 Définissez un point d’arrêt dans un fichier de code côté serveur, par exemple dans la fonction `About()` du fichier source `Controllers/HomeController.cs`. L’actualisation de la page du navigateur entraîne l’atteinte du point d’arrêt.
 
@@ -243,7 +242,7 @@ public IActionResult About()
 
 Enregistrez le fichier, puis dans le **volet Actions de débogage**, cliquez sur le bouton **Redémarrer**. 
 
-![](media/common/debug-action-refresh.png)
+![Le volet Actions de débogage est un petit volet situé en haut au centre de la page (juste sous le titre de celle-ci). Le bouton de redémarrage, une flèche circulaire, est mis en évidence. Quand l’utilisateur place le curseur sur le bouton, une image s’affiche, indiquant « Redémarrer (Control + Maj + F 5) ».](media/common/debug-action-refresh.png)
 
 Plutôt que de régénérer et redéployer une image conteneur chaque fois que des modifications de code sont effectuées, cette opération nécessitant généralement un temps considérable, Azure Dev Spaces recompile le code de manière incrémentielle au sein du conteneur existant afin d’accélérer la boucle de modification/débogage.
 

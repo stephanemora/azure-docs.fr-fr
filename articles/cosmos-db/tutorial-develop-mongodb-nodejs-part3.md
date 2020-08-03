@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067167"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Générer l’interface utilisateur avec Angular
 
@@ -41,7 +41,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 ## <a name="build-the-ui"></a>Créer l’interface utilisateur
 
-1. Dans Visual Studio Code, cliquez sur le bouton Arrêter ![Bouton Arrêter dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) pour arrêter l’application Node.
+1. Dans Visual Studio Code, cliquez sur le bouton Arrêter :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: pour arrêter l’application Node. 
 
 2. Dans la fenêtre d’invite de commandes pour Windows ou la fenêtre Terminal pour Mac, entrez la commande suivante pour générer un composant héros. Dans ce code g = générer, c = composant, heroes = nom du composant, et il utilise une structure de fichier plat (--plat) afin de ne pas créer de sous-dossier.
 
@@ -486,7 +486,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
     Exécutons maintenant l’application.
 
-2. Dans Visual Studio Code, cliquez sur le bouton **Déboguer**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) sur le côté gauche, puis cliquez sur le bouton **Démarrer le débogage**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. Dans Visual Studio Code, cliquez sur le bouton **Déboguer** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: sur le côté gauche, puis cliquez sur le bouton **Démarrer le débogage** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
 3. Ouvrez un navigateur internet et accédez à **localhost:3000** pour voir l’application s’exécuter en local.
 

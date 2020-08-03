@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499900"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169327"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -62,7 +63,7 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 
 Une fois l’inscription de l’application terminée, activez le flux d’octroi implicite :
 
-1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
 1. Sous **Octroi implicite**, cochez les deux cases **Jetons d’accès** et **Jetons d’ID**.
 1. Sélectionnez **Enregistrer**.
 
@@ -95,7 +96,7 @@ Si votre application échange un code d’autorisation contre un jeton d’accè
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
 1. Dans la page **Azure AD B2C – Inscriptions d’applications**, sélectionnez l’application que vous avez créée, par exemple *webapp1*.
-1. Sous **Gérer**, sélectionnez **Certificats et secrets**.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Certificats et secrets**.
 1. Sélectionnez **Nouveau secret client**.
 1. Entrez une description pour la clé secrète client dans la zone **Description**. Par exemple, *clientsecret1*.
 1. Sous **Expire**, sélectionnez une durée pendant laquelle le secret est valide, puis sélectionnez **Ajouter**.

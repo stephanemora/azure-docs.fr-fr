@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115671"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -81,10 +81,10 @@ Une stratégie de certificat contient des informations sur la création et la ge
 
 Quand un certificat Key Vault est créé de zéro, une stratégie doit être fournie. La stratégie spécifie comment créer cette version du certificat Key Vault ou la prochaine version. Lorsqu’une stratégie a été définie, des opérations de création successives ne sont pas nécessaires pour les prochaines versions. Il n’existe qu’une seule instance d’une stratégie pour toutes les versions d’un certificat Key Vault.  
 
-Globalement, une stratégie de certificat contient les informations suivantes :  
+Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)) :  
 
 -   Propriétés du certificat X.509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat X.509.  
--   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et réutiliser la clé. Ces champs indiquent au coffre de clés comment générer une clé.  
+-   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et ReuseKeyOnRenewal. Ces champs indiquent au coffre de clés comment générer une clé.  
 -   Propriétés du secret : propriétés du secret comme le type de contenu de secret adressable pour générer la valeur du secret, pour récupérer le certificat en tant que secret.  
 -   Actions de la durée de vie : actions de la durée de vie du certificat KV. Chaque action de la durée de vie contient :  
 

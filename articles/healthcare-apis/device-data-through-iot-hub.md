@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: 95e3e2be175fa810b1b966a7dda5a0e53e23d780
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116850"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutoriel : Recevoir des données d’appareil via Azure IoT Hub
 
@@ -96,7 +96,7 @@ Utilisez votre appareil (réel ou simulé) pour envoyer l’exemple de message d
 Vous pouvez voir les ressources d’observation FHIR créées par le connecteur IoT sur l’API Azure pour FHIR à l’aide de Postman. Configurez [Postman pour accéder à l’API Azure pour FHIR](access-fhir-postman-tutorial.md) et envoyez une requête `GET` sur `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` pour voir les ressources d’observation FHIR avec la valeur de fréquence cardiaque envoyée dans l’exemple de message ci-dessus.
 
 > [!TIP]
-> Assurez-vous que votre utilisateur dispose de l’accès approprié au plan de données de l’API Azure pour FHIR. Utilisez le [contrôle d’accès en fonction du rôle Azure](configure-azure-rbac.md) pour attribuer les rôles de plan de données nécessaires.
+> Vérifiez que votre utilisateur dispose de l’accès approprié au plan de données de l’API Azure pour FHIR. Utilisez le [contrôle d’accès en fonction du rôle Azure](configure-azure-rbac.md) pour attribuer les rôles de plan de données nécessaires.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

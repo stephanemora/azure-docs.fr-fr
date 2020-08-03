@@ -4,15 +4,15 @@ description: Découvrez les fonctionnalités et la syntaxe prises en charge de l
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 07/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076831"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 
@@ -542,7 +542,32 @@ Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri 
 
 ## <a name="unique-indexes"></a>Index uniques
 
-Les index uniques garantissent qu’un champ spécifique ne présente aucune valeur en double dans l’ensemble des documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée dans la clé « _id » par défaut. Vous pouvez créer des index personnalisés dans Cosmos DB à l’aide de la commande createIndex, y compris la contrainte « unique ».
+Les [index uniques](mongodb-indexing.md#unique-indexes) garantissent qu’un champ spécifique ne présente aucune valeur en double dans l’ensemble des documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée dans la clé « _id » par défaut. Vous pouvez créer des index uniques dans Cosmos DB à l’aide de la commande `createIndex` avec le paramètre de contrainte `unique` :
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>Index composés
+
+Les [index composés](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) permettent de créer un index pour des groupes de champs pour un maximum de 8 champs. Ce type d’index diffère des index composés MongoDB natifs. Dans Azure Cosmos DB, les index composés sont utilisés pour le tri des opérations appliquées à plusieurs champs. Pour créer un index composé, vous devez spécifier plusieurs propriétés en tant que paramètre :
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>Durée de vie (TTL)
 

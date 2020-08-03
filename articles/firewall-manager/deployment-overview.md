@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565805"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372363"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Firewall Manager
 
@@ -66,6 +66,13 @@ Azure Firewall Manager peut être déployé de différentes manières, mais la p
 > - Les espaces d’adresses IP des hubs ne doivent pas se chevaucher dans un vWAN.
 > - Vos connexions de réseau virtuel de hub doivent se trouver dans la même région que le hub.
 
+## <a name="convert-virtual-networks"></a>Convertir des réseaux virtuels
+
+Les informations suivantes s’appliquent si vous convertissez un réseau virtuel existant en réseau virtuel hub :
+
+- Si le réseau virtuel possède un pare-feu Azure, vous sélectionnez une stratégie de pare-feu à associer au pare-feu. L’état de provisionnement du pare-feu est mis à jour quand la stratégie de pare-feu remplace les règles de pare-feu. Pendant l’état de provisionnement, le pare-feu continue de traiter le trafic et n’a pas de temps d’arrêt. Vous pouvez importer des règles existantes dans une stratégie de pare-feu à l’aide de Firewall Manager ou d’Azure PowerShell.
+- Si le réseau virtuel n’est associé à aucun pare-feu Azure, un pare-feu est déployé et la stratégie de pare-feu est associée au nouveau pare-feu.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager à l’aide du portail Azure](secure-cloud-network.md)
+- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager à l’aide du Portail Azure](secure-cloud-network.md)

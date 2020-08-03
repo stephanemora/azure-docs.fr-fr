@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a925aab3fb864643a873433b6df4f2275cae365
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9b246734e454e4ca93e0f3176c124cd8869bd015
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298739"
 ---
 Commencez à utiliser la bibliothèque cliente Content Moderator pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Content Moderator est un service cognitif qui vérifie le texte, les images et le contenu vidéo à la recherche d’éléments potentiellement dangereux, offensants ou indésirables. Lorsque des éléments de ce type sont détectés, le service applique les étiquettes appropriées (indicateurs) au contenu. L’application peut ensuite gérer le contenu marqué afin de se conformer aux réglementations ou pour maintenir l’environnement souhaité pour les utilisateurs.
 
@@ -31,7 +31,7 @@ Utilisez la bibliothèque cliente Content Moderator pour Python aux fins suivant
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 
 ## <a name="setting-up"></a>Configuration
@@ -40,10 +40,9 @@ Utilisez la bibliothèque cliente Content Moderator pour Python aux fins suivant
 
 Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Content Moderator en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
 
-* Obtenir une [clé](https://azure.microsoft.com/try/cognitive-services/#decision) pour un essai gratuit valide pendant 7 jours. Une fois l’inscription terminée, elle est disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).
 
-Une fois que vous avez obtenu une clé à partir de votre abonnement ou ressource d’essai, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL de point de terminaison, nommées respectivement `CONTENT_MODERATOR_SUBSCRIPTION_KEY` et `CONTENT_MODERATOR_ENDPOINT`.
+Une fois que vous avez obtenu une clé à partir de votre ressource, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL de point de terminaison, nommées respectivement `CONTENT_MODERATOR_SUBSCRIPTION_KEY` et `CONTENT_MODERATOR_ENDPOINT`.
  
 ### <a name="create-a-python-script"></a>Créer un script Python
 

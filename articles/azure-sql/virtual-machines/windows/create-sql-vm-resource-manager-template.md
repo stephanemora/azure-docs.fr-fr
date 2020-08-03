@@ -1,30 +1,34 @@
 ---
-title: Créer une machine virtuelle SQL Server (Modèle Azure Resource Manager)
-description: Découvrez comment créer une machine virtuelle SQL Server sur Azure à l’aide d’un modèle de Azure Resource Manager.
+title: Créer une machine virtuelle SQL Server à l’aide d’un modèle ARM
+description: Découvrez comment créer une machine virtuelle SQL Server sur Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 8b165f640548f28e5d94e5a791c0fe8545df4d78
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852474"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003847"
 ---
-# <a name="create-sql-server-vm-azure-resource-manager-template"></a>Créer une machine virtuelle SQL Server (Modèle Azure Resource Manager)
+# <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle SQL Server à l’aide d’un modèle ARM
 
-Utilisez ce modèle Azure Resource Manager pour déployer une machine virtuelle SQL Server sur Azure. 
+Utilisez ce modèle Azure Resource Manager (modèle ARM) pour déployer une machine virtuelle SQL Server sur Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Le modèle Resource Manager de machine virtuelle SQL Server nécessite les éléments suivants :
 
-- La version la plus récente de l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) et/ou de [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La version la plus récente de l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) et/ou de [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Un [groupe de ressources](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) préconfiguré avec un [réseau virtuel](../../../virtual-network/quick-create-portal.md) et un [sous-réseau](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) préparés.
 - Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -43,7 +47,7 @@ Cinq ressources Azure sont définies dans le modèle :
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) : crée une machine virtuelle dans Azure. 
 - [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines) : inscrit la machine virtuelle auprès du fournisseur de ressources de machine virtuelle SQL. 
 
-Vous trouverez d’autres modèles de machine virtuelle SQL Server sur Azure dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine).
+Vous trouverez d’autres modèles de machine virtuelle SQL Server sur Azure dans la [galerie de modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
@@ -116,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Pour d’autres façons de déployer une machine virtuelle SQL Server, consultez : 
 - [Azure portal](create-sql-vm-portal.md)

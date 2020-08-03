@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496007"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385532"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Utilisez Spark pour gérer les bases de données créées avec Spark. Par exempl
 
 Si vous créez des objets dans une base de données créée avec Spark à l’aide de SQL à la demande, ou si vous essayez de supprimer la base de données, l’opération réussit, mais la base de données Spark d’origine ne sera pas modifiée.
 
-## <a name="handling-of-name-conflicts"></a>Gestion des conflits de noms
+## <a name="how-name-conflicts-are-handled"></a>Gestion des conflits de noms
 
 Si le nom d’une base de données Spark est en conflit avec le nom d’une base de données SQL à la demande existante, un suffixe est ajouté dans SQL à la demande à la base de données Spark. Le suffixe dans SQL à la demande est `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -57,7 +57,7 @@ Si un principal de sécurité nécessite la capacité à créer ou à supprimer 
 
 ## <a name="examples"></a>Exemples
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Créer une base de données Spark et s’y connecter - SQL à la demande
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Créer une base de données Spark et s’y connecter avec SQL à la demande
 
 Commencez par créer une base de données Spark nommée `mytestdb` à l’aide d’un cluster Spark que vous avez déjà créé dans votre espace de travail. Pour cela, vous pouvez par exemple utiliser un notebook C# Spark avec l’instruction .NET pour Spark suivante :
 

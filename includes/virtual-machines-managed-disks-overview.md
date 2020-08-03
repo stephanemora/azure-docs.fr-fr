@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343444"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102635"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -45,22 +45,30 @@ Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/role-b
 
 ### <a name="upload-your-vhd"></a>Charger votre disque dur virtuel
 
- Le chargement direct vous permet de transférer facilement votre disque dur virtuel vers un disque managé Azure. Jusqu’à présent, vous deviez suivre un processus complexe qui impliquait le placement temporaire de vos données dans un compte de stockage. Il y a désormais moins d’étapes. Il est plus facile de charger des machines virtuelles locales sur Azure et de charger sur de gros disques managés, et le processus de sauvegarde et de restauration est simplifié. Ceci réduit également les coûts, en vous permettant de charger des données directement sur des disques managés sans les attacher aux machines virtuelles. Vous pouvez utiliser le chargement direct pour charger des disques durs virtuels d’une taille maximale de 32 Tio.
+Le chargement direct vous permet de transférer facilement votre disque dur virtuel vers un disque managé Azure. Jusqu’à présent, vous deviez suivre un processus complexe qui impliquait le placement temporaire de vos données dans un compte de stockage. Il y a désormais moins d’étapes. Il est plus facile de charger des machines virtuelles locales sur Azure et de charger sur de gros disques managés, et le processus de sauvegarde et de restauration est simplifié. Ceci réduit également les coûts, en vous permettant de charger des données directement sur des disques managés sans les attacher aux machines virtuelles. Vous pouvez utiliser le chargement direct pour charger des disques durs virtuels d’une taille maximale de 32 Tio.
 
- Pour découvrir comment transférer votre disque dur virtuel sur Azure, consultez les articles [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+Pour découvrir comment transférer votre disque dur virtuel sur Azure, consultez les articles [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="encryption"></a>Chiffrement
+## <a name="security"></a>Sécurité
+
+### <a name="private-links"></a>Liaisons privées
+
+Les disques managés prennent en charge l’utilisation de liaisons privées pour importer ou exporter un disque managé interne à votre réseau. Les liaisons privées vous permettent de générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés que vous pouvez utiliser pour exporter les données vers d’autres régions dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou d’une analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement un disque dur virtuel sur un disque vide à partir de l’environnement local. Vous pouvez désormais tirer parti des [liaisons privées](../articles/private-link/private-link-overview.md) pour restreindre l’exportation et l’importation des disques managés, afin qu’elles aient lieu uniquement au sein de votre réseau virtuel Azure. Les liaisons privées vous permettent de vous assurer que vos données ne transitent que dans le réseau principal sécurisé de Microsoft.
+
+Pour savoir comment activer les liaisons privées pour l’importation ou l’exportation d’un disque managé, consultez les articles relatifs à l’interface [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) ou au [portail](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
+
+### <a name="encryption"></a>Chiffrement
 
 Les disques managés offrent deux types de chiffrement différents. Le premier est le chiffrement côté serveur (SSE, Server Side Encryption), qui est effectué par le service de stockage. Le second est Azure Disk Encryption, que vous pouvez activer sur les disques de système d’exploitation et de données pour vos machines virtuelles.
 
-### <a name="server-side-encryption"></a>Chiffrement côté serveur
+#### <a name="server-side-encryption"></a>Chiffrement côté serveur
 
-Le [chiffrement côté serveur Azure](../articles/virtual-machines/windows/disk-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement côté serveur est activé par défaut pour l’ensemble des disques managés, captures instantanées et images dans toutes les régions où des disques managés sont disponibles. (En revanche, les disques temporaires ne sont pas chiffrés par Storage Service Encryption ; consultez [Rôles de disque : disques temporaires](#temporary-disk)).
+Le chiffrement côté serveur assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement côté serveur est activé par défaut pour l’ensemble des disques managés, captures instantanées et images dans toutes les régions où des disques managés sont disponibles. (En revanche, les disques temporaires ne sont pas chiffrés par le chiffrement côté serveur, sauf si vous activez le chiffrement sur l’hôte ; consultez [Rôles de disque : disques temporaires](#temporary-disk)).
 
-Vous pouvez soit autoriser Azure à gérer vos clés pour vous (clés gérées par la plateforme), soit les gérer vous-même (clés gérées par le client). Pour plus d’informations, voir la [page du FAQ sur la fonctionnalité Disques managés](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption).
+Vous pouvez soit autoriser Azure à gérer vos clés pour vous (clés gérées par la plateforme), soit les gérer vous-même (clés gérées par le client). Pour plus d’informations, consultez l’article [Chiffrement côté serveur de stockage sur disque Azure](../articles/virtual-machines/windows/disk-encryption.md).
 
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Azure Disk Encryption vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Ce chiffrement inclut les disques managés. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. Le processus de chiffrement est intégré à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Pour plus d'informations, consultez [Azure Disk Encryption pour les machines virtuelles Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), ou [Azure Disk Encryption pour les machines virtuelles Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
@@ -84,7 +92,7 @@ Ce disque a une capacité maximale de 2 048 Gio.
 
 Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées.  
 
-Sur les machines virtuelles Azure Linux, le disque temporaire est en général /dev/sdb, tandis que sur les machines virtuelles Windows il s’agit de D: par défaut. Le disque temporaire n’est pas chiffré par le chiffrement côté serveur (voir [Chiffrement](#encryption)).
+Sur les machines virtuelles Azure Linux, le disque temporaire est en général /dev/sdb, tandis que sur les machines virtuelles Windows il s’agit de D: par défaut. Le disque temporaire n’est pas chiffré par le chiffrement côté serveur, sauf si vous activez le chiffrement sur l’hôte.
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 

@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Rechercher des lieux à proximité sur une carte | Microsoft Azure Maps'
 description: Dans ce tutoriel, vous allez apprendre à rechercher des points d’intérêt sur une carte à l’aide de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 0b0cb92cd6b4918e28e143178a5cdbbbb19ac9af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281529"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -219,7 +219,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
 
    ![Afficher la carte avec les résultats de la recherche](./media/tutorial-search-location/pins-map.png)
 
-4. Vous pouvez voir les données brutes rendues par la carte en entrant la requête HTTP suivante dans votre navigateur. Remplacez \<Your Azure Maps Key\> (Votre clé Azure Maps) par votre clé primaire.
+4. Vous pouvez voir les données brutes rendues par la carte en entrant la requête HTTP suivante dans votre navigateur. Remplacez \<Your Azure Maps Key\> par votre clé primaire.
 
    ```http
    https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000

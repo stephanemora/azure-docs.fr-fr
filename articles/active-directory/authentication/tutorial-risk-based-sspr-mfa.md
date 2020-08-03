@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034994"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutoriel : Utiliser les détections de risques pour les connexions utilisateur pour déclencher l’authentification multifacteur Azure et le changement du mot de passe
 
-Pour protéger vos utilisateurs, vous pouvez configurer des stratégies reposant sur des risques dans Azure Active Directory (Azure AD) qui répondent automatiquement aux comportements à risque. Les stratégies d’Azure AD Identity Protection peuvent bloquer automatiquement une tentative de connexion ou nécessiter une action supplémentaire, par exemple exiger une modification de mot de passe ou demander l’authentification multifacteur Azure. Ces stratégies fonctionnent avec les stratégies d’accès conditionnel Azure AD existantes en tant que couche supplémentaire de protection de l’organisation. Les utilisateurs ne déclencheront peut-être jamais un comportement risqué dans l’une de ces stratégies, mais votre organisation est protégée si une tentative de compromission de sécurité se produit.
+Pour protéger vos utilisateurs, vous pouvez configurer des stratégies reposant sur des risques dans Azure Active Directory (Azure AD) qui répondent automatiquement aux comportements à risque. Les stratégies d’Azure AD Identity Protection peuvent bloquer automatiquement une tentative de connexion ou nécessiter une action supplémentaire, par exemple exiger une modification de mot de passe ou demander l’authentification multifacteur Azure. Ces stratégies fonctionnent avec les stratégies d’accès conditionnel Azure AD existantes en tant que couche supplémentaire de protection pour votre organisation. Les utilisateurs ne déclencheront peut-être jamais un comportement risqué dans l’une de ces stratégies, mais votre organisation est protégée si une tentative de compromission de sécurité se produit.
+
+> [!IMPORTANT]
+> Ce tutoriel montre aux administrateurs comment activer Microsoft Azure Multi-Factor Authentication basée sur les risques.
+>
+> Si votre équipe informatique n’a pas activé la capacité à utiliser Azure Multi-Factor Authentication, ou si vous rencontrez des problèmes lors de la connexion, contactez votre support technique pour obtenir de l’aide.
 
 Dans ce tutoriel, vous allez apprendre à :
 
