@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Déléguer les autorisations d’administration d’applications
               href: roles-delegate-app-roles.md
+        - name: Utiliser des groupes pour gérer les attributions de rôles
+          items:
+            - name: Aperçu de l’attribution de rôles basée sur les groupes
+              href: roles-groups-concept.md
+            - name: Créer un groupe pouvant se voir attribuer des rôles
+              href: roles-groups-create-eligible.md
+            - name: Attribuer des rôles à un groupe
+              href: roles-groups-assign-role.md
+            - name: Supprimer des attributions de rôles d’un groupe
+              href: roles-groups-remove-assignment.md
+            - name: Afficher les attributions de rôles d’un groupe
+              href: roles-groups-view-assignments.md
+            - name: Rendre un groupe éligible à un rôle dans PIM
+              href: roles-groups-pim-eligible.md
+            - name: FAQ et résolution des problèmes
+              href: roles-groups-faq-troubleshooting.md
         - name: Rôles à privilèges minimum par tâche
           href: roles-delegate-by-task.md
         - name: "Rôles Microsoft\_365"
@@ -189,11 +205,11 @@
           items:
             - name: Vue d’ensemble des unités administratives
               href: directory-administrative-units.md
-            - name: Ajouter et gérer des unités d’allocation
+            - name: Ajouter et gérer des unités administratives
               href: roles-admin-units-manage.md
-            - name: Ajouter et gérer des utilisateurs dans des unités d’allocation
+            - name: Ajouter et gérer des utilisateurs dans des unités administratives
               href: roles-admin-units-add-manage-users.md
-            - name: Ajouter et gérer des groupes dans des unités d’allocation
+            - name: Ajouter et gérer des groupes dans des unités administratives
               href: roles-admin-units-add-manage-groups.md
             - name: Affecter un rôle avec une étendue d’unité d’allocation
               href: roles-admin-units-assign-roles.md

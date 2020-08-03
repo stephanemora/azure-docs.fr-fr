@@ -244,43 +244,49 @@
     - name: Update Management
       items:
         - name: Vue d’ensemble
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: Régions prises en charge pour l’espace de travail Log Analytics lié
           href: how-to/region-mappings.md
         - name: Activer
           items:
             - name: Activer Update Management à l’aide d’un modèle Azure Resource Manager
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Activer Update Management à partir du portail Azure
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Activer Update Management à partir d’une machine virtuelle Azure
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Activer Update Management à partir d’un compte Automation
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Activer Update Management à partir d’un runbook
-              href: automation-onboard-solutions.md
-        - name: Gérer les mises à jour pour vos machines virtuelles Azure
-          href: automation-tutorial-update-management.md
-        - name: Gérer les mises à jour pour plusieurs machines virtuelles
-          href: manage-update-multi.md
-        - name: Voir les évaluations des mises à jour
-          href: automation-view-update-assessments.md
-        - name: Gérer des pré-scripts et des post-scripts
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: Gérer les mises à jour de vos machines virtuelles
+          items:
+            - name: Bien démarrer
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: Évaluer la conformité
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: Déployer des mises à jour et examiner l’état
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: Utiliser des pré-scripts et des post-scripts
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Configurer des alertes
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Intégreravec Configuration Manager
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Configurer le client Windows Update
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: Utiliser des groupes dynamiques
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: Interroger les journaux Update Management
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Utiliser des configurations d’étendues
-          href: automation-scope-configurations-update-management.md
-        - name: Dissocier un espace de travail d’un compte Automation
-          href: automation-unlink-workspace-update-management.md
-        - name: Supprimer des machines virtuelles d’Update Management
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: Disable
+          items:
+            - name: Supprimer Update Management
+              href: update-management/update-mgmt-remove-feature.md
+            - name: Supprimer des machines virtuelles d’Update Management
+              href: update-management/update-mgmt-remove-vms.md
         - name: Dépanner
           items:
             - name: Résoudre les problèmes de déploiement de fonctionnalités

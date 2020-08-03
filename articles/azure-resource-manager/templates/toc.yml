@@ -10,7 +10,7 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Créer des modèles – VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Créer et déployer une spécification du modèle
+    - name: Créer et déployer des spécifications de modèle
       href: quickstart-create-template-specs.md
     - name: Services Azure
       items:
@@ -210,8 +210,10 @@
     - name: Specs de modèle
       items:
         - name: Créer avec des modèles liés
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: Déployer en tant que modèle lié
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: Modèles avancés
       items:
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Locataire
           href: deploy-to-tenant.md
-        - name: Groupe inter-ressources
-          href: cross-resource-group-deployment.md
+        - name: Déploiements inter-étendues
+          href: cross-scope-deployment.md
     - name: Fournir des paramètres
       items:
         - name: Créer un fichier de paramètres

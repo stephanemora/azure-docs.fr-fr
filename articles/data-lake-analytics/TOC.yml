@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce que Data Lake Analytics\_?"
       href: data-lake-analytics-overview.md
+    - name: Nouveautés de Data Lake Analytics
+      href: data-lake-analytics-whats-new.md
 - name: Bien démarrer
   items:
     - name: Portail Azure
@@ -25,6 +27,9 @@
   items:
     - name: Sécurité
       items:
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Base de référence de la sécurité pour Azure Security Benchmark
           href: security-baseline.md
 - name: Procédures

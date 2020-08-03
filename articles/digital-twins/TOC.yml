@@ -40,12 +40,14 @@
       items:
         - name: Utiliser l’interface CLI Azure Digital Twins
           href: how-to-use-cli.md
-        - name: Configurer une instance et l’authentification (procédure scriptée)
-          href: how-to-set-up-instance-scripted.md
-        - name: Configurer une instance et l’authentification (CLI)
-          href: how-to-set-up-instance-cli.md
-        - name: Configurer une instance et l’authentification (portail)
-          href: how-to-set-up-instance-portal.md
+        - name: Configurer une instance et l’authentification
+          items:
+            - name: Version scriptée
+              href: how-to-set-up-instance-scripted.md
+            - name: Version de la CLI
+              href: how-to-set-up-instance-cli.md
+            - name: Version du portail
+              href: how-to-set-up-instance-portal.md
         - name: Écrire le code d’authentification de l’application
           href: how-to-authenticate-client.md
     - name: Concevoir des modèles

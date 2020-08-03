@@ -452,6 +452,8 @@
       displayName: security
     - name: Versions de flux utilisateur
       href: user-flow-versions.md
+    - name: Versions de flux utilisateur héritées
+      href: user-flow-versions-legacy.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

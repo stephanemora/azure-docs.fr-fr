@@ -67,7 +67,9 @@
     - name: Suppression réversible
       items:
         - name: Suppression réversible Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Suppression réversible activée par défaut
+          href: soft-delete-change.md
     - name: 'Authentification, requêtes et réponses'
       href: authentication-requests-and-responses.md
     - name: Aide sur la limitation de requêtes Azure Key Vault

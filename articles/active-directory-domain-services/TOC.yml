@@ -9,7 +9,7 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Créer un domaine managé de base
+    - name: Créer un domaine managé
       href: tutorial-create-instance.md
     - name: Configurer le réseau virtuel pour les applications
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Configurer la synchronisation de hachage de mot de passe
       href: tutorial-configure-password-hash-sync.md
-    - name: Créer un domaine managé avancé
+    - name: Créer un jeu de réplicas (préversion)
+      href: tutorial-create-replica-set.md
+    - name: Créer un domaine managé personnalisé
       href: tutorial-create-instance-advanced.md
-    - name: Créer une approbation de forêt (préversion)
+    - name: Créer une approbation de forêt
       href: tutorial-create-forest-trust.md
 - name: Exemples
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: "Configurer une synchronisation délimitée avec Azure\_AD PowerShell"
       href: powershell-scoped-synchronization.md
+    - name: Créer une forêt de ressources et une approbation avec Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Concepts
   items:
     - name: Informations de base sur l’administration
       href: administration-concepts.md
     - name: Scénarios de déploiement courants
       href: scenarios.md
+    - name: Jeux de réplicas (préversion)
+      href: concepts-replica-sets.md
     - name: Forêts et approbations
       items:
         - name: Forêts de ressources

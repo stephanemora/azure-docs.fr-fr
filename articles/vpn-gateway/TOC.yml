@@ -42,6 +42,8 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: À propos des passerelles redondantes interzone pour les Zones de disponibilité
       href: about-zone-redundant-vnet-gateways.md
+    - name: Contrôles de sécurité intégrés
+      href: vpn-gateway-security-controls.md
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test
@@ -52,8 +54,6 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: Analyse du plan de données
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Contrôles de sécurité intégrés
-      href: vpn-gateway-security-controls.md
 - name: Guides pratiques
   items:
     - name: Créer et gérer une passerelle VPN
@@ -160,8 +160,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configure clients OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-        - name: Passer au protocole OpenVPN ou à IKEv2 à partir de SSTP
-          href: ikev2-openvpn-from-sstp.md
+            - name: Passer au protocole OpenVPN ou à IKEv2 à partir de SSTP
+              href: ikev2-openvpn-from-sstp.md
         - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurer un tunnel de périphérique VPN Always On
@@ -170,12 +170,6 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Publier des routes personnalisées vers des clients P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Créer une passerelle redondante interzone
-      href: create-zone-redundant-vnet-gateway.md
-    - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Configurer des connexions entre deux passerelles actives
-      href: vpn-gateway-activeactive-rm-powershell.md
     - name: 'Routage, BGP et peering de réseau virtuel'
       items:
         - name: Configurer BGP pour une passerelle VPN
@@ -218,6 +212,18 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configurer les captures de paquets
       href: packet-capture.md
+    - name: Passerelles redondantes interzones
+      items:
+        - name: Créer une passerelle redondante interzone
+          href: create-zone-redundant-vnet-gateway.md
+    - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
+      items:
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Configurer des connexions entre deux passerelles actives
+      items:
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Dépanner
       href: vpn-gateway-troubleshoot.md
       items:
