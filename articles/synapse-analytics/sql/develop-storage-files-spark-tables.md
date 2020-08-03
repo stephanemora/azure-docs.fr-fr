@@ -1,5 +1,5 @@
 ---
-title: Synchronisation d’Apache Spark pour les définitions de tables externes Azure Synapse dans SQL à la demande (préversion)
+title: Synchronisation d’Apache Spark pour les définitions de tables externes dans SQL à la demande (préversion)
 description: Vue d’ensemble de l’interrogation des tables Spark avec SQL à la demande (préversion).
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046851"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Synchronisation d’Apache Spark pour les définitions de tables externes Azure Synapse dans SQL à la demande (préversion)
 
@@ -35,14 +35,14 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> L’ajout, la suppression et la modification des colonnes de table externe Spark ne seront pas reflétés dans la table externe SQL à la demande.
+> L’ajout, la suppression et la modification des commandes de tables externes Spark pour une colonne ne sont pas reflétés dans la table externe SQL à la demande.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Mappage des types de données Apache Spark aux types de données SQL
 
 | Type de données Spark | Type de données SQL               |
 | --------------- | --------------------------- |
 | ByteType        | SMALLINT                    |
-| ShortType       | SMALLINT                    |
+| Type court       | SMALLINT                    |
 | IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |

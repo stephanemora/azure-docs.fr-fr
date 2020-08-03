@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374778"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291240"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -29,7 +29,7 @@ Cet article est mis à jour tous les mois. Pensez à consulter cette page régul
 
 ## <a name="june-2020"></a>Juin 2020
 
-Le mois dernier, nous avons introduit la mise à jour Windows Virtual Desktop Spring 2020 en préversion. Cette mise à jour comprend de nombreuses nouvelles fonctionnalités passionnantes que nous souhaiterions vous présenter. Voici les nouveautés de la mise à jour Spring 2020.
+Le mois dernier, nous avons introduit l’intégration de Windows Virtual Desktop avec Azure Resource Manager en préversion. Cette mise à jour comprend de nombreuses nouvelles fonctionnalités passionnantes que nous souhaiterions vous présenter. Voici les nouveautés de cette version de Windows Virtual Desktop.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Windows Virtual Desktop est maintenant intégré à Azure Resource Manager (préversion)
 
@@ -39,22 +39,22 @@ Les conséquences de ce changement sont les suivantes :
 
 - Windows Virtual Desktop est désormais intégré au portail Azure. Cela signifie que vous pouvez gérer tout directement dans le portail, sans avoir besoin de PowerShell, d’applications web ou d’outils tiers. Pour bien démarrer, consultez notre tutoriel intitulé [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md).
 
-- Avant la mise à jour Spring 2020, vous pouviez uniquement publier des RemoteApps et des Desktops sur des utilisateurs individuels. Avec Azure Resource Manager, vous pouvez désormais publier des ressources sur des groupes Azure Active Directory.
+- Avant cette mise à jour, vous pouviez uniquement publier des RemoteApps et des Desktops sur des utilisateurs individuels. Avec Azure Resource Manager, vous pouvez désormais publier des ressources sur des groupes Azure Active Directory.
 
 - La version précédente de Windows Virtual Desktop avait quatre rôles d’administrateur intégrés que vous pouviez attribuer à un locataire ou un pool d’hôtes. Ces rôles sont désormais dans le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) Azure. Vous pouvez appliquer ces rôles à chaque objet Azure Resource Manager Windows Virtual Desktop, ce qui vous permet d’avoir un modèle de délégation complet et riche.
 
-- Dans la mise à jour Spring 2020, vous n’avez plus besoin d’exécuter la Place de marché Azure ou le modèle GitHub de manière répétée pour étendre un pool d’hôtes. Il vous suffit d’accéder à votre pool d’hôtes dans le portail Azure et de sélectionner **+ Ajouter** pour déployer des hôtes de session supplémentaires.
+- Dans cette mise à jour, vous n’avez plus besoin d’exécuter la Place de marché Azure ou le modèle GitHub de manière répétée pour étendre un pool d’hôtes. Il vous suffit d’accéder à votre pool d’hôtes dans le portail Azure et de sélectionner **+ Ajouter** pour déployer des hôtes de session supplémentaires.
 
 - Le déploiement de pool d’hôtes est maintenant entièrement intégré à [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery est un service Azure distinct qui stocke des définitions d’images de machine virtuelle, notamment la gestion de versions d’images. Vous pouvez également utiliser la réplication globale pour copier et envoyer vos images vers d’autres régions Azure en vue d’un déploiement local.
 
 - Les fonctions de supervision qui étaient auparavant effectuées à l’aide de PowerShell ou de l’application web Service de diagnostics ont été déplacées vers Log Analytics dans le portail Azure. Vous disposez désormais aussi de deux options pour visualiser vos rapports. Vous pouvez exécuter des requêtes Kusto et utiliser des classeurs pour créer des rapports visuels.
 
-- Vous n’avez plus besoin de finaliser le consentement Azure Active Directory (Azure AD) pour utiliser Windows Virtual Desktop. Dans la mise à jour Spring 2020, le locataire Azure AD sur votre abonnement Azure authentifie vos utilisateurs et fournit des contrôles RBAC pour vos administrateurs.
+- Vous n’avez plus besoin de finaliser le consentement Azure Active Directory (Azure AD) pour utiliser Windows Virtual Desktop. Dans cette mise à jour, le locataire Azure AD sur votre abonnement Azure authentifie vos utilisateurs et fournit des contrôles RBAC pour vos administrateurs.
 
 
 ### <a name="powershell-support"></a>Prise en charge de PowerShell
 
-Nous avons ajouté de nouvelles applets de commande AzWvd au module Az Azure PowerShell avec la mise à jour Spring 2020. Ce nouveau module est pris en charge dans PowerShell Core, qui s’exécute sur .NET Core.
+Nous avons ajouté de nouvelles applets de commande AzWvd au module Az Azure PowerShell avec cette mise à jour. Ce nouveau module est pris en charge dans PowerShell Core, qui s’exécute sur .NET Core.
 
 Pour installer le module, suivez les instructions fournies dans [Configurer le module PowerShell pour Windows Virtual Desktop](powershell-module.md).
 

@@ -3,26 +3,25 @@ title: Échanges et remboursements en libre-service de réservations Azure
 description: Découvrez comment vous pouvez échanger des réservations Azure ou en obtenir le remboursement.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287656"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
-Les réservations Azure offrent la flexibilité nécessaire pour répondre à vos besoins en constante évolution. Vous pouvez échanger une réservation pour une autre réservation du même type. Autrement dit, une réservation de machine virtuelle peut être échangée en vue d’acheter une réservation pour n’importe quelle taille de machine virtuelle ou région. De même, une réservation de base de données SQL PaaS peut être échangée en vue d’acheter n’importe quelle réservation pour n’importe quel type de base de données SQL PaaS ou région. Vous pouvez également rembourser des réservations, mais la somme totale de l’engagement sur les réservations annulées ne peut pas dépasser 50 000 USD sur une période de 12 mois. La capacité réservée Azure Databricks, la solution Azure VMware par réservation CloudSimple, la réservation de shift ouvert Azure Red Hat, les offres Red Hat et les offres SUSE Linux ne sont pas éligibles aux remboursements.
+Les réservations Azure offrent la flexibilité nécessaire pour répondre à vos besoins en constante évolution. Vous pouvez échanger une réservation pour une autre réservation du même type. Par exemple, vous pouvez échanger une réservation de machine virtuelle pour acheter une autre réservation pour une autre région ou taille de machine virtuelle. De même, une réservation de base de données SQL PaaS peut être échangée en vue d’acheter une autre réservation pour n’importe quel type de base de données SQL PaaS ou région. Vous pouvez également rembourser des réservations, mais la somme totale de tous les engagements de réservation annulés dans votre étendue de facturation (par exemple, Contrat Entreprise, Contrat client Microsoft et Contrat Partenaire Microsoft) ne peut pas dépasser 50 000 USD dans une période de 12 mois. La capacité réservée Azure Databricks, la solution Azure VMware par réservation CloudSimple, la réservation de shift ouvert Azure Red Hat, les offres Red Hat et les offres SUSE Linux ne sont pas éligibles aux remboursements.
 
 L’échange en libre service et la fonctionnalité d’annulation n’est pas disponible pour les clients Contrat Entreprise de l’administration américaine. Les autres types d’abonnements US Government, notamment les abonnements avec paiement à l’utilisation et les abonnements de fournisseur de solutions cloud sont pris en charge.
 
-Vous devez disposer d’un accès propriétaire à l’ordre de réservation pour échanger une réservation existante ou en obtenir le remboursement. Vous pouvez [ajouter ou changer les utilisateurs qui peuvent gérer une réservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
 > [!NOTE]
-> Microsoft ne facture actuellement aucun frais de résiliation anticipée pour les remboursements de réservations. Il est possible que nous facturions les frais pour les remboursements effectués à l’avenir. Nous n’avons actuellement aucune date concernant l’activation des frais.
+> - **Vous devez disposer d’un accès propriétaire à l’ordre de réservation pour échanger une réservation existante ou en obtenir le remboursement.** . Vous pouvez [ajouter ou changer les utilisateurs qui peuvent gérer une réservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - Microsoft ne facture actuellement aucun frais de résiliation anticipée pour les remboursements de réservations. Il est possible que nous facturions les frais pour les remboursements effectués à l’avenir. Nous n’avons actuellement aucune date concernant l’activation des frais.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Comment échanger ou rembourser une réservation existante
 
@@ -76,7 +75,8 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 **Stratégies de remboursement**
 
 - Nous ne facturons actuellement aucun frais de résiliation anticipée, mais des frais de résiliation anticipée de 12 % pourraient s’appliquer à l’avenir en cas d’annulation.
-- Le total des engagements annulés ne peut pas dépasser 50 000 USD sur 12 mois consécutifs. Exemple : Pour une réservation d’une durée de trois ans à 100 USD par mois et remboursée le 18ème mois, l’engagement annulé est de 1 800 USD. Après le remboursement, votre nouvelle limite disponible pour le remboursement est de 48 200 USD. 365 jours à compter de ce remboursement, la limite de 48 200 USD sera augmentée de 1 800 USD et votre nouvelle réserve sera de 50 000 USD. Toute autre annulation de réservation épuisera cette même réserve, et la même logique de réapprovisionnement s’appliquera.
+- L’engagement total annulé ne peut pas dépasser 50 000 USD dans une période de 12 mois pour un profil de facturation ou une inscription unique. Par exemple, pour une réservation d’une durée de trois ans à 100 USD par mois et qui est remboursée le 18ème mois, l’engagement annulé est de 1 800 USD. Après le remboursement, votre nouvelle limite disponible pour le remboursement est de 48 200 USD. 365 jours à compter du remboursement, la limite de 48 200 USD sera augmentée de 1 800 USD et votre nouvelle réserve sera de 50 000 USD. Toute autre annulation de réservation pour le profil de facturation ou l’inscription à un Contrat Entreprise épuisera cette même réserve, et la même logique de réapprovisionnement s’appliquera.
+- Azure ne traite pas les remboursements qui dépassent la limite de 50 000 USD dans une période de 12 mois pour un profil de facturation ou une inscription à un Contrat Entreprise.
 - Les remboursements sont calculés en fonction du prix le plus bas de votre prix d’achat ou du prix actuel de la réservation.
 - Seuls les propriétaires d’ordres de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

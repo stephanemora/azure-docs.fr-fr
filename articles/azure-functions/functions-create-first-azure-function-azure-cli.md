@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081727"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Démarrage rapide : Créer une fonction dans Azure qui répond à des requêtes HTTP
 
@@ -111,6 +111,9 @@ Fournissez les valeurs suivantes à l’invite :
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
 Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifactId_, qui est `fabrikam-functions` dans cet exemple. 
+
+Pour exécuter Java 11 dans Azure, vous devez modifier les valeurs dans le fichier pom.xml. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Accédez au dossier du projet :
 
@@ -157,6 +160,8 @@ Les paramètres des ressources Azure créées pour héberger votre application s
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Vous pouvez modifier ces paramètres pour contrôler la façon dont les ressources sont créées dans Azure, par exemple en modifiant `runtime.os` pour passer de `windows` à `linux` avant le déploiement initial. Pour obtenir la liste complète des paramètres pris en charge par le plug-in Maven, consultez les [détails de la configuration](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Si vous souhaitez exécuter votre application de fonction sur Java 11 au lieu de Java 8, vous devez mettre à jour manuellement le fichier pom.xml avec les valeurs Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). En cas d’exécution sur Java 11, assurez-vous que  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 

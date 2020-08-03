@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281053"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
-**Azure Digital Twins** est une plateforme IoT qui permet la création de modèles numériques complets d’environnements entiers. Il peut s’agir de bâtiments, d’usines, de batteries de serveurs, de réseaux énergétiques, de chemins de fer, de stades, etc., voire de villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
+**Azure Digital Twins** est une offre de plateforme en tant que service (PaaS) qui permet la création de modèles numériques complets d’environnements entiers. Il peut s’agir de bâtiments, d’usines, de batteries de serveurs, de réseaux énergétiques, de chemins de fer, de stades, etc., voire de villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
 
 Tirez parti de votre expertise sur Azure Digital Twins pour créer des solutions personnalisées et connectées qui :
 * Modélisent tous les environnements et donnent vie aux jumeaux numériques de manière scalable et sécurisée
@@ -44,7 +44,7 @@ Le langage DTDL est utilisé pour les modèles de données dans d’autres servi
 
 Les modèles numériques dans Azure Digital Twins sont des représentations dynamiques et à jour du monde réel. À l’aide des relations dans vos modèles DTDL personnalisés, vous allez connecter les représentations dans un **graphe dynamique** représentant votre environnement.
 
-Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[**explorateur Azure Digital Twins**](https://github.com/Azure-Samples/digital-twins-explorer).
+Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[**explorateur Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Voici à quoi ressemble l’exemple de visualisation :
 
@@ -94,16 +94,16 @@ Le schéma suivant montre où Azure Digital Twins se trouve dans le contexte d�
 
 > [!IMPORTANT]
 > Azure Digital Twins est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [*Conditions supplémentaires relatives à l’utilisation des préversions de Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pour obtenir la liste des limites Azure Digital Twins pendant la préversion publique, consultez [Référence : limites de service de la préversion publique](reference-service-limits.md).
+Pour obtenir la liste des limites Azure Digital Twins pendant la préversion publique, consultez [*Référence : Limites de service de la préversion publique*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez utilisé la préversion précédente d’Azure Digital Twins, découvrez ce qui a changé :
-* [Vue d’ensemble : Différences avec la version précédente](overview-differences.md)
+* [*Vue d’ensemble : Différences avec la version précédente*](overview-differences.md)
 
 Pour découvrir comment utiliser Azure Digital Twins, vous pouvez également consulter le premier tutoriel :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Coder une application cliente](tutorial-code.md)
+> [*Tutoriel : Coder une application cliente*](tutorial-code.md)

@@ -10,16 +10,28 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560125"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280832"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
 Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
+
+## <a name="july-2020"></a>Juillet 2020
+
+### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>L’API de lecture v3.1-preview.1 ajoute la prise en charge du chinois simplifié
+L’API de lecture v3.1-preview.1 de Vision par ordinateur ajoute la prise en charge du chinois simplifié.
+
+* Cette préversion de l’API de lecture prend en charge l’anglais, le néerlandais, le français, l’allemand, l’italien, le portugais, le chinois simplifié et l’espagnol.
+
+Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’API de lecture v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mai 2020
 L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des mises à jour de l’[API Lire](concept-recognizing-text.md) :
@@ -35,7 +47,7 @@ L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des m
 
 ## <a name="january-2020"></a>Janvier 2020
 
-### <a name="read-api-30-preview"></a>Préversion de l’API Lire 3.0
+### <a name="read-api-30-public-preview"></a>Préversion publique de l’API de lecture 3.0
 
 Vous avez maintenant la possibilité d’utiliser la version 3.0 de l’API Lire pour extraire du texte imprimé ou manuscrit à partir d’images. Par rapport aux versions antérieures, 3.0 fournit :
 * Précision accrue

@@ -1,206 +1,227 @@
 ---
-title: Configurer des matériaux PBR dans 3DSMax
-description: Explique comment configurer des matériaux au rendu physique réaliste (matériaux PBR) dans 3DSMax et comment les exporter au format FBX.
+title: Configurer des matériaux au rendu physique réaliste dans 3ds Max
+description: Explique comment configurer des matériaux au rendu physique réaliste (matériaux PBR) dans 3ds Max et comment les exporter au format FBX.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: df4be8963c93199f9fad23ab3f709f691e1da768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078033"
 ---
-# <a name="tutorial-set-up-physically-based-rendering-materials-in-3d-studio-max"></a>Tutoriel : Configurer des matériaux PBR dans 3D Studio Max
+# <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutoriel : Configurer des matériaux PBR dans 3ds Max
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 >
-> * Affecter des matériaux dotés d’un éclairage avancé à des objets dans la scène.
+> * Attribuer des matériaux dotés d’un éclairage avancé à des objets dans une scène.
 > * Gérer l’instanciation des objets et des matériaux.
 > * Exporter une scène au format FBX et sélectionner les options importantes.
 
-La création de [matériaux au rendu physique réaliste (matériaux PBR)](../../overview/features/pbr-materials.md) dans 3D Studio Max (3DSMax) est une tâche relativement simple. Elle est semblable en de nombreux points à la configuration du rendu PBR dans d’autres applications de création de contenu comme Maya. Ce tutoriel explique les étapes de base de la configuration du nuanceur PBR et de l’exportation au format FBX dans le cadre de projets Azure Remote Rendering.
+La création de [matériaux au rendu physique réaliste (matériaux PBR)](../../overview/features/pbr-materials.md) dans 3ds Max est une tâche simple. Elle est semblable en de nombreux points à la configuration du rendu PBR dans d’autres applications de création de contenu comme Maya. Ce tutoriel explique les étapes de base de la configuration du nuanceur PBR et de l’exportation au format FBX dans le cadre de projets Azure Remote Rendering.
 
 L’exemple de scène de ce tutoriel contient plusieurs boîtes polygonales. Différents matériaux leur sont attribués, tels que du bois, du métal, du métal peint, du plastique et du caoutchouc. Globalement, chaque matériau comporte la totalité ou la plupart des textures suivantes :
 
-* **Albedo**, qui est la table des couleurs du matériau, également appelée **Diffuse** ou **BaseColor**.
+* **Albedo**, qui est la table des couleurs du matériau, également appelée **Diffuse** et **BaseColor**.
 * **Metalness** (Aspect métallique), qui détermine si un matériau est métallique et quelles parties sont métalliques. 
 * **Roughness** (Rugosité), qui détermine dans quelle mesure une surface est rugueuse ou lisse.
 Cela rend également les réflexions et les surbrillances de la surface plus ou moins nettes ou floues.
-* **Normal**, qui ajoute des détails à une surface sans imposer l’ajout de polygones. Des exemples de tels détails sont des piqûres et des bosses sur une surface métallique ou un grain de bois.
+* **Normal**, qui ajoute des détails à une surface sans ajout de polygones. Des exemples de tels détails sont des piqûres et des bosses sur une surface métallique ou un grain de bois.
 * **Ambient Occlusion** (Occlusion ambiante), qui ajoute un léger ombrage et des ombres de contact à un modèle. Il s’agit d’une carte de nuances de gris qui détermine quelles zones sont totalement éclairées (blanches) ou ombrées (noires).
 
 ## <a name="prepare-the-scene"></a>Préparer la scène
-Dans **3D Studio Max**, le processus de configuration d’un matériau PBR est le suivant.
+Dans 3ds Max, le processus de configuration d’un matériau PBR est le suivant.
 
-Dans un premier temps, comme vous le verrez dans l’exemple de scène, nous avons créé plusieurs objets de boîte, chacun représentant un type de matériau différent :
-
->[!TIP]
->Avant de commencer à créer des ressources pour ARR, il est important de noter que l’unité de mesure que le logiciel utilise est le **mètre**.  
->Il est donc conseillé de choisir les **mètres** comme **unités système** de votre scène. De la même façon, il est conseillé pour l’exportation de définir les unités sur les mètres dans les paramètres d’exportation au format FBX.
-
-L’illustration suivante montre les étapes permettant de définir les unités système sur des mètres dans 3D Studio Max. Dans le menu principal, accédez à **Customize** (Personnaliser) > **Units Setup** (Configuration des unités) > **System Units Setup** (Configuration des unités système) et, dans la liste déroulante **System Units Scale** (Échelle des unités système), sélectionnez **Meters** (Mètres). 
-![Unités système](media/3dsmax/system-units.jpg)
-
-Une fois les unités système définies sur mètres, nous pouvons commencer à créer nos modèles. Dans notre exemple de scène, nous créons plusieurs objets de boîte, chacun représentant un type de matériau différent (par exemple, métal, caoutchouc, plastique, etc.). 
+Pour commencer, vous allez créer un certain nombre d’objets Boîte, chacun représentant un type de matériau différent.
 
 >[!TIP]
->Une bonne pratique, lors de la création de ressources, consiste à les nommer de façon pertinente au fur et à mesure. Cela vous aidera à les rechercher plus tard si la scène comporte un grand nombre d’objets.
+>Avant de commencer à créer des ressources pour Remote Rendering, il est important de noter que l’unité de mesure que le logiciel utilise est le mètre.  
+>
+>Il est donc judicieux de définir les unités système de votre scène sur cette même unité de mesure. Il est également judicieux de définir les **unités** sur des mètres dans les paramètres d’exportation au format FBX lorsque vous exportez une scène.
 
-![rename-objects](media/3dsmax/rename-objects.jpg)
+La capture d’écran suivante montre les étapes permettant de définir le mètre comme unité système dans 3ds max. 
+
+1. Dans le menu principal, accédez à **Customize (Personnaliser)**  > **Units Setup (Configuration des unités)**  > **System Units Setup (Configuration des unités système)** . Dans **System Unit Scale** (Échelle de l’unité système), sélectionnez **Meters**  (Mètres) : ![Capture d’écran montrant comment définir des unités système.](media/3dsmax/system-units.jpg)
+
+1. Vous pouvez maintenant commencer à créer les modèles. Dans l’exemple de scène, vous allez créer plusieurs objets Box, chacun représentant un type de matériau différent. Par exemple, métal, caoutchouc et plastique. 
+
+   >[!TIP]
+   >Lorsque vous créez des ressources, il est recommandé de les nommer de façon appropriée. Cela vous aidera à les retrouver facilement plus tard si la scène comporte un grand nombre d’objets.
+
+1. Renommez les objets, comme indiqué dans la capture d'écran suivante : 
+
+   ![Capture d’écran montrant comment renommer des objets.](media/3dsmax/rename-objects.jpg)
 
 ## <a name="assign-materials"></a>Affecter des matériaux
 
-Avec certains objets créés dans notre scène (dans ce cas, plusieurs cubes), nous pouvons commencer la configuration du rendu PBR :
+Maintenant que vous avez créé quelques objets dans votre scène (dans ce cas, plusieurs cubes), vous pouvez commencer la configuration du rendu PBR :
 
-* Dans la barre d’outils principale, cliquez sur l’icône **Material Editor** (Éditeur de matériaux), comme illustré dans l’image suivante. Vous pouvez également appuyer sur la touche **M** du clavier pour ouvrir l’éditeur. L’éditeur de matériaux a deux modes qui peuvent être sélectionnés dans la liste déroulante **Modes** – le mode **Compact material editor** (Éditeur de matériaux compacts) et le mode **Slate material** (Ardoise). Comme cette scène est relativement simple, nous allons utiliser le **mode compact**.
+1. Dans la barre d’outils principale, sélectionnez l’icône **Material Editor** (Éditeur de matériaux), comme illustré dans la capture d’écran suivante. Vous pouvez également sélectionner la touche **M** du clavier pour ouvrir l’éditeur. L’éditeur de matériaux comporte deux modes que vous pouvez sélectionner dans la liste **Modes** : **Compact Material Editor (Éditeur de matériau compact)** et **Slate Material Editor (Éditeur de matériau ardoise)** . Comme cette scène est relativement simple, nous allons utiliser le mode compact.
 
-* Dans l’éditeur de matériaux, vous voyez plusieurs sphères : ces sphères sont nos matériaux. Nous allons affecter l’un de ces matériaux à chaque objet (boîte) dans notre scène. Pour effectuer cette affectation, commencez par sélectionner l’un des objets dans la fenêtre d’affichage principale. Une fois cette sélection effectuée, cliquez sur la première sphère dans la fenêtre de l’éditeur de matériaux. Une fois affecté à un objet, votre matériau sélectionné est mis en évidence comme dans l’image suivante.
+1. Dans l’éditeur de matériaux, un certain nombre de sphères s’affichent. Ces sphères correspondent aux matériaux. Vous allez attribuer l’un de ces matériaux à chaque objet (boîte) dans la scène. Pour attribuer les matériaux, commencez par sélectionner l’un des objets dans la fenêtre d’affichage principale. Sélectionnez ensuite la première sphère dans l’éditeur de matériaux. Une fois qu’il est attribué à un objet, le matériau sélectionné est mis en évidence comme dans l’image suivante.
 
-* Cliquez sur le bouton **Assign Material to Selection** (Affecter le matériau à la sélection) comme illustré. Le matériau sélectionné a maintenant été affecté à l’objet sélectionné.
-![assign-material](media/3dsmax/assign-material.jpg)
+1. Sélectionnez **Assign Material to Selection** (Attribuer le matériau à la sélection) comme illustré. Le matériau est maintenant attribué à l’objet sélectionné.
 
-Dans l’éditeur de matériaux, vous pouvez sélectionner des types de matériaux parmi une vaste sélection, en fonction de votre cas d’utilisation. En règle générale, le type de matériau est défini sur **Standard** par défaut. Ce matériau est un matériau de base qui ne convient pas à la configuration du rendu PBR. Nous devons donc remplacer ce type de matériau par un matériau PBR. Le matériau **3DSMax** préféré pour les projets Azure Remote Rendering est **Physical Material** (Matériau physique).
+   ![Capture d’écran montrant comment attribuer des matériaux.](media/3dsmax/assign-material.jpg)
 
-* Dans l’éditeur de matériaux, cliquez sur l’onglet **Standard** et, dans le navigateur de matériaux/cartes qui s’ouvre, sélectionnez **Physical Material** (Matériau physique). Cette action permet de convertir le matériau **Standard** affecté en un **matériau physique** PBR.
-![physical-material](media/3dsmax/physical-material.jpg)
+    Dans l’éditeur de matériaux, vous pouvez sélectionner des types de matériaux parmi une vaste sélection, en fonction de vos besoins. En règle générale, le type de matériau est défini sur **Standard** par défaut. Ce matériau est un matériau basique qui ne convient pas à la configuration du rendu PBR. Vous devez donc changer le type de matériau en matériau PBR. Le matériau physique est le matériau 3ds Max préféré pour les projets Azure Remote Rendering.
 
-* Dans l’éditeur de matériaux, vous voyez maintenant les propriétés du matériau physique (voir ci-dessous) et nous pouvons commencer à assigner des textures à la ressource.
-![textures-list](media/3dsmax/textures-list.jpg)
+1. Dans l’éditeur de matériaux, sélectionnez l’onglet **Standard**. Dans **Material/Map Browser** (Explorateur de matériaux/cartes), sélectionnez **Physical Material** (Matériau physique). Cette action permet de convertir le matériau **Standard** attribué en matériau physique PBR.
 
-Comme vous pouvez le voir sur l’image ci-dessus, il existe un large éventail de cartes et de textures qui peuvent être ajoutées au matériau. Toutefois, dans le cadre de nos objectifs, nous n’utiliserons que cinq emplacements de texture dans le matériau.
+   ![Capture d’écran montrant comment modifier le matériau.](media/3dsmax/physical-material.jpg)
+
+    Dans l’éditeur de matériaux, vous voyez maintenant les propriétés du matériau physique, comme illustré dans la capture d’écran suivante. Vous pouvez maintenant commencer à attribuer des textures à la ressource.
+
+   ![Capture d’écran montrant la liste des textures.](media/3dsmax/textures-list.jpg)
+
+Comme vous pouvez le voir, il existe un large éventail de cartes et de textures que vous pouvez ajouter au matériau. Pour ce tutoriel, vous allez utiliser seulement cinq emplacements de texture dans le matériau.
 
 >[!TIP]
->Une bonne pratique consiste à nommer vos matériaux de manière pertinente, comme illustré dans l’image ci-dessus.
+>Une bonne pratique consiste à nommer vos matériaux de manière pertinente, comme illustré dans la capture d’écran ci-dessus.
 
-Nous pouvons maintenant commencer à envisager d’affecter des textures à notre matériau. La façon dont vous générez vos textures peut varier en fonction de vos préférences, voire même en fonction de leur utilisation. Par exemple, vous pouvez vous satisfaire d’utiliser des textures de mosaïque applicables à n’importe quelle ressource ou vous pouvez exiger que certaines pièces spécifiques d’un projet/d’une ressource aient leur propre ensemble personnalisé de textures. Vous pouvez utiliser des textures de mosaïque génériques obtenues en ligne ou les créer vous-même dans des applications telles que **Photoshop**, **Quixel Suite**, **Substance Suite**, etc. 
+La façon dont vous générez vos textures peut varier en fonction de vos préférences ou de votre utilisation. Par exemple, vous pouvez utiliser des textures en mosaïque qui peuvent être appliquées à n’importe quelle ressource. Ou vous voulez que des parties spécifiques d’un projet ou d’une ressource aient leurs propres ensembles personnalisés de textures. Vous voulez utiliser des textures de mosaïque génériques que vous pouvez obtenir en ligne. Vous pouvez également les créer vous-même dans des applications telles que Photoshop, Quixel Suite et Substance Suite.
 
-Avant de commencer à affecter nos textures, nous devons considérer nos coordonnées de texture de ressource (UVW). Bien qu’il soit recommandé, lors de l’application de textures à un modèle, de s’assurer que le modèle a été déplié (les textures ne s’afficheront pas correctement sans un dépliage UV approprié), cela est important dans notre cas, si nous envisageons d’utiliser une carte d’**occlusion ambiante** sur notre modèle. Contrairement au nuanceur **Stingray Shader** dans **Maya**, **Physical Material** (Matériau physique) dans **3DSMax** n’a pas d’emplacement de texture d’**occlusion ambiante** dédié. Par conséquent, nous allons appliquer la carte AO dans un autre emplacement et, pour lui permettre d’être utilisée séparément des autres textures (par exemple, des textures de mosaïque), nous lui affecterons un canal de mappage UVW distinct. 
+Avant de commencer à attribuer des textures, vous devez tenir compte des coordonnées de texture de la ressource (UVW). Lorsque vous appliquez des textures à un modèle, il est recommandé de s’assurer que le modèle est déplié. (Les textures ne s’affichent pas correctement sans dépliage UV approprié.) C’est particulièrement important dans le cadre de ce tutoriel, car vous souhaitez utiliser une carte d’occlusion ambiante (AO) sur votre modèle. Contrairement à Stingray Shader dans Maya, le matériau physique dans 3ds Max n’a pas d’emplacement de texture AO dédié. Par conséquent, nous allons appliquer la carte AO dans un autre emplacement. Pour lui permettre d’être utilisée séparément des autres textures (par exemple, des textures de mosaïque), vous allez lui attribuer un canal de mappage UVW distinct. 
 
-Nous allons commencer par affecter un modificateur **Unwrap UVW** (Déplier UVW) à notre modèle, comme illustré ci-dessous :
+Vous allez commencer par attribuer un modificateur UVW de dépliage au modèle, comme illustré dans la capture d’écran suivante. 
 
-* Dans l’éditeur des propriétés des objets sélectionnés, cliquez sur Modifier List (Liste des modificateurs), faites défiler la liste déroulante correspondante vers le bas et sélectionnez Unwrap UVW (Déplier UVW). Cette action appliquera un modificateur de dépliage UVW à notre ressource.
-![unwrap-modifier](media/3dsmax/unwrap-modifier.jpg)
+- Dans l’éditeur de propriétés des objets sélectionnés, sélectionnez la liste de modificateurs. Dans la liste déroulante qui s’affiche, faites défiler et sélectionnez **Unwrap UVW**. Cette action applique un modificateur UVW de dépliage à la ressource.
+![Capture d’écran montrant comment sélectionner Unwrap UVW.](media/3dsmax/unwrap-modifier.jpg)
 
-* Le canal de mappage est défini sur 1. C’est dans le canal de mappage 1 que votre dépliage principal sera généralement effectué. Dans le cas présent, l’objet a été déplié sans coordonnées de texture superposées (UV).
-![unwrapped-uvw](media/3dsmax/unwrapped-uvw.jpg)
+  Le canal de mappage est défini sur 1. En général, vous effectuez le dépliage principal dans le canal de mappage 1. Dans le cas présent, l’objet a été déplié sans coordonnées de texture superposées (UV).
+![Capture d’écran montrant les coordonnées de texture dépliées (UVW).](media/3dsmax/unwrapped-uvw.jpg)
 
 L’étape suivante consiste à créer un deuxième canal de mappage UV.
 
-* Fermez l’éditeur UV s’il est ouvert et, dans la section Canal du menu **Edit UVs** (Modifier les UV), remplacez le numéro de canal par 2. Le canal de mappage 2 est le canal attendu pour les cartes d’occlusion ambiante. 
+1. Fermez l’éditeur UV s’il est ouvert. Dans la section **Channel** (Canal) du menu **Edit UVs** (Modifier les UV), remplacez le numéro de canal en le définissant sur **2**. Le canal de mappage 2 est le canal attendu pour les cartes d’occlusion ambiante. 
 
-* Dans la boîte de dialogue **Channel Change Warning** (Avertissement de modification de canal) qui s’ouvre, vous avez la possibilité de déplacer (**Move**) les UV existants du canal 1 vers le nouveau canal 2, ou d’abandonner (**Abandon**) les UV existants, ce qui créera automatiquement un nouveau dépliage UV (**UV Unwrap**). Sélectionnez **Abandon** seulement si vous envisagez de créer un nouveau dépliage UV (**UV Unwrap**) pour la carte d’occlusion ambiante qui diffère des UV du canal de mappage 1 (par exemple, si vous souhaitez utiliser des textures de mosaïque dans le canal 1). Dans le cadre de nos objectifs, nous allons déplacer (**Move**) les UV du canal 1 vers le canal 2, car nous n’avons pas besoin de modifier le nouveau canal UV.
+1. Dans la boîte de dialogue **Channel Change Warning** (Avertissement de modification de canal), vous pouvez déplacer (**Move**) les UV existants du canal 1 vers le nouveau canal 2, ou abandonner (**Abandon**) les UV existants, ce qui crée automatiquement un nouveau dépliage UV (UV Unwrap). Sélectionnez **Abandon** (Abandonner) uniquement si vous envisagez de créer un nouveau dépliage UV pour la carte d’occlusion ambiante qui diffère des UV du canal de mappage 1. (Par exemple, si vous souhaitez utiliser des textures de mosaïque dans le canal 1.) Dans ce tutoriel, vous allez déplacer les UV du canal 1 vers le canal 2 car vous n’avez pas besoin de modifier le nouveau canal UV.
 
->[!NOTE]
->Même si vous avez copié – **déplacé** – le dépliage UV du canal de mappage 1 vers le canal de mappage 2, vous pouvez apporter toutes les modifications nécessaires aux UV du nouveau canal sans affecter le canal de mappage d’origine.
+   >[!NOTE]
+   >Même si vous avez copié (déplacé) le dépliage UV du canal de mappage 1 vers le canal de mappage 2, vous pouvez apporter toutes les modifications nécessaires aux UV du nouveau canal sans que cela ait un impact sur le canal de mappage d’origine.
 
-![channel-change](media/3dsmax/channel-change.jpg)
+   ![Capture d’écran qui montre l’avertissement de modification du canal.](media/3dsmax/channel-change.jpg)
 
-Une fois le nouveau canal de mappage créé, nous pouvons revenir au matériau physique dans l’éditeur de matériaux et commencer à lui ajouter nos textures. Nous allons d’abord ajouter la carte d’occlusion ambiante (**AO**), car il existe une étape supplémentaire à effectuer pour lui permettre de fonctionner correctement. Une fois que la carte AO est insérée dans notre matériau, nous devons lui demander d’utiliser le canal de mappage 2.
+Maintenant que vous avez créé le nouveau canal de mappage, vous pouvez revenir au matériau physique dans l’éditeur de matériaux et commencer à lui ajouter des textures. Tout d’abord, vous allez ajouter la carte d’occlusion ambiante, car il existe une autre étape pour lui permettre de fonctionner correctement. Une fois que la carte d’occlusion ambiante est insérée dans votre matériau, vous devez la configurer de sorte qu’elle utilise le canal de mappage 2.
 
-* Comme mentionné précédemment, il n’existe pas d’emplacement dédié pour les cartes AO dans le **matériau physique 3DSMax**. Au lieu de cela, nous appliquerons la carte AO à l’emplacement **Diffuse Roughness** (Rugosité diffuse).
+Comme indiqué précédemment, il n’existe pas d’emplacement dédié pour les cartes AO dans le matériau physique 3ds Max. Au lieu de cela, vous appliquez la carte AO à l’emplacement **Diffuse Roughness** (Rugosité diffuse).
 
-* Dans la liste **Generic Maps** (Cartes génériques) du matériau physique, cliquez sur l’emplacement **No Map** (Aucune carte) de **Diffuse Roughness** (Rugosité diffuse) et chargez votre carte AO.
+1. Dans la liste **Generic Maps** (Cartes génériques) du matériau physique, sélectionnez l’emplacement **No Map** (Aucune carte) en regard de **Diffuse Roughness** (Rugosité diffuse) et chargez votre carte AO.
 
-* Dans les propriétés des textures AO, vous verrez le canal de mappage défini sur **1** par défaut. Remplacez cette valeur par **2**. Cette action termine la procédure d’ajout de votre carte d’occlusion ambiante.
+1. Dans les propriétés des textures AO, le canal de mappage est défini sur **1** par défaut. Remplacez cette valeur par **2**. Cette action est la dernière des étapes nécessaires pour ajouter votre carte AO.
 
->[!IMPORTANT]
->Il s’agit d’une étape importante, en particulier si vos UV dans le canal 2 sont différents de ceux du canal 1, car l’occlusion ambiante n’effectuera pas un mappage correct si le mauvais canal est sélectionné.
+   >[!IMPORTANT]
+   >Il s’agit d’une étape importante, en particulier si vos UV du canal 2 sont différents de ceux du canal 1, car l’occlusion ambiante n’effectue pas de mappage correct si le mauvais canal est sélectionné.
 
-![assign-ao-map](media/3dsmax/assign-ao-map.jpg)
+   ![Capture d’écran montrant comment attribuer une carte AO.](media/3dsmax/assign-ao-map.jpg)
 
-Nous allons maintenant aborder l’affectation de notre carte de normales (normal map) à notre matériau PBR. Cette action diffère quelque peu de **Maya** dans le fait que la carte de normales n’est pas appliquée directement à l’emplacement de la carte de relief (bump map) (il n’y a pas d’emplacement de carte de normales dans le **matériau physique 3DSMax**), mais elle est ajoutée à un modificateur de carte de normales, qui est lui-même inséré dans l’emplacement **normals** (normales).
+Vous allez maintenant attribuer la map Normales au matériau PBR. Cette action diffère quelque peu du processus dans Maya. La map Normales n’est pas appliquée directement à l’emplacement de la carte de relief. (Il n’y a pas d’emplacement de map Normales dans le matériau physique 3ds max.) À la place, vous ajoutez la map Normales à un modificateur de map Normales, qui est lui-même branché dans l’emplacement de la normale.
 
-* Dans la section **Special Maps** (Cartes spéciales) des propriétés de notre matériau physique (dans l’éditeur de matériaux), cliquez sur l’emplacement **No Map** (Aucune carte) de **Bump Map** (Carte de relief). 
+1. Dans la section **Special Maps** (Cartes spéciales) des propriétés du matériau physique (dans l’éditeur de matériaux), sélectionnez l’emplacement **No Map** (Aucune carte) en regard de **Bump Map** (Carte de relief). 
 
-* Dans le navigateur de matériaux/cartes, recherchez et cliquez sur **Normal Bump** (Relief normal). Cette action ajoute un modificateur **Normal Bump** (Relief normal) à notre matériau.
+1. Dans le **navigateur de matériaux/cartes**, recherchez et sélectionnez **Normal Bump** (Relief normal). Cette action ajoute un modificateur **Relief normal** au matériau.
 
-* Dans le modificateur **Normal Bump** (Relief normal), cliquez sur **No Map** (Aucune carte) de **Normal**, puis recherchez et chargez votre carte de normales.
+1. Dans le modificateur **Normal Bump** (Relief normal), sélectionnez **No map** (Aucune carte) en regard de **Normal**. Recherchez et chargez votre map Normales.
 
-* Vérifiez que la méthode est définie sur **Tangente** (elle doit l’être par défaut) et, si nécessaire, activez/désactivez **Flip Green (Y)** (Inverser le vert (Y)).
+1. Vérifiez que la méthode est définie sur **Tangent** (Tangente) (elle doit l’être par défaut). Si nécessaire, activez/désactivez **Flip Green (Y)** (Inverser le vert (Y)).
 
-![normal-bump](media/3dsmax/normal-bump.jpg)
-![load-normal-map](media/3dsmax/load-normal-map.jpg)
+   ![Capture d’écran montrant comment sélectionner un relief normal.](media/3dsmax/normal-bump.jpg)
+   ![Capture d’écran qui montre le chargement de la map Normales.](media/3dsmax/load-normal-map.jpg)
 
-Une fois notre carte de normales correctement affectée, nous pouvons passer à l’affectation des textures restantes pour terminer la configuration de notre matériau physique. Ce processus est un processus simple sans paramètres spéciaux à prendre en compte. L’illustration suivante montre l’ensemble complet de textures affectées à notre matériau : ![all-textures](media/3dsmax/all-textures.jpg)
+Une fois que la map Normales a été correctement attribuée, vous pouvez attribuer les textures restantes pour terminer la configuration du matériau physique. Le processus est simple. Il n’y a aucun paramètre spécial à prendre en compte. La capture d’écran suivante montre le jeu complet de textures attribuées au matériau : 
 
-Vous avez créé et configuré vos matériaux PBR. Il est temps maintenant de réfléchir à l’instanciation des objets dans votre scène. L’instanciation d’objets similaires dans votre scène (par exemple, les écrous, les boulons et les rondelles), fondamentalement, tous les objets qui sont identiques, peut réduire considérablement la taille des fichiers. Les instances d’un objet principal peuvent avoir leurs propres transformations, rotation et échelle, ce qui vous permet de les placer où vous le souhaitez dans votre scène. Dans **3D Studio Max**, le processus d’**instanciation** est simple.
+![Capture d’écran qui montre le jeu complet de textures attribuées au matériau.](media/3dsmax/all-textures.jpg)
 
-* Dans la fenêtre d’affichage principale, sélectionnez le ou les objets que vous souhaitez exporter.
+Maintenant que vous avez créé et configuré vos matériaux PBR, il est maintenant temps de réfléchir à l’instanciation des objets dans la scène. Instanciez les objets similaires dans la scène, tels que les écrous, les boulons, les vis et les rondelles. Les objets identiques peuvent générer des gains significatifs en termes de taille de fichier. Les instances d’un objet principal peuvent avoir leurs propres transformations, rotation et échelle, ce qui vous permet de les placer où vous le souhaitez dans votre scène. Dans 3ds Max, le processus d’instanciation est simple.
 
-* Maintenez **Maj** et faites glisser les ressources vers le haut à l’aide de l’outil de transformation (déplacement) 
+1. Dans la fenêtre d’affichage principale, sélectionnez le ou les objets que vous souhaitez exporter.
 
-* Dans la boîte de dialogue **Clone Options** (Options de clonage) qui s’ouvre, définissez **Object** (Objet) sur **Instance** et cliquez sur **OK**. 
-![instance-object](media/3dsmax/instance-object.jpg)
+1. Maintenez la touche **Maj** et faites glisser les ressources vers le haut à l’aide de l’outil de transformation (déplacement). 
+
+1. Dans la boîte de dialogue **Clone Options** (Options de clonage), définissez **Object** (Objet) sur **Instance** et sélectionnez **OK** :
+
+   ![Capture d’écran de la boîte de dialogue Options de clonage.](media/3dsmax/instance-object.jpg)
 
 Cette action crée une instance de votre objet qui peut être déplacée, pivotée ou mise à l’échelle indépendamment de son parent et des autres instances de ce parent.
 
 >[!IMPORTANT]
->Toutefois, sachez que les modifications apportées à une instance en mode sous-objet sont transmises à toutes les instances de votre objet. Donc, si vous utilisez des composants d’objets instanciés, comme des sommets, des faces de polygone, etc., vous devez être sûr de vouloir appliquer les modifications à l’ensemble de ces instances. N’oubliez pas que tout objet instancié peut être transformé en objet unique à tout moment. 
+>Toutes les modifications que vous apportez à une instance en mode sous-objet sont transmises à toutes les instances de l’objet. Par conséquent, si vous travaillez avec les composants d’un objet instancié, tels que les sommets et les faces de polygones, les modifications que vous apportez affectent toutes les instances. N’oubliez pas que tout objet instancié peut être transformé en objet unique à tout moment. 
 
 >[!TIP]
->Une bonne pratique en matière d’instanciation dans votre scène consiste à créer les objets instanciés au fur et à mesure, car le remplacement ultérieur de **copies** par des objets instanciés est extrêmement difficile. 
+>Lorsque vous instanciez votre scène, il est judicieux de créer des instances au fur et à mesure. Le remplacement ultérieur de copies par des objets instanciés est difficile. 
 
-Une dernière chose à prendre en compte avant de passer au processus d’exportation est la façon dont vous pouvez empaqueter votre scène/ressource pour le partage. Dans l’idéal, si vous transmettez la ressource à un client ou à un membre d’équipe, vous souhaitez qu’il puisse l’ouvrir et l’afficher avec le moins de difficultés possible. Il est donc important de conserver les chemins des textures des ressources relatifs au fichier de scène. Si les chemins des textures de votre ressource pointent vers un lecteur local ou un chemin/emplacement absolu, elles ne seront pas chargées dans la scène si celle-ci est ouverte sur un autre ordinateur, même si le fichier **.max** se trouve dans le même dossier que les textures. Le fait de rendre les chemins des textures relatifs dans 3D Studio Max résout ce problème de manière relativement simple.
+Une dernière chose à prendre en compte avant de passer au processus d’exportation est la façon dont vous pouvez empaqueter votre scène/ressource pour le partage. Dans l’idéal, si vous transmettez la ressource à un client ou à un membre d’équipe, vous souhaitez qu’il puisse l’ouvrir et l’afficher avec le moins de difficultés possible. Il est donc important de conserver les chemins des textures des ressources relatifs au fichier de scène. Si les chemins des textures de votre ressource pointent vers un lecteur local ou un chemin/emplacement absolu, elles ne sont pas chargées dans la scène si celle-ci est ouverte sur un autre ordinateur, même si le fichier .max se trouve dans le même dossier que les textures. Le fait de rendre les chemins des textures relatifs dans 3ds Max résout ce problème de manière relativement simple.
 
-* Dans la barre d’outils principale, accédez à **File** (Fichier) > **Reference** (Reférence) > **Asset Tracking Toggle** (Activer/désactiver le suivi des ressources). 
+1. Dans la barre d’outils principale, accédez à **File** (Fichier) > **Reference** (Reférence) > **Asset Tracking Toggle** (Activer/désactiver le suivi des ressources). 
 
-* Dans le navigateur de suivi des ressources qui s’ouvre, vous voyez la totalité ou la plupart des textures que vous avez appliquées à vos matériaux PBR listées sous la colonne **Maps/Shaders** (Cartes/nuanceurs).
+1. Dans la fenêtre de suivi des ressources, la totalité ou la plupart des textures que vous avez appliquées à vos matériaux PBR sont listées sous la colonne **Maps/Shaders** (Cartes/nuanceurs).
 
-* En regard de celles-ci, dans la colonne **Full Path** (Chemin complet), vous voyez le chemin d’accès à l’emplacement de vos textures, probablement à leur emplacement sur votre ordinateur local.
+1. En regard de celles-ci, dans la colonne **Full Path** (Chemin complet), vous voyez le chemin d’accès à l’emplacement de vos textures, qui correspond probablement à un emplacement sur votre ordinateur local.
 
-* Enfin, vous voyez une colonne appelée **Status** (État). Cette colonne indique si une texture donnée a été localisée et appliquée à votre scène ou non, et étiquette cette texture avec l’un des termes suivants **OK**, **Found** (Trouvée) ou **File Missing** (Fichier manquant). Les deux premières étiquettes indiquent que le fichier a été trouvé et chargé, tandis que la dernière signifie de toute évidence que le dispositif de suivi n’a pas réussi à localiser de fichier.
-![texture-paths](media/3dsmax/texture-paths.jpg)
+1. Enfin, vous voyez une colonne appelée **Status** (État). Cette colonne indique si une texture donnée a été localisée et appliquée à votre scène. Elle accompagne la texture de l’un des termes suivants : **OK**, **Found** ou **File Missing**. Les deux premiers indiquent que le fichier a été trouvé et chargé. Le dernier signifie évidemment que l’outil de suivi n’a pas réussi à localiser le fichier.
+ 
+   ![Capture d’écran montrant la fenêtre de suivi des ressources.](media/3dsmax/texture-paths.jpg)
 
-Vous remarquerez peut-être que les textures ne sont pas toutes listées dans le traqueur de ressources lorsque vous l’ouvrez pour la première fois. Vous n’avez pas de souci à vous faire, car une ou deux exécutions du processus de recherche de chemin suffisent généralement pour trouver toutes les textures de la scène. Le processus de recherche de chemin est le suivant : 
+Vous remarquerez peut-être que les textures ne sont pas toutes listées dans la fenêtre de suivi des ressources lorsque vous l’ouvrez pour la première fois. Cela n’est pas un problème. Le fait d’exécuter le processus de recherche de chemin d’accès une ou deux fois permet généralement de trouver toutes les textures d’une scène. Le processus de recherche de chemin est le suivant : 
 
-* Dans la fenêtre du traqueur de ressources, maintenez enfoncée la touche **Maj**+**cliquez** sur la première texture de la liste **Maps/Shaders** (Cartes/nuanceurs) et, tout en maintenant la touche Maj enfoncée, cliquez sur la dernière texture de la liste. Cette action permet de sélectionner toutes les textures de la liste. Les textures sélectionnées sont désormais surlignées en bleu (voir l’image ci-dessus).
+1. Dans la fenêtre de suivi des ressources, maintenez enfoncée la touche **Maj** et sélectionnez la première texture de la liste **Maps/Shaders** (Cartes/nuanceurs) et, tout en maintenant la touche **Maj** enfoncée, cliquez sur la dernière texture de la liste. Cette action permet de sélectionner toutes les textures de la liste. Les textures sélectionnées sont mises en surbrillance en bleu. (Voir la capture d’écran précédente.)
 
-* Cliquez avec le bouton droit sur la sélection, puis, dans le menu contextuel qui s’ouvre, sélectionnez **Set Path** (Définir le chemin).
+1. Cliquez avec le bouton droit sur la sélection, puis sélectionnez **Set Path** (Définir le chemin).
 
-* Dans la boîte de dialogue **Specify Assets Path** (Spécifier le chemin des ressources) qui s’affiche, sélectionnez le chemin local de vos textures affiché et remplacez-le par `.\`, puis cliquez sur **OK**. 
+1. Dans la zone **Specify Asset Path** (Spécifier le chemin de la ressource), sélectionnez le chemin d’accès local de vos textures et remplacez-le par `.\`.  Sélectionnez **OK**. 
 
-* Après un certain laps de temps (qui varie en fonction du nombre de textures présentes dans votre scène et de la taille de votre scène), le traqueur de ressources doit se résoudre comme suit (voir l’image).
-![resolve-textures](media/3dsmax/resolve-textures.jpg)
+    La fenêtre Suivi des ressources est mise à jour comme indiqué dans la capture d’écran suivante. Cette mise à jour peut prendre un certain temps, en fonction du nombre de textures et de la taille de votre scène.
+![Capture d’écran qui affiche la fenêtre de suivi des ressources mise à jour.](media/3dsmax/resolve-textures.jpg)
 
-Remarquez que la colonne **Full Path** (Chemin complet) est maintenant vide. Cela signifie que la scène ne recherche plus les textures appropriées dans un emplacement (absolu) spécifique, mais les trouvera toujours si le fichier .max ou le fichier FBX associé se trouve dans le même dossier que les textures. 
+Remarquez que la colonne **Full Path** (Chemin complet) est maintenant vide. Cela signifie que la scène ne recherche plus les textures appropriées dans un emplacement spécifique (absolu). Elle les trouve toujours tant que le fichier .max ou le fichier FBX associé se trouve dans le même dossier que les textures. 
 
 >[!NOTE]
->Il se peut parfois que vous deviez répéter ce processus plusieurs fois pour rechercher et résoudre toutes les textures et tous les chemins. Soyez sans crainte, répétez simplement la procédure jusqu’à ce que toutes les ressources pertinentes soient comptabilisées. Il est possible également que certains fichiers soient introuvables. Dans ce cas, sélectionnez simplement toutes les ressources de la liste et cliquez sur **Remove Missing Paths** (Supprimer les chemins manquants) – Voir l’image ci-dessus.
+>Vous devrez peut-être répéter ce processus plusieurs fois pour rechercher et résoudre l’ensemble des textures et des chemins. Cela n’est pas un problème. Il vous suffit de répéter le processus jusqu’à ce que toutes les ressources pertinentes soient comptabilisées. Il se peut que certains fichiers restent introuvables. Dans ce cas, sélectionnez simplement toutes les ressources de la liste, puis sélectionnez **Remove Missing Paths** (Supprimer les chemins manquants). (Voir l’image précédente.)
 
 ## <a name="fbx-export"></a>Exportation au format FBX
 
-Une fois le suivi des ressources terminé, nous pouvons maintenant passer à l’exportation au format FBX. Là encore, le processus est simple et peut être effectué de plusieurs manières. 
+Maintenant que vous avez défini les chemins de texture sur des chemins relatifs, vous pouvez passer à l’exportation au format FBX. Là encore, le processus est simple et peut être effectué de plusieurs manières. 
 
 >[!TIP]
->À moins que vous souhaitiez exporter l’intégralité de votre scène, une bonne pratique consiste à sélectionner uniquement les ressources que vous avez besoin d’exporter. Pour les scènes particulièrement riches en ressources, l’exportation peut prendre beaucoup de temps. Il est donc judicieux d’exporter uniquement ce dont vous avez besoin.
+>Sauf si vous souhaitez exporter l’intégralité de votre scène, il est judicieux de sélectionner pour l’exportation uniquement les ressources dont vous avez besoin. Dans les scènes nécessitant beaucoup de ressources, l’exportation peut prendre beaucoup de temps.
 >
->Il est recommandé, si vous avez utilisé des modificateurs tels que **Turbosmooth** ou **Open SubDiv**, etc., de les réduire avant l’exportation, car ils peuvent provoquer des problèmes lors de l’exportation. Enregistrez toujours votre scène avant de continuer ! 
+>Si vous avez utilisé des modificateurs comme Turbosmooth ou Open SubDiv, il est conseillé de les réduire avant l’exportation, car ils peuvent provoquer des problèmes lors de l’exportation. Veillez à enregistrer votre scène avant de les réduire. 
 
-* Dans la scène, sélectionnez les ressources que vous souhaitez exporter et, dans la barre d’outils principale, accédez à **File** (Fichier) > **Export** (Exporter) > **Export Selected** (Exportation sélectionnée).
+1. Dans la scène, sélectionnez les ressources que vous souhaitez exporter. Dans la barre d’outils principale, accédez à **File (Fichier)**  > **Export (Exporter)**  > **Export Selected (Exporter la sélection)** .
 
-* Dans la boîte de dialogue **Select File to Export** (Sélectionner le fichier à exporter), tapez ou sélectionnez le nom du fichier de sortie et, dans les options **Save as Type** (Type de fichier), sélectionnez **Autodesk (*.fbx)** . Cette action ouvre le menu d’exportation FBX. 
+1. Dans la boîte de dialogue **Select File to Export** (Sélectionner le fichier à exporter), tapez ou sélectionnez un nom de fichier de sortie. Dans la liste **Save as type** (Enregistrer sous), sélectionnez **Autodesk (*.fbx)** . Cette action ouvre la fenêtre d’exportation au format FBX.
 
-* N’oubliez pas que si vous avez créé des instances dans votre scène, il est important d’activer **Preserve Instances** (Conserver les instances) dans les paramètres d’exportation FBX. 
-![fbx-export](media/3dsmax/fbx-export.jpg)
+  >[!IMPORTANT] 
+  >Si vous avez créé des instances dans votre scène, il est important de sélectionner **Preserve Instances** (Conserver les instances) dans les paramètres d’exportation au format FBX. 
 
-Souvenez-vous que nous avons déjà mentionné qu’il existait plusieurs façons d’exporter le fichier. Si l’objectif de l’exportation consiste à partager le fichier FBX avec ses fichiers de textures dans un dossier/répertoire, les paramètres affichés dans l’image ci-dessous doivent s’appliquer et fonctionner correctement. Une fois que vous avez sélectionné vos paramètres, cliquez sur **OK**.
-![fbx-settings](media/3dsmax/fbx-settings.jpg)
+  ![Capture d’écran montrant comment exporter au format FBX.](media/3dsmax/fbx-export.jpg)
 
-Toutefois, si vous préférez ne pas partager de grands dossiers/répertoires de textures avec le fichier FBX, vous pouvez choisir d’incorporer (**Embed**) les textures dans le fichier FBX. Cela signifie que l’ensemble de la ressource (textures incluses) est ajoutée à un fichier FBX unique. Sachez toutefois qu’en associant votre exportation en une seule ressource, le fichier FBX sera considérablement plus volumineux.
+  Rappelez-vous qu’il existe deux façons d’exporter le fichier. Si l’objectif est de partager le FBX avec ses fichiers de texture dans un dossier/répertoire, les paramètres affichés dans la capture d’écran suivante doivent fonctionner correctement. 
 
->[!IMPORTANT]
->Si votre fichier FBX résultant dépasse 2,4 Go, la version minimale des paramètres d’exportation FBX (voir ci-dessus) doit être 2016 ou ultérieure. En effet, les versions plus récentes disposent de la prise en charge 64 bits et prennent donc en charge des fichiers plus volumineux.
+   Si vous préférez ne pas partager de grands dossiers/répertoires de textures avec le fichier FBX, vous pouvez choisir d’incorporer les textures dans le fichier FBX. Si vous incorporez les textures, la totalité de la ressource, notamment les textures, est ajoutée à un seul FBX. Dans ce cas, l’exportation s’effectue dans une seule ressource, mais le fichier FBX est alors considérablement plus volumineux.
 
-* Dans les paramètres d’exportation FBX, activez **Embed Media (Incorporer les médias), puis cliquez sur **OK** pour exporter en incluant les textures. 
+   >[!IMPORTANT]
+   >Si la taille du fichier FBX résultant est supérieure à 2,4 Go, la version minimale spécifiée dans les paramètres d’exportation au format FBX doit être 2016 ou ultérieure. (Voir la capture d’écran précédente.) Les versions plus récentes disposent de la prise en charge 64 bits et prennent donc en charge des fichiers plus volumineux.
 
-Lors de l’exportation vers FBX, si vous utilisez le matériau physique, vous verrez probablement apparaître l’avertissement suivant après avoir cliqué sur « OK » dans la boîte de dialogue d’exportation : ![export-warnings](media/3dsmax/export-warnings.jpg)
+1. Si vous souhaitez exporter la scène en incluant les textures, dans la fenêtre d’exportation *FBX, sélectionnez **Embed Media** (Incorporer le média). 
 
-Cet avertissement informe simplement l’utilisateur que les matériaux exportés peuvent ne pas être compatibles avec d’autres packages logiciels. Comme le matériau physique est compatible avec Azure Remote Rendering, vous n’avez pas à vous en soucier. Cliquez simplement sur **OK** pour terminer le processus et fermer la fenêtre.
+1. Sélectionnez le reste de vos paramètres, puis sélectionnez **OK** :
+
+    ![Capture d’écran montrant les paramètres d’exportation au format FBX.](media/3dsmax/fbx-settings.jpg)
+
+
+   Lorsque vous exportez au format FBX en utilisant un matériau physique, l’avertissement suivant s’affiche probablement une fois que vous avez sélectionné **OK** dans la fenêtre d’exportation au format FBX : 
+
+   ![Capture d’écran montrant l’échec de l’exportation de matériel.](media/3dsmax/export-warnings.jpg)
+
+   Cet avertissement vous informe que les matériaux exportés peuvent ne pas être compatibles avec d’autres packages logiciels. Comme le matériau physique est compatible avec Azure Remote Rendering, vous n’avez pas à vous en soucier. 
+
+1. Sélectionnez simplement **OK** pour terminer le processus et fermer la fenêtre.
 
 ## <a name="conclusion"></a>Conclusion
 

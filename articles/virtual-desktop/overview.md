@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248609"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386570"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
+# <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ?
 
 Windows Virtual Desktop est un service de virtualisation de bureau et d’application qui s’exécute dans le cloud.
 
@@ -78,7 +78,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
   * Azure AD Connect (pour les organisations hybrides)
   * Services de domaine Azure AD (pour les organisations cloud ou hybrides)
 * Un abonnement Azure contenant un réseau virtuel qui contient ou est connecté à l’annuaire Windows Server Active Directory
-  
+
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
 * être [standard jointes à un domaine](../active-directory-domain-services/active-directory-ds-comparison.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
@@ -105,7 +105,7 @@ Les clients Bureau à distance suivants prennent en charge Windows Virtual Deskt
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (préversion)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
@@ -128,7 +128,7 @@ Windows Virtual Desktop prend en charge les images de système d'exploitation x6
 
 Windows Virtual Desktop ne prend pas en charge les images de système d’exploitation x86 (32 bits), Windows 10 Entreprise N ou Windows 10 Entreprise KN. Windows 7 ne prend pas non plus en charge les solutions de profil VHD ou VHDX hébergées sur le stockage Azure managé en raison d’une limitation de la taille de secteur.
 
-Les options d’automatisation et de déploiement qui sont disponibles dépendent du système d’exploitation et de la version que vous choisissez, comme indiqué dans le tableau suivant : 
+Les options d’automatisation et de déploiement qui sont disponibles dépendent du système d’exploitation et de la version que vous choisissez, comme indiqué dans le tableau suivant :
 
 |Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|
 |--------------------------------------|:------:|:------:|:------:|:------:|
@@ -139,13 +139,13 @@ Les options d’automatisation et de déploiement qui sont disponibles dépenden
 |Windows 7 Entreprise|Oui|Oui|Non|Non|
 |Windows Server 2019|Oui|Oui|Non|Non|
 |Windows Server 2016|Oui|Oui|Oui|Oui|
-|Windows Server 2012 R2|Oui|Oui|Non|Non|
+|Windows Server 2012 R2|Oui|Oui|Non|Non|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous utilisez la version Automne 2019 de Windows Virtual Desktop, vous pouvez consulter l’article [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) pour vous familiariser avec notre tutoriel.
+Si vous utilisez Windows Virtual Desktop (classique), vous pouvez consulter l’article [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) pour vous familiariser avec notre tutoriel.
 
-Si vous utilisez la version Printemps 2020 de Windows Virtual Desktop, vous devez créer un pool d’hôtes. Pour commencer, consultez le tutoriel suivant.
+Si vous utilisez Windows Virtual Desktop avec l’intégration Azure Resource Manager, vous devez créer un pool d’hôtes à la place. Pour commencer, consultez le tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md)

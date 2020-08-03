@@ -1,6 +1,6 @@
 ---
 title: Passer au niveau Standard – Azure Security Center
-description: Ce guide de démarrage rapide explique comment passer au niveau tarifaire Standard de Security Center pour renforcer la sécurité.
+description: Ce démarrage rapide explique comment passer au niveau tarifaire Standard de Security Center pour renforcer la sécurité.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038543"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
@@ -49,8 +49,8 @@ Quelques minutes après le premier lancement de Security Center peuvent s’affi
 
 Pour tirer pleinement parti de Security Center, vous devez suivre les étapes ci-dessous afin de passer au niveau Standard et d’installer l’agent Log Analytics.
 
-## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
-Dans le cadre des guides de démarrage rapide et des didacticiels de Security Center, vous devez passer au niveau Standard. Il existe un essai gratuit de Security Center Standard. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). 
+## <a name="upgrade-to-the-standard-pricing-tier"></a>Effectuer la mise à niveau vers le niveau tarifaire Standard
+Pour suivre les démarrages rapides et les tutoriels Security Center, vous devez passer au niveau Standard. Il existe un essai gratuit de Security Center Standard. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
  
@@ -84,7 +84,7 @@ Grâce à ces nouvelles informations sur les machines virtuelles Azure, Security
   ![Recommandations][8]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez de suivre les tutoriels et les démarrages rapides suivants, conservez le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Tarifs et paramètres**.
 2. Cliquez sur l’abonnement que vous souhaitez remplacer par le niveau gratuit.
@@ -103,10 +103,15 @@ Si vous voulez désactiver l’approvisionnement automatique :
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez effectué une mise à niveau vers le niveau Standard et provisionné l’agent Log Analytics pour profiter de fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble de vos charges de travail cloud hybrides. Pour en savoir plus sur Security Center, enchaînez avec le guide de démarrage rapide sur l’intégration d’ordinateurs Windows en local et dans d’autres clouds.
+Dans ce démarrage rapide, vous avez effectué une mise à niveau vers le niveau Standard et provisionné l’agent Log Analytics pour profiter de fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble de vos charges de travail cloud hybrides. Pour en savoir plus sur Security Center, enchaînez avec le guide de démarrage rapide sur l’intégration d’ordinateurs Windows en local et dans d’autres clouds.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center](quick-onboard-windows-computer.md)
+
+Vous souhaitez optimiser et réduire vos coûts de cloud ?
+
+> [!div class="nextstepaction"]
+> [Démarrer l’analyse des coûts avec Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
