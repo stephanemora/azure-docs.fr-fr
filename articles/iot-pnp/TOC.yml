@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: Connecter un appareil multicomposant (Python)
       href: tutorial-multiple-components-python.md
+    - name: Utiliser MQTT pour connecter un appareil
+      href: tutorial-use-mqtt.md
 - name: Concepts
   items:
     - name: Architecture

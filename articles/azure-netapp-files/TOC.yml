@@ -55,22 +55,30 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Déléguer un sous-réseau à Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Créer un volume SMB pour Azure NetApp Files
+    - name: Créer et gérer un volume NFS
+      items:
+        - name: Créer un volume NFS
+          href: azure-netapp-files-create-volumes.md
+        - name: "Configurer le domaine par défaut NFS\_v4.1"
+          href: azure-netapp-files-configure-nfsv41-domain.md
+        - name: "Configurer le chiffrement Kerberos NFS\_v4.1"
+          href: configure-kerberos-encryption.md
+        - name: Configurer un client NFS pour Azure NetApp Files
+          href: configure-nfs-clients.md
+        - name: Configurer une stratégie d’exportation pour un volume NFS
+          href: azure-netapp-files-configure-export-policy.md
+    - name: Créer un volume SMB
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Créer un volume NFS pour Azure NetApp Files
-      href: azure-netapp-files-create-volumes.md
-    - name: Configurer le domaine par défaut NFSv4.1 pour Azure NetApp Files
-      href: azure-netapp-files-configure-nfsv41-domain.md
-    - name: Configurer une stratégie d’exportation pour un volume NFS
-      href: azure-netapp-files-configure-export-policy.md
-    - name: Gérer les volumes
-      href: azure-netapp-files-manage-volumes.md
+    - name: Créer un volume à deux protocoles
+      href: create-volumes-dual-protocol.md
     - name: Monter ou démonter un volume pour des machines virtuelles Windows ou Linux
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Gérer les instantanés
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Changer dynamiquement le niveau de service d’un volume
+      href: dynamic-change-volume-service-level.md
     - name: Développer
       items:
         - name: API REST
