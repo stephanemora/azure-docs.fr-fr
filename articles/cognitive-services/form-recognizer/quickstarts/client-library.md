@@ -9,13 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.author: pafarley
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: c00a30dd10abd58e488a11b2ff79161695789e33
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ee798ba765346d701851d6873f75c0e572ba7d04
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997531"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405452"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Form Recognizer
 
@@ -24,7 +25,7 @@ Démarrez avec la bibliothèque de client Form Recognizer. Form Recognizer est u
 La bibliothèque de client Form Recognizer vous permet de :
 
 * [Reconnaître le contenu d’un formulaire](#recognize-form-content)
-* [Reconnaître les tickets](#recognize-receipts)
+* [Reconnaître les tickets de caisse](#recognize-receipts)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Gérer vos connecteurs personnalisés](#manage-your-custom-models)

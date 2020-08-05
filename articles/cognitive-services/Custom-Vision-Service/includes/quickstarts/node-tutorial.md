@@ -3,12 +3,13 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: a96e78ed15eaa4d97cafb7ffc9d5d6979ab869b5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f1a89b311a524e6ef0d8e1fc8145f7e13d10bb6b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965898"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406031"
 ---
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Node.js pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser ce point de terminaison pour tester programmatiquement une image. Utilisez cet exemple comme modèle pour générer votre propre application Node.js. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](../../getting-started-build-a-classifier.md).
 

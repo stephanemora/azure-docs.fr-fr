@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a019ee6b0df52de70dfedca94feaede90e1f0d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 46d3ac6947293529308ad0abba9cd175d6b4dd6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293463"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407334"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smarthr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SmartHR
 
@@ -90,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.smarthr.jp/external_saml/acs`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de SmartHR](mailto:info@smarhr.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de SmartHR](mailto:info@smarthr.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -132,11 +132,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-smarthr-sso"></a>Configurer l’authentification unique SmartHR
 
-Pour configurer l’authentification unique côté **SmartHR**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique de SmartHR](mailto:info@smarhr.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **SmartHR**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique de SmartHR](mailto:info@smarthr.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-smarthr-test-user"></a>Créer un utilisateur de test SmartHR
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans SmartHR. Collaborez avec l’ [équipe du support technique de SmartHR](mailto:info@smarhr.jp) pour ajouter les utilisateurs à la plateforme SmartHR. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans SmartHR. Collaborez avec l’ [équipe du support technique de SmartHR](mailto:info@smarthr.jp) pour ajouter les utilisateurs à la plateforme SmartHR. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

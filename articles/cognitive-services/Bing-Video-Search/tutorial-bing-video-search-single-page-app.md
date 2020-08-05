@@ -10,12 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c3515d6dc7556995c990180330212bffb1445ad2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800723"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406229"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.

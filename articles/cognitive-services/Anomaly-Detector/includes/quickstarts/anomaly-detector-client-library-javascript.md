@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: a4e8fc18ab7abfee483f36adef083bfb08a4a27f
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-javascript
+ms.openlocfilehash: cb9a674890330ba83b6e7fe754ecd83eda4031bb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986104"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405997"
 ---
 Découvrez comment commencer à utiliser la bibliothèque de client Détecteur d’anomalies pour JavaScript. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 

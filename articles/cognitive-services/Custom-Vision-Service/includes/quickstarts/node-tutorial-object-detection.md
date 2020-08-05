@@ -3,12 +3,13 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: cc4cd4b099a37ef103e2da79b8c15269008e7423
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0cb31f5470519e33b76c6cad83d7b47972f21381
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837881"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407305"
 ---
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Node.js pour générer un modèle de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions étiquetées, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple comme modèle pour générer votre propre application Node.js.
 
