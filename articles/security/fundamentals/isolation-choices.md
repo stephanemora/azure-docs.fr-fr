@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021872"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084044"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 
@@ -64,9 +64,9 @@ Le concept de conteneurs client est profondément ancré dans le service de rép
 
 Même lorsque les métadonnées de plusieurs clients Azure Active Directory sont stockées sur le même disque physique, il n’existe aucune relation entre les conteneurs autres que celles définies par le service de répertoire, qui est régi par l’administrateur du client.
 
-### <a name="azure-role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle Azure (RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
-Le [contrôle d’accès en fonction du rôle Azure (RBAC)](../../role-based-access-control/overview.md) vous permet de partager des composants disponibles dans un abonnement Azure en fournissant une gestion des accès affinée pour Azure. Azure RBAC vous permet de séparer les tâches au sein de votre organisation et d’accorder les accès en fonction de ce dont les utilisateurs ont besoin pour travailler. Plutôt que de donner à tous des autorisations illimitées au sein de l’abonnement ou des ressources Azure, vous pouvez autoriser uniquement certaines actions.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) permet de partager différents composants disponibles dans un abonnement Azure en assurant une gestion des accès affinée pour Azure. Azure RBAC vous permet de séparer les tâches au sein de votre organisation et d’accorder les accès en fonction de ce dont les utilisateurs ont besoin pour travailler. Plutôt que de donner à tous des autorisations illimitées au sein de l’abonnement ou des ressources Azure, vous pouvez autoriser uniquement certaines actions.
 
 Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base qui s’appliquent à tous les types de ressources :
 
@@ -145,7 +145,7 @@ Le contrôleur de structure Azure est chargé d’allouer des ressources d’inf
 
 L’hyperviseur Azure applique la séparation de mémoire et de processus entre les machines virtuelles, et achemine en toute sécurité le trafic réseau vers les clients du système d’exploitation invité. Cela élimine la possibilité d’une attaque par canal auxiliaire au niveau de la machine virtuelle.
 
-Dans Azure, la machine virtuelle racine est spéciale : elle exécute un système d’exploitation renforcé appelé système d’exploitation racine qui héberge un agent de structure. Les agents de structure servent à gérer les agents invités au sein des systèmes d’exploitation invités sur les machines virtuelles de client. Ils gèrent également les nœuds de stockage.
+Dans Azure, la machine virtuelle racine est spéciale : elle exécute un système d’exploitation renforcé appelé système d’exploitation racine qui héberge un agent de structure. Les agents de structure servent à gérer les agents invités au sein des systèmes d’exploitation invités sur les machines virtuelles clientes. Ils gèrent également les nœuds de stockage.
 
 La collection d’hyperviseur Azure, d’agent de structure/de système d’exploitation racine et d’agent invité/de machines virtuelles de client comprend un nœud de calcul. Les agents de structure sont gérés par un contrôleur de structure qui se trouve en dehors des nœuds de calcul et de stockage (les clusters de calcul et de stockage sont gérés par des contrôleurs de structure distincts). Si un client met à jour le fichier de configuration de l’application pendant son exécution, le contrôleur de structure communique avec l’agent de structure, lequel contacte ensuite les agents invités qui notifient l’application de la modification apportée à la configuration. En cas de défaillance matérielle, le contrôleur de structure recherchera automatiquement le matériel disponible et redémarrera la machine virtuelle dessus.
 
@@ -319,4 +319,4 @@ Le [sous-réseau](../../virtual-network/virtual-networks-overview.md) offre une 
 
 - En savoir plus sur les [options d’isolement réseau pour machines dans les réseaux virtuels Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Cela inclut le scénario classique front-end et back-end où les machines dans un réseau back-end particulier ou un sous-réseau peuvent autoriser uniquement certains clients ou d’autres ordinateurs à se connecter à un point de terminaison particulier en fonction d’une liste verte d’adresses IP.
 
-- En savoir plus sur l’[isolation des machines virtuelles dans Azure](../../virtual-machines/windows/isolation.md). Azure Compute offre des tailles de machines virtuelles qui sont isolées dans un type de matériel spécifique et qui sont dédiées à un client unique.
+- En savoir plus sur l’[isolation des machines virtuelles dans Azure](../../virtual-machines/isolation.md). Azure Compute offre des tailles de machines virtuelles qui sont isolées dans un type de matériel spécifique et qui sont dédiées à un client unique.

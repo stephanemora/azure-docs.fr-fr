@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255657"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372839"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
 >[!IMPORTANT]
->La fonction d’optimisation des médias de Microsoft Teams est actuellement en préversion publique. Nous vous recommandons d’évaluer l’expérience utilisateur optimisée de ce produit avant de le déployer pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+>L’optimisation des médias pour Teams n’est pas prise en charge pour les environnements Microsoft 365 Secteur Public.
 
 >[!NOTE]
 >La fonction d’optimisation des médias de Microsoft Teams est uniquement disponible pour le client Windows Desktop sur les machines Windows 10. Elle nécessite la version 1.2.1026.0 ou ultérieure du client Windows Desktop.
@@ -53,7 +53,21 @@ Pour activer l’optimisation des médias pour Teams, définissez la clé de Reg
 
 ### <a name="install-the-teams-websocket-service"></a>Installer le service WebSocket de Teams
 
-Installez le [service WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
+Installez le dernier [Service WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) sur votre image de machine virtuelle. Si vous rencontrez une erreur d’installation, installez [la dernière version de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), puis réessayez.
+
+#### <a name="latest-websocket-service-versions"></a>Dernières versions du service WebSocket
+
+Le tableau suivant présente les dernières versions du service WebSocket :
+
+|Version        |Date de publication  |
+|---------------|--------------|
+|1.0.2006.11001 |28/07/2020    |
+|0.11.0         |29/05/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Mises à jour pour la version 1.0.2006.11001
+
+- Résolution d’un problème selon lequel la réduction de l’application Teams lors d’un appel ou d’une réunion entraînait la suppression de la vidéo entrante.
+- Ajout de la prise en charge de la sélection d’un moniteur à partager dans les sessions de bureau à plusieurs écrans.
 
 ### <a name="install-microsoft-teams"></a>Installer Microsoft Teams
 
@@ -109,7 +123,7 @@ Après l’installation du service WebSocket et de l’application de bureau Tea
 
 3. Sélectionnez votre image de profil utilisateur, puis choisissez **Paramètres**.
 
-      Si les optimisations de médias sont chargées, les appareils audio et les caméras disponibles en local sont répertoriés dans le menu de l’appareil. Si le menu affiche **Sortie audio de l’ordinateur distant**, quittez l’application Teams, puis réessayez. Si les appareils n’apparaissent toujours pas dans le menu, revenez à la page [Installer Microsoft Teams](#install-microsoft-teams) et assurez-vous que vous avez terminé le processus d’installation.
+      Si les optimisations de médias sont chargées, les appareils audio et les caméras disponibles en local sont répertoriés dans le menu de l’appareil. Si le menu affiche **Sortie audio de l’ordinateur distant**, quittez l’application Teams, puis réessayez. Si les appareils n’apparaissent toujours pas dans le menu, vérifiez les paramètres de confidentialité de votre ordinateur local. Veillez à ce que, sous **Paramètres** > **Confidentialité** > **Autorisations de l’application**, le paramètre **Autoriser les applications à accéder à votre microphone** soit **Activé**. Déconnectez-vous de la session à distance, puis reconnectez-vous et vérifiez à nouveau les périphériques audio et vidéo. Pour rejoindre des appels et des réunions avec vidéo, vous devez également accorder aux applications l’autorisation d’accéder à votre caméra.
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
@@ -125,9 +139,7 @@ Selon que l’environnement est virtualisé ou non, l’utilisation de Microsoft
 ### <a name="calls-and-meetings"></a>Appels et réunions
 
 - Le client de bureau Teams dans les environnements Windows Virtual Desktop ne gère pas les événements en direct. Pour l’instant, nous vous recommandons de rejoindre des événements en direct à partir du [client Web Teams](https://teams.microsoft.com) dans votre session à distance.
-- Si vous réduisez l’affichage de l’application Teams lors d’un appel ou d’une réunion, vous risquez de faire disparaître le flux vidéo entrant lorsque vous redéveloppez l’application.
 - Actuellement, les appels et les réunions ne prennent pas en charge le partage d’applications. Par contre, les sessions de bureau prennent en charge le partage de bureau.
-- Lors du partage de bureau dans une configuration à plusieurs écrans, tous les écrans sont partagés.
 - L’octroi et la prise de contrôle ne sont actuellement pas pris en charge.
 - L’instance Teams sur Windows Virtual Desktop ne prend en charge qu’une seule entrée vidéo à la fois. De ce fait, chaque fois qu’un utilisateur tente de partager son écran, ce dernier s’affiche à la place de l’écran de l’organisateur de la réunion.
 - En raison des limitations de WebRTC, la résolution du flux vidéo entrant et sortant est limitée à 720p.

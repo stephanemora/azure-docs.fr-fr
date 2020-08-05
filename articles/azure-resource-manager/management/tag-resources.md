@@ -2,13 +2,13 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337532"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -17,7 +17,7 @@ Vous allez appliquer des étiquettes à vos ressources Azure, groupes de ressour
 Pour obtenir des recommandations sur la façon d’implémenter une stratégie d’étiquetage, consultez [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Les noms des étiquettes ne respectent pas la casse pour les opérations. Une étiquette portant un nom, quelle que soit la casse, est mise à jour ou récupérée. Toutefois, le fournisseur de ressources peut conserver la casse que vous utilisez pour le nom de l’étiquette. Vous verrez cette casse dans les rapports sur les coûts.
+> Les noms des étiquettes ne respectent pas la casse pour les opérations. Une étiquette portant un nom, quelle que soit la casse, est mise à jour ou récupérée. Toutefois, il est possible que le fournisseur de ressources conserve la casse indiquée pour le nom de l’étiquette. Vous verrez cette casse dans les rapports sur les coûts.
 > 
 > Les valeurs des étiquettes respectent la casse.
 
@@ -438,7 +438,7 @@ Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON
 
 ### <a name="apply-tags-from-resource-group"></a>Appliquer des balises à partir d’un groupe de ressources
 
-Pour appliquer des balises d’un groupe de ressources à une ressource, utilisez la fonction [resourceGroup](../templates/template-functions-resource.md#resourcegroup). Lors de l’obtention de la valeur de balise, utilisez la syntaxe `tags[tag-name]` au lieu de la syntaxe `tags.tag-name`, car certains caractères ne sont pas correctement analysés dans la notation par points.
+Pour appliquer des balises d’un groupe de ressources à une ressource, utilisez la fonction [resourceGroup()](../templates/template-functions-resource.md#resourcegroup). Lors de l’obtention de la valeur de balise, utilisez la syntaxe `tags[tag-name]` au lieu de la syntaxe `tags.tag-name`, car certains caractères ne sont pas correctement analysés dans la notation par points.
 
 ```json
 {
@@ -596,6 +596,8 @@ Les limites suivantes s’appliquent aux balises :
    > Actuellement, les zones Azure DNS et les services Traffic Manager n’autorisent pas non plus l’utilisation des espaces dans la balise.
    >
    > Azure Front Door ne prend pas en charge l’utilisation de `#` dans le nom de la balise.
+   >
+   > Azure Automation et Azure CDN ne gèrent que 15 balises sur les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

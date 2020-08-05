@@ -3,17 +3,17 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 06/23/2020
-ms.topic: article
+ms.date: 07/09/2020
+ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221202"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283297"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -24,7 +24,7 @@ Voici le format de modèle de base :
 ```json
  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2019-05-01-preview", 
+    "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
         "<name": "<value>",
@@ -39,9 +39,8 @@ Voici le format de modèle de base :
             "vmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
-                "name": "<vnetName>",
-                "subnetName": "<subnetName>",
-                "resourceGroupName": "<vnetRgName>"
+                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+                }
             },
         "source": {}, 
         "customize": {}, 
@@ -54,11 +53,11 @@ Voici le format de modèle de base :
 
 ## <a name="type-and-api-version"></a>Type et version de l’API
 
-`type` est le type de ressource, qui doit être `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` change au fil du temps à mesure que l’API change, mais doit être `"2019-05-01-preview"` pour la préversion.
+`type` est le type de ressource, qui doit être `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` change au fil du temps à mesure que l’API change, mais doit être `"2020-02-14"` pour la préversion.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
 ```
 
 ## <a name="location"></a>Emplacement
@@ -101,9 +100,8 @@ Si vous ne spécifiez pas de propriétés de réseau virtuel, le générateur d�
 
 ```json
     "vnetConfig": {
-        "name": "<vnetName>",
-        "subnetName": "<subnetName>",
-        "resourceGroupName": "<vnetRgName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
     }
 ```
 ## <a name="tags"></a>Balises
@@ -121,9 +119,8 @@ Cette section facultative peut être utilisée pour s’assurer que les dépenda
 Pour plus d’informations, consultez [Définir les dépendances des ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
 ## <a name="identity"></a>Identité
-Par défaut, le générateur d’images Azure prend en charge l’utilisation de scripts ou la copie de fichiers à partir de plusieurs emplacements, tels que GitHub et le Stockage Azure. Pour pouvoir les utiliser, ils doivent être accessibles publiquement.
 
-Vous pouvez également utiliser une identité managée affectée par l’utilisateur Azure, définie par vous, pour autoriser le générateur d’images à accéder au Stockage Azure, tant que l’identité dispose au minimum de l’autorisation de « lecteur de données d’objets Blob de stockage » sur le compte de Stockage Azure. Cela signifie que vous ne devez pas nécessairement rendre les objets Blob de stockage accessibles en externe, ni configurer de jetons SAS.
+(Obligatoire) Pour qu’Image Builder soit autorisé à lire/écrire des images et à lire des scripts provenant du Stockage Azure, vous devez créer une identité affectée par l’utilisateur Azure disposant d’autorisations sur les différentes ressources. Pour plus d’informations sur le fonctionnement des autorisations d’Image Builder et sur les étapes pertinentes, consultez la [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 
 ```json
@@ -135,9 +132,10 @@ Vous pouvez également utiliser une identité managée affectée par l’utilisa
         },
 ```
 
-Pour un exemple complet, consultez [Créer une image et utiliser une identité managée affectée par l’utilisateur pour accéder aux fichiers dans le Stockage Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
-Prise en charge du générateur d’images pour une identité affectée par l’utilisateur : • Prend en charge une identité unique uniquement • Ne prend pas en charge les noms de domaines personnalisés
+Prise en charge par Image Builder d’une identité affectée par l’utilisateur :
+* Prise en charge d’une seule identité
+* Non-prise en charge des noms de domaine personnalisés
 
 Pour en savoir plus, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 Pour plus d’informations sur le déploiement de cette fonctionnalité, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
@@ -153,11 +151,6 @@ L’API nécessite un « SourceType » qui définit la source pour la générati
 
 > [!NOTE]
 > Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
-
-### <a name="iso-source"></a>Source ISO
-Nous déprécions cette fonctionnalité dans le générateur d’images, car il existe désormais des [images RHEL BYOS (Apportez votre propre abonnement)](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). Voir la chronologie ci-dessous :
-    * 31 mars 2020 : les modèles d’images avec des sources ISO RHEL ne seront plus acceptés par le fournisseur de ressources.
-    * 30 avril 2020 : les modèles d’images qui contiennent des sources ISO RHEL ne seront plus traités.
 
 ### <a name="platformimage-source"></a>Source PlatformImage 
 Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support). 
@@ -181,6 +174,21 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 Vous pouvez utiliser ’latest’ dans la version ; la version est évaluée lors de la génération de l’image, et non lors de l’envoi du modèle. Si vous utilisez cette fonctionnalité avec la destination Galerie d’images partagées, vous pouvez éviter de soumettre à nouveau le modèle, puis réexécuter la génération de l’image par intervalles afin que vos images soient recréées à partir des images les plus récentes.
 
+#### <a name="support-for-market-place-plan-information"></a>Prise en charge des informations sur les plans de la Place de marché
+Vous pouvez également spécifier des informations de plan, par exemple :
+```json
+    "source": {
+        "type": "PlatformImage",
+        "publisher": "RedHat",
+        "offer": "rhel-byos",
+        "sku": "rhel-lvm75",
+        "version": "latest",
+        "planInfo": {
+            "planName": "rhel-lvm75",
+            "planProduct": "rhel-byos",
+            "planPublisher": "redhat"
+       }
+```
 ### <a name="managedimage-source"></a>Source ManagedImage
 
 Définit l’image source comme une image managée existante d’un disque dur virtuel généralisé ou d’une machine virtuelle. L’image managée source doit provenir d’un système d’exploitation pris en charge et se trouver dans la même région que votre modèle de générateur d’images Azure. 
@@ -206,6 +214,7 @@ Définit l’image source comme une version d’image existante dans une galerie
 ```
 
 `imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) pour répertorier les versions d’image.
+
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propriétés : buildTimeoutInMinutes
 
@@ -254,7 +263,9 @@ Lorsque vous utilisez `customize` :
 
  
 La section de personnalisation est un tableau. Le générateur d’images Azure s’exécute via les personnalisateurs dans un ordre séquentiel. L’échec d’un personnalisateur entraîne un échec du processus de génération. 
- 
+
+> [!NOTE]
+> Les commandes inline peuvent être affichées dans la définition du modèle d’image et par le Support Microsoft pour résoudre un cas de support. Les informations sensibles doivent être déplacées dans des scripts dans le Stockage Azure, où l’accès exige une authentification.
  
 ### <a name="shell-customizer"></a>Personnalisateur de l’interpréteur de commandes
 
@@ -293,7 +304,7 @@ Propriétés de personnalisation :
 Pour que les commandes s’exécutent avec des privilèges de super utilisateur, elles doivent être précédées du préfixe `sudo`.
 
 > [!NOTE]
-> Lors de l’exécution du personnalisateur de l’interpréteur de commandes avec la source ISO RHEL, vous devez vérifier que votre premier interpréteur de commandes de personnalisation gère l’inscription auprès d’un serveur de droits Red Hat avant toute personnalisation. Lorsque la personnalisation est terminée, le script doit annuler l’inscription auprès du serveur de droits.
+> Les commandes inline sont stockées au sein de la définition du modèle d’image. Vous pouvez les voir lorsque vous videz la définition de l’image, et elles sont également accessibles au Support Microsoft dans le cadre de la résolution d’un cas de support. Il est fortement recommandé de déplacer les commandes et les valeurs sensibles dans des scripts et d’utiliser une identité d’utilisateur pour l’authentification auprès du Stockage Azure.
 
 ### <a name="windows-restart-customizer"></a>Personnalisateur de redémarrage Windows 
 Le personnalisateur de redémarrage vous permet de redémarrer une machine virtuelle Windows et d’attendre qu’elle revienne en ligne, vous permettant ainsi d’installer un logiciel qui nécessite un redémarrage.  
@@ -485,7 +496,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2019-05-01-preview
+        --api-version=2020-02-14
 ```
 
 Sortie :
@@ -569,13 +580,22 @@ Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une ga
 Propriétés de distribution de galeries d’images partagées :
 
 - **type** - sharedImage  
-- **galleryImageId** - ID de la galerie d’images partagées. Le format est : /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – ID de la galerie d’images partagées, qui peut être spécifiée dans deux formats :
+    * Contrôle de version automatique – Image Builder génère automatiquement un numéro de version monotone, ce qui est utile pour continuer à reconstruire des images à partir du même modèle. Le format est `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
+    * Contrôle de version explicite – Vous pouvez transmettre le numéro de version qu’Image Builder devra utiliser. Le format est `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`.
+
 - **runOutputName** - Nom unique d’identification de la distribution.  
 - **artifactTags** - Facultatif, balises de paire de valeur de clé spécifiées par l’utilisateur.
-- **replicationRegions** - Tableau de régions pour la réplication. Une des régions doit être la région où la galerie est déployée.
- 
+- **replicationRegions** - Tableau de régions pour la réplication. Une des régions doit être la région où la galerie est déployée. L’ajout de régions entraîne une augmentation du temps de build, car le build ne se termine pas tant que la réplication n’est pas achevée.
+- **excludeFromLatest** (facultatif) – Cette propriété permet d’indiquer que la version de l’image créée ne doit pas être utilisée comme dernière version dans la définition SIG. La valeur par défaut est « false ».
+- **storageAccountType** (facultatif) – AIB permet de spécifier les types de stockage suivants pour la version de l’image à créer :
+    * « Standard_LRS »
+    * « Standard_ZRS »
+
+
 > [!NOTE]
-> Vous pouvez utiliser le générateur d’images Azure dans une région différente de celle de la galerie, mais le service de générateur d’images Azure devra transférer l’image entre les centres de données, ce qui prendra plus de temps. Le générateur d’images contrôle automatiquement la version de l’image, en fonction d’un entier monotone. Vous ne pouvez pas le spécifier actuellement. 
+> Si le modèle d’image et la référence `image definition` ne se trouvent pas au même emplacement, la création des images prendra plus de temps. À l’heure actuelle, Image Builder ne comporte pas de paramètre `location` pour la ressource de version de l’image. Nous récupérons celui de la valeur `image definition` parente. Prenons par exemple une définition d’image se trouvant dans USA Ouest et supposons que vous souhaitiez répliquer la version de l’image vers USA Est : un objet blob est copié dans USA Ouest ; à partir de là, une ressource de version de l’image est créée dans USA Ouest, puis répliquée vers USA Est. Pour éviter le temps de réplication supplémentaire, veillez à ce que `image definition` et le modèle d’image se trouvent au même emplacement.
+
 
 ### <a name="distribute-vhd"></a>Distribuer : Disque dur virtuel (VHD)  
 Vous pouvez générer sur un disque dur virtuel. Vous pouvez ensuite copier le disque dur virtuel et l’utiliser pour publier sur la Place de marché Azure ou l’utiliser avec Azure Stack.  
@@ -608,8 +628,45 @@ az resource show \
 
 > [!NOTE]
 > Lorsque le disque dur virtuel est créé, copiez-le dès que possible dans un autre emplacement. Le disque dur virtuel est stocké dans un compte de stockage dans le groupe de ressources temporaire créé lors de l’envoi du modèle d’image au service de générateur d’images Azure. Si vous supprimez le modèle d’image, vous perdez le disque dur virtuel. 
- 
+
+## <a name="image-template-operations"></a>Opérations de modèle d’image
+
+### <a name="starting-an-image-build"></a>Lancement d’un build d’image
+Pour lancer un build, vous devez appeler « Run » sur la ressource de modèle d’image. Voici des exemples de commandes `run` :
+
+```PowerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+```
+
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Run 
+```
+
+### <a name="cancelling-an-image-build"></a>Annulation d’un build d’image
+Si vous exécutez un build d’image qui vous semble incorrect, en attente d’une entrée d’utilisateur ou susceptible de ne jamais aboutir, vous pouvez l’annuler.
+
+Le build peut être annulé à tout moment. Si la phase de distribution a commencé, l’annulation reste possible, mais vous devrez nettoyer toutes les images non terminées. La commande Cancel n’attend pas la fin de l’annulation. Surveillez la progression de l’annulation dans `lastrunstatus.runstate` à l’aide de ces [commandes](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status) d’état.
+
+
+Exemples de commandes `cancel` :
+
+```powerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+```
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Cancel 
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Il existe des exemples de fichiers .json pour différents scénarios dans le [GitHub de générateur d’images Azure](https://github.com/danielsollondon/azvmimagebuilder).
- 

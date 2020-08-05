@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855892"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367399"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -204,7 +204,7 @@ Votre équipe de sécurité a besoin d’une visibilité sur vos ressources Azur
 Vous pouvez utiliser la [fonction de contrôle d’accès en fonction du rôle (RBAC)](/azure/role-based-access-control/overview) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. L’étendue d’une attribution de rôle peut être une seule ressource, un groupe de ressources ou un abonnement.
 
 **Bonne pratique** : Séparez les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, autorisez uniquement certaines actions sur une étendue donnée.
-**Détail** : Utilisez des rôles [RBAC intégrés](/azure/role-based-access-control/built-in-roles) dans Azure pour attribuer des privilèges aux utilisateurs.
+**Détail** : Vous pouvez utiliser des [rôles intégrés Azure](/azure/role-based-access-control/built-in-roles) dans Azure pour attribuer des privilèges aux utilisateurs.
 
 > [!Note]
 > Des autorisations spécifiques créent une complexité et une confusion inutiles, qui s’accumulent dans une configuration « héritée » qui est difficile à corriger sans craindre de perturber quelque chose. Évitez les autorisations spécifiques aux ressources. Au lieu de cela, utilisez des groupes d’administration pour des autorisations au niveau de l’entreprise et des groupes de ressources pour des autorisations au sein d’abonnements. Évitez les autorisations spécifiques à des utilisateurs. Au lieu de cela, attribuez l’accès à des groupes dans Azure AD.
@@ -216,7 +216,7 @@ Vous pouvez utiliser la [fonction de contrôle d’accès en fonction du rôle (
 * **Groupe d’administration de segment** pour les équipes avec une portée limitée (généralement en raison de limites organisationnelles réglementaires ou autres)
 
 **Bonne pratique** : Accordez les autorisations appropriées aux équipes de sécurité ayant des responsabilités opérationnelles directes.
-**Détail** : Passez en revue les rôles intégrés RBAC pour l’attribution de rôle appropriée. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer des [rôles personnalisés pour les ressources Azure](/azure/role-based-access-control/custom-roles). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources.
+**Détail** : Passez en revue les rôles intégrés RBAC pour l’attribution de rôle appropriée. Si les rôles intégrés ne répondent pas aux besoins de votre organisation, vous pouvez créer des [rôles personnalisés Azure](/azure/role-based-access-control/custom-roles). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des principaux de service dans l’étendue des abonnements, des groupes de ressources et des ressources.
 
 **Bonnes pratiques** : Permettez aux rôles de sécurité qui en ont besoin d’accéder à Azure Security Center. Security Center permet aux équipes de sécurité d’identifier rapidement les risques et d’y remédier.
 **Détail** : Ajoutez des équipes de sécurité qui en ont besoin au rôle RBAC [Administrateur de sécurité](/azure/role-based-access-control/built-in-roles#security-admin) afin qu’elles puissent afficher des états de sécurité, modifier des stratégies de sécurité, afficher des alertes et des suggestions ainsi qu’ignorer les alertes et les suggestions. Pour ce faire, vous pouvez utiliser le groupe d’administration racine ou le groupe d’administration de segment, selon l’étendue des responsabilités.

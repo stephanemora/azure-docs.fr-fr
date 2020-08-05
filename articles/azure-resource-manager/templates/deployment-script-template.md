@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291797"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -138,7 +138,7 @@ Détails des valeurs de propriété :
 - **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
 - **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
-- **containerSettings** : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S'il n’est pas spécifié, le nom du groupe est généré automatiquement.
+- **containerSettings** : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S’il n’est pas spécifié, le nom du groupe est généré automatiquement.
 - **storageAccountSettings**: Spécifiez les paramètres pour utiliser un compte de stockage existant. S’il n’est pas spécifié, un compte de stockage est créé automatiquement. Consultez [Utiliser un compte de stockage existant](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
 - **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
@@ -556,50 +556,37 @@ L’exécution d’un script de déploiement est une opération idempotente. Si 
 
 ## <a name="configure-development-environment"></a>Configurer l’environnement de développement
 
-Vous pouvez utiliser une image conteneur d’ancrage préconfigurée comme environnement de développement de script de déploiement. Pour installer le Docker, consultez [Obtenir le Docker](https://docs.docker.com/get-docker/).
-Vous devez également configurer le partage de fichiers pour monter le répertoire qui contient les scripts de déploiement dans le conteneur Docker.
-
-1. Extrayez l’image conteneur du script de déploiement pour la mettre sur l’ordinateur local :
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    L’exemple utilise la version 2.7.0 de PowerShell.
-
-    Pour tirer (pull) une image CLI d’un registre Microsoft Container Registry (MCR) :
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    Cet exemple utilise la version 2.0.80 de CLI. Le script de déploiement utilise les images conteneurs CLI par défaut trouvées [ici](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Exécutez l’image Docker localement.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Remplacez **&lt;host driver letter>** (lettre de lecteur hôte) et **&lt;host directory name>** (nom de répertoire hôte) par un dossier existant sur le lecteur partagé.  Le dossier est alors mappé au dossier **/data** dans le conteneur. Par exemple, pour mapper D:\docker :
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-it** indique de conserver l’image conteneur active.
-
-    Exemple CLI :
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. La capture d’écran suivante illustre comment exécuter un script PowerShell, étant donné que vous avez un fichier helloworld.ps1 dans le dossier partagé.
-
-    ![Commande Docker pour un script de déploiement de modèle Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+Vous pouvez utiliser une image conteneur préconfigurée comme environnement de développement de scripts de déploiement. Pour plus d’informations, consultez [Configuration de l’environnement de développement pour les scripts de déploiement dans les modèles](./deployment-script-template-configure-dev.md).
 
 Dès lors que le script a été testé avec succès, vous pouvez l’utiliser en tant que script de déploiement dans vos modèles.
+
+## <a name="deployment-script-error-codes"></a>Codes d’erreur des scripts de déploiement
+
+| Code d'erreur | Description |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | La définition de la ressource de script de déploiement dans le modèle contient des noms de propriétés non valides. |
+| DeploymentScriptResourceConflict | Il est impossible de supprimer une ressource de script de déploiement qui se trouve dans un état non terminal et dont l’exécution n’a pas dépassé une heure. Il est également impossible de réexécuter le même script de déploiement avec le même identificateur de ressource (même abonnement, même nom de groupe de ressources et même nom de ressource), mais un contenu de corps de script différent en même temps. |
+| DeploymentScriptOperationFailed | L’opération de script de déploiement a échoué en interne. Contactez le Support Microsoft. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | La clé d’accès n’a pas été spécifiée pour le compte de stockage existant.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | Un groupe de conteneurs créé par le service de script de déploiement a été modifié en externe et des conteneurs non valides ont été ajoutés. |
+| DeploymentScriptContainerGroupInNonterminalState | Au moins deux ressources de script de déploiement utilisent le même nom d’instance Azure Container Instances dans le même groupe de ressources, et l’une d’entre elles n’a pas encore terminé son exécution. |
+| DeploymentScriptStorageAccountInvalidKind | Le compte de stockage existant du type BlobBlobStorage ou BlobStorage ne prend pas en charge les partages de fichiers et ne peut pas être utilisé. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | Le compte de stockage existant ne prend pas en charge les partages de fichiers. Pour connaître la liste des types de comptes de stockage pris en charge, consultez [Recours à un compte de stockage existant](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | Le compte de stockage n’existe pas ou a été supprimé par un processus ou un outil externe. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | Le compte de stockage spécifié possède un point de terminaison de service. Les comptes de stockage comportant un point de terminaison de service ne sont pas pris en charge. |
+| DeploymentScriptStorageAccountInvalidAccessKey | La clé d’accès spécifiée pour le compte de stockage existant n’est pas valide. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Le format de la clé de compte de stockage n’est pas valide. Consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | Le temps d’exécution du script de déploiement a dépassé la valeur de délai d’attente spécifiée dans la définition de la ressource de script de déploiement. |
+| DeploymentScriptInvalidOutputs | La sortie du script de déploiement n’est pas un objet JSON valide. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | L’identité managée affectée par l’utilisateur n’est pas parvenue à se connecter au bout de 10 tentatives à 1 minute d’intervalle. |
+| DeploymentScriptContainerGroupNotFound | Un groupe de conteneurs créé par le service de script de déploiement a été supprimé par un processus ou un outil externe. |
+| DeploymentScriptDownloadFailure | Le téléchargement d’un script d’accompagnement a échoué. Consultez [Utilisation d’un script d’accompagnement](#use-supporting-scripts).|
+| DeploymentScriptError | Le script utilisateur a généré une erreur. |
+| DeploymentScriptBootstrapScriptExecutionFailed | Le script de démarrage a généré une erreur. Le script de démarrage correspond au script système qui orchestre l’exécution du script de déploiement. |
+| DeploymentScriptExecutionFailed | Une erreur inconnue s’est produite pendant l’exécution du script de déploiement. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Lors de la création de l’instance Azure Container Instances (ACI), ACI a généré une erreur Service indisponible. |
+| DeploymentScriptContainerGroupInNonterminalState | Lors de la création d’une instance Azure Container Instances (ACI), un autre script de déploiement utilise le même nom ACI dans la même étendue (même abonnement, même nom de groupe de ressources et même nom de ressource). |
+| DeploymentScriptContainerGroupNameInvalid | Le nom de l’instance Azure Container Instances (ACI) spécifié ne répond pas aux exigences ACI. Consultez [Résolution des problèmes courants dans Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

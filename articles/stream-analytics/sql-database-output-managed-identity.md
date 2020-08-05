@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305922"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utiliser les identités managées pour accéder à Azure SQL Database à partir d’une tâche Azure Stream Analytics (préversion)
 
@@ -102,7 +102,7 @@ Créez ensuite un utilisateur de base de données autonome dans votre base de do
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Octroyer des autorisations de tâche Stream Analytics
 
-Une fois que vous avez créé un utilisateur de base de données autonome et accordé un accès aux services Azure du portail, comme décrit dans la section précédente, votre tâche Stream Analytics est autorisée par Managed Identity à **se connecter** (autorisation CONNECT) à votre ressource SQL Database via une identité. Nous vous recommandons d’accorder à la tâche Stream Analytics les autorisations SELECT et INSERT, car celles-ci seront nécessaires plus tard dans le flux de travail Stream Analytics. L’autorisation **SELECT** permet à la tâche de tester sa connexion à la table dans SQL Database. L’autorisation **INSERT** permet de tester des requêtes Stream Analytics de bout en bout une fois que vous avez configuré une entrée et la sortie SQL Database. Vous pouvez accorder ces autorisations à la tâche Stream Analytics en utilisant SQL Server Management Studio. Pour plus d'informations, consultez la référence [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+Une fois que vous avez créé un utilisateur de base de données autonome et accordé un accès aux services Azure du portail, comme décrit dans la section précédente, votre tâche Stream Analytics est autorisée par Managed Identity à **se connecter** (autorisation CONNECT) à votre ressource SQL Database via une identité. Nous vous recommandons d’accorder à la tâche Stream Analytics les autorisations SELECT et INSERT, car celles-ci seront nécessaires plus tard dans le flux de travail Stream Analytics. L’autorisation **SELECT** permet à la tâche de tester sa connexion à la table dans SQL Database. L’autorisation **INSERT** permet de tester des requêtes Stream Analytics de bout en bout une fois que vous avez configuré une entrée et la sortie SQL Database. Vous pouvez accorder ces autorisations à la tâche Stream Analytics en utilisant SQL Server Management Studio. Pour plus d’informations, consultez la référence GRANT (Transact-SQL).
 
 Pour n’accorder une autorisation qu’à une table ou à un objet spécifiques dans la base de données, utilisez la syntaxe T-SQL suivante, puis exécutez la requête. 
 

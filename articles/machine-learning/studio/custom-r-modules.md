@@ -1,6 +1,5 @@
 ---
-title: Créer et déployer des modules R personnalisés
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Créer et déployer des modules R personnalisés - Azure'
 description: Découvrez comment créer et déployer un module R personnalisé dans ML Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287247"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Définir des modules R personnalisés pour Azure Machine Learning Studio (classique)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Définir des modules R personnalisés pour Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
 
 Cette rubrique explique comment créer et déployer un module R Studio personnalisé (classique). Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
@@ -90,7 +91,7 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 </Module>
 ```
 
-Il est essentiel de noter que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre aux noms des paramètres de la fonction du code R dans le fichier CustomAddRows.R À L’EXACT (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Language** doit correspondre au nom de la fonction dans le script R EXACTEMENT : (*CustomAddRows* dans cet exemple). 
+Il est essentiel de noter que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre aux noms des paramètres de la fonction du code R dans le fichier CustomAddRows.R À L’EXACT (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Language** doit correspondre au nom de la fonction dans le script R À L’EXACT (*CustomAddRows* dans l’exemple). 
 
 En revanche, l’attribut **id** de l’élément **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés *dans le même ordre* que celui dans lequel les éléments **Sorties** sont déclarés dans le fichier XML.
 
@@ -220,7 +221,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 } 
 ```
 
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization*, qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de ports de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization*, qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de ports de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
 
 ```xml
 <Output id="deviceOutput" name="View Port" type="Visualization">
@@ -302,7 +303,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
   * **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides sont les suivantes : 
     
     * Numérique
-    * Boolean
+    * Booléen
     * Par catégorie
     * String
     * Étiquette

@@ -3,12 +3,12 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509285"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371428"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
@@ -27,6 +27,7 @@ La configuration d’un point de terminaison de service du registre est disponib
 * Vous ne pouvez pas utiliser le portail Azure pour configurer des points de terminaison de service sur un registre.
 * Seul un cluster [Azure Kubernetes Service](../aks/intro-kubernetes.md) ou une [machine virtuelle](../virtual-machines/linux/overview.md) Azure peuvent être utilisés en tant qu’hôtes pour accéder à un registre de conteneurs dans un réseau virtuel. *Les autres services Azure, y compris Azure Container Instances, ne sont pas pris en charge.*
 * Chaque registre prend en charge un maximum de 100 règles d’accès réseau.
+* Les points de terminaison de service pour Azure Container Registry ne sont pas pris en charge dans le cloud Azure US Government ni le cloud Azure Chine.
 
 ## <a name="prerequisites"></a>Prérequis
 

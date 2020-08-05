@@ -3,12 +3,12 @@ title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076843"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -114,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 La variable `<service principal ID>` peut correspondre à l’élément **appId** ou **objectId** du principal de service, ou à l’un de ses éléments **servicePrincipalNames**. Pour plus d’informations sur l’utilisation des principaux de service et d’Azure Container Registry, consultez l’article [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur. Pour plus d’informations sur la vérification des rôles d’une identité, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](../role-based-access-control/role-assignments-cli.md) et [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](../role-based-access-control/troubleshooting.md).
+> Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur. Pour plus d’informations sur la vérification des rôles d’une identité, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](../role-based-access-control/role-assignments-cli.md) et [Résoudre les problèmes liés à Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Envoyer une image approuvée
 

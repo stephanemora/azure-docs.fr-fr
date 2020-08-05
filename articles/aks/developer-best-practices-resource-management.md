@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: d3fab2515bb15cce35070de9326cd6afcc034b20
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281563"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
 
@@ -35,7 +35,7 @@ L’un des principaux moyens de gérer les ressources de calcul au sein d’un c
     * Quand le planificateur Kubernetes tente de placer un pod sur un nœud, les demandes de pod permettent de déterminer le nœud ayant suffisamment de ressources disponibles pour la planification.
     * Si vous ne définissez pas une requête de pod, elle est définie par défaut sur la limite définie.
     * Il est très important de surveiller les performances de votre application pour ajuster ces requêtes. En cas de demandes insuffisantes, votre application peut subir une dégradation des performances en raison de la surplanification d’un nœud. Si les requêtes sont surestimées, votre application peut avoir des difficultés à être planifiées.
-* Les **limites de pod/de mémoire** représentent la quantité maximale d’UC et de mémoire qu’un pod peut utiliser. Ces limites permettent de définir les pods à supprimer en cas d’instabilité de nœud en raison de ressources insuffisantes. Sans les limites appropriées, les pods sont supprimés jusqu’à ce que la pression sur les ressources diminue.
+* Les **limites de pod/de mémoire** représentent la quantité maximale d’UC et de mémoire qu’un pod peut utiliser. Les limites de mémoire permettent de définir les pods à supprimer en cas d’instabilité de nœud en raison de ressources insuffisantes. Sans les limites appropriées, les pods sont supprimés jusqu’à ce que la pression sur les ressources diminue. Un pod peut être ou non en mesure de dépasser la limite de processeur pendant un certain temps ; il ne sera pas supprimé s’il dépasse cette limite. 
     * Les limites de pod permettent de définir le moment où un pod perd le contrôle de la consommation des ressources. Lorsqu’une limite est dépassée, le pod est prioritaire pour la mise à jour de l’intégrité du nœud et réduire l’impact sur les pods partageant le nœud.
     * Si vous ne définissez pas de limite de pod, elle est définie par défaut sur la valeur disponible la plus élevée sur un nœud donné.
     * Ne définissez pas une limite de pod trop élevée ne pouvant pas être prise en charge par vos nœuds. Chaque nœud AKS réserve une quantité fixe d’UC et de mémoire pour les principaux composants de Kubernetes. Votre application peut tenter de consommer trop de ressources sur le nœud pour que les autres pods s’exécutent correctement.

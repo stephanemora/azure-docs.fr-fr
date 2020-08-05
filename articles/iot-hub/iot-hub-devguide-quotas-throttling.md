@@ -7,12 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Operations'
+- 'Role: Technical Support'
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688974"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335560"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -26,9 +30,9 @@ Chaque hub IoT est approvisionné avec un certain nombre d’unités dans un niv
 
 Le niveau détermine également les limites qu’IoT Hub applique sur toutes les opérations.
 
-### <a name="iot-plug-and-play"></a>IoT Plug-and-Play
+## <a name="iot-plug-and-play"></a>IoT Plug-and-Play
 
-Pendant la préversion publique, les appareils IoT Plug-and-Play envoient des messages séparés par interface, ce qui peut augmenter le nombre de messages comptabilisés dans le quota de vos messages.
+Les appareils IoT Plug-and-Play envoient au moins un message de télémétrie par interface, racine comprise, ce qui peut augmenter le nombre de messages comptabilisés dans le quota de messages.
 
 ## <a name="operation-throttles"></a>Limitations d’opérations
 

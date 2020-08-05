@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027510"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur
 
@@ -35,7 +35,7 @@ Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d�
 6. Indiquez l’**URL du point de terminaison** pour l’appel d’API.
 7. Saisissez les informations d’authentification pour l’API.
 
-   - Seule l’authentification de base est actuellement prise en charge. Si vous souhaitez utiliser une API sans authentification de base à des fins de développement, saisissez simplement un **nom d’utilisateur** et un **mot de passe** factices que votre API peut ignorer. Pour une utilisation avec une fonction Azure avec une clé API, vous pouvez inclure le code en tant que paramètre de requête dans l’**URL du point de terminaison** (par exemple, https[]()://contoso.azurewebsites.net/api/endpoint<b>? code = 0123456789</b>).
+   - Seule l’authentification de base est actuellement prise en charge. Si vous souhaitez utiliser une API sans authentification de base à des fins de développement, saisissez simplement un **nom d’utilisateur** et un **mot de passe** factices que votre API peut ignorer. Pour vous en servir avec une fonction Azure et une clé API, vous pouvez inclure le code en tant que paramètre de requête dans l’**URL du point de terminaison** (par exemple https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Ajoutez un nouveau connecteur d'API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Si une revendication à envoyer n’a pas de valeur au moment où le point de te
 Des attributs personnalisés peuvent être créés pour l’utilisateur à l’aide du format d’**extension_\<extensions-app-id>_AttributeName (_NomAttribut)** . Votre API doit s’attendre à recevoir des revendications dans ce même format sérialisé. Votre API peut renvoyer des revendications avec ou sans le `<extensions-app-id>`. Pour plus d’informations sur les attributs personnalisés, consultez [définir des attributs personnalisés pour les flux d’inscription en libre-service](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> Les revendications [**Identités (« identities »)** ](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) et **Adresse de messagerie (« email_address »)** peuvent être utilisées pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. La revendication « identities » (Identités) est envoyée lorsqu’un utilisateur s’authentifie auprès de Google ou Facebook ; « email_address » (Adresse de messagerie) est toujours envoyé.
+> Les revendications [**identités (« identities »)** ](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) et **Adresse e-mail (« email »)** peuvent être utilisées pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. La revendication « identities » (identités) est envoyée quand un utilisateur s’authentifie auprès de Google ou de Facebook, et que « email » (e-mail) est toujours envoyé.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Types de réponses attendus de l’API Web
 
@@ -138,13 +138,13 @@ Content-type: application/json
 | version                                            | String            | Oui      | Version de l’API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Oui      | La valeur doit être `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs peuvent être stockées dans le répertoire si elles sont sélectionnées en tant que **Revendication à recevoir** dans la configuration du connecteur d’API et **Attributs utilisateur** pour un workflow utilisateur. Les valeurs peuvent être renvoyées dans le jeton si elles sont sélectionnées en tant que **Revendication d’application**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication renvoyée peut éventuellement ne pas contenir `_<extensions-app-id>_`. Les valeurs sont stockées dans le répertoire si elles sont sélectionnées en tant que **Revendication à recevoir** dans la configuration du connecteur d’API et **Attributs utilisateur** pour un workflow utilisateur. Les attributs personnalisés ne peuvent pas être renvoyés dans le jeton. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication retournée n’a pas besoin de contenir `_<extensions-app-id>_`. Les valeurs sont stockées dans le répertoire si elles sont sélectionnées en tant que **Revendication à recevoir** dans la configuration du connecteur d’API et **Attributs utilisateur** pour un workflow utilisateur. Les attributs personnalisés ne peuvent pas être renvoyés dans le jeton. |
 
 ### <a name="blocking-response"></a>Réponse de blocage
 
 Une réponse de blocage quitte le workflow de l’utilisateur. Il peut être intentionnellement émis par l’API pour arrêter la continuation du workflow de l’utilisateur en affichant une page de blocage à l’utilisateur. La page de blocage affiche les `userMessage` fournies par l’API.
 
-Voici un exemple de la réponse de blocage renvoyée :
+Exemple de réponse de blocage :
 
 ```http
 HTTP/1.1 200 OK

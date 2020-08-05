@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289292"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Résoudre les problèmes de restauration automatique sur l’infrastructure locale à partir d’Azure
 
@@ -29,7 +29,7 @@ Une restauration automatique implique essentiellement deux étapes principales. 
 - Si vous ne pouvez pas atteindre le serveur de configuration depuis le serveur de processus, utilisez Telnet pour vérifier la connectivité au serveur de configuration sur le port 443. Vous pouvez également essayer d’exécuter un test ping sur le serveur de configuration à partir du serveur de processus. Un serveur de processus doit également avoir une pulsation lorsqu’il est connecté au serveur de configuration.
 - Un serveur Windows Server 2008 R2 SP1 qui est protégé en tant que serveur physique local ne peut pas être restauré à partir d’Azure sur un site local.
 - Vous ne pouvez pas effectuer de restauration automatique dans les circonstances suivantes :
-    - Vous avez effectué une migration des machines vers Azure. [Plus d’informations](migrate-overview.md#what-do-we-mean-by-migration)
+    - Vous avez effectué une migration des machines vers Azure. 
     - Vous avez déplacé une machine virtuelle vers un autre groupe de ressources.
     - Vous avez supprimé la machine virtuelle Azure.
     - Vous avez désactivé la protection de la machine virtuelle.
@@ -64,7 +64,7 @@ Ce problème peut se produire si une machine virtuelle portant le même nom se t
 Pour résoudre ce problème :
 
 * Sélectionnez un serveur cible principal situé sur un hôte différent. La reprotection va donc créer la machine sur un autre hôte, ce qui évitera les conflits de noms.
-* Vous pouvez également utiliser vMotion pour déplacer la cible principale vers un autre hôte où le conflit de noms ne se produira pas. Si la machine virtuelle existante est une machine isolée, renommez-la pour que la nouvelle machine virtuelle puisse être créée sur le même hôte ESXi.
+* Vous pouvez également utiliser VMotion pour déplacer la cible principale vers un autre hôte où le conflit de noms ne se produira pas. Si la machine virtuelle existante est une machine isolée, renommez-la pour que la nouvelle machine virtuelle puisse être créée sur le même hôte ESXi.
 
 
 ### <a name="error-code-78093"></a>Code d'erreur 78093
@@ -98,4 +98,4 @@ Ce problème se produit quand la machine virtuelle locale est exécutée sur un 
 Pour résoudre ce problème :
 
 * Provisionnez davantage de mémoire sur l’hôte ESXi.
-* De plus, vous pouvez utiliser vMotion pour déplacer la machine virtuelle vers un autre hôte ESXi disposant de suffisamment de mémoire pour démarrer la machine virtuelle.
+* De plus, vous pouvez utiliser VMotion pour déplacer la machine virtuelle vers un autre hôte ESXi disposant de suffisamment de mémoire pour démarrer la machine virtuelle.

@@ -1,20 +1,20 @@
 ---
-title: Base de référence de sécurité Synapse Analytics pour Azure Security Benchmark
+title: Base de référence de la sécurité Azure pour Synapse Analytics
 description: La base de référence de sécurité Synapse Analytics fournit des instructions et des ressources pour l’implémentation des recommandations de sécurité spécifiées dans Azure Security Benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040654"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370272"
 ---
-# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Synapse Analytics pour Azure Security Benchmark
+# <a name="azure-security-baseline-for-synapse-analytics"></a>Base de référence de la sécurité Azure pour Synapse Analytics
 
 La base de référence de sécurité Azure pour Synapse Analytics contient des recommandations qui vous aideront à améliorer la posture de sécurité de votre déploiement.
 
@@ -28,9 +28,9 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1 : Protéger les ressources Azure au sein des réseaux virtuels
 
-**Aide** : Sécurisez Azure SQL Database sur un réseau virtuel via Azure Private Link. Azure Private Link vous permet d’accéder aux services PaaS Azure sur un point de terminaison privé de votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft.
+**Aide** : Sécurisez votre serveur Azure SQL sur un réseau virtuel via Azure Private Link. Azure Private Link vous permet d’accéder aux services PaaS Azure sur un point de terminaison privé de votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft.
 
-Si vous vous connectez à votre pool Synapse SQL, vous pouvez également limiter l’étendue de la connexion sortante à la base de données SQL Database à l’aide d’un groupe de sécurité réseau. Désactivez tout le trafic des services Azure à destination de la base de données SQL Database par le biais du point de terminaison public en affectant OFF à l’option Autoriser les services Azure. Assurez-vous qu’aucune IP publique n’est autorisée dans les règles de pare-feu.
+Si vous vous connectez à votre pool Synapse SQL, vous pouvez également limiter l’étendue de la connexion sortante à la base de données SQL à l’aide d’un groupe de sécurité réseau. Désactivez tout le trafic des services Azure vers la base de données SQL via le point de terminaison public en paramétrant l’option Autoriser les services Azure sur OFF. Assurez-vous qu’aucune IP publique n’est autorisée dans les règles de pare-feu.
 
 * [Présentation d’Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -40,11 +40,11 @@ Si vous vous connectez à votre pool Synapse SQL, vous pouvez également limiter
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des interfaces réseau
 
 **Conseils** : Lorsque vous vous connectez à votre pool Azure Synapse SQL et que vous avez activé les journaux de flux du groupe de sécurité réseau (NSG), envoyez les journaux vers un compte de stockage Azure pour l’audit du trafic.
 
@@ -66,13 +66,13 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 **Conseils** : Non applicable. Cette recommandation a trait à Azure App Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications avec des adresses IP connues comme étant malveillantes
 
-**Conseils** : Utilisez ATP (Advanced Threat Protection) pour Azure Synapse SQL. ATP détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès aux bases de données ou d’exploitation de ces dernières et peut déclencher différences alertes, telles que « Injection potentielle de code SQL » et « Accès à partir d’un emplacement inhabituel ». ATP fait partie de l’offre Advanced Data Security (ADS) ; elle est accessible et peut être gérée par le biais du portail SQL ADS central.
+**Aide** : Utilisez ATP (Advanced Threat Protection) pour Azure Synapse SQL. ATP détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès aux bases de données ou d’exploitation de ces dernières et peut déclencher différences alertes, telles que « Injection potentielle de code SQL » et « Accès à partir d’un emplacement inhabituel ». ATP fait partie de l’offre Advanced Data Security (ADS) ; elle est accessible et peut être gérée par le biais du portail SQL ADS central.
 
 Activez le service Protection DDoS Standard sur les réseaux virtuels associés à Azure Synapse SQL à des fins de protection contre les attaques par déni de service distribuées. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
@@ -116,7 +116,7 @@ Activez le service Protection DDoS Standard sur les réseaux virtuels associés 
 
 **Conseils** : Non applicable. Cette recommandation a trait à Azure App Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -124,7 +124,7 @@ Activez le service Protection DDoS Standard sur les réseaux virtuels associés 
 
 **Aide** : Utilisez les balises de service du réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou Pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
-Lorsque vous utilisez un point de terminaison de service pour votre pool Azure Synapse SQL, une sortie à destination d’adresses IP publiques Azure SQL Database est requise : Des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Pour ce faire, vous pouvez utiliser des balises de service NSG pour Azure SQL Database.
+Lorsque vous utilisez un point de terminaison de service pour votre pool Azure Synapse SQL, une sortie à destination d’IP publiques Azure SQL Database est requise : Des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Pour ce faire, vous pouvez utiliser des balises de service NSG pour Azure SQL Database.
 
 * [Comprendre les balises de service avec points de terminaison de service pour Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -136,7 +136,7 @@ Lorsque vous utilisez un point de terminaison de service pour votre pool Azure S
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
-**Aide** : Définissez et implémentez des configurations de sécurité réseau pour les ressources associées à votre pool SQL à l’aide d’Azure Policy. Vous pouvez utiliser l’espace de noms « Microsoft.Sql » pour définir des définitions de stratégie personnalisées ou utiliser l’une des définitions de stratégie intégrées conçues pour la protection réseau de serveur ou la base de données Azure SQL Database. Voici un exemple de stratégie de sécurité réseau intégrée applicable pour serveur Azure SQL Database : « SQL Server doit utiliser un point de terminaison de service de réseau virtuel ».
+**Aide** : Définissez et implémentez des configurations de sécurité réseau pour les ressources associées à votre pool SQL à l’aide d’Azure Policy. Vous pouvez utiliser l’espace de noms « Microsoft.Sql » pour définir des définitions de stratégie personnalisées ou utiliser l’une des définitions de stratégie intégrées conçues pour la protection réseau de serveur ou la base de données Azure SQL. Voici un exemple de stratégie de sécurité réseau intégrée applicable pour serveur Azure SQL Database : « SQL Server doit utiliser un point de terminaison de service de réseau virtuel ».
 
 Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Azure Resource Manager, les contrôles d’accès en fonction du rôle (RBAC) et les stratégies au sein d’une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
 
@@ -144,7 +144,7 @@ Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande éch
 
 * [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -158,7 +158,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -170,7 +170,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -284,7 +284,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. Pour les ressources associées à votre pool Synapse SQL, la solution anti-programme malveillant est gérée par Microsoft sur la plateforme sous-jacente.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -292,7 +292,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. Aucun journal DNS n’est généré par les ressources associées à votre pool Synapse SQL.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -300,7 +300,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. L’audit de ligne de commande ne s’applique pas à Azure Synapse SQL.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -314,7 +314,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 Lorsque vous déployez Azure SQL pour la première fois, vous spécifiez une connexion d'administrateur et un mot de passe associé à cette connexion. Ce compte d’administration est appelé Administration de serveur. Vous pouvez identifier les comptes d’administrateur d’une base de données en ouvrant le portail Azure et en accédant à l’onglet Propriétés de votre serveur ou instance gérée. Vous pouvez également configurer un compte d’administrateur Azure AD avec des autorisations d’administration complètes, ce qui est nécessaire si vous souhaitez activer l’authentification Azure Active Directory.
 
-Pour les opérations de gestion, utilisez les rôles Azure intégrés de contrôle d’accès en fonction du rôle (Azure RBAC) qui doivent être explicitement attribués. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
+Pour les opérations de gestion, utilisez les rôles Azure intégrés qui doivent être attribués explicitement. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
 * [Authentification pour SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ Pour les opérations de gestion, utilisez les rôles Azure intégrés de contrô
 
 * [Guide pratique pour gérer des connexions et comptes administrateur existants dans Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Rôles intégrés Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Rôles intégrés Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -356,11 +356,11 @@ Pour identifier les comptes administrateur d’une base de données, ouvrez le p
 
 * [Guide pratique pour gérer des connexions et comptes administrateur existants dans Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
 **Aide** : Utilisez une inscription d’application Azure (principal du service) afin de récupérer un jeton qui peut être utilisé pour interagir avec votre entrepôt de données au niveau du plan de contrôle (Portail Azure) via des appels d’API.
 
@@ -384,11 +384,11 @@ Pour identifier les comptes administrateur d’une base de données, ouvrez le p
 
 * [Présentation de l’authentification multifacteur dans Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-mfa-ssms-overview)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6 : Utiliser des stations de travail sécurisées et gérées par Azure pour les tâches administratives
 
 **Aide** : Utilisez une station de travail disposant d’un accès privilégié avec l’authentification multifacteur (MFA) configurée pour vous connecter aux ressources Azure et les configurer.
 
@@ -396,7 +396,7 @@ Pour identifier les comptes administrateur d’une base de données, ouvrez le p
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -428,7 +428,7 @@ L’audit SQL Server vous permet de créer des audits de serveur, qui peuvent co
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -454,7 +454,7 @@ Lorsque vous utilisez l’authentification SQL, créez des utilisateurs de base 
 
 * [Présentation des connexions et des comptes d’utilisateur dans Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -476,7 +476,7 @@ Lorsque vous utilisez l’authentification SQL, créez des utilisateurs de base 
 
 **Responsabilité** : Customer
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
 **Aide** : Utilisez les fonctionnalités de détection de risque et de protection des identités d’Azure Active Directory (Azure AD) pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez intégrer et ingérer des données dans Azure Sentinel pour une enquête plus approfondie.
 
@@ -552,7 +552,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -584,7 +584,7 @@ En outre, vous pouvez configurer une stratégie de masquage dynamique des donné
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
 
-**Conseils** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer l’accès aux bases de données Azure SQL Database dans votre pool Synapse SQL.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer l’accès aux bases de données Azure SQL dans votre pool Synapse SQL.
 
 L’autorisation est contrôlée par les appartenances aux rôles de base de données et les autorisations au niveau objet de votre compte d’utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible.
 
@@ -642,9 +642,9 @@ En outre, vous pouvez configurer des alertes pour les bases de données de votre
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Activez Advanced Data Security et suivez les recommandations d’Azure Security Center concernant l’évaluation des vulnérabilités sur SQL Database.
+**Aide** : Activez Advanced Data Security et suivez les recommandations d’Azure Security Center concernant l’évaluation des vulnérabilités sur vos bases de données Azure SQL.
 
-* [Procédure d’exécution de l’évaluation des vulnérabilités sur Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Procédure d’exécution de l’évaluation des vulnérabilités sur vos bases de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Procédure d’activation d’Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -658,15 +658,15 @@ En outre, vous pouvez configurer des alertes pour les bases de données de votre
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -738,17 +738,17 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 **Responsabilité** : Customer
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
 **Aide** : Définissez une liste de ressources Azure approuvées associées à votre pool Synapse SQL.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients en utilisant Azure Policy avec les définitions de stratégie intégrées suivantes :
+**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients selon les définitions de stratégies intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
@@ -758,7 +758,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -766,7 +766,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -774,7 +774,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -782,7 +782,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -798,7 +798,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -824,7 +824,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -836,7 +836,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -846,8 +846,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Sql » pour créer des stratégies personnalisées visant à auditer des ressources associées à votre pool Synapse SQL ou à appliquer la configuration de ces ressources. Vous pouvez également utiliser des définitions de stratégie intégrées pour des bases de données Azure, par exemple :
-
+**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Sql » pour créer des stratégies personnalisées visant à auditer des ressources associées à votre pool Synapse SQL ou à appliquer la configuration de ces ressources. Vous pouvez également utiliser des définitions de stratégie intégrées pour des bases de données/serveurs Azure, par exemple :
 - Déployer la détection de menaces sur les serveurs SQL
 - SQL Server doit utiliser un point de terminaison de service de réseau virtuel
 
@@ -855,7 +854,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -863,7 +862,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -875,7 +874,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -883,7 +882,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -901,9 +900,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -917,9 +916,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -935,9 +934,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -995,7 +994,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 * [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1011,7 +1010,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 *Pour plus d’informations, consultez [Contrôle de sécurité : Récupération de données](/azure/security/benchmarks/security-control-data-recovery).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
+### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : Garantir des sauvegardes automatiques régulières
 
 **Aide** : Des instantanés de votre pool Synapse SQL sont automatiquement pris pendant la journée, créant des points de restauration qui sont disponibles pendant sept jours. Cette période de conservation ne peut pas être modifiée. Le pool SQL prend en charge un objectif de point de récupération (RPO) de huit heures. Vous pouvez restaurer votre entrepôt de données dans la région primaire à partir de n’importe quelle capture instantanée prise au cours des sept derniers jours. Notez que vous pouvez également déclencher manuellement des instantanés si nécessaire.
 
@@ -1027,11 +1026,11 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 Si vous utilisez une clé gérée par le client pour chiffrer votre clé de chiffrement de base de données, assurez-vous que votre clé est sauvegardée.
 
-* [Sauvegarde et restauration dans un pool Azure Synapse SQL](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Sauvegarde et restauration dans un pool Azure Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Guide pratique pour sauvegarder des clés Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -1105,19 +1104,19 @@ Par défaut, les données d’un compte de stockage sont chiffrées à l’aide 
 
 * [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
-**Aide** : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour transmettre en continu les alertes à Sentinel.
+**Conseils** : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour transmettre en continu les alertes à Sentinel.
 
 * [Comment configurer l’exportation continue](https://docs.microsoft.com/azure/security-center/continuous-export)
 
 * [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74014548"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374744"
 ---
 ## <a name="overview"></a>Vue d’ensemble
-Azure Storage offre la possibilité de prendre des instantanés d’objets blob. Les instantanés capturent l’état de l’objet blob à un instant précis. Dans cet article, nous décrivons un scénario dans lequel vous pouvez gérer des sauvegardes de disques de machine virtuelle à l’aide de captures instantanées. Vous pouvez utiliser cette méthode comme une alternative à Azure Backup et Recovery Service et si vous voulez créer une stratégie de sauvegarde personnalisée pour vos disques de machine virtuelle.
+Azure Storage offre la possibilité de prendre des instantanés d’objets blob. Les instantanés capturent l’état de l’objet blob à un instant précis. Dans cet article, nous décrivons un scénario dans lequel vous pouvez gérer des sauvegardes de disques de machine virtuelle à l’aide de captures instantanées. Vous pouvez utiliser cette méthode comme une alternative à Azure Backup et Recovery Service et si vous voulez créer une stratégie de sauvegarde personnalisée pour vos disques de machine virtuelle. Pour les machines virtuelles exécutant des charges de travail métier ou stratégiques, nous vous recommandons d’utiliser [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) dans le cadre de la stratégie de sauvegarde.  
 
 Les disques de machine virtuelle Azure sont stockés en tant qu’objets blob de pages dans Azure Storage. Dans cet article, nous décrivons une stratégie de sauvegarde pour les disques de machine virtuelle. Nous nous référons donc aux captures instantanées dans le contexte d’objets blob de pages. Pour plus d’informations sur les instantanés, reportez-vous à [Création d’un instantané d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -57,7 +57,8 @@ Si les conditions suivantes sont respectées,
 * L’objet blob a été créé le 1er janvier 2016 ou ultérieurement.
 * L’objet blob n’a pas été remplacé avec [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre deux instantanés.
 
-**Remarque**: cette fonctionnalité est disponible pour les objets blob de pages Azure Standard et Premium.
+>[!NOTE]
+>cette fonctionnalité est disponible pour les objets blob de pages Azure Standard et Premium.
 
 Lorsque vous disposez d’une stratégie de sauvegarde personnalisée à l’aide de captures instantanées, la copie des captures instantanées d’un compte de stockage à un autre peut être lente et consommer beaucoup d’espace de stockage. Au lieu de copier l’instantané en entier sur un compte de stockage de sauvegarde, vous pouvez écrire la différence entre des instantanés consécutifs dans un objet blob de pages de sauvegarde. De cette façon, le temps de copie et l’espace de stockage des sauvegardes sont sensiblement réduits.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387012"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385209"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -28,7 +28,7 @@ Si votre application locale utilise l’authentification basée SAML, vous pouve
 
 Effectuez les actions suivantes :
 
-- Intégrez l’application SAML en utilisant le modèle d’application ne figurant pas dans la galerie, comme décrit dans [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
+- Intégrez l’application à l’aide de SAML, comme le décrit la page [Configuration de l’authentification unique SAML](../manage-apps/configure-saml-single-sign-on.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
 -  Utilisez le Proxy d’application Azure AD pour publier l’application locale, avec **Azure Active Directory** configuré comme source d’authentification. Pour des instructions, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Lorsque vous configurez **l’URL interne**, utilisez l’URL de connexion indiquée dans le modèle d’application ne figurant pas dans la galerie. De cette façon, les utilisateurs peuvent accéder à l’application depuis l’extérieur de l’organisation. Le Proxy d’application exécute l’authentification unique SAML pour l’application locale.

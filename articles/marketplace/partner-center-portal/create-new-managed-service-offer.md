@@ -4,15 +4,15 @@ description: Guide pratique pour créer une offre de service managé en vue de l
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121790"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405243"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
@@ -42,7 +42,7 @@ Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre d
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
 * Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
-* Vous ne pouvez pas modifier l’alias de l’offre après avoir sélectionné **Créer**.
+* L’alias d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
 
 Sélectionnez **Créer** pour générer l’offre et continuer.
 
@@ -177,7 +177,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
-Chaque offre doit comprendre un ou plusieurs plans (parfois appelés références SKU). Vous pouvez ajouter plusieurs plans correspondant à différents ensembles de fonctionnalités proposés à différents prix, ou personnaliser un plan spécifique pour un public limité de clients spécifiques. Les clients peuvent afficher les plans qui sont à leur disposition sous l’offre parente.
+Chaque offre doit avoir un ou plusieurs plans (anciennement « références SKU »). Vous pouvez ajouter plusieurs plans correspondant à différents ensembles de fonctionnalités proposés à différents prix, ou personnaliser un plan spécifique pour un public limité de clients spécifiques. Les clients peuvent afficher les plans qui sont à leur disposition sous l’offre parente.
 
 Dans la page **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Entrez ensuite un **ID de plan** et un **Nom de plan**. Ces deux valeurs ne peuvent contenir que des caractères alphanumériques minuscules, des tirets et des traits de soulignement, dont le nombre ne peut pas dépasser 50 signes. Ces valeurs peuvent être visibles par les clients et elles ne peuvent pas être changées après la publication de l’offre.
 
@@ -194,6 +194,9 @@ Ensuite, entrez une **Description** fournissant davantage de détails sur le pla
 Il n’existe qu’un seul modèle de prix qui peut être utilisé pour une offre de service managé : **BYOL (apportez votre propre licence)** . Cela signifie que vous facturez directement à vos clients les coûts liés à l’offre, et que Microsoft ne vous facture aucuns frais.
 
 La section **Visibilité du plan** vous permet d’indiquer si ce plan doit être [privé](../../marketplace/private-offers.md). Si vous laissez la case **Il s’agit d’un plan privé** décochée, votre plan ne sera pas limité à des clients spécifiques (ou à un certain nombre de clients).
+
+> [!NOTE]
+> Les plans privés ne sont pas pris en charge par les abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
 
 Pour que ce plan soit disponible uniquement pour des clients spécifiques, sélectionnez **Oui**. Dans ce cas, vous devez identifier les clients en fournissant leurs ID d’abonnement. Vous pouvez entrer ceux-ci un par un (pour un maximum de 10 abonnements) ou en chargeant un fichier .csv (pour un maximum de 10 000 abonnements entre tous les plans). Veillez à inclure vos propres abonnements ici afin de pouvoir tester et valider l’offre.
 

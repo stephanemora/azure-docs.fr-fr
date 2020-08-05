@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: c2812219e689cb42fd871f85300239a10ab0da0e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d417fa4d6b444f4932338059e2ad499c12d6273e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116717"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371836"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoriser l’accès à Azure App Configuration Azure avec Azure Active Directory
 Outre l’utilisation du Hash-based Message Authentication Code (HMAC), Azure App Configuration prend en charge l’utilisation de Azure Active Directory (Azure AD) pour autoriser les requêtes d’instances d’App Configuration.  Azure AD vous permet d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité.  Un utilisateur, une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) ou un [principal du service d’application](../active-directory/develop/app-objects-and-service-principals.md) peuvent être des principaux de sécurité.  Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -23,15 +23,15 @@ Les requêtes, effectuées par un principal de sécurité pour accéder à une r
 
 L’étape d’authentification nécessite qu’une requête d’application contienne un jeton d’accès OAuth 2.0 au moment de l’exécution.  Si une application s’exécute à partir d’une entité Azure telle qu’une application Azure Functions, une application web Azure ou une machine virtuelle Azure, elle peut utiliser une identité managée pour accéder aux ressources.  Pour plus d’informations sur l’authentification des requêtes adressées à Azure App Configuration par une identité managée, consultez [Authentifier l’accès aux ressources Azure App Configuration avec Azure Active Directory et les identités managées pour les ressources Azure](howto-integrate-azure-managed-service-identity.md).
 
-L’étape d’autorisation exige qu’un ou plusieurs rôles RBAC soient attribués au principal de sécurité. Azure App Configuration fournit des rôles RBAC qui englobent des ensembles d’autorisations pour les ressources App Configuration. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations fournies au principal. Pour plus d’informations sur les rôles RBAC, consultez [Rôles RBAC intégrés pour Azure App Configuration](#built-in-rbac-roles-for-azure-app-configuration). 
+L’étape d’autorisation exige qu’un ou plusieurs rôles RBAC soient attribués au principal de sécurité. Azure App Configuration fournit des rôles RBAC qui englobent des ensembles d’autorisations pour les ressources App Configuration. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations fournies au principal. Pour plus d’informations sur les rôles RBAC, consultez [Rôles Azure intégrés pour Azure App Configuration](#azure-built-in-roles-for-azure-app-configuration). 
 
 ## <a name="assign-rbac-roles-for-access-rights"></a>Attribuer des rôles RBAC pour les droits d’accès
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md).
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès est limité à la ressource App Configuration. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Rôles RBAC intégrés pour Azure App Configuration
-Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès aux données App Configuration à l’aide d’Azure AD et d’OAuth :
+## <a name="azure-built-in-roles-for-azure-app-configuration"></a>Rôles Azure intégrés pour Azure App Configuration
+Azure fournit les rôles Azure intégrés suivants pour autoriser l’accès aux données App Configuration à l’aide d’Azure AD et d’OAuth :
 
 - **Propriétaire des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture/écriture/suppression aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.
 - **Lecteur des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.

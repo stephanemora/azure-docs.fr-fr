@@ -5,18 +5,18 @@ description: AutoMLStep vous permet d’utiliser le Machine Learning automatisé
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 698fdf1295ec38fc7eca9a58e681d7fe13ec32fc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319505"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,6 +97,8 @@ if not compute_name in ws.compute_targets :
 
 compute_target = ws.compute_targets[compute_name]
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 Les données intermédiaires entre l’étape de préparation des données et l’étape de ML automatisé peuvent être stockées dans le magasin de données par défaut de l’espace de travail. Il nous suffit donc d’appeler la commande `get_default_datastore()` sur l’objet `Workspace`. 
 
@@ -268,7 +270,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparaison des deux techniques :
 
-| Technique |  | 
+| Technique | Avantages et inconvénients | 
 |-|-|
 |`PipelineOutputTabularDataset`| Performances accrues | 
 || Itinéraire naturel à partir des `PipelineData` | 

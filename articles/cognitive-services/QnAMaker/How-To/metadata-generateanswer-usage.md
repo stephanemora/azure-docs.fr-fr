@@ -3,19 +3,18 @@ title: Métadonnées avec l’API GenerateAnswer - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Avec QnA Maker, vous pouvez ajouter des métadonnées, sous la forme de paires clé-valeur, à vos paires question/réponse. Vous pouvez filtrer des résultats de requêtes d’utilisateurs et stocker des informations supplémentaires utilisables dans des conversations de suivi.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: diberry
-ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7120f95b8b61fc08759f4d15061ec530849dfc05
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993505"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406518"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse avec l’API GenerateAnswer et des métadonnées
 
@@ -184,13 +183,40 @@ Imaginez que la question de l’utilisateur soit « Quand ferme cet hôtel ? 
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### <a name="logical-and-by-default"></a>AND logique par défaut
+
+Pour combiner plusieurs filtres de métadonnées dans la requête, ajoutez les filtres de métadonnées supplémentaires au tableau de la propriété `strictFilters`. Par défaut, les valeurs sont combinées logiquement (AND). Une combinaison logique exige que tous les filtres correspondent aux paires de question/réponse pour que la paire soit retournée dans la réponse.
+
+Cela équivaut à utiliser la propriété `strictFiltersCompoundOperationType` avec la valeur `AND`.
+
+### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>OR logique en utilisant la propriété strictFiltersCompoundOperationType
+
+Quand plusieurs filtres de métadonnées sont combinés, si vous êtes seulement intéressé par la correspondance d’un ou quelques filtres, utilisez la propriété `strictFiltersCompoundOperationType` avec la valeur `OR`.
+
+Votre base de connaissances retourne alors des réponses quand un filtre correspond, mais ne retourne pas de réponses dépourvues de métadonnées.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### <a name="metadata-examples-in-quickstarts"></a>Exemples de métadonnées dans les guides de démarrage rapide
+
+Apprenez-en plus sur les métadonnées dans le guide de démarrage rapide du portail QnA Maker pour les métadonnées :
+* [Création – Ajouter des métadonnées à une paire QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Prédiction de requête – Filtrer les réponses par métadonnées](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

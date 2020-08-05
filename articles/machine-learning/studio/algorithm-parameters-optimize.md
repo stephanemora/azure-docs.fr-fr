@@ -1,6 +1,5 @@
 ---
-title: Optimiser les algorithmes
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Optimiser les algorithmes - Azure'
 description: Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 52853bb14b49d429100dabeffc46661289f55c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0e003e7c767fb3441e26787f5687473ac51f44
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711202"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292971"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio (classique)
+# <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
 
 Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio (classique). La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
@@ -29,8 +30,8 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 
 1. **Définir l’espace de paramètre :** Pour l’algorithme, vous devez d’abord déterminer les valeurs de paramètres exactes que vous souhaitez prendre en compte.
 2. **Définir les paramètres de validation croisée** : Déterminez comment choisir les plis de validation croisée pour le jeu de données.
-3. **Définir la métrique** : Déterminez la métrique à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
-4. **Apprentissage, évaluation et comparaison** : Pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la métrique d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
+3. **Définir la mesure** : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
+4. **Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
 L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio (classique).
 

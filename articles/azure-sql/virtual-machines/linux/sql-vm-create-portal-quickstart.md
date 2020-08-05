@@ -10,12 +10,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ce3ab92be33b378aeb6694efe181ee19da5d3f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669509"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284351"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Provisionner une machine virtuelle Linux exécutant SQL Server dans le portail Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,7 +72,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Ensuite, tapez ou sélectionnez les valeurs suivantes :
    * **Région** : sélectionnez la région Azure qui vous convient.
    * **Options de disponibilité** : choisissez l’option de redondance et de disponibilité qui convient le mieux à vos applications et données.
-   * **Modifier la taille** : sélectionnez cette option pour choisir une taille de machine ; lorsque cela est fait, choisissez **Sélectionner**. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Modifier la taille** : sélectionnez cette option pour choisir une taille de machine ; lorsque cela est fait, choisissez **Sélectionner**. Pour en savoir plus sur les tailles de machines virtuelles, consultez [Tailles de machine virtuelle](../../../virtual-machines/sizes.md).
 
      ![Choisir une taille de machine virtuelle](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
@@ -82,7 +82,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    * **Type d'authentification** : sélectionnez **Clé publique SSH**.
 
      > [!Note]
-     > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > Vous pouvez choisir d’utiliser une clé publique SSH ou un mot de passe pour l’authentification. L’utilisation d’une clé SSH est plus sécurisée. Pour savoir comment générer une clé SSH, consultez [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
    * **Nom d’utilisateur** : indiquez le nom d’administrateur pour la machine virtuelle.
    * **Clé publique SSH** : entrez votre clé publique RSA.
@@ -122,7 +122,7 @@ Si vous êtes sous Windows et que vous n’avez pas d’interpréteur de command
 
 1. Sélectionnez **Open** (Ouvrir) et entrez votre nom d’utilisateur et votre mot de passe lorsque vous y êtes invité.
 
-Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide du portail](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > Si vous voyez une alerte de sécurité PuTTY relative à la clé d’hôte du serveur non mise en cache dans le Registre, choisissez parmi les options suivantes. Si vous faites confiance à cet ordinateur hôte, sélectionnez **Yes** (Oui) pour ajouter la clé à la mémoire cache de PuTTy et poursuivre la connexion. Si vous souhaitez vous connecter une seule fois, sans ajouter la clé dans le cache, sélectionnez **No** (Non). Si vous ne faites pas confiance à cet ordinateur hôte, sélectionnez **Cancel** (Annuler) pour abandonner la connexion.

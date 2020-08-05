@@ -5,21 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101706"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327393"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Liste de vérification de la création d’offre SaaS dans l’Espace partenaires
 
-Le processus de création d’offre SaaS vous amène à visiter plusieurs pages.  Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
+Le processus de création d’offre SaaS vous fait parcourir plusieurs pages.  Cet article indique les informations que vous pouvez fournir dans chacune d’elles, avec des liens pour en savoir plus sur chaque élément.
+
+> [!NOTE]
+> Si vous créez une offre SaaS préconfigurable, veillez à implémenter l’intégration aux [API de traitement SaaS](./pc-saas-fulfillment-apis.md).  L’intégration avec les API est le seul moyen de garantir le bon fonctionnement de la fonction de traitement de la place de marché. Vous devez également vérifier que votre application utilise l’authentification Azure AD avec l’authentification unique (SSO). Consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale](../azure-ad-saas.md).
 
 Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous.  Certaines zones sont facultatives ou comportent des valeurs par défaut que vous pouvez modifier à votre guise.  Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
-
->[!Note]
->Si vous créez une offre SaaS préconfigurable, veillez à implémenter l’intégration avec [l’API de traitement SaaS](./pc-saas-fulfillment-apis.md).  L’intégration avec les API est le seul moyen de garantir le bon fonctionnement de la fonction de traitement de la place de marché.
 
 | **Item**    | **Objectif**  |
 | :---------- | :-------------------|
@@ -28,7 +30,7 @@ Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous.  
 | [Page Propriétés](#properties-page) | Définissez les catégories et secteurs utilisés pour grouper votre offre en fonction des places de marché, des contrats légaux associés, et de la version de votre application. |
 | [Page Référencement de l’offre](#offer-listing-page) | Définissez les détails de l’offre à afficher sur la Place de marché, dont des descriptions de votre offre et de ses composants marketing.|
 | [Page Préversion](#preview-page) | Définissez un Public de préversion limité avant de publier votre offre pour public plus important.|
-| [Page Configuration technique de l’offre](#technical-configuration-page)  |  Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Définissez les détails techniques (URL de la page d’accueil, URL de connexion webhook, ID de locataire Azure AD et ID d’application Azure AD) utilisés par la Place de marché pour vous connecter à votre offre.  Ces paramètres sont nécessaires pour s’intégrer correctement avec les API de traitement SaaS et de facturation de la Place de marché.|
+| [Page de configuration technique](#technical-configuration-page)  |  Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Définissez les détails techniques (URL de la page d’accueil, URL de connexion webhook, ID de locataire Azure AD et ID d’application Azure AD) utilisés par la Place de marché pour vous connecter à votre offre.  Ces paramètres sont nécessaires pour s’intégrer correctement avec les API de traitement SaaS et de facturation de la Place de marché.|
 | [**Modal de nouveau plan**](#plan-identity-modal) | Collecte des informations sur l’identité du plan.  |
 | [Page Référencement du plan](#plan-listing-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft. Définissez les détails utilisés pour référencer le plan sur la place de marché.  |
 | [Page Tarification et disponibilité du plan](#plan-pricing--availability-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Recueille les caractéristiques de l’entreprise (modèle de tarification), l’audience et la disponibilité du marché pour chaque forfait (version) de votre offre.  |
@@ -36,10 +38,9 @@ Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous.  
 | Page Configuration technique de la version d’évaluation  | Disponible uniquement si vous décidez de proposer une version d’évaluation de votre offre. Définissez les détails techniques de la démonstration (ou « version d’évaluation ») qui permettra à des clients d’essayer votre offre avant de s’engager à l’acheter.  |
 | [Page Passer en revue et publier](#review-and-publish-page)  | Sélectionnez les modifications que vous souhaitez publier, affichez l’état de chaque page et ajoutez des notes à l’adresse de l’équipe de certification.  |
 
+## <a name="new-offer-modal"></a>Modal de nouvelle offre
 
-## <a name="new-offer-modal"></a>Modal de nouvelle offre 
-
-Les premiers éléments d’informations que vous serez invité à fournir sont un ID et un alias pour votre offre. 
+Les premiers éléments d’informations que vous serez invité à fournir sont un ID et un alias pour votre offre.
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
@@ -106,6 +107,9 @@ La page de préversion vous permet de spécifier le public ayant accès à la pr
 ## <a name="technical-configuration-page"></a>Page de configuration technique 
 
 La page de configuration technique est celle où vous spécifiez les détails techniques utilisés par Microsoft pour se connecter à votre offre. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
+
+> [!NOTE]
+> Pour les offres pouvant faire l’objet d’une transaction, vous devez créer une page d’accueil, et votre application doit utiliser l’authentification Azure AD avec l’authentification unique (SSO). Pour plus d’informations, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale](../azure-ad-saas.md).
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 

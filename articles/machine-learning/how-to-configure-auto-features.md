@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205692"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373740"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caractérisation dans le Machine Learning automatisé
 
@@ -64,7 +64,7 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 | ------------- | ------------- |
 |**Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance*** |Supprime ces fonctionnalités des ensembles de formation et de validation. S’applique aux fonctionnalités dont toutes les valeurs sont manquantes, avec la même valeur sur toutes les lignes, ou avec une cardinalité élevée (par exemple, les codes de hachage, les ID, ou les GUID).|
 |**Imputer des valeurs manquantes*** |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
-|**Générer des caractéristiques supplémentaires*** |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes.|
+|**Générer des caractéristiques supplémentaires*** |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
 |**Transformer et encoder***|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>L’encodage one-hot est utilisé pour les fonctionnalités catégoriques de faible cardinalité. L’encodage one-hot-hash est utilisé pour les fonctionnalités catégoriques de haute cardinalité.|
 |**Incorporations de mots**|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé avec le reste pour produire un vecteur de fonctionnalité de document.|
 |**Encodages cibles**|Pour les fonctionnalités catégorielles, cette étape mappe chaque catégorie avec une valeur cible moyenne pour les problèmes de régression, et à la probabilité de chaque classe pour les problèmes de classification. Une pondération basée sur la fréquence et une validation croisée par échantillons (« k-fold ») sont appliquées pour réduire l’ajustement du mappage et le bruit provoqué par les catégories de données éparses.|
@@ -114,13 +114,13 @@ Garde-fou|Statut|Condition&nbsp;pour&nbsp;le déclencheur
 
 Vous pouvez personnaliser vos paramètres de caractérisation pour vous assurer que les données et les caractéristiques utilisées pour l’apprentissage de votre modèle ML génèrent des prédictions pertinentes.
 
-Pour personnaliser les caractérisations, spécifiez `"featurization": FeaturizationConfig` dans votre objet `AutoMLConfig`. Si vous utilisez le studio Azure Machine Learning pour votre expérience, consultez le [guide pratique](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Pour personnaliser les caractérisations, spécifiez `"featurization": FeaturizationConfig` dans votre objet `AutoMLConfig`. Si vous utilisez le studio Azure Machine Learning pour votre expérience, consultez le [guide pratique](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Pour personnaliser la caractérisation des types de tâches de prévision, reportez-vous à [la manière d’effectuer les prévisions](how-to-auto-train-forecast.md#customize-featurization).
 
 Les personnalisations prises en charge sont notamment les suivantes :
 
 |Personnalisation|Définition|
 |--|--|
-|**Mise à jour de l’objectif de la colonne**|Remplacer le type de caractéristique pour la colonne spécifiée.|
+|**Mise à jour de l’objectif de la colonne**|Remplacer le type de caractéristique détecté automatiquement pour la colonne spécifiée.|
 |**Mise à jour des paramètres du transformateur** |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge *Imputer* (moyen, le plus fréquent et médian) et *HashOneHotEncoder*.|
 |**Suppression de colonnes** |Indique les colonnes à supprimer de la caractérisation.|
 |**Transformateurs de blocs**| Indique les transformateurs de blocs à utiliser dans le processus de caractérisation.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>Intégration de BERT 
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) est utilisé dans la couche de caractérisation de ML automatisé. Dans cette couche, nous détectons si une colonne contient du texte libre ou d’autres types de données tels que des horodateurs ou des nombres simples, et nous les caractérisons en conséquence. Pour BERT, nous allons affiner/former le modèle à l’aide des étiquettes fournies par l’utilisateur, puis nous sortirons les incorporations de documents (pour BERT, il s’agit de l’état masqué final associé au jeton [CLS] spécial) en tant que fonctionnalités avec d’autres fonctionnalités telles que les fonctionnalités basées sur un horodateur (par exemple, le jour de la semaine) ou sur des nombres contenus dans de nombreux jeux de données typiques. 
+
+Pour activer BERT, vous devez utiliser le calcul GPU pour la formation. Si un calcul de l’UC est utilisé, au lieu de BERT, AutoML active le caractériseur BiLSTM DNN. Pour appeler BERT, vous devez définir « enable_dnn : True » dans automl_settings et utiliser le calcul GPU (par exemple, vm_size = « STANDARD_NC6 » ou un GPU supérieur). Consultez [ce bloc-notes pour voir un exemple](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+AutoML effectue les étapes suivantes dans le cas de BERT (veuillez noter que vous devez définir « enable_dnn : True » dans automl_settings pour que ces éléments se produisent) :
+
+1. Prétraitement, y compris la création de jetons pour toutes les colonnes de texte (vous verrez le transformateur « StringCast » dans le résumé de caractérisation du modèle final. Visitez [ce bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) pour voir un exemple de la façon de produire le résumé de caractérisation du modèle à l’aide de la méthode `get_featurization_summary()`.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Concatène toutes les colonnes de texte dans une seule colonne de texte. Par conséquent, vous verrez « StringConcatTransformer » dans le modèle final. 
+
+> [!NOTE]
+> Notre implémentation de BERT limite la longueur totale du texte d’un exemple de formation à 128 jetons. Cela signifie qu’en cas de concaténation, toutes les colonnes de texte doivent idéalement avoir une longueur maximale de 128 jetons. Idéalement, s’il y a plusieurs colonnes sont, chaque colonne doit être élaguée de telle sorte que cette condition soit remplie. Par exemple, s’il y a deux colonnes de texte dans les données, toutes deux doivent être élaguées à 64 jetons chacune (en supposant que vous souhaitez que les deux colonnes soient représentées de manière égale dans la colonne de texte concaténée finale) avant d’alimenter les données vers AutoML. Pour les colonnes concaténées de longueur > 128 jetons, la couche du générateur de jetons de BERT va tronquer cette entrée à 128 jetons.
+
+3. Dans l’étape de balayage des fonctionnalités, AutoML compare BERT à la ligne de base (conteneur de fonctionnalités de mots + incorporation de mots préformés) sur un échantillon de données et détermine si BERT apporterait des améliorations de la précision. S’il détermine que BERT est plus performant que la ligne de base, AutoML utilise alors BERT comme stratégie de optimale de caractérisation du texte et poursuit avec la caractérisation de l’ensemble des données. Dans ce cas, vous verrez « PretrainedTextDNNTransformer » dans le modèle final.
+
+AutoML prend actuellement en charge environ 100 langues et choisit le modèle BERT approprié en fonction de la langue du jeu de données. Pour les données en allemand, nous utilisons le modèle BERT allemand. Pour l’anglais, nous utilisons le modèle BERT anglais. Pour toutes les autres langues, nous utilisons le modèle BERT multilingue.
+
+Dans le code suivant, le modèle BERT allemand est déclenché, étant donné que la langue du jeu de données est définie sur « DEU », le code de langue à trois lettres pour l’allemand conformément à la [classification ISO](https://iso639-3.sil.org/code/hbs) :
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

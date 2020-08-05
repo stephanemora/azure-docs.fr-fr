@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195566"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281223"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -99,7 +99,7 @@ Tout d’abord, obtenez les informations d’identification du cluster AKS à l�
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Utilisez ensuite la commande [kubectl describe][kubectl-describe] pour répertorier les nœuds du cluster. Filtrez sur valeur *failure-domain.beta.kubernetes.io/zone* comme indiqué dans l'exemple suivant :
+Ensuite, utilisez la commande [kubectl describe][kubectl-describe] pour lister les nœuds du cluster et filtrer sur la valeur *failure-domain.beta.kubernetes.io/zone*. L’exemple suivant est destiné à un interpréteur de commandes Bash.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -131,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-Quand l’opération de mise à l’échelle se termine au bout de quelques minutes, la commande `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` doit produire une sortie similaire à cet exemple :
+Quand l’opération de mise à l’échelle se termine au bout de quelques minutes, la commande `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` doit produire une sortie similaire à cet exemple dans un interpréteur de commandes Bash :
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -152,7 +152,7 @@ Nous avons maintenant deux nœuds supplémentaires dans les zones 1 et 2. Vous 
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-En affichant les nœuds où s’exécutent vos pods, vous voyez que les pods s’exécutent sur les nœuds correspondant aux trois différentes zones de disponibilité. Par exemple, avec la commande `kubectl describe pod | grep -e "^Name:" -e "^Node:"`, vous obtenez une sortie similaire à celle-ci :
+En affichant les nœuds où s’exécutent vos pods, vous voyez que les pods s’exécutent sur les nœuds correspondant aux trois différentes zones de disponibilité. Par exemple, avec la commande `kubectl describe pod | grep -e "^Name:" -e "^Node:"`, vous obtenez une sortie similaire à celle-ci dans un interpréteur de commandes Bash :
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

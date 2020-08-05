@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077859"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du stockage Azure
 
@@ -46,6 +46,7 @@ Ce tableau montre des [métriques de Stockage Blob](https://docs.microsoft.com/a
 | ------------------- | ----------------- |
 | BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
 | BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
+| BlobProvisionedSize | Quantité de stockage provisionnée dans le compte de stockage. Cette métrique s’applique uniquement aux comptes de stockage Premium. <br/><br/> Unité : octets <br/> Type d’agrégation : Average |
 | ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 | IndexCapacity     | Espace utilisé par l'index hiérarchique d'ADLS Gen2 <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 
@@ -78,6 +79,7 @@ Ce tableau montre des [métriques de Stockage Fichier](https://docs.microsoft.co
 | FileCapacity | Quantité de stockage de fichiers utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 | FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
 | FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Exemple de valeur : 1 024 |
+| FileShareProvisionedIOPS | Nombre d’IOPS provisionnées sur un partage de fichiers. Cette métrique s’applique uniquement au stockage de fichiers Premium. <br/><br/> Unité : octets <br/> Type d’agrégation : Average |
 
 ### <a name="transaction-metrics"></a>Métriques de transaction
 

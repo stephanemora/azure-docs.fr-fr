@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077778"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
@@ -122,12 +122,12 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 5. Dans le panneau **Désactiver**, vous êtes invité à confirmer l’opération. La désactivation d’appareil est une opération *définitive* qui ne peut pas être annulée. Vous recevez également un rappel pour mettre vos partages/volumes hors connexion sur l’ordinateur hôte. Tapez le nom de l’appareil pour confirmer l’opération et cliquez sur **Désactivez**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Capture d’écran du panneau Désactiver. La zone de nom de l’appareil est renseignée, et le bouton Désactiver est mis en surbrillance.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. La désactivation démarre. Vous recevez une notification une fois que la désactivation s’est correctement terminée.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Capture d’écran d’une barre de progression indiquant que l’appareil est en cours de désactivation.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. Dans la page Appareils, l’état de l’appareil passe à **Désactivé**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Capture d’écran de la page Appareils. Les propriétés de l’appareil désactivé s’affichent, y compris l’état, qui est listé comme Désactivé.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. Dans la page **Appareils**, sélectionnez l’appareil source désactivé et cliquez dessus pour le basculement. 
 9. Dans le **tableau de bord de l’appareil**, cliquez sur **Effectuer un basculement**. 
 10. Dans le panneau **Effectuer un basculement de l’appareil**, effectuez les opérations suivantes :
@@ -140,22 +140,22 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
     4. Cliquez sur **Effectuer un basculement**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Capture d’écran du panneau de basculement de l’appareil, avec les appareils source et cible renseignés, l’option cochée et le bouton Effectuer un basculement en surbrillance.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Un travail de basculement est lancé et vous recevez une notification. Accédez à **Appareils > Travaux** pour contrôler le basculement.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Capture d’écran d’une barre de progression indiquant que l’appareil est en cours de basculement.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. Dans la page **Travaux**, vous pouvez voir un travail de basculement créé pour l’appareil source. Ce travail effectue les vérifications préalables pour la récupération d'urgence.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Capture d’écran montrant qu’un travail de basculement a démarré avec succès.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      Une fois les vérifications préalables pour la récupération d'urgence terminées avec succès, le travail de basculement génèrera des travaux de restauration pour chaque volume/partage qui existe sur l'appareil source.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Capture d’écran montrant les détails du travail de basculement, tels que l’état, l’appareil et la durée.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. Une fois le basculement terminé, accédez au panneau **Appareils**.
     
     1. Sélectionnez l’appareil StorSimple qui a été utilisé en tant qu’appareil cible pour le processus de basculement et cliquez dessus.
     2. Accédez à **Paramètres > Administration > Partages** (ou **Volumes** dans le cas d’un serveur iSCSI). Dans le panneau **Partages**, vous pouvez afficher tous les partages (volumes) de l’ancien appareil.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Capture d’écran du panneau Appareils. L’appareil cible est listé avec un état En ligne.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Vous devez [créer un alias DNS](https://support.microsoft.com/kb/168322) afin que toutes les applications qui essaient de se connecter puissent être redirigées vers le nouvel appareil.
 
 ## <a name="errors-during-dr"></a>Erreurs lors de la récupération d'urgence

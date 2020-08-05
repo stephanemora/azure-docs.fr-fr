@@ -1,5 +1,5 @@
 ---
-title: Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
+title: Créer une application d’apprentissage automatique avec Apache Spark MLlib
 description: Découvrez comment utiliser Spark MLlib pour créer une application d’apprentissage automatique qui analyse un jeu de données en utilisant une classification par régression logistique.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: fd3637eed35fa4b9f40623612be9fc99703051e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368173"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373451"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Maintenant qu’il y a deux tramedonnées, la tâche suivante consiste à créer la formule modèle et à l’exécuter sur la tramedonnées d’apprentissage, puis à valider par rapport à la tramedonnées de test. Vous devez expérimenter différentes versions de la formule modèle pour voir l’impact de différentes combinaisons.
 
 > [!Note]
-> Pour enregistrer le modèle, vous aurez besoin du rôle runbook automation du Contributeur aux données du Stockage Blob Azure. Sous votre compte de stockage, accédez à Access Control (IAM), puis sélectionnez Ajouter une attribution de rôle. Attribuez le rôle runbook automation du Contributeur aux données du Stockage Blob à votre serveur SQL Database. Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Pour enregistrer le modèle, vous aurez besoin du rôle runbook automation du Contributeur aux données du Stockage Blob Azure. Sous votre compte de stockage, accédez à Access Control (IAM), puis sélectionnez Ajouter une attribution de rôle. Attribuez le rôle runbook automation du Contributeur aux données du Stockage Blob à votre serveur SQL Database. Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

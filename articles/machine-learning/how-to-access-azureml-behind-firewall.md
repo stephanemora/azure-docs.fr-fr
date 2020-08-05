@@ -5,18 +5,18 @@ description: Contrôler l’accès aux espaces de travail Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080245"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407028"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière le Pare-feu Azure pour Azure Machine Learning
 
@@ -60,8 +60,9 @@ Les hôtes de cette section sont utilisés pour installer les packages Python. I
 
 | **Nom d’hôte** | **Objectif** |
 | ---- | ---- |
-| **anaconda.com** | Utilisé lors de l’installation des packages Conda |
-| **pypi.org** | Utilisé lors de l’installation des packages pip |
+| **anaconda.com** | Utilisé pour installer les packages par défaut. |
+| **\*.anaconda.org** | Utilisé pour récupérer les données des dépôts. |
+| **pypi.org** | Utilisé pour lister les dépendances de l’index par défaut, le cas échéant, et si l’index n’a pas été remplacé par les paramètres utilisateur. Si l’index a été remplacé, vous devez également autoriser **\*.pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Hôtes R
 

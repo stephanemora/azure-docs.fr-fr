@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199376"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383764"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -145,7 +145,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 * **Non applicable** : Aucune stratégie d’accès conditionnel ne s’appliquait à l’utilisateur et à l’application. 
 * **Réussite** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel ont été respectées. 
-* **Échec** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel n’ont pas été respectées. 
+* **Échec** : la connexion a satisfait à la condition d’utilisateur et d’application d’au moins une stratégie d’accès conditionnel et les contrôles d’octroi ne sont pas satisfaisants ou ne sont pas configurés pour bloquer l’accès.
     
 **Q : Quelles sont toutes les valeurs acceptées par les résultats de la stratégie d’accès conditionnel ?**
 

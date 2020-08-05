@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119971"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387045"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Meilleures pratiques pour la création d’évaluations
 
@@ -132,8 +132,8 @@ Il peut arriver qu’une évaluation n’ait pas tous les points de données pou
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Guide de l’outil de migration pour les évaluations AVS
 
 Dans le rapport de préparation à Azure pour l’évaluation Azure VMware Solution (AVS), vous pouvez voir les outils suggérés suivants : 
-- **VMware HCX ou Enterprise** : Pour les machines VMware, la solution VMWare Hybrid Cloud Extension (HCX) est l’outil de migration suggéré pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
-- **Inconnue** : Pour les machines importées via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les machines VMware, il est cependant recommandé d’utiliser la solution VMWare Hybrid Cloud extension (HCX).
+- **VMware HCX ou Enterprise** : en ce qui concerne les machines VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
+- **Inconnue** : Pour les machines importées via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les machines VMware, il est toutefois recommandé d’utiliser la solution VMware Hybrid Cloud Extension (HCX).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

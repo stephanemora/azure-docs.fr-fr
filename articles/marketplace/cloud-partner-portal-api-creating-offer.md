@@ -4,19 +4,21 @@ description: API pour créer ou mettre à jour une offre.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 68416fa91f6b75fb3ef2b91c1297f13d84f2bdab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115721"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292955"
 ---
 <a name="create-or-modify-an-offer"></a>Créer ou modifier une offre
 =========================
 
 > [!NOTE]
-> Les API Portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les modifications répertoriées dans la [référence API du portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les changements répertoriés dans les [informations de référence relatives aux API de Portail Cloud Partner](./cloud-partner-portal-api-overview.md) pour vous assurer que votre code continue de fonctionner après la transition vers Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Cet appel met à jour une offre spécifique dans l’espace de noms du serveur de publication ou en crée une.
 
@@ -283,4 +285,4 @@ L’exemple suivant illustre la création d’une offre ayant l’ID `contosovir
 <a name="uploading-artifacts"></a>Chargement des artefacts
 -------------------
 
-Les artefacts, tels que les images et les logos, doivent être partagées après chargement dans un emplacement accessible sur le web, puis par inclusion de chacun d’eux en tant qu’URI dans la requête PUT, comme dans l’exemple ci-dessus. Le système détecte que ces fichiers ne sont pas présents dans le stockage de la Place de marché Azure et télécharge ces fichiers dans le stockage.  Par conséquent, vous constaterez que les futures requêtes GET retourneront une URL de service de la Place de marché Azure pour ces fichiers.
+Les artefacts, tels que les images et les logos, doivent être partagées après chargement dans un emplacement accessible sur le web, puis par inclusion de chacun d’eux en tant qu’URI dans la requête PUT, comme dans l’exemple ci-dessus. Le système détecte que ces fichiers ne sont pas présents dans le stockage de la Place de marché Azure et télécharge ces fichiers dans le stockage.  Par conséquent, vous constaterez que les futures requêtes GET retourneront une URL de service de la Place de marché Azure pour ces fichiers.

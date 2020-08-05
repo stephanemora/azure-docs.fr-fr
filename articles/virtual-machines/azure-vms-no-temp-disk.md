@@ -3,19 +3,19 @@ title: FAQ sur les tailles de machine virtuelle Azure sans disque temporaire loc
 description: Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Microsoft Azure qui n’ont pas de disque temporaire local.
 author: brbell
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503028"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288555"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tailles de machine virtuelle Azure sans disque temporaire local 
-Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Azure qui n’ont pas de disque temporaire local (c’est-à-dire aucun bureau temporaire local). Pour plus d’informations sur ces tailles de machine virtuelle, consultez les [spécifications des séries Dv4 et  Dsv4 (charges de travail universelles)](dv4-dsv4-series.md) ou les [spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md).
+Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Azure qui n’ont pas de disque temporaire local. Pour plus d’informations sur ces tailles de machine virtuelle, consultez les [spécifications des séries Dv4 et  Dsv4 (charges de travail universelles)](dv4-dsv4-series.md) ou les [spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Les tailles de machine virtuelle Dv4, Dsv4, Ev4 et Esv4 sont désormais en préversion publique. Pour vous inscrire à la préversion publique, remplissez ce [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 

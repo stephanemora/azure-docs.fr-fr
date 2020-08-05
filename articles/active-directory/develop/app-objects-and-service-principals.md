@@ -9,45 +9,51 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027236"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
 Cet article décrit l’inscription d’application, les objets application et les principaux du service dans Azure Active Directory : ce qu’ils sont, comment ils sont utilisés et comment ils sont liés entre eux. Un exemple de scénario mutualisé est également présenté pour illustrer la relation entre l’objet application d’une application et les objets principal de service correspondants.
 
 ## <a name="application-registration"></a>Inscription de l’application
-Afin de pouvoir déléguer les fonctions de gestion des identités et des accès, une application doit être inscrite auprès d’un [client](developer-glossary.md#tenant) Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous créez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer avec Azure AD. Quand vous inscrivez une application dans le [portail Azure][AZURE-Portal], vous choisissez s’il s’agit d’une application à locataire unique (accessible uniquement dans votre locataire) ou mutualisée (accessible dans d’autres locataires), et vous pouvez éventuellement définir un URI de redirection (auquel le jeton d’accès est envoyé).
+Afin de pouvoir déléguer les fonctions de gestion des identités et des accès, une application doit être inscrite auprès d’un [client](developer-glossary.md#tenant) Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous créez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer avec Azure AD. Quand vous inscrivez une application dans le [portail Azure][AZURE-Portal], vous choisissez s’il s’agit d’une application monolocataire (accessible uniquement dans votre locataire) ou multilocataire (accessible dans d’autres locataires). De plus, vous pouvez éventuellement définir un URI de redirection (auquel le jeton d’accès est envoyé).
+
+![Inscription d'application](./media/app-objects-and-service-principals/app-registration.png)
 
 Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application (objet application) qui réside dans votre locataire ou annuaire de base.  Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client).  Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
 
 Si vous inscrivez une application dans le portail, un objet application et un objet principal de service sont automatiquement créés dans votre locataire de base.  Si vous inscrivez/créez une application à l’aide des API Microsoft Graph, la création de l’objet principal de service est une étape distincte.
 
 ## <a name="application-object"></a>Objet application
-Une application Azure AD est définie par son seul et unique objet application, qui réside dans le locataire Azure AD dans lequel l’application a été inscrite (locataire « de base » de l’application).  Un objet application est utilisé en tant que modèle ou blueprint pour créer un ou plusieurs objets principal de service.  Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée. À l’instar d’une classe dans la programmation orientée objet, l’objet application possède des propriétés statiques qui sont appliquées à tous les principaux de service créés (ou instances d’application). 
+Une application Azure AD est définie par son seul et unique objet application, qui réside dans le locataire Azure AD dans lequel l’application a été inscrite (locataire « de base » de l’application).  Un objet application est utilisé en tant que modèle ou blueprint pour créer un ou plusieurs objets principal de service.  Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée. À l’image d’une classe en programmation orientée objet, l’objet d’application a des propriétés statiques qui sont appliquées à tous les principaux de service créés (ou instances d’application). 
 
 L’objet application décrit trois aspects d’une application : la manière dont le service peut émettre des jetons pour accéder à l’application, les ressources auxquelles l’application peut avoir besoin d’accéder, et les actions que l’application peut effectuer. 
 
 Le panneau **Inscriptions d’applications** dans le [portail Azure][AZURE-Portal] permet de répertorier et gérer les objets application dans votre locataire de base.
 
+![Panneau Inscriptions d’applications](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 [L’entité Application][MS-Graph-App-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet d’application.
 
 ## <a name="service-principal-object"></a>Objet principal du service
-Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Ceci est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire Azure AD. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
+Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Cette exigence est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire Azure AD. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
 
 Un principal de service est la représentation locale, ou instance d’application, d’un objet application global dans un locataire ou répertoire unique. Un principal de service est une instance concrète créée à partir de l’objet application, qui hérite de certaines propriétés de celui-ci.  Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique.  L’objet principal de service définit ce que l’application peut réellement faire dans le locataire spécifique, qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder. 
 
 Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer un objet principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), d’Azure CLI, de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils.  Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
 
 Le panneau **Applications d’entreprise** dans le portail permet de répertorier et gérer les principaux de service dans un locataire. Vous pouvez voir les autorisations du principal de service, les autorisations accordées par l’utilisateur, les utilisateurs ayant accordé ces autorisations, les informations de connexion, et bien plus.
+
+![Panneau Applications d’entreprise](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 L’entité [ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet principal de service.
 
@@ -85,8 +91,8 @@ Dans cet exemple de scénario :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez utiliser [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour interroger à la fois les objets d’application et de principal de service.
-- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
-- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
+- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
+- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
 
 <!--Image references-->
 

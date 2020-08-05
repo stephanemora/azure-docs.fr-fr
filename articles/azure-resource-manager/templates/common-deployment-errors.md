@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055662"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373995"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -78,7 +78,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | SubnetsNotInSameVnet | Une machine virtuelle ne peut avoir qu’un seul réseau virtuel. Si vous déployez plusieurs cartes réseau, assurez-vous qu’elles appartiennent au même réseau virtuel. | [Cartes réseau multiples](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | Lors du déploiement de ressources réseau, le fournisseur de ressources Microsoft.Network est inscrit automatiquement dans l’abonnement. Parfois, l’inscription automatique ne se termine pas à temps. Pour éviter cette erreur intermittente, inscrivez le fournisseur de ressources Microsoft.Network avant le déploiement. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement de groupes inter-ressources](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement inter-étendue](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Recherche un code d'erreur
 

@@ -1,15 +1,16 @@
 ---
 title: Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 description: Utiliser la solution Ethereum de consortium de preuve d’autorité pour déployer et configurer un réseau Ethereum de consortium sur Azure
-ms.date: 07/07/2020
+ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085920"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386110"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
@@ -23,11 +24,14 @@ Le modèle de solution peut être utilisé par chaque membre du consortium pour 
 
 Avant d'opter pour le modèle de solution Ethereum de consortium de preuve d'autorité, comparez votre scénario avec les cas d’utilisation courants des options Azure Blockchain disponibles.
 
+> [!IMPORTANT]
+> Envisagez d’utiliser [Azure Blockchain Service](../service/overview.md) plutôt que le modèle de solution Ethereum sur Azure. Azure Blockchain Service est un service géré Azure pris en charge. Parity Ethereum est passé en développement et maintenance pilotés par la communauté. Pour plus d’informations, consultez [Transition de Parity Ethereum vers la DAO OpenEthereum](https://www.parity.io/parity-ethereum-openethereum-dao/).
+
 Option | Modèle de service | Cas d’utilisation courant
 -------|---------------|-----------------
-Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour approvisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain donné. Les modèles de solution sont fournis sans contrat SLA. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
+Modèles de solution | IaaS | Les modèles de solution correspondent à des modèles Azure Resource Manager que vous pouvez utiliser pour approvisionner une topologie de réseau blockchain entièrement configurée. Les modèles déploient et configurent les services de calcul, de mise en réseau et de stockage Microsoft Azure pour un type de réseau blockchain donné. Les modèles de solution sont fournis sans contrat SLA. Utilisez la [page de questions Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service (préversion) simplifie la formation, la gestion et la gouvernance des réseaux blockchain de consortium. Utilisez Azure Blockchain Service pour les solutions nécessitant PaaS, la gestion de consortium ou la confidentialité des contrats et transactions.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept d’application blockchain. Azure Blockchain Workbench est fourni sans contrat de niveau de service. Utilisez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS et PaaS | La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Utilisez Azure Blockchain Workbench pour le prototypage d’une solution blockchain ou d’une preuve de concept d’application blockchain. Azure Blockchain Workbench est fourni sans contrat de niveau de service. Utilisez la [page de questions Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) pour obtenir de l’aide.
 
 ## <a name="solution-architecture"></a>Architecture de solution
 
@@ -154,7 +158,7 @@ Contrat d’autorisation de transaction | Bytecode du contrat d’autorisation d
 
 Sélectionnez **OK**.
 
-### <a name="monitoring"></a>Surveillance
+### <a name="monitoring"></a>Supervision
 
 La surveillance vous permet de configurer une ressource de journal pour votre réseau. L’agent de surveillance collecte et fournit des métriques et journaux d’activité utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage.
 
@@ -731,10 +735,10 @@ Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnal
 
 Communiquez avec les ingénieurs Microsoft et les experts de la communauté Azure Blockchain.
 
-* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Le support d’ingénierie pour les modèles blockchain est limité aux problèmes de déploiement.
+* [Page de questions Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html). Le support d’ingénierie pour les modèles blockchain est limité aux problèmes de déploiement.
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les solutions Azure Blockchain, consultez la [documentation Azure Blockchain](https://docs.microsoft.com/azure/blockchain/).
+Pour plus d’informations sur les solutions Azure Blockchain, consultez la [documentation Azure Blockchain](../index.yml).

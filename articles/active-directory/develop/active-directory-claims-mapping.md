@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d240ed426bb270ac4cf09f3806bd36a6a52d3633
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027170"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -362,7 +362,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 |Méthode de transformation|Entrée attendue|Sortie attendue|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|Adresse e-mail ou UPN|UPN|ExtensionAttributes 1-15 ou toute autre extension de schéma qui stocke une valeur d’UPN ou d’e-mail pour l’utilisateur, par exemple, johndoe@contoso.com. Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
+|ExtractMailPrefix|E-mail ou UPN|chaîne extraite|ExtensionAttributes 1-15 ou toute autre extension de schéma qui stocke une valeur d’UPN ou d’e-mail pour l’utilisateur, par exemple, johndoe@contoso.com. Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
 
 **InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 

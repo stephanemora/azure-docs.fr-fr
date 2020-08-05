@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259433"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366925"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -34,7 +34,7 @@ L’authentification multifacteur est prise en charge si Azure Active Directory 
 1. Le client présente le jeton à Azure Resource Manager et à tout Azure Machine Learning.
 1. Le service Machine Learning fournit un jeton de service Machine Learning à la cible de calcul utilisateur (par exemple, Capacité de calcul Machine Learning). Ce jeton est utilisé par la cible de calcul utilisateur pour rappeler le service Machine Learning une fois l’exécution terminée. L’étendue se limite à l’espace de travail.
 
-[![Authentification dans Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
+[![Authentification dans Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
 Pour plus d’informations, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md). Cet article fournit des informations et des exemples sur l’authentification, y compris l’utilisation des principaux de service et des flux de travail automatisés.
 
@@ -75,7 +75,7 @@ Le tableau suivant liste certaines des principales opérations Azure Machine Lea
 | Voir les modèles/images | ✓ | ✓ | ✓ |
 | Appeler un service web | ✓ | ✓ | ✓ |
 
-Si les rôles prédéfinis ne répondent pas à vos besoins, vous pouvez créer des rôles personnalisés. Les rôles personnalisés sont pris en charge uniquement pour les opérations effectuées sur l’espace de travail et la capacité de calcul Machine Learning. Les rôles personnalisés peuvent disposer d’autorisations en lecture, écriture ou suppression sur l’espace de travail et sur la ressource de calcul dans cet espace de travail. Vous pouvez rendre le rôle disponible au niveau d’un espace de travail spécifique, d’un groupe de ressources spécifique ou d’un abonnement spécifique. Pour plus d’informations, consultez [Gérer des utilisateurs et des rôles dans un espace de travail Azure Machine Learning](how-to-assign-roles.md).
+Si les rôles prédéfinis ne répondent pas à vos besoins, vous pouvez créer des rôles personnalisés. Les rôles personnalisés sont pris en charge pour contrôler toutes les opérations au sein d’un espace de travail, telles que la création d’un calcul, l’envoi d’une exécution, l’inscription d’un magasin de banques ou le déploiement d’un modèle. Les rôles personnalisés peuvent avoir des autorisations de lecture, d’écriture ou de suppression sur les diverses ressources d’un espace de travail, telles que les clusters, les magasins de données, les modèles et les points de terminaison. Vous pouvez rendre le rôle disponible au niveau d’un espace de travail spécifique, d’un groupe de ressources spécifique ou d’un abonnement spécifique. Pour plus d’informations, consultez [Gérer des utilisateurs et des rôles dans un espace de travail Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning est pris en charge avec la collaboration interentreprises Azure Active Directory, mais n’est pas actuellement pris en charge avec la collaboration entreprise-client Azure Active Directory.
@@ -128,6 +128,8 @@ L’indicateur `hbi_workspace` contrôle la quantité de données que Microsoft 
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
 * Active le filtrage IP pour s’assurer que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres que AzureMachineLearningService.
 
+> [!WARNING]
+> L’indicateur `hbi_workspace` ne peut être défini qu’au moment de la création d’un espace de travail. Il ne peut pas être modifié pour un espace de travail existant.
 
 Pour plus d’informations sur le fonctionnement du chiffrement au repos dans Azure, consultez [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -152,10 +154,6 @@ Pour utiliser vos propres clés (gérées par le client) afin de chiffrer l’in
 Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abonnement avec des clés gérées par le client, effectuez les actions suivantes :
 
 * Inscrivez les fournisseurs de ressources Microsoft.MachineLearning et Microsoft.DocumentDB dans votre abonnement, si ce n’est pas déjà fait.
-
-* Autorisez l’application Azure Machine Learning (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.
-
-    ![Autoriser l’application « Azure Machine Learning » dans la gestion des identités et des accès du portail](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Utilisez les paramètres suivants lors de la création de l’espace de travail Azure Machine Learning. Les deux paramètres sont obligatoires et pris en charge dans les kits de développement logiciel (SDK), l’interface CLI, les API REST et les modèle Resource Manager.
 
@@ -317,7 +315,7 @@ Des ressources supplémentaires sont créées dans l’abonnement de l’utilisa
 
 L’utilisateur peut également provisionner d’autres cibles de calcul attachées à un espace de travail (comme Azure Kubernetes Service ou des machines virtuelles) selon les besoins.
 
-[![Créer un workflow d’espace de travail](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace-expanded.png#lightbox)
+[![Créer un workflow d’espace de travail](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace.png#lightbox)
 
 ### <a name="save-source-code-training-scripts"></a>Enregistrer le code source (scripts d’entraînement)
 
@@ -325,7 +323,7 @@ Le diagramme suivant montre le workflow de capture instantanée du code.
 
 Des répertoires (expériences) qui contiennent le code source (scripts d’entraînement) sont associés à un espace de travail Azure Machine Learning. Ces scripts sont stockés sur votre machine locale et dans le cloud (dans le Stockage Blob Azure de votre abonnement). Les instantanés de code sont utilisés pour l’exécution ou l’inspection de l’audit d’historique.
 
-[![Workflow de la capture instantanée de code](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
+[![Workflow de la capture instantanée de code](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
 ### <a name="training"></a>Entrainement
 
@@ -352,7 +350,7 @@ Le diagramme suivant montre le workflow d’entraînement.
 
 Dans le diagramme de flux ci-dessous, cette étape se produit quand la cible de calcul d’entraînement réécrit les métriques d’exécution dans Azure Machine Learning à partir du stockage de la base de données Cosmos DB. Les clients peuvent appeler Azure Machine Learning. Machine Learning tire (pull) ensuite les métriques de la base de données Cosmos DB pour les renvoyer au client.
 
-[![Workflow de l’entraînement](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics-expanded.png#lightbox)
+[![Workflow de l’entraînement](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics.png#lightbox)
 
 ### <a name="creating-web-services"></a>Création de services web
 
@@ -367,7 +365,7 @@ Voici les détails :
 * Les détails des requêtes de scoring sont stockés dans la fonctionnalité Application Insights qui se trouve dans l’abonnement de l’utilisateur.
 * Des données de télémétrie sont également envoyées (push) à l’abonnement Microsoft/Azure.
 
-[![Workflow de l’inférence](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+[![Workflow de l’inférence](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

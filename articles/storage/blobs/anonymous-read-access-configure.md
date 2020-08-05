@@ -1,59 +1,72 @@
 ---
 title: Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 titleSuffix: Azure Storage
-description: Découvrez comment activer ou désactiver l’accès anonyme aux données d’objet blob pour le compte de stockage. Définissez le paramètre accès public du conteneur pour rendre les conteneurs et les objets blob disponibles pour l’accès anonyme.
+description: Découvrez comment autoriser ou interdire l’accès anonyme aux données d’objet blob pour le compte de stockage. Définissez le paramètre accès public du conteneur pour rendre les conteneurs et les objets blob disponibles pour l’accès anonyme.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: af589874021baaf04a423b7bbaa0e36528eda93c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208984"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289257"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
-Le Stockage Azure prend en charge l’accès en lecture public anonyme pour les conteneurs et les objets blob. Par défaut, toutes les requêtes adressées à un conteneur et à ses objets blob doivent être autorisées à l’aide d’Azure Active Directory (Azure AD) ou d’une autorisation de clé partagée. Quand vous configurez le paramètre de niveau d’accès public d’un conteneur pour autoriser l’accès anonyme, les clients peuvent lire les données dans ce conteneur sans autoriser la requête.
+Le Stockage Azure prend en charge l’accès en lecture public anonyme facultatif pour les conteneurs et les objets blob. Par défaut, l’accès anonyme à vos données n’est jamais autorisé. À moins que vous n’activiez explicitement l’accès anonyme, toutes les demandes adressées à un conteneur et à ses objets blob doivent être autorisées. Quand vous configurez le paramètre de niveau d’accès public d’un conteneur pour autoriser l’accès anonyme, les clients peuvent lire les données dans ce conteneur sans autoriser la requête.
 
 > [!WARNING]
-> Lorsqu’un conteneur est configuré pour un accès public, n’importe quel client peut lire les données de ce conteneur. L’accès public présente un risque de sécurité potentiel. Par conséquent, si votre scénario ne l’exige pas, Microsoft vous recommande de le désactiver pour le compte de stockage. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-prevent.md) (Empêcher l’accès en lecture publique anonyme aux conteneurs et aux objets blob).
-
-Pour configurer l’accès public pour un conteneur, vous devez effectuer deux étapes :
-
-1. Activer l’accès public pour le compte de stockage
-1. Configurer le paramètre d'accès public du conteneur
+> Lorsqu’un conteneur est configuré pour un accès public, n’importe quel client peut lire les données de ce conteneur. L’accès public présente un risque de sécurité potentiel. Ainsi, si votre scénario ne l’exige pas, Microsoft vous recommande de l’interdire pour le compte de stockage. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-prevent.md) (Empêcher l’accès en lecture publique anonyme aux conteneurs et aux objets blob).
 
 Cet article explique comment configurer l’accès en lecture public anonyme pour un conteneur et ses objets blob. Pour plus d’informations sur l’accès anonyme aux données d’objet blob à partir d’une application cliente, consultez [Accéder à des conteneurs publics et à des objets blob anonymement avec .NET](anonymous-read-access-client.md).
 
-## <a name="enable-or-disable-public-read-access-for-a-storage-account"></a>Activer ou désactiver l’accès en lecture public à un compte de stockage
+## <a name="about-anonymous-public-read-access"></a>À propos de l’accès en lecture public anonyme
 
-Par défaut, l’accès public est activé pour un compte de stockage. La désactivation de l’accès public empêche tout accès anonyme aux conteneurs et aux objets blob de ce compte. Pour améliorer la sécurité, Microsoft vous recommande de désactiver l’accès public à vos comptes de stockage, sauf si votre scénario requiert que les utilisateurs accèdent aux ressources d’objets blob de façon anonyme.
+L’accès public à vos données est toujours interdit par défaut. Il existe deux paramètres distincts qui affectent l’accès public :
 
-> [!WARNING]
-> La désactivation de l’accès public pour un compte de stockage remplace les paramètres d’accès public pour tous les conteneurs appartenant à ce compte de stockage. Quand l’accès public est désactivé pour le compte de stockage, toute demande anonyme ultérieure adressée à ce compte échoue.
+1. **Activer l’accès public pour le compte de stockage** Par défaut, un compte de stockage permet à un utilisateur disposant des autorisations appropriées d’activer un accès public à un conteneur. Les données blob ne sont pas disponibles pour un accès public, à moins que l’utilisateur n’effectue l’étape supplémentaire consistant à configurer explicitement le paramètre d’accès public du conteneur.
+1. **Configurer le paramètre d’accès public du conteneur** Par défaut, le paramètre d’accès public d’un conteneur est désactivé, ce qui signifie que l’autorisation est nécessaire pour chaque demande adressée au conteneur ou à ses données. Un utilisateur disposant des autorisations appropriées peut modifier le paramètre d’accès public d’un conteneur afin d’activer l’accès anonyme uniquement si ce dernier est autorisé pour le compte de stockage.
 
-Pour activer ou désactiver l’accès public pour un compte de stockage, utilisez le portail Azure ou Azure CLI pour configurer la propriété **blobPublicAccess** du compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+Le tableau suivant résume l’incidence des deux paramètres sur l’accès public pour un conteneur.
+
+| Paramètre d’accès public | L’accès public est désactivé pour un conteneur (paramètre par défaut) | L’accès public pour un conteneur est défini sur Conteneur | L’accès public pour un conteneur est défini sur Blob |
+|--|--|--|--|
+| L’accès public n’est pas autorisé pour le compte de stockage | Aucun accès public à un conteneur dans le compte de stockage. | Aucun accès public à un conteneur dans le compte de stockage. Le paramètre de compte de stockage remplace le paramètre de conteneur. | Aucun accès public à un conteneur dans le compte de stockage. Le paramètre de compte de stockage remplace le paramètre de conteneur. |
+| L’accès public est autorisé pour le compte de stockage (paramètre par défaut) | Aucun accès public à ce conteneur (configuration par défaut). | L’accès public est autorisé à ce conteneur et à ses objets blob. | L’accès public est autorisé aux objets blob dans ce conteneur, mais pas au conteneur lui-même. |
+
+## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Autoriser ou interdire l’accès en lecture public pour un compte de stockage
+
+Par défaut, un compte de stockage est configuré pour permettre à un utilisateur disposant des autorisations appropriées d’activer un accès public à un conteneur. Quand l’accès public est autorisé, un utilisateur disposant des autorisations appropriées peut modifier le paramètre d’accès public d’un conteneur afin d’activer l’accès public anonyme aux données de ce dernier. Les données blob ne sont jamais disponibles pour un accès public, à moins que l’utilisateur n’effectue l’étape supplémentaire consistant à configurer explicitement le paramètre d’accès public du conteneur.
+
+Gardez à l’esprit que l’accès public à un conteneur est toujours désactivé par défaut et doit être explicitement configuré pour autoriser les demandes anonymes. Quel que soit le paramétrage du compte de stockage, vos données ne sont jamais disponibles pour un accès public, sauf si un utilisateur disposant des autorisations appropriées effectue l’étape supplémentaire consistant à activer l’accès public sur le conteneur.
+
+Le fait d’interdire l’accès public pour le compte de stockage empêche l’accès anonyme à tous les conteneurs et objets blob de ce compte. Quand l’accès public est interdit pour le compte, il est impossible de configurer le paramètre d’accès public pour un conteneur afin d’autoriser l’accès anonyme. Pour améliorer la sécurité, Microsoft vous recommande d’interdire l’accès public à vos comptes de stockage, sauf si votre scénario nécessite que les utilisateurs accèdent aux ressources d’objets blob de façon anonyme.
+
+> [!IMPORTANT]
+> L’interdiction de l’accès public pour un compte de stockage remplace les paramètres d’accès public pour tous les conteneurs appartenant à ce compte de stockage. Quand l’accès public est interdit pour le compte de stockage, toute requête anonyme ultérieure adressée à ce compte échoue. Avant de changer ce paramètre, assurez-vous de bien comprendre l’impact sur les applications clientes qui peuvent accéder aux données de votre compte de stockage de façon anonyme. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-prevent.md) (Empêcher l’accès en lecture publique anonyme aux conteneurs et aux objets blob).
+
+Pour autoriser ou interdire l’accès public pour un compte de stockage, utilisez le portail Azure ou Azure CLI afin de configurer la propriété **blobPublicAccess** du compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Pour activer ou désactiver l’accès public à un compte de stockage dans le portail Azure, procédez comme suit :
+Pour autoriser ou interdire l’accès public à un compte de stockage dans le portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Localisez le paramètre **Configuration** sous **Paramètres**.
-1. Définissez **Accès public aux objets blob** sur **Désactivé** ou **Activé**.
+1. Définissez **Accès public aux objets blob** sur **Activé** ou **Désactivé**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Capture d’écran montrant comment activer ou désactiver l’accès public aux objets blob pour le compte":::
+    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Capture d’écran montrant comment autoriser ou interdire l’accès public aux objets blob pour le compte":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour activer ou désactiver l’accès public à un compte de stockage avec Azure CLI, commencez par obtenir l’ID de ressource de votre compte de stockage en appelant la commande [az resource show](/cli/azure/resource#az-resource-show). Ensuite, appelez la commande [az resource update](/cli/azure/resource#az-resource-update) pour définir la propriété **allowBlobPublicAccess** pour le compte de stockage. Pour activer l’accès public, affectez la valeur true à la propriété **allowBlobPublicAccess**. Pour le désactiver, affectez-lui la valeur **false**.
+Pour autoriser ou interdire l’accès public à un compte de stockage avec Azure CLI, commencez par obtenir l’ID de ressource de votre compte de stockage en appelant la commande [az resource show](/cli/azure/resource#az-resource-show). Ensuite, appelez la commande [az resource update](/cli/azure/resource#az-resource-update) pour définir la propriété **allowBlobPublicAccess** pour le compte de stockage. Pour autoriser l’accès public, affectez la valeur true à la propriété **allowBlobPublicAccess**. Pour l’interdire, affectez-lui la valeur **false**.
 
-L’exemple suivant désactive l’accès aux objets blob publics pour le compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+L’exemple suivant interdit l’accès aux objets blob publics pour le compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli-interactive
 storage_account_id=$(az resource show \
@@ -69,31 +82,21 @@ az resource update \
     ```
 ```
 
-Pour vérifier si l’accès public est activé avec Azure CLI, appelez la commande [az resource show](/cli/azure/resource#az-resource-show) et la requête de la propriété **allowBlobPublicAccess** :
-
-```azurecli-interactive
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowBlobPublicAccess \
-    --output tsv
-```
-
 ---
 
 > [!NOTE]
-> La désactivation de l’accès public à un compte de stockage n’affecte aucun site web statique hébergé dans ce compte de stockage. Le conteneur **$web** est toujours accessible publiquement.
+> L’interdiction de l’accès public à un compte de stockage n’affecte aucun site web statique hébergé dans ce compte de stockage. Le conteneur **$web** est toujours accessible publiquement.
 
-## <a name="check-the-public-access-setting-for-a-storage-account"></a>Vérifier le paramètre d’accès public d’un compte de stockage
+## <a name="check-whether-public-access-is-allowed-for-a-storage-account"></a>Vérifier si l’accès public est autorisé pour un compte de stockage
 
-Pour vérifier le paramètre d’accès public d’un compte de stockage, récupérez la valeur de la propriété **allowBlobPublicAccess**. Pour vérifier cette propriété pour un grand nombre de comptes de stockage à la fois, utilisez l’Explorateur Azure Resource Graph.
+Pour vérifier si l’accès public est autorisé pour un compte de stockage, récupérez la valeur de la propriété **allowBlobPublicAccess**. Pour vérifier cette propriété pour un grand nombre de comptes de stockage à la fois, utilisez l’Explorateur Azure Resource Graph.
 
-La propriété **allowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Par défaut, le compte de stockage autorise l’accès public lorsque la valeur de la propriété est Null.
+> [!IMPORTANT]
+> La propriété **allowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **true**.
 
-### <a name="check-the-public-access-setting-for-a-single-storage-account"></a>Vérifier le paramètre d’accès public d’un seul compte de stockage
+### <a name="check-whether-public-access-is-allowed-for-a-single-storage-account"></a>Vérifier si l’accès public est autorisé pour un compte de stockage spécifique
 
-Pour vérifier le paramètre d’accès public d’un seul compte de stockage spécifique à l’aide d’Azure CLI, appelez la commande [az resource show](/cli/azure/resource#az-resource-show) et interrogez la propriété **allowBlobPublicAccess** :
+Pour vérifier si l’accès public est autorisé pour un compte de stockage spécifique à l’aide d’Azure CLI, appelez la commande [az resource show](/cli/azure/resource#az-resource-show) et interrogez la propriété **allowBlobPublicAccess** :
 
 ```azurecli-interactive
 az resource show \
@@ -104,9 +107,9 @@ az resource show \
     --output tsv
 ```
 
-### <a name="check-the-public-access-setting-for-a-set-of-storage-accounts"></a>Vérifier le paramètre d’accès public d’un ensemble de comptes de stockage
+### <a name="check-whether-public-access-is-allowed-for-a-set-of-storage-accounts"></a>Vérifier si l’accès public est autorisé pour un ensemble de comptes de stockage
 
-Pour vérifier le paramètre d’accès public d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+Pour vérifier si l’accès public est autorisé pour un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
 
 L’exécution de la requête suivante dans l’Explorateur Resource Graph retourne une liste de comptes de stockage et affiche la valeur de la propriété **allowBlobPublicAccess** pour chaque compte :
 
@@ -120,9 +123,9 @@ resources
 
 ## <a name="set-the-public-access-level-for-a-container"></a>Définir le niveau d’accès public pour un conteneur
 
-Pour octroyer aux utilisateurs anonymes un accès en lecture à un conteneur et ses objets blob, commencez par activer l’accès public au compte de stockage, puis définissez le niveau d’accès public du conteneur. Si l’accès public est désactivé pour le compte de stockage, vous ne pouvez pas créer un accès public pour un conteneur.
+Pour octroyer aux utilisateurs anonymes un accès en lecture à un conteneur et ses objets blob, commencez par autoriser l’accès public au compte de stockage, puis définissez le niveau d’accès public du conteneur. Si l’accès public est refusé pour le compte de stockage, vous ne pouvez pas créer un accès public pour un conteneur.
 
-Lorsque l’accès public est activé pour un compte de stockage, vous pouvez configurer un conteneur avec les autorisations suivantes :
+Quand l’accès public est autorisé pour un compte de stockage, vous pouvez configurer un conteneur avec les autorisations suivantes :
 
 - **Aucun accès en lecture public :** le conteneur et ses objets blob ne sont accessibles qu’avec une requête autorisée. Cette option est la configuration par défaut de tous les nouveaux conteneurs.
 - **Accès en lecture public pour les objets blob uniquement :** les objets blob à l’intérieur du conteneur peuvent être lus via une requête anonyme, mais les données du conteneur ne sont pas disponibles anonymement. Les clients anonymes ne peuvent pas énumérer les objets blob présents dans le conteneur.
@@ -144,9 +147,9 @@ Pour mettre à jour le niveau d’accès public pour un ou plusieurs conteneurs 
 
     ![Capture d’écran illustrant la façon de définir le niveau d’accès public dans le portail](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
-Lorsque l’accès public est désactivé pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous essayez de définir le niveau d'accès public du conteneur, vous verrez que le paramètre est désactivé, car l’accès public est interdit pour le compte.
+Quand l’accès public est interdit pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous essayez de définir le niveau d’accès public du conteneur, vous verrez que le paramètre est désactivé, car l’accès public est interdit pour le compte.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant que la définition du niveau d’accès public du conteneur est bloquée lorsque l’accès public est désactivé":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant que la définition du niveau d’accès public du conteneur est bloquée quand l’accès public est interdit":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -163,7 +166,7 @@ az storage container set-permission \
     --auth-mode key
 ```
 
-Lorsque l’accès public est désactivé pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous tentez de définir le niveau d’accès public du conteneur, une erreur se produit, indiquant que l’accès public n’est pas autorisé sur le compte de stockage.
+Quand l’accès public est interdit pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous tentez de définir le niveau d’accès public du conteneur, une erreur se produit, indiquant que l’accès public n’est pas autorisé sur le compte de stockage.
 
 ---
 

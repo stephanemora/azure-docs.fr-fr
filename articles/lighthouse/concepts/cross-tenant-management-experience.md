@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 07/17/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b3aa15dd968b4cded831934103a02420d020b9a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521035"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371037"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -53,7 +53,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
   - Gérer des machines connectées à l’aide de constructions Azure, comme Azure Policy et le marquage
   - S’assurer que le même ensemble de stratégies est appliqué dans les environnements hybrides des clients
   - Utiliser Azure Security Center pour surveiller la conformité des environnements hybrides des clients
-- Gérer des clusters Kubernetes hybrides à l’échelle – [Azure Arc pour Kubernetes (préversion)](../../azure-arc/kubernetes/overview.md) :
+- Gérer des clusters Kubernetes hybrides à grande échelle – [Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md) :
   - [Connecter un cluster Kubernetes à Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), à des abonnements délégués et/ou à des groupes de ressources dans Azure
   - [Utiliser GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) dans des clusters connectés
   - Appliquer des stratégies entre les clusters connectés
@@ -82,6 +82,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : interroger des données à partir d’espaces de travail du clients distants dans plusieurs locataires
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure, dans le locataire du fournisseur de services par le biais de webhooks
+- Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md) :
 

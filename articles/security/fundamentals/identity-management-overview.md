@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77565891"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384529"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -64,7 +64,7 @@ En savoir plus :
 
 * [Présentation de l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
+* [Série de démarrages rapides sur la gestion des applications](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inversé
 
@@ -91,10 +91,15 @@ En savoir plus :
 
 Le RBAC est un système d’autorisation basé sur Azure Resource Manager qui propose une gestion affinée des accès des ressources dans Azure. Il vous permet de contrôler de façon granulaire le niveau d’accès dont disposent les utilisateurs. Par exemple, vous pouvez décider d’autoriser un utilisateur à gérer uniquement les réseaux virtuels et un autre utilisateur à gérer toutes les ressources d’un groupe de ressources. Azure inclut plusieurs rôles intégrés que vous pouvez utiliser. Voici les quatre rôles fondamentaux intégrés : Les trois premiers s’appliquent à tous les types de ressources.
 
+- [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) : dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes. 
+- [Contributeur](/azure/role-based-access-control/built-in-roles#contributor) : peut créer et gérer tous les types de ressource Azure mais ne peut pas octroyer l’accès à d’autres personnes.
+- [Lecteur](/azure/role-based-access-control/built-in-roles#reader) : peut consulter les ressources Azure existantes.
+- [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator) : vous permet de gérer l’accès des utilisateurs aux ressources Azure.
+
 En savoir plus :
 
-* [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](/azure/role-based-access-control/overview)
-* [Rôles intégrés pour les ressources Azure](/azure/role-based-access-control/built-in-roles)
+* [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](/azure/role-based-access-control/overview)
+* [Rôles intégrés Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Surveillance de la sécurité, alertes et rapports Machine Learning
 
@@ -106,7 +111,7 @@ Dans le portail Azure, les rapports sont classés dans les catégories suivantes
 * **Rapports d’application intégrée** : fournissent des insights sur l’utilisation des applications cloud dans votre organisation. Azure AD permet d’intégrer des milliers d'applications du cloud.
 * **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir quand vous provisionnez des comptes sur des applications externes.
 * **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux connexions de l’appareil d’un utilisateur spécifique.
-* **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’inscription et de réinitialisation de mot de passe.
+* **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
 En savoir plus :
 

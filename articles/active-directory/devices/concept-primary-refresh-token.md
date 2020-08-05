@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025878"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -65,7 +65,7 @@ Le PRT est émis lors de l’authentification de l’utilisateur sur un appareil
 Dans les scénarios avec appareils inscrits dans Azure AD, le plug-in Azure AD WAM est l’autorité principale pour le PRT puisque l’ouverture de session Windows n’utilise pas ce compte Azure AD.
 
 > [!NOTE]
-> Les fournisseurs d’identités tiers doivent prendre en charge le protocole WS-Trust pour autoriser l’émission d’un PRT sur les appareils Windows 10. Sans WS-Trust, le PRT ne peut pas être émis pour les utilisateurs sur des appareils joints à Azure AD ou Azure AD hybride
+> Les fournisseurs d’identités tiers doivent prendre en charge le protocole WS-Trust pour autoriser l’émission d’un PRT sur les appareils Windows 10. Sans WS-Trust, le PRT ne peut pas être émis pour les utilisateurs sur les appareils faisant l’objet d’une jonction hybride Azure AD ou sur les appareils joints à Azure AD. Sur ADFS, seuls les points de terminaison usernamemixed sont nécessaires. adfs/services/trust/2005/windowstransport et adfs/services/trust/13/windowstransport doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet. Ils **NE doivent PAS être exposés** en tant que points de terminaison accessibles sur extranet via le proxy d’application web
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Quelle est la durée de validité d’un PRT ?
 
@@ -167,6 +167,9 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 | E | Le plug-in CloudAP crée la demande d’authentification avec les informations d’identification de l’utilisateur, une valeur à usage unique et le PRT existant, signe la demande avec la clé de session et l’envoie à Azure AD. Dans un environnement fédéré, le plug-in CloudAP utilise le jeton SAML renvoyé par le fournisseur de fédération et non pas les informations d’identification de l’utilisateur. |
 | F | Azure AD valide la signature de la clé de session en comparant cette dernière à la clé de session incorporée dans le PRT, il valide la valeur à usage unique, vérifie que l’appareil est valide dans le locataire et émet un nouveau PRT. Comme indiqué précédemment, le PRT est à nouveau accompagné par une clé de session chiffrée avec la clé de transport (tkpub). |
 | G | Le plug-in CloudAP transmet le PRT et la clé de session chiffrés au fournisseur d’authentification cloud. Ce dernier demande au TPM de déchiffrer la clé de session avec la clé de transport (tkpriv) et de la chiffrer de nouveau avec sa propre clé. Le CloudAP stocke la clé de session chiffrée dans son cache, ainsi que le PRT. |
+
+> [!NOTE]
+> Un PRT peut être renouvelé de manière externe sans nécessiter une connexion VPN quand les points de terminaison usernamemixed sont activés de manière externe.
 
 ### <a name="prt-usage-during-app-token-requests"></a>Utilisation du PRT lors de demandes de jeton d’application
 

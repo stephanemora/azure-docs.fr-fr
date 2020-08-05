@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408116"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -41,7 +41,7 @@ Vous trouverez une description détaillée de tous les avantages du programme da
 Pour commencer en toute simplicité :
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
-2. Accédez à [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
+2. Accédez à [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
 3. Pour activer les avantages marketing et commerciaux, attribuez un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
 4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
 
@@ -106,9 +106,15 @@ Les éditeurs de type [Liste et Version d'évaluation](determine-your-listing-ty
 Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui : 
 
 * participent à une activité illégale à l’aide de leur référencement sur la place de marché ;
+* reçoivent un achat connu ou jugé comme étant frauduleux ;
 * sont retirés de la place de marché commerciale ; 
 * utilisent leur offre pour afficher du contenu marketing ou autre qui ne respecte pas les lois relatives aux droits d’auteur et aux marques ;
 * enfreignent les politiques du [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), notamment en utilisant le financement du parrainage Azure pour leurs propres opérations internes ou le minage de Bitcoin.
+
+Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de Marketplace Rewards quand :
+
+* Le client ayant effectué l’achat l’a fait par erreur et souhaite annuler son achat. 
+* Le client annule son achat avant d’utiliser le produit du partenaire.
 
 ### <a name="offer-availability"></a>Disponibilité de l’offre
 

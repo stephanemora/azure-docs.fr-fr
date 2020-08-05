@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656487"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374063"
 ---
 # <a name="azure-serial-console"></a>Console série Azure
 
@@ -27,18 +27,18 @@ La console série du portail Azure permet aux machines virtuelles et aux instanc
 
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
-> [!NOTE]
-> La console série est en disponibilité générale dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
+La console série est généralement disponible dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Prérequis pour l’accès à la console série Azure
 Pour accéder à la console série sur votre machine virtuelle ou instance de groupe de machines virtuelles identiques, vous devez disposer des éléments suivants :
 
 - Les diagnostics de démarrage doivent être activés pour la machine virtuelle.
-- Un compte utilisateur qui utilise l’authentification par mot de passe doit exister dans la machine virtuelle. Vous pouvez créer un utilisateur basé sur mot de passe avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
+- Un compte utilisateur qui utilise l’authentification par mot de passe doit exister dans la machine virtuelle. Vous pouvez créer un utilisateur basé sur mot de passe avec la fonction [Réinitialiser le mot de passe](../extensions/vmaccess.md#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 - Le compte Azure qui accède à la console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et le compte de stockage des [diagnostics de démarrage](boot-diagnostics.md)
+- Les déploiements classiques ne sont pas pris en charge. Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Azure Resource Manager.
 
 > [!NOTE]
-> Les déploiements classiques ne sont pas pris en charge. Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Azure Resource Manager.
+> La console série est actuellement incompatible avec un compte de stockage de diagnostics à démarrage managé. Pour utiliser la console série, veillez à utiliser un compte de stockage personnalisé.
 
 ## <a name="get-started-with-the-serial-console"></a>Bien démarrer avec la console série
 Pour les machines virtuelles et les groupes de machines virtuelles identiques, la console série est accessible uniquement sur le portail Azure :
@@ -69,7 +69,7 @@ La console série est disponible pour les groupes de machines virtuelles identiq
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1.2 dans la console série
-La console série utilise le protocole TLS 1.2 de bout en bout pour sécuriser toutes les communications au sein du service. La console série dépend d’un compte de stockage des diagnostics de démarrage géré par l’utilisateur, et le protocole TLS 1.2 doit être configuré séparément pour le compte de stockage. Les instructions pour ce faire sont accessibles [ici](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+La console série utilise le protocole TLS 1.2 de bout en bout pour sécuriser toutes les communications au sein du service. La console série dépend d’un compte de stockage des diagnostics de démarrage géré par l’utilisateur, et le protocole TLS 1.2 doit être configuré séparément pour le compte de stockage. Les instructions pour ce faire sont accessibles [ici](../../storage/common/transport-layer-security-configure-minimum-version.md).
 
 ## <a name="advanced-uses-for-serial-console"></a>Utilisations avancées de la console série
 Outre l’accès de la console à votre machine virtuelle, vous pouvez également utiliser la console série Azure pour ce qui suit :

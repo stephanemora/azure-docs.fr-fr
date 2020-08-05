@@ -4,15 +4,15 @@ description: Fichier include
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028791"
 ---
 L’utilisation de machines virtuelles Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
@@ -26,10 +26,6 @@ Les machines virtuelles peuvent être supprimées en fonction de la capacité ou
 La stratégie *Libérer* attribue à votre machine virtuelle l’état « arrêté-libéré », ce qui vous permet de la redéployer par la suite. Toutefois, la réussite de l’allocation n’est pas garantie. Les machines virtuelles libérées sont comptabilisées dans votre quota, et les disques sous-jacents engendrent des frais de stockage. 
 
 Si vous souhaitez que la machine virtuelle soit supprimée lorsqu’elle est écartée, définissez la stratégie d’éviction avec la valeur *Supprimer*. Les machines virtuelles évincées sont supprimées en même temps que leurs disques sous-jacents. Le stockage ne vous est donc pas facturé. 
-
-> [!NOTE]
->
-> Actuellement, le portail ne prend pas en charge l’option d’éviction `Delete`, qui ne peut être définie qu’à l’aide de PowerShell, de l’interface CLI et des modèles.
 
 Vous pouvez vous abonner pour recevoir des notifications dans la machine virtuelle avec [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
 
@@ -54,19 +50,14 @@ Les tailles de machine virtuelle suivantes ne sont pas prises en charge pour les
 
 Les machines virtuelles Spot peuvent être déployées sur n’importe quelle région, à l’exception de Microsoft Azure Chine 21Vianet.
 
-Les canaux d’abonnement suivants ne sont pas pris en charge :
-
 <a name="channel"></a>
 
-| Canaux Azure               | Disponibilité des machines virtuelles Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrat Entreprise         | Oui                               |
-| Paiement à l’utilisation                | Oui                               |
-| Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Avantages                     | Non disponible                     |
-| Sponsorisé                    | Oui                               |
-| Version d’évaluation gratuite                   | Non disponible                     |
+Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/) suivants sont pris en charge :
 
+-   Contrat Entreprise
+-   Paiement à l’utilisation
+-   Sponsorisé
+- Pour le fournisseur de services cloud (CSP), contactez votre partenaire.
 
 
 ## <a name="pricing"></a>Tarifs

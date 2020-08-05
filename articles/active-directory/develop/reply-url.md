@@ -4,18 +4,18 @@ description: Limitations et restrictions des URL de réponse/URI de redirection
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/29/2019
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fdeb0018e27a2557161b2ec1c4794d975403523
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311617"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 
@@ -41,17 +41,34 @@ Le tableau suivant indique le nombre maximal d'URI de redirection que vous pouve
 Vous pouvez utiliser un maximum de 256 caractères pour chaque URI de redirection que vous ajoutez à une inscription d’application.
 
 ## <a name="supported-schemes"></a>Schémas pris en charge
+
 Le modèle d’application Azure AD prend aujourd’hui en charge les schémas HTTP et HTTPS pour les applications qui connectent des comptes professionnels ou scolaires Microsoft dans tout locataire Azure Active Directory (Azure AD) de l’organisation. C’est-à-dire que, dans le manifeste de l'application, le champ `signInAudience` est défini sur *AzureADMyOrg* ou *AzureADMultipleOrgs*. Pour les applications qui connectent des comptes Microsoft personnels et des comptes professionnels et scolaires (c’est-à-dire que `signInAudience` est défini sur *AzureADandPersonalMicrosoftAccount*), seul le schéma HTTPS est autorisé.
 
 > [!NOTE]
 > La nouvelle expérience [Inscription d'applications](https://go.microsoft.com/fwlink/?linkid=2083908) ne permet pas aux développeurs d’ajouter des URI avec schéma HTTP dans l’interface utilisateur. L'ajout d'URI HTTP pour les applications se connectant à des comptes professionnels ou scolaires est uniquement pris en charge par le biais de l’éditeur du manifeste d’application. À l’avenir, les nouvelles applications ne pourront pas utiliser de schémas HTTP dans les URI de redirection. Toutefois, les applications plus anciennes dont les URI de redirection contiennent des schémas HTTP continueront de fonctionner. Les développeurs doivent utiliser des schémas HTTPS dans les URI de redirection.
 
+## <a name="localhost-exceptions"></a>Exceptions de Localhost
+
+Selon le document [RFC 8252 : sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) et [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), les URI de redirection « loopback » ou « localhost » comportent deux aspects particuliers à prendre en considération :
+
+1. `http` Les schémas d’URI sont acceptables, car la redirection ne quitte jamais l’appareil.  Cela signifie que `http://127.0.0.1/myApp` est acceptable ainsi que `https://127.0.0.1/myApp`. 
+1. En raison des plages de ports éphémères souvent nécessaires aux applications natives, le composant de port (par exemple `:5001` ou `:443`) est ignoré pour permettre une correspondance avec un URI de redirection.  Ainsi, `http://127.0.0.1:5000/MyApp` et `http://127.0.0.1:1234/MyApp` correspondent tous les deux à `http://127.0.0.1/MyApp` et `http://127.0.0.1:8080/MyApp`
+
+Du point de vue du développement, cela signifie plusieurs choses :
+
+1. N’inscrivez pas plusieurs URI de réponse quand seul le port diffère.  Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de réponse (par exemple, s’il s’agit d’une redirection de type `web`, `native` et `spa`.
+1. Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI.  `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.  
+1. D’après la documentation d’aide des RFC, vous ne devez pas utiliser `localhost` dans l’URI de redirection.  À la place, utilisez l’adresse IP de bouclage réelle - `127.0.0.1`. Cela empêche votre application d’être bloquée par des pare-feu mal configurés ou des interfaces réseau renommées.
+
+>[!NOTE]
+> Pour le moment, le bouclage IPv6 (`[::1]`) n’est pas pris en charge.  Il sera ajouté plus tard.
+
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrictions relatives aux caractères génériques dans les URI
 
-Les URI avec caractères génériques, comme `https://*.contoso.com`, sont pratiques, mais à éviter. L'utilisation de caractères génériques dans les URI n'est pas sans implications en matière de sécurité. Selon la spécification OAuth 2.0 ([section 3.1.2 de RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), un URI de point de terminaison de redirection doit être un URI absolu. 
+Les URI avec caractères génériques, comme `https://*.contoso.com`, sont pratiques, mais à éviter. L'utilisation de caractères génériques dans les URI n'est pas sans implications en matière de sécurité. Selon la spécification OAuth 2.0 ([section 3.1.2 de RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), un URI de point de terminaison de redirection doit être un URI absolu.
 
-Le modèle d’application Azure AD ne prend pas en charge les URI avec caractères génériques des applications configurées pour se connecter à des comptes personnels et professionnels ou scolaires Microsoft. Cela étant, les URI avec caractères génériques sont autorisés pour les applications configurées pour se connecter à des comptes professionnels ou scolaires dans un locataire Azure AD d'une organisation. 
- 
+Le modèle d’application Azure AD ne prend pas en charge les URI avec caractères génériques des applications configurées pour se connecter à des comptes personnels et professionnels ou scolaires Microsoft. Cela étant, les URI avec caractères génériques sont autorisés pour les applications configurées pour se connecter à des comptes professionnels ou scolaires dans un locataire Azure AD d'une organisation.
+
 > [!NOTE]
 > La nouvelle expérience [Inscription d'applications](https://go.microsoft.com/fwlink/?linkid=2083908) ne permet pas aux développeurs d’ajouter des URI avec caractères génériques dans l’interface utilisateur. L'ajout d'URI avec caractères génériques pour les applications se connectant à des comptes professionnels ou scolaires est uniquement pris en charge par le biais de l’éditeur du manifeste d’application. À l’avenir, les nouvelles applications ne pourront pas utiliser de caractères génériques dans les URI de redirection. Toutefois, les applications plus anciennes dont les URI de redirection contiennent des caractères génériques continueront de fonctionner.
 
@@ -59,7 +76,7 @@ Si votre scénario implique plus d’URI de redirection que la limite maximale a
 
 ### <a name="use-a-state-parameter"></a>Utiliser un paramètre d’état
 
-Si vous avez plusieurs sous-domaines et si votre scénario implique que vous redirigiez des utilisateurs en cas d'authentification réussie vers la même page que celle où ils ont été démarrés, l'utilisation d'un paramètre d'état peut être utile. 
+Si vous avez plusieurs sous-domaines et si votre scénario implique que vous redirigiez des utilisateurs en cas d'authentification réussie vers la même page que celle où ils ont été démarrés, l'utilisation d'un paramètre d'état peut être utile.
 
 Dans cette approche :
 

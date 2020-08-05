@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228913"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292789"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotection d’Azure vers votre site local
 
@@ -33,7 +33,7 @@ Après un [basculement](site-recovery-failover.md) de machines virtuelles VMware
     - Si vous utilisez les éditions gratuites d’ESXi 5.5 ou de vSphere Hypervisor 6. Effectuez une mise à niveau vers une autre version.
     - Si vous avez un serveur physique Windows Server 2008 R2 SP1.
     - Les machines virtuelles VMware ne peuvent pas effectuer de restauration automatique vers Hyper-V.
-    - Machines virtuelles qui ont [été migrées](migrate-overview.md#what-do-we-mean-by-migration).
+    - Machines virtuelles qui ont été migrées.
     - Une machine virtuelle qui a été déplacée vers un autre groupe de ressources.
     - Une machine virtuelle Azure de réplication qui a été supprimée.
     - Une machine virtuelle Azure de réplication qui n’est pas protégée (réplication sur le site local).

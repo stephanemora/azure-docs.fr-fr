@@ -5,17 +5,17 @@ description: Découvrez la manière d’utiliser un modèle Azure Resource Manag
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/27/2020
+ms.openlocfilehash: db0b87787e34796e9dd7c91d6e4b53738145a25a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326373"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -30,7 +30,7 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 * Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Modèle Resource Manager de l’espace de travail
 
@@ -119,6 +119,9 @@ New-AzResourceGroupDeployment `
 
 Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing**, puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
 
+> [!IMPORTANT]
+> Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge par le compte de stockage par défaut de l’espace de travail.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
 ```azurecli
@@ -154,6 +157,9 @@ L’exemple de modèle suivant montre comment créer un espace de travail avec t
 * Activer les paramètres de confidentialité élevée pour l’espace de travail
 * Activer le chiffrement pour l’espace de travail
 * Utiliser une instance Azure Key Vault existante pour récupérer les clés gérées par le client
+
+> [!IMPORTANT]
+> Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
 
 Pour plus d'informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
 
@@ -354,6 +360,9 @@ Définir le paramètre **confidential_data** sur **true** constitue une configur
 * Transmet de manière sécurisée les informations d’identification pour le compte de stockage, le registre de conteneurs et le compte SSH de la couche d’exécution à vos clusters de calcul en utilisant un coffre de clés.
 * Active le filtrage IP pour garantir que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres qu’AzureMachineLearningService.
 
+    > [!IMPORTANT]
+    > Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
+
   Pour plus d’informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Déployer un espace de travail derrière un réseau virtuel
@@ -368,7 +377,7 @@ En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vo
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Déployer l’espace de travail uniquement derrière un point de terminaison privé
 
-Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé.
+Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé. Vous pouvez le faire aussi bien pour les espaces de travail existants que nouveaux. Lors de la mise à jour d’un espace de travail existant, renseignez les paramètres du modèle avec les informations concernant cet espace.
 
 > [!IMPORTANT]
 > Le déploiement n’est valide que dans les régions qui prennent en charge les points de terminaison privés.
@@ -747,3 +756,4 @@ Pour éviter ce problème, nous vous recommandons une des approches suivantes :
 
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
 * [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Pour obtenir d’autres modèles liés à Azure Machine Learning, consultez le dépôt de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates)

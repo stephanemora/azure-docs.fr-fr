@@ -1,21 +1,21 @@
 ---
-title: Sécurité
+title: Sécurité Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Découvrez les différentes considérations relatives à la sécurité dans le cadre de l’utilisation de Cognitive Services.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.date: 07/10/2020
+ms.author: erhopf
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 48e5f6d453e69dcbafd9aefe283eb2c880d4b48e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611405"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406637"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
@@ -203,9 +203,19 @@ Customer Lockbox est disponible pour le service cognitif suivant :
 
 * Convertisseur
 
-Concernant le service Language Understanding, les ingénieurs Microsoft n'auront pas accès aux données client de la référence SKU E0. Pour demander à utiliser la référence SKU E0, complétez et envoyez le  [formulaire de demande de service LUIS](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que votre demande d'utilisation de la référence SKU E0 avec LUIS aura été approuvée, vous devrez créer une ressource Language Understanding à partir du portail Azure et sélectionner le niveau tarifaire E0. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
+Pour les services suivants, les ingénieurs Microsoft n’accéderont pas aux données client dans le niveau E0 : 
 
-Actuellement, le service Speech ne prend pas en charge Customer Lockbox. Cependant, les données client peuvent être stockées à l'aide de BYOS (« Apportez votre propre stockage» ), ce qui vous permet d'effectuer des contrôles de données semblables à ceux de [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). N'oubliez pas que les données du service Speech restent et sont traitées dans la région où la ressource Speech a été créée. Cela s'applique à toutes les données au repos ainsi qu'aux données en transit. Lorsque vous utilisez des fonctionnalités de personnalisation, telles que Custom Speech et Custom Voice, toutes les données client sont transférées, stockées et traitées dans la région où résident votre BYOS (si utilisé) et la ressource du service Speech.
+* Language Understanding
+* Face
+* Content Moderator
+* Personalizer
+
+> [!IMPORTANT]
+> Pour **Form Recognizer**, les ingénieurs Microsoft n’accéderont pas aux données client dans les ressources créées après le 10 juillet 2020.
+
+Pour demander à utiliser la référence SKU E0, complétez et envoyez ce  [formulaire de demande](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que votre demande d’utilisation de la référence SKU E0 avec LUIS aura été approuvée, vous devrez créer une nouvelle ressource à partir du portail Azure et sélectionner le niveau tarifaire E0. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
+
+Actuellement, le service Speech ne prend pas en charge Customer Lockbox. Cependant, les données client peuvent être stockées à l’aide de BYOS (« Apportez votre propre stockage» ), ce qui vous permet d’effectuer des contrôles de données semblables à ceux de Customer Lockbox. N'oubliez pas que les données du service Speech restent et sont traitées dans la région où la ressource Speech a été créée. Cela s'applique à toutes les données au repos ainsi qu'aux données en transit. Lorsque vous utilisez des fonctionnalités de personnalisation, telles que Custom Speech et Custom Voice, toutes les données client sont transférées, stockées et traitées dans la région où résident votre BYOS (si utilisé) et la ressource du service Speech.
 
 > [!IMPORTANT]
 > Microsoft **n'utilise pas** les données client pour améliorer ses modèles vocaux. En outre, si la journalisation des points de terminaison est désactivée et qu'aucune personnalisation n'est utilisée, aucune donnée client n'est stockée. 

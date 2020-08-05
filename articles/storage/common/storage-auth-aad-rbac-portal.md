@@ -1,7 +1,7 @@
 ---
 title: Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données
 titleSuffix: Azure Storage
-description: Découvrez comment utiliser le Portail Azure pour attribuer des autorisations à un principal de sécurité Azure Active Directory avec le contrôle d’accès en fonction du rôle (RBAC). Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
+description: Découvrez comment utiliser le Portail Azure pour attribuer des autorisations à un principal de sécurité Azure Active Directory avec le contrôle d’accès en fonction du rôle (RBAC). Stockage Azure prend en charge les rôles personnalisés Azure et intégrés pour l’authentification par le biais d’Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 77eb3ddfdbf2525aa031c462a38df5dcb8d31217
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160833817150332b240ec17b2b700fbcb7a4456b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518756"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370646"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données de blob et de file d’attente
 
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -48,7 +48,7 @@ Les sections suivantes décrivent chacune de ces étapes plus en détail.
 >
 > Vous ne pouvez pas attribuer de rôle dans l’étendue d’un conteneur ou d’une file d’attente d’attente si votre compte de stockage a un espace de noms hiérarchique activé.
 
-### <a name="assign-a-built-in-rbac-role"></a>Attribuer un rôle RBAC intégré
+### <a name="assign-an-azure-built-in-role"></a>Attribuer un rôle intégré Azure
 
 Avant d’attribuer un rôle à un principal de sécurité, veillez à tenir compte de l’étendue des autorisations que vous accordez. Passez en revue la section [Déterminer l’étendue de la ressource](#determine-resource-scope) pour décider de l’étendue appropriée.
 
@@ -98,7 +98,7 @@ L’attribution du rôle **Lecteur** est uniquement nécessaire pour les utilisa
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les rôles RBAC pour les ressources de stockage, consultez [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md) (Autoriser l’accès aux objets blob Azure et files d’attente à l’aide d’Azure Active Directory). 
-- Pour en savoir plus sur RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
+- Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md).
 - Pour apprendre à attribuer et gérer les rôles RBAC avec Azure PowerShell, Azure CLI ou l’API REST, consultez les articles suivants :
     - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure CLI](../../role-based-access-control/role-assignments-cli.md)

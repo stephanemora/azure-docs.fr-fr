@@ -3,16 +3,16 @@ title: Fournisseur de solutions Cloud - Place de marché commerciale Microsoft
 description: Découvrez comment vendre vos offres via le réseau de partenaires du programme des fournisseurs de solutions Microsoft Cloud (CSP) de la place de marché commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082801"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
@@ -30,31 +30,31 @@ Les offres suivantes peuvent être choisies pour être vendues par des partenair
 - Applications managées
 
 > [!NOTE]
-> Par défaut, les références SKU de machines virtuelles de type BYOL (apportez votre propre licence) et Conteneurs peuvent être choisies pour être vendues par des partenaires du programme CSP.
+> Par défaut, les plans de machines virtuelles de type BYOL (apportez votre propre licence) et Conteneurs peuvent être vendus par des partenaires du programme CSP.
 
-## <a name="how-to-configure-an-offering"></a>Comment configurer une offre
+## <a name="how-to-configure-an-offer"></a>Configuration d’une offre
 
-Le paramètre d’acceptation du programme CSP est configuré dans l’expérience de création de l’offre de l’Espace partenaires ou du portail Cloud Partner. [En savoir plus sur l’évolution de l’expérience pour les éditeurs](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configurez le paramètre de consentement au programme CSP lorsque vous créez l’offre dans l’Espace partenaires. [En savoir plus sur l’évolution de l’expérience pour les éditeurs](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### <a name="partner-center-opt-in"></a>Abonnement à l’Espace partenaires
 
-Dans l’Espace partenaires, vous trouverez l’expérience d’abonnement dans le module d’audience du revendeur CSP.
+L’expérience de consentement se trouve dans le module d’audience du revendeur CSP :
 
 ![Audience du revendeur CSP](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-Dans le module d’audience du revendeur CSP, vous avez le choix entre trois options :
+Choisissez parmi les trois options suivantes :
 
-- Option 1 : Tous les partenaires du programme CSP
-- Option 2 : Partenaires spécifiques du programme CSP que je sélectionne
-- Option 3 : Aucun partenaire du programme CSP
+1. Tous les partenaires du programme CSP
+2. Certains partenaires du programme CSP que je sélectionne
+3. Aucun partenaire du programme CSP
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Option 1 : Tous les partenaires du programme CSP
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Option 1 : Tous les partenaires du programme CSP
 
 ![Tous les partenaires du programme CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  En choisissant cette option, tous les partenaires du programme CSP peuvent revendre votre offre à leurs clients.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Option 2 : Partenaires spécifiques du programme CSP que je sélectionne
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Option n°2 : Partenaires spécifiques du programme CSP que je sélectionne
 
 ![Partenaires spécifiques du programme CSP que je sélectionne](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Si vous mettez à jour la liste CSP pour une offre déjà publiée, ajoutez les 
 
 Si vous disposez d’une offre qui possède déjà une liste de partenaires autorisés et que vous souhaitez utiliser la même liste pour une autre offre, utilisez **Importer/Exporter**. Accédez à l’offre qui contient la liste CSP, puis sélectionnez **Exporter les Fournisseurs de solutions cloud**. La fonction développe un fichier .csv qui peut être importé dans une autre offre.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Option 3 : Aucun partenaire du programme CSP
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Option 3 : Aucun partenaire du programme CSP
 
 ![Aucun partenaire du programme CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 En choisissant cette option, vous désactivez votre offre dans le programme CSP. Vous pouvez modifier cette sélection à tout moment.
-
-### <a name="cloud-partner-portal-opt-in"></a>Abonnement au portail Microsoft Cloud Partner
-
-Dans le portail Microsoft Cloud Partner, l’abonnement est défini dans l’onglet Place de marché ou Vitrine. La possibilité de choisir des partenaires spécifiques dans le programme CSP est uniquement disponible dans l’Espace partenaires.
-
-![Expérience d’acceptation CSP dans le portail Cloud Partner](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Supprimer l’autorisation de partenaires du programme CSP
 
@@ -115,9 +109,6 @@ Si un partenaire du programme CSP n’a pas vendu votre produit à ses clients e
 4. Pour **Sélectionner un problème décrivant le mieux le vôtre**, sélectionnez **Mettre à jour l’offre existante**.
 5. Sélectionnez **Suivant** pour être redirigé vers la **page des détails du problème** pour entrer plus d’informations sur votre problème.
 6. Utilisez **Supprimer l’autorisation CSP** comme titre du problème et renseignez le reste des sections requises.
-
-
-
 
 ## <a name="navigate-between-options"></a>Naviguer entre les options
 
@@ -175,19 +166,13 @@ Si votre offre est actuellement **Option 3 : Aucun partenaire du programme CSP*
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Partage de la documentation commerciale et de support avec les partenaires du programme CSP
 
-Envoyez des documents relatifs aux ventes et au support qui seront mis à la disposition des revendeurs afin d’aider les partenaires du programme CSP à identifier votre offre et à collaborer avec votre organisation efficacement. Ces ressources ne seront pas exposées aux clients dans les vitrines de la place de marché.
+Pour aider les partenaires du programme CSP à identifier votre offre et à collaborer avec votre organisation aussi efficacement que possible, vous devez envoyer des documents de vente et d’accompagnement qui seront mis à la disposition des revendeurs. Ces ressources ne seront pas exposées aux clients dans les vitrines de la place de marché.
 
 ### <a name="partner-center-csp-channel"></a>Canal CSP de l’Espace partenaires
 
 Si vous vous êtes abonné au canal CSP dans l’Espace partenaires, les éditeurs doivent entrer une URL qui héberge des documents marketing pertinents et des informations de contact de canal relatives au canal CSP dans le module d’annonce d’offre :
 
 ![Informations collatérales CSP dans l’Espace partenaires](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>Canal CSP dans le portail Cloud Partner
-
-Si vous vous êtes abonné au canal CSP dans le portail Cloud Partner, les éditeurs doivent entrer une URL hébergeant des documents marketing pertinents et des informations de contact de canal relatives au canal CSP :
-
-![Informations collatérales CSP dans le portail Cloud Partner](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

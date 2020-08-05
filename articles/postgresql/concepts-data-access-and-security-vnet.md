@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: f473a4621c6b2214717b5036eae5abeaa564fb72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076609"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -25,8 +25,9 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 > Cette fonctionnalité est disponible dans toutes les régions de cloud public Azure où Azure Database pour PostgreSQL est déployé pour les serveurs à usage général et à mémoire optimisée.
 > En cas de peering de réseau virtuel, si le trafic passe par une passerelle de réseau virtuel commune avec des points de terminaison de service et qu’il est supposé transiter par l’homologue, créez une règle ACL/VNet pour permettre aux machines virtuelles Azure du réseau virtuel de la passerelle d’accéder au serveur Azure Database pour PostgreSQL.
 
-<a name="anch-terminology-and-description-82f" />
+Vous pouvez également envisager d’utiliser [Azure Private Link](concepts-data-access-and-security-private-link.md) pour les connexions. Azure Private Link fournit une adresse IP privée dans votre réseau virtuel pour le serveur Azure Database pour PostgreSQL.
 
+<a name="anch-terminology-and-description-82f"></a>
 ## <a name="terminology-and-description"></a>Terminologie et description
 
 **Réseau virtuel :** Vous pouvez avoir des réseaux virtuels associés à votre abonnement Azure.
@@ -38,12 +39,6 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 **Règle de réseau virtuel :** Une règle de réseau virtuel pour le serveur Azure Database pour PostgreSQL est un sous-réseau répertorié dans la liste de contrôle d’accès (ACL) du serveur Azure Database pour PostgreSQL. Pour figurer dans l’ACL pour votre serveur Azure Database pour PostgreSQL, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 
 Une règle de réseau virtuel donne l’instruction au serveur Azure Database pour PostgreSQL d’accepter les communications provenant de tout nœud se trouvant sur le sous-réseau.
-
-
-
-
-
-
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -63,11 +58,6 @@ Vous pouvez récupérer l’option IP en obtenant une adresse IP *statique* pour
 
 L’approche des IP statiques peut toutefois devenir difficile à gérer, et elle est coûteuse quand elle est appliquée à grande échelle. Les règles de réseau virtuel sont plus faciles à établir et à gérer.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Impossible d’avoir un serveur Azure Database pour PostgreSQL sur un sous-réseau sans définir de point de terminaison de service
-
-Si votre serveur **Microsoft.Sql** était un nœud sur un sous-réseau de votre réseau virtuel, tous les nœuds situés dans le réseau virtuel pourraient communiquer avec le serveur Azure Database pour PostgreSQL. Dans ce cas, vos machines virtuelles pourraient communiquer avec Azure Database pour PostgreSQL sans avoir à utiliser de règles de réseau virtuel ni de règles IP.
-
-Toutefois, depuis août 2018, le service Azure Database pour PostgreSQL ne figure plus parmi les services pouvant être assignés directement à un sous-réseau.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -120,6 +110,8 @@ Pour Azure Database pour PostgreSQL, la fonctionnalité de règle de réseau vir
 
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
+- Si **Microsoft.Sql** est activé dans un sous-réseau, il signifie que vous souhaitez utiliser uniquement des règles de réseau virtuel pour vous connecter. [Les règles de pare-feu hors réseau virtuel](concepts-firewall-rules.md) des ressources de ce sous-réseau ne fonctionneront pas.
+
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
     - Localement via [ExpressRoute][expressroute-indexmd-744v]
@@ -130,9 +122,9 @@ Si votre réseau est connecté au réseau Azure via l’utilisation d’[Express
 
 Pour permettre la communication de votre circuit avec Azure Database pour PostgreSQL, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, ouvrez un ticket de support avec ExpressRoute dans le portail Azure.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service Vnet
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service de réseau virtuel
 
-La simple définition d’une règle de pare-feu ne permet pas de sécuriser le serveur sur le réseau virtuel. Vous devez également **activer** les points de terminaison de service du réseau virtuel pour que la sécurité soit appliquée. Quand vous **activez** les points de terminaison de service, le sous-réseau de votre réseau virtuel est arrêté le temps de passer de l’état **Désactivé** à l’état **Activé**. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
+La simple définition d’une règle de pare-feu de réseau virtuel ne permet pas de sécuriser le serveur sur le réseau virtuel. Vous devez également **activer** les points de terminaison de service du réseau virtuel pour que la sécurité soit appliquée. Quand vous **activez** les points de terminaison de service, le sous-réseau de votre réseau virtuel est arrêté le temps de passer de l’état **Désactivé** à l’état **Activé**. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
 
 Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide d’Azure CLI ou du Portail Azure.
 

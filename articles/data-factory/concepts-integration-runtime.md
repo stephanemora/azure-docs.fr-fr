@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497639"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407691"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -45,13 +45,10 @@ Le tableau suivant décrit les fonctionnalités et l’environnement réseau pou
 
 Type de runtime | Réseau public | Réseau privé
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Déplacement des données<br/>Répartition des activités | &nbsp;
+Azure | Data Flow<br/>Déplacement des données<br/>Répartition des activités | Data Flow<br/>Déplacement des données<br/>Répartition des activités
 Auto-hébergé | Déplacement des données<br/>Répartition des activités | Déplacement des données<br/>Répartition des activités
 Azure-SSIS | Exécution de package SSIS | Exécution de package SSIS
 
-Le schéma suivant montre comment les différents runtimes d’intégration peuvent être utilisés conjointement pour offrir des fonctionnalités d’intégration de données et un environnement réseau riches :
-
-![Différents types de runtime d’intégration](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
 
@@ -63,7 +60,7 @@ Un runtime d'intégration Azure peut :
 
 ### <a name="azure-ir-network-environment"></a>Environnement réseau du runtime d'intégration Azure
 
-L'infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul à l'aide de points de terminaison publiquement accessibles. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
+L'infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul à l'aide de points de terminaison publiquement accessibles. En activant le réseau virtuel managé, Azure Integration Runtime prend en charge la connexion aux magasins de données à l’aide du service de liaison privée dans un environnement de réseau privé.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration Azure
 Le runtime d’intégration Azure fournit une expérience de calcul entièrement gérée, sans serveur dans Azure.  Vous n’avez plus à vous soucier de l’approvisionnement de l’infrastructure, de l’installation du logiciel, des mises à jour correctives ou de la mise à l’échelle des besoins.  Par ailleurs, vous payez uniquement pour ce que vous utilisez.
@@ -136,7 +133,7 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
 
 Vous pouvez définir l’emplacement spécifique d’un Azure IR, auquel cas l’exécution ou la distribution d’activité se fera dans cette région spécifique.
 
-Si vous choisissez d’utiliser la résolution automatique d’Azure Integration Runtime, définie par défaut,
+Si vous choisissez d’utiliser la résolution automatique d’Azure Integration Runtime sur un réseau public, qui est définie par défaut,
 
 - Pour une activité de copie, ADF fera au mieux pour détecter automatiquement l'emplacement du magasin de données de votre récepteur, puis utiliser l'IR dans la même région si disponible ou dans région la plus proche dans la même zone géographique ; si la région du magasin de données du récepteur ne peut être détectée, l'IR de la région de la fabrique de donnée est utilisé comme alternative.
 
@@ -154,6 +151,8 @@ Si vous choisissez d’utiliser la résolution automatique d’Azure Integration
 
   > [!TIP] 
   > Une bonne pratique serait de s’assurer que le flux de données s’exécute dans la même région que vos banques de données correspondantes (si possible). Vous pouvez y parvenir soit en résolvant automatiquement Azure IR (si l’emplacement de la banque de données est celui de Data Factory), soit en créant une nouvelle instance Azure IR dans la même région que vos banques de données, puis en y exécutant le flux de données. 
+
+Si vous activez le réseau virtuel managé pour la résolution automatique d’Azure Integration Runtime, ADF utilise le runtime d’intégration dans la région de la fabrique de données. 
 
 Vous pouvez surveiller quel emplacement du runtime d'intégration prend effet lors de l’exécution de l’activité dans la vue de surveillance de l’activité du pipeline sur l’interface utilisateur, ou dans la charge utile de la surveillance de l’activité.
 

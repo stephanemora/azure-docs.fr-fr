@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258275"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131631"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -24,12 +24,12 @@ Les modèles sont écrits à l’aide du langage **DTDL (Digital Twin Definition
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Langage DTDL (Digital Twin Definition Language) pour l’écriture de modèles
 
-Les modèles pour Azure Digital Twins sont définis à l’aide du DTDL (Digital Twin Definition Language). Le langage DTDL est basé sur JSON-LD et est indépendant du langage de programmation. Le langage DTDL n’est pas exclusif d’Azure Digital Twins. Il est également utilisé pour représenter des données d’appareil dans d’autres services IoT tels que [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins utilise le langage DTDL *version 2*.
+Les modèles pour Azure Digital Twins sont définis à l’aide du DTDL (Digital Twin Definition Language). Le langage DTDL est basé sur JSON-LD et est indépendant du langage de programmation. Le langage DTDL n’est pas exclusif d’Azure Digital Twins. Il est également utilisé pour représenter des données d’appareil dans d’autres services IoT tels que [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). 
+
+Azure Digital Twins utilise le langage DTDL *version 2*. Pour plus d’informations sur cette version de DTDL, consultez sa documentation spec dans GitHub : [*DTDL (Digital Twins Definition Language) – version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Les services qui utilisent le langage DTDL n’implémentent pas tous exactement les mêmes fonctionnalités de ce langage. Par exemple, la technologie IoT Plug-and-Play n’utilise pas les fonctionnalités DTDL destinées aux graphiques, tandis qu’Azure Digital Twins n’implémente pas actuellement de commandes DTDL. Pour plus d’informations sur les fonctionnalités DTDL spécifiques d’Azure Digital Twins, consultez, plus loin dans cet article, la section concernant les [spécificités de l’implémentation du langage DTDL dans Azure Digital Twins](#azure-digital-twins-dtdl-implementation-specifics).
-
-Pour plus d’informations sur le langage DTDL en général, consultez sa documentation spec dans GitHub : [DTDL (Digital Twins Definition Language) – version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## <a name="elements-of-a-model"></a>Éléments d’un modèle
 
@@ -62,7 +62,9 @@ Pour qu’un modèle DTDL soit compatible avec Azure Digital Twins, il doit rép
 
 Des modèles de type de jumeau peuvent être écrits dans n’importe quel éditeur de texte. Le langage DTDL suivant la syntaxe JSON, vous devez donc stocker les modèles avec l’extension *.json*. L’utilisation de l’extension JSON permet à de nombreux éditeurs de texte de programmation de fournir une vérification et une mise en évidence de syntaxe de base pour vos documents DTDL. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/).
 
-Voici un exemple de modèle classique, écrit sous la forme d’une interface DTDL. Le modèle décrit des planètes, chacune avec un nom, une masse et une température. Chaque planète peut avoir des lunes en tant que satellites, et contenir des cratères.
+Cette section contient un exemple de modèle classique, écrit sous la forme d’une interface DTDL. Le modèle décrit des **planètes**, chacune avec un nom, une masse et une température.
+ 
+Sachez que les planètes peuvent également interagir avec des **lunes** qui sont leurs satellites et qu’elles peuvent contenir des **cratères**. Dans l’exemple ci-dessous, le modèle de `Planet` exprime les connexions à ces autres entités en référençant deux modèles externes, `Moon` et `Crater`. Ces modèles sont également définis dans l’exemple de code ci-dessous, mais ils sont très simples pour ne pas porter atteinte à l’exemple de `Planet` principal.
 
 ```json
 [
@@ -101,6 +103,11 @@ Voici un exemple de modèle classique, écrit sous la forme d’une interface DT
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ Il existe un exemple de validation de documents de modèle indépendant du langa
 
 L’exemple de validateur DTDL s’appuie sur une bibliothèque d’analyseur DTDL .NET, disponible sur NuGet comme bibliothèque côté client : [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Vous pouvez également vous servir directement de la bibliothèque pour concevoir votre propre solution de validation. Dans ce cas, veillez à utiliser une version compatible avec celle d’Azure Digital Twins. Pendant la préversion, il s’agit de la version *3.7.0*.
 
-Pour plus d’informations sur la bibliothèque d’analyseur, et notamment des exemples d’utilisation, consultez [Guide pratique pour analyser et valider les modèles](how-to-use-parser.md).
+Pour plus d’informations sur la bibliothèque d’analyseur, et notamment des exemples d’utilisation, consultez [*Guide pratique pour analyser et valider les modèles*](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment gérer les modèles avec les API de DigitalTwinsModels :
-* [Guide pratique pour gérer des modèles personnalisés](how-to-manage-model.md)
+* [*Guide pratique : Gérer des modèles personnalisés*](how-to-manage-model.md)
 
 Vous pouvez également découvrir comment des jumeaux numériques sont créés à partir de modèles :
-* [Concepts : Jumeaux numériques et graphique de jumeaux](concepts-twins-graph.md)
+* [*Concepts : Jumeaux numériques et graphe de jumeaux*](concepts-twins-graph.md)
 

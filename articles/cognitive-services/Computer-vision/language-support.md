@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 16bb5fa41389dcf1ddd8ee2e3434e15755bb0d8d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205284"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290927"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -25,34 +25,34 @@ Certaines des fonctionnalités de la Vision par ordinateur prennent en charge pl
 
 Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles n’exigent pas de spécifier un code de langue. Pour plus d’informations, consultez [Reconnaissance optique de caractères (OCR)](concept-recognizing-text.md).
 
-|Langage| Code langue | API OCR | API Lire |
-|:-----|:----:|:-----:|:---:|
-|Arabe | `ar`|✔ | |
-|Chinois (simplifié) | `zh-Hans`|✔ | |
-|Chinois (traditionnel) | `zh-Hant`|✔ | |
-|Tchèque | `cs` |✔ | |
-|Danois | `da` |✔ | |
-|Néerlandais | `nl` |✔ |✔ |
-|Anglais | `en` |✔ |✔ |
-|Finnois | `fi` |✔ | |
-|Français | `fr` |✔ |✔ |
-|Allemand | `de` |✔ |✔ |
-|Grec | `el` |✔ | |
-|Hongrois | `hu` |✔ | |
-|Italien | `it` |✔ |✔ |
-|Japonais | `ja` |✔ | |
-|Coréen | `ko` |✔ | |
-|Norvégien | `nb` |✔ | |
-|Polonais | `pl` |✔ | |
-|Portugais | `pt` |✔ |✔ |
-|Roumain | `ro` |✔ | |
-|Russe | `ru` |✔ | |
-|Serbe (cyrillique) | `sr-Cyrl` |✔ | |
-|Serbe (latin) | `sr-Latn` |✔ | |
-|Slovaque | `sk` |✔ | |
-|Espagnol | `es` |✔ |✔ |
-|Suédois | `sw` |✔ | |
-|Turc | `tr` |✔ | |
+|Langage| Code langue | API OCR | Lire v3.0 | Lire v3.1-preview.1 |
+|:-----|:----:|:-----:|:---:|:---:|
+|Arabe | `ar`|✔ | | |
+|Chinois (simplifié) | `zh-Hans`|✔ | |✔ |
+|Chinois (traditionnel) | `zh-Hant`|✔ | | |
+|Tchèque | `cs` |✔ | | |
+|Danois | `da` |✔ | | |
+|Néerlandais | `nl` |✔ |✔ |✔ |
+|Anglais | `en` |✔ |✔ |✔ |
+|Finnois | `fi` |✔ | | |
+|Français | `fr` |✔ |✔ |✔ |
+|Allemand | `de` |✔ |✔ |✔ |
+|Grec | `el` |✔ | | |
+|Hongrois | `hu` |✔ | | |
+|Italien | `it` |✔ |✔ |✔ |
+|Japonais | `ja` |✔ | | |
+|Coréen | `ko` |✔ | | |
+|Norvégien | `nb` |✔ | | |
+|Polonais | `pl` |✔ | | |
+|Portugais | `pt` |✔ |✔ |✔ |
+|Roumain | `ro` |✔ | | |
+|Russe | `ru` |✔ | | |
+|Serbe (cyrillique) | `sr-Cyrl` |✔ | | |
+|Serbe (latin) | `sr-Latn` |✔ | | |
+|Slovaque | `sk` |✔ | | |
+|Espagnol | `es` |✔ |✔ |✔ |
+|Suédois | `sw` |✔ | | |
+|Turc | `tr` |✔ | | |
 
 ## <a name="image-analysis"></a>Analyse d’image
 

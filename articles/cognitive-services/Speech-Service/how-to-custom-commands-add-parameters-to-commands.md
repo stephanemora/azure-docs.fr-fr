@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524299"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284147"
 ---
 # <a name="add-parameters-to-commands"></a>Ajouter des paramètres aux commandes
 
@@ -47,7 +47,7 @@ Modifiez la commande **TurnOn** existante pour activer et désactiver plusieurs 
        > [!div class="mx-imgBorder"]
        > ![Créer une réponse pour un paramètre obligatoire](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Nous configurons maintenant les propriétés des paramètres. Pour plus d’explications sur toutes les propriétés de configuration d’une commande, accédez aux [références](./custom-commands-references.md). Configurez le reste des propriétés du paramètre comme suit :
+   1. Nous configurons maintenant les propriétés des paramètres. Pour plus d’explications sur toutes les propriétés de configuration d’une commande, accédez aux [références](./custom-commands-references.md). Configurez les propriétés du paramètre comme suit :
       
 
        | Configuration      | Valeur suggérée     | Description                                                      |
@@ -61,11 +61,10 @@ Modifiez la commande **TurnOn** existante pour activer et désactiver plusieurs 
        | Valeurs d'entrée prédéfinies     | `on`, `off`           | Ensemble de valeurs possibles et leurs alias         |
        
         
-   1. Pour ajouter des valeurs d’entrée prédéfinies, sélectionnez **Ajouter une entrée prédéfinie** et dans fenêtre **Nouvel élément**, tapez un **Nom** comme indiqué dans le tableau ci-dessus. Dans ce cas, nous n’utilisons pas d’alias. Vous pouvez donc laisser le champ vide. 
-
-    > [!div class="mx-imgBorder"]
-
-    > ![Créer un paramètre](media/custom-commands/create-on-off-parameter.png)
+   1. Pour ajouter des valeurs d’entrée prédéfinies, sélectionnez **Ajouter une entrée prédéfinie** et dans fenêtre **Nouvel élément**, tapez un **Nom** comme indiqué dans le tableau ci-dessus. Dans ce cas, nous n’utilisons pas d’alias. Vous pouvez donc laisser le champ vide.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Créer un paramètre](media/custom-commands/create-on-off-parameter.png)
 
    1. Sélectionnez **Enregistrer** pour enregistrer toutes les configurations du paramètre.
  
@@ -118,6 +117,7 @@ Modifiez la règle d’exécution **ConfirmationResponse** existante.
 
 1. Dans la section **Conditions**, sélectionnez **Ajouter une condition**.
 1. Dans la fenêtre **Nouvelle condition**, dans la liste **Type**, sélectionnez **Paramètres requis**. Dans la liste de contrôle ci-dessous, cochez **OnOff** et **SubjectDevice**.
+1. Laissez **IsGlobal,** désactivé.
 1. Sélectionnez **Create** (Créer).
 1. Dans la section **Actions**, modifiez l’action existante **Envoyer une réponse vocale** en pointant l’action et en sélectionnant le bouton de modification. Cette fois-ci, utilisez les nouveaux paramètres **OnOff** et **SubjectDevice**
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103396"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371122"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -23,9 +23,9 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 
 ## <a name="july-2020"></a>Juillet 2020
 
-### <a name="text-analytics-for-health-container-public-gated-preview"></a>Analyse de texte pour la préversion publique archivée pour le conteneur d’intégrité
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>Analyse de texte pour le conteneur d’intégrité – Préversion publique contrôlée
 
-L’Analyse de texte pour le conteneur d’intégrité est désormais en préversion publique archivée, ce qui vous permet d’extraire des informations à partir de texte en anglais non structuré dans des documents cliniques tels que les formulaires d’admission des patients, les notes du médecin, les documents de recherche et les bilans de sortie d'hospitalisation. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour l’utilisation du conteneur d’intégrité. 
+L’Analyse de texte pour le conteneur d’intégrité est désormais en préversion publique contrôlée, ce qui vous permet d’extraire des informations à partir de texte en anglais non structuré dans des documents cliniques tels que les formulaires d’admission des patients, les notes du médecin, les documents de recherche et les bilans de sortie d’hospitalisation. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour le conteneur d’intégrité. 
 
 Le conteneur offre les fonctionnalités suivantes :
 

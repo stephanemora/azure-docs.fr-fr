@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084373"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386144"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -35,7 +35,7 @@ Cette liste de vérification vous aidera à déployer rapidement les actions rec
 Veillez à conserver la trace des fonctionnalités et étapes terminées lors de la lecture de cette liste de vérification.
 
 > [!NOTE]
-> La plupart des recommandations de ce document s’appliquent seulement aux applications qui sont configurées pour utiliser Azure Active Directory comme fournisseur d’identité. La configuration des applications pour l’authentification unique garantit que les avantages des stratégies pour les informations d’identification, la détection des menaces, l’audit, la journalisation et d’autres fonctionnalités s’ajoutent à ces applications. [L’authentification unique via Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) est le fondement sur lequel se basent toutes ces recommandations.
+> La plupart des recommandations de ce document s’appliquent seulement aux applications qui sont configurées pour utiliser Azure Active Directory comme fournisseur d’identité. La configuration des applications pour l’authentification unique garantit que les avantages des stratégies pour les informations d’identification, la détection des menaces, l’audit, la journalisation et d’autres fonctionnalités s’ajoutent à ces applications. La [gestion des applications Azure AD](../../active-directory/manage-apps/what-is-application-management.md) est le fondement sur lequel se basent toutes ces recommandations.
 
 Les suggestions faites dans ce document sont alignées sur [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), une évaluation automatisée de la configuration de sécurité de l'identité de votre locataire Azure AD. Les organisations peuvent utiliser la page Identity Secure Score dans le portail Azure AD pour trouver des failles dans leur configuration de sécurité actuelle et s’assurer qu’elles respectent les [meilleures pratiques](identity-management-best-practices.md) actuelles de Microsoft en matière de sécurité. L’implémentation de chaque suggestion de la page Secure Score augmentera votre score et vous permettra de suivre vos progrès, tout en vous aidant à comparer votre implémentation à celle d’autres organisations de taille comparable de votre secteur d’activité.
 

@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219876"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386705"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
-
 Cet article résume les composants pris en charge ainsi que les paramètres concernant la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure, à l’aide de [Azure Site Recovery](site-recovery-overview.md).
 
-
+>[!NOTE]
+> Site Recovery ne déplace pas et ne stocke pas les données client en dehors de la région cible dans laquelle la récupération d’urgence a été configurée pour les ordinateurs sources. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -32,13 +32,11 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour (y compris l’installation Server Core de ces systèmes d’exploitation, à l’exception de Windows Server 2019) | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md)
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (y compris l’installation Server Core de ces systèmes d’exploitation, à l’exception de Virtual Machine Manager 2019) | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.
+Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour <br/><br/> **Remarque :** L’installation Server Core de ces systèmes d’exploitation est également prise en charge. | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md)
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Remarque :** L’installation Server Core de ces systèmes d’exploitation est également prise en charge.  | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.
 
 > [!NOTE]
->
-> - Vérifiez que .NET Framework 4.6.2 ou ultérieur est présent sur le serveur local.
-> - Le basculement et la restauration automatique vers un autre emplacement ou à l’emplacement d’origine, s’exécutant avec ou sans Virtual Machine Manager, ne sont pas pris en charge pour la version Server Core de Windows Server 2019.
+> Vérifiez que .NET Framework 4.6.2 ou ultérieur est présent sur le serveur local.
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
 
@@ -73,6 +71,7 @@ Réseau machines virtuelles invitées : Adresse IP statique (Windows) | Oui | O
 Réseau machines virtuelles invitées : Adresse IP statique (Linux) | Non | Non
 Réseau machines virtuelles invitées : Plusieurs cartes réseau | Oui | Oui
 Proxy HTTPS | Non | Non
+Lien privé d’accès au service Site Recovery | Oui. [Plus d’informations](hybrid-how-to-enable-replication-private-endpoints.md) | Oui. [Plus d’informations](hybrid-how-to-enable-replication-private-endpoints.md)
 
 
 
@@ -97,7 +96,7 @@ Mise en réseau accélérée | Non | Non
 
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | --- 
-NFS | N/D | N/D
+NFS | NA | NA
 SMB 3.0 | Oui | Oui
 SAN (ISCSI) | Oui | Oui
 Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
@@ -106,13 +105,13 @@ Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC P
 
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-VMDK | N/D | N/D
+VMDK | NA | NA
 VHD/VHDX | Oui | Oui
 Machine virtuelle de 2e génération | Oui | Oui
 EFI/UEFI<br></br>La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.| Oui | Oui
 Disque de cluster partagé | Non | Non
 Disque chiffré | Non | Non
-NFS | N/D | N/D
+NFS | NA | NA
 SMB 3.0 | Non | Non
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go

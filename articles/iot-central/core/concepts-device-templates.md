@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337107"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -28,6 +28,9 @@ Un modèle d’appareil comprend les sections suivantes :
 - _Propriétés Cloud_. Cette partie du modèle d’appareil permet au développeur de solutions de spécifier toutes les métadonnées de l’appareil à stocker. Les propriétés Cloud ne sont jamais synchronisées avec les appareils et n’existent que dans l’application. Les propriétés Cloud n’affectent pas le code écrit par un développeur d’appareils pour implémenter le DCM.
 - _Personnalisations_. Cette partie du modèle d’appareil permet au développeur de solutions de remplacer certaines définitions dans le DCM. Des personnalisations sont utiles si le développeur de solutions souhaite affiner la façon dont l’application gère une valeur, par exemple, en modifiant le nom d’affichage d’une propriété ou de la couleur utilisée pour afficher une valeur de télémétrie. Les personnalisations n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le DCM.
 - _Affichages_. Cette partie du modèle d’appareil permet au développeur de solutions de définir des visualisations pour afficher les données de l’appareil, ainsi que des formulaires pour gérer et contrôler un appareil. Les affichages utilisent le DCM, les propriétés Cloud et les personnalisations. Les vues n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le DCM.
+
+> [!NOTE]
+> La [version d’actualisation de la préversion publique d’IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) cible des développeurs d’appareils et des OEM pour commencer à construire des appareils pouvant être certifiés pour IoT Plug and Play avant le lancement de disponibilité générale.
 
 ## <a name="device-capability-models"></a>Modèles de capacité d’appareil
 
@@ -221,6 +224,6 @@ La télémétrie, les propriétés et les commandes que vous pouvez ajouter à u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En tant que développeur d’appareils, à présent que vous avez appris ce que sont les modèles d’appareils, nous vous suggérons de lire [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur l’inscription des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
+En tant que développeur d’appareils, maintenant que vous avez découvert les modèles d’appareils, une prochaine étape suggérée consiste à lire [Charges utiles de télémétrie, de propriété et de commande](./concepts-telemetry-properties-commands.md) pour en savoir plus sur les données qu’un appareil échange avec IoT Central.
 
 En tant que développeur de solutions, nous vous suggérons de lire [Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central](./howto-set-up-template.md) pour en savoir plus sur la création d’un modèle d’appareil.

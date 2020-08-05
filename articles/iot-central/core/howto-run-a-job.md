@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609716"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283619"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Créer et exécuter un travail dans votre application Azure IoT Central
 
@@ -43,7 +43,11 @@ Cette section vous montre comment créer et exécuter un travail. Elle montre co
     > [!NOTE]
     > Vous pouvez afficher jusqu’à 30 jours d’historique pour vos travaux exécutés.
 
-7. Pour obtenir une vue d’ensemble de votre travail, sélectionnez le travail à afficher dans la liste. Cette vue d’ensemble contient les détails du travail, ainsi que les noms et les états des appareils. Dans cette vue d’ensemble, vous pouvez également sélectionner **Détails du travail de téléchargement** pour télécharger un fichier CSV des détails de votre travail, notamment les appareils et leurs valeurs d’état. Ces informations peuvent être utiles pour le dépannage :
+7. Cliquez sur le travail enregistré et exécutez-le en cliquant sur le bouton Exécuter. La fenêtre contextuelle Exécuter le travail s’affiche. Confirmez en cliquant sur le bouton Exécuter le travail. 
+
+    ![Exécution d’un travail](./media/howto-run-a-job/run-job.png)
+
+8. Le travail passe par différentes phases : En attente, En cours d’exécution et Terminé. Parmi ses informations d’exécution figurent Métriques des résultats, Détails de durée et la liste grille des appareils. Dans cette vue d’ensemble, vous pouvez également sélectionner **Journal des résultats** pour télécharger un fichier CSV contenant les détails de votre travail, notamment les appareils et leurs valeurs d’état. Ces informations peuvent être utiles pour le dépannage.
 
     ![Afficher l’état de l’appareil](./media/howto-run-a-job/download-details.png)
 
@@ -51,13 +55,23 @@ Cette section vous montre comment créer et exécuter un travail. Elle montre co
 
 Pour arrêter l’un de vos travaux en cours d’exécution, ouvrez-le et sélectionnez **Arrêter**. L’état du travail change pour indiquer qu’il est arrêté. La section **Récapitulatif** indique les appareils dont l’état est terminé, en échec ou en attente.
 
-Pour exécuter un travail qui est actuellement arrêté, sélectionnez-le, puis sélectionnez **Exécuter**. L’état du travail change pour indiquer qu’il est à nouveau en cours d’exécution. La section **Récapitulatif** continue à être mise à jour avec la progression la plus récente.
-
 ![Gérer un travail](./media/howto-run-a-job/manage-job.png)
+
+Une fois le travail à l’état Arrêté, vous pouvez cliquer sur **Continuer** pour reprendre son exécution. L’état du travail change pour indiquer qu’il est à nouveau en cours d’exécution. La section **Récapitulatif** continue à être mise à jour avec la progression la plus récente.
+
+![Travail arrêté](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Copier un travail
 
-Pour copier l’un de vos travaux existants, sélectionnez-le dans la page **Travaux** et sélectionnez **Copier**. Une copie de la configuration du travail s’ouvre afin de vous permettre de le modifier, et **Copie** est ajouté au nom du travail. Vous pouvez enregistrer ou d’exécuter le nouveau travail :
+Pour copier l’un de vos travaux, sélectionnez-le sur la page **Travaux** et sélectionnez **Détails du travail**. La page Détails du travail s’affiche. 
+
+![Détails du travail](./media/howto-run-a-job/job-details.png)
+
+Cliquez sur **Copier**.
+
+![Détails du travail](./media/howto-run-a-job/job-details-copy.png)
+
+Une copie de la configuration du travail s’ouvre afin de vous permettre de le modifier, et **Copie** est ajouté au nom du travail. Vous pouvez enregistrer ou d’exécuter le nouveau travail :
 
 ![Copier un travail](./media/howto-run-a-job/copy-job.png)
 

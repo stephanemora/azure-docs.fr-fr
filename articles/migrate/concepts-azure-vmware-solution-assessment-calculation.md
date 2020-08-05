@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118815"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387946"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Évaluations AVS dans Azure Migrate : Server Assessment
 
@@ -256,7 +256,7 @@ Notez que comme Azure VMware Solution (AVS) est en préversion, les prix des nœ
 ## <a name="migration-tool-guidance"></a>Guide de l’outil de migration
 
 Dans le rapport de préparation à Azure pour l’évaluation Azure VMware Solution (AVS), vous pouvez voir les outils suggérés suivants : 
-- **VMware HCX ou Enterprise** : Pour les machines VMware, la solution VMWare Hybrid Cloud Extension (HCX) est l’outil de migration suggéré pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
+- **VMware HCX ou Enterprise** : pour les machines VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
 - **Inconnue** : Pour les machines importées via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les machines VMware, il est cependant recommandé d’utiliser la solution VMWare Hybrid Cloud extension (HCX).
 
 ## <a name="next-steps"></a>Étapes suivantes

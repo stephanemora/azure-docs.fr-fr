@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287730"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -66,7 +66,7 @@ Vous devez avoir un utilisateur avec une de ces autorisations définie dans AAD 
 
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
 
-1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMWare vSphere.
+1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi en utilisant le client VMware vSphere.
 2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**.
 
      ![Déployer le modèle OVF](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -98,7 +98,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Inscrire le serveur de configuration auprès des services Azure Site Recovery
 
-1. À partir de la console du client vSphere de VMware, activez la machine virtuelle.
+1. À partir de la console du client VMware vSphere, activez la machine virtuelle.
 2. La machine virtuelle démarre sur une expérience d’installation de Windows Server 2016. Acceptez le contrat de licence et entrez un mot de passe administrateur.
 3. Une fois l’installation terminée, connectez-vous à la machine virtuelle en tant qu’administrateur.
 4. Lors de la première connexion, l’outil de configuration d’Azure Site Recovery démarre en quelques secondes.

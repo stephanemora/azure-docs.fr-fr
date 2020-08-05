@@ -3,21 +3,26 @@ title: Créer un compte Place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment créer un compte Place de marché commerciale Microsoft dans l’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
-ms.openlocfilehash: 4a178feb4bdf0bc361185e21e47ccdceac3a7f21
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 862922ff3d0e09d1d1fdc864886852aed910c7df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110008"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326645"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
-Pour publier des offres sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) ou [Microsoft AppSource](https://appsource.microsoft.com/), vous devrez créer un compte dans le cadre du programme de la place de marché commerciale dans l’Espace partenaires. Cet article aborde la création d’un compte Espace partenaires et l’ajout de nouveaux éditeurs au programme de la place de marché commerciale.
+Pour publier des offres sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) ou [Microsoft AppSource](https://appsource.microsoft.com/), vous devrez créer un compte dans le cadre du programme de la Place de marché commerciale dans l’Espace partenaires. Cet article aborde la création d’un compte Espace partenaires et l’ajout de nouveaux éditeurs au programme de la place de marché commerciale.
 
 >[!IMPORTANT]
->Si vous avez un compte dans le [portail Cloud Partner](https://cloudpartner.azure.com) qui a été déplacé vers l’Espace partenaires, vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui migrent depuis le Portail Cloud Partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Pour publier des offres sur la Place de marché commerciale, vous devez utiliser un compte professionnel, qui soit associé à une société ou à une organisation. Les comptes personnels ne sont pas pris en charge.
+
+>[!IMPORTANT]
+>Si vous disposez d’un compte dans le portail Cloud Partner qui a été déplacé vers l’Espace partenaires (CPP), vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui effectuent une migration à partir du portail Cloud Partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -43,7 +48,7 @@ Utilisez cette méthode si vous ne connaissez pas l’Espace partenaires et si v
 - [Fournir votre profil d’éditeur](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Si vous avez un compte [Portail Cloud Partner ](https://cloudpartner.azure.com) qui a été déplacé vers l’Espace partenaires, vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui migrent depuis le Portail Cloud Partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Si vous disposez d’un compte dans le portail Cloud Partner qui a été déplacé vers l’Espace partenaires (CPP), vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui effectuent une migration à partir du portail Cloud Partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>S’inscrire à la page d’inscription à l’Espace partenaires
 
@@ -94,7 +99,7 @@ Pour les deux types d’inscription, vous allez :
 Veiller à avoir les informations de votre compte sous la main.
 
 >[!IMPORTANT]
->Si vous avez un compte dans le [portail Cloud Partner](https://cloudpartner.azure.com/) qui a été déplacé vers l’Espace partenaires, vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui migrent depuis le Portail Cloud Partner](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Si vous disposez d’un compte dans le portail Cloud Partner qui a été déplacé vers l’Espace partenaires (CPP), vous n’avez pas besoin de créer un nouveau compte. Pour plus d’informations, consultez [Pour les éditeurs qui effectuent une migration à partir du portail Cloud Partner](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="what-if-im-already-enrolled-in-the-microsoft-partner-network"></a>Que se passe-t-il si je suis déjà inscrit dans le Microsoft Partner Network ?
 
@@ -154,15 +159,13 @@ Après vous être connecté à l’Espace partenaires, terminez la configuration
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour plus d’informations, consultez [Vue d’ensemble de la place de marché commerciale](./commercial-marketplace-overview.md). Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## <a name="for-publishers-who-are-moving-from-the-cloud-partner-portal"></a>Pour les éditeurs qui migrent depuis le Portail Cloud Partner
+## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Pour les éditeurs qui effectuent une migration à partir du portail Cloud Partner
 
-Si votre compte a été migré depuis le [portail Cloud Partner](https://cloudpartner.azure.com), vous n’avez pas besoin de créer un nouveau compte Espace partenaires. Vous devriez avoir reçu un lien personnalisé vers votre nouveau compte Partner Center, à la fois dans un courrier électronique et dans une bannière de notification, après vous être connecté à votre compte Portail Microsoft Cloud Partner existant.
+Si vous aviez un compte Portail Cloud Partner, notez que nous l’avons déplacé vers l’Espace partenaires. Vous n’avez pas besoin de créer un nouveau compte dans l’Espace partenaires. Vous devriez avoir reçu un lien personnalisé vers votre nouveau compte Partner Center, à la fois dans un courrier électronique et dans une bannière de notification, après vous être connecté à votre compte Portail Microsoft Cloud Partner existant.
 
 Après avoir sélectionné le lien personnalisé et activé votre nouveau compte Espace partenaires, vous pouvez revenir à votre compte en vous rendant sur le [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
 
-Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil et de paiement précédemment configurées, les comptes d’utilisateur et les autorisations, ainsi que les offres actives associées à votre compte Portail Microsoft Cloud Partner.
-
-Une fois que les informations de votre compte ont été déplacées du Portail Cloud Partner vers l’Espace partenaires, vous n’utiliserez plus le portail CPP pour effectuer des mises à jour de compte ou pour gérer les utilisateurs, les autorisations et la facturation. Pendant une période limitée, les mises à jour de compte que vous effectuez dans l’Espace partenaires sont automatiquement répercutées dans votre compte Portail Cloud Partner en lecture seule jusqu’à ce que l’utilisation de celui-ci soit déconseillée.
+Le contrat d’éditeur et les informations sur le profil de l’entreprise ont été déplacés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil et de paiement précédemment configurées, les comptes d’utilisateur et les autorisations, et les offres actives associées à votre compte Portail Microsoft Cloud Partner.
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Ajouter de nouveaux éditeurs au programme place de marché commerciale
 

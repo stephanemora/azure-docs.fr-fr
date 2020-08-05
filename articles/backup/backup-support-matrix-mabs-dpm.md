@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 938fb751de90112dc206779a36b88f95f1d7d508
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538664"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289457"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -24,7 +24,7 @@ MABS est basé sur System Center DPM et fournit des fonctionnalités similaires,
 
 - Aucune licence System Center n’est nécessaire pour exécuter MABS.
 - Azure fournit un stockage de sauvegarde à long terme pour MABS et DPM. DPM vous permet aussi de sauvegarder des données sur bande pour le stockage à long terme. MABS n’offre pas cette fonctionnalité.
-- Vous pouvez sauvegarder un serveur DPM principal à l’aide d’un serveur DPM secondaire. Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
+- [Vous pouvez sauvegarder un serveur DPM principal avec un serveur DPM secondaire](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
 
 Vous pouvez télécharger MABS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Il peut être exécuté localement ou sur une machine virtuelle Azure.
 

@@ -5,17 +5,18 @@ description: Découvrez comment déployer vos modèles Azure Machine Learning en
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392554"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372108"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,8 +35,15 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 * Créez le cluster AKS à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning, de l’interface de ligne de commande Machine Learning ou d’[Azure Machine Learning Studio](https://ml.azure.com). Ce processus connecte automatiquement le cluster à l’espace de travail.
 * Attachez un cluster AKS existant à votre espace de travail Azure Machine Learning. Un cluster peut être attaché au moyen du Kit de développement logiciel (SDK) Azure Machine Learning, de l’interface de ligne de commande Machine Learning ou d’Azure Machine Learning Studio.
 
+Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes de ressources différents.
+
 > [!IMPORTANT]
 > Le processus de création ou d’attachement est une tâche unique. Une fois qu’un cluster AKS est connecté à l’espace de travail, vous pouvez l’utiliser pour les déploiements. Vous pouvez détacher ou supprimer le cluster AKS si vous n’en avez plus besoin. Une fois qu’il est détaché ou supprimé, vous ne pourrez plus déployer sur le cluster.
+
+> [!IMPORTANT]
+> Il est fortement recommandé d’effectuer un débogage local avant de procéder au déploiement sur le service web. Pour plus d’informations, consultez [Débogage local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
+>
+> Vous pouvez également vous reporter à Azure Machine Learning – [Déploiement sur un notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,11 +63,28 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 
 - Les extraits de code __CLI__ de cet article partent du principe que vous avez créé un document `inferenceconfig.json`. Pour plus d’informations sur la création de ce document, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
 
+- Si vous attachez un cluster AKS pour lequel [une plage d’adresses IP autorisées a accès au serveur d’API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), activez les plages d’adresses IP du plan de contrôle AML pour le cluster AKS. Le plan de contrôle AML est déployé sur les régions jumelées et déploie des pods d’inférence sur le cluster AKS. Le déploiement des pods d’inférence n’est pas possible sans accès au serveur d’API. Utilisez les [plages d’adresses IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) des deux [régions jumelées]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) lors de l’activation des plages d’adresses IP dans un cluster AKS.
+ 
+ - Le nom de calcul DOIT être unique dans un espace de travail.
+   - Le nom est obligatoire et doit comprendre entre 3 et 24 caractères.
+   - Les caractères valides sont les lettres majuscules et minuscules, les chiffres et le caractère -.
+   - Le nom doit commencer par une lettre.
+   - Le nom doit être unique parmi tous les calculs existants au sein d’une région Azure. Si le nom que vous choisissez n’est pas unique, une alerte s’affiche.
+   
+ - Si vous souhaitez déployer des modèles sur des nœuds GPU ou FPGA (ou sur une référence SKU spécifique), vous devez créer un cluster de la référence SKU en question. Il n’est pas possible de créer un pool de nœuds secondaire dans un cluster existant et de déployer des modèles dans le pool de nœuds secondaire.
+ 
+ - Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le kit SDK, puis attachez-le à l’espace de travail AML. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>Créer un cluster AKS
 
-**Durée estimée** : environ 20 minutes.
+**Durée estimée** : environ 10 minutes.
 
 La création ou l’attachement d’un cluster AKS est un processus à effectuer une seule fois pour votre espace de travail. Vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources dans lequel il se trouve, vous devrez recréer un cluster lors du prochain déploiement. Vous pouvez avoir plusieurs clusters AKS attachés à votre espace de travail.
+ 
+Azure Machine Learning prend maintenant en charge l’utilisation d’une instance Azure Kubernetes Service avec activation de la liaison privée.
+Pour créer un cluster AKS privé, suivez [ces documents](https://docs.microsoft.com/azure/aks/private-clusters).
 
 > [!TIP]
 > Si vous souhaitez sécuriser votre cluster AKS à l’aide d’un réseau virtuel Azure, vous devez commencer par créer le réseau virtuel. Pour plus d’informations, voir [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md#aksvnet).

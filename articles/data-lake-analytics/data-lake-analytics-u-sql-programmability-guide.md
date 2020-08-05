@@ -3,18 +3,16 @@ title: Guide de programmabilité U-SQL pour Azure Data Lake
 description: Découvrez l’ensemble de services dans Azure Data Lake Analytics qui vous permettent de créer une plateforme Big Data basée sur le cloud.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 2fb54c821c50ff8e1364a125cc5db181aedf0437
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110587"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288939"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -127,7 +125,7 @@ Consultez les [instructions d’enregistrement des assemblys](https://blogs.msdn
 
 
 ### <a name="use-assembly-versioning"></a>Utilisez le contrôle de version des assemblys
-Actuellement, U-SQL utilise .NET Framework version 4.5. Par conséquent, vérifiez que vos propres assemblys sont compatibles avec cette version du runtime.
+Actuellement, U-SQL utilise .NET Framework version 4.7.2. Par conséquent, vérifiez que vos propres assemblys sont compatibles avec cette version du runtime.
 
 Comme mentionné précédemment, U-SQL exécute le code dans un format 64 bits (x64). Par conséquent, assurez-vous que votre code est compilé pour s’exécuter sur des systèmes x64. Dans le cas contraire, vous recevez l’erreur de format incorrect vue précédemment.
 
@@ -789,11 +787,7 @@ namespace USQL_Programmability
             }
 
             return new FiscalPeriod(FiscalQuarter, FiscalMonth);
-        }
-
-
-
-        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
+        }        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
         public struct FiscalPeriod
         {
             public int Quarter { get; private set; }

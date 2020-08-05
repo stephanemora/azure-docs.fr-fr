@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337209"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -36,9 +36,7 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 > [!NOTE]
 > Seuls les concepteurs et les administrateurs peuvent créer, modifier et supprimer des modèles d’appareils. Tous les utilisateurs peuvent créer des appareils sur la page **Appareils** à partir de modèles d’appareils existants.
 
-[IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils, sans que vous ayez à écrire de code d’appareil incorporé. Au cœur d’IoT Plug-and-Play (préversion), il y a un schéma de modèle de capacité d’appareil qui décrit les capacités de l’appareil. Dans une application IoT Central, les modèles d’appareil utilisent ces modèles de capacité d’appareil IoT Plug-and-Play (préversion).
-
-Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
+Dans une application IoT Central, un modèle d’appareil utilise un modèle de fonctionnalité de l’appareil pour décrire les fonctions d’un appareil. Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
 - Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de capacité d’appareil dans le code de votre appareil.
 - Importez un modèle de capacité d’appareil à partir du [catalogue d’appareils certifiés Azure pour l’IoT](https://aka.ms/iotdevcat). Ensuite, ajoutez des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin.

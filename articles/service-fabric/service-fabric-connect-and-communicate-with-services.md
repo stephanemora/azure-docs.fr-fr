@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5081ad813d871db0f60284bca4a0c53ee5bbf6b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257775"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287748"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
@@ -58,7 +58,7 @@ Le proxy inverse traite les services dans le cluster qui expose des points de te
 Pour plus d’informations sur l’utilisation du service de proxy inverse, consultez l’article [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md).
 
 ## <a name="connections-from-external-clients"></a>Connexions des clients externes
-Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster se trouvent sur le même réseau local. Cependant, dans certains environnements, un cluster peut se trouver derrière un équilibrage de charge. Celui-ci achemine le trafic d’entrée externe à travers un ensemble limité de ports. Dans ces cas, les services peuvent toujours communiquer entre eux et résoudre les adresses à l’aide du Service d’attribution de noms. Cependant, des étapes supplémentaires doivent être suivies afin d’autoriser les clients externes à se connecter aux services.
+Les services se connectant entre eux, en général à l’intérieur d’un cluster, peuvent accéder directement aux points de terminaison d’autres services, car les nœuds d’un cluster se trouvent sur le même réseau local. Cependant, dans certains environnements, un cluster peut se trouver derrière un équilibrage de charge. Celui-ci achemine le trafic d’entrée à travers un ensemble limité de ports. Dans ces cas, les services peuvent toujours communiquer entre eux et résoudre les adresses à l’aide du Service d’attribution de noms. Cependant, des étapes supplémentaires doivent être suivies afin d’autoriser les clients externes à se connecter aux services.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric dans Azure
 Un cluster Service Fabric dans Azure est placé derrière un équilibrage de charge Azure. Tout trafic externe vers le cluster doit passer par l’équilibrage de charge. L’équilibrage de charge transmet automatiquement le trafic entrant sur un port donné vers un *nœud* aléatoire ayant le même port ouvert. L’Azure Load Balancer (équilibrage de charge Azure) ne connaît que les ports ouverts sur les *nœuds*. Il ne connaît pas les ports ouverts par des *services* individuels.

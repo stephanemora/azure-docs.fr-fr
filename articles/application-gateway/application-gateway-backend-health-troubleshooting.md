@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808191"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132039"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -176,7 +176,7 @@ Vérifiez également qu’aucun NSG, UDR ou pare-feu ne bloque l’accès à l�
 
 | **Error** | **Actions** |
 | --- | --- |
-| Non-correspondance du code d’état de la sonde : Réponse 401 reçue | Vérifiez si le serveur back-end nécessite une authentification. Les sondes d’Application Gateway ne peuvent pas passer ici les informations d’identification pour l’authentification. Autorisez la réponse \"HTTP 401\" dans une correspondance de code d’état de la sonde ou configurez la sonde sur un chemin où le serveur ne nécessite pas d’authentification. | |
+| Non-correspondance du code d’état de la sonde : Réponse 401 reçue | Vérifiez si le serveur back-end nécessite une authentification. Les sondes Application Gateway ne peuvent pas transmettre d’informations d’identification pour l’authentification. Autorisez la réponse \"HTTP 401\" dans une correspondance de code d’état de la sonde ou configurez la sonde sur un chemin où le serveur ne nécessite pas d’authentification. | |
 | Non-correspondance du code d’état de la sonde : Réponse 403 reçue | Accès interdit. Vérifiez que l’accès au chemin est autorisé sur le serveur back-end. | |
 | Non-correspondance du code d’état de la sonde : Réponse 404 reçue | Page introuvable. Vérifiez si le chemin du nom d’hôte est accessible sur le serveur back-end. Affectez au paramètre du chemin ou du nom d’hôte une valeur accessible. | |
 | Non-correspondance du code d’état de la sonde : Réponse 405 reçue | Les demandes de sondage d’Application Gateway utilisent la méthode HTTP GET. Vérifiez que votre serveur autorise cette méthode. | |

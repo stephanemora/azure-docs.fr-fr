@@ -5,18 +5,18 @@ description: Découvrez comment utiliser Azure Machine Learning pour déployer u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, racking-python
+ms.openlocfilehash: 8d1ea9b0989a71268b98f0b2fd1d95d5671f996b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325795"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,6 +56,7 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
     >
     > Par défaut, lors de l’empaquetage des fonctions, l’entrée est traitée comme du texte. Si vous souhaitez consommer les octets bruts de l’entrée (par exemple pour les déclencheurs de blob), vous devez utiliser [AMLRequest pour accepter les données brutes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+Pour plus d’informations sur le script d’entrée, consultez [Définir le code de scoring](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
 
 * **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 

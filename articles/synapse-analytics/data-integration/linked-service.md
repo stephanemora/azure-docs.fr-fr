@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496075"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387237"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Sécurisation d’un service lié à l’aide de Liaisons privées (Private Links) 
+# <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links) 
 
 Dans cet article, vous allez apprendre à sécuriser un service lié dans Synapse à l’aide d’un point de terminaison privé.
 
@@ -52,7 +52,7 @@ Si vous n’avez pas cliqué sur le lien hypertexte lors du test de la connexion
 1. Sélectionnez **Créer**
 1. Après avoir attendu quelques secondes, vous devriez voir que la liaison privée créée nécessite une approbation.
 
-## <a name="approval-of-a-private-link"></a>Approbation d’une liaison privée
+## <a name="private-link-approval"></a>Approbation de liaison privée
 1. Sélectionnez le point de terminaison privé que vous avez créé précédemment. Vous pouvez voir un lien hypertexte qui vous permet d’approuver le point de terminaison privé au niveau du compte de stockage. *Une alternative consiste à accéder directement au compte de stockage sur le portail Azure et à accéder au panneau **Connexions de point de terminaison privé**.*
 1. Cochez le point de terminaison privé que vous avez créé dans Studio, puis sélectionnez **Approuver**.
 1. Ajoutez une description et cliquez sur **Oui**.

@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057821"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317346"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -23,7 +23,7 @@ Lorsque vous modifiez une stratégie de sauvegarde, vous pouvez ajouter de nouve
 - **Supprimer des éléments** : utilisez cette option pour supprimer des éléments de la sauvegarde.
   - Utilisez **Paramètres d’exclusion** pour supprimer tous les éléments d’un volume au lieu de **Supprimer des éléments**.
   - L’effacement de toutes les sélections d’un volume entraîne la conservation des anciennes sauvegardes des éléments conformément aux paramètres de rétention au moment de la dernière sauvegarde, sans possibilité de modification.
-  - La resélection de ces éléments entraîne une première sauvegarde complète et les modifications apportées à la nouvelle stratégie ne sont pas appliquées aux anciennes sauvegardes.
+  - Si vous resélectionnez ces éléments, une première sauvegarde complète est effectuée, et les modifications apportées à la nouvelle stratégie ne sont pas appliquées aux anciennes sauvegardes.
   - La désélection d’un volume entier conserve la sauvegarde précédente sans possibilité de modifier la stratégie de conservation.
 - **Paramètres d’exclusion** : utilisez cette option pour exclure des éléments spécifiques de la sauvegarde.
 
@@ -95,7 +95,7 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
   - Si vous décidez de reprendre la protection, vous pouvez utiliser l’option *Réactiver la planification de sauvegarde*. Après cela, les données sont conservées en fonction de la nouvelle stratégie de conservation.
 - **Arrêter la protection et supprimer les données de sauvegarde**.
   - Cette option empêche toutes les futures tâches de sauvegarde de protéger vos données et supprime tous les points de récupération.
-  - Vous recevrez un e-mail d’alerte de suppression des données de sauvegarde avec le message *Vos données pour cet élément de sauvegarde ont été supprimées. Ces données seront temporairement disponibles pendant 14 jours, après quoi elles seront définitivement supprimées* et l’action recommandée *Protégez à nouveau l’élément de sauvegarde dans un délai de 14 jours pour récupérer vos données.*
+  - Vous recevrez un e-mail d’alerte de suppression des données de sauvegarde comportant le message *Vos données relatives à cet élément de sauvegarde ont été supprimées. Ces données seront temporairement disponibles pendant 14 jours, après quoi elles seront définitivement supprimées* et l’action recommandée *Protégez à nouveau l’élément de sauvegarde dans un délai de 14 jours pour récupérer vos données.*
   - Pour reprendre la protection, réactivez la protection dans un délai de 14 jours après l’opération de suppression.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrêter la protection et conserver les données de sauvegarde
@@ -103,7 +103,7 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
 1. Ouvrez la console de gestion de MARS, accédez au **volet Actions** et **sélectionnez Planifier la sauvegarde**.
 
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Dans la page **Sélectionner un élément de stratégie**, sélectionnez **Modifier la planification de sauvegarde pour vos fichiers et dossiers** et cliquez sur **Suivant**.
+1. Sur la page **Sélectionner un élément de stratégie**, sélectionnez **Modifier la planification de sauvegarde des fichiers et dossiers** et cliquez sur **Suivant**.
 
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Dans la page **Modifier ou arrêter une sauvegarde planifiée**, sélectionnez **Ne plus utiliser cette panification de sauvegarde, mais conserver les sauvegardes stockées jusqu’à la réactivation de la planification**. Ensuite, sélectionnez **Suivant**.
@@ -112,7 +112,7 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
 1. Dans **Suspendre la sauvegarde planifiée**, vérifiez les informations, puis cliquez sur **Terminer**.
 
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. Dans **Modifier le processus de sauvegarde**, vérifiez que la suspension de la sauvegarde de la planification est à l’état de réussite, puis cliquez sur **Fermer** pour terminer.
+1. Dans **Modifier la progression de la sauvegarde**, vérifiez que l’état de la suspension de la sauvegarde planifiée est Réussite, puis cliquez sur **Fermer** pour terminer.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrêter la protection et supprimer les données de sauvegarde
 
@@ -124,7 +124,7 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
 3. Dans la page **Arrêter une sauvegarde planifiée**, sélectionnez **Terminer**.
 
     ![Arrêtez une sauvegarde planifiée.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-4. Vous êtes invité à entrer un code PIN de sécurité, que vous devez générer manuellement. Pour cela, commencez par vous connecter au portail Azure.
+4. Il vous est demandé d’entrer un code PIN (Personal Identification Number) de sécurité, que vous devez générer manuellement. Pour cela, commencez par vous connecter au portail Azure.
 5. Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
 6. Sous **Code PIN de sécurité**, sélectionnez **Générer**. Copiez ce code PIN. Il n’est valide que pendant cinq minutes.
 7. Dans la console de gestion, collez le code PIN, puis sélectionnez **OK**.
@@ -156,17 +156,18 @@ Si vous avez arrêté la protection tout en conservant les données et avez déc
 
 Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors de la sauvegarde ou de la restauration de votre ordinateur local à l’aide de l’agent MARS sur ou à partir d’Azure. Si vous avez perdu ou oublié la phrase secrète, vous pouvez la régénérer (à condition que votre machine soit toujours inscrite auprès du coffre Recovery Services et que la sauvegarde soit configurée) en procédant comme suit :
 
-- Dans la console de l’agent MARS, accédez à **volet Actions** > **Modifier les propriétés** >. Accédez ensuite à l’**onglet Chiffrement**.<br>
-- Cochez la case **Modifier la phrase secrète**.<br>
-- Entrez une nouvelle phrase secrète ou cliquez sur **Générer une phrase secrète**.
-- Cliquez sur **Parcourir** pour enregistrer la nouvelle phrase secrète.
+1. Dans la console de l’agent MARS, accédez à **volet Actions** > **Modifier les propriétés** >. Accédez ensuite à l’**onglet Chiffrement**.<br>
+1. Cochez la case **Modifier la phrase secrète**.<br>
+1. Entrez une nouvelle phrase secrète ou cliquez sur **Générer une phrase secrète**.
+1. Cliquez sur **Parcourir** pour enregistrer la nouvelle phrase secrète.
 
     ![Générez une phrase secrète.](./media/backup-azure-manage-mars/passphrase.png)
-- Cliquez sur **OK** pour appliquer les Modifications.  Si la [fonctionnalité de sécurité](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) est activée sur le portail Azure pour le coffre Recovery Services, vous êtes invité à entrer le code PIN de sécurité. Pour recevoir le code PIN, effectuez les étapes décrites dans cet [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Collez le code PIN de sécurité à partir du portail, puis cliquez sur **OK** pour appliquer les Modifications.<br>
+
+1. Cliquez sur **OK** pour appliquer les Modifications.  Si la [Fonctionnalité de sécurité](./backup-azure-security-feature.md#enable-security-features) est activée sur le Portail Azure pour le coffre Recovery Services, il vous est demandé d’entrer le code PIN de sécurité. Pour recevoir le code PIN, effectuez les étapes décrites dans cet [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Collez le code PIN de sécurité à partir du portail, puis cliquez sur **OK** pour appliquer les Modifications.<br>
 
     ![Générez une phrase secrète.](./media/backup-azure-manage-mars/passphrase2.png)
-- Assurez-vous que la phrase secrète est enregistrée en toute sécurité à un autre emplacement (autre que la machine source), de préférence dans Azure Key Vault. Suivez toutes les phrases secrètes si vous avez plusieurs machines sauvegardées avec les agents MARS.
+1. Assurez-vous que la phrase secrète est enregistrée en toute sécurité à un autre emplacement (autre que la machine source), de préférence dans Azure Key Vault. Suivez toutes les phrases secrètes si vous avez plusieurs machines sauvegardées avec les agents MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gestion des données de sauvegarde pour les machines non disponibles
 
@@ -183,13 +184,14 @@ Pour ces machines, le service Sauvegarde Azure s’assure que le dernier point d
 La gestion de la stratégie de sauvegarde pour MARS s’effectue par le biais de la console MARS et non du portail. Si vous devez étendre les paramètres de conservation pour les points de récupération existants avant qu’ils n’expirent, vous devez restaurer la machine, installer la console MARS et étendre la stratégie.
 
 - Pour restaurer la machine, effectuez les étapes suivantes :
-  - [Restaurer la machine virtuelle sur une autre machine cible](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Recréer la machine cible avec le même nom d’hôte que la machine source
-  - Installer l’agent et refaire l’inscription dans le même coffre et avec la même phrase secrète
-  - Lancer le client MARS pour prolonger la durée de conservation en fonction de vos besoins
+  1. [Restaurer la machine virtuelle sur une autre machine cible](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Recréer la machine cible avec le même nom d’hôte que la machine source
+  1. Installer l’agent et refaire l’inscription dans le même coffre et avec la même phrase secrète
+  1. Lancer le client MARS pour prolonger la durée de conservation en fonction de vos besoins
 - Votre machine nouvellement restaurée, protégée par MARS, continuera à effectuer des sauvegardes.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les scénarios pris en charge et les limitations, reportez-vous à la [Matrice de prise en charge pour l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Pour plus d’informations sur les scénarios pris en charge et les limitations, reportez-vous à la [Matrice de prise en charge pour l’agent MARS](./backup-support-matrix-mars-agent.md).
 - En savoir plus sur le [comportement de conservation de la stratégie de sauvegarde à la demande](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Pour connaître les réponses à d’autres questions courantes, consultez la [FAQ sur l’agent MARS](backup-azure-file-folder-backup-faq.md).

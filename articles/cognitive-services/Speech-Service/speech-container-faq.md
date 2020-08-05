@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383077"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289035"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs de service Speech
 
@@ -49,7 +49,7 @@ Enfin, vous pouvez définir le nombre de décodeurs souhaité à l’intérieur 
 
 <details>
 <summary>
-<b>Pouvez-vous vous aider à planifier la capacité et à estimer les coûts des conteneurs Speech locaux ?</b>
+<b>Pouvez-vous aider à planifier la capacité et à estimer les coûts des conteneurs de reconnaissance vocale locaux ?</b>
 </summary>
 
 **Réponse :** Pour la capacité de conteneur en mode de traitement par lots, chaque décodeur peut gérer x2 à x3 en temps réel, avec deux cœurs de processeur, pour une reconnaissance unique. Nous vous déconseillons de conserver plus de deux reconnaissances simultanées par instance de conteneur, mais vous recommandons d’exécuter davantage d’instances de conteneurs pour des raisons de fiabilité/disponibilité, derrière un équilibreur de charge.

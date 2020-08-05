@@ -3,113 +3,107 @@ title: Présentation de l’utilisation des machines virtuelles Azure
 description: Présentation des détails relatifs à l’utilisation des machines virtuelles
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
-ms.openlocfilehash: fe3c8a3b5d63c67813a5098742392d5658e5c204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/28/2020
+ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034227"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387708"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
-L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Télécharger vos détails d’utilisation
-Pour commencer, [téléchargez vos détails d’utilisation](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
+Pour commencer, [téléchargez vos détails d’utilisation](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Le tableau ci-dessous fournit la définition et des exemples de valeurs d’utilisation pour des machines virtuelles déployées par le biais d’Azure Resource Manager. Il ne contient pas d’informations détaillées sur les machines virtuelles déployées par le biais de notre modèle classique.
 
 
-| Champs             | Signification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Exemples de valeurs                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Date d'utilisation         | Date à laquelle la ressource a été utilisée.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  “11/23/2017”                                                                                                                                                                                                                                                                                                                                                     |
-| ID du compteur           | Identifie le service de niveau supérieur dont cette utilisation relève.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | « Machines virtuelles »                                                                                                                                                                                                                                                                                                                                               |
-| Sous-catégorie du compteur | Identificateur du compteur facturé. <ul><li>Pour l’utilisation du service Heures de calcul, il existe un compteur pour chaque taille de machine virtuelle + système d’exploitation (Windows, non Windows) + région.</li><li>Pour l’utilisation des logiciels Premium, il existe un compteur pour chaque type de logiciel. La plupart des images de logiciels Premium ont des paramètres différents pour chaque taille élémentaire. Pour plus d’informations, consultez la page sur la [tarification du calcul Azure.](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>                                                                                                                                                                                                                                                                                                                                         | « 2005544f-659d-49c9-9094-8e0aea1be3a5 »                                                                                                                                                                                                                                                                                                                           |
-| Nom du compteur         | Il est propre à chaque service dans Azure. Pour le service de calcul, il s’agit toujours de « Heures de calcul ».                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | « Heures de calcul »                                                                                                                                                                                                                                                                                                                                                  |
-| Région du compteur       | Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  « Japon Est »                                                                                                                                                                                                                                                                                                                                                       |
-| Unité               | Identifie l’unité dans laquelle le service est facturé. Les ressources de calcul sont facturées par heure.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | « Heures »                                                                                                                                                                                                                                                                                                                                                          |
-| Consommé           | Quantité de la ressource consommée ce jour-là. Pour le calcul, nous facturons chaque minute d’exécution de la machine virtuelle pour une heure donnée (jusqu’à six décimales de précision).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    1 ; 0,5                                                                                                                                                                                                                                                                                                                                                    |
-| Emplacement de la ressource  | Identifie le centre de données dans lequel la ressource est en cours d’exécution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | « Japon Est »                                                                                                                                                                                                                                                                                                                                                        |
-| Service consommé   | Service de plateforme Azure que vous avez utilisé.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | « Microsoft.Compute »                                                                                                                                                                                                                                                                                                                                              |
-| Groupe de ressources     | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    « MyRG »                                                                                                                                                                                                                                                                                                                                                        |
-| ID de l’instance        | Identificateur pour la ressource. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. Pour les machines virtuelles, l’ID de l’instance contient l’ID d’abonnement, le nom du groupe de ressources et le nom de la machine virtuelle (ou le nom du groupe identique en cas d’utilisation d’un groupe de machines virtuelles identiques).                                                                                                                                                                                                                                                                                                                                                                                                                    | « /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1 »<br><br>or<br><br>« /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1 »                                                                                           |
-| Balises               | Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment [baliser vos machines virtuelles.](tag.md) Disponible uniquement pour les machines virtuelles Resource Manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | « {"myDepartment":"RD","myUser":"myName"} »                                                                                                                                                                                                                                                                                                                        |
-| Informations supplémentaires    | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <ul><li>Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.</li><li>Type de service : taille que vous avez déployée.</li><li>VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.</li><li>UsageType : spécifie le type d’utilisation représenté.<ul><li>ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.</li><li>ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium, comme Microsoft R Server.</li></ul></li></ul>    | Machines virtuelles {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Groupes de machines virtuelles identiques {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Logiciels Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
+| Champs | Signification | Exemples de valeurs | 
+|---|---|---|
+| Date d'utilisation | Date à laquelle la ressource a été utilisée. | `11/23/2017` |
+| ID du compteur | Service de niveau supérieur dont cette utilisation relève.| `Virtual Machines`|
+| Sous-catégorie du compteur | Identificateur du compteur facturé. <br><br> Pour l’utilisation du service Heures de calcul, il existe un compteur pour chaque taille de machine virtuelle + système d’exploitation (Windows, non Windows) + région. <br><br> Pour l’utilisation des logiciels Premium, il existe un compteur pour chaque type de logiciel. La plupart des images de logiciels Premium ont des paramètres différents pour chaque taille élémentaire. Pour plus d’informations, consultez la page [Tarifs du calcul](https://azure.microsoft.com/pricing/details/virtual-machines/).</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Nom du compteur| Il est propre à chaque service dans Azure. Pour le service de calcul, il s’agit toujours de « Heures de calcul ».| `Compute Hours`|
+| Région du compteur| Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.|  `JA East`|
+| Unité| Identifie l’unité dans laquelle le service est facturé. Les ressources de calcul sont facturées par heure.| `Hours`|
+| Consommé| Quantité de la ressource consommée ce jour-là. Pour le calcul, nous facturons chaque minute d’exécution de la machine virtuelle pour une heure donnée (jusqu’à six décimales de précision).| `1, 0.5`|
+| Emplacement de la ressource  | Identifie le centre de données dans lequel la ressource est en cours d’exécution.| `JA East`|
+| Service consommé | Service de plateforme Azure que vous avez utilisé.| `Microsoft.Compute`|
+| Groupe de ressources | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| ID de l’instance | Identificateur pour la ressource. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. Pour les machines virtuelles, l’ID de l’instance contient l’ID d’abonnement, le nom du groupe de ressources et le nom de la machine virtuelle (ou le nom du groupe identique en cas d’utilisation d’un groupe de machines virtuelles identiques).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Balises| Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment [baliser vos machines virtuelles.](tag.md) Disponible uniquement pour les machines virtuelles Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Informations supplémentaires | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <br><br> Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.<br><br> Type de service : taille que vous avez déployée.<br><br> VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.<br><br> UsageType : spécifie le type d’utilisation représenté.<br><br> ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.<br><br> ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium, comme Microsoft R Server. | Machines Virtuelles<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Logiciel Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Type d’image
 Pour certaines images de la galerie Azure, le type d’image est renseigné dans le champ Informations supplémentaires. Cela permet aux utilisateurs de comprendre et de suivre ce qu’ils ont déployé sur leur machine virtuelle. Les valeurs suivantes sont renseignées dans ce champ en fonction de l’image que vous avez déployée :
-  - BitRock 
-  - Canonical 
-  - FreeBSD 
-  - Open Logic 
-  - Oracle 
-  - SLES pour SAP 
-  - SQL Server 14 Preview sur Windows Server 2012 R2 Preview 
-  - SUSE
-  - SUSE Premium
-  - StorSimple Cloud Appliance 
-  - Red Hat
-  - Red Hat for SAP Business Applications     
-  - Red Hat for SAP HANA 
-  - Windows Client BYOL 
-  - Windows Server BYOL 
-  - Windows Server Preview 
+- BitRock 
+- Canonical FreeBSD 
+- Open Logic 
+- Oracle 
+- SLES pour SAP 
+- SQL Server 14 Preview sur Windows Server 2012 R2 Preview 
+- SUSE
+- SUSE Premium
+- StorSimple Cloud Appliance 
+- Red Hat
+- Red Hat for SAP Business Applications     
+- Red Hat for SAP HANA 
+- Windows Client BYOL 
+- Windows Server BYOL 
+- Windows Server Preview 
 
 ## <a name="service-type"></a>Type de service
-Le champ Type de service dans le champ Informations supplémentaires correspond à la taille exacte de machine virtuelle que vous avez déployée. Les machines virtuelles à stockage Premium (basées sur SSD) et celles à stockage non-Premium (basées sur disque dur) sont facturées de manière identique. Si vous déployez une taille de disque SSD, par exemple Standard\_DS2\_v2, la taille non-SSD (« Standard\_D2\_v2 VM ») apparaît dans la colonne Sous-catégorie du compteur et la taille SSD (« Standard\_DS2\_v2 ») apparaît dans le champ Informations supplémentaires.
+Le champ Type de service dans le champ Informations supplémentaires correspond à la taille exacte de machine virtuelle que vous avez déployée. Les machines virtuelles à stockage Premium (basées sur SSD) et celles à stockage non-Premium (basées sur disque dur) sont facturées de manière identique. Si vous déployez une taille de type SSD, par exemple Standard\_DS2\_v2, la taille sans SSD (`Standard\_D2\_v2 VM`) apparaît dans la colonne Sous-catégorie du compteur et la taille avec SSD (`Standard\_DS2\_v2`) dans le champ Informations complémentaires.
 
 ## <a name="region-names"></a>Noms de régions
 Le nom de la région renseigné dans le champ Emplacement de la ressource dans les détails d’utilisation diffère du nom de la région utilisé dans Azure Resource Manager. Voici un mappage entre les valeurs de région :
 
-|    **Nom de région dans Resource Manager**       |    **Emplacement de la ressource dans les détails d’utilisation**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    Australie Est                               |
-|    australiasoutheast    |    Australie Sud-Est                          |
-|    brazilsouth           |    Brésil Sud                              |
-|    CanadaCentral         |    Canada Centre                            |
-|    CanadaEast            |    Canada Est                               |
-|    CentralIndia          |    Inde Centre                            |
-|    centralus             |    USA Centre                            |
-|    chinaeast             |    Chine orientale                            |
-|    chinanorth            |    Chine du Nord                           |
-|    eastasia              |    Asie Est                             |
-|    eastus                |    USA Est                               |
-|    eastus2               |    USA Est 2                             |
-|    GermanyCentral        |    Allemagne - Centre                            |
-|    GermanyNortheast      |    Allemagne - Nord-Est                          |
-|    japaneast             |    Japon Est                               |
-|    japanwest             |    Japon Ouest                               |
-|    KoreaCentral          |    Corée Centre                            |
-|    KoreaSouth            |    Corée Sud                              |
-|    northcentralus        |    Centre-Nord des États-Unis                      |
-|    northeurope           |    Europe Nord                          |
-|    southcentralus        |    États-Unis - partie centrale méridionale                      |
-|    southeastasia         |    Asie Sud-Est                        |
-|    SouthIndia            |    Inde Sud                              |
-|    UKNorth               |    Nord du Royaume-Uni                              |
-|    uksouth               |    Sud du Royaume-Uni                              |
-|    UKSouth2              |    Sud du Royaume-Uni 2                            |
-|    ukwest                |    Ouest du Royaume-Uni                               |
-|    USDoDCentral          |    Centre des États-Unis – US DoD                        |
-|    USDoDEast             |    Est des États-Unis – US DoD                           |
-|    USGovArizona          |    Gouvernement des États-Unis - Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Gouvernement des États-Unis - Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    USA Centre-Ouest                       |
-|    westeurope            |    Europe Ouest                           |
-|    WestIndia             |    Inde Ouest                               |
-|    westus                |    USA Ouest                               |
-|    westus2               |    USA Ouest 2                             |
+| **Nom de région dans Resource Manager** | **Emplacement de la ressource dans les détails d’utilisation** |
+|---|---|
+| australiaeast |Australie Est|
+| australiasoutheast | Australie Sud-Est|
+| brazilsouth | Brésil Sud|
+| CanadaCentral | Canada Centre|
+| CanadaEast | Canada Est|
+| CentralIndia | Inde Centre|
+| centralus | USA Centre|
+| chinaeast | Chine orientale|
+| chinanorth | Chine du Nord|
+| eastasia | Asie Est|
+| eastus | USA Est|
+| eastus2 | USA Est 2|
+| GermanyCentral | Allemagne - Centre|
+| GermanyNortheast | Allemagne - Nord-Est|
+| japaneast | Japon Est|
+| japanwest | Japon Ouest|
+| KoreaCentral | Corée Centre|
+| KoreaSouth | Corée Sud|
+| northcentralus | Centre-Nord des États-Unis|
+| northeurope | Europe Nord|
+| southcentralus | États-Unis - partie centrale méridionale|
+| southeastasia | Asie Sud-Est|
+| SouthIndia | Inde Sud|
+| UKNorth | Nord du Royaume-Uni|
+| uksouth | Sud du Royaume-Uni|
+| UKSouth2 | Sud du Royaume-Uni 2|
+| ukwest | Ouest du Royaume-Uni|
+| USDoDCentral | Centre des États-Unis – US DoD|
+| USDoDEast | Est des États-Unis – US DoD|
+| USGovArizona | Gouvernement des États-Unis - Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | Gouvernement des États-Unis - Texas|
+| usgovvirginia | USGov Virginia|
+| westcentralus | USA Centre-Ouest|
+| westeurope | Europe Ouest|
+| WestIndia | Inde Ouest|
+| westus | USA Ouest|
+| westus2 | USA Ouest 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Forum aux questions sur l’utilisation des machines virtuelles
@@ -132,7 +126,7 @@ ComputeHR signifie Heures de calcul, et représente l’événement d’utilisat
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Comment savoir si des logiciels Premium me sont facturés ?
 Quand vous recherchez l’image de machine virtuelle qui convient le mieux à vos besoins, n’oubliez pas de consulter la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Pour chaque image, le taux du plan logiciel applicable est indiqué. Si le taux porte la mention « Gratuit », cela signifie qu’il n’y a aucun coût supplémentaire lié au logiciel. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Quelle est la différence entre Microsoft.ClassicCompute et Microsoft.Compute dans le service Consommé ?
-Microsoft.ClassicCompute représente les ressources classiques déployées par le biais d’Azure Service Manager. Si vous déployez par le biais de Resource Manager, Microsoft.Compute est renseigné dans le service Consommé. Pour en savoir plus sur les modèles de déploiement Azure, consultez [cet article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+Microsoft.ClassicCompute représente les ressources classiques déployées par le biais d’Azure Service Manager. Si vous déployez par le biais de Resource Manager, Microsoft.Compute est renseigné dans le service Consommé. Pour en savoir plus sur les modèles de déploiement Azure, consultez [cet article](../../azure-resource-manager/management/deployment-models.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Pourquoi le champ ID de l’instance est-il vide pour l’utilisation de ma machine virtuelle ?
 Si vous déployez par le biais du modèle de déploiement classique, la chaîne ID de l’instance n’est pas disponible.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Pourquoi les balises pour mes machines virtuelles ne figurent-elles pas dans les détails d’utilisation ?
@@ -143,6 +137,4 @@ Dans le modèle classique, la facturation des ressources est agrégée au niveau
 Les machines virtuelles compatibles avec le stockage Premium sont facturées au même taux que les machines virtuelles compatibles avec le stockage non-Premium. Seuls vos coûts de stockage diffèrent. Pour plus d’informations, consultez la [page de tarification du stockage](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les détails d’utilisation, consultez [Comprendre votre facture Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
-)
-
+Pour en savoir plus sur les détails d’utilisation, consultez [Comprendre votre facture Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)

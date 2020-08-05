@@ -1,6 +1,5 @@
 ---
-title: Paramètres de service web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Paramètres de service web - Azure'
 description: Comment utiliser les paramètres de service Web Azure Machine Learning pour modifier le comportement de votre modèle au moment d’accéder au service Web.
 services: machine-learning
 author: likebupt
@@ -12,14 +11,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3fb4a0dab08a13327c910d1e09ecbf0afcec8c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326254"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Utiliser les paramètres de service web Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
 
@@ -43,7 +45,7 @@ La documentation pour le service Web fournit à l'utilisateur du service Web d
 > 
 > 
 
-## <a name="example"></a> Exemple
+## <a name="example"></a>Exemple
 Par exemple, supposons que nous avons une expérience avec un module [Exporter des données][writer] qui envoie des informations vers un stockage blob Azure. Nous allons définir un paramètre de service Web nommé « Chemin d'accès d'objet blob » qui permet à l'utilisateur de service Web de modifier le chemin d'accès pour le stockage d'objets blob lors de l’accès au service.
 
 1. Dans Machine Learning Studio (classique), cliquez sur le module [Exporter les données][writer] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.

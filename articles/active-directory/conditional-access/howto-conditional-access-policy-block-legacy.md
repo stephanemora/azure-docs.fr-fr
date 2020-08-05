@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995188"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283008"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -36,7 +36,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud**, sélectionnez **Toutes les applications cloud**.
    1. Sélectionnez **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** , réglez **Configurer** sur **Oui**.
+1. Sous **Conditions** > **Applications clientes (préversion)** > **Sélectionnez les applications clientes auxquelles cette stratégie s’applique** :
    1. Cochez uniquement les cases **Applications mobiles et clients de bureau** > **Autres clients**.
    1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d'accès** > **Accorder**, sélectionnez **Bloquer l’accès**.

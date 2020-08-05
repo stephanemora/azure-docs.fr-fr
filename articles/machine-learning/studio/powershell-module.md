@@ -1,6 +1,5 @@
 ---
-title: Modules PowerShell
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Modules PowerShell - Azure'
 description: Utilisez PowerShell pour créer et gérer des espaces de travail Azure Machine Learning Studio (classique), des expériences, des services web, etc.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +8,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f51a09a82d544a5940dfad69dc8e36d99a2f7a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117557"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324979"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Modules PowerShell pour Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Grâce aux modules PowerShell, vous pouvez gérer par programmation vos ressources Studio (classique) et des ressources telles que les espaces de travail, les jeux de données et les services web.
 
@@ -51,7 +53,7 @@ PowerShell Classic peut être installé en même temps que Az ou AzureRM pour co
 ## <a name="powershell-support-table"></a><a name="support-table"></a> Tableau de prise en charge PowerShell
 
 
-| | **Az** |  **PowerShell Classic** |
+|  **Az** |  **PowerShell Classic** |
 | --- | --- | --- |
 | Créer/supprimer des espaces de travail | [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Gérer les plans d’engagement d’espace de travail | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |

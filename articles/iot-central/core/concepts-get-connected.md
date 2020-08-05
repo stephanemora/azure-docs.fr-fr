@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337090"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -213,13 +213,13 @@ L'une des principales fonctionnalités d’IoT Central est la possibilité d'ass
 
 Les extraits de code suivants présentent le format de la charge utile supplémentaire que l’appareil doit envoyer pendant l’appel d’inscription DPS pour que l’association automatique fonctionne.
 
-Il s’agit du format pour les appareils qui utilisent le kit de développement logiciel (SDK) d’appareil généralement disponible qui ne prend pas en charge IoT Plug-and-Play :
+Voici le format pour les appareils qui utilisent le kit device SDK en disponibilité générale :
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Il s’agit du format pour les appareils qui utilisent le kit de développement logiciel (SDK) d’appareil en préversion publique qui prend en charge IoT Plug-and-Play :
+Voici le format pour les appareils qui utilisent le kit device SDK en préversion publique :
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ Le tableau suivant récapitule à quelles fonctionnalités des appareils Azure I
 | Propriété | Propriétés signalées du jumeau d’appareil |
 | Propriété (accessible en écriture) | Propriétés souhaitées et signalées du jumeau d’appareil |
 | Commande | Méthodes directes |
-
-Pour en savoir plus sur l’utilisation des SDK d’appareil, consultez [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](howto-connect-devkit.md) pour obtenir un exemple de code.
 
 ### <a name="protocols"></a>Protocoles
 

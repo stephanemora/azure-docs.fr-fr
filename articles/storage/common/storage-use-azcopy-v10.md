@@ -4,15 +4,15 @@ description: AzCopy est un utilitaire de ligne de commande que vous pouvez utili
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142998"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289229"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -111,7 +111,7 @@ Une fois que vous avez vérifié que votre identité d’utilisateur est associ�
 azcopy login
 ```
 
-Si vous appartenez à plusieurs organisations, incluez l’ID de locataire de l’organisation à laquelle appartient le compte de stockage.
+Si vous recevez une erreur, essayez d’inclure l’ID de locataire de l’organisation à laquelle appartient le compte de stockage.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

@@ -1,16 +1,18 @@
 ---
-title: Tableau de bord Client dans l’analytique de la Place de marché commerciale Microsoft dans l’Espace partenaires
+title: Tableau de bord Client dans l’analytique de la place de marché commerciale Microsoft dans l’Espace partenaires, la Place de marché Azure et Microsoft AppSource
 description: Découvrez comment accéder à des informations détaillées sur vos clients, notamment les tendances de croissance, avec le tableau de bord Client dans l’analytique de la Place de marché commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 44e992bb1445e1e58f42ec150a8e2c0682eea98b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121756"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317584"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la Place de marché commerciale
 
@@ -29,17 +31,19 @@ Le **tableau de bord Client** du menu **Analyser** présente les données des cl
 - [Clients par zone géographique](#customer-by-geography)
 - [Tendances clients](#customer-trends)
 - [Clients par commande et utilisation](#customers-by-orders-and-usage)
-- [Clients par référence SKU](#customers-by-skus)
+- [Clients par plan](#customers-by-plans)
 - [Commandes et utilisation par type de client](#orders-and-usage-by-customer-type)
 - [Tableau des détails des commandes](#customer-details-table)
 - [Filtres de la page Client](#customer-page-filters)
+
+La latence maximale entre l’acquisition du client et la création de rapports dans l’Espace partenaires est de 48 heures.
 
 ### <a name="customer-summary"></a>Résumé des clients
 
 La section Résumé des clients présente le nombre total de clients (anciens, existants, nouveaux) sur la plage de dates sélectionnée.
 
 - Le nombre total de clients est défini comme le nombre de clients qui ont acheté votre offre et comptent au moins une commande non annulée.
-- Le pourcentage de croissance des clients comparé au mois précédent est indiqué par le nombre et l'indicateur ascendant en vert ou l'indicateur descendant en rouge.
+- Le pourcentage de croissance des clients comparé au mois précédent est indiqué par le nombre et l’indicateur ascendant en vert ou l’indicateur descendant en rouge.
 - Les tendances de croissance sont représentées par des graphiques à barres et affichent la valeur pour chaque mois lorsque vous placez le curseur sur les colonnes du graphique.
 
 Il existe trois **types de clients** : anciens, existants et nouveaux.
@@ -50,7 +54,7 @@ Il existe trois **types de clients** : anciens, existants et nouveaux.
 
 ### <a name="customer-by-geography"></a>Clients par zone géographique
 
-Le graphe **Client par zone géographique** présente le nombre total de clients et le nombre de clients acquis au cours de la plage de dates sélectionnée, mis en relation avec le pays/région du client. Les couleurs claires sur la carte indiquent des valeurs faibles et les couleurs foncées des valeurs élevées. Cliquez sur l’un des enregistrements du tableau pour zoomer sur un pays/région.
+Le graphe **Client par zone géographique** présente le nombre total de clients et le nombre de clients acquis au cours de la plage de dates sélectionnée, mis en relation avec le pays/la région du client. Les couleurs claires sur la carte indiquent des valeurs faibles et les couleurs foncées des valeurs élevées. Sélectionnez l’un des enregistrements du tableau pour zoomer sur un pays/une région.
 
 Le carte thermique présente le nombre de clients et le pourcentage par pays/région du client. Vous pouvez vous déplacer sur la carte pour voir l’emplacement exact et zoomer sur un emplacement spécifique. Cette carte comporte une grille supplémentaire permettant d’afficher le pourcentage de clients par emplacement, ainsi que les clients récemment ajoutés à cet emplacement.
 
@@ -71,14 +75,14 @@ Le graphique **Clients par commande/utilisation** comporte trois onglets : « C
 
 À titre d’exemple, consultez le graphe ci-dessous pour l’utilisation normalisée : Le trentième centile de clients représente 87 % de l’utilisation normalisée cumulée. Le trentième centile de clients ne correspond qu’à 1,57 millions heures d’utilisation.
 
-### <a name="customers-by-skus"></a>Clients par référence SKU
+### <a name="customers-by-plans"></a>Clients par plan
 
-Les graphes **Clients par référence SKU/utilisation** sont décrits ci-dessous.
+Les graphes **Clients par plan/utilisation** sont décrits ci-dessous.
 
 1. Le classement présente les détails des 50 premiers clients par nombre de commandes. Les détails du client sélectionné sont présentés dans les sections 2, 3 et 4 de ce tableau de bord.
 2. Les détails du profil client s’affichent dans cet espace lorsque les éditeurs sont connectés avec un rôle Propriétaire. S’ils sont connectés avec un rôle Collaborateur, les détails de cette section ne sont pas disponibles.
-3. Le graphique en anneau Commandes par référence SKU présente la répartition des commandes passées pour les références SKU. Les cinq premières références SKU par nombre de commandes sont affichées, tandis que les autres sont regroupées sous « Tout le reste ».
-4. Le graphique en anneau Sièges par référence SKU présente la répartition des sièges commandés pour les références SKU. Les cinq premières références SKU par nombre de sièges sont affichées, tandis que les autres sont regroupées sous « Tout le reste ».
+3. Le graphique en anneau **Commandes par plan** présente la répartition des commandes passées pour les plans. Les cinq premiers plans par nombre de commandes sont affichés, tandis que les autres sont regroupés sous « Tout le reste ».
+4. Le graphique en anneau **Sièges par plan** présente la répartition des sièges commandés pour les plans. Les cinq premiers plans par nombre de sièges sont affichés, tandis que les autres sont regroupés sous « Tout le reste ».
 
 ### <a name="orders-and-usage-by-customer-type"></a>Commandes et utilisation par type de client
 
@@ -95,7 +99,7 @@ Le tableau **Détails des clients** présente la liste numérotée des 1 000 me
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier TSV en présence d'un nombre d’enregistrements inférieur à 1 000.
 - En présence d’un nombre d’enregistrements supérieur à 1 000, les données exportées sont placées de manière asynchrone sur une page de téléchargement pour une durée de 30 jours.
-- Des filtres peuvent être appliqués au tableau pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par nom de société, ID de client, ID d’abonnement de la Place de marché, type de licence Azure, date d’achat, date d’annulation, adresse e-mail du client, pays/région/état/ville/code postal du client, langue du client, et ainsi de suite.
+- Appliquez des filtres au tableau pour afficher uniquement les données qui vous intéressent. Filtrez les données par nom de société, ID client, ID d’abonnement à la Place de marché, type de licence Azure, date d’acquisition, date d’annulation, adresse e-mail du client, pays/région/état/ville/code postal du client, langue du client, etc.
 - Quand une offre est achetée par un client protégé, les informations contenues dans **Données détaillées du client** sont masquées (************).
 - Les détails de la dimension Client, tels que le nom de la société, le nom du client et son adresse e-mail, sont au niveau de l’ID de l’organisation, et non au niveau de la transaction Place de marché Azure ou AppSource.
 
@@ -104,7 +108,7 @@ Le tableau **Détails des clients** présente la liste numérotée des 1 000 me
 Les filtres de la **page Clients** s’appliquent au niveau de la page Clients. Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphique pour les critères et les données souhaités dans la grille/l’exportation « Données de commandes détaillées ». Les filtres sont appliqués aux données extraites pour la plage de données sélectionnée dans l’angle supérieur droit de la page Commandes.
 
 >[!NOTE]
-> Les définitions détaillées de chacun des champs de la grille Client, des filtres de page et de leurs sélections possibles se trouvent dans [Questions fréquentes et terminologie de l’analytique de la place de marché commerciale](./faq-terminology.md).
+> Pour une définition détaillée de chacun des champs de la grille Client, des filtres de page et de leurs sélections possibles, consultez l’article FAQ indiqué ci-dessous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

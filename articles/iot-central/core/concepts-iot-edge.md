@@ -7,12 +7,12 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759093"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337073"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connecter des appareils Azure IoT Edge à une application Azure IoT Central
 
@@ -58,7 +58,7 @@ Dans Azure IoT Central, vous pouvez importer un manifeste de déploiement pour c
 
 ![Organigramme du cycle de vie d’un manifeste de déploiement](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug-and-Play (préversion) modélise un appareil IoT Edge de la façon suivante :
+IoT Central modélise ainsi un appareil IoT Edge :
 
 * À chaque modèle d’appareil IoT Edge correspond un modèle de capacité d’appareil.
 * Un modèle de capacité de module est généré pour chaque module personnalisé listé dans le manifeste de déploiement.

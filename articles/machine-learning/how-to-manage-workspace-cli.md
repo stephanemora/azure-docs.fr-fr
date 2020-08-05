@@ -5,16 +5,17 @@ description: Découvrez comment utiliser Azure CLI pour créer un espace de trav
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392707"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319692"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 L’espace de travail d’Azure Machine Learning s’appuie sur les entités ou services Azure suivants :
 
 > [!IMPORTANT]
-> Si vous ne spécifiez pas de service Azure existant, il en sera créé un automatiquement lors de la création de l’espace de travail. Vous devez toujours spécifier un groupe de ressources. Lorsque vous attachez votre propre compte de stockage, assurez-vous que les fonctionnalités Azure Blob et Azure File sont activées et que l’espace de noms hiérarchique (ADLS Gen 2) est désactivé. Vous pouvez toujours attacher votre propre compte de stockage ultérieurement, une fois que l’espace de travail est créé en tant que magasins de stockage.
+> Si vous ne spécifiez pas de service Azure existant, il en sera créé un automatiquement lors de la création de l’espace de travail. Vous devez toujours spécifier un groupe de ressources. Lorsque vous attachez votre propre compte de stockage, vérifiez qu’il répond aux critères suivants :
+>
+> * Le compte de stockage n’est _pas_ un compte Premium (Premium_LRS ou Premium_GRS).
+> * Les fonctionnalités Azure Blob et Azure File sont activées.
+> * L’espace de noms hiérarchique (ADLS Gen2) est désactivé.
+>
+> Ces exigences concernent uniquement le compte de stockage utilisé _par défaut_ par l’espace de travail.
 
 | Service | Paramètre pour spécifier une instance existante |
 | ---- | ---- |
@@ -147,6 +154,9 @@ Pour créer un espace de travail qui utilise des ressources existantes, vous dev
     La réponse de cette commande est similaire au texte suivant et correspond à l’ID de votre compte de stockage :
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
 
 + **Azure Application Insights** :
 

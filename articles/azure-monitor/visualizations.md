@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498591"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325523"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -19,7 +19,7 @@ Cet article récapitule les méthodes disponibles pour visualiser les métriques
 Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à analyser vos données de supervision pour explorer des problèmes en profondeur et identifier des modèles. En fonction de l’outil que vous utilisez, vous pouvez également avoir la possibilité de partager les visualisations avec d’autres utilisateurs à l’intérieur et en dehors de votre organisation.
 
 ## <a name="workbooks"></a>Workbooks
-Les [classeurs](../azure-monitor/platform/workbooks-overview.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
+Les [classeurs](./platform/workbooks-overview.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
 
 ![Classeur](media/visualizations/workbook.png)
 
@@ -40,6 +40,8 @@ Les [classeurs](../azure-monitor/platform/workbooks-overview.md) sont des docume
 Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constituent la principale technologie de création de tableaux de bord pour Azure. Ils sont particulièrement efficaces pour fournir un panorama unique de vos infrastructure et services Azure, ce qui vous permet d’identifier rapidement les problèmes importants.
 
 ![tableau de bord](media/visualizations/dashboard.png)
+
+Voici une procédure vidéo expliquant la création de tableaux de bord.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
@@ -139,7 +141,7 @@ Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent d
 - Découvrez les [données collectées par Azure Monitor](platform/data-platform.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
 - Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
-- Découvrez les [classeurs](../azure-monitor/platform/workbooks-overview.md).
-- Découvrez [l’importation de données de journal dans Power BI](../azure-monitor/platform/powerbi.md).
-- Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../azure-monitor/platform/grafana-plugin.md).
+- Découvrez les [classeurs](./platform/workbooks-overview.md).
+- Découvrez [l’importation de données de journal dans Power BI](./platform/powerbi.md).
+- Découvrez le [plug-in de source de données Azure Monitor pour Grafana](./platform/grafana-plugin.md).
 

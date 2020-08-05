@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505339"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124729"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -38,7 +38,7 @@ Certaines solutions de contournement permettent à un non-propriétaire de crée
 |----------|--------|-------|
 | L’administrateur du groupe de ressources crée le vFXT | Le réseau virtuel, le contrôleur de cluster et les nœuds du cluster doivent être créés dans le groupe de ressources. | Les rôles [Administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [Contributeur](../role-based-access-control/built-in-roles.md#contributor), tous deux limités au groupe de ressources cible. |
 | Utiliser un réseau virtuel externe existant | Le contrôleur de cluster et les nœuds du cluster sont créés dans le groupe de ressources du vFXT, mais utilisent un réseau virtuel existant dans un autre groupe de ressources. | (1) Rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) étendus au groupe de ressources vFXT ; et (2) rôles [contributeur de machines virtuelles](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur Avere](../role-based-access-control/built-in-roles.md#avere-contributor) étendus au groupe de ressources du réseau virtuel. |
-| Rôle personnalisé pour les créateurs de cluster | Aucune restriction de placement des ressources. Cette méthode confère des privilèges significatifs aux non-propriétaires. | Le propriétaire de l’abonnement crée un rôle RBAC personnalisé comme expliqué dans [cet article](avere-vfxt-non-owner.md). |
+| Rôle personnalisé pour les créateurs de cluster | Aucune restriction de placement des ressources. Cette méthode confère des privilèges significatifs aux non-propriétaires. | Le propriétaire de l’abonnement crée un rôle personnalisé Azure comme expliqué dans [cet article](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota pour le cluster vFXT
 

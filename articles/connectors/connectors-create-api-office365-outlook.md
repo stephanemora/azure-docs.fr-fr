@@ -3,16 +3,16 @@ title: Se connecter à Office 365 Outlook
 description: Automatiser les tâches et les workflows qui gèrent la messagerie, les contacts et les calendriers dans Office 365 avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75732677"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319233"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
 
@@ -29,9 +29,9 @@ Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un [compte Office 365](https://www.office.com/).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
+* Un [compte Office 365](https://www.office.com/).
 
 * L’application logique à partir de laquelle vous souhaitez accéder à votre compte Office 365 Outlook. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre application logique doit déjà disposer d’un déclencheur.
 
@@ -46,6 +46,9 @@ Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) dési
    ![Sélectionner un déclencheur pour démarrer votre application logique](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés du déclencheur.
+
+   > [!NOTE]
+   > Votre connexion n’expire pas tant qu’elle n’est pas révoquée, même si vous modifiez vos informations d’identification de connexion. Pour plus d’informations, consultez [Durée de vie des jetons configurables dans Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    Cet exemple sélectionne le calendrier que le déclencheur vérifie, par exemple :
 
@@ -77,6 +80,9 @@ Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une op
 
 1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés de l’action.
 
+   > [!NOTE]
+   > Votre connexion n’expire pas tant qu’elle n’est pas révoquée, même si vous modifiez vos informations d’identification de connexion. Pour plus d’informations, consultez [Durée de vie des jetons configurables dans Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+
    Cet exemple sélectionne le dossier de contacts dans lequel l’action crée le contact, par exemple :
 
    ![Configurer les propriétés de l’action](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -85,9 +91,9 @@ Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une op
 
 1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques concernant les déclencheurs, les actions et les limites, telles qu’elles sont décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/office365connector/). 
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans son fichier Swagger, consultez la [page de référence du connecteur](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

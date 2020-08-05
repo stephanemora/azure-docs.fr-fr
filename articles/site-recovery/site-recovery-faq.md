@@ -2,14 +2,14 @@
 title: Questions générales sur le service Azure Site Recovery
 description: Cet article traite des questions générales fréquemment posées sur Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083733"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questions générales sur Azure Site Recovery
 
@@ -116,6 +116,19 @@ Les agents de mobilité installés sur les éléments répliqués communiquent a
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Comment appliquer le protocole TLS 1.2 dans les scénarios HyperV vers Azure Site Recovery ?
 Toutes les communications entre les microservices d’Azure Site Recovery se produisent sur le protocole TLS 1.2. Site Recovery utilise le dernier protocole TLS disponible ainsi que des fournisseurs de sécurité configurés dans le système d’exploitation. Vous devez activer explicitement le protocole TLS 1.2 dans le registre, afin que Site Recovery puisse commencer à utiliser TLS 1.2 pour la communication avec les services. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Comment appliquer un accès restreint sur mes comptes de stockage, auxquels Site Recovery Service accède pour lire/écrire des données de réplication ?
+Vous pouvez activer l’identité managée du coffre Recovery Services en accédant au paramètre *Identité*. Une fois le coffre inscrit auprès d’Azure Active Directory, accédez à vos comptes de stockage et attribuez les rôles suivantes au coffre :
+
+- Comptes de stockage basés sur Resource Manager (type Standard) :
+  - [Contributeur](../role-based-access-control/built-in-roles.md#contributor)
+  - [Contributeur aux données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Comptes de stockage basés sur Resource Manager (type Premium) :
+  - [Contributeur](../role-based-access-control/built-in-roles.md#contributor)
+  - [Propriétaire des données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Comptes de stockage Classic :
+  - [Contributeur de compte de stockage classique](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Rôle de service d’opérateur de clé de compte de stockage classique](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 
 ### <a name="what-can-site-recovery-protect"></a>Que peut protéger Site Recovery ?
@@ -142,7 +155,7 @@ Oui, Site Recovery prend en charge la reprise d’activité après sinistre des 
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>La reprise d’activité après sinistre est-elle prise en charge pour les machines virtuelles Hyper-V ?
 Oui, Site Recovery prend en charge la reprise d’activité après sinistre des machines virtuelles Hyper-V locales. [Lisez les questions fréquentes](hyper-v-azure-common-questions.md) sur la reprise d’activité après sinistre des machines virtuelles Hyper-V.
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>La reprise d’activité après sinistre est-elle prise en charge pour les serveurs physiques ?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>La reprise d’activité après sinistre est-elle prise en charge pour les serveurs physiques ?
 Oui, Site Recovery prend en charge la reprise d’activité après sinistre des serveurs physiques locaux exécutant Windows et Linux dans Azure ou dans un site secondaire. En savoir plus sur la configuration requise pour la reprise d’activité après sinistre vers [Azure](vmware-physical-azure-support-matrix.md#replicated-machines) et [vers un site secondaire](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Notez que les serveurs physiques sont exécutés en tant que machines virtuelles dans Azure après le basculement. La restauration automatique à partir d’Azure sur un serveur physique local n’est actuellement pas prise en charge. Vous pouvez uniquement effectuer la restauration automatique d’une machine virtuelle VMware.
 

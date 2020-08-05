@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210607"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374131"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data Warehouse Units (DWUs)
 
@@ -100,7 +100,7 @@ Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élev
 
 La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Les rôles intégrés pour les ressources Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
+Les rôles intégrés Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
 
 ## <a name="view-current-dwu-settings"></a>Afficher les paramètres d’unités DWU actuels
 

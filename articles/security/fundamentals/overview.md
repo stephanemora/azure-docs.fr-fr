@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125666"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371394"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -142,7 +142,7 @@ Dans Diagnostic d’application, vous pouvez afficher les événements regroupé
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du stockage Azure et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](../../role-based-access-control/built-in-roles.md), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
+Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md), comme Contributeur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 Une [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.

@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084951"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373485"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Comme l’infrastructure Azure évolue, Microsoft actualise régulièrement le matériel, afin de proposer la meilleure expérience client possible. Dans les prochains mois, nous prévoyons d’ajouter des passerelles basées sur des générations de matériel plus récentes, de migrer le trafic vers ces passerelles et de mettre hors service les passerelles basées sur du matériel plus ancien dans certaines régions.  
 
@@ -27,6 +27,19 @@ Les clients seront informés très tôt de toute modification apportée aux pass
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+### <a name="september-2020"></a>Septembre 2020
+
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
+- Europe Nord : 13.74.104.113 
+- USA Ouest 2 : 40.78.248.10 
+- Europe Ouest : 52.236.184.163 
+- USA Centre Sud : 20.45.121.1, 20.49.88.1 
+
+Les passerelles SQL existantes commenceront à accepter le trafic dans les régions suivantes :
+- Japon Est : 40.79.184.8, 40.79.192.5
+
+Ces passerelles SQL devraient commencer à accepter le trafic client le 1er septembre 2020. 
 
 ### <a name="august-2020"></a>Août 2020
 

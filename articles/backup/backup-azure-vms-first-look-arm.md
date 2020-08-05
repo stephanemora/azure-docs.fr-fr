@@ -3,12 +3,12 @@ title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la m
 description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286727"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -39,15 +39,15 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
    - Si vous disposez déjà d’un coffre, cliquez sur **Sélectionner** et choisissez un coffre.
    - Si vous n’avez pas de coffre, cliquez sur **Créer**. Nommez le coffre. Il est créé dans la même région et le même groupe de ressources que la machine virtuelle. Vous ne pouvez pas modifier ces paramètres quand vous activez la sauvegarde directement à partir des paramètres de la machine virtuelle.
 
-   ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Assistant Activer la sauvegarde](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. Dans **Choisir une stratégie de sauvegarde**, effectuez les étapes suivantes :
+6. Dans **Choisir une stratégie de sauvegarde**, procédez de l’une des façons suivantes :
 
    - Conservez la stratégie par défaut. La machine virtuelle est sauvegardée une fois par jour à l’heure spécifiée, et les sauvegardes sont conservées dans le coffre pendant 30 jours.
    - Sélectionnez une stratégie de sauvegarde existante si vous en avez une.
    - Créez une stratégie et définissez ses paramètres.  
 
-   ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Cliquez sur **Activer la sauvegarde**. La stratégie de sauvegarde est alors associée à la machine virtuelle.
 

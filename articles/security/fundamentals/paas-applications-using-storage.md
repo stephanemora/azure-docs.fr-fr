@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70999167"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371377"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Bonnes pratiques pour la sécurisation des applications mobiles et web PaaS avec le Stockage Azure
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du Stockage Azure pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
@@ -58,14 +58,14 @@ Pour en savoir plus sur la signature d’accès partagé, consultez [Utilisation
 ## <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle
 Une autre façon de gérer l’accès consiste à utiliser le [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) (RBAC). Avec RBAC, vous vous concentrez sur l’octroi aux employés des autorisations exactes dont ils ont besoin, selon les principes de sécurité de la séparation des privilèges et du besoin de connaître. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. RBAC permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure. Ces principes sont impératifs pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données.
 
-Vous pouvez utiliser des rôles RBAC intégrés dans Azure pour attribuer des privilèges aux utilisateurs. Par exemple, utilisez le rôle Contributeur de comptes de stockage pour les opérateurs de cloud qui doivent gérer des comptes de stockage, et le rôle Contributeur de comptes de stockage classiques pour gérer des comptes de stockage classiques. Concernant les opérateurs de cloud qui doivent gérer des machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées, vous pouvez les ajouter au rôle Collaborateur de machine virtuelle.
+Vous pouvez utiliser des rôles intégrés Azure dans Azure pour attribuer des privilèges aux utilisateurs. Par exemple, utilisez le rôle Contributeur de comptes de stockage pour les opérateurs de cloud qui doivent gérer des comptes de stockage, et le rôle Contributeur de comptes de stockage classiques pour gérer des comptes de stockage classiques. Concernant les opérateurs de cloud qui doivent gérer des machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées, vous pouvez les ajouter au rôle Collaborateur de machine virtuelle.
 
 Les organisations qui n’appliquent aucun contrôle d’accès aux données en utilisant des fonctionnalités telles que RBAC risquent d’octroyer plus de privilèges que nécessaire à leurs utilisateurs. Cela risque d’entraîner la compromission des données en accordant à certains utilisateurs un accès non justifié à certaines données.
 
 Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez :
 
 - [Manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
-- [Rôles intégrés pour les ressources Azure](/azure/role-based-access-control/built-in-roles)
+- [Rôles intégrés Azure](/azure/role-based-access-control/built-in-roles)
 - [Guide de sécurité du Stockage Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Utiliser le chiffrement côté client pour les données de valeur élevée

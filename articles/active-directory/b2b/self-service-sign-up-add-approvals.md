@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027459"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service
 
@@ -61,11 +61,11 @@ Vous devez inscrire votre système d’approbation en tant qu’application dans
 
 Ensuite, vous allez[créer les connecteurs d’API](self-service-sign-up-add-api-connector.md#create-an-api-connector) pour le workflow de votre utilisateur d’inscription en libre-service. Votre API de système d’approbation a besoin de deux connecteurs et de points de terminaison correspondants, comme les exemples ci-dessous. Ces connecteurs d’API effectuent les opérations suivantes :
 
-- **Vérifiez l’état d’approbation**. Envoyer un appel au système d’approbation immédiatement après qu’un utilisateur se connecte avec un fournisseur d’identité pour vérifier si l’utilisateur dispose d’une requête d’approbation existante ou s’il a déjà été refusé. Si votre système d’approbation n’effectue que des décisions d’approbation automatique, ce connecteur d’API n’est peut-être pas nécessaire. Voici un exemple de connecteur d’API « Vérifier l’état d’approbation ».
+- **Vérifiez l’état d’approbation**. Envoyer un appel au système d’approbation immédiatement après qu’un utilisateur se connecte avec un fournisseur d’identité pour vérifier si l’utilisateur dispose d’une requête d’approbation existante ou s’il a déjà été refusé. Si votre système d’approbation n’effectue que des décisions d’approbation automatique, ce connecteur d’API n’est peut-être pas nécessaire. Exemple de connecteur d’API « Vérifier le statut d’approbation ».
 
   ![Vérifier la configuration du connecteur de l’API d’état d’approbation](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Demander une approbation** : envoyer un appel au système d’approbation une fois qu’un utilisateur a terminé la page de collection d’attributs, mais avant la création du compte d’utilisateur, pour demander l’approbation. La requête d’approbation peut être automatiquement accordée ou révisée manuellement. Voici un exemple de connecteur d’API « Requête d’approbation ». Sélectionnez les **Revendications à envoyer** dont le système d’approbation a besoin pour prendre une décision d’approbation.
+- **Demander une approbation** : envoyer un appel au système d’approbation une fois qu’un utilisateur a terminé la page de collection d’attributs, mais avant la création du compte d’utilisateur, pour demander l’approbation. La requête d’approbation peut être automatiquement accordée ou révisée manuellement. Exemple de connecteur d’API « Demander une approbation ». Sélectionnez les **Revendications à envoyer** dont le système d’approbation a besoin pour prendre une décision d’approbation.
 
   ![Configuration du connecteur de l’API d’approbation de requête](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ Votre système d’approbation peut utiliser les [types de réponse d’API](sel
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Requête et réponses pour le connecteur d’API « Vérifier l’état d’approbation »
 
-Voici un exemple de la requête reçue par l’API à partir du connecteur de l’API « Vérifier l’état d’approbation » :
+Exemple de requête reçue par l’API du connecteur d’API « Vérifier le statut d’approbation » :
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ Le point de terminaison de l’API **Vérifier l’état d’approbation**doit r
 
 - L’utilisateur n’a pas demandé d’approbation précédemment.
 
-Voici un exemple de la réponse de continuation :
+Exemple de réponse de continuation :
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>Requête et réponses pour le connecteur d’API « Demande d’approbation »
 
-Voici un exemple de requête HTTP reçue par l’API à partir du connecteur d’API « Demande d’approbation » :
+Exemple de requête HTTP reçue par l’API du connecteur d’API « Demander une approbation » :
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ Le point de terminaison de l’API **Requête d’approbation** doit renvoyer un
 
 - L’utilisateur peut être **_approuvé automatiquement_**.
 
-Voici un exemple de la réponse de continuation :
+Exemple de réponse de continuation :
 
 ```http
 HTTP/1.1 200 OK
@@ -257,14 +257,14 @@ Après avoir obtenu une approbation manuelle, le système d’approbation person
 
 Si votre utilisateur s’est connecté avec un compte Google ou Facebook, vous pouvez utiliser l’[API de création d’utilisateur](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. L’utilisateur du système d’approbation reçoit la requête HTTP du workflow de l’utilisateur.
+1. Le système d’approbation reçoit la requête HTTP du workflow de l’utilisateur.
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -305,9 +305,9 @@ Content-type: application/json
 
 | Paramètre                                           | Obligatoire | Description                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Oui      | Peut être généré en acceptant la `email_address`revendication envoyée à l’API, en remplaçant le caractère `@` par `_`et en l’ajoutant à `#EXT@<tenant-name>.onmicrosoft.com`. |
+| userPrincipalName                                   | Oui      | Peut être généré en acceptant la `email`revendication envoyée à l’API, en remplaçant le caractère `@` par `_`et en l’ajoutant à `#EXT@<tenant-name>.onmicrosoft.com`. |
 | accountEnabled                                      | Oui      | Cette propriété doit être définie sur `true`.                                                                                                                                                 |
-| mail                                                | Oui      | Équivaut à la `email_address`revendication envoyée à l’API.                                                                                                               |
+| mail                                                | Oui      | Équivaut à la `email`revendication envoyée à l’API.                                                                                                               |
 | userType                                            | Oui      | Doit être `Guest`. Désigne cet utilisateur en tant qu’utilisateur invité.                                                                                                                 |
 | Identités                                          | Oui      | Informations d’identité fédérée.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | Non       | D’autres attributs intégrés tels que `displayName`, `city`et d’autres. Les noms de paramètres sont les mêmes que les paramètres envoyés par le connecteur d’API.                            |
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. Le système d’approbation crée l’invitation à l’aide de la `email_address` fournie par le connecteur d’API.
+2. Le système d’approbation crée l’invitation à l’aide de la `email` fournie par le connecteur d’API.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-Voici un exemple de réponse :
+Exemple de réponse :
 
 ```http
 HTTP/1.1 201 OK

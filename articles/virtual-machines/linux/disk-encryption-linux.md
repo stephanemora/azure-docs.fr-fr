@@ -4,16 +4,16 @@ description: Cet article fournit des instructions pour l’activation de Microso
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206155"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372652"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -205,13 +205,13 @@ Le tableau suivant répertorie des paramètres du modèle Resource Manager pour 
 | forceUpdateTag | Passez à une valeur unique comme un GUID chaque fois que l’opération doit être exécutée de force. |
 | location | Emplacement pour toutes les ressources. |
 
-Pour plus d’informations sur la configuration du modèle de chiffrement de disque de machine virtuelle Linux, consultez [Azure Disk Encryption pour Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Pour plus d’informations sur la configuration du modèle de chiffrement de disque de machine virtuelle Linux, consultez [Azure Disk Encryption pour Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur les machines virtuelles Linux
 
 Le paramètre **EncryptFormatAll** réduit le temps de chiffrement des disques de données Linux. Les partitions remplissant certains critères sont formatées, avec leurs systèmes de fichiers actuels, puis remontées à l’emplacement où elles se trouvaient avant l’exécution de la commande. Si vous voulez exclure un disque de données répondant aux critères, vous pouvez le démonter avant d’exécuter la commande.
 
- Après l’exécution de cette commande, tous les lecteurs montés précédemment seront formatés, et la couche de chiffrement sera démarrée sur le lecteur désormais vide. Quand cette option est sélectionnée, le disque temporaire attaché à la machine virtuelle est également chiffré. Si le disque temporaire est réinitialisé, il est reformaté et rechiffré par la solution Azure Disk Encryption dès que l’occasion s’en présente. Quand le disque de ressources est chiffré, l’[Agent Microsoft Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) ne peut pas gérer le disque de ressources ni activer le fichier d’échange, mais ce dernier peut être configuré manuellement.
+ Après l’exécution de cette commande, tous les lecteurs montés précédemment seront formatés, et la couche de chiffrement sera démarrée sur le lecteur désormais vide. Quand cette option est sélectionnée, le disque temporaire attaché à la machine virtuelle est également chiffré. Si le disque temporaire est réinitialisé, il est reformaté et rechiffré par la solution Azure Disk Encryption dès que l’occasion s’en présente. Quand le disque de ressources est chiffré, l’[Agent Microsoft Azure Linux](../extensions/agent-linux.md) ne peut pas gérer le disque de ressources ni activer le fichier d’échange, mais ce dernier peut être configuré manuellement.
 
 >[!WARNING]
 > EncryptFormatAll ne doit pas être utilisé quand des données indispensables se trouvent sur les volumes de données d’une machine virtuelle. Vous pouvez exclure des disques du chiffrement en les démontant. Vous devez d’abord essayer EncryptFormatAll sur une machine virtuelle de test, comprendre le paramètre de la fonctionnalité et son implication, avant de l’essayer sur la machine virtuelle de production. L’option EncryptFormatAll formate le disque de données et toutes ses données seront perdues. Avant de continuer, vérifiez que les disques que vous souhaitez exclure sont correctement démontés. </br></br>
@@ -262,7 +262,7 @@ Nous recommandons une installation LVM-on-crypt. Pour les exemples suivants, rem
 
 1. Formatez, montez et ajoutez ces disques au fichier fstab.
 
-1. Choisissez un standard de partition, créez une partition qui couvre la totalité du lecteur, puis formatez-la. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](troubleshoot-device-names-problems.md).
+1. Choisissez un standard de partition, créez une partition qui couvre la totalité du lecteur, puis formatez-la. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](../troubleshooting/troubleshoot-device-names-problems.md).
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ Vous pouvez ajouter un nouveau disque de données avec [az vm disk attach](add-d
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Activer le chiffrement sur un disque nouvellement ajouté avec Azure CLI
 
- Si la machine virtuelle a déjà été chiffrée avec « All », le paramètre --volume-type doit rester « All ». All inclut les disques de système d’exploitation et de données. Si la machine virtuelle a déjà été chiffrée avec le type de volume « OS », le paramètre --volume-type doit être remplacé par « All » afin que le système d’exploitation et le nouveau disque de données soient inclus. Si la machine virtuelle a été chiffrée avec uniquement le type de volume « Data », le paramètre « Data » peut être conservé comme illustré ci-dessous. L’ajout et l’attachement d’un nouveau disque de données à une machine virtuelle ne constituent pas une préparation suffisante pour le chiffrement. Le disque nouvellement attaché doit aussi être formaté et monté correctement au sein de la machine virtuelle avant l’activation du chiffrement. Sur Linux, le disque doit être monté dans/etc/fstab avec un [nom de l’appareil de bloc persistant](troubleshoot-device-names-problems.md).  
+ Si la machine virtuelle a déjà été chiffrée avec « All », le paramètre --volume-type doit rester « All ». All inclut les disques de système d’exploitation et de données. Si la machine virtuelle a déjà été chiffrée avec le type de volume « OS », le paramètre --volume-type doit être remplacé par « All » afin que le système d’exploitation et le nouveau disque de données soient inclus. Si la machine virtuelle a été chiffrée avec uniquement le type de volume « Data », le paramètre « Data » peut être conservé comme illustré ci-dessous. L’ajout et l’attachement d’un nouveau disque de données à une machine virtuelle ne constituent pas une préparation suffisante pour le chiffrement. Le disque nouvellement attaché doit aussi être formaté et monté correctement au sein de la machine virtuelle avant l’activation du chiffrement. Sur Linux, le disque doit être monté dans/etc/fstab avec un [nom de l’appareil de bloc persistant](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas que l’utilisateur fournisse une version de séquence unique lors de l’activation du chiffrement. L’interface CLI génère automatiquement et utilise sa propre valeur de version de séquence unique.
 
@@ -409,11 +409,11 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Vidage sur incident du noyau (kdump)
 - Oracle ACFS (ASM Cluster File System).
 - Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md)).
+- Les disques NVMe des machines virtuelles de la série Lsv2 (cf. [Série Lsv2](../lsv2-series.md)).
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
 - Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
-- Application du [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md) à des machines virtuelles chiffrées par ADE et vice versa.
+- Application d’ADE à une machine virtuelle dotée d’un disque de données [chiffré côté serveur avec des clés gérées par le client](disk-encryption.md) (SSE + CMK) ou application du chiffrement SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE.
 - Migration d’une machine virtuelle chiffrée par ADE vers le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

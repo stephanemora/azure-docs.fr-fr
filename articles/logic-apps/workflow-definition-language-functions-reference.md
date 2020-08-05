@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 998c286cb5faa9f29d8e4687260440c578b5622b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 45ff681bdf0260b6e3c12f7e644d102a49206c9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288910"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1686,8 +1686,7 @@ Et retourne ce résultat : `"https://contoso.com"`
 
 ### <a name="div"></a>div
 
-Retourne l’entier résultant de la division de deux nombres.
-Pour obtenir le reste, consultez [mod()](#mod).
+Renvoyer le résultat de la division de deux nombres. Pour obtenir le reste, consultez [mod()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1701,19 +1700,26 @@ div(<dividend>, <divisor>)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | Entier résultant de la division du premier nombre par le second nombre |
+| <*quotient-result*> | Entier ou flottant | Résultat de la division du premier nombre par le second. Si le dividende ou le diviseur est de type flottant, le résultat est de type flottant. <p><p>**Remarque** : Pour convertir le résultat de type flottant en entier, essayez de [créer et appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) à partir de votre application logique. |
 ||||
 
-*Exemple*
+*Exemple 1*
 
-Les deux exemples illustrent la division du premier nombre par le second :
+Les deux exemples retournent cette valeur avec un type entier : `2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-Et retourne ce résultat : `2`
+*Exemple 2*
+
+Les deux exemples retournent cette valeur avec un type flottant : `2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 
@@ -4740,21 +4746,15 @@ xpath('<xml>', '<xpath>')
 
 *Exemple 1*
 
-Cet exemple recherche les nœuds qui correspondent au nœud `<name></name>` dans les arguments spécifiés, et retourne un tableau contenant ces valeurs de nœud :
+Supposons que vous avez la chaîne XML `'items'` : 
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Cet exemple transmet l’expression XPath, `'/produce/item/name'`, pour rechercher les nœuds qui correspondent au nœud `<name></name>` dans la chaîne XML `'items'`, et retourne un tableau avec ces valeurs de nœud :
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Voici les arguments :
-
-* Chaîne « items », qui contient ce code XML :
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  L’exemple utilise la fonction [parameters()](#parameters) pour obtenir la chaîne XML à partir de l’argument « items », mais il doit également convertir la chaîne au format XML à l’aide de la fonction [xml()](#xml).
-
-* Cette expression XPath, qui est transmise en tant que chaîne :
-
-  `"/produce/item/name"`
+Cet exemple utilise également la fonction [parameters()](#parameters) pour obtenir la chaîne XML à partir de `'items'` et convertir la chaîne au format XML à l’aide de la fonction [xml()](#xml).
 
 Voici le tableau de résultats avec les nœuds qui correspondent à `<name></name` :
 
@@ -4762,63 +4762,103 @@ Voici le tableau de résultats avec les nœuds qui correspondent à `<name></nam
 
 *Exemple 2*
 
-À la suite de l’exemple 1, cet exemple recherche les nœuds qui correspondent au nœud `<count></count>` et ajoute ces valeurs de nœud avec la fonction `sum()` :
+Suite à l’exemple 1, cet exemple transmet l’expression XPath, `'/produce/item/name[1]'`, pour rechercher le premier élément `name` qui est l’enfant de l’élément `item`.
 
-`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+`xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Et retourne ce résultat : `30`
+Voici le résultat : `Gala`
 
 *Exemple 3*
 
-Pour cet exemple, les deux expressions recherchent des nœuds qui correspondent au nœud `<location></location>`, dans les arguments spécifiés, notamment XML avec un espace de noms. 
+Suite à l’exemple 1, cet exemple transmet l’expression XPath, `'/produce/item/name[last()]'`, pour rechercher le dernier élément `name` qui est l’enfant de l’élément `item`.
 
-> [!NOTE]
+`xpath(xml(parameters('items')), '/produce/item/name[last()]')`
+
+Voici le résultat : `Honeycrisp`
+
+*Exemple 4*
+
+Dans cet exemple, supposons que votre chaîne XML `items` contient également les attributs `expired='true'` et `expired='false'` :
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Cet exemple transmet l’expression XPath, `'//name[@expired]'`, pour rechercher tous les éléments `name` dotés de l’attribut `expired` :
+
+`xpath(xml(parameters('items')), '//name[@expired]')`
+
+Voici le résultat : `[ Gala, Honeycrisp ]`
+
+*Exemple 5*
+
+Dans cet exemple, supposons que votre chaîne XML `items` contient uniquement l’attribut `expired = 'true'` :
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Cet exemple transmet l’expression XPath, `'//name[@expired = 'true']'`, pour rechercher tous les éléments `name` dotés de l’attribut `expired = 'true'` :
+
+`xpath(xml(parameters('items')), '//name[@expired = 'true']')`
+
+Voici le résultat : `[ Gala ]`
+
+*Exemple 6*
+
+Dans cet exemple, supposons que votre chaîne XML `items` contient également les attributs : 
+
+* `expired='true' price='12'`
+* `expired='false' price='40'`
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Cet exemple transmet l’expression XPath, `'//name[price>35]'`, pour rechercher tous les éléments `name` dotés de `price > 35` :
+
+`xpath(xml(parameters('items')), '//name[price>35]')`
+
+Voici le résultat : `Honeycrisp`
+
+*Exemple 7*
+
+Dans cet exemple, supposons que votre chaîne XML `items` est identique à celle de l’exemple 1 :
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Cet exemple recherche les nœuds qui correspondent au nœud `<count></count>` et ajoute ces valeurs de nœud avec la fonction `sum()` :
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+Voici le résultat : `30`
+
+*Exemple 8*
+
+Dans cet exemple, supposons que vous avez cette chaîne XML, qui comprend l’espace de noms du document XML, `xmlns="http://contoso.com"` :
+
+`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+
+Ces expressions utilisent une expression XPath, `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, pour rechercher les nœuds qui correspondent au nœud `<location></location>`. Ces exemples illustrent la syntaxe que vous utilisez dans le concepteur d’application logique ou dans l’éditeur d’expressions :
+
+* `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+
+Voici le nœud obtenu qui correspond au nœud `<location></location>` : 
+
+`<location xmlns="https://contoso.com">Paris</location>`
+
+> [!IMPORTANT]
 >
-> Si vous travaillez en mode Code, échappez le guillemet double (") à l’aide de la barre oblique inverse (\\). 
+> Si vous travaillez en mode Code, échappez les guillemets doubles (") en utilisant la barre oblique inverse (\\). 
 > Par exemple, vous devez utiliser des caractères d’échappement quand vous sérialisez une expression sous forme de chaîne JSON. 
-> Cependant, si vous travaillez dans le concepteur d’application logique ou dans l’éditeur d’expressions, vous n’avez pas besoin d’échapper le guillemet double, car la barre oblique inverse est ajoutée automatiquement à la définition sous-jacente, par exemple :
+> Toutefois, si vous travaillez dans le concepteur d’application logique ou dans l’éditeur d’expressions, vous n’avez pas besoin d’échapper les guillemets doubles, car la barre oblique inverse est ajoutée automatiquement à la définition sous-jacente. Par exemple :
 > 
 > * Mode Code : `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
 > * Éditeur d'expression : `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-> 
-> Les exemples suivants s’appliquent aux expressions que vous entrez dans l’éditeur d’expressions.
 
-* *Expression 1*
+*Exemple 9*
 
-  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-
-* *Expression 2*
-
-  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
-
-Voici les arguments :
-
-* Ce code XML, qui inclut l’espace de noms du document XML, `xmlns="http://contoso.com"` :
-
-  ```xml
-  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
-  ```
-
-* L’une ou l’autre des expressions XPath ici :
-
-  * `/*[name()="file"]/*[name()="location"]`
-
-  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
-
-Voici le nœud obtenu qui correspond au nœud `<location></location>` :
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
-*Exemple 4*
-
-À la suite de l’exemple 3, cet exemple recherche la valeur du nœud `<location></location>` :
+Suite à l’exemple 8, cet exemple utilise l’expression XPath, `'string(/*[name()="file"]/*[name()="location"])'`, pour rechercher la valeur figurant dans le nœud `<location></location>` :
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Et retourne ce résultat : `"Paris"`
+Voici le résultat : `Paris`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

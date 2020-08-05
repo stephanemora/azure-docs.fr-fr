@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325557"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
@@ -28,10 +28,10 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
 * Afficher les règles d’alerte définies dans [Alertes Azure](alerts-overview.md)
-* Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](powershell-quickstart-samples.md) ou le [CLI multiplateforme](../samples/cli-samples.md).
+* Requête de mesures avec l’[API REST Azure Monitor](/rest/api/monitor/metrics), les [applets de commande PowerShell](../samples/powershell-samples.md) ou le [CLI multiplateforme](../samples/cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
 * Affichez les [Paramètres de diagnostic](diagnostic-settings.md) pour une ressource.
-* Afficher le [profil de journalisation](activity-log-export.md) pour un abonnement.
+* Afficher le [profil de journalisation](./activity-log.md#legacy-collection-methods) pour un abonnement.
 * Affichez les paramètres de mise à l’échelle automatique.
 * Afficher les activités et paramètres d’alerte.
 * Accéder aux données Application Insights et affichez les données dans AI Analytics.
@@ -52,7 +52,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
 * Définir les [paramètres de diagnostic](diagnostic-settings.md) pour une ressource.\*
-* Définir le [profil de journalisation](activity-log-export.md) pour un abonnement.\*
+* Définir le [profil de journalisation](./activity-log.md#legacy-collection-methods) pour un abonnement.\*
 * Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](alerts-overview.md).
 * Créer des tests web et composants Application Insights.
 * Répertorier les clés partagées d’espace de travail Log Analytics.
@@ -67,8 +67,8 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorisations d’analyse et rôles RBAC personnalisés
-Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle RBAC personnalisé](../../role-based-access-control/custom-roles.md) avec des autorisations plus granulaires. Voici les opérations RBAC d’Azure Monitor courantes avec leurs descriptions.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Autorisations de supervision et rôles personnalisés Azure
+Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle personnalisé Azure](../../role-based-access-control/custom-roles.md) avec des autorisations plus précises. Voici les opérations RBAC d’Azure Monitor courantes avec leurs descriptions.
 
 | Opération | Description |
 | --- | --- |
@@ -97,7 +97,7 @@ Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre
 > 
 > 
 
-Par exemple, en utilisant le tableau ci-dessus, vous pouvez créer un rôle RBAC personnalisé pour un « lecteur de journal d’activité », comme suit :
+Par exemple, en utilisant le tableau ci-dessus, vous pouvez créer un rôle personnalisé Azure pour un « lecteur de journal d’activité » comme suit :
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -126,7 +126,7 @@ Ces trois types de données peuvent être stockés dans un compte de stockage ou
 * N’accordez jamais l’autorisation ListKeys aux comptes de stockage ou hubs d’événements dont la portée comprend l’abonnement lorsqu’un utilisateur doit uniquement accéder aux données d’analyse. Au lieu de cela, accordez ces autorisations à l’utilisateur sur une ressource ou un groupe de ressources (si vous avez un groupe de ressources d’analyse).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limiter l’accès aux comptes de stockage liés à l’analyse
-Lorsqu’un utilisateur ou une application doit accéder à l’analyse des données dans un compte de stockage, vous devez [Générer un SAP de compte](https://msdn.microsoft.com/library/azure/mt584140.aspx) sur le compte de stockage qui contient les données d’analyse avec un accès en lecture au niveau de service pour le stockage d’objets Blob. Dans PowerShell, cela pourrait ressembler à :
+Lorsqu’un utilisateur ou une application doit accéder à l’analyse des données dans un compte de stockage, vous devez [Générer un SAP de compte](/rest/api/storageservices/create-account-sas) sur le compte de stockage qui contient les données d’analyse avec un accès en lecture au niveau de service pour le stockage d’objets Blob. Dans PowerShell, cela pourrait ressembler à :
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Vous pouvez ensuite donner le jeton à l’entité qui doit lire à partir de ce compte de stockage, et elle pourra alors répertorier et lire à partir de tous les objets Blob dans ce compte de stockage.
 
-Si vous avez besoin de contrôler cette autorisation avec RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle RBAC personnalisé suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
+Si vous avez besoin de contrôler cette autorisation avec RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle personnalisé Azure suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,6 +188,5 @@ Pour plus d’informations, consultez [Network security and Azure Storage](../..
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur RBAC et les autorisations dans Resource Manager](../../role-based-access-control/overview.md)
-* [Lire la vue d’ensemble de l’analyse dans Azure](../../azure-monitor/overview.md)
-
+* [Lire la vue d’ensemble de l’analyse dans Azure](../overview.md)
 

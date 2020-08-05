@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850293"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130186"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Vous pouvez superviser vos données avec des métriques côté client et côté 
 
 * **Supervision avec le portail Azure Cosmos DB :** vous pouvez effectuer la supervision avec les métriques disponibles dans l’onglet **Métriques** du compte Azure Cosmos. Les métriques de cet onglet incluent le débit, le stockage, la disponibilité, la latence, la cohérence et les métriques au niveau du système. Par défaut, la période de conservation de ces métriques est de 7 jours. Pour plus d’informations, consultez la section [Superviser les données collectées à partir du portail Azure Cosmos DB](#monitoring-from-azure-cosmos-db) de cet article.
 
-* **Supervision à l’aide de métriques dans Azure Monitor :** vous pouvez superviser les métriques de votre compte Azure Cosmos et créer des tableaux de bord à partir d’Azure Monitor. Azure Monitor collecte les métriques d’Azure Cosmos DB par défaut. Vous n’avez pas à configurer quoi que ce soit de manière explicite. Ces métriques sont collectées avec une précision d’une minute, qui peut varier en fonction de la métrique que vous choisissez. Par défaut, la période de conservation de ces métriques est de 30 jours. La plupart des métriques disponibles à partir des options précédentes sont également disponibles dans ces métriques. Pour plus d’informations, consultez la section [Analyser les données de métriques](#analyze-metric-data) de cet article.
+* **Supervision à l’aide de métriques dans Azure Monitor :** vous pouvez superviser les métriques de votre compte Azure Cosmos et créer des tableaux de bord à partir d’Azure Monitor. Azure Monitor collecte les métriques d’Azure Cosmos DB par défaut. Vous n’avez pas à configurer quoi que ce soit de manière explicite. Ces métriques sont collectées avec une précision d’une minute, qui peut varier en fonction de la métrique que vous choisissez. Par défaut, la période de conservation de ces métriques est de 30 jours. La plupart des métriques disponibles à partir des options précédentes sont également disponibles dans ces métriques. Les valeurs de dimension des métriques, comme le nom du conteneur, ne respectent pas la casse. Vous devez donc utiliser une comparaison ne respectant pas la casse lorsque vous comparez les chaînes sur ces valeurs de dimension. Pour plus d’informations, consultez la section [Analyser les données de métriques](#analyze-metric-data) de cet article.
 
 * **Supervision à l’aide des journaux de diagnostic dans Azure Monitor :** vous pouvez superviser les journaux de votre compte Azure Cosmos et créer des tableaux de bord à partir d’Azure Monitor. Les événements, traces et autres données de télémétrie avec une précision d’une seconde sont stockés sous forme de journaux. Par exemple, si le débit d’un conteneur est modifié, les propriétés d’un compte Cosmos sont modifiées et ces événements sont capturés dans les journaux. Vous pouvez analyser ces journaux en exécutant des requêtes sur les données collectées. Pour plus d’informations, consultez la section [Analyser les données de journal](#analyze-log-data) de cet article.
 

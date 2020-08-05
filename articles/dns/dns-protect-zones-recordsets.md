@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 81a58657a4ab8f7403006ce02fb8f585feea86b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711270"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131529"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -24,7 +24,7 @@ Cet article explique comment Azure DNS permet de protéger vos enregistrements 
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour les clients, groupes et ressources Azure. Avec le rôle RBAC, vous pouvez accorder le niveau d’accès dont les utilisateurs ont besoin. Pour plus d’informations sur la gestion des droits d’accès avec RBAC, voir [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md).
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour les utilisateurs, les groupes et les ressources Azure. Avec le rôle RBAC, vous pouvez accorder le niveau d’accès dont les utilisateurs ont besoin. Pour plus d’informations sur la gestion des droits d’accès avec le contrôle RBAC, voir [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../role-based-access-control/overview.md).
 
 ### <a name="the-dns-zone-contributor-role"></a>Rôle Contributeur de zone DNS
 
@@ -168,7 +168,7 @@ La propriété Actions définit les autorisations spécifiques de DNS suivantes�
 Les Actions restantes sont copiées à partir du [rôle intégré Contributeur de Zone DNS](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
-> L’utilisation d’un rôle RBAC personnalisé pour empêcher la suppression de jeux d’enregistrements tout en autorisant leur mise à jour ne constitue pas un contrôle efficace. Cela empêche la suppression de jeux d’enregistrements, mais pas leur modification.  Les modifications autorisées incluent l’ajout et la suppression d’enregistrements du jeu d’enregistrements, y compris la suppression de tous les enregistrements pour ne laisser qu’un jeu d’enregistrements vide. Sur le plan de la résolution DNS, cela produit le même effet que la suppression du jeu d’enregistrements.
+> Le recours à un rôle Azure personnalisé pour empêcher la suppression de jeux d’enregistrements tout en autorisant leur mise à jour ne constitue pas un contrôle efficace. Cela empêche la suppression de jeux d’enregistrements, mais pas leur modification.  Les modifications autorisées incluent l’ajout et la suppression d’enregistrements du jeu d’enregistrements, y compris la suppression de tous les enregistrements pour ne laisser qu’un jeu d’enregistrements vide. Sur le plan de la résolution DNS, cela produit le même effet que la suppression du jeu d’enregistrements.
 
 Il n’est pas possible de définir des rôles personnalisés via le portail Azure. Vous pouvez créer un rôle personnalisé basé sur cette définition de rôle en utilisant Azure PowerShell :
 

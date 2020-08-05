@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032070"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372091"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,17 @@ La latence estimée pour modifier le niveau de service ou remettre à l’échel
 >
 > - En cas de modification du niveau de service ou de remise à l’échelle de la taille de calcul pour un pool élastique, la somme de l’espace utilisé sur toutes les bases de données du pool doit être utilisée pour calculer l’estimation.
 > - En cas de déplacement d’une base de données vers/à partir d’un pool élastique, seul l’espace utilisé par la base de données a un impact sur la latence, pas l’espace utilisé par le pool élastique.
->
+> - Pour des pools élastiques standard et à usage général, la latence de déplacement d’une base de données à l’intérieur ou à l’extérieur d’un pool élastique, ou entre des pools élastiques, sera proportionnelle à la taille de la base de données si le pool élastique utilise un stockage de partage de fichiers Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Pour déterminer si un pool utilise un stockage PFS, exécutez la requête suivante dans le contexte d’une base de données quelconque du pool. Si la valeur de la colonne AccountType est `PremiumFileStorage`, le pool utilise un stockage PFS.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

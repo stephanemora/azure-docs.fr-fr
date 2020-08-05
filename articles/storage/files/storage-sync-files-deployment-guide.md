@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515361"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386688"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -30,7 +30,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
     $PSVersionTable.PSVersion
     ```
 
-    Si la valeur PSVersion est inférieure à 5.1.\*, comme cela est le cas avec la plupart des nouvelles installations de Windows Server 2012 R2, vous pouvez facilement effectuer la mise à niveau en téléchargeant et en installant [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Le package correct à télécharger et à installer pour Windows Server 2012 R2 est **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
+    Si la valeur **PSVersion** est inférieure à 5.1.\*, comme avec la plupart des nouvelles installations de Windows Server 2012 R2, vous pouvez facilement effectuer la mise à niveau en téléchargeant et en installant [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Le package correct à télécharger et à installer pour Windows Server 2012 R2 est **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
     PowerShell 6+ peut être utilisé avec n’importe quel système pris en charge, et peut être téléchargé via sa page [GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -216,6 +216,15 @@ L’inscription de votre serveur Windows Server à un service de synchronisation
 > [!Note]
 > L’inscription du serveur utilise vos informations d’identification Azure pour créer une relation d’approbation entre le service de synchronisation du stockage et votre serveur Windows, toutefois par la suite le serveur crée et utilise sa propre identité qui est valide tant que le serveur reste inscrit et le jeton de signature d’accès partagé actuel (stockage SAS) est valide. Un nouveau jeton SAS ne peut pas être émis sur le serveur une fois le serveur désinscrit, retirant ainsi la capacité du serveur à accéder à vos partages de fichiers Azure, arrêtant toute synchronisation.
 
+L’administrateur qui inscrit le serveur doit être membre du rôle de gestion **Propriétaire** ou **Collaborateur** pour le service de synchronisation du stockage en question. Ce paramètre peut être configuré sous **Access Control (IAM)** sur le Portail Azure pour le service de synchronisation du stockage.
+
+Il est également possible de différencier les administrateurs qui peuvent inscrire des serveurs de ceux qui sont également autorisés à configurer la synchronisation dans un service de synchronisation du stockage. Pour cela, vous devez créer un rôle personnalisé dans lequel vous listez les administrateurs qui ne sont autorisés qu’à inscrire des serveurs et auquel vous attribuez les autorisations suivantes :
+
+* "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
+* "Microsoft.StorageSync/storageSyncServices/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
+
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 L’interface utilisateur d’inscription du serveur s’ouvre normalement automatiquement après l’installation de l’agent Azure File Sync. Si ce n’est pas le cas, vous pouvez l’ouvrir manuellement à partir de son emplacement de fichier : C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quand l’interface utilisateur d’inscription du serveur est ouverte, sélectionnez **Se connecter** pour commencer.
 
@@ -243,6 +252,8 @@ Un point de terminaison cloud est un pointeur vers un partage de fichiers Azure.
 
 > [!Important]  
 > Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
+
+L’administrateur qui crée le point de terminaison cloud doit être membre du rôle de gestion **Propriétaire** pour le compte de stockage contenant le partage de fichiers Azure sur lequel pointe le point de terminaison cloud. Ce paramètre peut être configuré sous **Access Control (IAM)** sur le Portail Azure pour le compte de stockage.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Pour créer un groupe de synchronisation, dans le [portail Azure](https://portal.azure.com/), accédez à votre service de synchronisation de stockage, puis sélectionnez **+ Groupe de synchronisation** :

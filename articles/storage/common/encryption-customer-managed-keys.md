@@ -5,17 +5,17 @@ description: Vous pouvez utiliser votre propre clé de chiffrement pour protége
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af70b1746b2ac847d964975aaf1b2186aa89be01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292729"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du Stockage Azure
 
@@ -47,13 +47,13 @@ Les données des services Objets blob et Fichiers sont toujours protégées par 
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Activer des clés gérées par le client pour un compte de stockage
 
-Les clés gérées par le client ne peuvent être activées que sur des comptes de stockage existants. Le coffre de clés doit être provisionné avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée au compte de stockage. L’identité managée est disponible uniquement après la création du compte de stockage.
-
 Quand vous configurez une clé gérée par le client, Stockage Azure encapsule la clé de chiffrement des données racine pour le compte avec la clé gérée par le client dans le coffre de clés associé. L’activation des clés gérées par le client n’a aucun impact sur les performances et prend effet immédiatement.
 
-Quand vous modifiez la clé utilisée pour le chiffrement du Storage Azure en activant ou en désactivant des clés gérées par le client, en mettant à jour la version de la clé ou en spécifiant une clé différente, le chiffrement de la clé racine change, mais les données de votre compte de Stockage Azure n’ont pas besoin d’être rechiffrées.
-
 Quand vous activez ou désactivez les clés gérées par le client, ou quand vous modifiez la clé ou la version de clé, la protection de la clé de chiffrement racine change, mais les données de votre compte Stockage Azure n’ont pas besoin d’être rechiffrées.
+
+Les clés gérées par le client ne peuvent être activées que sur des comptes de stockage existants. Le coffre de clés doit être configuré avec des stratégies d’accès qui accordent des autorisations à l’identité managée associée au compte de stockage. L’identité managée est disponible uniquement après la création du compte de stockage.
+
+Vous pouvez basculer entre les clés gérées par le client et les clés managées par Microsoft à tout moment. Pour plus d’informations sur les clés managées par Microsoft, consultez [À propos de la gestion des clés de chiffrement](storage-service-encryption.md#about-encryption-key-management).
 
 Pour savoir comment utiliser des clés gérées par le client avec Azure Key Vault pour le chiffrement de Stockage Azure, consultez un de ces articles :
 
@@ -70,11 +70,18 @@ Pour activer les clés gérées par le client sur un compte de stockage, vous de
 
 Le chiffrement de stockage Azure prend en charge les clés RSA et RSA-HSM de tailles 2048, 3072 et 4096. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+L’utilisation d’Azure Key Vault génère des coûts. Pour plus d’informations, consultez [Tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Permuter des clés gérées par le client
 
-Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Une fois la clé permutée, vous devez mettre à jour le compte de stockage pour utiliser le nouvel URI de version de clé. Pour savoir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé dans le portail Azure, consultez la section intitulée **Mettre à jour la version de la clé** dans [Configurer les clés gérées par le client pour Stockage Azure à l’aide du portail Azure](storage-encryption-keys-portal.md).
+Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Vous avez deux options pour permuter une clé gérée par le client :
 
-La permutation de la clé ne déclenche pas le rechiffrement des données dans le compte de stockage. Aucune autre action n’est requise de la part de l’utilisateur.
+- **Permutation automatique :** pour configurer la permutation automatique des clés gérées par le client, omettez la version de la clé lorsque vous activez le chiffrement avec les clés gérées par le client pour le compte de stockage. Si la version de la clé est omise, Stockage Azure vérifie Azure Key Vault quotidiennement pour voir s’il existe une nouvelle version d’une clé gérée par le client. Si une nouvelle version de la clé est disponible, Stockage Azure utilise automatiquement la dernière version de la clé.
+- **Permutation manuelle :** pour utiliser une version de clé particulière pour le chiffrement de Stockage Azure, spécifiez la version de clé lorsque vous activez le chiffrement avec les clés gérées par le client pour le compte de stockage. Si vous spécifiez la version de la clé, Stockage Azure utilise cette version pour le chiffrement jusqu’à ce que vous mettiez manuellement à jour la version de la clé.
+
+    Une fois la clé permutée manuellement, vous devez mettre à jour le compte de stockage pour utiliser le nouvel URI de version de clé. Pour découvrir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé dans le portail Azure, consultez [Mettre à jour la version de la clé manuellement](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+La permutation d’une clé gérée par le client ne déclenche pas le rechiffrement des données dans le compte de stockage. Aucune autre action n’est requise de la part de l’utilisateur.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Révoquer l’accès aux clés gérées par le client
 

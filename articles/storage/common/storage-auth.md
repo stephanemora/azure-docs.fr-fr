@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029533"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorisation de l’accès aux données dans le Stockage Azure
 
@@ -23,11 +23,11 @@ Chaque fois que vous accédez aux données de votre compte de stockage, le clien
 
 Le tableau suivant décrit les options offertes par Stockage Azure pour autoriser l’accès aux ressources :
 
-|  |Clé partagée (clé de compte de stockage)  |Signature d’accès partagé (SAP)  |Azure Active Directory (Azure AD)  |Active Directory Domain Services en local (préversion) |Accès en lecture public anonyme  |
-|---------|---------|---------|---------|---------|---------|
+| Artefact Azure | Clé partagée (clé de compte de stockage) | Signature d’accès partagé (SAP) | Azure Active Directory (Azure AD) | Active Directory Domain Services en local (préversion) | Accès en lecture public anonyme |
+| -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Objets blob Azure     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |[Pris en charge](storage-sas-overview.md)         |[Pris en charge](storage-auth-aad.md)         |Non pris en charge|[Pris en charge](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |Non pris en charge         |[Pris en charge, uniquement avec les services de domaine AAD](../files/storage-files-active-directory-overview.md)         |[Pris en charge, les informations d'identification doivent être synchronisées avec Azure AD](../files/storage-files-active-directory-overview.md)|Non pris en charge         |
-|Azure Files (REST)     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |[Pris en charge](storage-sas-overview.md)         |Non pris en charge         |Non pris en charge |Non pris en charge         |
+|Azure Files (REST)     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |[Pris en charge](storage-sas-overview.md)         |Non pris en charge         |Non pris en charge |Non prise en charge         |
 |Files d'attente Azure     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |[Pris en charge](storage-sas-overview.md)         |[Pris en charge](storage-auth-aad.md)         |Non pris en charge | Non pris en charge         |
 |Tables Azure     |[Pris en charge](/rest/api/storageservices/authorize-with-shared-key/)         |[Pris en charge](storage-sas-overview.md)         |Non pris en charge         |Non pris en charge| Non pris en charge         |
 

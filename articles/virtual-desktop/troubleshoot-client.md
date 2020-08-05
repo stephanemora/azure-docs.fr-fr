@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006002"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291322"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Résoudre des problèmes du client Bureau à distance
 
@@ -62,9 +62,9 @@ Si votre navigateur commence à se comporter bizarrement ou cesse de fonctionner
 
 ## <a name="web-client-does-not-show-my-resources"></a>Le client Web n’affiche pas mes ressources
 
-Tout d’abord, vérifiez le compte Azure Active Directory que vous utilisez. Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
+Tout d’abord, vérifiez le compte Azure Active Directory que vous utilisez. Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, déconnectez-vous ou utilisez une fenêtre de navigation privée.
 
-Si vous utilisez la version 2019 de Windows Virtual Desktop, utilisez le lien client Web dans [cet article](./virtual-desktop-fall-2019/connect-web-2019.md) pour vous connecter à vos ressources.
+Si vous utilisez Windows Virtual Desktop (classique), suivez le lien du client web de [cet article](./virtual-desktop-fall-2019/connect-web-2019.md) pour vous connecter à vos ressources.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Le client web cesse de répondre ou se déconnecte
 

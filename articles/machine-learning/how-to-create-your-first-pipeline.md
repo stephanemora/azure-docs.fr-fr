@@ -5,18 +5,18 @@ description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: dff86176bac56063c9b588fb27e3549069ed380e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326356"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md) afin de contenir toutes les ressources de votre pipeline.
 
-* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le Kit de développement logiciel (SDK) Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning (préversion)](concept-compute-instance.md) avec le Kit de développement logiciel (SDK) déjà installé.
+* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning](concept-compute-instance.md) avec le SDK déjà installé.
 
 Commencez par attacher votre espace de travail :
 
@@ -129,6 +129,8 @@ Vous trouverez ci-dessous des exemples de création et d’attachement de cibles
 * Capacité de calcul Azure Machine Learning
 * Azure Databricks 
 * Service Analytique Azure Data Lake
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Capacité de calcul Azure Machine Learning
 

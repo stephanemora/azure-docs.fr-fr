@@ -3,20 +3,27 @@ title: Informations de référence pour Azure Functions destinées aux développ
 description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-java
+ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057600"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372414"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
-Le runtime Azure Functions prend en charge [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Ce guide contient des informations sur les complexités de l’écriture de fonctions Azure avec Java.
+Ce guide contient des informations détaillées permettant de développer des fonctions Azure en Java.
 
-Comme c’est le cas pour d’autres langages, une application de fonction peut avoir une ou plusieurs fonctions. Une fonction Java est une méthode `public` dotée de l’annotation `@FunctionName`. Cette méthode définit l’entrée d’une fonction Java et doit être unique dans un package particulier. Une application de fonction écrite en Java peut avoir plusieurs classes avec plusieurs méthodes publiques annotées avec `@FunctionName`.
+Si vous êtes développeur Java et que vous débutez avec Azure Functions, lisez d’abord l’un des articles suivants :
 
-Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également effectuer l’un des guides de démarrage rapide suivants sur Functions : [Créer votre première fonction Java à l’aide de Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) ou [Créer votre première fonction Java à partir de la ligne de commande à l’aide de Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+| Prise en main | Concepts| 
+| -- | -- |  
+| <ul><li>[Fonction Java avec Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Fonction Java/Maven avec le terminal/l’invite de commandes](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Fonction Java avec Gradle](functions-create-first-java-gradle.md)</li><li>[Fonction Java avec Eclipse](functions-create-maven-eclipse.md)</li><li>[Fonction Java avec IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Considérations relatives aux &nbsp;performances](functions-best-practices.md)</li></ul> |
+
+## <a name="java-function-basics"></a>Informations de base sur les fonctions Java
+
+Une fonction Java est une méthode `public` dotée de l’annotation `@FunctionName`. Cette méthode définit l’entrée d’une fonction Java et doit être unique dans un package particulier. Le package peut comporter plusieurs classes avec plusieurs méthodes publiques annotées par `@FunctionName`. Un seul package est déployé dans une application de fonction dans Azure. En cas d’exécution dans Azure, l’application de fonction donne le contexte de déploiement, d’exécution et de gestion des différentes fonctions Java.
 
 ## <a name="programming-model"></a>Modèle de programmation 
 
@@ -48,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Pour apprendre à utiliser cet archétype, voir le [démarrage rapide Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
+Pour apprendre à utiliser cet archétype, voir le [démarrage rapide Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
@@ -87,14 +94,14 @@ Vous pouvez placer plusieurs fonctions dans un projet. Évitez de placer vos fon
 Utilisez les annotations Java incluses dans le package [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pour lier des entrées et des sorties à vos méthodes. Pour plus d’informations, consultez les [Docs de référence Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Vous devez configurer un compte de stockage Azure dans votre fichier [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) pour exécuter les déclencheurs de Stockage Blob Azure, Stockage File d’attente Azure et Stockage Table Azure en local.
+> Vous devez configurer un compte de stockage Azure dans votre fichier [local.settings.json](./functions-run-local.md#local-settings-file) pour exécuter les déclencheurs de Stockage Blob Azure, Stockage File d’attente Azure et Stockage Table Azure en local.
 
 Exemple :
 
 ```java
 public class Function {
     public String echo(@HttpTrigger(name = "req", 
-      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+      methods = {HttpMethod.POST},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -125,9 +132,58 @@ Voici le fichier `function.json` correspondant généré par [azure-functions-ma
 
 ```
 
+## <a name="java-versions"></a>Versions Java
+
+_La prise en charge de Java 11 est actuellement en préversion_
+
+La version de Java utilisée lors de la création de l’application de fonction sur laquelle s’exécutent les fonctions dans Azure est spécifiée dans le fichier pom.xml. L’archétype Maven génère actuellement un fichier pom.xml pour Java 8, que vous pouvez modifier avant la publication. La version Java de fichier pom.xml doit correspondre à celle sur laquelle vous avez développé et testé votre application en local. 
+
+### <a name="supported-versions"></a>Versions prises en charge
+
+Le tableau suivant présente les versions Java actuellement prises en charge pour chaque version majeure du runtime Functions, par système d’exploitation :
+
+| Version de Functions | Versions Java (Windows) | Versions Java (Linux) |
+| ----- | ----- | --- |
+| 3.x | 11 (préversion)<br/>8<sup>\*</sup> | 11 (préversion)<br/>8 |
+| 2.x | 8 | n/a |
+
+<sup>\*</sup> Il s’agit de la version par défaut actuelle du fichier pom.xml généré par l’archétype Maven.
+
+### <a name="specify-the-deployment-version"></a>Spécification de la version du déploiement
+
+Actuellement, l’archétype Maven génère un fichier pom.xml qui cible Java 8. Les éléments suivants de ce fichier doivent être mis à jour pour créer une application de fonction qui exécute Java 11.
+
+| Élément |  Valeur Java 8 | Valeur Java 11 | Description |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Version Java utilisée par le plug-in Compilateur Maven. |
+| **`JavaVersion`** | 8 | 11 | Version Java hébergée par l’application de fonction dans Azure. |
+
+Les exemples suivants illustrent les paramètres de Java 8 dans les sections correspondantes du fichier pom.xml :
+
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
+
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
+
+> [!IMPORTANT]
+> La variable d’environnement JAVA_HOME doit être définie correctement dans le répertoire JDK utilisé lors de la compilation du code à l’aide de Maven. La version du JDK doit être au moins aussi élevée que le paramètre `Java.version`. 
+
+### <a name="specify-the-deployment-os"></a>Spécification du système d’exploitation du déploiement
+
+Maven offre également la possibilité de spécifier le système d’exploitation sur lequel l’application de fonction s’exécute dans Azure. Utilisez l’élément `os` pour choisir le système d’exploitation. 
+
+| Élément |  Windows | Linux | Docker |
+| ---- | ---- | ---- | --- |
+| **`os`** | windows | linux | docker |
+
+L’exemple suivant montre le paramètre de système d’exploitation dans la section `runtime` du fichier pom.xml :
+
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
+ 
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilité et prise en charge du runtime JDK 
 
-Téléchargez et utilisez le JDK Java 8 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) à partir d’[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) pour le développement local d’applications de fonction Java. Azure Functions utilise le runtime du JDK Java 8 Azul lorsque vous déployez vos applications de fonctions sur le cloud.
+Pour le développement local d’applications de fonction Java, téléchargez et utilisez les JDK Java [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) nécessaires sur [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) . Azure Functions utilise un runtime JDK Java Azul lors du déploiement de l’application de fonction sur le cloud.
 
 Le [support Azure](https://azure.microsoft.com/support/) des problèmes avec les JDK et les applications de fonction est disponible avec dans un [plan de support qualifié](https://azure.microsoft.com/support/plans/).
 
@@ -217,7 +273,7 @@ import com.microsoft.azure.functions.annotation.*;
 public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @HttpTrigger(name = "req", methods = { HttpMethod.PUT }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
         @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
         @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
@@ -334,7 +390,7 @@ Vous appelez cette fonction avec une requête HTTP. Elle écrit plusieurs valeur
 
 ## <a name="metadata"></a>Métadonnées
 
-Quelques déclencheurs envoient des [métadonnées de déclencheur](/azure/azure-functions/functions-triggers-bindings) ainsi que des données d’entrée. Vous pouvez utiliser une annotation `@BindingName` à lier à des métadonnées de déclencheur.
+Quelques déclencheurs envoient des [métadonnées de déclencheur](./functions-triggers-bindings.md) ainsi que des données d’entrée. Vous pouvez utiliser une annotation `@BindingName` à lier à des métadonnées de déclencheur.
 
 
 ```Java
@@ -347,7 +403,7 @@ import com.microsoft.azure.functions.annotation.*;
 public class Function {
     @FunctionName("metadata")
     public static String metadata(
-        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
         @BindingName("name") String queryValue
     ) {
         return body.orElse(queryValue);
@@ -389,7 +445,7 @@ import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
             context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
@@ -432,7 +488,7 @@ L’exemple suivant obtient le [paramètre d’application](functions-how-to-use
 ```java
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         context.getLogger().info("My app setting value: "+ System.getenv("myAppSetting"));
         return String.format(req);
     }

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+zone_pivot_groups: programming-languages-set-twenty-two
+ms.openlocfilehash: 14f87dff680fb72654d1d3e20fe2f0516f9709aa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585015"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282731"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utiliser une entrée audio compressée par codec avec le SDK Speech
 
 L’API **Compressed Audio Input Stream** du SDK du service Speech permet de diffuser en streaming du contenu audio compressé vers le service Speech à l’aide d’un `PullStream` ou d’un `PushStream`.
 
-La diffusion en continu de données d’audio en entrée est actuellement prise en charge pour C#, C++, Java sur Windows (les applications UWP ne sont pas prises en charge) et Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Il est également pris en charge pour la plateforme Java dans Android et Objective-C dans iOS.
+Le streaming de contenu audio d’entrée compressé est actuellement pris en charge pour C#, C++, Java et Python sur Windows (les applications UWP ne sont pas prises en charge) et Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Il est également pris en charge pour Java dans Android.
 * Le Kit de développement logiciel (SDK) Speech version 1.10.0 ou ultérieure est requis pour RHEL 8 et CentOS 8.
 * Le Kit de développement logiciel (SDK) Speech version 1.11.0 ou ultérieure est requis pour Windows.
 
@@ -42,8 +42,8 @@ La diffusion en continu de données d’audio en entrée est actuellement prise 
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exemple de code utilisant une entrée audio compressé par codec
@@ -60,8 +60,8 @@ La diffusion en continu de données d’audio en entrée est actuellement prise 
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes

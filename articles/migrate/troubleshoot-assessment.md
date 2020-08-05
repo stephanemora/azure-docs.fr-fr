@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cc8a8e8c09fa9a8a34cfc90cb102cefabf227595
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385702"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -52,7 +52,7 @@ Préparé pour le protocole Internet sous conditions | Applicable uniquement aux
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>L’outil de migration suggéré dans l’évaluation AVS basée sur l’importation est inconnu
 
-Pour les machines importées via un fichier CSV, l’outil de migration par défaut dans l’évaluation AVS est inconnu. Pour les machines VMware, il est toutefois recommandé d’utiliser la solution VMWare Hybrid Cloud Extension (HCX). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
+Pour les machines importées via un fichier CSV, l’outil de migration par défaut dans l’évaluation AVS est inconnu. Pour les machines VMware, il est toutefois recommandé d’utiliser la solution VMware Hybrid Cloud Extension (HCX). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Les machines virtuelles Linux sont « préparées sous conditions » dans une évaluation de machine virtuelle Azure
 

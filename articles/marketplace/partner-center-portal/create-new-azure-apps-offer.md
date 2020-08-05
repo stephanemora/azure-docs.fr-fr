@@ -3,14 +3,16 @@ title: Créer une offre d’application Azure – Place de marché commerciale d
 description: Découvrez les étapes et considérations relatives à la création d’une offre d’application Azure via le portail de la Place de marché commerciale dans l’Espace partenaires. Vous pouvez répertorier ou vendre votre offre d’application Azure sur la Place de marché Azure ou via le programme Fournisseur de solutions Cloud (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: AarathiN
+ms.author: aarathin
+ms.date: 07/14/2020
+ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326668"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -65,7 +67,7 @@ La vidéo sur la [Création de modèles de solution et d’applications managée
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion de votre application Azure :
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
@@ -308,7 +310,7 @@ La configuration technique définit les détails (ID de locataire et ID d’appl
 
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
-Cet onglet permet de proposer différentes options de plan dans la même offre. Ces plans (désignés sous le terme de références SKU dans le portail Cloud Partner) peuvent se différencier par le type de plan (modèle de solution ou application managée), la monétisation ou le public.  Créez au moins un plan avant de pouvoir référencer votre offre sur la Place de marché.
+Cet onglet permet de proposer différentes options de plan dans la même offre. Ces plans (anciennement « références SKU ») peuvent se différencier par le type de plan (modèle de solution ou application managée), la monétisation ou le public. Créez au moins un plan avant de pouvoir référencer votre offre sur la Place de marché.
 
 Une fois votre plan créé, vous verrez dans cet onglet diverses informations le concernant : son nom, son ID, son type, sa disponibilité (public ou privé), l’état actuel de sa publication et les actions autorisées.
 
@@ -510,7 +512,7 @@ Définissez qui doit avoir un accès administrateur à cette application managé
 
 **Autorisations** : ajoutez l’ID d’objet Azure Active Directory de l’utilisateur, du groupe ou de l’application que vous souhaitez autoriser à accéder au groupe de ressources managées. Identifiez l’utilisateur par son ID de principal, que vous trouverez dans le [panneau des utilisateurs Azure Active Directory sur le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../../role-based-access-control/overview.md).
+Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Vous avez la possibilité d'ajouter jusqu'à 100 autorisations par cloud. Toutefois, il est généralement plus simple de créer un groupe d'utilisateurs Active Directory et de spécifier son ID dans le champ « ID du principal ». Cela vous permet d’ajouter des utilisateurs au groupe d’administration après le déploiement du plan, et a pour effet de réduire le besoin de mise à jour du plan à l’ajout de quelques autorisations.

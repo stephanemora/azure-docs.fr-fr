@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026762"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -264,6 +264,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS90093 | GraphUserUnauthorized : graphique retourné avec un code d’erreur interdit pour la demande. |
 | AADSTS90094 | AdminConsentRequired : le consentement de l’administrateur est requis. |
 | AADSTS900382 | Le client confidentiel n’est pas pris en charge dans une requête intercloud. |
+| AADSTS90099 | L’application « {appId} » ({appName}) n’a pas été autorisée dans le locataire « {tenant} ». Les applications doivent être autorisées à accéder au locataire du client pour pouvoir être utilisées par les administrateurs délégués partenaires. Fournissez un préconsentement ou exécutez l’API appropriée de l’Espace partenaires pour autoriser l’application. |
 | AADSTS90100 | InvalidRequestParameter : le paramètre est vide ou non valide. |
 | AADSTS901002 | AADSTS901002 : Le paramètre de requête « resource » n’est pas pris en charge. |
 | AADSTS90101 | InvalidEmailAddress : les données fournies ne correspondent pas à une adresse e-mail valide. L’adresse e-mail doit être au format `someone@example.com`. |

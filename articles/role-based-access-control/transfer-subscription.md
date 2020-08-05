@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029975"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)
 
@@ -145,7 +145,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 ### <a name="save-custom-roles"></a>Enregistrer des rôles personnalisés
 
-1. Utilisez [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) pour répertorier vos rôles personnalisés. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI](custom-roles-cli.md).
+1. Utilisez [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) pour répertorier vos rôles personnalisés. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Les identités managées ne sont pas mises à jour lorsqu’un abonnement est tr
 
 ### <a name="list-key-vaults"></a>List key vaults (Afficher la liste des Key Vaults)
 
-Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l’ID de client Azure Active Directory par défaut pour l’abonnement dans lequel il est créé. Toutes les entrées de stratégie d’accès sont également liées à cet ID de client. Pour plus d’informations, consultez [Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement](../key-vault/general/keyvault-move-subscription.md).
+Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l’ID de client Azure Active Directory par défaut pour l’abonnement dans lequel il est créé. Toutes les entrées de stratégie d’accès sont également liées à cet ID de client. Pour plus d’informations, consultez [Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est pas dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
@@ -291,7 +291,7 @@ Au cours de cette étape, vous allez transférer la propriété de facturation d
 
 ### <a name="create-custom-roles"></a>Créer des rôles personnalisées
         
-- Utilisez [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) pour créer chaque rôle personnalisé à partir des fichiers que vous avez créés précédemment. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI](custom-roles-cli.md).
+- Utilisez [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) pour créer chaque rôle personnalisé à partir des fichiers que vous avez créés précédemment. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ Au cours de cette étape, vous allez transférer la propriété de facturation d
 
 ### <a name="update-key-vaults"></a>Mettre à jour des coffres de clés
 
-Cette section décrit les étapes de base pour mettre à jour vos coffres de clés. Pour plus d’informations, consultez [Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement](../key-vault/general/keyvault-move-subscription.md).
+Cette section décrit les étapes de base pour mettre à jour vos coffres de clés. Pour plus d’informations, consultez [Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement](../key-vault/general/move-subscription.md).
 
 1. Mettez à jour l’ID de locataire associé à tous les coffres de clés existants dans l’abonnement sur le répertoire cible.
 

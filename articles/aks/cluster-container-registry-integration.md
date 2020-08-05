@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: a60f0e2f40fa1a4945198a4b5738b4f7b65b05ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4338f4ce1fe60a3a9002be93feab134dd2601720
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406501"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -44,7 +44,10 @@ az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-ac
 
 Vous pouvez également spécifier le nom ACR à l’aide d’un ID de ressource ACR, dont le format est :
 
-`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
+`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>`
+
+> [!NOTE]
+> Si vous utilisez un ACR qui ne se trouve pas dans le même abonnement que votre cluster AKS, utilisez l’ID de ressource ACR pour l’attachement à un cluster AKS ou le détachement d’un cluster AKS.
 
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
@@ -57,7 +60,7 @@ Cette étape peut prendre plusieurs minutes.
 Intégrez un ACR existant à des clusters AKS existants en fournissant des valeurs valides pour **acr-name** ou **acr-resource-id** comme indiqué ci-dessous.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 ```
 
 ou
@@ -69,7 +72,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 Vous pouvez également supprimer l’intégration entre ACR et un cluster AKS à l’aide de ce qui suit
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 ```
 
 or
@@ -86,7 +89,7 @@ Importez une image à partir du hub Docker dans votre instance ACR en exécutant
 
 
 ```azurecli
-az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
+az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
 ### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Déployer l’exemple d’image depuis ACR vers AKS
@@ -97,7 +100,7 @@ Vérifiez que vous disposez des informations d’identification AKS appropriées
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Créez un fichier appelé **acr-nginx.yaml** contenant les éléments suivants :
+Créez un fichier appelé **acr-nginx.yaml** contenant les éléments suivants. Remplacez le nom de ressource de votre registre par **acr-name**. Exemple : *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
@@ -118,7 +121,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+        image: <acr-name>.azurecr.io/nginx:v1
         ports:
         - containerPort: 80
 ```

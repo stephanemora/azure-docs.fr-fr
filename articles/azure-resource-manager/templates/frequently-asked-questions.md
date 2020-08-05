@@ -2,15 +2,15 @@
 title: Forum aux questions sur le Modèle Resource Manager
 description: Forum aux questions (FAQ) sur le Modèle Resource Manager Azure.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327257"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Forum aux questions sur les modèles Resource Manager
 
@@ -48,7 +48,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
   Pour en savoir plus sur le nouveau langage de modèle, [inscrivez-vous aux notifications](https://aka.ms/armLangUpdates).
 
-  Pour la version préliminaire des spécifications de modèle, [rejoignez la liste d’attente](https://aka.ms/templateSpecsWaitlist).
+  Pour en savoir plus sur les specs de modèles, consultez [Specs de modèles Azure Resource Manager (préversion)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Créer et tester des modèles
 
@@ -64,7 +64,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **Puis-je créer un groupe de ressources dans un modèle Resource Manager et y déployer des ressources ?**
 
-  Oui, vous pouvez créer un groupe de ressources dans un modèle lorsque vous déployez le modèle au niveau de votre abonnement Azure. Pour obtenir un exemple de création d’un groupe de ressources et de déploiement de ressources, consultez [Groupe de ressources et ressources](deploy-to-subscription.md#resource-group-and-resources).
+  Oui, vous pouvez créer un groupe de ressources dans un modèle lorsque vous déployez le modèle au niveau de votre abonnement Azure. Pour obtenir un exemple de création d’un groupe de ressources et de déploiement de ressources, consultez [Groupe de ressources et ressources](deploy-to-subscription.md#resource-groups).
 
 * **Puis-je créer un abonnement dans un modèle Resource Manager ?**
 

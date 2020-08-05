@@ -7,30 +7,318 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077200"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurer les captures de paquets pour les passerelles VPN
 
 Les problèmes liés à la connectivité et aux performances sont souvent complexes et nécessitent beaucoup de temps et d’efforts pour identifier la cause du problème. La possibilité de capturer des paquets permet de réduire ce temps en limitant l’étendue du problème à certaines parties du réseau, par exemple si le problème se situe au niveau du client, du côté d’Azure ou entre les deux. Une fois que le problème a été localisé, il est bien plus facile de déboguer et de prendre des mesures correctives.
 
-Il existe des outils couramment disponibles pour la capture de paquets. Toutefois, l’obtention de captures de paquets pertinentes à l’aide de ces outils est souvent fastidieuse, surtout lorsque vous travaillez avec des scénarios de trafic à volume élevé. Les capacités de filtrage fournies par une capture de paquets de passerelle VPN deviennent un avantage majeur. Vous pouvez utiliser une capture de paquets de passerelle VPN en plus des outils de capture de paquets couramment disponibles.
+Il existe des outils couramment disponibles pour la capture de paquets. L’obtention de captures de paquets pertinentes avec ces outils peut être fastidieuse, surtout lorsque vous travaillez avec des scénarios de trafic à volume élevé. Les capacités de filtrage fournies par une capture de paquets de passerelle VPN deviennent un avantage majeur. Vous pouvez utiliser une capture de paquets de passerelle VPN en plus des outils de capture de paquets couramment disponibles.
 
 ## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Fonctionnalités de filtrage de capture de paquets de la passerelle VPN
 
 Les captures de paquets de la passerelle VPN peuvent être exécutées sur la passerelle ou sur une connexion spécifique en fonction des besoins du client. Vous pouvez également exécuter des captures de paquets sur plusieurs tunnels à la fois. Vous pouvez capturer le trafic à sens unique ou bidirectionnel, le trafic IKE et ESP, et les paquets internes, ainsi que filtrer sur une passerelle VPN.
 
-L’utilisation de filtres à 5 tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et d’indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est utile pour isoler les problèmes sur un trafic à volume élevé.
+L’utilisation d’un filtre à cinq tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et d’indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est utile pour isoler les problèmes sur un trafic à volume élevé.
 
-Vous ne pouvez utiliser qu’une seule option par propriété lors de l’exécution de la capture de paquets.
+Vous trouverez ci-dessous un exemple de schéma JSON et de code JSON avec une explication de chaque propriété. Notez également certaines limitations lors de l’exécution des captures de paquets :
+- Dans le schéma, le filtre est affiché sous la forme d’un tableau, mais à l’heure actuelle un seul filtre peut être utilisé à la fois.
+- Vous n’êtes pas autorisé à effectuer plusieurs captures de paquets à l’échelle de la passerelle en même temps.
+- Vous n’êtes pas autorisé à effectuer plusieurs captures de paquets sur la même connexion en même temps. Vous pouvez exécuter des captures de paquets sur différentes connexions en même temps.
+- Cinq captures de paquets au maximum peuvent être exécutées en parallèle par passerelle. Ces captures de paquets peuvent être une combinaison de captures de paquets à l’échelle de la passerelle ou de captures de paquets par connexion.
+
+### <a name="example-json"></a>Exemple JSON
+```JSON-interactive
+{
+  "TracingFlags": 11,
+  "MaxPacketBufferSize": 120,
+  "MaxFileSize": 200,
+  "Filters": [
+    {
+      "SourceSubnets": [
+        "20.1.1.0/24"
+      ],
+      "DestinationSubnets": [
+        "10.1.1.0/24"
+      ],
+      "SourcePort": [
+        500
+      ],
+      "DestinationPort": [
+        4500
+      ],
+      "Protocol": [
+        6
+      ],
+      "TcpFlags": 16,
+      "CaptureSingleDirectionTrafficOnly": true
+    }
+  ]
+}
+```
+### <a name="json-schema"></a>Schéma JSON
+```JSON-interactive
+{
+    "type": "object",
+    "title": "The Root Schema",
+    "description": "The root schema input JSON filter for packet capture",
+    "default": {},
+    "additionalProperties": true,
+    "required": [
+        "TracingFlags",
+        "MaxPacketBufferSize",
+        "MaxFileSize",
+        "Filters"
+    ],
+    "properties": {
+        "TracingFlags": {
+            "$id": "#/properties/TracingFlags",
+            "type": "integer",
+            "title": "The Tracingflags Schema",
+            "description": "Tracing flags that customer can pass to define which packets are to be captured. Supported values are CaptureESP = 1, CaptureIKE = 2, CaptureOVPN = 8. The final value is OR of the bits.",
+            "default": 11,
+            "examples": [
+                11
+            ]
+        },
+        "MaxPacketBufferSize": {
+            "$id": "#/properties/MaxPacketBufferSize",
+            "type": "integer",
+            "title": "The Maxpacketbuffersize Schema",
+            "description": "Maximum buffer size of each packet. The capture will only contain contents of each packet truncated to this size.",
+            "default": 120,
+            "examples": [
+                120
+            ]
+        },
+        "MaxFileSize": {
+            "$id": "#/properties/MaxFileSize",
+            "type": "integer",
+            "title": "The Maxfilesize Schema",
+            "description": "Maximum file size of the packet capture file. It is a circular buffer.",
+            "default": 100,
+            "examples": [
+                100
+            ]
+        },
+        "Filters": {
+            "$id": "#/properties/Filters",
+            "type": "array",
+            "title": "The Filters Schema",
+            "description": "An array of filters that can be passed to filter inner ESP traffic.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "Protocol": [
+                            6
+                        ],
+                        "CaptureSingleDirectionTrafficOnly": true,
+                        "SourcePort": [
+                            500
+                        ],
+                        "DestinationPort": [
+                            4500
+                        ],
+                        "TcpFlags": 16,
+                        "SourceSubnets": [
+                            "20.1.1.0/24"
+                        ],
+                        "DestinationSubnets": [
+                            "10.1.1.0/24"
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/Filters/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "SourcePort": [
+                            500
+                        ],
+                        "DestinationPort": [
+                            4500
+                        ],
+                        "TcpFlags": 16,
+                        "SourceSubnets": [
+                            "20.1.1.0/24"
+                        ],
+                        "DestinationSubnets": [
+                            "10.1.1.0/24"
+                        ],
+                        "Protocol": [
+                            6
+                        ],
+                        "CaptureSingleDirectionTrafficOnly": true
+                    }
+                ],
+                "additionalProperties": true,
+                "required": [
+                    "SourceSubnets",
+                    "DestinationSubnets",
+                    "SourcePort",
+                    "DestinationPort",
+                    "Protocol",
+                    "TcpFlags",
+                    "CaptureSingleDirectionTrafficOnly"
+                ],
+                "properties": {
+                    "SourceSubnets": {
+                        "$id": "#/properties/Filters/items/properties/SourceSubnets",
+                        "type": "array",
+                        "title": "The Sourcesubnets Schema",
+                        "description": "An array of source subnets that need to match the Source IP address of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                "20.1.1.0/24"
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/SourceSubnets/items",
+                            "type": "string",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "20.1.1.0/24"
+                            ]
+                        }
+                    },
+                    "DestinationSubnets": {
+                        "$id": "#/properties/Filters/items/properties/DestinationSubnets",
+                        "type": "array",
+                        "title": "The Destinationsubnets Schema",
+                        "description": "An array of destination subnets that need to match the Destination IP address of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                "10.1.1.0/24"
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/DestinationSubnets/items",
+                            "type": "string",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "10.1.1.0/24"
+                            ]
+                        }
+                    },
+                    "SourcePort": {
+                        "$id": "#/properties/Filters/items/properties/SourcePort",
+                        "type": "array",
+                        "title": "The Sourceport Schema",
+                        "description": "An array of source ports that need to match the Source port of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                500
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/SourcePort/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                500
+                            ]
+                        }
+                    },
+                    "DestinationPort": {
+                        "$id": "#/properties/Filters/items/properties/DestinationPort",
+                        "type": "array",
+                        "title": "The Destinationport Schema",
+                        "description": "An array of destination ports that need to match the Destination port of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                4500
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/DestinationPort/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                4500
+                            ]
+                        }
+                    },
+                    "Protocol": {
+                        "$id": "#/properties/Filters/items/properties/Protocol",
+                        "type": "array",
+                        "title": "The Protocol Schema",
+                        "description": "An array of protocols that need to match the Protocol of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                6
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/Protocol/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                6
+                            ]
+                        }
+                    },
+                    "TcpFlags": {
+                        "$id": "#/properties/Filters/items/properties/TcpFlags",
+                        "type": "integer",
+                        "title": "The Tcpflags Schema",
+                        "description": "A list of TCP flags. The TCP flags set on the packet must match any flag in the list of flags provided. FIN = 0x01,SYN = 0x02,RST = 0x04,PSH = 0x08,ACK = 0x10,URG = 0x20,ECE = 0x40,CWR = 0x80. An OR of flags can be provided.",
+                        "default": 0,
+                        "examples": [
+                            16
+                        ]
+                    },
+                    "CaptureSingleDirectionTrafficOnly": {
+                        "$id": "#/properties/Filters/items/properties/CaptureSingleDirectionTrafficOnly",
+                        "type": "boolean",
+                        "title": "The Capturesingledirectiontrafficonly Schema",
+                        "description": "A flags which when set captures reverse traffic also.",
+                        "default": false,
+                        "examples": [
+                            true
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
 ## <a name="setup-packet-capture-using-powershell"></a>Configurer la capture de paquets à l’aide de PowerShell
 
-Consultez les exemples ci-dessous pour connaître les commandes PowerShell permettant de démarrer et d’arrêter les captures de paquets. Pour plus d’informations sur les options des paramètres (par exemple, comment créer des filtres), consultez le [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture) PowerShell.
+Consultez les exemples ci-dessous pour connaître les commandes PowerShell permettant de démarrer et d’arrêter les captures de paquets. Pour plus d’informations sur les options des paramètres, consultez ce [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture) PowerShell.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Démarrer la capture de paquets pour une passerelle VPN
 

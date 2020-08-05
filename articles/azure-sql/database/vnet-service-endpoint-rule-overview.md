@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 51d7ae8671d4b57e1822aa1c4ee5bf30a5f24cbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253985"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371768"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,8 +31,6 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [point d
 ## <a name="how-to-create-a-virtual-network-rule"></a>Création d’une règle de réseau virtuel
 
 Si vous créez uniquement une règle de réseau virtuel, vous pouvez passer directement à la procédure et à l’explication donnée [plus loin dans cet article](#anchor-how-to-by-using-firewall-portal-59j).
-
-<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>Informations sur les règles de réseau virtuel
 
@@ -141,7 +139,7 @@ La technologie PolyBase est couramment utilisée pour charger des données dans 
 1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle RBAC de **Contributeur aux données blob du stockage** au serveur qui héberge l’instance Azure Synapse Analytics que vous avez enregistrée auprès d'Azure Active Directory (AAD), comme à l'étape 1.
 
    > [!NOTE]
-   > Seuls les membres dotés du privilège Propriétaire sur le compte de stockage peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Seuls les membres dotés du privilège Propriétaire sur le compte de stockage peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Connectivité PolyBase au compte Stockage Azure :**
 

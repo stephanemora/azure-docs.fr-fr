@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027612"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -221,7 +221,7 @@ Désactiver l’extension NPS :
 -   Déterminez si l’authentification principale pour le VPN est réussie.
 
 Une fois que le service a été récupéré et que vous êtes prêt à appliquer à nouveau l’authentification MFA à vos utilisateurs, activez l’extension NPS : 
--   Importez la clé de registre à partir de la sauvegarde HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Importez la clé de Registre à partir de la sauvegarde HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -   Redémarrez le service Network Policy Service (IAS) pour que les modifications prennent effet 
 -   Déterminez si l’authentification principale et l’authentification secondaire pour le VPN sont réussies.
 -   Examinez le serveur NPS et le journal VPN pour rechercher les utilisateurs qui se sont connectés au cours de la période d’urgence.

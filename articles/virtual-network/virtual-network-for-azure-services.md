@@ -1,7 +1,7 @@
 ---
 title: Réseau virtuel pour services Azure
 titlesuffix: Azure Virtual Network
-description: Découvrez les avantages du déploiement de ressources sur un réseau virtuel. Les ressources situées sur les réseaux virtuels peuvent communiquer les unes avec les autres, ainsi qu’avec les ressources locales, sans impliquer de trafic via Internet.
+description: Découvrez comment déployer des services Azure dédiés sur un réseau virtuel et apprenez-en davantage sur les fonctionnalités fournies par ces déploiements.
 services: virtual-network
 documentationcenter: na
 author: mohnader
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: cb63f99e93d4324e3f2addde7eadf18ac15f3d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442059f4ff3502b99bf4aa93d581c39331e4f7d8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287679"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Déployer des services Azure dédiés dans des réseaux virtuels
 

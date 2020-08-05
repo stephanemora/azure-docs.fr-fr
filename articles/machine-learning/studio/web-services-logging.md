@@ -1,6 +1,5 @@
 ---
-title: Activer la journalisation des services web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Activer la journalisation des services web - Azure'
 description: Découvrez comment activer la journalisation pour les services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705829"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326237"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Ce document fournit des informations sur la capacité de journalisation des services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio (classique).  
 

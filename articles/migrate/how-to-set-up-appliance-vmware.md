@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate pour VMware
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112814"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386739"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
@@ -89,7 +89,7 @@ Configurez l’appliance pour la première fois. Si vous déployez l’appliance
         - Seuls les proxys HTTP sont pris en charge.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte fonctionne correctement.
     - **Installer les mises à jour** : Azure Migrate vérifie que les dernières mises à jour de l'appliance sont installées.
-    - **Installer VDDK** : Azure Migrate vérifie que VDDK (VMWare vSphere Virtual Disk Development Kit) est installé.
+    - **Installer VDDK** : Azure Migrate vérifie que le kit VDDK (Virtual Disk Development Kit) VMware vSphere est installé.
         - Azure Migrate utilise VDDK pour répliquer les machines durant la migration vers Azure.
         - Téléchargez VDDK 6.7 à partir de VMware, puis extrayez le contenu du fichier zip téléchargé à l’emplacement spécifié sur l’appliance.
 

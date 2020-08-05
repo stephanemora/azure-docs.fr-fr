@@ -1,6 +1,5 @@
 ---
-title: Création de plusieurs modèles et points de terminaison
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Création de plusieurs modèles et points de terminaison – Azure'
 description: Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b158c2fbdbfba91055d64f92f64c51dc6c3d391
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9cb5b0b87b1d6adb8e0e5cda06049cfddba3d950
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955707"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283535"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Créer plusieurs points de terminaison de service web à partir d’une expérience avec ML Studio (classique) et PowerShell
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
 
 Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio (classique) à l’aide d’une expérience unique.
 

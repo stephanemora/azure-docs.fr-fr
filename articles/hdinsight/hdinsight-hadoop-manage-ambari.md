@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075754"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281382"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari
 
@@ -108,6 +108,7 @@ Pour plus d’informations sur les nœuds du cluster, sélectionnez **Hôtes**. 
 
 La barre latérale du tableau de bord, intitulée **Services** , fournit un aperçu rapide de l'état des services exécutés sur le cluster. Différentes icônes sont utilisées pour indiquer l’état ou les actions à entreprendre. Par exemple, un symbole de recyclage jaune s’affiche si un service doit être recyclé.
 
+
 ![Apache Ambari - Barre latérale des services](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
 > [!NOTE]  
@@ -170,10 +171,10 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
 
 Dans la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions** situé au bas de la liste des services pour arrêter et démarrer tous les services.
 
-![Apache Ambari - Liste des actions du service](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari - Liste des actions du service." border="true":::
 
 > [!WARNING]  
-> Bien que l’option **Ajouter un service** soit répertoriée dans ce menu, vous ne devez pas l’utiliser pour ajouter des services au cluster HDInsight. Les nouveaux services doivent être ajoutés à l'aide d'une action de script lors de l’approvisionnement du cluster. Pour plus d’informations sur l’utilisation des actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+> Les nouveaux services doivent être ajoutés à l'aide d'une action de script lors de l’approvisionnement du cluster. Pour plus d’informations sur l’utilisation des actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Bien que le bouton **Actions** permette de redémarrer tous les services, vous souhaitez souvent démarrer, arrêter ou redémarrer un service spécifique. Pour effectuer des actions sur un service individuel, procédez comme suit :
 

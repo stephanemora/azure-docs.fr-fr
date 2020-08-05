@@ -1,6 +1,5 @@
 ---
-title: Afficher et réexécuter des expériences
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Affichage et réexécution des expériences – Azure'
 description: Gérez des exécutions d’expériences dans Azure Machine Learning Studio (classique). Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687393"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318519"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gérer des exécutions d’expériences dans Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
 

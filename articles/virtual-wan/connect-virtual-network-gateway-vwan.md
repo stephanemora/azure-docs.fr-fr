@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e26b00a78d2ce533aa4d16e88649e7e73e3af91
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749695"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387198"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -33,9 +33,9 @@ Réseau virtuel Azure
 
 * Créez un réseau virtuel sans aucune passerelle de réseau virtuel. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le portail Azure, consultez le [guide de démarrage rapide](../virtual-network/quick-create-portal.md).
 
-## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. Créer une passerelle de réseau virtuel Azure
+## <a name="1-create-a-vpn-gateway-virtual-network-gateway"></a><a name="vnetgw"></a>1. Créer une passerelle de réseau virtuel VPN
 
-Créez une passerelle de réseau virtuel de passerelle VPN pour votre réseau virtuel en mode actif/actif pour votre réseau virtuel. Lorsque vous créez la passerelle, vous pouvez utiliser des adresses IP publiques existantes pour les deux instances de la passerelle ou vous pouvez créer de nouvelles adresses IP publiques. Vous utilisez ces adresses IP publiques lors de la configuration des sites WAN virtuels. Pour plus d’informations sur le mode actif/actif, consultez [Configurer des connexions entre deux passerelles actives](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+Créez une **passerelle de réseau virtuel VPN** pour votre réseau virtuel en mode actif/actif. Lorsque vous créez la passerelle, vous pouvez utiliser des adresses IP publiques existantes pour les deux instances de la passerelle ou vous pouvez créer de nouvelles adresses IP publiques. Vous utiliserez ces adresses IP publiques lors de la configuration des sites Virtual WAN. Pour plus d’informations sur les passerelles VPN en mode actif/actif et les étapes de configuration, consultez [Configuration de passerelles VPN en mode actif/actif](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuration du mode actif/actif
 

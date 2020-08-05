@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017662"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280798"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84017662"
 Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
 
 > [!NOTE]
-> L’activité Web peut appeler uniquement des URL exposées publiquement. Elle n’est pas prise en charge pour les URL hébergées sur un réseau virtuel privé.
+> L’activité web est également prise en charge pour appeler des URL hébergées sur un réseau virtuel privé en tirant parti du runtime d’intégration auto-hébergé. Le runtime d’intégration doit pouvoir visualiser le point de terminaison de l’URL. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,6 +36,10 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -77,6 +81,7 @@ body | Représente la charge utile envoyée au point de terminaison.  | Chaîne 
 Authentification | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « De base » ou « ClientCertificate ». Pour en savoir plus, voir la section [Authentification](#authentication). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne (ou expression avec resultType de chaîne) | Non
 jeux de données | Liste des jeux de données transmis au point de terminaison. | Tableau de références de jeu de données. Peut être un tableau vide. | Oui
 linkedServices | Liste des services liés transmise au point de terminaison. | Tableau des références de service lié. Peut être un tableau vide. | Oui
+connectVia | Le [runtime d’intégration](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Référence du runtime d’intégration. | Non 
 
 > [!NOTE]
 > Les points de terminaison REST que l’activité web appelle doivent retourner une réponse de type JSON. Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur.
@@ -85,7 +90,7 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 
 | Type de valeur | Corps de la demande | Response body |
 |---|---|---|
-|Objet JSON | Prise en charge | Prise en charge |
+|Objet JSON | Pris en charge | Pris en charge |
 |Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
 | Valeur JSON | Prise en charge | Non pris en charge |
 | Type non-JSON | Non pris en charge | Non pris en charge |

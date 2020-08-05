@@ -2,19 +2,16 @@
 title: Résoudre des problèmes de runbook Azure Automation
 description: Cet article explique comment dépanner et résoudre des problèmes liés aux runbooks Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337294"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -511,6 +508,24 @@ Si vous voulez utiliser plus de 500 minutes de traitement par mois, passez d’
 1. Sélectionnez **Paramètres**, puis **Tarifs**.
 1. Sélectionnez **Activer** au bas de la page pour mettre à niveau votre compte vers le niveau De base.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scénario : Flux de sortie du runbook supérieur à 1 Mo
+
+### <a name="issue"></a>Problème
+
+Votre runbook s’exécutant dans le bac à sable (sandbox) Azure échoue avec l’erreur suivante :
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Cause
+
+Cette erreur se produit parce que votre runbook a tenté d’écrire trop de données d’exception dans le flux de sortie.
+
+### <a name="resolution"></a>Résolution
+
+Une limite de 1 Mo s’applique au flux de sortie des travaux. Vérifiez que votre runbook englobe des appels à un fichier exécutable ou à un sous-processus à l’aide des blocs `try` et `catch`. Si les opérations lèvent une exception, faites en sorte que le code écrive le message de l’exception dans une variable Automation. Cette technique empêche l’écriture du message dans le flux de sortie du travail. Pour les travaux Runbook Workers hybrides exécutés, c’est le flux de sortie tronqué à 1 Mo qui s’affiche, sans message d’erreur.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Scénario : Le démarrage du travail du runbook a été tenté à trois reprises, mais a échoué
 
 ### <a name="issue"></a>Problème
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Cette erreur se produit en raison de l’un des problèmes suivants :
 
 * **Limite de mémoire.** Un travail peut échouer s’il utilise plus de 400 Mo de mémoire. Les limites documentées sur la mémoire allouée à un bac à sable sont indiquées dans [Limites du service Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Sockets réseau.** Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés. Pour plus d’informations, consultez [Limites du service Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Module incompatible.** Les dépendances du module sont peut-être incorrectes. Dans ce cas, votre runbook retourne généralement un message `Command not found` ou `Cannot bind parameter`.
+
 * **Aucune authentification auprès d’Active Directory pour le bac à sable.** Votre runbook a tenté d’appeler un fichier exécutable ou un sous-processus qui s’exécute dans un bac à sable Azure. La configuration de runbooks pour s’authentifier auprès d’Azure AD en utilisant la Bibliothèque d’authentification Azure Active Directory (ADAL) n’est pas prise en charge.
-* **Trop de données d’exception.** Votre runbook a tenté d’écrire trop de données d’exception dans le flux de sortie.
 
 ### <a name="resolution"></a>Résolution
 
 * **Limite de mémoire, sockets réseau.** Les méthodes suggérées pour respecter les limites de mémoire consistent à diviser la charge de travail entre plusieurs runbooks, à traiter moins de données en mémoire, à éviter d’écrire une sortie inutile depuis vos runbooks et à prendre en compte le nombre de points de contrôle écrits dans vos runbooks de workflow PowerShell. Utilisez la méthode de vidage, telle que `$myVar.clear`, pour effacer les variables et utilisez `[GC]::Collect` pour exécuter immédiatement un nettoyage de la mémoire. Cela permet de réduire l’empreinte mémoire de votre runbook pendant l’exécution.
+
 * **Module incompatible.** Mettez à jour vos modules Azure en suivant les étapes décrites dans [Guide pratique pour mettre à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
+
 * **Aucune authentification auprès d’Active Directory pour le bac à sable.** Lorsque vous vous authentifiez auprès d’Azure AD avec un runbook, vérifiez que le module Azure AD est disponible dans votre compte Automation. Veillez à accorder au compte d’identification les autorisations nécessaires pour effectuer les tâches que le runbook automatise.
 
   Si votre runbook ne peut pas appeler un exécutable ou un sous-processus s’exécutant dans un bac à sable Azure, utilisez le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par les limites de mémoire et réseau associées aux bacs à sable Azure.
-
-* **Trop de données d’exception.** Il existe une limite de 1 Mo sur le flux de sortie de travail. Vérifiez que votre runbook englobe des appels à un fichier exécutable ou à un sous-processus à l’aide des blocs `try` et `catch`. Si les opérations lèvent une exception, faites en sorte que le code écrive le message de l’exception dans une variable Automation. Cette technique empêche l’écriture du message dans le flux de sortie du travail.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Scénario : Le travail PowerShell échoue avec le message d’erreur « Impossible d’appeler la méthode »
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851314"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289053"
 ---
 # <a name="add-interaction-rules"></a>Ajouter des règles d’interaction
 
-Cet article vous fournit des informations sur les *règles d’interaction*. Ces règles supplémentaires gèrent des situations plus spécifiques ou complexes. Vous pouvez créer vos propres règles d’interaction personnalisées, mais dans cet article, vous utilisez des règles d’interaction pour les scénarios ciblés suivants :
+Cet article vous fournit des informations sur les **règles d’interaction**. Il s’agit de règles supplémentaires pour gérer des situations plus spécifiques ou complexes. Même si vous êtes libre de créer vos propres règles d’interaction personnalisées, dans cet article, vous utilisez des règles d’interaction pour les scénarios ciblés suivants :
 
 * Confirmation de commandes
 * Ajout d’une correction en une étape à des commandes
@@ -30,8 +30,8 @@ Accédez à la section [Références](./custom-commands-references.md) pour en s
 
 Vous devez avoir effectué les étapes décrites dans les articles suivants :
 > [!div class="checklist"]
-> * [Créer une application avec des commandes simples](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Ajouter des paramètres aux commandes](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Guide pratique pour Créer une application avec des commandes simples](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Guide pratique pour Ajouter des paramètres aux commandes](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Ajouter des confirmations à une commande
 
@@ -40,7 +40,7 @@ Pour ajouter une confirmation, utilisez la commande **SetTemperature**. Pour obt
 1. Sélectionnez la commande **SetTemperature** dans le volet gauche.
 1. Ajoutez des règles d’interaction en sélectionnant **Ajouter** dans le volet central. Sélectionnez ensuite **Règles d’interaction** > **Confirmer la commande**.
 
-    Cette action ajoute trois règles d’interaction. Cette règle demande à l’utilisateur de confirmer la date et l’heure de l’alarme et attend une confirmation (yes/no) pour le tour suivant.
+    Cette action ajoute 3 règles d’interaction qui demanderont à l’utilisateur de confirmer la date et l’heure de l’alarme, et attend une confirmation (oui/non) pour le tour suivant.
 
     1. Modifiez la règle d’interaction **Confirmer la commande** conformément à la configuration suivante :
         1. Renommez le **Nom** sur **Confirmer la température**.
@@ -75,14 +75,14 @@ Pour ajouter une confirmation, utilisez la commande **SetTemperature**. Pour obt
 
 Sélectionnez **Former**, attendez la fin de la formation, puis sélectionnez **Tester**.
 
-- **Entrée**: Régler la température sur 80 degrés.
-- **Sortie**: OK 80 ?
-- **Entrée**: Non.
+- **Entrée**: Régler la température sur 80 degrés
+- **Sortie** : êtes-vous sûr de vouloir régler la température sur 80 degrés ?
+- **Entrée**: Non
 - **Sortie**: Pas de problème. Quelle température ?
-- **Entrée**: 83 degrés.
-- **Sortie**: OK 83 ?
-- **Entrée**: Oui.
-- **Sortie**: OK, régler la température sur 83 degrés.
+- **Entrée**: 72 degrés
+- **Sortie** : êtes-vous sûr de vouloir définir la température sur 72 degrés ?
+- **Entrée**: Oui
+- **Sortie**: OK, réglage de la température sur 83 degrés
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implémenter des corrections dans une commande

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035296"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -51,9 +51,9 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 6. Dans le menu **Filtrer** situé en haut du volet, sélectionnez la liste déroulante **Service** et remplacez-la par le type de service **Gestion des mots de passe en libre-service**.
 7. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
 
-### <a name="converged-registration-preview"></a>Inscription convergée (préversion)
+### <a name="combined-registration"></a>Inscription combinée
 
-Si vous participez à la préversion publique de l’inscription convergée, les informations relatives à l’activité des utilisateurs dans les journaux d’audit se trouvent dans **Sécurité** > **Méthodes d’authentification**.
+Si vous avez activé l’[inscription combinée](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), les informations relatives à l’activité des utilisateurs dans les journaux d’audit se trouvent sous **Sécurité** > **Méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 

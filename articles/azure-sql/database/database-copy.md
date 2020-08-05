@@ -10,26 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 07/27/2020
+ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031470"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309254"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database fournit plusieurs méthodes pour créer une copie cohérente au niveau transactionnel d’une [base de données](single-database-overview.md) existante sur le même serveur ou sur un autre serveur. Vous pouvez copier une base de données à l’aide du Portail Azure, de PowerShell ou de T-SQL.
+Azure SQL Database propose plusieurs méthodes pour créer une copie d’une [base de données](single-database-overview.md) existante sur le même serveur ou sur un autre serveur. Vous pouvez copier une base de données à partir du portail Azure, de PowerShell, d’Azure CLI ou de T-SQL.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-La copie de la base de données est une capture instantanée de la base de données source au moment de la demande de la copie. Vous pouvez sélectionner le même serveur ou un autre serveur. Vous pouvez également choisir de conserver son niveau de service et sa taille de calcul, ou d’utiliser une taille de calcul différente au sein du même niveau de service (édition). Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. À ce stade, vous pouvez la mettre à niveau ou la rétrograder vers n’importe quelle édition. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage terminé, le lien de géoréplication est automatiquement arrêté. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
-
-> [!NOTE]
-> Les [sauvegardes de base de données automatiques](automated-backups-overview.md) sont utilisées lorsque vous créez une copie de base de données.
+Une copie de base de données est un instantané cohérent d’un point de vue transactionnel de la base de données source au moment où la demande de copie est lancée. Vous pouvez sélectionner le même serveur ou un autre serveur pour la copie. Vous pouvez aussi choisir de conserver le niveau de service et la taille de calcul de la base de données source ou d’utiliser une taille de calcul différente au sein du même ou d’un autre niveau de service. Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations dans la base de données copiée sont gérés indépendamment de la base de données source. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage du réplica terminé, le lien de géoréplication prend fin automatiquement. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
 
 ## <a name="logins-in-the-database-copy"></a>Connexions dans la copie de la base de données
 

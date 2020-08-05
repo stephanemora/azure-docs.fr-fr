@@ -1,6 +1,5 @@
 ---
-title: Gérer les données Azure AI Gallery
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Gérer les données Azure AI Gallery - Azure'
 description: Vous pouvez exporter et supprimer d’Azure AI Gallery vos données utilisateurs intégrées au produit en utilisant l’interface ou l’API de catalogue AI Gallery. Cet article vous montre comment procéder.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +10,12 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8255a4c6556dc1a36d763e48f6bcc5eec012b553
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955588"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292992"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualiser et supprimer d’Azure AI Gallery des données utilisateur intégrées au produit
 

@@ -4,18 +4,18 @@ description: Cet article décrit les prérequis pour l’utilisation de Microsof
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dbd44c5a90a656b804ff4e3bb9984a059ec3a89a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c85d362f7295e8edef1b4070a779c6aa99c3991f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135409"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372635"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption avec Azure AD (version précédente)
+# <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Disk Encryption avec Azure Active Directory (AD) (version précédente)
 
 La nouvelle version d’Azure Disk Encryption évite d’avoir à indiquer un paramètre d’application Azure Active Directory (Azure AD) pour activer le chiffrement de disque de machine virtuelle. Avec la nouvelle version, vous n'êtes plus obligé de fournir les informations d'identification Azure AD lors de l'étape d’activation du chiffrement. À l’aide de la nouvelle version, toutes les nouvelles machines virtuelles doivent être chiffrées sans les paramètres d’application Azure AD. Pour obtenir des instructions sur l’activation du chiffrement de disque de machine virtuelle à l’aide de la nouvelle version, consultez [Azure Disk Encryption pour les machines virtuelles Linux](disk-encryption-overview.md). Les machines virtuelles déjà chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.
 
@@ -47,9 +47,9 @@ Pour activer la fonctionnalité Azure Disk Encryption en utilisant l’ancienne 
   ```
 
 ### <a name="group-policy"></a>Stratégie de groupe
- - La solution Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour l’option **Autoriser BitLocker sans un module de plateforme sécurisée compatible**, consultez la [Référence de stratégie de groupe BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+ - La solution Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour l’option **Autoriser BitLocker sans un module de plateforme sécurisée compatible**, consultez la [Référence de stratégie de groupe BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-- La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec une stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption échoue quand les paramètres de stratégie de groupe personnalisés pour BitLocker sont incompatibles. Sur les machines dont le paramètre de stratégie est incorrect, appliquez la nouvelle stratégie, forcez la mise à jour de cette dernière (gpupdate.exe /force), puis redémarrez si nécessaire. 
+- La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec une stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption échoue quand les paramètres de stratégie de groupe personnalisés pour BitLocker sont incompatibles. Sur les machines dont le paramètre de stratégie est incorrect, appliquez la nouvelle stratégie, forcez la mise à jour de cette dernière (gpupdate.exe /force), puis redémarrez si nécessaire. 
 
 ## <a name="encryption-key-storage-requirements"></a>Exigences liées au stockage des clés de chiffrement 
 

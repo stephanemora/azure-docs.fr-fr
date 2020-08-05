@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986776"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371785"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -240,9 +240,9 @@ Attribuez uniquement les [autorisations](https://docs.microsoft.com/sql/relation
   - Veillez à ne pas affecter d’utilisateurs à des rôles inutiles.
 
 - Dans Azure Resource Manager :
-  - Utilisez des rôles intégrés s’il y en a qui sont disponibles ou des rôles RBAC personnalisés, et attribuez les autorisations nécessaires.
-    - [Rôles intégrés pour Azure](../../role-based-access-control/built-in-roles.md)
-    - [Rôles intégrés pour les ressources Azure](../../role-based-access-control/custom-roles.md)
+  - Utilisez des rôles intégrés s’il y en a qui sont disponibles ou des rôles personnalisés Azure, et attribuez les autorisations nécessaires.
+    - [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md)
+    - [Rôle personnalisés Azure](../../role-based-access-control/custom-roles.md)
 
 **Bonnes pratiques** :
 
@@ -291,7 +291,7 @@ La séparation des tâches, également appelée répartition des tâches, décri
 - Identifiez une hiérarchie complète d’utilisateurs (et de processus automatisés) qui accèdent au système.
 
 - Créez des rôles en fonction des groupes d’utilisateurs nécessaires et attribuez des autorisations aux rôles.
-  - Pour les tâches de niveau gestion dans le portail Azure ou via une automatisation PowerShell, utilisez des rôles RBAC. Vous pouvez soit trouver un rôle intégré correspondant à la spécification, soit créer un rôle RBAC personnalisé utilisant des autorisations disponibles.
+  - Pour les tâches de niveau gestion dans le portail Azure ou via une automatisation PowerShell, utilisez des rôles RBAC. Vous pouvez soit trouver un rôle intégré correspondant à la spécification, soit créer un rôle personnalisé Azure utilisant des autorisations disponibles.
   - Créez des rôles de serveur pour les tâches à l’échelle du serveur (création de nouvelles connexions, bases de données) dans une instance gérée.
   - Créez des rôles de base de données pour les tâches de niveau base de données.
 
@@ -324,7 +324,7 @@ La séparation des tâches, également appelée répartition des tâches, décri
 
 - Veillez à toujours disposer d’une piste d’audit pour les actions liées à la sécurité.
 
-- Vous pouvez récupérer la définition des rôles RBAC intégrés pour voir les autorisations utilisées et créer un rôle personnalisé basé sur des extraits et cumuls de ceux-ci via PowerShell.
+- Vous pouvez récupérer la définition des rôles intégrés Azure pour voir les autorisations utilisées et créer un rôle personnalisé basé sur des extraits et cumuls de ceux-ci via PowerShell.
 
 - Comme tout membre du rôle de base de données db_owner peut modifier des paramètres de sécurité tels que la technologie Transparent Data Encryption (TDE) ou modifier le SLO, cette appartenance doit être accordée avec précaution. Toutefois, il existe de nombreuses tâches qui demandent des privilèges db_owner, telles que les tâches consistant à changer un paramètre de base de données (à l’image des options de base de données). L’audit joue un rôle clé dans toute solution.
 
@@ -342,8 +342,8 @@ Aux lecteurs qui souhaitent approfondir la séparation des tâches, nous recomma
   - [Signature de procédures stockées](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Pour Gestion des ressources Azure :
-  - [Rôles intégrés pour Azure](../../role-based-access-control/built-in-roles.md)
-  - [Rôles intégrés pour les ressources Azure](../../role-based-access-control/custom-roles.md)
+  - [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md)
+  - [Rôle personnalisés Azure](../../role-based-access-control/custom-roles.md)
   - [Utilisation d’Azure AD Privileged Identity Management pour l’accès avec élévation de privilèges](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Effectuer des révisions de code régulières

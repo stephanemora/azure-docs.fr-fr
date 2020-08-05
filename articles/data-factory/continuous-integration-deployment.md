@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336867"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336920"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -49,7 +49,7 @@ Vous trouverez ci-dessous une vue d’ensemble du cycle de vie d’intégration 
 
 1.  Une fois qu’une demande de tirage (pull) a été approuvée et que les modifications ont été fusionnées dans la branche principale, les modifications sont publiées dans la fabrique de développement.
 
-1.  Lorsque l’équipe est prête à déployer les modifications apportées à une fabrique de test ou de test d’acceptation par l’utilisateur (UAT), elle accède à sa publication sur Azure Pipelines et déploie la version souhaitée de la fabrique de développement vers l’UAT. Ce déploiement a lieu dans le cadre d’une tâche Azure Pipelines et utilise des paramètres de modèle Resource Manager pour appliquer la configuration appropriée.
+1.  Lorsque l’équipe est prête à déployer les modifications dans une fabrique de test ou de test d’acceptation utilisateur (UAT), elle accède à la mise en production sur Azure Pipelines et déploie la version souhaitée de la fabrique de développement vers l’UAT. Ce déploiement a lieu dans le cadre d’une tâche Azure Pipelines et utilise des paramètres de modèle Resource Manager pour appliquer la configuration appropriée.
 
 1.  Une fois les modifications vérifiées dans la fabrique de test, opérez le déploiement vers la fabrique de production en utilisant la tâche suivante de la mise en production de pipelines.
 

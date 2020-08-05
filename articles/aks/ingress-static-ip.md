@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX avec une adresse IP statique dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 38caddeece7b8e2a49d09e25a22e9996cf65d069
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255283"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335951"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -49,6 +49,9 @@ Ensuite, créez une adresse IP publique avec la méthode d’allocation *statiqu
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
+> [!NOTE]
+> Les commandes ci-dessus créent une adresse IP qui sera supprimée si vous supprimez votre cluster AKS. Vous pouvez également créer une adresse IP dans un autre groupe de ressources qui peut être géré séparément de votre cluster AKS. Dans ce cas, veillez à ce que le principal du service utilisé par le cluster AKS dispose de permissions déléguées sur l’autre groupe de ressources, par exemple, *Contributeur réseau*.
+
 À présent, déployez le graphique *nginx-ingress* avec Helm. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
 Vous devez transmettre deux paramètres supplémentaires à la version Helm pour que le contrôleur d’entrée prenne connaissance de l’adresse IP statique de l’équilibreur de charge à allouer au service de contrôleur d’entrée, et de l’étiquette du nom DNS appliquée à la ressource d’adresse IP publique. Pour que les certificats HTTPS fonctionnent correctement, une étiquette de nom DNS est utilisée pour configurer un nom de domaine complet pour l’adresse IP du contrôleur d’entrée.
@@ -62,9 +65,12 @@ Le contrôleur d’entrée doit également être planifié sur un nœud Linux. L
 > L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée *ingress-basic*. Spécifiez un espace de noms de votre propre environnement, si besoin. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes Helm.
 
 > [!TIP]
-> Si vous souhaitez activer la [préservation de l’adresse IP source du client][client-source-ip] pour les requêtes aux conteneurs de votre cluster, ajoutez `--set controller.service.externalTrafficPolicy=Local` à la commande d’installation Helm. L’IP source du client est stockée dans l’en-tête de la requête sous *X-Forwarded-For*. Lors de l’utilisation d’un contrôleur d’entrée pour lequel la conservation de l’adresse IP source du client est activée, le protocole TLS direct ne fonctionnera pas.
+> Si vous souhaitez activer la [préservation de l’adresse IP source du client][client-source-ip] pour les requêtes aux conteneurs de votre cluster, ajoutez `--set controller.service.externalTrafficPolicy=Local` à la commande d’installation Helm. L’IP source du client est stockée dans l’en-tête de la requête sous *X-Forwarded-For*. Lors de l’utilisation d’un contrôleur d’entrée pour lequel la conservation de l’adresse IP source du client est activée, un transfert direct TLS ne fonctionne pas.
 
-Mettez à jour le script suivant avec l’**adresse IP** de votre contrôleur d’entrée et un **nom unique** que vous souhaiteriez utiliser comme préfixe du nom de domaine complet :
+Mettez à jour le script suivant avec **l’adresse IP** de votre contrôleur d’entrée et le **nom unique** que vous souhaitez utiliser comme préfixe du nom de domaine complet.
+
+> [!IMPORTANT]
+> Vous devez remplacer *STATIC_IP* et *DNS_LABEL* par votre propre adresse IP et votre propre nom unique lorsque vous exécutez la commande.
 
 ```console
 # Create a namespace for your ingress resources
@@ -80,7 +86,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP statique est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -264,7 +270,7 @@ Dans l’exemple suivant, le trafic vers l’adresse `https://demo-aks-ingress.e
 Créez un fichier nommé `hello-world-ingress.yaml` et copiez-y l’exemple de code YAML suivant.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress

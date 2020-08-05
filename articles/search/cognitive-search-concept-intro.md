@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564423"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319046"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -59,7 +59,7 @@ Un [ensemble de compétences](cognitive-search-defining-skillset.md) assemblé �
 
 Les compétences personnalisées peuvent prendre en charge des scénarios plus complexes, tels que la reconnaissance de formulaires ou la détection d’entité personnalisée à l’aide d’un modèle que vous fournissez et encapsulez dans l’[interface web des compétences personnalisées](cognitive-search-custom-skill-interface.md). Plusieurs exemples de compétences personnalisées incluent [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), l’intégration de l’[API Recherche d’entités Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) et la [reconnaissance d’entité personnalisée](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-<a name="enrichment-steps"> ## Étapes d’un pipeline d’enrichissement </a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Étapes d’un pipeline d’enrichissement <a name="enrichment-steps"></a>
 
 Un pipeline d’enrichissement est basé sur des [*indexeurs*](search-indexer-overview.md). Les indexeurs remplissent un index basé sur des mappages champ à champ entre l’index et votre source de données pour la craquage de documents. Les compétences, désormais rattachées aux indexeurs, interceptent et enrichissent les documents en fonction des ensembles de compétences que vous définissez. Une fois l’indexation effectuée, vous pouvez accéder au contenu via des requêtes de recherche ainsi qu’à l’aide de tous les [types de requête pris en charge par la Recherche cognitive Azure](search-query-overview.md).  Si vous ne connaissez pas les indexeurs, cette section vous guide tout au long des étapes.
 

@@ -3,19 +3,21 @@ title: Référence d’API pour le portail Cloud Partner – Place de marché co
 description: Description, prérequis et liste des opérations de l’API marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113579"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292915"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Référence d’API pour le portail Cloud Partner
 
 > [!NOTE]
-> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront de fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les [modifications apportées aux API CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) listées dans ce document pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
+> Les API de Portail Cloud Partner sont intégrées à Espace partenaires et continueront d’y fonctionner. La transition introduit de légères modifications. Passez en revue les [modifications apportées aux API CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) listées dans ce document pour vous garantir que votre code continuera de fonctionner après la migration vers l’Espace partenaires. Les API de Portail Cloud Partner doivent uniquement être utilisées pour les produits existants intégrés avant la transition vers Espace partenaires. Les nouveaux produits doivent utiliser les API de soumission d’Espace partenaires.
 
 Les API REST du portail Cloud Partner permettent de récupérer de manipuler par programmation des charges de travail, des offres et des profils d’éditeur. Les API utilisent le contrôle d’accès en fonction du rôle (RBAC) pour appliquer les autorisations appropriées au moment du traitement.
 

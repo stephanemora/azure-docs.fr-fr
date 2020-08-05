@@ -1,33 +1,33 @@
 ---
-title: Comment utiliser l’Analyse de texte pour l’intégrité
+title: Comment utiliser l’Analyse de texte pour la santé
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment extraire et étiqueter des informations médicales à partir de texte clinique non structuré avec l’Analyse de texte pour l’intégrité.
+description: Découvrez comment extraire et étiqueter des informations médicales de texte clinique non structuré avec l’Analyse de texte pour la santé.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122179"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373468"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour l’intégrité (préversion)
+# <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
 
 > [!IMPORTANT] 
 > L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, **l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production.** L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Microsoft ne garantit pas que l’Analyse de texte pour l’intégrité ou les ressources fournies dans le cadre de la fonctionnalité sont suffisantes pour des raisons médicales ou répondent aux exigences médicales de toute personne. 
 
 
-L’Analyse de texte pour l’intégrité Azure est un service en conteneur qui extrait et étiquette les informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les enregistrements d’intégrité électroniques.  
+L’Analyse de texte pour la santé est un service en conteneur qui extrait et étiquette les informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les enregistrements d’intégrité électroniques.  
 
 ## <a name="features"></a>Fonctionnalités
 
-Le conteneur d’Analyse de texte pour l’intégrité effectue actuellement la Reconnaissance d’entité nommée (NER), l’extraction de relations, la négation d’entité et la liaison d’entités pour le texte en anglais, dans votre propre environnement de développement qui répond à vos exigences spécifiques en matière de sécurité et de gouvernance des données.
+Le conteneur d’Analyse de texte pour la santé effectue actuellement la Reconnaissance d’entité nommée (NER), l’extraction de relations, la négation d’entité et la liaison d’entités pour le texte en anglais, dans votre propre environnement de développement qui répond à vos exigences spécifiques en matière de sécurité et de gouvernance des données.
 
 #### <a name="named-entity-recognition"></a>[Reconnaissance d’entité nommée](#tab/ner)
 
@@ -51,26 +51,26 @@ La liaison d’entités distingue des entités distinctes en associant des entit
 > [!div class="mx-imgBorder"]
 > ![EL d’intégrité](../media/ta-for-health/health-entity-linking.png)
 
-L’Analyse de texte pour l’intégrité prend en charge la liaison aux vocabulaires de santé et biomédicaux figurant dans la source de connaissances Metathesaurus du système de langage médical unifié ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)).
+L’Analyse de texte pour la santé prend en charge la liaison avec le vocabulaire médical et biomédical figurant dans la source de connaissances Metathesaurus de l’[UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) (Unified Medical Language System).
 
 #### <a name="negation-detection"></a>[Détection de négation](#tab/negation-detection) 
 
-La signification du contenu médical est fortement affectée par les modificateurs, tels que la négation, qui peuvent avoir une incidence critique en cas de mauvais diagnostic. L’Analyse de texte pour l’intégrité prend en charge la détection de négation pour les différentes entités mentionnées dans le texte. 
+La signification du contenu médical est fortement affectée par les modificateurs, tels que la négation, qui peuvent avoir une incidence critique en cas de mauvais diagnostic. L’Analyse de texte pour la santé prend en charge la détection de négation pour les différentes entités mentionnées dans le texte. 
 
 > [!div class="mx-imgBorder"]
 > ![NEG d’intégrité](../media/ta-for-health/health-negation.png)
 
 ---
 
-Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour le secteur de la santé pour obtenir un liste complète des entités prises en charge.
+Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour la santé pour obtenir un liste complète des entités prises en charge.
 
 ## <a name="supported-languages"></a>Langues prises en charge
 
-L’Analyse de texte pour l’intégrité prend uniquement en charge les documents en langue anglaise.
+L’Analyse de texte pour la santé prend uniquement en charge les documents en langue anglaise.
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
-Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services](https://aka.ms/cognitivegate) pour demander l’accès au conteneur. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour l’intégrité. 
+Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services](https://aka.ms/cognitivegate) pour demander l’accès au conteneur. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -80,8 +80,8 @@ Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services
 
 Il existe plusieurs façons d’installer et d’exécuter le conteneur. 
 
-1. Utilisez le [Portail Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) pour créer une ressource d’Analyse de texte, et utilisez Docker pour obtenir votre conteneur.
-2. Utilisez les scripts PowerShell et [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ci-dessous pour automatiser la configuration du conteneur de déploiement de ressources.
+- Utilisez le [Portail Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) pour créer une ressource d’Analyse de texte, et utilisez Docker pour obtenir votre conteneur.
+- Utilisez les scripts PowerShell et [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) suivants pour automatiser la configuration du conteneur de déploiement de ressources.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installer le conteneur à l’aide d’Azure Web App pour conteneurs
 
@@ -186,7 +186,7 @@ server {
 
 #### <a name="example-docker-compose-file"></a>Exemple de fichier Docker Compose
 
-L’exemple ci-dessous montre comment créer un fichier [Docker Compose](https://docs.docker.com/compose/reference/overview) pour déployer les conteneurs NGINX et d’Analyse de texte pour l’intégrité :
+L’exemple ci-dessous montre comment créer un fichier [Docker Compose](https://docs.docker.com/compose/reference/overview) pour déployer les conteneurs NGINX et d’Analyse de texte pour la santé :
 
 ```yaml
 version: "3.7"
@@ -232,7 +232,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/heal
 
 ```
 
-Le code JSON suivant est un exemple de fichier JSON joint au corps POST de la requête API d’Analyse de texte pour l’intégrité :
+Le code JSON suivant est un exemple de fichier JSON joint au corps POST de la requête API d’Analyse de texte pour la santé :
 
 ```json
 example.json
@@ -255,7 +255,7 @@ example.json
 
 ## <a name="api-response-body"></a>Corps de la réponse API
 
-Le code JSON suivant est un exemple corps de réponse API de l’Analyse de texte pour l’intégrité :
+Le code JSON suivant est un exemple corps de réponse API de l’Analyse de texte pour la santé :
 
 ```json
 {

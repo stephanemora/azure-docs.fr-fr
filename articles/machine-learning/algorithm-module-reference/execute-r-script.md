@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337838"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
@@ -119,6 +119,22 @@ Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu d
 > [!div class="mx-imgBorder"]
 > ![Aperçu de l’image chargée](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>Accès au jeu de données inscrit
+
+Vous pouvez vous référer à l’exemple de code suivant pour [accéder aux jeux de données inscrits](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) dans votre espace de travail :
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 
 Le module Exécuter un script R contient un exemple de code que vous pouvez utiliser comme point de départ. Pour configurer le module Exécuter un script R, indiquez un ensemble d’entrées et du code à exécuter.
@@ -177,6 +193,25 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
  
     > [!NOTE]
     > Vous devrez peut-être apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline de concepteur. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans le concepteur.
+
+    Si la taille de votre script est supérieure à 16 Ko, utilisez le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16 597 caractères*. 
+    
+    Regroupez le script et d’autres ressources personnalisées dans un fichier zip, puis chargez le fichier zip comme **Jeu de données de fichier** dans Studio. Vous pouvez faire glisser le module de jeu de données de la liste *Mes jeux de données* vers le volet de module de gauche sur la page de création du concepteur. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
+    
+    Voici l’exemple de code permettant d’utiliser le script dans le groupe de scripts :
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  Pour **Valeur de départ aléatoire**, entrez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
 
@@ -320,9 +355,8 @@ Vous pouvez passer des objets R entre des instances du module Exécuter un scri
 
 Les packages R préinstallés suivants sont actuellement disponibles :
 
-|              |            | 
-|--------------|------------| 
 | Package      | Version    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 

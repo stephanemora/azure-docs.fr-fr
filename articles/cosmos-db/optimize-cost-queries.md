@@ -5,27 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445130"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318264"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimiser le coût de requête dans Azure Cosmos DB
 
-Azure Cosmos DB propose un ensemble complet d’opérations de base de données, notamment des requêtes relationnelles et hiérarchiques qui opèrent sur les éléments au sein d’un conteneur. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de requête comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données pour répondre à une requête. Cet article décrit comment évaluer les frais liés aux unités d’une requête, et optimiser cette dernière en termes de performances et de coût. 
+Azure Cosmos DB propose un ensemble complet d’opérations de base de données, notamment des requêtes relationnelles et hiérarchiques qui opèrent sur les éléments au sein d’un conteneur. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de requête comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données pour répondre à une requête. Cet article décrit comment évaluer les frais liés aux unités d’une requête, et optimiser cette dernière en termes de performances et de coût.
 
-Les requêtes dans Azure Cosmos DB sont généralement triées de la plus rapide/efficace à la plus lente/moins efficace en prenant en compte le débit. Ce tri s’effectue comme suit :  
+Les lectures dans Azure Cosmos DB sont généralement triées de la plus à la moins rapide/efficace du point de vue du débit :  
 
-* Opération GET sur une clé de partition unique et une clé d’élément.
+* Lectures de point (recherche de clé/valeur sur un ID d’élément unique et une clé de partition).
 
 * Requête avec une clause de filtre au sein d’une clé de partition unique.
 
 * Requête sans clause de filtre d’égalité ou de plage sur une propriété.
 
 * Requête sans filtre.
+
+Étant donné que les recherches de clé/valeur sur l’ID d’élément constituent le type de lecture le plus efficace, veillez à ce que l’ID d’élément possède une valeur significative.
 
 Les requêtes qui lisent les données à partir d’une ou plusieurs partitions affichent une latence plus élevée et consomment un nombre plus élevé d’unités de requête. Étant donné que chaque partition dispose de l’indexation automatique sur toutes les propriétés, la requête peut être servie efficacement à partir de l’index. Vous pouvez effectuer des requêtes qui utilisent plusieurs partitions plus rapidement à l’aide des options de parallélisme. Pour en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement dans Azure Cosmos DB](partitioning-overview.md).
 
@@ -36,7 +38,7 @@ Une fois que vous avez stocké des données dans vos conteneurs Azure Cosmos, vo
 Vous pouvez également obtenir le coût des requêtes de manière programmatique en utilisant les kits de développement logiciel. Pour mesurer les frais généraux d’une opération telle que créer, mettre à jour ou supprimer, examinez l’en-tête `x-ms-request-charge` lorsque vous utilisez l’API REST. Si vous utilisez le Kit de développement logiciel (SDK) .NET ou Java, la propriété `RequestCharge` est la propriété équivalente pour obtenir les frais liés à la requête. Cette propriété est présente dans ResourceResponse ou FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

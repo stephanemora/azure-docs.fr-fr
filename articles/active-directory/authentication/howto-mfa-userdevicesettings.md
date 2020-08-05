@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027527"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication
 
@@ -54,6 +54,6 @@ Pour supprimer les mots de passe d’application d’un utilisateur, effectuez l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a aidé à configurer des paramètres utilisateur individuels. Pour configurer les paramètres du service Azure Multi-Factor Authentication, consultez [Configurer les paramètres d’Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
+Cet article vous a montré comment configurer des paramètres utilisateur individuels. Pour configurer l’ensemble des paramètres du service Azure Multi-Factor Authentication, consultez [Configurer les paramètres d’Azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
 
-Si vos utilisateurs ont besoin d’aide, consultez le [Guide de l’utilisateur pour Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).
+Si vos utilisateurs ont besoin d’aide, consultez le [Guide de l’utilisateur pour Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197062"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371819"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchroniser votre dépôt GitHub avec App Configuration
 
@@ -25,7 +25,7 @@ Un [workflow](https://help.github.com/articles/about-github-actions#workflow) Gi
 La [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) GitHub fournit une vue détaillée des flux de travail et actions GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Activer GitHub Actions dans votre dépôt
-Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Cliquez sur **Nouveau workflow**, puis sur **Configurer un workflow vous-même**. Enfin, recherchez « Azure App Configuration Sync » sur la Place de marché.
+Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Sélectionnez **Nouveau workflow**, puis **Configurer un workflow vous-même**. Enfin, recherchez « Azure App Configuration Sync » sur la Place de marché.
 > [!div class="mx-imgBorder"]
 > ![Sélectionner l’onglet Action](media/find-github-action.png)
 
@@ -211,7 +211,7 @@ jobs:
 ## <a name="use-azure-key-vault-with-github-action"></a>Utiliser Azure Key Vault avec l’action GitHub
 Les développeurs qui utilisent Azure Key Vault avec AppConfiguration doivent utiliser deux fichiers distincts, généralement un fichier appSettings.json et un fichier secretreferences.json. Le fichier secretreferences.json contient l’URL du secret du coffre de clés.
 
-{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}" }
+{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret "}" }
 
 L’action GitHub peut ensuite être configurée pour effectuer une synchronisation stricte sur appSettings.json, suivie d’une synchronisation non stricte sur secretreferences.json. L’exemple suivant déclenche une synchronisation lorsque l’un des fichiers est mis à jour :
 

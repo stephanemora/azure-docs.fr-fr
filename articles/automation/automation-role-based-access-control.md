@@ -1,17 +1,17 @@
 ---
 title: Gérer la sécurité et les autorisations des rôles dans Azure Automation
-description: Cet article explique comment utiliser le contrôle d’accès en fonction du rôle (RBAC) qui permet de gérer les accès des ressources Azure.
+description: Cet article décrit comment utiliser le contrôle d’accès en fonction du rôle, qui permet de gérer les accès des ressources Azure.
 keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186144"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279880"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -69,7 +69,12 @@ Un lecteur peut afficher toutes les ressources d’un compte Automation, mais il
 
 ### <a name="automation-operator"></a>Opérateur Automation
 
-Un opérateur Automation est capable de créer et gérer des travaux, et de lire le nom et les propriétés du runbook pour tous les runbooks d’un compte Automation.  Remarque : Si vous voulez contrôler l’accès de l’opérateur aux différents runbooks, ne définissez pas ce rôle et utilisez conjointement les rôles « Opérateur de travaux Automation » et « Opérateur de runbook Automation » à la place. Le tableau suivant présente les autorisations accordées pour le rôle :
+Un opérateur Automation est capable de créer et gérer des travaux, et de lire le nom et les propriétés du runbook pour tous les runbooks d’un compte Automation.
+
+>[!NOTE]
+>Si vous souhaitez contrôler l’accès de l’opérateur à des runbooks individuels, ne définissez pas ce rôle. Utilisez plutôt une association des rôles **Opérateur de travaux Automation** et **Opérateur de runbook Automation**.
+
+Le tableau suivant présente les autorisations accordées pour le rôle :
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -96,7 +101,9 @@ Un opérateur Automation est capable de créer et gérer des travaux, et de lire
 
 ### <a name="automation-job-operator"></a>Opérateur de travaux Automation
 
-Un rôle Opérateur de travaux Automation est accordé au niveau de l’étendue du compte Automation. Les autorisations de l’opérateur permettent donc de créer et de gérer les travaux pour tous les runbooks du compte. Le tableau suivant présente les autorisations accordées pour le rôle :
+Un rôle Opérateur de travaux Automation est accordé au niveau de l’étendue du compte Automation. Les autorisations de l’opérateur permettent donc de créer et de gérer les travaux pour tous les runbooks du compte. Si le rôle Opérateur de travaux dispose des autorisations de lecture sur le groupe de ressources contenant le compte Automation, les membres du rôle ont la possibilité de démarrer des runbooks. Toutefois, ils ne peuvent pas les créer, les modifier ou les supprimer.
+
+Le tableau suivant présente les autorisations accordées pour le rôle :
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -114,7 +121,7 @@ Un rôle Opérateur de travaux Automation est accordé au niveau de l’étendue
 
 ### <a name="automation-runbook-operator"></a>Opérateur de runbook Automation
 
-Un rôle Opérateur de runbook Automation est accordé au niveau de l’étendue du runbook. Un opérateur de runbook Automation peut voir le nom et les propriétés du runbook.  Ce rôle associé au rôle « Opérateur de travaux Automation » permet à l’opérateur de créer et gérer également des travaux pour le runbook. Le tableau suivant présente les autorisations accordées pour le rôle :
+Un rôle Opérateur de runbook Automation est accordé au niveau de l’étendue du runbook. Un opérateur de runbook Automation peut voir le nom et les propriétés du runbook. Ce rôle associé au rôle **Opérateur de travaux Automation** permet à l’opérateur de créer et gérer également des travaux pour le runbook. Le tableau suivant présente les autorisations accordées pour le rôle :
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -290,6 +297,7 @@ La section suivante vous explique comment configurer RBAC sur votre compte Autom
    ![Répertorier les utilisateurs](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Vous pouvez également attribuer un rôle à l’utilisateur à partir de la page Rôles.
+
 4. Cliquez sur **Rôles** dans la page Contrôle d’accès (IAM) pour ouvrir la page Rôles. Vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes auxquels ce rôle a été attribué.
 
     ![Affecter un rôle à partir de la page Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
-    
+
 **Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
 
 ```azurepowershell-interactive

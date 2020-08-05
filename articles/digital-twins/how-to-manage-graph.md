@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258096"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125530"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
 Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.md) représentant l’ensemble de votre environnement. Le graphique de jumeaux est constitué de jumeaux numériques individuels connectés via des **relations**.
 
-Une fois que vous disposez d’une instance [Azure Digital Twins](how-to-set-up-instance.md) opérationnelle et que vous avez configuré l’[authentification](how-to-authenticate-client.md) pour votre application cliente, vous pouvez utiliser des [**API DigitalTwins**](how-to-use-apis-sdks.md) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-scripted.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [**API DigitalTwins**](how-to-use-apis-sdks.md) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
-Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [Procédure : Gestion des jumeaux numériques](how-to-manage-twin.md).
+Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md).
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [Procédure : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md).
+Pour plus d’information sur la classe d’assistance `BasicRelationship`, consultez [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>Lister les relations
 
@@ -108,7 +108,7 @@ Azure Digital Twins dispose également d’une API permettant de rechercher tout
 
 L’exemple de code précédent se concentrait sur la recherche de relations sortantes. L’exemple suivant est similaire, mais recherche plutôt des relations entrantes. Ils les supprime également une fois qu’il les a trouvées.
 
-Notez que les appels IncomingRelationship ne retournent pas la totalité
+Notez que les appels `IncomingRelationship` ne retournent pas le corps complet de la relation.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Gérer les relations avec une interface CLI
 
-Les jumeaux et leurs relations peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes sont disponibles dans [Procédure : Utiliser l’interface CLI Azure Digital Twins](how-to-use-cli.md).
+Les jumeaux et leurs relations peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur l’interrogation d’un graphique de jumeaux Azure Digital Twins :
-* [Concepts : Langage de requête](concepts-query-language.md)
-* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
+* [*Concepts : langage de requête*](concepts-query-language.md)
+* [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654866"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128673"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor pour réseaux (préversion)
 Azure Monitor pour réseau fournit une vue complète de l’intégrité et des métriques pour toutes les ressources réseau déployées sans aucune configuration. La fonctionnalité de recherche avancée aide à identifier les dépendances de ressources, par l’activation de scénarios tels que l’identification des ressources qui hébergent votre site web, en recherchant simplement le nom du site web hébergé.
@@ -48,7 +48,7 @@ Vous pouvez cliquer sur chaque élément en mode grille. Cliquez sur l’icône 
 La grille **Alertes** à droite fournit une vue de toutes les alertes générées pour les ressources sélectionnées pour l’ensemble des abonnements. Cliquez sur le nombre d’alertes pour accéder à la page détaillée des alertes.
 
 ## <a name="dependency-view"></a>Affichage des dépendances
-L’affichage des **dépendances** permet de visualiser la façon dont la ressource est configurée. L’affichage des dépendances est uniquement pris en charge pour Application Gateway. Vous pouvez accéder à l’affichage des dépendances en cliquant sur le nom de la ressource Application Gateway en mode grille des métriques.
+L’affichage des **dépendances** permet de visualiser la façon dont la ressource est configurée. L’affichage des dépendances est maintenant pris en charge pour Application Gateway, Virtual WAN et Load Balancer. Dans le cas d’Application Gateway par exemple, vous pouvez accéder à l’affichage des dépendances en cliquant sur le nom de la ressource Application Gateway en mode grille des métriques. Cela s’applique également à Virtual WAN et à Load Balancer. 
 
 ![Affichage Application Gateway](media/network-insights-overview/application-gateway.png)
 
@@ -70,4 +70,4 @@ Cliquez sur **Afficher les métriques détaillées** afin de lancer un classeur 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-- Découvrez la supervision réseau dans l’article [Présentation d’Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+- Découvrez la supervision réseau dans l’article [Présentation d’Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).

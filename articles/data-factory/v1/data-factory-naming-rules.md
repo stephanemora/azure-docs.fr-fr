@@ -1,5 +1,5 @@
 ---
-title: Règles d’affectation des noms des entités Azure Data Factory
+title: Règles de nommage des entités Azure Data Factory – Version 1
 description: Décrit les règles d'affectation de noms pour les entités Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8fa1340b586434bf98d51437d4dc6b08594f0afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b6dc5b89b8c5d691b19e9e3368d805eb59b1db1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082858"
 ---
-# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
+# <a name="rules-for-naming-azure-data-factory-entities"></a>Règles d’affectation des noms des entités Azure Data Factory
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Règles de nommage dans Data Factory](../naming-rules.md).
 

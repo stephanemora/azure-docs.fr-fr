@@ -4,17 +4,17 @@ description: Répertorie les différentes tailles disponibles pour les machines 
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2d52287d1c343ada58ed4f7e5e1d3e85a4e7162e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850448"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372567"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
 
@@ -33,50 +33,25 @@ Les machines virtuelles de la [série H](h-series.md) sont optimisées pour les 
 
 ## <a name="rdma-capable-instances"></a>Instances prenant en charge RDMA
 
-La plupart des tailles de machines virtuelles HPC (HBv2, HB, HC, H16r, H16mr, A8 et A9) offrent une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Les tailles de la [série N](https://docs.microsoft.com/azure/virtual-machines/nc-series), tailles désignées par « r », telles que les configurations NC24rs (NC24rs_v3, NC24rs_v2 et NC24r), sont également compatibles RDMA. Cette interface s’ajoute à l’interface réseau Azure standard disponible dans d’autres tailles de machine virtuelle.
+La plupart des tailles de machines virtuelles HPC (HBv2, HB, HC, H16r, H16mr, A8 et A9) offrent une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Les tailles de la [série N](./nc-series.md) désignées par « r » (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 et NC24r) sont également compatibles RDMA. Cette interface s’ajoute à l’interface réseau Azure standard disponible dans d’autres tailles de machine virtuelle.
 
-Cette interface permet aux instances prenant en charge l’accès RDMA de communiquer sur un réseau InfiniBand (IB), opérant à des vitesses HDR pour les machines virtuelles HBv2, EDR pour les machines virtuelles HB, HC, à des vitesses FDR pour les machines virtuelles de la série N H16r et H16mr, compatibles RDMA, et à des vitesses QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances de certaines applications MPI (Message Passing Interface). Pour plus d’informations sur la vitesse, consultez les détails dans les tables sur cette page.
+Cette interface permet aux instances compatibles RDMA de communiquer sur un réseau InfiniBand (IB), opérant à des vitesses HDR pour les machines virtuelles HBv2, EDR pour les machines virtuelles HB, HC et NDv2, FDR pour les machines virtuelles H16r et H16mr et autres machines virtuelles de la série N compatibles RDMA, et QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances de certaines applications MPI (Message Passing Interface). Pour plus d’informations sur la vitesse, consultez les détails dans les tables sur cette page.
 
 > [!NOTE]
-> Dans Azure HPC, il existe deux classes de machines virtuelles, selon qu’elles sont compatibles SR-IOV pour InfiniBand. Actuellement, les machines virtuelles prenant en charge SR-IOV pour InfiniBand sont les suivantes : HBv2, HB, HC, NCv3 et NDv2. Les autres machines virtuelles prenant en charge InfiniBand ne sont pas compatibles avec SR-IOV.
+> Dans Azure HPC, il existe deux classes de machines virtuelles, selon qu’elles sont compatibles SR-IOV pour InfiniBand. Actuellement, les machines virtuelles prenant en charge SR-IOV pour InfiniBand sont les suivantes : HBv2, HB, HC, NCv3 et NDv2. Les autres machines virtuelles prenant en charge InfiniBand ne sont à l’heure actuelle pas compatibles avec SR-IOV.
 > RDMA over IB est pris en charge pour toutes les machines virtuelles compatibles RDMA.
 > IP over IB est uniquement pris en charge sur les machines virtuelles compatibles SR-IOV.
 
-- **Système d’exploitation** : Linux est bien pris en charge pour les machines virtuelles HPC, et les distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Système d’exploitation** : Linux est très bien pris en charge pour les machines virtuelles HPC ; des distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+
+- **Pilotes InfiniBand et RDMA** : sur les machines virtuelles prenant en charge InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA. Sur Linux, les images de machine virtuelle CentOS-HPC de la Place de marché sont préconfigurées avec les pilotes appropriés. Les images de machine virtuelle Ubuntu peuvent être configurées avec les bons pilotes suivant ces [instructions](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Sur les machines virtuelles des séries H et N prenant en charge SR-IOV, [l’extension de machine virtuelle InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) peut être utilisée pour installer les pilotes OFED Mellanox et activer InfiniBand. Pour savoir comment activer InfiniBand sur une machine virtuelle compatible RDMA, consultez [Charges de travail HPC](./workloads/hpc/overview.md).
+
+Sur Windows, [l’extension de machine virtuelle InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA. Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour.
+
+Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/). Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](./extensions/overview.md). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **MPI** : les tailles des machines virtuelles compatibles SR-IOV sur Azure (HBv2, HB, HC, NCv3 et NDv2) permettent d’utiliser presque toutes les saveurs de MPI avec Mellanox OFED.
 Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les machines virtuelles. Par conséquent, seules les versions Microsoft MPI (MS-MPI) 2012 R2 ou ultérieures et Intel MPI 5.x sont supportées. Les versions ultérieures (2017, 2018) de la bibliothèque runtime MPI Intel peuvent ne pas être compatibles avec les pilotes Azure RDMA.
-
-- **Extension de machine virtuelle InfiniBandDriver<Linux|Windows>**  : sur les machines virtuelles compatibles RDMA, ajoutez l’extension InfiniBandDriver<Linux|Windows> pour activer InfiniBand. Sur Linux, l’extension de machine virtuelle InfiniBandDriverLinux installe les pilotes Mellanox OFED (sur les machines virtuelles SR-IOV) pour la connectivité RDMA. Sur Windows, l’extension de machine virtuelle InfiniBandDriverWindows installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA.
-Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour.
-Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/overview). 
-
-  La commande suivante installe la dernière version 1.0 de l’extension InfiniBandDriverWindows sur une machine virtuelle existante prenant en charge RDMA et nommée *myVM* déployée dans le groupe de ressources nommé *myResourceGroup* dans la région *USA Ouest* :
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  ```
-
-  Les extensions de machine virtuelle peuvent également être incluses dans les modèles Azure Resource Manager pour faciliter le déploiement, avec l’élément JSON suivant :
-
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverWindows",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-
-  La commande suivante installe la dernière version 1.0 de l’extension InfiniBandDriverWindows sur toutes les machines virtuelles prenant en charge RDMA d’un groupe de machines virtuelles identiques existant, nommé *myVMSS* et déployées dans le groupe de ressources nommé *myResourceGroup* :
-
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-
-  Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](./extensions/overview.md). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous exécutez des applications MPI sur des instances déployées dans un réseau virtuel Azure, assurez-vous que l’espace d’adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
@@ -86,15 +61,15 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 - **Machines virtuelles** : déployez les machines virtuelles HPC compatibles RDMA dans le même groupe de machines virtuelles identiques ou groupe à haute disponibilité (quand vous utilisez le modèle de déploiement Azure Resource Manager). Si vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
 
-- **Groupes de machines virtuelles identiques** : dans un groupe de machines virtuelles identiques (VMSS), veillez à limiter le déploiement à un seul groupe de placements pour les communications InfiniBand au sein du groupe VMSS. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. Notez que la taille maximale d’un groupe VMSS qui peut être lancé avec la propriété `singlePlacementGroup` définie sur `true` est limitée par défaut à 100 machines virtuelles. Si vos besoins de mise à l’échelle des travaux HPC sont supérieurs à 100 machines virtuelles dans un seul locataire VMSS, vous pouvez demander une augmentation, [ouvrir une demande de support client en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement. La limite du nombre de machines virtuelles dans un seul groupe VMSS peut être augmentée à 300. Notez que quand vous déployez des machines virtuelles à l’aide de groupes à haute disponibilité, la limite maximale est de 200 machines virtuelles par groupe à haute disponibilité.
+- **Groupes de machines virtuelles identiques** : dans un groupe de machines virtuelles identiques, veillez à limiter le déploiement à un seul groupe de placements pour la communication InfiniBand au sein du groupe identique. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. Notez que la taille d’un groupe identique qui peut être lancé avec la propriété `singlePlacementGroup` définie sur `true` est limitée par défaut à 100 machines virtuelles. Si vos besoins de mise à l’échelle des travaux HPC sont supérieurs à 100 machines virtuelles dans un seul locataire, vous pouvez demander une augmentation : [ouvrez une demande de support client en ligne](../azure-portal/supportability/how-to-create-azure-support-request.md) gratuitement. La limite du nombre de machines virtuelles dans un seul groupe identique peut être portée à 300. Notez que quand vous déployez des machines virtuelles à l’aide de groupes à haute disponibilité, la limite maximale est de 200 machines virtuelles par groupe à haute disponibilité.
 
 - **MPI entre les machines virtuelles** : si RDMA (par exemple en utilisant la communication MPI) est nécessaire entre les machines virtuelles, assurez-vous que les machines virtuelles figurent dans le même groupe de machines virtuelles identiques ou groupe à haute disponibilité.
 
 - **Azure CycleCloud** : Créez un cluster HPC dans [Azure CycleCloud](/azure/cyclecloud/) pour exécuter des travaux MPI.
 
-- **Azure Batch** : Créez un pool [Azure Batch](/azure/batch/) pour exécuter des charges de travail MPI. Pour utiliser des instances nécessitant beaucoup de ressources système lors de l’exécution d’applications MPI avec Azure Batch, consultez [Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](../batch/batch-mpi.md).
+- **Azure Batch** : Créez un pool [Azure Batch](../batch/index.yml) pour exécuter des charges de travail MPI. Pour utiliser des instances nécessitant beaucoup de ressources système lors de l’exécution d’applications MPI avec Azure Batch, consultez [Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](../batch/batch-mpi.md).
 
-- **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) comprend un environnement d’exécution pour MS-MPI qui utilise le réseau RDMA Azure en cas de déploiement sur des machines virtuelles Linux compatibles RDMA. Pour des exemples de déploiement, voir [Configuration d’un cluster RDMA Linux avec HPC Pack pour exécuter des applications MPI](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+- **Microsoft HPC Pack** - [HPC Pack](/powershell/high-performance-computing/overview) comprend un environnement d’exécution pour MS-MPI qui utilise le réseau RDMA Azure en cas de déploiement sur des machines virtuelles Linux compatibles RDMA. Pour des exemples de déploiement, voir [Configuration d’un cluster RDMA Linux avec HPC Pack pour exécuter des applications MPI](/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
@@ -102,14 +77,14 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 - **Tarification et disponibilité** : ces tailles de machines virtuelles sont proposées uniquement au niveau tarifaire Standard. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/) .
 
-- **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure à partir de la valeur par défaut. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement. (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
+- **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs dans votre abonnement Azure à partir de la valeur par défaut. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-portal/supportability/how-to-create-azure-support-request.md) gratuitement. (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
 
   > [!NOTE]
   > Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé uniquement pour les cœurs que vous utilisez.
   
 - **Réseau virtuel** : un [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est pas requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, pour bon nombre de scénarios de déploiement, vous avez besoin d’au moins un réseau virtuel Azure cloud ou d’une connexion de site à site si vous devez accéder à des ressources locales. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout de machines virtuelles nécessitant beaucoup de ressources système à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
 
-- **Redimensionnement** : en raison de leur matériel spécialisé, vous pouvez uniquement redimensionner les instances nécessitant beaucoup de ressources système qui appartiennent à la même famille de taille (série H ou série A nécessitant beaucoup de ressources système). Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Le redimensionnement d’une taille ne nécessitant pas beaucoup de ressources système en une taille nécessitant beaucoup de ressources système n’est pas pris en charge.  
+- **Redimensionnement** : en raison de leur matériel spécialisé, seules les instances nécessitant beaucoup de ressources système qui appartiennent à la même famille de taille (série H ou N) peuvent être redimensionnées. Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Des considérations supplémentaires concernant la prise en charge des pilotes InfiniBand et les disques NVMe peuvent se révéler nécessaires pour certaines machines virtuelles.
 
 
 ## <a name="other-sizes"></a>Autres tailles
@@ -123,6 +98,6 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview). 
+- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](./workloads/hpc/overview.md). 
 
 - Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

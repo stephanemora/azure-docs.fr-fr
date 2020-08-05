@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a40c5512da40ede84251ec16345a3957c391bb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965365"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287355"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,10 +48,10 @@ SQL Server sur les machines virtuelles Azure offre différentes options en tant 
 
 ||[Disques partagés Azure](../../../virtual-machines/windows/disks-shared.md)|[Partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Version de système d’exploitation minimale**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Version minimale de SQL Server**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Version de système d’exploitation minimale**| Tous |Windows Server 2012|Windows Server 2016|
+|**Version minimale de SQL Server**|Tous|SQL Server 2012|SQL Server 2016|
 |**Disponibilité des machines virtuelles prises en charge** |Groupes à haute disponibilité avec groupes de placement de proximité |Groupes à haute disponibilité et zones de disponibilité|Groupes à haute disponibilité |
-|**Prend en charge FileStream**|Non|Non|Oui |
+|**Prend en charge FileStream**|Oui|Non|Oui |
 |**Cache d'objets blob Azure**|Non|Non|Oui|
 
 Le reste de cette section répertorie les avantages et les limitations de chaque option de stockage disponible pour SQL Server sur les machines virtuelles Azure. 
@@ -60,18 +60,18 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 
 [Les disques partagés Azure](../../../virtual-machines/windows/disks-shared.md) sont une fonctionnalité des [disques managés Azure](../../../virtual-machines/windows/managed-disks-overview.md). Le clustering de basculement Windows Server prend en charge l’utilisation de disques partagés Azure avec une instance de cluster de basculement. 
 
-**Systèmes d’exploitation pris en charge** : Windows Server 2019   
-**Version de SQL pris en charge** : SQL Server 2019   
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous     
 
 **Avantages** : 
 - Utile pour les applications qui cherchent à migrer vers Azure tout en conservant leur architecture de haute disponibilité et de récupération d’urgence (HADR) telle quelle. 
 - Peut migrer des applications en cluster vers Azure en raison de la prise en charge des réservations persistantes SCSI (SCSI PR). 
 - Prend en charge les SSD Premium Azure partagés pour toutes les versions de SQL Server et les disques de stockage Ultra d’Azure partagés pour SQL Server 2019. 
 - Peut utiliser un seul disque partagé ou entrelacer plusieurs disques partagés pour créer un pool de stockage partagé. 
+- Prend en charge Filestream.
 
 
 **Limitations** : 
-- Disponible uniquement pour SQL Server 2019 et Windows Server 2019 en préversion. 
 - Les machines virtuelles doivent être placées dans le même groupe à haute disponibilité et le même groupe de placement de proximité.
 - Les zones de disponibilité ne sont pas prises en charge.
 - La mise en cache des disques SSD Premium n’est pas prise en charge.

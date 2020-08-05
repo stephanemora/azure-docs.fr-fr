@@ -3,12 +3,12 @@ title: Stockage Blob Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de stockage Blob avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113749"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371275"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Stockage Blob Azure en tant que source Event Grid
 
@@ -23,6 +23,9 @@ Cet article fournit les propriétés et les schémas des événements de stockag
 ### <a name="list-of-events-for-blob-rest-apis"></a>Liste des événements pour des API REST d’objets blob
 
 Ces événements sont déclenchés quand un client crée, remplace ou supprime un objet blob en appelant des API REST d’objets blob.
+
+> [!NOTE]
+> L’utilisation du point de terminaison DFS *`(abfss://URI) `* pour des comptes d’espace de noms activé non hiérarchique ne génère pas d’événements. Pour ces comptes, seul le point de terminaison d’objet blob *`(wasb:// URI)`* génère des événements.
 
  |Nom d'événement |Description|
  |----------|-----------|

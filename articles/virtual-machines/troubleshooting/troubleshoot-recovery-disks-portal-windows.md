@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074351"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
@@ -127,7 +127,7 @@ Une fois les erreurs résolues, dissociez le disque dur virtuel existant de votr
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Remplacer le disque du système d'exploitation de la machine virtuelle
 
-Le portail Azure prend désormais en charge le remplacement du disque du système d'exploitation de la machine virtuelle. Pour ce faire, procédez comme suit :
+Le portail Azure prend désormais en charge le remplacement du disque du système d’exploitation de la machine virtuelle. Pour ce faire, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com). Sélectionnez **Machines virtuelles** sur la barre latérale, puis cliquez sur la machine virtuelle qui rencontre un problème.
 1. Dans le volet gauche, sélectionnez **Disques**, puis cliquez sur **Remplacer le disque du système d'exploitation**.

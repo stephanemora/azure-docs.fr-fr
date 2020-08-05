@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357560"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385090"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifier le mot de passe du compte de service ADSync
 Si vous modifiez le mot de passe du service ADSync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service ADSync. 
@@ -52,7 +52,7 @@ Pour vous assurer que vous ne recevez pas ces erreurs, suivez les procédures de
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abandon de la clé de chiffrement du compte de service ADSync
 >[!IMPORTANT]
->Les procédures suivantes s’appliquent uniquement à Azure AD Connect version 1.1.443.0 ou antérieure.
+>Les procédures suivantes s’appliquent uniquement à Azure AD Connect version 1.1.443.0 ou antérieure. Il n’est pas possible de les suivre pour les versions plus récentes d’Azure AD Connect.
 
 Utilisez les procédures suivantes pour abandonner la clé de chiffrement.
 

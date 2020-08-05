@@ -1,16 +1,18 @@
 ---
-title: Tableau de bord Commandes de l’Espace partenaires dans l’analytique de la place de marché commerciale
-description: Découvrez comment accéder aux rapports d’analytique sur vos commandes d’offres de la place de marché dans un format graphique et téléchargeable.
+title: Tableau de bord des commandes de l’Espace partenaires dans l’analytique de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure
+description: Découvrez comment accéder aux rapports d’analytique concernant vos commandes d’offres de la Place de marché commerciale, dans un format graphique et téléchargeable.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d5adc1bfe19de48568d0e77bb488bea0e5a02818
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536128"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327376"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -32,6 +34,8 @@ Le **tableau de bord Commandes** du menu **Analyser** présente les commandes en
 - [Commandes par plans](#orders-by-plans)
 - [Tendance des commandes et des sièges](#orders-and-seats-trend)
 - [Tableau des détails des commandes](#order-details-table)
+
+Dans l’Espace partenaires, la latence maximale entre la création des commandes et la création des rapports est de 48 heures.
 
 ## <a name="order-dashboard-details"></a>Détails du tableau de bord Commande
 
@@ -71,7 +75,7 @@ Le graphique en anneau **Commandes par offre** organise les commandes (commandes
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Tendance des commandes par site et par siège
 
-Le graphique en anneau **par site et par siège** représente la répartition des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses). L’histogramme représente la tendance des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses).
+Le graphique en anneau **par site et par siège** représente la répartition des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses). L’histogramme représente la tendance des commandes SaaS par site et des commandes SaaS par siège passées par les clients (commandes annulées incluses).
 
 ### <a name="orders-by-plans"></a>Commandes par plans
 
@@ -82,13 +86,13 @@ Le graphe **Commandes par plans** représente la tendance des commandes au nivea
 Le graphe **Tendance des commandes et des sièges** présente les 50 premières offres par nombre de commandes. Elles sont affichées dans un classement et triées par nombre de commandes et pourcentage de commandes.
 
 - **Commandes par plans** – Sélectionnez une offre pour voir la répartition du nombre de commandes pour les cinq premiers plans dans le graphe.
-- **Sièges par plans** – Tendance mensuelle des sièges pour les cinq premiers plans. Si l’offre sélectionnée n’est pas une offre par siège, ce graphique en aires ne comportera aucune donnée.
+- **Sièges par plans** – Tendance mensuelle des sièges pour les cinq premiers plans. Si l’offre que vous sélectionnez n’est pas une offre par siège, aucune donnée ne s’affichera.
 
 ### <a name="canceled-orders-by-offers"></a>Commandes annulées par offre
 
 Le graphique à secteurs **Commandes annulées par offre** organise l’ensemble des commandes annulées en fonction de leur nom d’offre. Les premières offres s’affichent dans le graphe et les autres sont regroupées sous « Tout le reste ». Dans la légende, vous pouvez sélectionner des offres spécifiques à afficher dans le graphe.
 
-- Placez le curseur sur un secteur du graphique pour afficher le nombre de commandes et le pourcentage de l’offre sélectionnée par rapport au nombre total de commandes toutes offres confondues.
+- Placez le curseur sur un secteur du graphique pour afficher le nombre de commandes et le pourcentage de l’offre sélectionnée par rapport au nombre total de commandes, toutes offres confondues.
 - L’histogramme indique les tendances mois par mois. Les colonnes représentent le nombre de commandes annulées par nom d’offre. Vous pouvez utiliser le curseur en haut du graphe pour effectuer un défilement vers la droite et la gauche le long de l’axe X et vous concentrer sur des points de données spécifiques. Vous pouvez afficher le graphique des tendances en sélectionnant un élément spécifique de la légende.
 
 ### <a name="order-details-table"></a>Tableau des détails des commandes
@@ -98,8 +102,8 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 premi
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier TSV en présence d'un nombre d’enregistrements inférieur à 1 000.
 - En présence d'un nombre d'enregistrements supérieur à 1 000, les données exportées sont placées, de manière asynchrone, dans une page de téléchargements pour une durée de 30 jours.
-- Vous pouvez appliquer des filtres au **tableau Détails des commandes** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays/région, type de licence Azure, type de licence de Place de marché, type d’offre, état de la commande, évaluations gratuites, ID d’abonnement de Place de marché, ID de client et nom de société.
-- Étant donné que les offres SaaS achetées par le biais de Place de marché Azure ou d’AppSource ne nécessitent pas d’abonnement Azure, l’ID d’abonnement de Place de marché affiche 00000000-0000-0000-0000-000000000000 dans la section **Données de commandes détaillées**.
+- Appliquez des filtres au **tableau Détails des commandes** pour afficher uniquement les données qui vous intéressent. Filtrez les données par pays/région, type de licence Azure, type de licence de Place de marché commerciale, type d’offre, état de la commande, évaluations gratuites, ID d’abonnement de Place de marché commerciale, ID de client et nom de société.
+- Étant donné que les offres SaaS achetées par le biais de la Place de marché Azure ou d’AppSource ne nécessitent pas d’abonnement Azure, l’ID d’abonnement de Place de marché affiche 00000000-0000-0000-0000-000000000000 dans la section **Données de commandes détaillées**.
 
 #### <a name="orders-page-filters"></a>Filtres de page des commandes
 

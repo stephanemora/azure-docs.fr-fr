@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 4edcb22ed6bd33b1174354cf0cbb9a590e35c207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325999"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
+
 Les solutions de supervision tirent parti des services Azure pour fournir analyse supplémentaire du fonctionnement d’une application ou d’un service en particuliers. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation. Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation.
 
 ## <a name="use-monitoring-solutions"></a>Utiliser des solutions de supervision
 
-Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette de chacune des solutions installées dans l’espace de travail. 
+Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette de chacune des solutions installées dans l’espace de travail.
 
 1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Surveiller**.
 1. Sous le menu **Insights**, sélectionnez **Plus**.
@@ -31,12 +32,13 @@ Les solutions de monitoring peuvent contenir plusieurs types de ressources Azure
 
 ## <a name="list-installed-monitoring-solutions"></a>Lister les solutions de monitoring installées
 
+### <a name="portal"></a>[Portail](#tab/portal)
+
 Suivez la procédure ci-dessous pour lister les solutions de monitoring installées dans votre abonnement.
 
 1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Solutions**.
 1. Vous obtenez la liste des solutions installées dans l’ensemble de vos espaces de travail. Le nom de la solution est suivi du nom de l’espace de travail dans lequel elle est installée.
 1. Utilisez les zones de liste déroulante en haut de l’écran pour filtrer les solutions par abonnement ou par groupe de ressources.
-
 
 ![Affichage de toutes les solutions](media/solutions/list-solutions-all.png)
 
@@ -44,7 +46,26 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 
 ![Propriétés d’une solution](media/solutions/solution-properties.png)
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Utilisez la commande [az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) pour lister les solutions de supervision installées dans votre abonnement.   Avant d’exécuter la commande `list`, assurez-vous que les prérequis indiqués dans la section [Installer une solution de supervision](#install-a-monitoring-solution) sont respectés.
+
+```azurecli
+# List all log-analytics solutions in the current subscription.
+az monitor log-analytics solution list
+
+# List all log-analytics solutions for a specific subscription
+az monitor log-analytics solution list --subscription MySubscription
+
+# List all log-analytics solutions in a resource group
+az monitor log-analytics solution list --resource-group MyResourceGroup
+```
+
+* * *
+
 ## <a name="install-a-monitoring-solution"></a>Installer une solution de supervision
+
+### <a name="portal"></a>[Portail](#tab/portal)
 
 Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles sur la [Place de marché Azure](https://azuremarketplace.microsoft.com). Vous pouvez rechercher des solutions disponibles et les installer à l’aide de la procédure suivante. Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../platform/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.
 
@@ -61,12 +82,76 @@ Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles 
 Les membres de la communauté peuvent soumettre des solutions de gestion aux modèles de démarrage rapide Azure. Vous pouvez installer ces solutions directement ou en télécharger les modèles à des fins d’installation ultérieure.
 
 1. Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
-2. Accédez à [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). 
+2. Accédez à [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 3. Recherchez une solution qui vous intéresse.
 4. Sélectionnez la solution dans les résultats pour en afficher les détails.
 5. Cliquez sur le bouton **Déployer dans Azure**.
 6. Vous êtes invité à fournir des informations comme le groupe de ressources et l’emplacement, en plus des valeurs des paramètres de la solution.
 7. Cliquez sur **Achat** pour installer la solution.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="prepare-your-environment"></a>Préparation de votre environnement
+
+1. Installer l’interface de ligne de commande Microsoft Azure
+
+   Vous devez [installer l’interface Azure CLI](/cli/azure/install-azure-cli) avant d’exécuter les commandes de référence CLI.  Si vous préférez, vous pouvez également utiliser Azure Cloud Shell pour effectuer les étapes décrites dans cet article.  Azure Cloud Shell est un environnement d’interpréteur de commandes interactif que vous utilisez dans votre navigateur.  Démarrez Cloud Shell à l’aide de l’une des méthodes suivantes :
+
+   - Ouvrez Cloud Shell en accédant à [https://shell.azure.com](https://shell.azure.com).
+
+   - Sélectionnez le bouton **Cloud Shell** dans la barre de menus en haut à droite du [portail Azure](https://portal.azure.com).
+
+1. Connectez-vous.
+
+   Si vous utilisez une installation locale de l’interface CLI, connectez-vous à l’aide de la commande [az login](/cli/azure/reference-index#az-login).  Suivez les étapes affichées dans votre terminal pour effectuer le processus d’authentification.
+
+    ```azurecli
+    az login
+    ```
+
+1. Installer l’extension `log-analytics`
+
+   La commande `log-analytics` est une extension expérimentale de l’interface Azure CLI de base. Découvrez-en plus sur les références des extensions dans [Utiliser des extensions avec Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+
+   ```azurecli
+   az extension add --name log-analytics
+   ```
+
+   L’avertissement suivant doit s’afficher.
+
+   ```output
+   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="install-a-solution-with-the-azure-cli"></a>Installer une solution avec l’interface Azure CLI
+
+Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../platform/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.  Avec l’interface Azure CLI, vous gérez les espaces de travail à l’aide des commandes de référence [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace).  Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
+
+Utilisez la commande [az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) pour installer une solution de supervision.  Les paramètres entre crochets sont facultatifs.
+
+```azurecli
+az monitor log-analytics solution create --name
+                                         --plan-product
+                                         --plan-publisher
+                                         --resource-group
+                                         --workspace
+                                         [--no-wait]
+                                         [--tags]
+```
+
+Voici un exemple de code qui crée une solution Log Analytics pour le produit de plan d’OMSGallery/Containers.
+
+```azurecli
+az monitor log-analytics solution create --resource-group MyResourceGroup \
+                                         --name Containers({SolutionName}) \
+                                         --tags key=value \
+                                         --plan-publisher Microsoft  \
+                                         --plan-product "OMSGallery/Containers" \
+                                         --workspace "/subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/ \
+                                           Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
+```
+
+* * *
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
 
@@ -88,9 +173,26 @@ Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un com
 
 ## <a name="remove-a-monitoring-solution"></a>Supprimer une solution de supervision
 
-Pour supprimer une solution installée, recherchez cette dernière dans la [liste des solutions installées](#list-installed-monitoring-solutions). Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur **Supprimer**.
+### <a name="portal"></a>[Portail](#tab/portal)
+
+Pour supprimer une solution installée à l’aide du portail, recherchez-la dans la [liste des solutions installées](#list-installed-monitoring-solutions). Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur **Supprimer**.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour supprimer une solution installée à l’aide de l’interface Azure CLI, utilisez la commande [az monitor log-analytics solution delete](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-delete).
+
+```azurecli
+az monitor log-analytics solution delete --name
+                                         --resource-group
+                                         [--no-wait]
+                                         [--yes]
+```
+
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Accédez à la [liste des solutions de monitoring de Microsoft](solutions-inventory.md).
+* Accédez à la [liste des solutions de monitoring de Microsoft](/azure/azure-monitor/monitor-reference).
 * Apprenez à [créer des requêtes](../log-query/log-query-overview.md) pour analyser les données collectées par les solutions de monitoring.
+* Consultez toutes les [commandes Azure CLI pour Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+

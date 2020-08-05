@@ -1,5 +1,5 @@
 ---
-title: Base de référence de sécurité Machines virtuelles Linux pour Azure Security Benchmark
+title: Base de référence de sécurité Azure pour machines virtuelles Linux
 description: La base de référence de sécurité Machines virtuelles Linux fournit des instructions et des ressources pour l’implémentation des recommandations de sécurité spécifiées dans Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385481"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Machines virtuelles Linux pour Azure Security Benchmark
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
 La base de référence de sécurité Azure pour Machines virtuelles Linux contient des recommandations qui vous aideront à améliorer la posture de sécurité de votre déploiement.
 
@@ -568,7 +568,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure](../../role-based-access-control/overview.md)
 
-* [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -1096,7 +1096,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 * [Suppression réversible pour les machines virtuelles](../../backup/soft-delete-virtual-machines.md)
 
-* [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../../key-vault/general/overview-soft-delete.md)
+* [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
 **Supervision d’Azure Security Center** : Oui
 

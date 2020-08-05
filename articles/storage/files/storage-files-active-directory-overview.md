@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263343"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372317"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,7 +46,7 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
 
 -   **Contrôle d’accès en fonction du rôle (RBAC) Azure**
 
-    Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. À l’aide de RBAC, vous pouvez gérer l’accès aux ressources en accordant aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail. Pour plus d’informations sur RBAC, voir [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) dans Azure ?](../../role-based-access-control/overview.md).
+    Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. À l’aide de RBAC, vous pouvez gérer l’accès aux ressources en accordant aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail. Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) dans Azure ?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Cas d’utilisation courants
 
@@ -123,7 +123,7 @@ Vous pouvez activer l’authentification basée sur l’identité avec Azure AD 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurer les autorisations au niveau du partage pour Azure Files
 
-Une fois l’authentification Azure AD DS ou AD DS locale activée, vous pouvez utiliser des rôles RBAC intégrés ou configurer des rôles personnalisés pour les identités Azure AD, et attribuer des droits d’accès aux partages de fichiers pour vos comptes de stockage. L’autorisation attribuée permet à l’identité accordée d’obtenir l’accès uniquement au partage, mais pas au répertoire racine. Vous devez toujours configurer séparément les autorisations au niveau du répertoire ou du fichier pour les partages de fichiers Azure.
+Une fois l’authentification Azure AD DS ou AD DS locale activée, vous pouvez utiliser des rôles Azure intégrés ou configurer des rôles personnalisés pour les identités Azure AD, et attribuer des droits d’accès à tous les partages de fichiers de vos comptes de stockage. L’autorisation attribuée permet à l’identité accordée d’obtenir l’accès uniquement au partage, mais pas au répertoire racine. Vous devez toujours configurer séparément les autorisations au niveau du répertoire ou du fichier pour les partages de fichiers Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configurer des autorisations au niveau du répertoire ou du fichier pour Azure Files
 

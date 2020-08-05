@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207887"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373145"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -29,6 +29,9 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 ![Portail des développeurs Gestion des API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> Le nouveau portail des développeurs est incompatible avec l’ancien ; la migration automatisée n’est pas possible. Vous devez recréer manuellement le contenu (pages, texte, fichiers multimédias) et personnaliser l’apparence du nouveau portail. Pour obtenir de l’aide, consultez le [tutoriel sur le portail des développeurs](api-management-howto-developer-portal-customize.md).
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Version managée et version auto-hébergée
 
@@ -82,19 +85,13 @@ Si vous ne souhaitez pas réinitialiser le contenu du portail, vous pouvez utili
 
 Si votre portail a été configuré après l’annonce de la mise à la disposition générale, il dispose normalement déjà du nouveau contenu par défaut. Aucune action de votre part n’est nécessaire.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Comment migrer de l’ancien portail des développeurs vers le portail des développeurs actuel ?
-
-Les portails étant incompatibles, vous devez migrer le contenu manuellement.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Le portail a-t-il toutes les fonctionnalités de l’ancien portail ?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Le portail comporte-t-il toutes les fonctionnalités de l’ancien portail ?
 
 Le portail des développeurs ne prend plus en charge les *Applications* et les *Problèmes*.
 
-L’authentification avec OAuth dans la console du développeur interactive n’est prise en charge. Vous pouvez suivre la progression via le [problème GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>L’ancien portail est-il déconseillé ?
 
-### <a name="has-the-old-portal-been-deprecated"></a>L’ancien portail est-il déconseillé ?
-
-L’ancien portail des développeurs et l’ancien portail des éditeurs sont désormais des fonctionnalités *héritées*, qui ne recevront que des mises à jour de sécurité. Les nouvelles fonctionnalités ne seront implémentées que dans le nouveau portail des développeurs.
+L’ancien portail des développeurs et l’ancien portail des éditeurs constituent à présent des fonctionnalités *héritées*, qui ne recevront que des correctifs de sécurité. Les nouvelles fonctionnalités ne seront implémentées que dans le nouveau portail des développeurs.
 
 La dépréciation des portails hérités sera annoncée séparément. Si vous avez des questions, des doutes ou des commentaires, signalez-les dans un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -108,7 +105,19 @@ Vous pouvez accéder programmatiquement au contenu du portail des développeurs 
 
 L’API est documentée dans la [section wiki du référentiel GitHub][2]. Elle peut servir à automatiser les migrations du contenu du portail entre différents environnements, par exemple d’un environnement de test à l’environnement de production. Pour plus d’informations sur ce processus, lisez [cet article de documentation](https://aka.ms/apimdocs/migrateportal) sur GitHub.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>Comment passer de la version gérée à la version auto-hébergée ?
+
+Consultez l’article détaillé dans la [section Wiki du référentiel du portail des développeurs sur GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>Puis-je avoir plusieurs portails des développeurs dans un même service Gestion des API ?
+
+Vous pouvez avoir un portail géré et plusieurs portails auto-hébergés. Le contenu de tous les portails étant stocké dans le même service Gestion des API, ils sont identiques. Si vous souhaitez différencier leur apparence et leurs fonctionnalités, vous pouvez les auto-héberger en utilisant vos propres widgets personnalisés pour personnaliser dynamiquement les pages à l’exécution, par exemple, en fonction de l’URL.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Le portail prend-il en charge les modèles Azure Resource Manager ? Est-il compatible avec le kit de ressources DevOps Gestion des API ?
+
+Non.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>Le contenu du portail est-il enregistré avec la fonctionnalité de sauvegarde/restauration de la Gestion des API ?
 
 Non.
 

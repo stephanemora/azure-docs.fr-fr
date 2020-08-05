@@ -1,6 +1,5 @@
 ---
-title: Guide pratique pour télécharger des données de notebooks (préversion)
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Téléchargement de données de notebooks (préversion) – Azure'
 description: Guide pratique pour télécharger des données de notebooks (préversion) dans Machine Learning Studio (classique).
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208463"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318655"
 ---
 # <a name="download-notebookspreview-data"></a>Télécharger des données de notebooks (préversion)
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
 
 La fonctionnalité Notebooks (préversion) a été supprimée le *13 avril 2020*. La suppression de l’onglet Notebooks (préversion) et des fichiers de notebook utilisateur est en cours dans les régions Azure du monde entier.
 

@@ -4,15 +4,15 @@ description: Découvrez le trafic réseau ASE et comment définir des groupes de
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280917"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -158,13 +158,14 @@ Pour permettre à un ASE de fonctionner, les entrées nécessaires dans un group
 * depuis le sous-réseau ASE vers le sous-réseau ASE, sur tous les ports.
 
 **Sortante**
+* UDP vers toutes les adresses IP sur le port 53
 * UDP vers toutes les adresses IP sur le port 123
 * Protocole TCP vers toutes les adresses IP sur les ports 80 et 443
 * Protocole TCP vers la balise de service IP AzureSQL sur les ports 1433
 * Protocole TCP vers toutes les adresses IP sur le port 12000
 * vers le sous-réseau ASE sur tous les ports.
 
-Ces ports n’incluent pas ceux dont vos applications ont besoin pour fonctionner correctement. Par exemple, votre application doit appeler un serveur MySQL sur le port 3306. Il n’est pas nécessaire d’ajouter le port DNS (port 53), puisque le trafic vers DNS n’est pas affecté par les règles NSG. Le protocole Network Time Protocol (NTP) sur le port 123 est le protocole de synchronisation date/heure utilisé par le système d'exploitation. Les points de terminaison NTP ne sont pas spécifiques à App Services, ils peuvent varier avec le système d’exploitation et ne figurent pas dans une liste d’adresses bien définie. Pour éviter les problèmes de synchronisation date/heure, vous devez autoriser le trafic UDP vers toutes les adresses sur le port 123. Le trafic TCP sortant du port 12000 est destiné à la prise en charge et à l’analyse du système. Les points de terminaison sont dynamiques et ne se trouvent pas dans un ensemble bien défini d’adresses.
+Ces ports n’incluent pas ceux dont vos applications ont besoin pour fonctionner correctement. Par exemple, votre application peut avoir besoin d’appeler un serveur MySQL sur le port 3306. Le protocole Network Time Protocol (NTP) sur le port 123 est le protocole de synchronisation date/heure utilisé par le système d'exploitation. Les points de terminaison NTP ne sont pas spécifiques à App Services, ils peuvent varier avec le système d’exploitation et ne figurent pas dans une liste d’adresses bien définie. Pour éviter les problèmes de synchronisation date/heure, vous devez autoriser le trafic UDP vers toutes les adresses sur le port 123. Le trafic TCP sortant du port 12000 est destiné à la prise en charge et à l’analyse du système. Les points de terminaison sont dynamiques et ne se trouvent pas dans un ensemble bien défini d’adresses.
 
 Les ports d’accès normaux pour les applications sont les suivants :
 

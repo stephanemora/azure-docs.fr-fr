@@ -3,16 +3,16 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837348"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366770"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
-Votre hiérarchie de ressources est un ensemble constitué de vos ressources, groupes de ressources, abonnements, groupes d’administration et autre locataire. Les paramètres au niveau du groupe d’administration racine, tels que les rôles RBAC personnalisés ou les affectations de stratégie Azure Policy, peuvent avoir un impact sur chaque ressource de votre hiérarchie de ressources. Il est important de protéger la hiérarchie de ressources contre les modifications susceptibles d’avoir des répercussions négatives sur toutes les ressources.
+Votre hiérarchie de ressources est un ensemble constitué de vos ressources, groupes de ressources, abonnements, groupes d’administration et autre locataire. Les paramètres au niveau du groupe d’administration racine, tels que les rôles Azure personnalisés ou les affectations de stratégie Azure Policy, peuvent avoir un impact sur chaque ressource de votre hiérarchie de ressources. Il est important de protéger la hiérarchie de ressources contre les modifications susceptibles d’avoir des répercussions négatives sur toutes les ressources.
 
 Les groupes d’administration ont désormais des paramètres de hiérarchie qui permettent à l’administrateur du locataire de contrôler ces comportements. Cet article décrit chacun des paramètres de hiérarchie disponibles et explique comment les définir.
 
@@ -23,7 +23,7 @@ La configuration des paramètres de hiérarchie exige l’utilisation des deux o
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Ces opérations permettent uniquement à un utilisateur de lire et mettre à jour les paramètres de hiérarchie. Elles ne fournissent aucun autre accès à la hiérarchie du groupe d’administration ou aux ressources de la hiérarchie. Ces deux opérations sont disponibles dans le rôle RBAC intégré **Administrateur des paramètres de hiérarchie**.
+Ces opérations permettent uniquement à un utilisateur de lire et mettre à jour les paramètres de hiérarchie. Elles ne fournissent aucun autre accès à la hiérarchie du groupe d’administration ou aux ressources de la hiérarchie. Ces deux opérations sont disponibles dans le rôle intégré Azure **Administrateur des paramètres de hiérarchie**.
 
 ## <a name="setting---default-management-group"></a>Paramètre – Groupe d’administration par défaut
 

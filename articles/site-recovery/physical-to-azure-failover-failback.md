@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75497860"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292814"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 
@@ -84,7 +84,7 @@ Après le basculement vers Azure, vous reprotégez les machines virtuelles Azure
 10. Vérifiez les scénarios suivants, qui ne permettent pas de restauration automatique :
     - Si vous utilisez les éditions gratuites d’ESXi 5.5 ou de vSphere Hypervisor 6. Effectuez une mise à niveau vers une autre version.
     - Si vous avez un serveur physique Windows Server 2008 R2 SP1.
-    - Machines virtuelles qui ont [été migrées](migrate-overview.md#what-do-we-mean-by-migration).
+    - Machines virtuelles qui ont été migrées.
     - Une machine virtuelle qui a été déplacée vers un autre groupe de ressources.
     - Une machine virtuelle Azure de réplication qui a été supprimée.
     - Une machine virtuelle Azure de réplication qui n’est pas protégée (réplication sur le site local).
