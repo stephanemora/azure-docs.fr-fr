@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205405"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421771"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -75,7 +75,7 @@ Une règle d’équilibrage de charge sert à définir la manière dont le trafi
 Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 pour router le trafic de votre adresse IP front-end vers le port 80 de vos instances back-end.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Règles d’équilibrage de charge">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Règles d’équilibrage de charge">
 </p>
 
 *Figure : Règles d’équilibrage de charge*
@@ -97,7 +97,7 @@ La décision d’équilibrage de charge est prise par flux. Cette action est bas
 Les règles d’équilibrage de charge des ports haute disponibilité sont utiles dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut servir quand un grand nombre de ports doit avoir une charge équilibrée.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Règles des ports HA">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Règles des ports HA">
 </p>
 
 *Figure : Règles des ports HA*
@@ -111,7 +111,7 @@ Une règle NAT de trafic entrant transfère le trafic entrant envoyé à la comb
 Par exemple, si vous souhaitez que les sessions RDP (Remote Desktop Protocol) ou SSH (Secure Shell) séparent les instances de machine virtuelle d’un pool de back-ends, plusieurs points de terminaison internes peuvent être mappés à des ports sur la même adresse IP front-end. Les adresses IP front-end peuvent être utilisées pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Règles NAT entrantes">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Règles NAT entrantes">
 </p>
 
 *Figure : Règles NAT de trafic entrant*
