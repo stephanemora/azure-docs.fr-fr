@@ -4,7 +4,7 @@ summary: La sécurité fait partie intégrante d’Azure. Azure vous offre des a
 brand: azure
 metadata:
   title: Documentation sur la sécurité Azure
-  description: La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages uniques en matière de sécurité découlant des informations de sécurité mondiales, dérivés des informations de sécurité globales, des contrôles orientés client sophistiqués et une infrastructure de sécurité renforcée. Cette combinaison puissante permet de protéger vos applications et vos données, prend en charge vos efforts de conformité, et offre une sécurité rentable pour les entreprises de toutes tailles.
+  description: Découvrez la sécurité dans Azure. Découvrez les bases, les bonnes pratiques et les modèles sur la sécurité, ainsi qu’Azure Security Center.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115362"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540850"
 highlightedContent:
   items:
   - title: Présentation de la sécurité Azure

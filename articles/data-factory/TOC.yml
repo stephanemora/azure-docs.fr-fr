@@ -726,6 +726,8 @@
           href: pricing-concepts.md
     - name: Guides de résolution des problèmes
       items:
+        - name: Expérience utilisateur Data Factory
+          href: data-factory-ux-troubleshoot-guide.md
         - name: Activités
           href: data-factory-troubleshoot-guide.md
         - name: Connecteurs

@@ -91,7 +91,7 @@
       items:
         - name: Vue d’ensemble de l’accès privilégié
           href: groups-features.md
-        - name: Découvrir les groupes
+        - name: Placer des groupes sous administration
           href: groups-discover-groups.md
         - name: Affecter un membre ou un propriétaire
           href: groups-assign-member-owner.md

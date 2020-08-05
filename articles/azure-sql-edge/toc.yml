@@ -8,6 +8,8 @@
       href: features.md
     - name: Notes de publication
       href: release-notes.md
+    - name: Collecte des données d’utilisation et de diagnostic
+      href: usage-and-diagnostics-data-configuration.md
 - name: Démarrages rapides
   expanded: true
   items:

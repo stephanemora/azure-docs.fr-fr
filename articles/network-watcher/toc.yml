@@ -51,6 +51,12 @@
   items:
     - name: Configurer Network Watcher
       href: network-watcher-create.md
+    - name: Créer un Moniteur de connexion (préversion)
+      items:
+        - name: En passant par le portail Azure
+          href: connection-monitor-preview-create-using-portal.md
+        - name: Utilisation d’Armclient
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: Diagnostiquer des problèmes de réseau sur une machine virtuelle
       items:
         - name: Installer une extension de machine virtuelle
