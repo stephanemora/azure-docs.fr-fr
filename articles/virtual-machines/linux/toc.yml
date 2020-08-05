@@ -372,7 +372,7 @@
     - name: Surveillance
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Sauvegarde et récupération
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: Framework d’adoption du cloud
       href: /azure/cloud-adoption-framework/get-started/
     - name: Centre des architectures

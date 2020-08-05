@@ -84,6 +84,9 @@
           href: overview-patch-os-runtime.md
         - name: Contrôles de sécurité intégrés
           href: app-service-security-controls.md
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Présentation de la sécurité
           href: overview-security.md
     - name: Fonctionnalités réseau

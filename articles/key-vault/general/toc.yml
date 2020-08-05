@@ -6,6 +6,8 @@
       href: overview.md
     - name: 'À propos des clés, des secrets et des certificats'
       href: about-keys-secrets-certificates.md
+    - name: Nouveautés
+      href: whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:
