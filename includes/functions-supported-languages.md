@@ -19,7 +19,7 @@ ms.locfileid: "96309701"
 |Langage                                 |1.x         |2.x| 3.x |
 |-----------------------------------------|------------|---| --- |
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|Disponibilité générale (.NET Framework 4.7)|Disponibilité générale (.NET Core 2.2)| Disponibilité générale (.NET Core 3.1) |
-|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|Disponibilité générale (Nœud 6)|Disponibilité générale (Nœuds 10 et 8)| GA (Nœuds 12 et 10)<br />Préversion (Nœud 14) |
+|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|Disponibilité générale (Node 6)|Disponibilité générale (Node 8 et 10)| Disponibilité générale (Node 10 et 12) |
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|Disponibilité générale (.NET Framework 4.7)|Disponibilité générale (.NET Core 2.2)| Disponibilité générale (.NET Core 3.1) |
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|Disponibilité générale (Java 8)| GA (Java 11 et 8)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|GA (PowerShell Core 6)| Disponibilité générale (PowerShell 7 et Core 6)|
