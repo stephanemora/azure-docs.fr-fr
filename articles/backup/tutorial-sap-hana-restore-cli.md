@@ -3,12 +3,13 @@ title: Tutoriel - Restauration de base de données SAP HANA sur Azure à l’aid
 description: Dans ce tutoriel, vous allez découvrir comment restaurer des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure à partir d’un coffre Recovery Services de Sauvegarde Azure à l’aide d’Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 617c21d8c62ed83678f6fc99741409e82eb3c0b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023923"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500825"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Restaurer des bases de données SAP HANA sur une machine virtuelle Azure à l’aide d’Azure CLI
 
