@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.custom: mvc
-ms.openlocfilehash: 6af5fa85306db885359d3de66a9a50f187015b75
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6c17c746dfe0ce81da4cfe486b830837c37cdda4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023953"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496030"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide de PowerShell
 
@@ -38,7 +38,7 @@ Si vous choisissez d’utiliser PowerShell localement, cet article vous demande 
 > Tant que le module PowerShell Az.MariaDb est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Une fois le module PowerShell Az.MariaDb généralement disponible, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
-Si c’est la première fois que vous utilisez le service Azure Database for MariaDB, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMariaDB**.
+Si vous utilisez le service Azure Database for MariaDB pour la première fois, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMariaDB**.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -64,7 +64,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Créer un serveur Azure Database for MariaDB
 
-Créez un serveur Azure Database for MariaDB au moyen de l’applet de commande `New-AzMariaDbServer`. Un serveur peut gérer plusieurs bases de données. En règle générale, une base de données distincte est utilisée pour chaque projet ou pour chaque utilisateur.
+Créez un serveur Azure Database for MariaDB au moyen de la cmdlet `New-AzMariaDbServer`. Un serveur peut gérer plusieurs bases de données. En règle générale, une base de données distincte est utilisée pour chaque projet ou pour chaque utilisateur.
 
 L’exemple suivant crée un serveur MariaDB dans la région **USA Ouest** nommé **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur de serveur **myadmin**. Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Documentez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur MariaDB.
 
@@ -91,7 +91,7 @@ Choisissez le niveau tarifaire De base si votre charge de travail n’a pas beso
 
 ## <a name="configure-a-firewall-rule"></a>Configurer une règle de pare-feu
 
-Créez une règle de pare-feu au niveau du serveur Azure Database for MariaDB en utilisant l’applet de commande `New-AzMariaDbFirewallRule`. Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil de ligne de commande `mysql` ou MariaDB Workbench, de se connecter à votre serveur via le pare-feu du service Azure Database for MariaDB.
+Créez une règle de pare-feu au niveau du serveur Azure Database for MariaDB en utilisant la cmdlet `New-AzMariaDbFirewallRule`. Une règle de pare-feu au niveau du serveur permet à une application externe (comme l’outil de ligne de commande `mysql` ou MariaDB Workbench) de se connecter à votre serveur par le biais du pare-feu du service Azure Database for MariaDB.
 
 L’exemple suivant crée une règle de pare-feu appelée **AllowMyIP** qui autorise les connexions depuis une adresse IP spécifique, 192.168.0.1. Remplacez une adresse IP ou une plage d’adresses IP qui correspond à l’emplacement à partir duquel vous vous connectez.
 
