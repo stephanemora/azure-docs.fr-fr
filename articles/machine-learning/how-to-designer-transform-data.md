@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326985"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457819"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformer des données dans le concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -112,7 +112,7 @@ Maintenant que votre pipeline est configuré pour fractionner les données, vous
     **File format** (Format de fichier ) : csv
 
     > [!NOTE]
-    > Cet article part du principe que vous avez accès à un magasin de données inscrit dans l’espace de travail Azure Machine Learning actuel. Pour obtenir des instructions sur la configuration d’un magasin de données, consultez [Se connecter aux services de stockage Azure](how-to-access-data.md#azure-machine-learning-studio).
+    > Cet article part du principe que vous avez accès à un magasin de données inscrit dans l’espace de travail Azure Machine Learning actuel. Pour obtenir des instructions sur la configuration d’un magasin de données, consultez [Se connecter aux services de stockage Azure](how-to-access-data.md#studio).
 
     Si vous n’avez pas de magasin de banques, vous pouvez en créer un maintenant. À titre d’exemple, cet article enregistre les jeux de données dans le compte de stockage d’objets blob par défaut associé à l’espace de travail. Il enregistre les jeux de données dans le conteneur `azureml` dans un nouveau dossier nommé `data`.
 

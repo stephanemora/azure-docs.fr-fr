@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289970"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modèle de série chronologique dans Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Cet article décrit le modèle de série chronologique, les capacités et la fa�
 > [!TIP]
 >
 > * Pour obtenir un exemple de modèle de série chronologique en direct, accédez à l’environnement de  [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples).
-> * Découvrez [comment utiliser le modèle de série chronologique](time-series-insights-update-how-to-tsm.md) à l’aide de l’explorateur Azure Time Series Insights Gen2.
+> * Découvrez [comment utiliser le modèle de série chronologique](/azure/time-series-insights/how-to-edit-your-model) à l’aide de l’explorateur Azure Time Series Insights Gen2.
 
 ## <a name="summary"></a>Résumé
 
@@ -75,7 +75,7 @@ Ces composants sont combinés pour spécifier un modèle de série chronologique
 
 [![Graphique de vue d’ensemble du modèle de la série chronologique](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights Gen2](time-series-insights-update-how-to-tsm.md). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Instances de modèle de série chronologique
 
@@ -283,12 +283,13 @@ Les types sont conformes à l’exemple JSON suivant :
   ]
 }
 ```
+
 Les types de modèles de série chronologique peuvent avoir de nombreuses variables qui spécifient des règles de formule et de calcul sur les événements. En savoir plus sur la [façon de définir des variables de modèle de série chronologique](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la modification du modèle à l’aide d’API, consultez la documentation de référence du [modèle de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+* Pour plus d’informations sur la modification du modèle à l’aide d’API, consultez la documentation de référence du [modèle de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
-- Explorez les formules et les calculs que vous pouvez créer à l’aide de [variables de modèle de série chronologique](./concepts-variables.md).
+* Explorez les formules et les calculs que vous pouvez créer à l’aide de [variables de modèle de série chronologique](./concepts-variables.md).
 
-- En savoir plus sur l’[interrogation des données](concepts-query-overview.md) dans Azure Time Series Insights Gen2.
+* En savoir plus sur l’[interrogation des données](concepts-query-overview.md) dans Azure Time Series Insights Gen2.

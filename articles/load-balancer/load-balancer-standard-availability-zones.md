@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027560"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420309"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -51,7 +51,7 @@ Une adresse IP de serveur frontend unique va survivre à une défaillance de zo
 L’adresse IP frontend est servie simultanément par plusieurs déploiements d’infrastructure indépendants dans plusieurs zones de disponibilité. Toute nouvelle tentative ou tout rétablissement réussissent dans les autres zones non affectée par les défaillances de zone. 
 
 <p align="center">
-  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Service NAT de Réseau virtuel">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" alt="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration." width="512" title="Service NAT de Réseau virtuel">
 </p>
 
 *Figure : Équilibreur de charge redondant dans une zone*
@@ -64,7 +64,7 @@ En outre, vous pouvez utiliser des frontends zonaux directement pour les points 
 
 
 <p align="center">
-  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Service NAT de Réseau virtuel">
+  <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Service NAT de Réseau virtuel">
 </p>
 
 *Figure : Équilibreur de charge redondant zonal*

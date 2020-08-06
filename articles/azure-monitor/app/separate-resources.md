@@ -3,18 +3,18 @@ title: 'Guide pratique pour concevoir votre déploiement Application Insights :
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 159a1c5554c0ac017bc9eeb2e9df65fddba334ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326543"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420564"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Combien de ressources Application Insights déployer
 
-Lorsque vous développez la prochaine version d’une application web, vous ne souhaitez pas mélanger les télémétries [Application Insights](./app-insights-overview.md) de la nouvelle version et de la version déjà publiée. Pour éviter toute confusion, envoyez la télémétrie des différentes phases de développement à des ressources Application Insights séparées, avec des clés d’instrumentation (ikeys) distinctes. Pour faciliter la modification de la clé d’instrumentation à mesure qu’une version passe d’une étape à l’autre, il peut être utile de définir l’ikey dans le code plutôt que dans le fichier de configuration.
+Lorsque vous développez la prochaine version d’une application web, vous ne souhaitez pas mélanger les télémétries [Application Insights](../../azure-monitor/app/app-insights-overview.md) de la nouvelle version et de la version déjà publiée. Pour éviter toute confusion, envoyez la télémétrie des différentes phases de développement à des ressources Application Insights séparées, avec des clés d’instrumentation (ikeys) distinctes. Pour faciliter la modification de la clé d’instrumentation à mesure qu’une version passe d’une étape à l’autre, il peut être utile de définir l’ikey dans le code plutôt que dans le fichier de configuration.
 
-(Si votre système est un service cloud Azure, il existe [une autre méthode pour configurer des iKeys distinctes](./cloudservices.md).)
+(Si votre système est un service cloud Azure, il existe [une autre méthode pour configurer des iKeys distinctes](../../azure-monitor/app/cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>À propos des ressources et des clés d’instrumentation
 
@@ -35,7 +35,7 @@ Chaque ressource Application Insights est accompagnée de métriques prêtes à 
 
 ### <a name="other-things-to-keep-in-mind"></a>Autres points à prendre en compte
 
--   Vous devrez peut-être ajouter du code personnalisé pour vous assurer que des valeurs significatives sont définies dans l’attribut [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name). Si aucune valeur significative n’est définie pour cet attribut, *AUCUNE* expérience du portail ne fonctionnera.
+-   Vous devrez peut-être ajouter du code personnalisé pour vous assurer que des valeurs significatives sont définies dans l’attribut [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name). Si aucune valeur significative n’est définie pour cet attribut, *AUCUNE* expérience du portail ne fonctionnera.
 - Pour les applications Service Fabric et les services cloud classiques, le SDK lit automatiquement à partir de l’environnement de rôle Azure et les définit. Pour tous les autres types d’applications, vous devrez probablement définir cela de manière explicite.
 -   L’expérience de métriques en temps réel ne prend pas en charge le fractionnement par nom de rôle.
 
@@ -58,7 +58,7 @@ protected void Application_Start()
 Dans cet exemple, les ikeys des différentes ressources sont placées dans différentes versions du fichier de configuration web. Le remplacement du fichier de configuration web, que vous pouvez effectuer dans le cadre du script de lancement, remplacera la ressource cible.
 
 ### <a name="web-pages"></a>Pages web
-L’iKey est également utilisée dans les pages web de votre application, dans le [script que vous avez obtenu à partir du volet de démarrage rapide](./javascript.md). Au lieu de la coder littéralement dans le script, vous devez la générer à partir de l'état du serveur. Par exemple, dans une application ASP.NET :
+L’iKey est également utilisée dans les pages web de votre application, dans le [script que vous avez obtenu à partir du volet de démarrage rapide](../../azure-monitor/app/javascript.md). Au lieu de la coder littéralement dans le script, vous devez la générer à partir de l'état du serveur. Par exemple, dans une application ASP.NET :
 
 ```javascript
 <script type="text/javascript">
@@ -86,14 +86,14 @@ Vous avez besoin des clés d’instrumentation de toutes les ressources auxquell
 ## <a name="filter-on-build-number"></a>Filtrer sur le numéro de build
 Quand vous publiez une nouvelle version de votre application, vous voulez pouvoir distinguer la télémétrie des différentes builds.
 
-Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](./diagnostic-search.md) et de [Metrics Explorer](../platform/metrics-charts.md).
+Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](../../azure-monitor/app/diagnostic-search.md) et de [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 Il existe plusieurs méthodes de définition de la propriété Version de l’application.
 
 * Définissez directement :
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Encapsulez cette ligne dans un [initialiseur de télémétrie](./api-custom-events-metrics.md#defaults) pour vous assurer que toutes les instances de TelemetryClient sont définies de manière cohérente.
+* Encapsulez cette ligne dans un [initialiseur de télémétrie](../../azure-monitor/app/api-custom-events-metrics.md#defaults) pour vous assurer que toutes les instances de TelemetryClient sont définies de manière cohérente.
 * [ASP.NET] Définissez la version dans `BuildInfo.config`. Le module web sélectionnera la version dans le nœud BuildLabel. Incluez ce fichier dans votre projet et n’oubliez pas de définir la propriété Toujours copier dans l’Explorateur de solutions.
 
     ```XML
@@ -132,15 +132,14 @@ Pour vérifier la version de l’application, assurez-vous que `buildinfo.config
 </PropertyGroup>
 ```
 
-Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](./diagnostic-search.md) ou que vous [explorez les métriques](../platform/metrics-charts.md).
+Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md) ou que vous [explorez les métriques](../../azure-monitor/platform/metrics-charts.md).
 
 Toutefois, notez que le numéro de version de build est uniquement généré par Microsoft Build Engine, et non par la build de développement dans Visual Studio.
 
 ### <a name="release-annotations"></a>Annotations de version
-Si vous utilisez Azure DevOps, vous pouvez [obtenir un marqueur d’annotation](./annotations.md) ajouté à vos graphiques lorsque vous publiez une nouvelle version. 
+Si vous utilisez Azure DevOps, vous pouvez [obtenir un marqueur d’annotation](../../azure-monitor/app/annotations.md) ajouté à vos graphiques lorsque vous publiez une nouvelle version. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Ressources partagées pour plusieurs rôles](./app-map.md)
-* [Créer un initialiseur de télémétrie pour distinguer des variantes A|B](./api-filtering-sampling.md#add-properties)
-
+* [Ressources partagées pour plusieurs rôles](../../azure-monitor/app/app-map.md)
+* [Créer un initialiseur de télémétrie pour distinguer des variantes A|B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290095"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Configurer SQL Database, SQL Managed Instance et Azure Synapse Analytics pour autoriser l'accès aux bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -110,7 +110,7 @@ Vous pouvez créer des comptes pour les utilisateurs non-administrateurs à l’
   Créez une connexion SQL dans la base de données master. Créez ensuite un compte d’utilisateur dans chaque base de données à laquelle cet utilisateur a besoin d’accéder et associez le compte d’utilisateur à cette connexion. Cette approche est préférable lorsque l’utilisateur doit accéder à plusieurs bases de données et que vous souhaitez synchroniser les mots de passe. Toutefois, cette approche présente des complexités lorsqu’elle est utilisée avec la géoréplication, car la connexion doit être créée sur le serveur principal et sur le ou les serveurs secondaires. Pour plus d’informations, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géorestauration ou le basculement](active-geo-replication-security-configure.md).
 - **Créer un compte d’utilisateur**
 
-  Créez un compte d'utilisateur dans la base de données à laquelle un utilisateur a besoin d'accéder (également appelé [utilisateur autonome](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+  Créez un compte d’utilisateur dans la base de données à laquelle un utilisateur a besoin d’accéder (également appelé [utilisateur autonome](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
   - Avec SQL Database, vous pouvez toujours créer ce type de compte d'utilisateur.
   - Avec l'instance gérée SQL Managed Instance qui prend en charge les [principaux de serveur Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities), vous pouvez créer des comptes d'utilisateur pour l'authentification auprès de SQL Managed Instance sans avoir à créer les utilisateurs de la base de données en tant qu'utilisateurs autonomes.

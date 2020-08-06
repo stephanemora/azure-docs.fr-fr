@@ -3,12 +3,12 @@ title: Automatiser les processus Azure Application Insights en utilisant Logic A
 description: Découvrez comment automatiser rapidement des processus reproductibles en ajoutant le connecteur Application Insights à votre application logique.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473164"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323194"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
@@ -19,7 +19,7 @@ Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données
 
 Avec cette intégration, vous pouvez automatiser de nombreux processus sans écrire la moindre ligne de code. Vous pouvez créer une application logique avec le connecteur Application Insights pour automatiser rapidement tous les processus Application Insights. 
 
-Vous pouvez également ajouter des actions. La fonctionnalité Logic Apps d’Azure App Service met à votre disposition des centaines d’actions possibles. Par exemple, en utilisant une application logique, vous pouvez automatiquement envoyer une notification par e-mail ou créer un bogue dans Azure DevOps. Vous pouvez également utiliser l’un des nombreux [modèles](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibles pour contribuer à accélérer le processus de création de votre application logique. 
+Vous pouvez également ajouter des actions. La fonctionnalité Logic Apps d’Azure App Service met à votre disposition des centaines d’actions possibles. Par exemple, en utilisant une application logique, vous pouvez automatiquement envoyer une notification par e-mail ou créer un bogue dans Azure DevOps. Vous pouvez également utiliser l’un des nombreux [modèles](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) disponibles pour contribuer à accélérer le processus de création de votre application logique. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Créer une application logique pour Application Insights
 
@@ -130,14 +130,10 @@ Lorsque votre application logique s’exécute, les destinataires que vous avez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la création de [requêtes Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Découvrez la création de [requêtes Analytics](../log-query/get-started-queries.md).
+- Découvrez plus en détail les [applications logiques](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
 

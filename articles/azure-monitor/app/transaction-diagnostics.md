@@ -4,12 +4,12 @@ description: Diagnostics de transaction de bout en bout Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671135"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318910"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -64,7 +64,7 @@ Ce volet réductible affiche les autres résultats qui correspondent aux critèr
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profileur et débogueur de capture instantanée
 
-Le [profileur Application Insights](../../azure-monitor/app/profiler.md) ou le [débogueur de la capture instantanée](snapshot-debugger.md) apporte une aide avec des diagnostics au niveau du code des problèmes de performances et d’échec. Grâce à cette expérience, vous pouvez afficher les traces du profileur ou les instantanés d’un composant d’un simple clic.
+Le [profileur Application Insights](./profiler.md) ou le [débogueur de la capture instantanée](snapshot-debugger.md) apporte une aide avec des diagnostics au niveau du code des problèmes de performances et d’échec. Grâce à cette expérience, vous pouvez afficher les traces du profileur ou les instantanés d’un composant d’un simple clic.
 
 Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp\@microsoft.com**
 
@@ -95,3 +95,4 @@ Les chronologies sont ajustées pour les variations d’horloges dans le graphiq
 *Pourquoi la plupart des requêtes d’éléments associés est manquante dans la nouvelle expérience ?*
 
 C'est la procédure normale. Tous les éléments associés, sur tous les composants, sont déjà disponibles sur le côté gauche (sections supérieure et inférieure). La nouvelle expérience comporte deux éléments associés non couverts par le côté gauche : l’ensemble de la télémétrie cinq minutes avant et après cet événement et la chronologie utilisateur.
+

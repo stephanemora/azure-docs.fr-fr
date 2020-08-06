@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: af554b2055102b12a8c0e89c6301400f76021ede
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313334"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -27,11 +27,11 @@ Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d�
 
 ## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 
-Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, en tant que clés dans une base de données et pour fournir l’accès à l’application cliente.  Lors de la création de clés pour une base de données, `idp` ne doit pas être utilisé car il mélange les scénarios d’invité.  La génération de clés doit être effectuée uniquement sur `sub` (qui est toujours unique), avec `tid` utilisé pour le routage si nécessaire.  Si vous avez besoin de partager des données entre des services, `oid`+`sub`+`tid` fonctionnera puisque plusieurs services obtiennent le même `oid`.
+Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, en tant que [clés dans une base de données](#using-claims-to-reliably-identify-a-user-subject-and-object-id) et pour fournir l’accès à l’application cliente.  
 
 ## <a name="claims-in-an-id_token"></a>Revendications dans un jeton id_token
 
-Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications JWT répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
+Les `id_tokens` sont des [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), ce qui signifie qu’ils se composent d’un en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications JWT répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -87,14 +87,25 @@ Cette liste affiche les revendications JWT présentes par défaut dans la plupar
 |`ver` | Chaîne, 1.0 ou 2.0 | Indique la version du jeton id_token. |
 
 > [!NOTE]
-> Les id_token v1 et v2 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version spécifie essentiellement le point de terminaison de plateforme Azure AD à partir duquel elle a été émise. L’[implémentation d’Azure AD OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) a évolué au cours des années. Actuellement, nous avons deux points de terminaison OAuth différents pour les applications AzureAD. Vous pouvez utiliser l’un des nouveaux points de terminaison classés comme v2 ou l’ancien considéré comme v1. Les points de terminaison OAuth pour chacun d’eux sont différents. Le point de terminaison v2 est le plus récent vers lequel nous essayons de migrer toutes les fonctionnalités du point de terminaison v1, et dont nous recommandons l’utilisation aux nouveaux développeurs.
+> Les id_token v1.0 et v2.0 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Si les applications existantes utilisent probablement le point de terminaison Azure AD, les nouvelles applications doivent utiliser le point de terminaison de « Plateforme d’identité Microsoft » v2.0.
 >
-> - V1 : points de terminaison Azure Active Directory : `https://login.microsoftonline.com/common/oauth2/authorize`
-> - V2 : points de terminaison de la plateforme d’identité Microsoft : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v1.0 : Points de terminaison Azure AD : `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2.0 : Points de terminaison de Plateforme d’identité Microsoft : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+
+### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Utilisation de revendications pour identifier de manière fiable un utilisateur (Objet et ID d’objet)
+
+Lorsque vous identifiez un utilisateur (par exemple, en le recherchant dans une base de données ou en déterminant les autorisations qui lui sont attribuées), il est essentiel d’utiliser des informations qui resteront constantes et uniques au fil du temps.  Les applications héritées utilisent parfois des champs tels que l’adresse e-mail, un numéro de téléphone ou l’UPN.  Toutes ces éléments peuvent changer au fil du temps et peuvent également être réutilisés au fil du temps, par exemple, quand un employé modifie son nom ou reçoit une adresse e-mail correspondant à celle d’un employé précédent qui n’est plus présent. Par conséquent, il est **critique** que votre application n’utilise pas de données lisibles à l’œil pour identifier un utilisateur. Quelqu’un pourrait les lire et vouloir les modifier.  Utilisez plutôt les revendications fournies par la norme OIDC, ou les revendications d’extension fournies par Microsoft (revendications `sub` et `oid`).
+
+Pour stocker correctement les informations par utilisateur, utilisez `sub` ou `oid` seul (qui, comme des GUID sont uniques), avec `tid` utilisé pour le routage ou partitionnement si nécessaire.  Si vous avez besoin de partager des données entre les services, `oid`+`tid` est préférable, car toutes les applications reçoivent les mêmes revendications `oid` et `tid` pour un utilisateur donné.  La revendication `sub` dans la plateforme d’identité Microsoft est « par paire ». Elle est unique en fonction d’une combinaison de destinataire, de locataire et d’utilisateur du jeton.  Ainsi, deux applications qui demandent des jetons d’ID pour un utilisateur donné reçoivent des revendications `sub` différentes, mais les mêmes revendications `oid` pour cet utilisateur.
+
+>[!NOTE]
+> N’utilisez pas la revendication `idp` pour stocker des informations sur un utilisateur dans une tentative de mettre en corrélation des utilisateurs parmi les locataires.  Elle ne fonctionnera pas, car, par conception, les revendications `oid` et `sub` pour un utilisateur changent entre locataires pour s’assurer que des applications ne puissent pas suivre des utilisateurs parmi les locataires.  
+>
+> Les scénarios d’invité, où un utilisateur est hébergé dans un locataire et s’authentifie dans un autre, doivent traiter l’utilisateur comme s’il s’agissait d’un tout nouvel utilisateur du service.  Vos documents et privilèges dans le locataire Contoso ne doivent pas s’appliquer dans le locataire Fabrikam. Cela est important pour empêcher des fuites accidentelles de données entre locataires.
 
 ## <a name="validating-an-id_token"></a>Valider un jeton id_token
 
-Le processus de validation d’un `id_token` est similaire à la première étape de [validation d’un jeton d’accès](access-tokens.md#validating-tokens). Votre client doit confirmer que le bon émetteur a renvoyé le jeton et qu’il n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours des jetons JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.
+Le processus de validation d’un `id_token` est similaire à la première étape de [validation d’un jeton d’accès](access-tokens.md#validating-tokens). Votre client doit confirmer que le bon émetteur a renvoyé le jeton et que celui-ci n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours des jetons JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.  Notez que seuls des clients confidentiels (avec un secret) doivent valider des jetons d’ID.  Les applications publiques (dont le code s’exécute entièrement sur un appareil ou un réseau que vous ne contrôlez pas ; par exemple, le navigateur ou le réseau domestiques d’un utilisateur) ne bénéficient pas de la validation du jeton d’ID, car un utilisateur malveillant peut intercepter et modifier les clés utilisées pour la validation du jeton.
 
 Pour valider manuellement le jeton, consultez les étapes détaillées dans la section [Validation d’un jeton d’accès](access-tokens.md#validating-tokens). Après avoir validé la signature du jeton, les revendications JWT suivantes doivent être validées dans le jeton id_token (cette opération peut également être effectuée par votre bibliothèque de validation de jetons) :
 

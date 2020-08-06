@@ -6,16 +6,17 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609396"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423267"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
-Ce document de référence décrit les types généraux utilisés pour identifier les déclencheurs et les actions dans la définition de flux de travail sous-jacente de votre application logique, qui est décrite et validée par le [langage de définition du flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). Pour rechercher des déclencheurs et des actions de connecteur spécifiques que vous pouvez utiliser dans vos applications logiques, consultez la liste figurant sous la [présentation des connecteurs](https://docs.microsoft.com/connectors/).
+Ce document de référence décrit les types généraux utilisés pour identifier les déclencheurs et les actions dans la définition de flux de travail sous-jacente de votre application logique, qui est décrite et validée par le [langage de définition du flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). Pour rechercher des déclencheurs et des actions de connecteur spécifiques que vous pouvez utiliser dans vos applications logiques, consultez la liste figurant sous la [présentation des connecteurs](/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -569,7 +570,7 @@ Pour plus d’informations et pour obtenir des exemples pour ce déclencheur, co
 
 Ce déclencheur fait en sorte que votre application logique puisse être appelée en créant un point de terminaison qui peut accepter des requêtes entrantes. Pour ce déclencheur, fournit un schéma JSON qui décrit et valide la charge utile ou les entrées que le déclencheur reçoit de la requête entrante. Le schéma facilite également le référencement des propriétés de déclencheur à partir d’actions ultérieures dans le workflow.
 
-Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui est décrite dans l’[API REST de service de workflow](https://docs.microsoft.com/rest/api/logic/workflows). Pour découvrir comment utiliser ce déclencheur en tant que point de terminaison HTTP, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md).
+Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui est décrite dans l’[API REST de service de workflow](/rest/api/logic/workflows). Pour découvrir comment utiliser ce déclencheur en tant que point de terminaison HTTP, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
@@ -2657,7 +2658,7 @@ Pour plus d’informations, consultez [Paramètres de configuration d’exécuti
 
 ### <a name="run-actions-in-a-synchronous-operation-pattern"></a>Exécuter des actions dans un modèle d’opération synchrone
 
-Par défaut, l’action HTTP et les actions APIConnection dans Azure Logic Apps suivent le [*modèle d’opération asynchrone*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) standard, alors que l’action Response suit le *modèle d’opération synchrone*. Le modèle asynchrone spécifie qu’une fois qu’une action a appelé ou envoyé une requête au point de terminaison, au service, au système ou à l’API spécifiée, le récepteur retourne immédiatement une réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Ce code confirme que le récepteur a accepté la requête, mais qu’il n’a pas fini le traitement. La réponse peut inclure un en-tête `location` qui spécifie l’URL et un ID d’actualisation que l’appelant peut utiliser pour interroger ou vérifier en permanence l’état de la requête asynchrone jusqu’à ce que le récepteur arrête le traitement et retourne la réponse de réussite [« 200 OK »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou une réponse autre qu’une réponse 202. Pour plus d’informations, consultez [L’intégration asynchrone des microservices permet l’autonomie des microservices](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Par défaut, l’action HTTP et les actions APIConnection dans Azure Logic Apps suivent le [*modèle d’opération asynchrone*](/azure/architecture/patterns/async-request-reply) standard, alors que l’action Response suit le *modèle d’opération synchrone*. Le modèle asynchrone spécifie qu’une fois qu’une action a appelé ou envoyé une requête au point de terminaison, au service, au système ou à l’API spécifiée, le récepteur retourne immédiatement une réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Ce code confirme que le récepteur a accepté la requête, mais qu’il n’a pas fini le traitement. La réponse peut inclure un en-tête `location` qui spécifie l’URL et un ID d’actualisation que l’appelant peut utiliser pour interroger ou vérifier en permanence l’état de la requête asynchrone jusqu’à ce que le récepteur arrête le traitement et retourne la réponse de réussite [« 200 OK »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou une réponse autre qu’une réponse 202. Pour plus d’informations, consultez [L’intégration asynchrone des microservices permet l’autonomie des microservices](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * Dans le concepteur d’application logique, l’action HTTP, les actions APIConnection et l’action Response ont le paramètre **Modèle asynchrone**. Quand il est activé, ce paramètre spécifie que l’appelant n’a pas à attendre la fin du traitement et qu’il peut passer à l’action suivante, tout en continuant de vérifier l’état jusqu’à ce que le traitement s’arrête. S’il est désactivé, ce paramètre spécifie que l’appelant doit attendre la fin du traitement avant de passer à l’action suivante. Pour trouver ce paramètre, effectuez les étapes suivantes :
 

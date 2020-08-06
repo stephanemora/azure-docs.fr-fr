@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68f1ea8c0dd0d4367d3dcf39f059d0bd8a77ea
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559774"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421924"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -302,15 +302,15 @@ Quand ce code s’exécute, voici ce qui s’affiche dans la console :
 ```
 Notez qu’un `spanId` est présent pour le message du journal qui se trouve dans l’étendue. Il s’agit du même `spanId` que celui qui appartient à l’étendue nommée `hello`.
 
-Vous pouvez exporter les données du journal avec `AzureLogHandler`. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+Vous pouvez exporter les données du journal avec `AzureLogHandler`. Pour plus d’informations, consultez [cet article](./opencensus-python.md#logs).
 
 ## <a name="telemetry-correlation-in-net"></a>Corrélation de télémétrie dans .NET
 
 Au fil du temps, .NET a défini plusieurs façons de mettre en corrélation les journaux de télémétrie et de diagnostic :
 
-- `System.Diagnostics.CorrelationManager` permet d’effectuer le suivi de [LogicalOperationStack et ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx).
-- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la méthode [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
-- `ILogger` utilise les [étendues de journaux](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager` permet d’effectuer le suivi de [LogicalOperationStack et ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la méthode [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads).
+- `ILogger` utilise les [étendues de journaux](/aspnet/core/fundamentals/logging#log-scopes).
 - WCF (Windows Communication Foundation) et HTTP relient la propagation de contexte « actuelle ».
 
 Toutefois, ces méthodes ne permettaient pas la prise en charge du traçage distribué automatique. `DiagnosticSource` prend en charge la corrélation automatique entre machines. Les bibliothèques .NET prennent en charge `DiagnosticSource` et autorisent la propagation automatique entre machines du contexte de corrélation via le transport, comme HTTP.
@@ -328,7 +328,7 @@ Le SDK Application Insights, à compter de la version 2.4.0-beta1, utilise `Dia
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Corrélation de télémétrie dans Java
 
-L’[agent Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) ainsi que le [Kit de développement logiciel (SDK) Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 ou ultérieure prennent en charge la corrélation automatique de télémétrie. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (comme les traces, les exceptions et les événements personnalisés) émises dans l’étendue d’une requête. Il propage aussi les en-têtes de corrélation (décrits plus haut) pour les appels entre les services via le protocole HTTP si l’[agent du SDK Java](../../azure-monitor/app/java-agent.md) est configuré.
+L’[agent Java](./java-in-process-agent.md) ainsi que le [Kit de développement logiciel (SDK) Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 ou ultérieure prennent en charge la corrélation automatique de télémétrie. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (comme les traces, les exceptions et les événements personnalisés) émises dans l’étendue d’une requête. Il propage aussi les en-têtes de corrélation (décrits plus haut) pour les appels entre les services via le protocole HTTP si l’[agent du SDK Java](../../azure-monitor/app/java-agent.md) est configuré.
 
 > [!NOTE]
 > L’agent Java Application Insights collecte automatiquement les demandes et les dépendances pour JMS, Kafka, net/webflux et bien plus. Pour le Kit de développement logiciel (SDK) Java, seuls les appels effectués via Apache HttpClient sont pris en charge pour la fonctionnalité de corrélation. La propagation automatique de contexte entre les technologies de messagerie (comme Kafka, RabbitMQ et Azure Service Bus) n’est pas prise en charge dans le Kit de développement logiciel (SDK). 
@@ -374,8 +374,8 @@ Vous pouvez personnaliser la façon dont les noms des composants sont affichés 
 
 - Écrivez des [données de télémétrie personnalisées](../../azure-monitor/app/api-custom-events-metrics.md).
 - Pour des scénarios de corrélation avancés dans ASP.NET Core et ASP.NET, consultez [Effectuer le suivi des opérations personnalisées](custom-operations-tracking.md).
-- Découvrez plus en détail la [définition de cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) pour d’autres kits SDK.
-- Intégrez tous les composants de votre microservice sur Application Insights. Consultez les [plateformes prises en charge](../../azure-monitor/app/platforms.md).
-- Pour connaître les types Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
-- Découvrez comment [étendre et filtrer la télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
+- Découvrez plus en détail la [définition de cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) pour d’autres kits SDK.
+- Intégrez tous les composants de votre microservice sur Application Insights. Consultez les [plateformes prises en charge](./platforms.md).
+- Pour connaître les types Application Insights, consultez [Modèle de données](./data-model.md).
+- Découvrez comment [étendre et filtrer la télémétrie](./api-filtering-sampling.md).
 - Consultez les [informations de référence sur la configuration d’Application Insights](configuration-with-applicationinsights-config.md).

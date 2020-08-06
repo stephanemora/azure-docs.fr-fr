@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424066"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -28,7 +28,7 @@ Les ressources de passerelle NAT font partie du [service NAT de Réseau virtuel]
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Service NAT de Réseau virtuel pour le trafic sortant vers Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Service NAT de Réseau virtuel pour le trafic sortant vers Internet">
 </p>
 
 *Figure : Service NAT de Réseau virtuel pour le trafic sortant vers Internet*
@@ -54,7 +54,7 @@ La ressource est conçue pour être simple, comme vous pouvez le voir dans l’e
 Le diagramme suivant montre les références accessibles en écriture entre les différentes ressources Azure Resource Manager.  La flèche indique la direction de la référence, depuis l’emplacement où elle est accessible en écriture. Révision 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Modèle objet NAT de Réseau virtuel">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Modèle objet NAT de Réseau virtuel">
 </p>
 
 *Figure : Modèle objet NAT de Réseau virtuel*
@@ -119,7 +119,7 @@ La passerelle NAT est compatible avec :
 Quand vous développez un nouveau déploiement, commencez avec des références SKU standard.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Service NAT de Réseau virtuel pour le trafic sortant vers Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Service NAT de Réseau virtuel pour le trafic sortant vers Internet">
 </p>
 
 *Figure : Service NAT de Réseau virtuel pour le trafic sortant vers Internet*
@@ -129,7 +129,7 @@ Le scénario Internet sortant uniquement fourni par la passerelle NAT peut être
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>Service NAT et machine virtuelle avec une adresse IP publique au niveau de l’instance
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance">
 </p>
 
 *Figure : Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance*
@@ -144,7 +144,7 @@ La machine virtuelle utilise la passerelle NAT pour le trafic sortant.  Le trafi
 #### <a name="nat-and-vm-with-public-load-balancer"></a>Service NAT et machine virtuelle avec équilibreur de charge public
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Service NAT de Réseau virtuel et machine virtuelle avec équilibreur de charge public">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Service NAT de Réseau virtuel et machine virtuelle avec équilibreur de charge public">
 </p>
 
 *Figure : Service NAT de Réseau virtuel et machine virtuelle avec équilibreur de charge public*
@@ -159,7 +159,7 @@ Toute configuration de trafic sortant à partir d’une règle d’équilibrage 
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>Service NAT et machine virtuelle avec une adresse IP publique au niveau de l’instance et un équilibreur de charge public
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance et un équilibreur de charge public">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance et un équilibreur de charge public">
 </p>
 
 *Figure : Service NAT de Réseau virtuel et machine virtuelle avec une adresse IP publique au niveau de l’instance et un équilibreur de charge public*
@@ -182,7 +182,7 @@ Les passerelles NAT ont la priorité sur les scénarios de trafic sortant du sou
 #### <a name="zone-isolation-with-zonal-stacks"></a>Isolation de zone avec des piles zonales
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="NAT de réseau virtuel avec isolation de zone, créant plusieurs « piles zonales » "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="NAT de réseau virtuel avec isolation de zone, créant plusieurs « piles zonales » "zonal stacks"">
 </p>
 
 *Figure : NAT de réseau virtuel avec isolation de zone, créant plusieurs « piles zonales »*
@@ -210,7 +210,7 @@ Si votre scénario nécessite des points de terminaison entrants, deux options s
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>Scénarios de trafic sortant entre les zones non pris en charge
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="NAT de réseau virtuel non compatible avec un sous-réseau couvrant des zones">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="NAT de réseau virtuel non compatible avec un sous-réseau couvrant des zones">
 </p>
 
 *Figure : NAT de réseau virtuel non compatible avec un sous-réseau couvrant des zones*
@@ -268,7 +268,7 @@ La traduction d’adresses réseau sources (SNAT) fournie par le service NAT dif
 NAT fournit des ports SNAT à la demande pour les nouveaux flux de trafic sortant. Tous les ports SNAT disponibles dans l’inventaire sont utilisés par toute machine virtuelle sur les sous-réseaux configurés avec NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="SNAT de trafic sortant à la demande du service NAT de Réseau virtuel">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="SNAT de trafic sortant à la demande du service NAT de Réseau virtuel">
 </p>
 
 *Figure : SNAT de trafic sortant à la demande du service NAT de Réseau virtuel*
@@ -276,7 +276,7 @@ NAT fournit des ports SNAT à la demande pour les nouveaux flux de trafic sortan
 Toute configuration IP d’une machine virtuelle peut créer des flux sortants à la demande si besoin.  Aucune préallocation, par planification d’instance incluant le surprovisionnement du pire cas par instance, n’est nécessaire.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Différences dans les scénarios d’épuisement">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Différences dans les scénarios d’épuisement">
 </p>
 
 *Figure : Différences dans les scénarios d’épuisement*

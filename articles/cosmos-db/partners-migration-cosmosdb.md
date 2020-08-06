@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791729"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290089"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 
@@ -26,7 +26,6 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, vente au détail de personnalisation (inventaire), migration NoSQL d’architecture sans serveur, développement d’applications|   États-Unis |
 |[Avanade](https://www.avanade.com/) | IoT, vente au détail (inventaire), architecture sans serveur, développement d’application | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni, Canada |
 |[Accenture](https://www.accenture.com/) | IoT, vente au détail (inventaire), architecture sans serveur, développement d’applications |Global|
-|[Bluemetal](https://www.bluemetal.com/)     |  IoT, vente au détail de personnalisation (inventaire), analytique opérationnelle pour les entreprises & SMC, annotation d’image d’IA, contrôle de ressource, migration NoSQL, développement d’applications     |    Amérique du Nord, Asie-Pacifique     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), architecture sans serveur, développement d’applications|    États-Unis     |  
 | [Capgemini](https://www.capgemini.com/) | Vente au détail (inventaire), IoT, analytique opérationnelle (Spark), développement d’applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon |
@@ -51,13 +50,12 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les autres partenaires Microsoft, voir le [site Microsoft Partner](https://partner.microsoft.com/en-US/).
+Pour plus d’informations sur les autres partenaires Microsoft, voir le [site Microsoft Partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[5]: ./media/partners-migration-cosmosdb/bluemetal_logo.png
 [6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
 [7]: ./media/partners-migration-cosmosdb/coeo_logo.png
 [8]: ./media/partners-migration-cosmosdb/infosys_logo.png

@@ -3,30 +3,28 @@ title: Créer et gérer des groupes d’actions sur le Portail Azure
 description: Découvrez comment créer et gérer des groupes d’action sur le Portail Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337732"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
-
-Quand vous configurez une action pour notifier une personne par e-mail ou SMS, cette personne reçoit une confirmation indiquant qu’elle a été ajoutée au groupe d’actions.
 
 Cet article vous montre comment créer et gérer des groupes d’actions dans le portail Azure.
 
 Chaque action se compose des propriétés suivantes :
 
-* **Name** : identificateur unique au sein du groupe d’actions.  
-* **Type d’action** : action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
-* **Détails** : détails correspondants qui varient selon le *type d’action*.
+* **Type** : notification ou action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
+* **Name** : identificateur unique au sein du groupe d’actions.
+* **Détails** : détails correspondants qui varient selon le *type*.
 
-Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Créer un groupe d’actions à l’aide du Portail Azure
 
@@ -36,29 +34,71 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     ![Bouton Gérer les actions](./media/action-groups/manage-action-groups.png)
     
-1. Sélectionnez **Ajouter un groupe d’actions** et renseignez les champs.
+1. Sélectionnez **Ajouter un groupe d’actions**, puis remplissez les champs appropriés dans l’expérience de l’assistant.
 
-    ![La commande « Ajouter un groupe d’actions »](./media/action-groups/add-action-group.png)
+    ![La commande « Ajouter un groupe d’actions »](./media/action-groups/add-action-group.PNG)
+
+### <a name="configure-basic-action-group-settings"></a>Configurer les paramètres du groupe d’actions de base
+
+Sous **Détails du projet** :
+
+Sélectionnez l’**Abonnement** et le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
+
+Sous **Détails de l’instance** :
+
+1. Entrez un **Nom de groupe d’actions**.
+
+1. Entrez un **Nom d’affichage**. Le nom d’affichage est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+
+      ![La boîte de dialogue « Ajouter un groupe d’actions »](./media/action-groups/action-group-1-basics.png)
+
+
+### <a name="configure-notifications"></a>Configurer les notifications
+
+1. Cliquez sur le bouton **Suivant : Notifications >** pour accéder à l’onglet **Notifications**, ou sélectionnez l’onglet **Notifications** en haut de l’écran.
+
+1. Définissez une liste de notifications à envoyer quand une alerte est déclenchée. Fournissez les informations suivantes pour chaque notification :
+
+    a. **Type de notification** : Sélectionnez le type de notification que vous souhaitez envoyer. Options disponibles :
+      * Envoyer un e-mail à un rôle Azure Resource Manager - Envoyer un e-mail aux utilisateurs affectés à certains rôles ARM au niveau abonnement.
+      * E-mail/SMS/Push/Voice - Envoie ces types de notifications à des destinataires spécifiques.
     
-1. Entrez un nom dans la boîte **Nom du groupe d’actions** et entrez un nom dans la boîte **Nom court**. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+    b. **Name** : entrez un nom pour la notifications.
 
-      ![La boîte de dialogue « Ajouter un groupe d’actions »](./media/action-groups/action-group-define.png)
-
-1. La boîte **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel est enregistré le groupe d’actions.
-
-1. Sélectionnez le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
-
-1. Définissez une liste d’actions. Fournissez les informations suivantes pour chaque action :
-
-    1. **Name** : entrez un identificateur unique pour cette action.
-
-    1. **Type d’action** : Sélectionnez Runbook Automation, Envoyer un message au rôle Azure Resource Manager, Email/SMS/Push/Voix, ITSM, Logic App, Webhook sécurisé, Webhook.
-
-    1. **Détails** : selon le type d’action, saisissez un numéro de téléphone, une adresse e-mail, un URI de webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
+    c. **Détails** : en fonction du type de notification sélectionné, entrez une adresse e-mail, un numéro de téléphone, etc.
     
-    1. **Schéma d’alerte courant** : Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor.
+    d. **Schéma d’alerte courant** : Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor.
 
-1. Sélectionnez **OK** pour créer le groupe d’actions.
+    ![Le volet Notifications](./media/action-groups/action-group-2-notifications.png)
+    
+### <a name="configure-actions"></a>Configurer les actions
+
+1. Cliquez sur le bouton **Suivant : Actions >** pour accéder à l’onglet **Actions**, ou sélectionnez l’onglet **Actions** en haut de l’écran.
+
+1. Définissez une liste d’actions à déclencher quand une alerte est déclenchée. Fournissez les informations suivantes pour chaque action :
+
+    a. **Type d’action** : sélectionnez Automation Runbook, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
+    
+    b. **Nom** : entrez un nom unique pour l’action.
+
+    c. **Détails** : selon le type d’action, saisissez un URI de Webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
+    
+    d. **Schéma d’alerte courant** : Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor.
+    
+    ![Onglet Actions](./media/action-groups/action-group-3-actions.png)
+
+### <a name="create-the-action-group"></a>Créer le groupe d’actions
+
+1. Si vous le souhaitez, vous pouvez explorer les paramètres **Balises**. Cela vous permet d’associer des paires clé/valeur au groupe d’actions pour votre catégorisation. Cette fonctionnalité est disponible pour toutes les ressources Azure.
+
+    ![Onglet Balises](./media/action-groups/action-group-4-tags.png)
+    
+1. Cliquez sur **Vérifier + créer** pour passer en revue les paramètres. Cela permet de valider rapidement vos entrées pour vous assurer que tous les champs obligatoires sont sélectionnés. En cas de problème, ceux-ci seront signalés ici. Après avoir examiné les paramètres, cliquez sur **Créer** pour approvisionner le groupe d’actions.
+    
+    ![Onglet Vérifier + créer](./media/action-groups/action-group-5-review.png)
+
+> [!NOTE]
+> Quand vous configurez une action pour notifier une personne par e-mail ou SMS, cette personne reçoit une confirmation indiquant qu’elle a été ajoutée au groupe d’actions.
 
 ## <a name="manage-your-action-groups"></a>Gérer des groupes d’actions
 
@@ -86,12 +126,12 @@ Les e-mails seront envoyés à partir des adresses e-mail suivantes. Vérifiez q
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
 ### <a name="email-azure-resource-manager-role"></a>Envoyer un message au rôle Azure Resource Manager
 Envoyer un message aux membres du rôle de l’abonnement. L’e-mail sera envoyé uniquement aux **utilisateurs Azure AD** membres du rôle. L’e-mail ne sera pas envoyé aux groupes ou principaux du service Azure AD.
 
-Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Fonction
 Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
@@ -99,7 +139,7 @@ Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functi
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 
 ### <a name="itsm"></a>ITSM
-ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../../azure-monitor/platform/itsmc-overview.md).
+ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](./itsmc-overview.md).
 
 Vous pouvez avoir un nombre limité d’actions ITSM par groupe d’actions. 
 
@@ -109,8 +149,8 @@ Vous pouvez avoir un nombre limité d’actions d’application logique par grou
 ### <a name="secure-webhook"></a>Webhook sécurisé
 L’action de webhook de groupes d’actions vous permet de tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre groupe d’actions et votre API web protégée (point de terminaison webhook). Le workflow global pour tirer parti de cette fonctionnalité est décrit ci-dessous. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Créez une application Azure AD pour votre API web protégée. Voir [API web protégée : Inscription d’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
-    - Configurez votre API protégée pour qu’elle soit [appelée par une application démon](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+1. Créez une application Azure AD pour votre API web protégée. Voir [API web protégée : Inscription d’application](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
+    - Configurez votre API protégée pour qu’elle soit [appelée par une application démon](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
 2. Activez les groupes d’actions pour utiliser votre application Azure AD.
 
@@ -196,7 +236,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-Pour obtenir d’autres informations importantes, consultez [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md) et [Comportement des alertes SMS](../../azure-monitor/platform/alerts-sms-behavior.md). 
+Pour obtenir d’autres informations importantes, consultez [Informations de limitation du débit](./alerts-rate-limiting.md) et [Comportement des alertes SMS](./alerts-sms-behavior.md). 
 
 Vous pouvez avoir un nombre limité d’actions SMS par groupe d’actions.
 
@@ -207,7 +247,7 @@ La tarification pour les pays/régions pris en charge est indiquée dans la [pag
   
 
 ### <a name="voice"></a>Voix
-Pour obtenir un comportement supplémentaire important, consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Pour obtenir un comportement supplémentaire important, consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
 Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
 
@@ -248,9 +288,10 @@ Vous pouvez avoir un nombre limité d’actions de webhook par groupe d’action
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur le [comportement des alertes SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* [Comprendre le schéma Webhook des alertes du journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Découvrez-en plus sur le [connecteur ITSM](../../azure-monitor/platform/itsmc-overview.md).
-* En savoir plus sur la [limitation de la fréquence](../../azure-monitor/platform/alerts-rate-limiting.md) des alertes.
-* Obtenir une [vue d’ensemble des alertes du journal d’activité](../../azure-monitor/platform/alerts-overview.md) et découvrir comment recevoir des alertes.  
+* En savoir plus sur le [comportement des alertes SMS](./alerts-sms-behavior.md).  
+* [Comprendre le schéma Webhook des alertes du journal d’activité](./activity-log-alerts-webhook.md).  
+* Découvrez-en plus sur le [connecteur ITSM](./itsmc-overview.md).
+* En savoir plus sur la [limitation de la fréquence](./alerts-rate-limiting.md) des alertes.
+* Obtenir une [vue d’ensemble des alertes du journal d’activité](./alerts-overview.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](../../service-health/alerts-activity-log-service-notifications-portal.md).
+

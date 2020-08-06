@@ -4,12 +4,12 @@ description: Suivi des opérations personnalisées avec le kit SDK .NET d’Azur
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540041"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320372"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -206,7 +206,7 @@ public async Task Process(BrokeredMessage message)
 L’exemple suivant montre comment effectuer le suivi des opérations de [file d’attente de stockage Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) et mettre en corrélation la télémétrie entre le producteur, le consommateur et le stockage Azure. 
 
 La file d’attente de stockage dispose d’une API HTTP. Tous les appels vers la file d’attente sont suivis par le collecteur de dépendance Application Insights pour les requêtes HTTP.
-Il est configuré par défaut sur les applications ASP.NET et ASP.NET Core, avec les autres types d’application, vous pouvez faire référence à la [documentation des applications de console](../../azure-monitor/app/console.md)
+Il est configuré par défaut sur les applications ASP.NET et ASP.NET Core, avec les autres types d’application, vous pouvez faire référence à la [documentation des applications de console](./console.md)
 
 Vous pouvez également mettre en corrélation l’ID d’opération Application Insights avec l’ID de demande de stockage. Pour plus d’informations sur la définition et obtention d’un client de demande de stockage et un ID de demande de serveur, consultez [Surveiller, diagnostiquer et dépanner Stockage Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -478,8 +478,9 @@ Chaque opération Application Insights (requête ou dépendance) implique `Activ
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les bases de la [corrélation de télémétrie](correlation.md) dans Application Insights.
-- Découvrez comment les données corrélées sous-tendent l’[expérience de diagnostic des transactions](../../azure-monitor/app/transaction-diagnostics.md) et [Application Map](../../azure-monitor/app/app-map.md).
-- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
-- Signalez les [événements et métriques](../../azure-monitor/app/api-custom-events-metrics.md) à Application Insights .
+- Découvrez comment les données corrélées sous-tendent l’[expérience de diagnostic des transactions](./transaction-diagnostics.md) et [Application Map](./app-map.md).
+- Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](./data-model.md).
+- Signalez les [événements et métriques](./api-custom-events-metrics.md) à Application Insights .
 - Découvrez la [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard de la collection de propriétés de contexte.
 - Consultez le [Guide de l’utilisateur System.Diagnostics.Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) pour voir comment mettre en corrélation les données de télémétrie.
+

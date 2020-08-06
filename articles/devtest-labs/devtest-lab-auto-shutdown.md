@@ -3,12 +3,12 @@ title: Gérer les stratégies d’arrêt automatique dans Azure DevTest Labs | M
 description: Découvrez comment définir la stratégie d’arrêt automatique d’un labo afin que les machines virtuelles soient arrêtées automatiquement lorsqu’elles ne sont pas utilisées.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482732"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287550"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
 
@@ -71,7 +71,7 @@ Une fois l’arrêt automatique configuré par le propriétaire du laboratoire, 
 - Pour l’instant, ignorez l’arrêt automatique
 - Répétez l’arrêt automatique pendant une heure ou deux heures afin qu’ils puissent continuer à travailler sur la machine virtuelle.
 
-La notification est envoyée par l’intermédiaire du point de terminaison du webhook configuré ou d’une adresse électronique spécifiée par les propriétaires du laboratoire dans les paramètres d’arrêt automatique. Les webhooks vous permettent de créer ou de configurer des intégrations qui s’abonnent à certains événements. Lorsque l’un de ces événements se déclenche, DevTest Labs envoie une charge utile POST HTTP à l’URL configurée du webhook. Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+La notification est envoyée par l’intermédiaire du point de terminaison du webhook configuré ou d’une adresse électronique spécifiée par les propriétaires du laboratoire dans les paramètres d’arrêt automatique. Les webhooks vous permettent de créer ou de configurer des intégrations qui s’abonnent à certains événements. Lorsque l’un de ces événements se déclenche, DevTest Labs envoie une charge utile POST HTTP à l’URL configurée du webhook. Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-bindings-http-webhook.md). 
 
 Nous vous recommandons d’utiliser des webhooks car ils sont largement pris en charge par différentes applications (par exemple, Slack, Azure Logic Apps, etc.) et vous permettent d’implémenter votre propre méthode pour envoyer des notifications. À titre d’exemple, cet article vous explique comment obtenir une notification automatique de désactivation à partir d’e-mails en utilisant les applications Azure Logic Apps. Tout d’abord, passons rapidement en revue les étapes de base pour activer la notification d’arrêt automatique dans votre laboratoire.   
 
@@ -211,4 +211,3 @@ Lorsque vous mettez à jour le paramètre d'arrêt automatique, vous pouvez cons
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour découvrir comment définir toutes les stratégies, consultez [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

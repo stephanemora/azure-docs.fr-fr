@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079823"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439257"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Résoudre une erreur générale RDP sur une machine virtuelle Azure
 
@@ -81,7 +81,7 @@ Avant de suivre cette procédure, faites en sauvegarde en prenant un instantané
 1. Vérifiez si le protocole RDP est désactivé par des stratégies de groupe.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Si la stratégie de groupe stipule que RDP est désactivé (la valeur fDenyTSConnections est 0x1), exécutez la commande suivante pour activer le service TermService. Si la clé de Registre est introuvable, aucune stratégie de groupe n’est configurée pour désactiver RDP. Vous pouvez passer à l’étape suivante.

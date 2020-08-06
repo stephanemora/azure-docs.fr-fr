@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684651"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318060"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -24,18 +24,18 @@ Azure Monitor propose les solutions suivantes pour la supervision de vos réseau
     * Journaux d’activité Azure Application Gateway
     * Mesures Azure Application Gateway
 * Solutions de surveillance et d’audit de l’activité du réseau sur votre réseau Cloud
-    * [Analyse du trafic](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Analyse du trafic](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Analyseur de performances réseau (NPM)
 
-La solution de gestion [Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview) est une solution de supervision du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
+La solution de gestion [Analyseur de performances réseau](../../networking/network-monitoring-overview.md) est une solution de supervision du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
 
 * le cloud public et le site local ;
 * les centres de données et les emplacements des utilisateurs (filiales) ;
 * les sous-réseaux hébergeant différents niveaux d’une application multiniveau.
 
-Pour plus d’informations, consultez l’[Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+Pour plus d’informations, consultez l’[Analyseur de performances réseau](../../networking/network-monitoring-overview.md).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway et Network Security Group Analytics
 Pour utiliser les solutions :
@@ -79,7 +79,7 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique Azure Application Gateway, suivez les instructions suivantes :
 
-1. Activez la solution Azure Application Gateway Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution Azure Application Gateway Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](./solutions.md).
 2. Activez la journalisation des diagnostics pour les [Application Gateways](../../application-gateway/application-gateway-diagnostics.md) que vous voulez surveiller.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Application Gateway dans le portail
@@ -150,7 +150,7 @@ Les fichiers journaux d’activité suivants sont pris en charge pour les groupe
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique du réseau Azure, suivez les instructions suivantes :
 
-1. Activez la solution d’analytique Azure Network Security Group en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution d’analytique Azure Network Security Group en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](./solutions.md).
 2. Activez la journalisation des diagnostics pour les ressources [Network Security Group](../../virtual-network/virtual-network-nsg-manage-log.md) que vous voulez surveiller.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Network Security Group dans le portail
@@ -230,3 +230,4 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des diagnostics détaillés Azure.
+

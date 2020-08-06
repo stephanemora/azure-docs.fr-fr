@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781631"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445644"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -256,7 +256,7 @@ Choisissez les étapes qui correspondent aux besoins de votre solution.
 
 Lorsque le service de provisionnement Azure AD s’exécute pour la première fois, le cycle initial, utilisant le système source et les systèmes cibles, crée un instantané de tous les objets utilisateur pour chaque système cible.
 
-Lors de l’activation du provisionnement automatique d’une application, le cycle initial peut demander entre 20 minutes et plusieurs heures pour s’accomplir. La durée dépend de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue du provisionnement. Consultez [Comment améliorer les performances du provisionnement](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Lors de l’activation du provisionnement automatique d’une application, le cycle initial peut demander entre 20 minutes et plusieurs heures pour s’accomplir. La durée dépend de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue du provisionnement.
 
 Le service de provisionnement stocke l’état des deux systèmes après le cycle initial, ce qui améliore les performances des cycles incrémentiels suivants.
 
@@ -299,8 +299,6 @@ Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de s
 * [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Synchroniser un attribut entre votre instance Active Directory local et Azure AD pour le provisionnement d’une application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [L’attribution d’utilisateurs dans une application de la galerie Azure AD prend des heures](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

@@ -2,18 +2,18 @@
 title: Reprotéger des machines virtuelles Azure dans la région primaire avec Azure Site Recovery | Microsoft Docs
 description: Explique comment reprotéger des machines virtuelles Azure après un basculement, de la région secondaire vers la région primaire, en utilisant Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738063"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422077"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -95,10 +95,6 @@ Les conditions suivantes déterminent la quantité de données répliquées :
 |La région source a une machine virtuelle avec un disque premium de 1 To.<br/>Seulement 20 Go de données sont utilisés, le reste du disque est vide.<br/>Le disque est de type premium, avec un débit de 200 Mbits/s.<br/>Les données initiales sur le disque juste après le basculement étaient de 15 Go. Modification de 5 Go de données après le basculement. Le nombre total de données remplies est donc de 20 Go.| Durée approximative : 30 à 45 minutes.<br/>Étant donné que les données remplies sur le disque sont inférieures à 10 % de la taille du disque, nous effectuons une réplication initiale complète.<br/>La vitesse de transfert est d’environ 16 % du débit, soit 32 Mbits/s. Par conséquent, le temps de transfert nécessaire pour appliquer 20 Go de modifications est de 20 Go/32 Mbits/s, soit environ 11 minutes.<br/>Une surcharge de temps d’approximativement 20 à 30 minutes est nécessaire pour que Site Recovery procède à la mise à l’échelle automatique. |
 
 Quand la machine virtuelle est reprotégée après une restauration automatique vers la région primaire (c’est-à-dire, si la machine virtuelle est reprotégée de la région primaire vers la région de reprise d’activité), la machine virtuelle cible et les cartes réseau associées sont supprimées.
-
-Quand la machine virtuelle est reprotégée de la région de reprise d’activité vers la région primaire, nous ne supprimons pas l’ancienne machine virtuelle principale et les cartes réseau associées.
-
-Quand la machine virtuelle est reprotégée après une restauration automatique vers la région primaire (c’est-à-dire, si la machine virtuelle est reprotégée de la région primaire vers la région de reprise d’activité), la machine virtuelle cible et les cartes réseau associées sont supprimées. 
 
 Quand la machine virtuelle est reprotégée de la région de reprise d’activité vers la région primaire, nous ne supprimons pas l’ancienne machine virtuelle principale et les cartes réseau associées.
 

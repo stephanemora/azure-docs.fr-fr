@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261186"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447860"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
@@ -78,11 +78,11 @@ Une fois les fonctionnalités supprimées, vous pouvez suivre les étapes ci-des
 
 Vous pouvez également dissocier votre espace de travail de votre compte Automation dans l’espace de travail.
 
-1. Dans l’espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. 
+1. Dans l’espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**.
 2. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez Update Management dans [Vue d’ensemble de Update Management](../automation-update-management.md).
+* Découvrez Update Management dans [Vue d’ensemble de Update Management](../update-management/update-mgmt-overview.md).
 * Découvrez Change Tracking and Inventory dans [Vue d’ensemble de Change Tracking and Inventory](../change-tracking.md).
 * Découvrez Start/Stop VMs during off-hours dans [Vue d’ensemble de Start/Stop VMs during off-hours](../automation-solution-vm-management.md).

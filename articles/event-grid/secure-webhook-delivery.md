@@ -3,16 +3,16 @@ title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Eve
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119121"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460709"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
-Cet article explique comment tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre abonnement aux événements et votre point de terminaison webhook. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Cet article explique comment tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre abonnement aux événements et votre point de terminaison webhook. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
 
 Cet article utilise le Portail Azure à des fins de démonstration, mais la fonctionnalité peut également être activée à l’aide de l’interface CLI, de PowerShell ou des Kits de développement logiciel (SDK).
 
@@ -28,7 +28,7 @@ Commencez par créer une application Azure AD pour votre point de terminaison pr
 Utilisez le script PowerShell ci-dessous pour créer un rôle et un principal de service dans votre application Azure AD. Vous aurez besoin de l’ID de locataire et de l’ID d’objet de votre application Azure AD :
 
    > [!NOTE]
-   > Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles).
+   > Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
     
 1. Modifiez le $myTenantId du script PowerShell pour utiliser votre ID de locataire Azure AD.
 1. Modifiez le $myAzureADApplicationObjectId du script PowerShell pour utiliser l’ID d’objet de votre application Azure AD.

@@ -5,21 +5,22 @@ description: Configurez des applications, des processus ou des workflows de Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135957"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319488"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Déclenchement des applications, des processus et des workflows CI/CD en fonction d’événements Azure Machine Learning (préversion)
 
-Dans cet article, vous allez apprendre à configurer des applications, des processus ou des workflows CI/CD basés sur des événements Azure Machine Learning, comme des e-mails de notification d’échec ou des exécutions de pipeline ML, lorsque certaines conditions sont détectées par [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+Dans cet article, vous allez apprendre à configurer des applications, des processus ou des workflows CI/CD basés sur des événements Azure Machine Learning, comme des e-mails de notification d’échec ou des exécutions de pipeline ML, lorsque certaines conditions sont détectées par [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning gère l’intégralité du cycle de vie du processus d’apprentissage automatique, y compris l’apprentissage du modèle, le déploiement du modèle et la surveillance. Vous pouvez utiliser Event Grid pour réagir aux événements Azure Machine Learning, comme l’achèvement des exécutions d’apprentissage, l’enregistrement et le déploiement de modèles et la détection de la dérive de données, à l’aide d’architectures serverless modernes. Vous pouvez alors vous abonner et utiliser des événements tels que la modification de l’état d’exécution, la fin d’une exécution, l’inscription de modèles, le déploiement de modèles et la détection d’une dérive de données dans un espace de travail.
 

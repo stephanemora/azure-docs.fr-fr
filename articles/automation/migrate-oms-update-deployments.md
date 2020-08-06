@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745623"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447838"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Effectuer la migration des déploiements de mise à jour des journaux Azure Monitor vers le portail Azure
 
@@ -19,7 +19,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 ## <a name="key-information"></a>Informations essentielles
 
 * Les déploiements existants continueront de fonctionner. Une fois que vous avez recréé le déploiement dans Azure, vous pouvez supprimer l’ancien déploiement.
-* Toutes les fonctionnalités dont vous disposiez dans OMS sont disponibles dans Azure. Pour en savoir plus sur Update Management, consultez [Présentation d’Update Management](automation-update-management.md).
+* Toutes les fonctionnalités dont vous disposiez dans OMS sont disponibles dans Azure. Pour en savoir plus sur Update Management, consultez [Présentation d’Update Management](update-management/update-mgmt-overview.md).
 
 ## <a name="access-the-azure-portal"></a>Accéder au portail Azure
 
@@ -74,4 +74,4 @@ Pour utiliser cette recherche enregistrée existante, suivez ces étapes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Update Management dans Azure Automation, consultez [Update Management](automation-update-management.md).
+Pour plus d’informations sur Update Management dans Azure Automation, consultez [Update Management](update-management/update-mgmt-overview.md).

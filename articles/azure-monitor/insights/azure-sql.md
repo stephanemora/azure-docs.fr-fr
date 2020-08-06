@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087178"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318026"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -34,7 +34,7 @@ Azure SQL Analytics est une solution de surveillance cloud uniquement prenant 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Paramètres de diagnostic](../platform/diagnostic-settings.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Azure Monitor directement par Azure. |
-| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non | Azure Monitor ne lit pas les données d’un compte de stockage. |
+| [Compte Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Non | Azure Monitor ne lit pas les données d’un compte de stockage. |
 | [Agents Windows](../platform/agent-windows.md) | Non | Les agents Windows directs ne sont pas utilisés par Azure SQL Analytics. |
 | [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | Les agents Linux directs ne sont pas utilisés par Azure SQL Analytics. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Non | Azure SQL Analytics n’utilise pas de connexion directe entre l’agent Operations Manager et Azure Monitor. |
@@ -56,7 +56,7 @@ Le tableau ci-dessous présente les options prises en charge pour deux versions 
 
 ## <a name="configuration"></a>Configuration
 
-Procédez de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md) pour ajouter Azure SQL Analytics (préversion) à votre espace de travail Log Analytics.
+Procédez de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](./solutions.md) pour ajouter Azure SQL Analytics (préversion) à votre espace de travail Log Analytics.
 
 ### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Configurer Azure SQL Database pour diffuser en continu les données de télémétrie de diagnostic
 
@@ -297,3 +297,4 @@ Azure SQL Analytics est gratuite, mais toute consommation de la télémétrie de
 - Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données détaillées Azure SQL.
 - [Créer un tableau de bord personnalisé](../learn/tutorial-logs-dashboards.md) comportant les données Azure SQL.
 - [Create and manage alert rules in Log Analytics with the OMS portal](../platform/alerts-overview.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).
+

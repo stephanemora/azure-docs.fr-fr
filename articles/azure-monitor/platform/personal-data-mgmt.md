@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539327"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318315"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -48,7 +48,7 @@ Log Analytics est un store flexible qui, tout en prescrivant un schéma pour vos
     ```
   N’oubliez pas de rechercher non seulement les noms d’utilisateur explicites, mais aussi les GUID, qui peuvent permettre de remonter directement à un utilisateur particulier !
 * *ID d’appareil* : comme les ID d’utilisateur, les ID d’appareil sont parfois considérés « privés ». Utilisez la même approche que ci-dessus pour les ID d’utilisateur, pour identifier les tables où cela peut poser un problème. 
-* *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux d’activité personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
+* *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux d’activité personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](./data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
 * *Données capturées par les solutions* : comme le mécanisme des solutions est ouvert, nous vous recommandons d’examiner toutes les tables générées par les solutions pour vérifier leur conformité.
 
 ### <a name="application-data"></a>Données d'application
@@ -124,5 +124,6 @@ Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux che
 >  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Application Insights, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur la façon dont les données Log Analytics sont collectées, traitées et sécurisées, consultez [Sécurité des données Log Analytics](../../azure-monitor/platform/data-security.md).
-- Pour plus d’informations sur la façon dont les données Application Insights sont collectées, traitées et sécurisées, consultez [Sécurité des données Application Insights](../../azure-monitor/app/data-retention-privacy.md).
+- Pour plus d’informations sur la façon dont les données Log Analytics sont collectées, traitées et sécurisées, consultez [Sécurité des données Log Analytics](./data-security.md).
+- Pour plus d’informations sur la façon dont les données Application Insights sont collectées, traitées et sécurisées, consultez [Sécurité des données Application Insights](../app/data-retention-privacy.md).
+

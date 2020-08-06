@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185583"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447923"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -203,7 +203,7 @@ L’une des principales caractéristiques de Suivi des modifications et inventai
 
 - Pour savoir comment activer la fonctionnalité dans un compte Automation, consultez [Activer la fonctionnalité Suivi des modifications et inventaire dans un compte Automation](automation-enable-changes-from-auto-acct.md).
 
-- Pour activer la fonctionnalité en parcourant la portail Azure, consultez [Activer la fonctionnalité Change Tracking and Inventory sur le portail Azure](automation-onboard-solutions-from-browse.md).
+- Pour activer la fonctionnalité en parcourant la portail Azure, consultez [Activer la fonctionnalité Change Tracking and Inventory sur le portail Azure](automation-enable-changes-from-browse.md).
 
 - Pour activer la fonctionnalité sur un runbook, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur un runbook](automation-enable-changes-from-runbook.md).
 

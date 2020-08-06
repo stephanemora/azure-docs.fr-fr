@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513623"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388046"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -70,28 +70,63 @@ Sélectionnez ce lien pour ouvrir le classeur des rapports de sauvegarde.
 
 Le rapport contient différents onglets :
 
-- **Résumé**: cet onglet donne une vue d’ensemble globale de votre espace de sauvegarde. Vous voyez d’un seul coup d’œil le nombre total d’éléments de sauvegarde, le stockage cloud total consommé, le nombre d’instances protégées et le taux de réussite des travaux par type de charge de travail. Pour obtenir des informations plus détaillées sur un type d’artefact de sauvegarde spécifique, accédez à l’onglet correspondant.
+##### <a name="summary"></a>Résumé
+cet onglet donne une vue d’ensemble globale de votre espace de sauvegarde. Vous voyez d’un seul coup d’œil le nombre total d’éléments de sauvegarde, le stockage cloud total consommé, le nombre d’instances protégées et le taux de réussite des travaux par type de charge de travail. Pour obtenir des informations plus détaillées sur un type d’artefact de sauvegarde spécifique, accédez à l’onglet correspondant.
 
    ![Onglet Résumé](./media/backup-azure-configure-backup-reports/summary.png)
 
-- **Éléments de sauvegarde** : cet onglet donne des informations et des tendances sur le stockage cloud consommé au niveau d’un élément de sauvegarde. Par exemple, si vous utilisez SQL dans une sauvegarde de machine virtuelle Azure, vous pouvez voir le stockage cloud consommé pour chaque base de données SQL en cours de sauvegarde. Vous pouvez également choisir de voir les données des éléments de sauvegarde ayant un état de protection particulier. Par exemple, si vous sélectionnez la vignette **Protection arrêtée** en haut de l’onglet, tous les widgets situés au-dessous sont filtrés pour n’afficher que les données des éléments de sauvegarde dont l’état est Protection arrêtée.
+##### <a name="backup-items"></a>Éléments de sauvegarde
+cet onglet donne des informations et des tendances sur le stockage cloud consommé au niveau d’un élément de sauvegarde. Par exemple, si vous utilisez SQL dans une sauvegarde de machine virtuelle Azure, vous pouvez voir le stockage cloud consommé pour chaque base de données SQL en cours de sauvegarde. Vous pouvez également choisir de voir les données des éléments de sauvegarde ayant un état de protection particulier. Par exemple, si vous sélectionnez la vignette **Protection arrêtée** en haut de l’onglet, tous les widgets situés au-dessous sont filtrés pour n’afficher que les données des éléments de sauvegarde dont l’état est Protection arrêtée.
 
    ![Onglet Éléments de sauvegarde](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-- **Utilisation**: cet onglet indique les paramètres clés de facturation des sauvegardes. Les informations affichées se trouvent au niveau d’une entité de facturation (conteneur protégé). Par exemple, dans le cas d’un serveur DPM en cours de sauvegarde sur Azure, vous pouvez voir la tendance des instances protégées et du stockage cloud consommé pour ce serveur. De même, si vous utilisez SQL ou SAP HANA dans la Sauvegarde Azure, cet onglet fournit des informations sur l’utilisation au niveau de la machine virtuelle qui contient ces bases de données.
+##### <a name="usage"></a>Usage
+cet onglet indique les paramètres clés de facturation des sauvegardes. Les informations affichées se trouvent au niveau d’une entité de facturation (conteneur protégé). Par exemple, dans le cas d’un serveur DPM en cours de sauvegarde sur Azure, vous pouvez voir la tendance des instances protégées et du stockage cloud consommé pour ce serveur. De même, si vous utilisez SQL ou SAP HANA dans la Sauvegarde Azure, cet onglet fournit des informations sur l’utilisation au niveau de la machine virtuelle qui contient ces bases de données.
 
    ![Onglet Utilisation](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
 > Pour les charges de travail DPM, les utilisateurs peuvent voir une légère différence (de l’ordre de 20 Mo par serveur DPM) entre les valeurs d’utilisation présentées dans les rapports par rapport à la valeur d’utilisation de l’agrégat, comme indiqué dans l’onglet de présentation du coffre Recovery Services. Cette différence s’explique par le fait que chaque serveur DPM inscrit pour la sauvegarde a une source de données « métadonnées » associée qui n’est pas exposée en tant qu’artefact pour la création de rapports.
 
-- **Travaux** : cet onglet indique les tendances durables sur les travaux, par exemple le nombre de travaux ayant échoué par jour et les principales causes d’échec des travaux. Vous pouvez voir ces informations à la fois au niveau agrégé et au niveau d’un élément de sauvegarde. Sélectionnez un élément de sauvegarde en particulier dans une grille pour afficher des informations détaillées sur chacun des travaux qui se sont déclenchés sur cet élément dans l’intervalle de temps sélectionné.
+##### <a name="jobs"></a>travaux
+cet onglet indique les tendances durables sur les travaux, par exemple le nombre de travaux ayant échoué par jour et les principales causes d’échec des travaux. Vous pouvez voir ces informations à la fois au niveau agrégé et au niveau d’un élément de sauvegarde. Sélectionnez un élément de sauvegarde en particulier dans une grille pour afficher des informations détaillées sur chacun des travaux qui se sont déclenchés sur cet élément dans l’intervalle de temps sélectionné.
 
    ![Onglet Travaux](./media/backup-azure-configure-backup-reports/jobs.png)
 
-- **Stratégies** : cet onglet donne des informations sur toutes les stratégies actives, par exemple le nombre d’éléments associés et le stockage cloud total consommé par les éléments sauvegardés dans le cadre d’une stratégie donnée. Sélectionnez une stratégie en particulier pour afficher des informations sur chacun des éléments de sauvegarde associés.
+##### <a name="policies"></a>Stratégies
+cet onglet donne des informations sur toutes les stratégies actives, par exemple le nombre d’éléments associés et le stockage cloud total consommé par les éléments sauvegardés dans le cadre d’une stratégie donnée. Sélectionnez une stratégie en particulier pour afficher des informations sur chacun des éléments de sauvegarde associés.
 
    ![Onglet Stratégies](./media/backup-azure-configure-backup-reports/policies.png)
+
+##### <a name="optimize"></a>Optimiser
+Cet onglet vous permet d’obtenir une visibilité sur les opportunités potentielles d’optimisation des coûts pour vos sauvegardes. Voici les scénarios pour lesquels l’onglet optimiser fournit actuellement des insights :
+
+###### <a name="inactive-resources"></a>Ressources inactives
+Cette vue, vous permet d’identifier les éléments de sauvegarde qui n’ont pas été sauvegardés correctement depuis un temps non négligeable. Cela peut indiquer que la machine sous-jacente faisant l’objet de la sauvegarde n’existe plus ou qu’elle rencontre un problème qui empêche que les sauvegardes soient considérées comme fiables. 
+
+Pour afficher les ressources inactives, accédez à l’onglet **Optimiser**, puis cliquez sur la vignette **Ressources inactives**. Cela a pour effet d’afficher une grille contenant des détails sur toutes les ressources inactives dans l’étendue sélectionnée. Par défaut, la grille affiche les éléments qui n’ont pas de point de récupération remontant à moins de 8 jours. Pour rechercher des ressources inactives dans un autre intervalle de temps, vous pouvez ajuster le filtre **Plage de temps** en haut de l’onglet.
+
+Une fois que vous avez identifié une ressource inactive, vous pouvez examiner le problème de plus près en accédant au tableau de bord de l’élément de sauvegarde ou au volet des ressources Azure pour cette ressource (le cas échéant). Selon votre scénario, vous avez le choix entre arrêter la sauvegarde de la machine (si elle n’existe plus), ce qui permet d’économiser le coût de l’instance protégée, ou résoudre les problèmes que la machine rencontre pour vous assurer que les sauvegardes soient fiables.
+
+![Onglet Optimiser – Ressources inactives](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+###### <a name="backup-items-with-a-large-retention-duration"></a>Éléments de sauvegarde dont la durée de conservation est conséquente
+Cette vue vous permet d’identifier les éléments dont les sauvegardes ont été conservées pendant une durée supérieure à celle que votre organisation requiert. 
+
+En cliquant sur la vignette **Optimisations de la stratégie**, puis sur la vignette **Optimisations de la rétention**, vous obtenez une grille contenant tous les éléments de sauvegarde dont la durée de conservation du point de rétention (RP) quotidien, hebdomadaire, mensuel ou annuel est supérieure à la valeur spécifiée. Par défaut, la grille affiche tous les éléments de sauvegarde dans l’étendue sélectionnée. Vous pouvez utiliser les filtres pour la conservation des points de sauvegarde quotidien, hebdomadaire, mensuel et annuel de façon à réduire la grille et identifier les éléments dont la durée de rétention pourrait être raccourcie afin de diminuer les coûts du stockage de sauvegarde.
+
+Notez que, pour des charges de travail de base de données telles que SQL et SAP HANA, les périodes de rétention indiquées dans la grille correspondent à celles des points de sauvegarde complète et non à celles des points de sauvegarde différentielle. Il en va de même pour les filtres de rétention.  
+
+![Onglet Optimiser – Optimisations de la rétention](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+###### <a name="databases-configured-for-daily-full-backup"></a>Bases de données configurées pour une sauvegarde complète quotidienne
+Cette vue vous permet d’identifier des charges de travail de base de données configurées pour une sauvegarde complète quotidienne. Souvent, il est plus économique de configurer une sauvegarde quotidienne différentielle parallèlement à une sauvegarde complète hebdomadaire. 
+
+En cliquant sur la vignette **Optimisations de la stratégie**, puis sur la vignette **Optimisations de la planification des sauvegardes**, vous obtenez une grille contenant toutes les bases de données faisant l’objet d’une stratégie de sauvegarde complète quotidienne. Vous pouvez choisir d’accéder à un élément de sauvegarde particulier pour modifier la stratégie afin d’utiliser une sauvegarde différentielle quotidienne avec une sauvegarde complète hebdomadaire.
+
+Notez que, dans le filtre **Type de gestion des sauvegardes** en haut de l’onglet, les éléments **SQL dans la machine virtuelle Azure** et **SAP HANA dans la machine virtuelle Azure** doivent être sélectionnés pour que la grille puisse afficher les charges de travail de base de données comme prévu.
+
+![Onglet Optimiser – Optimisations de planification des sauvegardes](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## <a name="export-to-excel"></a>Exporter vers Excel
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781648"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445622"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -162,7 +162,7 @@ Le travail de provisionnement sort de quarantaine lorsque toutes les erreurs ont
 
 ### <a name="how-long-provisioning-takes"></a>Durée du provisionnement
 
-Les performances varient selon que votre tâche d’approvisionnement exécute un cycle d’approvisionnement initial ou un cycle incrémentiel. Pour en savoir plus sur la durée de l’approvisionnement et comment surveiller l’était du service d’approvisionnement, consultez [Vérifier l’état de l’approvisionnement d’utilisateurs](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Les performances varient selon que votre tâche d’approvisionnement exécute un cycle d’approvisionnement initial ou un cycle incrémentiel. Pour en savoir plus sur la durée de l’approvisionnement et comment surveiller l’était du service d’approvisionnement, consultez [Vérifier l’état de l’approvisionnement d’utilisateurs](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 

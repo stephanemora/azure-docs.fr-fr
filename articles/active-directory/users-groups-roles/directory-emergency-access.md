@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338274"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421720"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -56,7 +56,7 @@ Cependant, au moins un de vos comptes d’accès d’urgence ne doit pas avoir l
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclure au moins un compte des stratégies d’accès conditionnel
 
-En cas d’urgence, vous ne souhaitez pas qu’une stratégie risque de vous empêcher d’accéder pour résoudre un problème. Au moins un compte d’accès d’urgence doit être exclu de toutes les stratégies d’accès conditionnel. Si vous avez instauré une [stratégie de référence](../conditional-access/baseline-protection.md), vous devez en exclure vos comptes d’accès d’urgence.
+En cas d’urgence, vous ne souhaitez pas qu’une stratégie risque de vous empêcher d’accéder pour résoudre un problème. Au moins un compte d’accès d’urgence doit être exclu de toutes les stratégies d’accès conditionnel.
 
 ## <a name="federation-guidance"></a>Conseils sur la fédération
 

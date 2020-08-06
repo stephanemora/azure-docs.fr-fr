@@ -6,16 +6,17 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 05ecce2d6ef0f8a3f241570ba9364c5e38682f3e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025724"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319437"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes (préversion)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
 Cet article explique comment exporter les étiquettes de données d’un projet d’étiquetage de données Azure Machine Learning, et les charger dans des formats populaires tels qu’une tramedonnées pandas pour l’exploration de données ou un jeu de données Torchvision pour la transformation d’image. 
 

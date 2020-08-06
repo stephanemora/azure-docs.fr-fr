@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289433"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -24,7 +24,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
-Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +36,7 @@ Le déclencheur de requête prend en charge [Azure Active Directory Open Authent
 
 ## <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
 
-* Les appels entrants prennent en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2. Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Les appels sortants prennent en charge les protocoles TLS 1.0, 1.1 et 1.2 en fonction de la capacité du point de terminaison cible.
+* Les appels entrants prennent en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2. Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](/security/solving-tls1-problem). Les appels sortants prennent en charge les protocoles TLS 1.0, 1.1 et 1.2 en fonction de la capacité du point de terminaison cible.
 
 * Les appels entrants prennent en charge les suites de chiffrement suivantes :
 
@@ -287,3 +287,4 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Connecteurs pour Logic Apps](../connectors/apis-list.md)
+

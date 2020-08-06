@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540109"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323177"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifications des ressources basées sur un espace de travail (préversion)
 
@@ -466,5 +466,6 @@ Table héritée : traces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exploration des mesures](../../azure-monitor/platform/metrics-charts.md)
+* [Exploration des mesures](../platform/metrics-charts.md)
 * [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
+

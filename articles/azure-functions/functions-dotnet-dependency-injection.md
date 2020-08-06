@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249255"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500462"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
-Azure Functions prend en charge le modèle de conception logicielle d’injection de dépendances, qui est une technique pour obtenir une [inversion de contrôle](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre les classes et leurs dépendances.
+Azure Functions prend en charge le modèle de conception logicielle d’injection de dépendances, qui est une technique pour obtenir une [inversion de contrôle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre les classes et leurs dépendances.
 
-- L’injection de dépendance dans Azure Functions repose sur les fonctionnalités d’injection de dépendance .Net Core. Il est recommandé d’avoir une certaine connaissance de [l’injection de dépendance .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Il existe des différences dans le remplacement des dépendances et la lecture des valeurs de configuration avec Azure Functions sur le plan de consommation.
+- L’injection de dépendance dans Azure Functions repose sur les fonctionnalités d’injection de dépendance .Net Core. Il est recommandé d’avoir une certaine connaissance de [l’injection de dépendance .NET Core](/aspnet/core/fundamentals/dependency-injection). Il existe des différences dans le remplacement des dépendances et la lecture des valeurs de configuration avec Azure Functions sur le plan de consommation.
 
 - L’injection de dépendances est prise en charge depuis Azure Functions 2.x.
 
@@ -115,17 +115,17 @@ Cet exemple utilise le package [Microsoft.Extensions.Http](https://www.nuget.org
 
 ## <a name="service-lifetimes"></a>Durées de service
 
-Les durées de service des applications Azure Functions sont identiques à celles du service d’[injection de dépendance ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Pour une application Azure Functions, les différentes durées de vie de service se comportent comme suit :
+Les durées de service des applications Azure Functions sont identiques à celles du service d’[injection de dépendance ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Pour une application Azure Functions, les différentes durées de vie de service se comportent comme suit :
 
 - **Temporaire** : Des services temporaires sont créés à chaque demande du service.
 - **Inclus dans l’étendue** : La durée de vie du service étendu correspond à celle d’exécution de la fonction. Les services délimités sont créés une fois par exécution. Les demandes ultérieures pour ce service pendant l’exécution réutilisent l’instance de service existante.
 - **Singleton** : La durée de vie de service singleton correspond à celle de l’hôte, et est réutilisée entre les exécutions de la fonction sur cette instance. Les services à durée de vie singleton sont recommandés pour des connexions et des clients, par exemple, pour des instances `DocumentClient` ou `HttpClient`.
 
-Affichez ou téléchargez un exemple [des différentes durées de vie de service](https://aka.ms/functions/di-sample) sur GitHub.
+Affichez ou téléchargez un exemple [des différentes durées de vie de service](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) sur GitHub.
 
 ## <a name="logging-services"></a>Services de journalisation
 
-Si vous avez besoin de votre propre fournisseur de journalisation, inscrivez un type personnalisé en tant qu’instance de [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory), disponible dans le package NuGet [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/).
+Si vous avez besoin de votre propre fournisseur de journalisation, inscrivez un type personnalisé en tant qu’instance de [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory), disponible dans le package NuGet [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/).
 
 Application Insights est ajouté automatiquement par Azure Functions.
 
@@ -250,7 +250,7 @@ public class HttpTrigger
 }
 ```
 
-Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 > [!WARNING]
 > Évitez d’essayer de lire les valeurs dans les fichiers comme *local.settings.json* ou *appsettings.{environnement}.json* dans le plan Consommation. Les valeurs lues à partir de ces fichiers associés à des connexions de déclencheurs ne sont pas disponibles à mesure que l’application est mise à l’échelle parce que l’infrastructure d’hébergement n’a pas accès aux informations de configuration, car le contrôleur de mise à l’échelle crée de nouvelles instances de l’application.

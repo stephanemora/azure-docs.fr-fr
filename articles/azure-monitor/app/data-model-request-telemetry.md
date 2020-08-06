@@ -4,16 +4,16 @@ description: Modèle de données Application Insights pour la télémétrie des
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807653"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320559"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
-Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
+Un élément de télémétrie de demande (dans [Application Insights](./app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
@@ -27,7 +27,7 @@ Longueur maximale : 1024 caractères
 
 ## <a name="id"></a>id
 
-Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
+Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](./correlation.md).
 
 Longueur maximale : 128 caractères
 
@@ -39,7 +39,7 @@ Longueur maximale : 2048 caractères
 
 ## <a name="source"></a>Source
 
-Source de la requête. Il s’agit par exemple de la clé d’instrumentation de l’appelant ou de l’adresse IP de l’appelant. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
+Source de la requête. Il s’agit par exemple de la clé d’instrumentation de l’appelant ou de l’adresse IP de l’appelant. Pour plus d’informations, consultez la page relative à la [corrélation](./correlation.md).
 
 Longueur maximale : 1024 caractères
 
@@ -73,7 +73,8 @@ Vous pouvez en apprendre plus sur le code de résultat des requête et le code d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Écrire une télémétrie de demande personnalisée](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Écrire une télémétrie de demande personnalisée](./api-custom-events-metrics.md#trackrequest)
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](data-model.md).
-- Découvrez comment [configurer l’application ASP.NET Core](../../azure-monitor/app/asp-net.md) avec Application Insights.
-- Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.
+- Découvrez comment [configurer l’application ASP.NET Core](./asp-net.md) avec Application Insights.
+- Découvrez quelles [plateformes](./platforms.md) sont prises en charge par Application Insights.
+
