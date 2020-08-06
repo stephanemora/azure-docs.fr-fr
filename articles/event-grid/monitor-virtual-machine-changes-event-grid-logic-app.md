@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 91ff67f886dbf54b93e9b91822b5f8535ea77e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079203"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461270"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutoriel : Superviser les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
-Pour superviser des événements spécifiques qui se produisent dans des ressources Azure ou des ressources tierces et y répondre, vous pouvez automatiser et exécuter des tâches en tant que workflow en créant une [application logique](../logic-apps/logic-apps-overview.md) qui utilise très peu de code. Ces ressources peuvent publier des événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches.
+Pour superviser des événements spécifiques qui se produisent dans des ressources Azure ou des ressources tierces et y répondre, vous pouvez automatiser et exécuter des tâches en tant que workflow en créant une [application logique](../logic-apps/logic-apps-overview.md) qui utilise très peu de code. Ces ressources peuvent publier des événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [hubs d’événements](../event-hubs/event-hubs-about.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches.
 
 Par exemple, voici certains événements que les éditeurs peuvent envoyer aux abonnés via le service Azure Event Grid :
 
@@ -50,7 +50,7 @@ Dans ce tutoriel, vous allez apprendre à :
   Ce tutoriel utilise un compte Outlook Office 365. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
   > [!IMPORTANT]
-  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification avec votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification avec votre connecteur Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Une [machine virtuelle](https://azure.microsoft.com/services/virtual-machines) qui est seule dans son propre groupe de ressources Azure. Si ce n’est pas déjà fait, créez une machine virtuelle en suivant le [tutoriel Créer une machine virtuelle](../virtual-machines/windows/quick-create-portal.md). Pour que la machine virtuelle publie des événements, [aucun autre élément n’est nécessaire](../event-grid/overview.md).
 

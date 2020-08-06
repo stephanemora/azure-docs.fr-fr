@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3b9b49a4d38566891f442a3d2d7eac9bf1d36465
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114514"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462001"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutoriel : Intégrer Azure Automation à Event Grid et Microsoft Teams
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Un [compte Azure Automation](../automation/automation-offering-get-started.md) est requis pour terminer ce didacticiel et mettre le runbook déclenché par l’abonnement Azure Event Grid en attente.
+Un [compte Azure Automation](../automation/index.yml) est requis pour terminer ce didacticiel et mettre le runbook déclenché par l’abonnement Azure Event Grid en attente.
 
 * Le module `AzureRM.Tags` doit être chargé dans votre compte Automation, consultez [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) (Importation de modules dans Azure Automation) pour apprendre à importer des modules dans Azure Automation.
 

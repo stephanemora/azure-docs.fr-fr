@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260684"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475649"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -33,42 +33,12 @@ Pour créer un cluster Azure Red Hat OpenShift, vérifiez les autorisations suiv
 |**Administrateur de l'accès utilisateur**|X|X| |
 |**Contributeur**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>Installer l’extension `az aro`
-L’extension `az aro` vous permet de créer des clusters Azure Red Hat OpenShift, d’y accéder et de les supprimer directement à partir de la ligne de commande à l’aide d’Azure CLI.
-
-Exécutez la commande suivante pour installer l’extension `az aro`.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Si vous avez déjà installé l’extension, vous pouvez la mettre à jour en exécutant la commande suivante.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 
 Vous devez ensuite inscrire le fournisseur de ressources `Microsoft.RedHatOpenShift` dans votre abonnement.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Vérifiez que l’extension est inscrite.
-
-```azurecli-interactive
-az -v
-```
-
-  Vous devez obtenir une sortie similaire à celle ci-dessous.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Récupération d’un secret d’extraction Red Hat (facultatif)
