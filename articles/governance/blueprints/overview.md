@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970924"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530392"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -39,7 +39,7 @@ Un blueprint est un package ou un conteneur qui permet de composer des ensembles
 
 Une [stratégie](../policy/overview.md) est un système d’autorisations par défaut et de refus explicites qui s’applique aux propriétés des ressources durant le déploiement et aux ressources existantes. Pour prendre en charge la gouvernance du cloud, une stratégie veille au respect des normes et des exigences au sein d’un abonnement.
 
-L’inclusion d’une stratégie dans un blueprint permet de créer le modèle ou la conception approprié pendant l’affectation du blueprint. L’inclusion de stratégie permet de s’assurer que seuls les modifications approuvées ou attendues peuvent être apportées à l’environnement pour préserver la conformité à l’intention du blueprint.
+L’inclusion d’une stratégie dans un blueprint permet de créer le bon modèle ou la bonne conception lors de l’affectation du blueprint. L’inclusion de stratégie permet de s’assurer que seuls les modifications approuvées ou attendues peuvent être apportées à l’environnement pour préserver la conformité à l’intention du blueprint.
 
 Une stratégie peut constituer l’un des nombreux _artefacts_ d’une définition de blueprint. Les blueprints prennent également en charge l’utilisation de paramètres avec des stratégies et des initiatives.
 
@@ -103,7 +103,7 @@ Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avo
 
 Les rôles intégrés suivants sont disponibles :
 
-|Rôle RBAC | Description |
+|Rôle Azure | Description |
 |-|-|
 |[Propriétaire](../../role-based-access-control/built-in-roles.md#owner) | En plus d’autres autorisations, inclut toutes les autorisations relatives à Azure Blueprint. |
 |[Contributeur](../../role-based-access-control/built-in-roles.md#contributor) | En plus d’autres autorisations, permet de créer et supprimer des définitions de blueprint, mais ne dispose pas des autorisations d’affectation de blueprint. |

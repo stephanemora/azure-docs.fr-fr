@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429754"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543399"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -383,7 +383,7 @@ Cette commande déploie un nouveau service nommé `myservice`, en utilisant la v
 
 Le fichier `inferenceConfig.yml` fournit des informations sur l'utilisation du modèle pour l'inférence. Par exemple, il fait référence au script d'entrée (`score.py`) et aux dépendances logicielles.
 
-Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 Le fichier `aciDeploymentConfig.yml` décrit l’environnement de déploiement utilisé pour héberger le service. La configuration du déploiement dépend du type de calcul que vous utilisez pour le déploiement. Dans ce cas, il s’agit d’une instance de conteneur Azure. Pour plus d’informations, consultez le [schéma de configuration de déploiement](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
