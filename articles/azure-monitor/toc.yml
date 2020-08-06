@@ -171,10 +171,14 @@
         - name: Superviser des machines virtuelles Azure
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Déployer
+      items:
+        - name: Déployer Azure Monitor
+          href: deploy.md
+        - name: Déployer à l’échelle
+          href: deploy-scale.md
     - name: Gérer et configurer
       items:
-        - name: Déployer à l’échelle
-          href: platform/deploy-scale.md
         - name: Sécurité et autorisations des rôles
           href: platform/roles-permissions-security.md
         - name: "Adresses\_IP"
@@ -212,7 +216,7 @@
               href: platform/manage-access.md
         - name: Agents de machine virtuelle
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: platform/agents-overview.md
             - name: Questions fréquentes (FAQ)
               href: faq.md#agents
@@ -254,7 +258,7 @@
                 - name: Linux
                   displayname: diagnostics extension
                   items:
-                    - name: Vue d'ensemble
+                    - name: Vue d’ensemble
                       href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                     - name: Collecter des métriques avec Telegraf
                       href: platform/collect-custom-metrics-linux-telegraf.md
@@ -937,7 +941,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers

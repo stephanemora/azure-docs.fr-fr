@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206118"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117033"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -341,29 +341,55 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Usage général - calcul provisionné - série Fsv2
 
-### <a name="fsv2-series-compute-generation-preview"></a>Génération de calcul de série Fsv2 (préversion)
+### <a name="fsv2-series-compute-generation-part-1"></a>Génération de calcul de série Fsv2 (partie 1)
 
-|Taille de calcul (objectif de service)|GP_Fsv2_72|
-|:--- | --: |
-|Génération de calcul|Série Fsv2|
-|vCores|72|
-|Mémoire (Go)|136,2|
-|Prise en charge de ColumnStore|Oui|
-|Stockage In-Memory OLTP (Go)|N/A|
-|Taille maximale des données (Go)|4096|
-|Taille maximale du journal (Go)|1 024|
-|Taille maximale des données TempDB (Go)|333|
-|Type de stockage|SSD distant|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|12 800|
-|Taux de journalisation maximal (Mbits/s)|30|
-|Nombre maximal d’ouvriers simultanés (demandes)|3600|
-|Nombre maximal de connexions simultanées|3600|
-|Nombre maximal de sessions simultanées|30,000|
-|Nombre de réplicas|1|
-|Plusieurs zones de disponibilités|N/A|
-|Lecture du Scale-out|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|
+|Taille de calcul (objectif de service)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Génération de calcul|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
+|vCores|8|10|12|14|16|
+|Mémoire (Go)|15,1|18,9|22,7|26,5|30,2|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1536|
+|Taille maximale du journal (Go)|336|336|336|336|512|
+|Taille maximale des données TempDB (Go)|333|333|333|333|333|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données *|2560|3200|3840|4480|5120|
+|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|
+|Nombre maximal d’ouvriers simultanés (demandes)|400|500|600|700|800|
+|Nombre maximal de connexions simultanées|800|1 000|1200|1400|1 600|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
+|Nombre de réplicas|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Génération de calcul de série Fsv2 (partie 2)
+
+|Taille de calcul (objectif de service)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Génération de calcul|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
+|vCores|18|20|24|32|36|72|
+|Mémoire (Go)|34,0|37,8|45.4|60,5|68,0|136,0|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|1536|1536|1536|3 072|3 072|4096|
+|Taille maximale du journal (Go)|512|512|512|1 024|1 024|1 024|
+|Taille maximale des données TempDB (Go)|83,25|92,5|111|148|166,5|333|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|11520|23040|
+|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|30|
+|Nombre maximal d’ouvriers simultanés (demandes)|900|1 000|1200|1 600|1800|3600|
+|Nombre maximal de connexions simultanées|1800|2000|2 400|3200|3600|7200|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
+|Nombre de réplicas|1|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 \* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
@@ -480,34 +506,65 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Vital pour l’entreprise - calcul provisionné - série M
 
-### <a name="m-series-compute-generation-preview"></a>Génération de calcul de série M (préversion)
+### <a name="m-series-compute-generation-part-1"></a>Génération de calcul de série M (partie 1)
 
-|Taille de calcul (objectif de service)|BC_M_128|
-|:--- | --: |
-|Génération de calcul|Série M|
-|vCores|128|
-|Mémoire (Go)|3767.1|
-|Prise en charge de ColumnStore|Oui|
-|Stockage In-Memory OLTP (Go)|1768|
-|Taille maximale des données (Go)|4096|
-|Taille maximale du journal (Go)|2 048|
-|Taille maximale des données TempDB (Go)|4096|
-|Type de stockage|SSD local|
-|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|160 000|
-|Taux de journalisation maximal (Mbits/s)|264|
-|Nombre maximal d’ouvriers simultanés (demandes)|12 800|
-|Nombre maximal de connexions simultanées|12 800|
-|Nombre maximal de sessions simultanées|30000|
-|Nombre de réplicas|4|
-|Plusieurs zones de disponibilités|Oui|
-|Lecture du Scale-out|Oui|
-|Stockage de sauvegarde inclus|1X taille de la base de données|
+|Taille de calcul (objectif de service)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Génération de calcul|Série M|Série M|Série M|Série M|Série M|Série M|
+|vCores|8|10|12|14|16|18|
+|Mémoire (Go)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|64|80|96|112|128|150|
+|Taille maximale des données (Go)|512|640|768|896|1 024|1152|
+|Taille maximale du journal (Go)|171|213|256|299|341|384|
+|Taille maximale des données TempDB (Go)|256|320|384|448|512|576|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’IOPS de données *|12 499|15 624|18 748|21 873|24 998|28 123|
+|Taux de journalisation maximal (Mbits/s)|48|60|72|84|96|108|
+|Nombre maximal d’ouvriers simultanés (demandes)|800|1 000|1,200|1 400|1 600|1 800|
+|Nombre maximal de connexions simultanées|800|1 000|1,200|1 400|1 600|1 800|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
+|Nombre de réplicas|4|4|4|4|4|4|
+|Plusieurs zones de disponibilités|Non|Non|Non|Non|Non|Non|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
 \* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Génération de calcul de série M (partie 2)
+
+|Taille de calcul (objectif de service)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Génération de calcul|Série M|Série M|Série M|Série M|Série M|
+|vCores|20|24|32|64|128|
+|Mémoire (Go)|588,6|706,3|941,8|1883,5|3767,0|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|172|216|304|704|1768|
+|Taille maximale des données (Go)|1 280|1536|2 048|4096|4096|
+|Taille maximale du journal (Go)|427|512|683|1 024|1 024|
+|Taille maximale des données TempDB (Go)|4096|2 048|1 024|768|640|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’IOPS de données *|31 248|37 497|49 996|99 993|160 000|
+|Taux de journalisation maximal (Mbits/s)|120|144|192|264|264|
+|Nombre maximal d’ouvriers simultanés (demandes)|2 000|2 400|3 200|6 400|12 800|
+|Nombre maximal de connexions simultanées|2 000|2 400|3 200|6 400|12 800|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|
+|Nombre de réplicas|4|4|4|4|4|
+|Plusieurs zones de disponibilités|Non|Non|Non|Non|Non|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

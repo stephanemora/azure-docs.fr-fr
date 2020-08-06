@@ -7,6 +7,8 @@
     - name: Comparer les services de messagerie
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: "Utiliser Service Bus avec Java Message Service (JMS)\_2.0 (préversion)"
+      href: how-to-use-java-message-service-20.md
 - name: Démarrages rapides
   items:
     - name: Files d’attente Service Bus
@@ -127,6 +129,8 @@
           items:
             - name: 'Files d’attente, rubriques et abonnements'
               href: service-bus-queues-topics-subscriptions.md
+            - name: "Entités Java message service (JMS)\_2.0 (préversion)"
+              href: java-message-service-20-entities.md
             - name: 'Messages, charges utiles et sérialisation'
               href: service-bus-messages-payloads.md
             - name: 'Transferts, verrouillages et règlement des messages'

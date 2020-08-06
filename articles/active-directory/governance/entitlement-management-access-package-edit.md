@@ -3,7 +3,7 @@ title: Masquer ou supprimer un package d’accès dans la gestion des droits d�
 description: Découvrez comment masquer ou supprimer un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da450a2dfc4351f5bd2c3c759b483cea0c110d9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22aa97c6e627c2072636ca2e079877ff0f608b68
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078792"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798798"
 ---
 # <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Masquer ou supprimer un package d’accès dans la gestion des droits d’utilisation Azure AD
 

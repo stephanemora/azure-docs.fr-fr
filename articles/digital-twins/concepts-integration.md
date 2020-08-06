@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367433"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800481"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Intégrer Azure Digital Twins avec d’autres services
 
@@ -33,7 +33,7 @@ Azure Digital Twins peut envoyer des données à des **points de terminaison** c
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Les points de terminaison sont attachés au service Azure Digital Twins à l’aide d’API de gestion ou du portail Azure. Apprenez-en davantage sur la façon d’attacher un point de terminaison à Azure Digital Twins dans [*Guide pratique : Gérer les points de terminaison et les routes*](how-to-manage-routes.md).
+Les points de terminaison sont attachés au service Azure Digital Twins à l’aide d’API de gestion ou du portail Azure. Apprenez-en davantage sur la façon d’attacher un point de terminaison à Azure Digital Twins dans [*Guide pratique : Gérer les points de terminaison et les routes*](how-to-manage-routes-apis-cli.md).
 
 Il existe de nombreux autres services vers lesquels vous pouvez finalement diriger vos données, tels que [Stockage Azure](../storage/common/storage-introduction.md) ou [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Pour envoyer vos données à de tels services, attachez le service de destination à un point de terminaison.
 

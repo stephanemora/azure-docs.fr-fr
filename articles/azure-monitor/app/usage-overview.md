@@ -3,16 +3,18 @@ title: Analyse de l’usage avec Azure Application Insights | Microsoft Docs
 description: Comprenez vos utilisateurs et ce qu’ils font avec votre application.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323551"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800209"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
 Quelles sont les fonctionnalités de votre application web ou mobile les plus populaires ? Vos utilisateurs atteignent-ils leurs objectifs avec votre application ? Disparaissent-ils à des stades spécifiques, et reviennent-ils plus tard ?  [Azure Application Insights](./app-insights-overview.md) vous permet d’obtenir des insights utiles sur l’utilisation de votre application. Chaque fois que vous mettez à jour votre application, vous pouvez évaluer son bon fonctionnement pour les utilisateurs. Grâce à ces informations, vous pouvez prendre des décisions basées sur des données sur les cycles de développement suivants.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>Envoyer des données de télémétrie à partir de votre application
 

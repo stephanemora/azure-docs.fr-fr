@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004543"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809440"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l'agent Connected Machine
 
@@ -78,7 +78,7 @@ Le tableau suivant répertorie certaines erreurs connues ainsi que des suggestio
 |Échec de l'acquisition du flux de périphérique du jeton d'autorisation |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Le proxy ou le pare-feu bloque l'accès au point de terminaison `login.windows.net`. | Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
 |Échec de l'acquisition du flux de périphérique du jeton d'autorisation  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | L’objet de stratégie de groupe (GPO) *Configuration ordinateur\Modèles d’administration\Système\Profils utilisateur\Supprimer les profils utilisateur datant de plus d’un certain nombre de jours lors du redémarrage du système* est activé. | Vérifiez que le GPO est activé et cible la machine concernée. Pour plus d’informations, consultez la note de bas de page <sup>[1](#footnote1)</sup>. |
 |Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Le proxy ou le pare-feu bloque l'accès au point de terminaison `login.windows.net`. |Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
-|Échec de l'acquisition du jeton d'autorisation à partir du nom de principal du service |`Invalid client secret is provided` |Secret du principal de service incorrect ou non valide. |Vérifiez le secret du principal de service. |
+|Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Invalid client secret is provided` |Secret du principal de service incorrect ou non valide. |Vérifiez le secret du principal de service. |
 | Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Principal du service et/ou ID de locataire incorrects. |Vérifiez le principal de service et/ou l'ID du locataire.|
 |Obtenir une réponse des ressources ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Informations d'identification et/ou autorisations incorrectes |Vérifiez que vous ou le principal de service êtes membre du rôle **Intégration d'Azure Connected Machine**. |
 |Échec de la ressource ARM AzcmagentConnect |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Les fournisseurs de ressources Azure ne sont pas inscrits. |Inscrivez les [fournisseurs de ressources](./agent-overview.md#register-azure-resource-providers). |
@@ -90,7 +90,7 @@ Le tableau suivant répertorie certaines erreurs connues ainsi que des suggestio
 
 Si votre problème ne figure pas ici ou que vous ne pouvez pas le résoudre, utilisez un des canaux suivants pour obtenir une aide supplémentaire :
 
-* Obtenez des réponses d'experts Azure par le biais de [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-arc.html).
+* Obtenez des réponses d'experts Azure par le biais de [Microsoft Q&A](/answers/topics/azure-arc.html).
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Le Support Azure fournit à la communauté Azure des réponses, un support technique et des experts.
 

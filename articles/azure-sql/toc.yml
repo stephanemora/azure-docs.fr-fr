@@ -6,7 +6,7 @@
   items:
     - name: Modèles d’achat
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/purchasing-models.md
         - name: Vue d’ensemble du modèle vCore
           href: database/service-tiers-vcore.md
@@ -16,7 +16,7 @@
           href: database/reserved-capacity-overview.md
     - name: Capacité de calcul et stockage
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/service-tiers-general-purpose-business-critical.md
           displayName: provisioned compute tier
         - name: Usage général / Standard
@@ -39,7 +39,7 @@
           href: database/read-scale-out.md
         - name: Sécurité
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: database/security-overview.md
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
             - name: Meilleures pratiques
@@ -872,7 +872,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
@@ -998,7 +998,7 @@
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
                     - name: Créer une instance FCI avec
                       items:
-                        - name: Disques partagés Azure (SQL2019+)
+                        - name: Disques partagés Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
                         - name: Espaces de stockage direct (Win2016+)
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md

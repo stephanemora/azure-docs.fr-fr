@@ -70,8 +70,6 @@
           href: how-to-create-azure-function.md
         - name: Interroger le graphe de jumeaux
           href: how-to-query-graph.md
-        - name: Afficher des métriques dans Azure Monitor
-          href: how-to-view-metrics.md
     - name: Connecter une entrée
       items:
         - name: Ingérer la télémétrie depuis IoT Hub
@@ -79,13 +77,19 @@
     - name: Connecter une sortie
       items:
         - name: Gérer les points de terminaison et les routes
-          href: how-to-manage-routes.md
+          items:
+            - name: API et version CLI
+              href: how-to-manage-routes-apis-cli.md
+            - name: Version du portail
+              href: how-to-manage-routes-portal.md
         - name: Intégrer à Azure Maps
           href: how-to-integrate-maps.md
         - name: Intégrer à Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
     - name: Dépanner
       items:
+        - name: Afficher des métriques dans Azure Monitor
+          href: troubleshoot-metrics.md
         - name: Activer les journaux de diagnostic
           href: troubleshoot-diagnostics.md
         - name: Problèmes connus

@@ -8,16 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0f386e4ba4a1835b88b753574bde23e93f7f8d17
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5e70d434fcb297ff39b32a83b89a86e85fe9564f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088442"
 ---
 # <a name="azure-powershell---enable-double-encryption-at-rest-on-your-managed-disks"></a>Azure PowerShell - Activer le double chiffrement au repos sur vos disques managés
 
-Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour les disques managés. Pour obtenir des informations conceptuelles sur le double chiffrement au repos, ainsi que d’autres types de chiffrement de disque managé, consultez la section [Double chiffrement au repos](disk-encryption.md#double-encryption-at-rest) de notre article sur le chiffrement de disque.
+Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour les disques managés. Pour obtenir des informations conceptuelles sur le double chiffrement au repos ainsi que d’autres types de chiffrement de disque managé, consultez la section [Double chiffrement au repos](disk-encryption.md#double-encryption-at-rest) de notre article sur le chiffrement de disque.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -25,7 +25,7 @@ Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour
 
 ## <a name="prerequisites"></a>Prérequis
 
-Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-az-ps) et connectez-vous à un compte Azure à l’aide de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-az-ps) et connectez-vous à un compte Azure à l’aide de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -35,7 +35,7 @@ Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
+    $LocationName="westus2"
     $keyVaultName="yourKeyVaultName"
     $keyName="yourKeyName"
     $keyDestination="Software"
@@ -49,13 +49,13 @@ Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-
 1.  Créez un DiskEncryptionSet avec encryptionType défini sur EncryptionAtRestWithPlatformAndCustomerKeys. Utilisez l’API version **2020-05-01** dans le modèle Azure Resource Manager (ARM). 
     
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" `
-    -diskEncryptionSetName "yourDESForDoubleEncryption" `
-    -keyVaultId "subscriptions/dd80b94e-0463-4a65-8d04-c94f403879dc/resourceGroups/yourResourceGroupName/providers/Microsoft.KeyVault/vaults/yourKeyVaultName" `
-    -keyVaultKeyUrl "https://yourKeyVaultName.vault.azure.net/keys/yourKeyName/403445136dee4a57af7068cab08f7d42" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $keyVault.ResourceId `
+    -keyVaultKeyUrl $key.Key.Kid `
     -encryptionType "EncryptionAtRestWithPlatformAndCustomerKeys" `
-    -region "CentralUSEUAP"
+    -region $LocationName
     ```
 
 1. Accorder à la ressource DiskEncryptionSet l’accès au coffre de clés.
@@ -64,6 +64,7 @@ Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-
     > La création de l’identité de votre DiskEncryptionSet dans votre annuaire Azure Active Directory peut prendre quelques minutes. Si vous recevez une erreur comme « Impossible de trouver l’objet Active Directory » lors de l’exécution de la commande suivante, attendez quelques minutes et réessayez.
 
     ```powershell  
+    $des=Get-AzDiskEncryptionSet -name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
     ```
 
@@ -71,5 +72,5 @@ Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-
 
 Maintenant que vous avez créé et configuré ces ressources, vous pouvez les utiliser pour sécuriser vos disques managés. Les liens suivants contiennent des exemples de scripts, chacun avec un scénario respectif, que vous pouvez utiliser pour sécuriser vos disques managés.
 
-[Azure PowerShell - Activer les clés gérées par le client avec le chiffrement côté serveur - disques managés](disks-enable-customer-managed-keys-powershell.md)
-[Exemples de modèles Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Azure PowerShell : Activer les clés gérées par le client avec les disques managés – chiffrement côté serveur](disks-enable-customer-managed-keys-powershell.md)
+- [Exemples de modèles Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)

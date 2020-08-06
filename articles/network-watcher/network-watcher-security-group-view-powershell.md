@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b87d076c12a40d84dc99ef5b48454afa3f0ffce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fe84d6546e3fcb9e905a6b77ad3d9af3ed4d51
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077953"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans PowerShell
 
@@ -25,6 +25,9 @@ ms.locfileid: "84738721"
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
+
+> [!NOTE]
+> L’API d’affichage des groupes de sécurité n’est plus entretenue et sera bientôt déconseillée. Utilisez la [fonction Règles de sécurité en vigueur](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview), qui offre les mêmes fonctionnalités. 
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité configurées et efficaces pour une machine virtuelle à l’aide de PowerShell
 

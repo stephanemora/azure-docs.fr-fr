@@ -263,7 +263,7 @@
         - name: Fonctions locales
           href: functions-runtime-install.md
         - name: Déployer avec le plug-in Jenkins
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configurer
       items:
@@ -412,7 +412,7 @@
               displayName: Event Grid
         - name: Event Hubs
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: functions-bindings-event-hubs.md
               displayName: Azure Event Hubs
             - name: Déclencheur

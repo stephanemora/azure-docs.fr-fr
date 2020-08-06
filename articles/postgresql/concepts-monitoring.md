@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: fc41b76fa14d464b2e4ddcca7e98997011a51cd4
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f6a042dfee000dd6341368b46db32fe36060cc72
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276632"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171588"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de supervision pour fournir un insight sur le comportement de votre serveur.
@@ -37,7 +37,7 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |connections_failed|Connexions ayant échoué|Count|Nombre de connexions établies qui ont échoué.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
-|backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
+|backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée. La métrique représente le total du stockage consommé par l’ensemble des sauvegardes de base de données complètes, sauvegardes différentielles et sauvegardes de journaux conservées en fonction de la période de rétention de sauvegarde définie pour le serveur. La fréquence des sauvegardes est gérée par le service et expliquée dans l’[article sur les concepts](concepts-backup.md). Pour le stockage géo-redondant, l’utilisation du stockage de sauvegarde est le double de celle du stockage localement redondant.|
 |pg_replica_log_delay_in_bytes|Retard maximum entre réplicas|Octets|Retard en octets entre le serveur maître et le réplica le plus en retard. Cette métrique est disponible sur le serveur maître uniquement.|
 |pg_replica_log_delay_in_seconds|Retard du réplica|Secondes|Temps écoulé depuis la dernière transaction réexécutée. Cette métrique est disponible pour les serveurs réplicas uniquement.|
 

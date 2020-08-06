@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142448"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800413"
 ---
 # <a name="understand-event-data"></a>Comprendre les données d’événements
 
@@ -300,7 +300,7 @@ La notification correspondante (si elle est exécutée de façon synchrone par l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer des points de terminaison et des routes pour remettre des événements :
-* [Guide pratique pour Gérer les points de terminaison et les routes](how-to-manage-routes.md)
+* [*Guide pratique : Gérer les points de terminaison et les itinéraires*](how-to-manage-routes-apis-cli.md)
 
 Pour plus d’informations sur les API Azure Digital Twins et les options du SDK, consultez :
-* [Guide pratique pour Utiliser les API et les kits SDK Azure Digital Twins](how-to-use-apis-sdks.md)
+* [*Guide pratique : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md)

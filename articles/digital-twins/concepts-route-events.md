@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537509"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800464"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * Le `endpoint-name` identifie un point de terminaison, comme Event Hub, Event Grid ou Service Bus. Ces points de terminaison doivent être créés dans votre abonnement et attachés à Azure Digital Twins à l’aide des API de plan de contrôle avant d’effectuer cet appel d’inscription.
 
-L’objet de l’itinéraire d’événement passé à `EventRoutes.Add` prend également un paramètre [**filtre**](./how-to-manage-routes.md#filter-events), utilisable pour restreindre les types d’événements qui suivent cet itinéraire.
+L’objet de l’itinéraire d’événement passé à `EventRoutes.Add` prend également un paramètre [**filtre**](./how-to-manage-routes-apis-cli.md#filter-events), utilisable pour restreindre les types d’événements qui suivent cet itinéraire.
 
 Les routes peuvent également être créées à l’aide de [l’interface CLI Azure Digital Twins](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Les différents types d’événements dans IoT Hub et Azure Digital Twins produ
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer et gérer un itinéraire d’événement :
-* [*Guide pratique : Gérer les points de terminaison et les itinéraires*](how-to-manage-routes.md)
+* [*Guide pratique : Gérer les points de terminaison et les itinéraires*](how-to-manage-routes-apis-cli.md)
 
 Ou bien, découvrez comment utiliser Azure Functions pour acheminer des événements dans Azure Digital Twins :
 * [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md)

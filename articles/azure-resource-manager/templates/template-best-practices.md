@@ -3,12 +3,12 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248915"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809253"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -226,7 +226,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    
      Pour plus d’informations sur la connexion aux machines virtuelles, consultez :
    
-   * [Exécuter des machines virtuelles pour une architecture à plusieurs niveaux dans Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Exécuter des machines virtuelles pour une architecture à plusieurs niveaux dans Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configurer l’accès WinRM pour les machines virtuelles dans Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide de PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
