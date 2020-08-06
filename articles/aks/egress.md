@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP publique stati
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517771"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563243"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser une IP publique statique pour le trafic de sortie avec un équilibreur de charge de niveau tarifaire *De base* dans Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous utilisez l’équilibreur de charge Azure De base.  Nous vous recommandons d’utiliser l’[équilibreur de charge Azure Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview), et vous pouvez utiliser des fonctionnalités plus avancées pour [contrôler le trafic de sortie d’AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+Cet article suppose que vous utilisez l’équilibreur de charge Azure De base.  Nous vous recommandons d’utiliser l’[équilibreur de charge Azure Standard](../load-balancer/load-balancer-overview.md), et vous pouvez utiliser des fonctionnalités plus avancées pour [contrôler le trafic de sortie d’AKS](./limit-egress-traffic.md).
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 

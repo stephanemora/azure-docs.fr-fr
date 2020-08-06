@@ -6,23 +6,33 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289089"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
 
 > [!IMPORTANT]
-> Les vues d'Azure Monitor sont progressivement supprimées et remplacées par des [classeurs](workbooks-overview.md) qui offrent des fonctionnalités supplémentaires. Pour plus d'informations sur la conversion de vos vues existantes en classeurs, consultez le [Guide de transition : du concepteur de vues Azure Monitor aux classeurs](view-designer-conversion-overview.md).
+> Les vues d'Azure Monitor sont progressivement supprimées et remplacées par des [classeurs](workbooks-overview.md) qui offrent des fonctionnalités supplémentaires. Pour plus d'informations sur la conversion de vos vues existantes en classeurs, consultez le [Guide de transition : du concepteur de vues Azure Monitor aux classeurs](view-designer-conversion-overview.md). Consultez le tableau suivant pour connaître les étapes des prochains mois.
+> 
+> | Modification | Ce que cela signifie | Date prévue |
+> |:---|:---|:---|
+> | Désactivation de la création de vues via le Concepteur de vues. | Vous ne serez plus en mesure de créer et d’enregistrer de nouvelles vues personnalisées dans le portail Azure.| Novembre 2020 |
+> | Désactivation de la fonction de modification de vues existantes avec le Concepteur de vues. | Vous ne pourrez plus apporter et enregistrer des modifications à vos vues personnalisées existantes. | Novembre 2020 |
+> | Désactivation du déploiement de vues dans des espaces de travail Log Analytics | Vous ne pourrez plus déployer de vues personnalisées à l’aide d’ARM dans des espaces de travail Log Analytics. | Mars 2021 |
+> | Suppression du Concepteur de vues du portail Azure | L’expérience du portail ne prendra plus en charge le Concepteur de vues. | Juin 2021 |
+> | Suppression des affichages personnalisés du résumé de l’espace de travail | Vous ne pourrez plus accéder à vos données de vue personnalisée. | Décembre 2021 |
+ 
+
 
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
-* [Référence de la vignette](view-designer-tiles.md) : fournit un guide de référence pour les paramètres de chacune des vignettes disponibles dans vos vues personnalisées.
-* [Référence des composants de visualisation](view-designer-parts.md) : fournit un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
+* [Référence de vignette](view-designer-tiles.md) : guide de référence pour les paramètres de chacune des vignettes disponibles dans vos vues personnalisées.
+* [Référence des composants de visualisation](view-designer-parts.md) : guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
 
 
 ## <a name="concepts"></a>Concepts

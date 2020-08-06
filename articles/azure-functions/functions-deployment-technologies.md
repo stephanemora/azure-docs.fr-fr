@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1554469c59eb9931b6d8552f537328e440ec6aeb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388014"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562937"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -37,7 +37,7 @@ Chaque plan a des comportements différents. Les technologies de déploiement ne
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Modification dans le portail |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup> Cette technologie de déploiement nécessite une [synchronisation manuelle des déclencheurs](#trigger-syncing).  
+<sup>1</sup> Cette technologie de déploiement nécessite une [synchronisation manuelle des déclencheurs](#trigger-syncing).
 <sup>2</sup> La modification dans le portail est activée uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et dédié.
 
 ## <a name="key-concepts"></a>Concepts clés
@@ -72,9 +72,9 @@ Pour activer la build distante sur Linux, les [paramètres d’application](func
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Par défaut, [Azure Functions Core Tools](functions-run-local.md) et l’[extension Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectuent des builds distantes lors du déploiement sur Linux. Pour cette raison, les deux outils créent automatiquement ces paramètres pour vous dans Azure. 
+Par défaut, [Azure Functions Core Tools](functions-run-local.md) et l’[extension Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectuent des builds distantes lors du déploiement sur Linux. Pour cette raison, les deux outils créent automatiquement ces paramètres pour vous dans Azure.
 
-Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md). 
+Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md).
 
 ##### <a name="consumption-plan"></a>Plan de consommation
 
@@ -92,7 +92,7 @@ Les méthodes de déploiement décrites ci-après sont disponibles dans Azure Fu
 
 Vous pouvez utiliser une URL de package externe pour référencer un fichier de package (.zip) distant qui contient votre application de fonction. Le fichier est téléchargé depuis l’URL fournie et l’application s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md).
 
->__Comment l’utiliser ?__ Ajoutez `WEBSITE_RUN_FROM_PACKAGE` à vos paramètres d’application. La valeur de ce paramètre doit être une URL, correspondant à l’emplacement du fichier de package à exécuter. Vous pouvez ajouter des paramètres soit [dans le portail](functions-how-to-use-azure-function-app-settings.md#settings), soit [à l’aide d’Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__Comment l’utiliser ?__ Ajoutez `WEBSITE_RUN_FROM_PACKAGE` à vos paramètres d’application. La valeur de ce paramètre doit être une URL, correspondant à l’emplacement du fichier de package à exécuter. Vous pouvez ajouter des paramètres soit [dans le portail](functions-how-to-use-azure-function-app-settings.md#settings), soit [à l’aide d’Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Si vous employez le Stockage Blob Azure, utilisez un conteneur privé associé à une [signature d’accès partagé](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) pour permettre à Functions d’accéder au package. Chaque fois que l’application redémarre, elle extrait une copie du contenu. Votre référence doit être valide pendant la durée de vie de l’application.
 
@@ -104,7 +104,7 @@ Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre applicat
 
 >__Comment l’utiliser ?__ Effectuez le déploiement à l’aide de votre outil client habituel : [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) ou à partir de la ligne de commande utilisant [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Par défaut, ces outils utilisent le déploiement zip et [exécutent à partir du package](run-functions-from-deployment-package.md). Core Tools et l’extension Visual Studio Code activent la [build distante](#remote-build) lors du déploiement sur Linux. Pour déployer manuellement un fichier .zip sur votre application de fonction, suivez les instructions dans [Déployer à partir d’un fichier .zip ou d’une URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour utiliser le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI. 
+>Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour utiliser le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI.
 
 >__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée pour Azure Functions.
 
@@ -167,7 +167,7 @@ Vous pouvez utiliser FTP pour transférer les fichiers directement vers Azure Fu
 
 Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans votre application de fonction (en effectuant le déploiement essentiellement dès que vous enregistrez vos modifications).
 
->__Comment l’utiliser ?__ Pour avoir la possibilité de modifier vos fonctions dans le portail Azure, vous devez avoir [créé les fonctions dans le portail](functions-create-first-azure-function.md). Pour garantir l’existence d’une seule source de confiance, l’utilisation d’une autre méthode de déploiement rend votre fonction accessible en lecture seule et empêche la poursuite de la modification dans le portail. Pour revenir à un état où vous pouvez modifier vos fichiers dans le portail Azure, vous pouvez rétablir manuellement le mode d’édition à `Read/Write` et supprimer tous les paramètres d’application relatifs au déploiement (comme `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Comment l’utiliser ?__ Pour avoir la possibilité de modifier vos fonctions dans le portail Azure, vous devez avoir [créé les fonctions dans le portail](functions-create-first-azure-function.md). Pour garantir l’existence d’une seule source de confiance, l’utilisation d’une autre méthode de déploiement rend votre fonction accessible en lecture seule et empêche la poursuite de la modification dans le portail. Pour revenir à un état où vous pouvez modifier vos fichiers dans le portail Azure, vous pouvez rétablir manuellement le mode d’édition à `Read/Write` et supprimer tous les paramètres d’application relatifs au déploiement (comme `WEBSITE_RUN_FROM_PACKAGE`).
 
 >__Quand l’utiliser ?__ Le portail est un excellent moyen de vous familiariser avec Azure Functions. Toutefois, pour un travail de développement plus complexe, nous vous recommandons l’un des outils clients suivants :
 >
@@ -196,7 +196,7 @@ Quand vous déployez votre application de fonction sur Azure, vous pouvez choisi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez les articles suivants pour en savoir plus sur le déploiement de vos applications de fonction : 
+Lisez les articles suivants pour en savoir plus sur le déploiement de vos applications de fonction :
 
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)
 + [Livraison continue à l’aide d’Azure DevOps](functions-how-to-azure-devops.md)
