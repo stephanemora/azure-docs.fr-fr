@@ -3,12 +3,12 @@ title: Journaux de diagnostic pour les connexions hybrides
 description: Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics disponibles pour Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314900"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533000"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Activer les journaux de diagnostic pour les connexions hybrides Azure Relay
 Lorsque vous commencez à utiliser vos connexions hybrides Azure Relay, vous pouvez surveiller le mode et le moment d’ouverture et de fermeture de vos écouteurs et expéditeurs, ainsi que la façon dont vos connexions hybrides sont créées et les messages envoyés. Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics fournis par le service Azure Relay. 
@@ -46,7 +46,7 @@ Pour activer les journaux de diagnostics, procédez comme suit :
         ![Exemple de paramètres de diagnostic](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres.
 
-Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Les journaux d’activité s’affichent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostics**. Pour plus d’informations sur la configuration des paramètres de diagnostics, consultez [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Les journaux d’activité s’affichent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostics**. Pour plus d’informations sur la configuration des paramètres de diagnostics, consultez [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schéma pour les événements de connexions hybrides

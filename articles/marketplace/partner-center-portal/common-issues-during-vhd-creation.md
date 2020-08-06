@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: d717d93b616e8acd296c89322b7277cda5ade3a3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323993"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504311"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problèmes couramment rencontrés lors de la création d’un disque dur virtuel
 
@@ -34,8 +34,8 @@ Désolé... Cette migration est impossible. Une fois la machine virtuelle créé
 
 Ces articles expliquent comment réinitialiser le service Bureau à distance pour les machines virtuelles Windows et Linux :
 
-* [Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [Réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques à l’aide de l’extension VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [Réinitialiser un mot de passe de machine virtuelle Linux ou une clé SSH, corriger la configuration SSH et vérifier la cohérence des disques à l’aide de l’extension VMAccess](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>Comment générer de nouveaux certificats SSH ?
 
@@ -59,7 +59,7 @@ Oui, si elles sont hébergées sur Azure. Azure attribue un identificateur uniqu
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Dans une machine virtuelle, comment gérer l’extension de script personnalisé lors de la tâche de démarrage ?
 
-Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le module Azure PowerShell, sur les modèles Azure Resource Manager et sur les étapes de dépannage des systèmes Windows, consultez [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le module Azure PowerShell, sur les modèles Azure Resource Manager et sur les étapes de dépannage des systèmes Windows, consultez [Extension de script personnalisé pour Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Les services et les applications 32 bits sont-ils pris en charge dans la Place de marché Azure ?
 

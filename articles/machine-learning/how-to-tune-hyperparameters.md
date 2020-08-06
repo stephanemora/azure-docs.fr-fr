@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a92aa304d605242063e0d0484317bc8c051959e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a41fe159f3ac7ef91ba943534aaa6baeeab83001
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317839"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552405"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Optimiser les hyperparamètres de votre modèle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -379,7 +379,7 @@ De plus, vous pouvez identifier visuellement la corrélation entre les performan
 
 [![Coordonnées parallèles de l'optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail web, consultez le [guide pratique pour suivre les expériences](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail web, consultez le [guide pratique pour suivre les expériences](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
 ## <a name="find-the-best-model"></a>Trouver le meilleur modèle
 

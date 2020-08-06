@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3578710bf066e7745215d8efacafd2cf6c005eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640496"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501693"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -36,7 +36,7 @@ Un administrateur de locataire peut supprimer des données client à l’aide du
 
 Toutefois, avant de supprimer des données client via le portail, vous devez supprimer les stratégies d’accès de l’utilisateur de l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](time-series-insights-data-access.md)
 
-Vous pouvez également effectuer des opérations de suppression sur des stratégies d’accès à l’aide de l’API REST. Pour plus d’informations, consultez [Stratégies d’accès - Supprimer](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
+Vous pouvez également effectuer des opérations de suppression sur des stratégies d’accès à l’aide de l’API REST. Pour plus d’informations, consultez [Stratégies d’accès - Supprimer](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
 Time Series Insights est intégré au panneau Stratégie dans le portail Azure. Time Series Insights et le panneau Stratégie vous permettent d’afficher, d’exporter et de supprimer des données utilisateur stockées dans le service. Toute action de suppression effectuée dans le panneau Stratégie du portail Azure entraîne la suppression des données utilisateur dans Time Series Insights. Par exemple, si un utilisateur dispose d’une requête personnelle enregistrée, cette requête est définitivement supprimée de l’Explorateur Time Series Insights. Si l’utilisateur dispose d’une requête partagée enregistrée, la requête est conservée, mais les informations utilisateur sont définitivement supprimées. La remarque suivante contient des instructions sur la façon d’accomplir ces tâches.
 
@@ -48,7 +48,7 @@ Comme la suppression de données, un administrateur de locataire peut afficher e
 
 Si vous êtes un administrateur de locataire, vous pouvez afficher les stratégies d’accès aux données dans l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](time-series-insights-data-access.md)
 
-Il est également possible d’effectuer des opérations d’exportation sur des stratégies d’accès à l’aide de l’opération « répertorier par environnement » dans l’API REST fournie. Pour plus d’informations, consultez [Stratégies d’accès - Lister par environnement](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+Il est également possible d’effectuer des opérations d’exportation sur des stratégies d’accès à l’aide de l’opération « répertorier par environnement » dans l’API REST fournie. Pour plus d’informations, consultez [Stratégies d’accès - Lister par environnement](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Pour supprimer des données stockées dans Time Series Insights
 

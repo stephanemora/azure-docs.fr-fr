@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248275"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531827"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -116,9 +116,3 @@ Si le point de récupération a un instantané et qu’il s’agit du dernier po
 
 La fonctionnalité de restauration instantanée est activée pour tout le monde et ne peut pas être désactivée. Vous pouvez réduire la rétention des instantanés à un minimum d’une journée.
 
->[!NOTE]
-> **Sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l'aide de la solution de sauvegarde de machine virtuelle Azure.**
->
->Aujourd’hui, Azure Backup prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
->
->**Pour vous inscrire à la préversion, écrivez-nous à l'adresse suivante : AskAzureBackupTeam@microsoft.com**

@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262478"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503733"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Mettre à l’échelle le débit Azure Cosmos DB à l’aide du déclencheur de minuteur Azure Functions
 
 Les performances d’un compte Azure Cosmos sont basées sur le débit provisionné exprimé en unités de requête par seconde (RU/s). Le provisionnement s’effectue avec une précision d’une seconde et est facturé en fonction de la valeur RU/s par heure la plus élevée. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. La plupart des charges de travail de production utilisent ces fonctionnalités. Toutefois, dans les environnements de développement et de test où Azure Cosmos DB n’est utilisé que pendant les heures de travail, vous pouvez augmenter le débit le matin et le réduire à nouveau le soir après les heures de travail.
 
-Vous pouvez définir le débit via les [modèles Azure Resource Manager](resource-manager-samples.md), [Azure CLI](cli-samples.md) ou [PowerShell](powershell-samples-sql.md), pour les comptes d’API Core (SQL), ou en utilisant les kits SDK Azure Cosmos DB spécifiques au langage. L’avantage de l’utilisation des modèles Resource Manager, d’Azure CLI ou de PowerShell tient au fait qu’ils prennent en charge toutes les API du modèle Azure Cosmos DB.
+Vous pouvez définir le débit via les [modèles Azure Resource Manager](resource-manager-samples.md), [Azure CLI](cli-samples.md) ou [PowerShell](powershell-samples.md), pour les comptes d’API Core (SQL), ou en utilisant les kits SDK Azure Cosmos DB spécifiques au langage. L’avantage de l’utilisation des modèles Resource Manager, d’Azure CLI ou de PowerShell tient au fait qu’ils prennent en charge toutes les API du modèle Azure Cosmos DB.
 
 ## <a name="throughput-scheduler-sample-project"></a>Exemple de projet de planificateur de débit
 

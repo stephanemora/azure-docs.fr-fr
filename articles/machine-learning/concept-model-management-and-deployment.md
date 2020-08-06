@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929755"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543382"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -74,7 +74,7 @@ Pour plus d’informations, consultez la section consacrée à l’inscription d
 ### <a name="profile-models"></a>Modèles de profil
 
 Azure Machine Learning peut vous aider à comprendre les besoins en processeur et en mémoire du service qui sera créé lors du déploiement de votre modèle. Le profilage teste le service qui exécute votre modèle et retourne des informations telles que l’utilisation de l’UC, l’utilisation de la mémoire et la latence de la réponse. Il fournit également une recommandation pour l’UC et la mémoire en fonction de l’utilisation des ressources.
-Pour plus d’informations, voir la section consacrée au déploiement dans [Déployer des modèles](how-to-deploy-and-where.md#profilemodel).
+Pour plus d’informations, voir la section consacrée au déploiement dans [Déployer des modèles](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Empaqueter et déboguer des modèles
 

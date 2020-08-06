@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fc64f4b3d338704568cb70a542a82fe58d08d4d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961113"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502305"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Créer un équilibrage de charge interne à l’aide d’un modèle
 
@@ -40,7 +40,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Téléchargez le fichier de paramètres sur votre disque local.
 3. Modifiez et enregistrez le fichier.
 4. Pour créer un groupe de ressources à l’aide du modèle, exécutez la cmdlet **New-AzResourceGroupDeployment**.

@@ -3,12 +3,12 @@ title: Sécurité réseau pour Azure Relay
 description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322156"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532983"
 ---
 # <a name="network-security-for-azure-relay"></a>Sécurité réseau pour Azure Relay 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Relay : 
@@ -23,7 +23,7 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 ## <a name="ip-firewall"></a>Pare-feu IP 
 Par défaut, les espaces de noms Azure Relay sont accessibles sur Internet tant que la requête s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Cette fonctionnalité est utile dans les scénarios où Azure Relay ne doit être accessible qu’à partir de certains sites bien connus. Les règles de pare-feu permettent de configurer des règles pour accepter le trafic provenant d’adresses IPv4 spécifiques. Par exemple, si vous utilisez Azure Relay avec [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), vous pouvez créer une **règle de pare-feu** pour autoriser uniquement le trafic provenant des adresses IP de votre infrastructure locale. 
+Cette fonctionnalité est utile dans les scénarios où Azure Relay ne doit être accessible qu’à partir de certains sites bien connus. Les règles de pare-feu permettent de configurer des règles pour accepter le trafic provenant d’adresses IPv4 spécifiques. Par exemple, si vous utilisez Azure Relay avec [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), vous pouvez créer une **règle de pare-feu** pour autoriser uniquement le trafic provenant des adresses IP de votre infrastructure locale. 
 
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Relay. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Relay est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 

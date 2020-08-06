@@ -3,17 +3,17 @@ title: Exemples d’interface de ligne de commande Azure sur Windows
 description: Exemples d’interface de ligne de commande Azure sur Windows
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 11d0af0133a113382ea9ed03eeeb8686ebe0c73b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 8e83b289abd92d657b2e336aed3a74c10d6f6490
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203685"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501029"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Exemples d’interface de ligne de commande Azure pour machines virtuelles Windows
 

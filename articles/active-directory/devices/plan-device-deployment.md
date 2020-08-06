@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165768"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541870"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -226,10 +226,6 @@ Une fois que vous avez inscrit ou joint vos appareils à Azure AD, utilisez le [
 
 * [Configurer les paramètres de vos appareils](device-management-azure-portal.md#configure-device-settings)
 * Vous devez être un administrateur local pour manager les appareils Windows. [Azure AD met à jour cette appartenance pour les appareils joints à Azure AD](assign-local-admin.md), les ajoutant automatiquement avec le rôle de gestionnaire d’appareils en tant qu’administrateurs de tous les appareils joints.
-
-* [Localiser les appareils](device-management-azure-portal.md#locate-devices)
-
-* [Effectuer les tâches de gestion des identités relatives aux appareils](device-management-azure-portal.md#device-identity-management-tasks)
 
 Veillez à préserver l’intégrité de l’environnement en [gérant les appareils obsolètes](manage-stale-devices.md) et à concentrer vos ressources sur la gestion des appareils actuels.
 

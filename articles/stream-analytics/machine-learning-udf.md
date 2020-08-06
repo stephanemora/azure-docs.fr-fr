@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86141954"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543433"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
@@ -24,7 +25,7 @@ Effectuez les étapes suivantes avant d’ajouter un modèle de Machine Learning
 
 1. Utilisez Azure Machine Learning pour [déployer votre modèle en tant que service web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Votre script de scoring doit avoir des [exemples d’entrée et de sortie](../machine-learning/how-to-deploy-and-where.md#example-entry-script), qui seront utilisés par Azure Machine Learning pour générer une spécification de schéma. Stream Analytics utilise le schéma pour comprendre la signature de fonction de votre service web. Vous pouvez utiliser cet [exemple de définition de Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) comme référence pour vous assurer de l’avoir correctement configuré.
+2. Votre script de scoring doit avoir des [exemples d’entrée et de sortie](../machine-learning/how-to-deploy-and-where.md), qui seront utilisés par Azure Machine Learning pour générer une spécification de schéma. Stream Analytics utilise le schéma pour comprendre la signature de fonction de votre service web. Vous pouvez utiliser cet [exemple de définition de Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) comme référence pour vous assurer de l’avoir correctement configuré.
 
 3. Assurez-vous que votre service web accepte et retourne les données sérialisées JSON.
 
@@ -146,7 +147,7 @@ Le code JSON suivant est un exemple de requête de la requête précédente :
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optimiser les performances pour les fonctions définies par l’utilisateur (FDU) Azure Machine Learning
 
-Lorsque vous déployez votre modèle sur le service Azure Kubernetes, vous pouvez [profiler votre modèle pour déterminer l’utilisation des ressources](../machine-learning/how-to-deploy-and-where.md#profilemodel). Vous pouvez également [activer Application Insights pour vos déploiements](../machine-learning/how-to-enable-app-insights.md) pour comprendre les taux de demande, les temps de réponse et les taux d’échec.
+Lorsque vous déployez votre modèle sur le service Azure Kubernetes, vous pouvez [profiler votre modèle pour déterminer l’utilisation des ressources](../machine-learning/how-to-deploy-profile-model.md). Vous pouvez également [activer Application Insights pour vos déploiements](../machine-learning/how-to-enable-app-insights.md) pour comprendre les taux de demande, les temps de réponse et les taux d’échec.
 
 Si vous avez un scénario avec un débit d’événements élevé, vous devrez peut-être modifier les paramètres suivants dans Stream Analytics pour obtenir des performances optimales avec des latences de bout en bout faibles :
 

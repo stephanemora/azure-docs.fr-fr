@@ -3,12 +3,13 @@ title: Créer une ressource Personalizer
 description: La configuration du service porte sur la façon dont le service traite les récompenses, la fréquence à laquelle le service effectue une exploration, la fréquence à laquelle le modèle est réentraîné et la quantité de données stockées.
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 8b56516b5555ca971d7ab1db3caf5b76f252729b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344371"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501250"
 ---
 # <a name="create-a-personalizer-resource"></a>Création d’une ressource Personalizer
 
