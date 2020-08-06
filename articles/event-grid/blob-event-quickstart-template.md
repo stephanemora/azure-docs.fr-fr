@@ -3,12 +3,12 @@ title: Envoyer des événements de Stockage Blob à un point de terminaison web 
 description: Utilisez Azure Event Grid et un modèle Azure Resource Manager pour créer un compte de stockage Blob, puis abonnez-vous à ses événements. Envoyez les événements à un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103311"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460437"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Router des événements de stockage blob vers un point de terminaison web à l’aide d’un modèle Resource Manager
 
@@ -86,7 +86,7 @@ Quand il n’est plus nécessaire, [supprimez le groupe de ressources](../azure-
 
 Pour plus d’informations sur les modèles Azure Resource Manager, consultez les articles suivants :
 
-* [Documentation Azure Resource Manager](/azure/azure-resource-manager)
+* [Documentation Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/)
 * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/)
 * [Modèles Azure Event Grid](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid)

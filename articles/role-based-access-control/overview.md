@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: azuread-video-2020
+ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171567"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761125"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -136,7 +137,6 @@ Voici les principales étapes suivies par le contrôle RBAC Azure pour détermin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure](check-access.md)
 - [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
 - [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
 - [Framework d’adoption du cloud : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

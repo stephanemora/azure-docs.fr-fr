@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508314"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448858"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Windows dans Azure
 
-Avec Azure [Change Tracking](../../automation/change-tracking.md) et [Update Management](../../automation/automation-update-management.md), vous pouvez facilement identifier les modifications apportées à vos machines virtuelles Windows dans Azure, et gérer les mises à jour du système d’exploitation pour ces machines virtuelles.
+Avec Azure [Change Tracking](../../automation/change-tracking.md) et [Update Management](../../automation/update-management/update-mgmt-overview.md), vous pouvez facilement identifier les modifications apportées à vos machines virtuelles Windows dans Azure, et gérer les mises à jour du système d’exploitation pour ces machines virtuelles.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -112,10 +112,10 @@ Pour planifier un nouveau déploiement de mises à jour pour la machine virtuell
 | --- | --- |
 | **Nom** |entrez un nom unique pour identifier le déploiement de mises à jour. |
 |**Système d’exploitation**| Sélectionnez **Linux** ou **Windows**.|
-| **Groupes à mettre à jour** |Pour les machines virtuelles hébergées dans Azure, définissez une requête basée sur un ensemble constitué d’un abonnement, de groupes de ressources, d’emplacements et d’étiquettes. Cette requête crée un groupe dynamique comprenant les machines virtuelles hébergées dans Azure qui doivent être incluses dans votre déploiement. </br></br>Pour les machines virtuelles qui ne sont pas hébergées dans Azure, sélectionnez une recherche enregistrée. Avec cette recherche, vous pouvez sélectionner un groupe de machines virtuelles à inclure dans le déploiement. </br></br> Pour plus d’informations, consultez [Groupes dynamiques](../../automation/automation-update-management-groups.md).|
+| **Groupes à mettre à jour** |Pour les machines virtuelles hébergées dans Azure, définissez une requête basée sur un ensemble constitué d’un abonnement, de groupes de ressources, d’emplacements et d’étiquettes. Cette requête crée un groupe dynamique comprenant les machines virtuelles hébergées dans Azure qui doivent être incluses dans votre déploiement. </br></br>Pour les machines virtuelles qui ne sont pas hébergées dans Azure, sélectionnez une recherche enregistrée. Avec cette recherche, vous pouvez sélectionner un groupe de machines virtuelles à inclure dans le déploiement. </br></br> Pour plus d’informations, consultez [Groupes dynamiques](../../automation/update-management/update-mgmt-groups.md).|
 | **Machines à mettre à jour** |Sélectionnez **Recherche enregistrée**, **Groupe importé** ou **Machines**.<br/><br/>Si vous sélectionnez **Machines**, vous pouvez choisir des machines dans la liste déroulante. L’état de préparation de chaque machine est indiqué dans la colonne **Préparation de la mise à jour de l’agent** de la table.</br></br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). |
 |**Classifications des mises à jour**|Choisissez toutes les classifications de mise à jour nécessaires.|
-|**Inclure/Exclure des mises à jour**|Sélectionnez cette option pour ouvrir le volet **Inclure/Exclure**. Les mises à jour à inclure et à exclure se trouvent sous deux onglets différents. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Inclure/Exclure des mises à jour**|Sélectionnez cette option pour ouvrir le volet **Inclure/Exclure**. Les mises à jour à inclure et à exclure se trouvent sous deux onglets différents. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
 |**Paramètres de planification**|Sélectionnez l’heure de début, puis sélectionnez **Une fois** ou **Récurrent**.|
 | **Préscripts + postscripts**|Choisissez les scripts à exécuter avant et après votre déploiement.|
 | **Fenêtre de maintenance** | Entrez le nombre de minutes défini pour les mises à jour. La plage de valeurs valide est comprise entre 30 et 360 minutes. |

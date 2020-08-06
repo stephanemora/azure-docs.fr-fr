@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Stockage Blob Azure pour JavaScript v10 dans le nav
 description: Découvrez comment télécharger, lister et supprimer des objets blob avec le SDK JavaScript v10 dans une page HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282039"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429206"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
