@@ -4,12 +4,12 @@ description: Fournit une liste des abonnements Azure et des limites, quotas et c
 ms.topic: conceptual
 author: davidsmatlak
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515859"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810477"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -375,11 +375,11 @@ Pour plus d’informations sur les limites d'Azure Files, consultez la page [Obj
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Pour plus d’informations, consultez [Tailles de machines virtuelles](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour plus d’informations, consultez [Tailles de machines virtuelles](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="disk-encryption-sets"></a>Jeux de chiffrement Azure Data Box Disk
 
-Il y a une limite de 50 jeux de chiffrements de disques par région et par abonnement. Pour plus d’informations, consultez la documentation relative aux chiffrement pour les machines virtuelles [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) ou [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions). Pour augmenter ce quota, contactez le support Azure.
+Il y a une limite de 50 jeux de chiffrements de disques par région et par abonnement. Pour plus d’informations, consultez la documentation relative aux chiffrement pour les machines virtuelles [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions). Pour augmenter ce quota, contactez le support Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
 
@@ -426,6 +426,6 @@ Certaines limites par abonnement ont été définies pour le déploiement de res
 ## <a name="see-also"></a>Voir aussi
 
 * [Comprendre les limites et les augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-* [Tailles de machine virtuelle et de service cloud pour Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Tailles de machine virtuelle et de service cloud pour Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tailles pour Services cloud Azure](../../cloud-services/cloud-services-sizes-specs.md)
 * [Règles de nommage et restrictions pour les ressources Azure](resource-name-rules.md)

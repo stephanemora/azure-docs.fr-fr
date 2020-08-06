@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b4c16dd276f9f564963fdefe8d16dbc92c1303d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323908"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810443"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Créer des abonnements Azure par programmation (préversion)
 
@@ -156,7 +157,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Oui      | String | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Non       | String | ID d’objet de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création.  |
 
-Dans la réponse, dans le cadre de l’en-tête `Location`, vous récupérez une URL pour laquelle vous pouvez rechercher l’état de l’opération de création d’abonnement. Quand la création de l’abonnement est terminée, une instruction GET sur l’URL `Location` retourne un objet `subscriptionLink`, qui comprend l’ID d’abonnement. Pour plus d’informations, consultez la [documentation de l’API Abonnement](https://docs.microsoft.com/rest/api/subscription/).
+Dans la réponse, dans le cadre de l’en-tête `Location`, vous récupérez une URL pour laquelle vous pouvez rechercher l’état de l’opération de création d’abonnement. Quand la création de l’abonnement est terminée, une instruction GET sur l’URL `Location` retourne un objet `subscriptionLink`, qui comprend l’ID d’abonnement. Pour plus d’informations, consultez la [documentation de l’API Abonnement](/rest/api/subscription/).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
