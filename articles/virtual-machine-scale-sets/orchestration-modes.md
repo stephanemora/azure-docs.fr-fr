@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011071"
 ---
 # <a name="orchestration-modes-preview"></a>Modes d’orchestration (préversion)
 
@@ -42,7 +42,7 @@ Les groupes de machines virtuelles identiques prendront en charge deux modes d�
 
 ## <a name="orchestration-modes"></a>Modes d’orchestration
 
-|                             | “orchestrationMode” : « VM » (VirtualMachine) | “orchestrationMode” : “ScaleSetVM” (VirtualMachineScaleSetVM) |
+| Fonctionnalité                     | « orchestrationMode » : « VM » (VirtualMachine) | “orchestrationMode” : “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | Modèle de configuration des machines virtuelles      | None                                       | Obligatoire |
 | Ajout d’une nouvelle machine virtuelle à un groupe identique  | Les machines virtuelles sont ajoutées explicitement au groupe identique lors de la création de la machine virtuelle. | Les machines virtuelles sont implicitement créées et ajoutées au groupe identique en fonction du modèle de configuration de machine virtuelle, du nombre d’instances et des règles de mise à l’échelle automatique | |
@@ -52,9 +52,9 @@ Les groupes de machines virtuelles identiques prendront en charge deux modes d�
 | Domaines d’erreur               | Peut définir les domaines d’erreur. 2 ou 3 en fonction du support régional, et 5 pour la zone de disponibilité. | Peut définir des domaines d’erreur allant de 1 à 5 |
 | Domaines de mise à jour              | Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur | Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur |
 | Zones de disponibilité          | Prend en charge le déploiement régional ou les machines virtuelles dans une zone de disponibilité | Prend en charge le déploiement régional ou plusieurs zones de disponibilité ; peut définir la stratégie d’équilibrage de zone |
-| Mise à l'échelle automatique                   | Non pris en charge                              | Prise en charge |
-| Mise à niveau du système d’exploitation                  | Non pris en charge                              | Prise en charge |
-| Mises à jour de modèle               | Non pris en charge                              | Prise en charge |
+| Mise à l'échelle automatique                   | Non prise en charge                              | Prise en charge |
+| Mise à niveau du système d’exploitation                  | Non prise en charge                              | Prise en charge |
+| Mises à jour de modèle               | Non prise en charge                              | Prise en charge |
 | Contrôle d’instance            | Contrôle complet des machines virtuelles. Les machines virtuelles possèdent un URI complet qui prend en charge la gamme complète des fonctionnalités de gestion des machines virtuelles Azure (par exemple, Azure Policy, Sauvegarde Azure et Azure Site Recovery) | Les machines virtuelles sont des ressources dépendantes du groupe identique. Les instances sont accessibles pour la gestion uniquement par le biais du groupe identique. |
 | Modèle d’instance              | Définition de modèle Microsoft. Compute/VirtualMachines. | Définition de modèle Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines. |
 | Capacité                    | Un groupe identique vide peut être créé ; jusqu’à 200 machines virtuelles peuvent être ajoutées au groupe identique | Les groupes identiques peuvent être définis avec un nombre d’instances compris entre 0 et 1000 |
@@ -64,4 +64,4 @@ Les groupes de machines virtuelles identiques prendront en charge deux modes d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez [Vue d’ensemble des zones de disponibilité](availability.md).
+Pour plus d'informations, consultez [Vue d’ensemble des zones de disponibilité](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json).

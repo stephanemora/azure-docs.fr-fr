@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058624"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -76,7 +76,7 @@ L’exemple suivant montre le `appRoles` que vous pouvez assigner à `users`.
 > [!NOTE]
 >Le `displayName` ne peut pas contenir d’espaces.
 
-Vous pouvez définir des rôles d’application pour cibler `users`, `applications`, ou les deux. Lorsqu’ils sont disponibles pour `applications`, les rôles d’application apparaissent sous la forme d’autorisations d’application dans le panneau **Autorisations requises**. L’exemple suivant montre un rôle d’application ciblé sur un `Application`.
+Vous pouvez définir des rôles d’application pour cibler `users`, `applications`, ou les deux. Lorsqu’ils sont disponibles pour `applications`, les rôles d’application s’affichent en tant que permissions d’application sous la section **Gérer** > **Autorisations d’API > Ajouter une autorisation > Mes API > Choisir une API > Permissions d’application**. L’exemple suivant montre un rôle d’application ciblé sur un `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
 1. Choisissez un rôle et appuyez sur le bouton **Sélectionner**.
 1. Appuyez sur le bouton **Attribuer** en bas pour terminer l’attribution des utilisateurs et des groupes à l’application.
 1. Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **Utilisateurs et groupes** mise à jour.
+
+### <a name="receive-roles-in-tokens"></a>Recevoir des rôles dans des jetons
+
+Lorsque les utilisateurs assignés aux différents rôles d’application se connectent à l’application, leurs jetons portent les rôles qui leur ont été attribués dans la revendication `roles`.
 
 ## <a name="more-information"></a>Informations complémentaires
 

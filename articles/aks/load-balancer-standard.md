@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056800"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>Créer le cluster avec vos propres adresses IP publiques ou préfixes
 
-Vous souhaiterez peut-être apporter vos propres adresses IP ou préfixes d’adresses IP pour la sortie au moment de la création du cluster, afin de prendre en charge des scénarios tels que la mise en liste verte des points de terminaison de sortie. Ajoutez les mêmes paramètres que ceux indiqués ci-dessus à l’étape de création de votre cluster pour définir vos propres adresses IP publiques et préfixes d’adresses IP au début du cycle de vie d’un cluster.
+Vous souhaiterez peut-être apporter vos propres adresses IP ou préfixes d’adresses IP pour la sortie au moment de la création du cluster, afin de prendre en charge des scénarios tels que l’ajout de points de terminaison de sortie à une liste verte. Ajoutez les mêmes paramètres que ceux indiqués ci-dessus à l’étape de création de votre cluster pour définir vos propres adresses IP publiques et préfixes d’adresses IP au début du cycle de vie d’un cluster.
 
 Utilisez la commande *az aks create* avec le paramètre *load-balancer-outbound-ips* pour créer un cluster commençant par vos adresses IP publiques.
 
@@ -291,6 +291,24 @@ spec:
     app: azure-vote-front
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
+```
+
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Conserver l’adresse IP du client sur les connexions entrantes
+
+Par défaut, un service de type `LoadBalancer` [dans Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) et dans AKS ne conserve pas l’adresse IP du client sur la connexion au pod. L’adresse IP privée du nœud correspondra à l’adresse IP source du paquet livré au pod. Pour conserver l’adresse IP du client, vous devez définir `service.spec.externalTrafficPolicy` sur `local` dans la définition du service. Le manifeste suivant montre un exemple :
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
 ```
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Personnalisations supplémentaires via des annotations Kubernetes

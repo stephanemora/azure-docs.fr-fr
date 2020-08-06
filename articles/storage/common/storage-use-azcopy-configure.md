@@ -4,16 +4,16 @@ description: Configurer, optimiser et dépanner AzCopy
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282430"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -63,7 +63,7 @@ Cette section vous aidera à effectuer les tâches d'optimisation suivantes :
 
 ### <a name="run-benchmark-tests"></a>Exécuter des tests d’évaluation
 
-Vous pouvez exécuter un test d’évaluation des performances sur des conteneurs d’objets blob ou des partages de fichiers spécifiques pour afficher des statistiques générales sur les performances et identifier des goulots d’étranglement des performances. 
+Vous pouvez exécuter un test d’évaluation des performances sur des conteneurs d’objets blob ou des partages de fichiers spécifiques pour afficher des statistiques générales sur les performances et identifier des goulots d’étranglement des performances. Vous pouvez exécuter le test en chargeant ou en téléchargeant des données de test générées. 
 
 Utilisez la commande suivante pour exécuter un test d’évaluation des performances.
 
@@ -77,9 +77,7 @@ Utilisez la commande suivante pour exécuter un test d’évaluation des perform
 
 Cette commande exécute un test d’évaluation des performances en chargeant les données de test dans une destination spécifiée. Les données de test sont générées en mémoire, chargées dans la destination, puis supprimées de la destination une fois le test terminé. Vous pouvez spécifier le nombre de fichiers à générer et leur taille souhaitée à l’aide de paramètres de commande facultatifs.
 
-Pour obtenir des informations de référence détaillées, consultez [benchmark azcopy](storage-ref-azcopy-bench.md).
-
-Pour afficher une aide détaillée sur cette commande, tapez `azcopy benchmark -h` et appuyez sur la touche Entrée.
+Si vous préférez exécuter ce test en téléchargeant des données, définissez le paramètre `mode` sur `download`. Pour obtenir des informations de référence détaillées, consultez [benchmark azcopy](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Optimiser le débit
 

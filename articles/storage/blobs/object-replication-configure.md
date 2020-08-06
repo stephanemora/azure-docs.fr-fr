@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888112"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011446"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurer la réplication d’objets pour des objets blob de blocs (préversion)
 
@@ -52,7 +52,7 @@ Pour créer une stratégie de réplication dans le portail Azure, procédez comm
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Capture d’écran montrant des règles de réplication dans Portail Azure":::
 
-1. Si vous le souhaitez, spécifiez un ou plusieurs filtres pour copier uniquement les blobs qui correspondent à un modèle de préfixe. Par exemple, si vous spécifiez le préfixe `b`, seuls les blobs dont le nom commence par cette lettre sont répliqués. Vous pouvez spécifier un répertoire virtuel comme élément du préfixe.
+1. Si vous le souhaitez, spécifiez un ou plusieurs filtres pour copier uniquement les blobs qui correspondent à un modèle de préfixe. Par exemple, si vous spécifiez le préfixe `b`, seuls les blobs dont le nom commence par cette lettre sont répliqués. Vous pouvez spécifier un répertoire virtuel comme élément du préfixe. La chaîne de préfixe ne prend pas en charge les caractères génériques.
 
     L’illustration suivante montre des filtres qui limitent les blobs qui sont copiés dans le cadre d’une règle de réplication.
 
@@ -68,7 +68,7 @@ Pour créer une stratégie de réplication dans le portail Azure, procédez comm
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Pour créer une stratégie de réplication à l’aide de PowerShell, commencez par installer la version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) du module PowerShell Az.Storage. Pour installer le module en préversion, procédez comme suit :
+Pour créer une stratégie de réplication à l’aide de PowerShell, commencez par installer la version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) ou une version ultérieure du module PowerShell Az.Storage. Pour installer le module en préversion, procédez comme suit :
 
 1. Désinstallez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** sous **Paramètres**.
 

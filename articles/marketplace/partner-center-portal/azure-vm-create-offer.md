@@ -1,18 +1,18 @@
 ---
 title: Créer une offre de machine virtuelle Azure sur la Place de marché Azure
-description: Découvrez comment créer une offre de machine virtuelle sur la Place de marché Azure avec la référence SKU nécessaire.
+description: Découvrez comment publier une offre de machine virtuelle sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110978"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386433"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 
@@ -286,7 +286,7 @@ Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivant
 
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
-Vous pouvez proposer différentes options de plan dans la même offre au sein de l’Espace partenaires. Ces plans étaient auparavant appelés références SKU. Une offre nécessite au moins un plan, qui peut varier en termes de public de monétisation, de région Azure, de fonctionnalités ou d’images de machines virtuelles.
+Vous pouvez proposer différentes options de plan dans la même offre au sein de l’Espace partenaires. Une offre nécessite au moins un plan (précédemment appelé SKU), qui peut varier en termes de public de monétisation, de région Azure, de fonctionnalités ou d’images de machines virtuelles.
 
 Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ensemble du plan** pour afficher :
 
@@ -368,7 +368,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 Dans ce volet, vous configurez :
 
-- Les marchés où ce plan est disponible.
+- Les marchés où ce plan est disponible. Chaque plan doit être disponible sur au moins un [marché](../marketplace-geo-availability-currencies.md).
 - Le tarif horaire.
 - Si vous voulez que le plan soit visible à tous ou uniquement à des utilisateurs spécifiques (un public privé).
 
@@ -412,7 +412,6 @@ Vous pouvez concevoir chaque plan pour qu’il soit visible par tous les utilisa
 
 >[!Note]
 >Les offres privées ne sont pas prises en charge avec les abonnements Azure souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
-
 
 #### <a name="hide-a-plan"></a>Masquer un plan
 
@@ -516,10 +515,10 @@ La page **Vue d’ensemble de l’offre** affiche une représentation visuelle d
 
 Elle contient également des liens pour vous aider à gérer l’offre, en fonction de son état :
 
-- Si l’offre est un brouillon : [Supprimer un brouillon d’offre](update-existing-offer.md#delete-a-draft-offer))
-- Si l’offre est active : [Arrêter la vente d’une offre](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval))
-- Si vous n’avez pas effectué la déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing))
+- Si l’offre est un brouillon : [Supprimer un brouillon d’offre](update-existing-offer.md#delete-a-draft-offer)
+- Si l’offre est active : [Arrêter la vente d’une offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval)
+- Si vous n’avez pas effectué la déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Exemples de la Place de marché
 

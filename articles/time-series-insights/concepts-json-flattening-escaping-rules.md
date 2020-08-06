@@ -1,6 +1,6 @@
 ---
-title: 'Règles de mise à plat et d’échappement JSON : Azure Time Series Insights | Microsoft Docs'
-description: En savoir plus sur la mise à plat, l’échappement et la gestion des tableaux JSON dans Azure Time Series Insights.
+title: Règles de mise à plat et d’échappement JSON – Azure Time Series Insights Gen2 | Microsoft Docs
+description: En savoir plus sur la mise à plat, l’échappement et la gestion des tableaux JSON dans Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075673"
 ---
 # <a name="ingestion-rules"></a>Règles de l’ingestion
 ### <a name="json-flattening-escaping-and-array-handling"></a>Mise à plat, échappement et gestion des tableaux JSON
 
-Votre environnement de Azure Time Series Insights crée de manière dynamique les colonnes de vos stockages à chaud et à froid, en suivant un ensemble particulier de conventions d’affectation de noms. Lorsqu’un événement est ingéré, un ensemble de règles est appliqué à la charge utile JSON et aux noms de propriétés. Celles-ci incluent l’échappement de certains caractères spéciaux et l’aplatissement des objets JSON imbriqués. Il est important de connaître ces règles afin que vous compreniez comment la forme de votre JSON influencera le stockage et l’interrogation de vos événements. Pour obtenir une liste des règles, consultez le tableau ci-dessous. Les exemples A et B démontrent également comment vous pouvez efficacement traiter par lot plusieurs séries chronologiques dans un tableau.
+Votre environnement Azure Time Series Insights Gen2 crée de manière dynamique les colonnes de vos stockages chauds et froids, en suivant un ensemble particulier de conventions d’affectation de noms. Lorsqu’un événement est ingéré, un ensemble de règles est appliqué à la charge utile JSON et aux noms de propriétés. Celles-ci incluent l’échappement de certains caractères spéciaux et l’aplatissement des objets JSON imbriqués. Il est important de connaître ces règles afin que vous compreniez comment la forme de votre JSON influencera le stockage et l’interrogation de vos événements. Pour obtenir une liste des règles, consultez le tableau ci-dessous. Les exemples A et B démontrent également comment vous pouvez efficacement traiter par lot plusieurs séries chronologiques dans un tableau.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ Votre environnement de Azure Time Series Insights crée de manière dynamique le
 
 | Règle | Exemple JSON |Nom de colonne dans le stockage |
 |---|---|---|
-| Le type de données TSI est ajouté à la fin de votre nom de colonne en tant que « _\<dataType\> » | ```"type": "Accumulated Heat"``` | type_string |
-| La [propriété d’horodatage](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de la source de l’événement sera enregistrée dans TSI sous « timestamp » dans le stockage, et la valeur stockée au format UTC. Vous pouvez personnaliser la propriété d’horodatage de la ou des sources d’événements pour répondre aux besoins de votre solution, mais le nom de la colonne dans stockage à chaud et à froid est « timestamp ». Les autres propriétés DateHeure JSON qui ne sont pas liées à l’horodatage de la source de l’événement sont enregistrées sous « _datetime » dans le nom de la colonne, comme indiqué dans la règle ci-dessus.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| Le type de données Azure Time Series Insights Gen2 est ajouté à la fin de votre nom de colonne en tant que « _\<dataType\> ». | ```"type": "Accumulated Heat"``` | type_string |
+| La [propriété d’horodatage](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de la source de l’événement sera enregistrée dans Azure Time Series Insights Gen2 sous « timestamp » dans le stockage, et la valeur stockée au format UTC. Vous pouvez personnaliser la propriété d’horodatage de la ou des sources d’événements pour répondre aux besoins de votre solution, mais le nom de la colonne dans stockage à chaud et à froid est « timestamp ». Les autres propriétés DateHeure JSON qui ne sont pas liées à l’horodatage de la source de l’événement sont enregistrées sous « _datetime » dans le nom de la colonne, comme indiqué dans la règle ci-dessus.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | Noms des propriétés JSON qui incluent les caractères spéciaux. [  \ et ' sont placés dans une séquence d’échappement [' et ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.wasp']_string |
 | Dans ['et'], des guillemets simples et des barres obliques inverses supplémentaires sont inclus. Un guillemet simple est écrit sous la forme \ et une barre oblique inverse est écrite sous la forme \\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo\'s Law Value']_double |
 | Les objets JSON imbriqués sont aplatis à l’aide d’un point comme séparateur. L’imbrication jusqu’à 10 niveaux est prise en charge. |  ```"series": {"value" : 316 }``` | series.value_long |
@@ -186,4 +185,4 @@ La configuration et la charge utile ci-dessus génèrent trois colonnes et un é
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Comprendre les [limites de débit](concepts-streaming-throughput-limitations.md) de votre environnement
+* Comprendre les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement

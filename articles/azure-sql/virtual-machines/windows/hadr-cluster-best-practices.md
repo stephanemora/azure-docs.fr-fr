@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965364"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285626"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Techniquement, un cluster à trois nœuds peut survivre à la perte d’un seul 
 
 La ressource de quorum protège le cluster contre tous ces problèmes. 
 
-Pour configurer la ressource de quorum avec SQL Server sur des machines virtuelles Azure, vous pouvez utiliser les types de témoins suivants : 
+Le tableau suivant répertorie les options de quorum disponibles dans l’ordre recommandé pour une machine virtuelle Azure, le témoin de disque étant le choix privilégié : 
 
 
 ||[Témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Témoin cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Systèmes d’exploitation pris en charge**| Tous |Windows Server 2016+| Windows Server 2012+|
-|**Version de SQL Server prises en charge**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+
 
 
 
 ### <a name="disk-witness"></a>Témoin de disque
 
-Un témoin de disque est un petit disque en cluster qui se trouve dans le groupe de stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données du cluster, dont la taille par défaut est généralement inférieure à 1 Go. 
+Un témoin de disque est un petit disque en cluster qui se trouve dans le groupe de stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données du cluster, dont la taille par défaut est généralement inférieure à 1 Go. Le témoin de disque est l’option de quorum privilégiée pour une machine virtuelle Azure, car elle peut résoudre le problème de partition dans le temps, à la différence du témoin de cloud et du témoin de partage de fichiers. 
 
 Configurer un disque partagé Azure comme témoin de disque. 
 
 Pour commencer, consultez [Configurer un témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Systèmes d’exploitation pris en charge** : Tous    
-**Version de SQL pris en charge** : SQL Server 2019   
+**Systèmes d’exploitation pris en charge** : Tous   
 
 
 ### <a name="cloud-witness"></a>Témoin de cloud
@@ -73,21 +72,18 @@ Pour commencer, consultez [Configurer un témoin de cloud](/windows-server/failo
 
 
 **Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
-**Version de SQL pris en charge** : SQL Server 2016 et versions ultérieures     
 
 
 ### <a name="file-share-witness"></a>Témoin de partage de fichiers
 
 Un témoin de partage de fichiers est un partage de fichiers SMB qui est généralement configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de clustering dans un fichier witness.log, mais ne stocke pas de copie de la base de données de clusters. Dans Azure, vous pouvez configurer un [partage de fichiers Azure](../../../storage/files/storage-how-to-create-file-share.md) à utiliser comme témoin de partage de fichiers, ou vous pouvez utiliser un partage de fichiers sur une machine virtuelle distincte.
 
-Si vous envisagez d’utiliser un autre partage de fichiers Azure, vous pouvez le monter en suivant le même processus que pour le [montage du partage de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Si vous envisagez d’utiliser un partage de fichiers Azure, vous pouvez le monter en suivant le même processus que pour le [montage du partage de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Pour commencer, consultez [Configurer un témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
-**Version de SQL pris en charge** : SQL Server 2016 et versions ultérieures   
-
 
 ## <a name="connectivity"></a>Connectivité
 

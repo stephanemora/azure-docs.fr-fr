@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 07/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0be9298e56cf2e5c816c45fcb7e84eb20c11ef4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018177"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : configurer Box pour l’approvisionnement automatique d’utilisateurs
 
@@ -38,6 +38,9 @@ Pour configurer l’intégration d’Azure AD à Box, vous avez besoin des élé
 
 > [!NOTE]
 > Lorsque vous testez les étapes de ce didacticiel, nous *déconseillons* l’utilisation d’un environnement de production.
+
+> [!NOTE]
+> Les applications doivent d’abord être activées dans l’application Box.
 
 Pour tester la procédure de ce didacticiel, suivez les recommandations ci-dessous :
 

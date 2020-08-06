@@ -3,20 +3,20 @@ title: Checklist du déploiement d’Azure AD
 description: Checklist du déploiement des fonctionnalités d’Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: ''
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025385"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -53,10 +53,11 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | [Désactiver les réinitialisations de mot de passe périodiques pour les comptes d’utilisateur dans le cloud](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Les réinitialisations de mot de passe périodiques encouragent vos utilisateurs à incrémenter leur mot de passe existant. Utilisez les instructions de la documentation d’aide de Microsoft sur les mots de passe et appliquez votre stratégie locale aux utilisateurs exclusivement dans le cloud. | Azure AD Gratuit |
 | [Personnaliser le verrouillage intelligent d’Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Arrêtez la réplication des verrouillages d’utilisateurs cloud sur les utilisateurs Active Directory locaux | |
 | [Activer le verrouillage intelligent extranet pour AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | Le verrouillage extranet AD FS protège contre les attaques par force brute visant à deviner les mots de passe, tout en permettant aux utilisateurs AD FS valides de continuer à utiliser leur compte. | |
+| [Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel](../conditional-access/block-legacy-authentication.md) | Bloquez les protocoles d’authentification hérités, tels que POP, SMTP, IMAP et MAPI, qui ne peuvent pas appliquer Multi-Factor Authentication, ce qui en fait un point d’entrée privilégié pour les adversaires. | Azure AD Premium P1 |
 | [Déployer l’authentification multifacteur Azure AD à l’aide de stratégies d’accès conditionnel](../authentication/howto-mfa-getstarted.md) | Demandez aux utilisateurs d’utiliser la vérification en deux étapes quand ils accèdent à des applications sensibles à l’aide de stratégies d’accès conditionnel. | Azure AD Premium P1 |
 | [Activer Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Activez le suivi des connexions risquées et des informations d’identification compromises pour les utilisateurs de votre organisation. | Azure AD Premium P2 |
 | [Utiliser les détections de risques pour déclencher l’authentification multifacteur et le changement du mot de passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Activez une automatisation pour déclencher des événements comme l’authentification multifacteur, la réinitialisation du mot de passe et le blocage des connexions en fonction du risque. | Azure AD Premium P2 |
-| [Activer l’inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. | Azure AD Premium P1 |
+| [Activer l’inscription combinée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Phase 2 : Importer des utilisateurs, activer la synchronisation et gérer des appareils
 

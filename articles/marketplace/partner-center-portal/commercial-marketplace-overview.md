@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047600"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 
@@ -28,9 +28,9 @@ L’Espace partenaires concentre l’expérience des partenaires Microsoft. Pour
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migrer à partir du Portail Cloud Partner
 
-L’Espace partenaires évolue pour mieux intégrer tous les aspects de notre relation avec les éditeurs de logiciels. Dans le cadre de cette évolution, nous avons migré l’intégralité de la gestion des offres de la place de marché commerciale du [Portail Cloud Partner](https://cloudpartner.azure.com/) vers l’Espace partenaires.
+L’Espace partenaires évolue pour mieux intégrer tous les aspects de notre relation avec les éditeurs de logiciels. Dans le cadre de cette évolution, nous avons migré l’intégralité de la gestion des offres du marketplace commercial de Portail Cloud Partner à Espace partenaires.
 
-Les éditeurs existants qui utilisaient précédemment le Portail Cloud Partner découvriront une expérience utilisateur familière mais améliorée et intuitive dans l’Espace partenaires. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire.
+Les éditeurs existants qui utilisaient précédemment Portail Cloud Partner découvriront une expérience utilisateur familière mais améliorée et intuitive dans Espace partenaires. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Améliorations de l’expérience utilisateur de la publication et de la gestion des offres
 

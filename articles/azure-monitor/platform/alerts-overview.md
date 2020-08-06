@@ -4,12 +4,12 @@ description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classique
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371598"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -52,11 +52,11 @@ Les principaux attributs d’une règle d’alerte sont les suivants :
 - Sev 3 = Informative
 - Sev 4 = Détaillée 
 
-**Action** : action spécifique effectuée lors du déclenchement de l’alerte. Pour plus d’informations, consultez [Groupes d’actions](../../azure-monitor/platform/action-groups.md).
+**Action** : action spécifique effectuée lors du déclenchement de l’alerte. Pour plus d’informations, consultez [Groupes d’actions](./action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Sur quoi portent les alertes ?
 
-Vous pouvez déclencher des alertes sur des métriques et des journaux, comme décrit dans [Sources de données de supervision](../../azure-monitor/platform/data-sources.md). Ces vérifications portent notamment sur les revendications suivantes :
+Vous pouvez déclencher des alertes sur des métriques et des journaux, comme décrit dans [Sources de données de supervision](./data-sources.md). Ces vérifications portent notamment sur les revendications suivantes :
 
 - Valeurs de métrique
 - Requêtes de recherche de journal
@@ -69,7 +69,7 @@ Par le passé, les métriques Azure Monitor, Application Insights, Log Analytics
 | **Source de la surveillance** | **Type de signal**  | **Description** |
 |-------------|----------------|-------------|
 | État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
+| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
 
 ## <a name="manage-alerts"></a>Gérer les alertes
 Vous pouvez définir l’état d’une alerte afin d’indiquer où elle se situe dans le processus de résolution. Lorsque les critères spécifiés dans la règle d’alerte sont réunis, une alerte est créée ou déclenchée, dont le statut est *Nouvelle*. Vous pouvez changer son état après l’avoir reconnue ou fermée. Les changements d’état sont stockés dans l’historique de l’alerte.
@@ -137,9 +137,9 @@ Voici comment créer une règle d’alerte :
  
 Ce processus de création simplifié ne nécessite plus que vous connaissiez la source de la surveillance ou les signaux pris en charge avant de sélectionner une ressource Azure. La liste des signaux disponibles est automatiquement filtrée en fonction de la ressource cible sélectionnée. Également basée sur la cible, elle vous guide dans la définition de la logique de la règle d’alerte automatique.  
 
-Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](./alerts-metric.md).
 
-Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](../../azure-monitor/overview.md). 
+Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](../overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Page Toutes les alertes 
@@ -178,7 +178,7 @@ La page Détails de l’alerte comprend les sections suivantes :
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Contrôle d’accès en fonction du rôle (RBAC) pour vos instances d’alertes
 
-Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit disposer du rôle RBAC intégré [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [Lecteur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-reader). Ces rôles sont pris en charge à tout niveau de Microsoft Azure Resource Manager, du niveau de l’abonnement aux affectations granulaires, en passant par le niveau des ressources. Par exemple, si un utilisateur dispose uniquement d’un accès de type Contributeur d’analyse à la machine virtuelle `ContosoVM1`, il ne peut utiliser et gérer que les alertes générées sur `ContosoVM1`.
+Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit disposer du rôle Azure intégré [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [Lecteur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-reader). Ces rôles sont pris en charge à tout niveau de Microsoft Azure Resource Manager, du niveau de l’abonnement aux affectations granulaires, en passant par le niveau des ressources. Par exemple, si un utilisateur dispose uniquement d’un accès de type Contributeur d’analyse à la machine virtuelle `ContosoVM1`, il ne peut utiliser et gérer que les alertes générées sur `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gérer vos instances d’alerte par programmation
 
@@ -208,7 +208,7 @@ Vous pouvez interroger les alertes sur leurs champs [essentiels](alerts-common-s
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur les groupes intelligents](https://aka.ms/smart-groups)
-- [En savoir plus sur les groupes d’actions](../../azure-monitor/platform/action-groups.md)
+- [En savoir plus sur les groupes d’actions](./action-groups.md)
 - [Gestion des instances d’alertes dans Azure](https://aka.ms/managing-alert-instances)
 - [Gestion des groupes intelligents](https://aka.ms/managing-smart-groups)
 - [Découvrir les tarifs des alertes Azure](https://azure.microsoft.com/pricing/details/monitor/)

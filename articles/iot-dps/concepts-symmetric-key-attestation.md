@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286493"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -26,7 +26,7 @@ Les inscriptions de clés symétriques constituent aussi un excellent moyen de d
 
 ## <a name="symmetric-key-creation"></a>Création d’une clé symétrique
 
-Par défaut, le service Device Provisioning crée des clés symétriques avec une longueur par défaut de 32 octets quand de nouvelles inscriptions sont enregistrées avec l’option **Générer automatiquement les clés** activée.
+Par défaut, le service Device Provisioning crée des clés symétriques avec une longueur par défaut de 64 octets quand de nouvelles inscriptions sont enregistrées avec l’option **Générer automatiquement les clés** activée.
 
 ![Générer automatiquement des clés symétriques](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 

@@ -7,17 +7,17 @@ author: cynthn
 manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4214fca9e295dc7716d8e2c069f52c719aa74697
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782770"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292114"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -128,11 +128,11 @@ Dans cet exemple, la valeur renvoyée est *ptp0*, ce qui permet de vérifier le
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Le résultat renvoyé doit être **hyperv**.
+Le résultat renvoyé doit être `hyperv`.
 
 ### <a name="chrony"></a>chrony
 
-Sur Ubuntu 19.10 et versions ultérieures, Red Hat Enterprise Linux et CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) est configuré pour utiliser une horloge de source PTP. Au lieu de Chrony, les versions antérieures de Linux utilisent le démon ntpd (Network Time Protocol Daemon), qui ne prend pas en charge les sources PTP. Pour activer PTP dans ces versions, chrony doit être installé et configuré manuellement (dans chrony.conf) à l’aide du code suivant :
+Sur Ubuntu 19.10 et versions ultérieures, Red Hat Enterprise Linux et CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) est configuré pour utiliser une horloge de source PTP. Au lieu de Chrony, les versions antérieures de Linux utilisent le démon ntpd (Network Time Protocol Daemon), qui ne prend pas en charge les sources PTP. Pour activer PTP dans ces versions, chrony doit être installé et configuré manuellement (dans chrony.conf) à l’aide du code suivant :
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -144,9 +144,9 @@ Pour plus d’informations sur Red Hat et NTP, consultez [Configurer NTP](https
 
 Pour plus d’informations sur chrony, consultez [Utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
-Si les sources chrony et TimeSync sont activées simultanément, vous pouvez en marquer une comme **favorite**, l’autre devenant alors la source de secours. Étant donné que les services NTP ne mettent pas à jour l’horloge pour les grands décalages, sauf après une longue période, la source VMICTimeSync permet de récupérer l’horloge à partir d’événements de machine virtuelle en pause beaucoup plus rapidement que les outils NTP seuls.
+Si les sources chrony et VMICTimeSync sont activées simultanément, vous pouvez en marquer une comme **favorite**, l’autre devenant alors la source de secours. Étant donné que les services NTP ne mettent pas à jour l’horloge pour les grands décalages, sauf après une longue période, la source VMICTimeSync permet de récupérer l’horloge à partir d’événements de machine virtuelle en pause beaucoup plus rapidement que les outils NTP seuls.
 
-Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony n’est pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer un TimeSync si la dérive dépasse le seuil spécifié.
+Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony n’est pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer une synchronisation de l’heure si la dérive dépasse le seuil spécifié.
 
  ```bash
 makestep 1.0 -1

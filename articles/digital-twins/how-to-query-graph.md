@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725582"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337600"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
-Cet article aborde en détail l’utilisation du [langage du magasin de requêtes Azure Digital Twins](concepts-query-language.md) dans le but d’interroger les données du [graphe de jumeaux](concepts-twins-graph.md). Vous exécutez des requêtes sur le graphe à l’aide des [**API de requête**](how-to-use-apis-sdks.md) Azure Digital Twins.
+Cet article fournit des exemples et des détails supplémentaires pour l’utilisation du [langage du magasin de requêtes Azure Digital Twins](concepts-query-language.md) dans le but d’interroger les informations du [graphe de jumeaux](concepts-twins-graph.md). Vous exécutez des requêtes sur le graphe à l’aide des [**API de requête**](how-to-use-apis-sdks.md) Azure Digital Twins.
 
 ## <a name="query-syntax"></a>Syntaxe de requête
 
@@ -41,6 +41,52 @@ AND T.roomSize > 50
 
 > [!TIP]
 > L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
+
+### <a name="query-based-on-relationships"></a>Requête basée sur des relations
+
+Lorsque vous effectuez une interrogation basée sur les relations des jumeaux numériques, sachez que le langage du magasin de requêtes Azure Digital Twins a une syntaxe spéciale.
+
+Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Ce qui le distingue principalement des langages de type SQL « classiques » est que chaque expression de la clause `FROM` n’est pas une table. En effet, la clause `FROM` exprime une traversée de relation entre les entités, et elle est écrite avec une version Azure Digital Twins de `JOIN`. 
+
+Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que le `JOIN` du langage du magasin de requêtes Azure Digital Twins est légèrement différent du `JOIN` SQL général, puisque les relations ne peuvent pas être interrogées de manière indépendante et doivent être liées à un jumeau.
+Pour incorporer cette différence, le mot clé `RELATED` est utilisé dans la clause `JOIN` afin de référencer l’ensemble de relations d’un jumeau. 
+
+La section suivante fournit plusieurs exemples.
+
+> [!TIP]
+> D’un point de vue conceptuel, cette fonctionnalité imite les fonctionnalités orientées document de CosmosDB, où `JOIN` peut être effectué sur les objets enfants d’un document. CosmosDB utilise le mot clé `IN` pour indiquer que `JOIN` est destiné à itérer au sein des éléments de tableau du document de contexte actuel.
+
+#### <a name="relationship-based-query-examples"></a>Exemples de requêtes basées sur les relations
+
+Pour obtenir un jeu de données comprenant des relations, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
+
+Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance*. 
+
+```sql
+SELECT T, CT
+FROM DIGITALTWINS T
+JOIN CT RELATED T.contains
+WHERE T.$dtId = 'ABC' 
+```
+
+>[!NOTE] 
+> Le développeur n’a pas besoin de mettre en corrélation ce `JOIN` avec une valeur de clé dans la clause `WHERE` (ni de spécifier une valeur de clé inline avec la définition `JOIN`). Cette corrélation est calculée automatiquement par le système, puisque les propriétés de relation identifient l’entité cible.
+
+#### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
+
+De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Le langage du magasin de requêtes Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
+
+Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition*. Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
+
+```sql
+SELECT T, SBT, R
+FROM DIGITALTWINS T
+JOIN SBT RELATED T.servicedBy R
+WHERE T.$dtId = 'ABC' 
+AND R.reportedCondition = 'clean'
+```
+
+Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de la relation *servicedBy* (et non d’un jumeau numérique ayant une relation *servicedBy*).
 
 ## <a name="run-queries-with-an-api-call"></a>Exécuter des requêtes avec un appel d’API
 
@@ -76,53 +122,7 @@ catch (RequestFailedException e)
 }
 ```
 
-## <a name="query-based-on-relationships"></a>Requête basée sur des relations
-
-Lorsque vous effectuez une interrogation basée sur les relations des jumeaux numériques, sachez que le langage du magasin de requêtes Azure Digital Twins a une syntaxe spéciale.
-
-Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Ce qui le distingue principalement des langages de type SQL « classiques » est que chaque expression de la clause `FROM` n’est pas une table. En effet, la clause `FROM` exprime une traversée de relation entre les entités, et elle est écrite avec une version Azure Digital Twins de `JOIN`. 
-
-Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que le `JOIN` du langage du magasin de requêtes Azure Digital Twins est légèrement différent du `JOIN` SQL général, puisque les relations ne peuvent pas être interrogées de manière indépendante et doivent être liées à un jumeau.
-Pour incorporer cette différence, le mot clé `RELATED` est utilisé dans la clause `JOIN` afin de référencer l’ensemble de relations d’un jumeau. 
-
-La section suivante fournit plusieurs exemples.
-
-> [!TIP]
-> D’un point de vue conceptuel, cette fonctionnalité imite les fonctionnalités orientées document de CosmosDB, où `JOIN` peut être effectué sur les objets enfants d’un document. CosmosDB utilise le mot clé `IN` pour indiquer que `JOIN` est destiné à itérer au sein des éléments de tableau du document de contexte actuel.
-
-### <a name="relationship-based-query-examples"></a>Exemples de requêtes basées sur les relations
-
-Pour obtenir un jeu de données comprenant des relations, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
-
-Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance*. 
-
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
-```
-
->[!NOTE] 
-> Le développeur n’a pas besoin de mettre en corrélation ce `JOIN` avec une valeur de clé dans la clause `WHERE` (ni de spécifier une valeur de clé inline avec la définition `JOIN`). Cette corrélation est calculée automatiquement par le système, puisque les propriétés de relation identifient l’entité cible.
-
-### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
-
-De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Le langage du magasin de requêtes Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
-
-Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition*. Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
-
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
-AND R.reportedCondition = 'clean'
-```
-
-Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de la relation *servicedBy* (et non d’un jumeau numérique ayant une relation *servicedBy*).
-
-### <a name="query-limitations"></a>Limitations des requêtes
+## <a name="query-limitations"></a>Limitations des requêtes
 
 Il peut se passer jusqu’à 10 secondes avant que les modifications de votre instance ne soient reflétées dans les requêtes. Par exemple, si vous effectuez une opération telle que la création ou la suppression de jumeaux avec l’API DigitalTwins, le résultat peut ne pas apparaître immédiatement dans les requêtes de l’API de requête. Il suffit d’attendre quelques instants pour que le résultat apparaisse.
 

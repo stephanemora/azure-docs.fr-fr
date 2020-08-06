@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251194"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285864"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -57,9 +57,9 @@ Traffic Manager effectue des recherches DNS et retourne le point de terminaison 
 
 Pour savoir comment configurer des points de terminaison et le routage, consultez [Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routage d’une application de couche 7 avec Azure Front Door Service
+### <a name="application-routing-with-azure-front-door-service"></a>Routage d’applications avec Azure Front Door Service
 
-Traffic Manager utilise DNS (couche 3) pour former le trafic. [Azure Front Door Service](../frontdoor/front-door-overview.md) propose une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires d'Azure Front Door Service incluent l'arrêt TLS, le domaine personnalisé, le pare-feu d'applications web, la réécriture d'URL et l'affinité de session. Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
+Grâce au protocole anycast basé sur Split TCP, [Azure Front Door Service](../frontdoor/front-door-overview.md) garantit la connexion rapide des utilisateurs finaux au point de présence (POP) Front Door le plus proche. Les fonctionnalités supplémentaires d'Azure Front Door Service incluent l'arrêt TLS, le domaine personnalisé, le pare-feu d'applications web, la réécriture d'URL et l'affinité de session. Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnecter des régions avec l’appairage de réseau virtuel global
 

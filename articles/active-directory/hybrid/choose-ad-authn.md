@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020099"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -30,7 +30,7 @@ La première étape pour les organisations souhaitant migrer leurs applications 
 L’identité constitue le nouveau plan de contrôle en matière de sécurité informatique et, dès lors, l’authentification permet aux organisations de gérer les accès au cloud. Les organisations ont besoin d’un plan de contrôle d’identité qui renforce leur sécurité et protège leurs applications cloud contre les intrus.
 
 > [!NOTE]
-> Modifier votre méthode d’authentification implique une planification, des tests et de possibles temps d’arrêt. [Le déploiement intermédiaire](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) constitue un excellent moyen de tester et de migrer progressivement de la fédération à l’authentification cloud.
+> Modifier votre méthode d’authentification implique une planification, des tests et de possibles temps d’arrêt. Le [déploiement intermédiaire](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) constitue un excellent moyen de tester la migration des utilisateurs de l’authentification de la fédération à l’authentification cloud.
 
 ### <a name="out-of-scope"></a>Hors propos
 Les organisations qui ne présentent aucune empreinte d’un annuaire local existant ne sont pas concernées par cet article. En général, ces entreprises créent uniquement des identités résidant dans le cloud, ce qui n’exige pas une solution d’identité hybride. Les identités résidant uniquement dans le cloud ne sont pas associées à des identités locales correspondantes.

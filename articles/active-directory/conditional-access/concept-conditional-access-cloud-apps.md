@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275270"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -117,6 +117,7 @@ Outre les applications Microsoft, les administrateurs peuvent ajouter aux strat�
 - [Des applications ajoutées à partir de la galerie](../manage-apps/add-application-portal.md)
 - [Des applications personnalisées qui ne se trouvent pas dans la galerie](../manage-apps/add-non-gallery-app.md)
 - [Des applications héritées qui sont publiées par le biais de réseaux et de contrôleurs de livraison d’applications](../manage-apps/secure-hybrid-access.md)
+- Des applications qui utilisent [l’authentification unique par mot de passe](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Étant donné que la stratégie d’accès conditionnel définit les conditions requises pour accéder à un service, vous n’êtes pas en mesure de l’appliquer à une application cliente (publique/native). En d’autres termes, la stratégie n’est pas définie directement sur une application cliente (publique/native), mais elle est appliquée lorsqu’un client appelle un service. Par exemple, une stratégie définie sur un service SharePoint s’applique aux clients qui appellent SharePoint. Une stratégie définie sur Exchange s’applique à la tentative d’accès à la messagerie à l’aide du client Outlook. C’est pourquoi les applications clientes (publiques/natives) ne sont pas disponibles dans le sélecteur d’applications Cloud et l’option d’accès conditionnel n’est pas disponible dans les paramètres d’application pour l’application cliente (publique/native) inscrite dans votre locataire. 

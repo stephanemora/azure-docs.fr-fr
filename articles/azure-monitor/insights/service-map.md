@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326067"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
 
-Cet article décrit les détails de l’intégration et de l’utilisation de Service Map. Pour plus d’informations sur la configuration des conditions préalables pour cette solution, consultez [Activer la vue d’ensemble Azure Monitor pour machines virtuelles](vminsights-enable-overview.md#prerequisites). Pour résumer, vous avez besoin des éléments suivants :
+Cet article décrit les détails de l’intégration et de l’utilisation de Service Map. Les conditions préalables de la solution sont les suivantes :
 
-* Un espace de travail Log Analytics pour activer cette solution.
+* Un espace de travail Log Analytics dans une [région prise en charge](vminsights-configure-workspace.md#supported-regions).
 
-* L’agent Log Analytics installé sur l’ordinateur Windows ou le serveur Linux configuré pour signaler le même espace de travail que celui avec lequel vous avez activé la solution.
+* L’[agent Log Analytics](vminsights-enable-overview.md#agents) installé sur l’ordinateur Windows ou le serveur Linux connecté à l’espace de travail avec lequel vous avez activé la solution.
 
-* L’agent de dépendances installé sur l’ordinateur Windows ou le serveur Linux.
+* L’[agent Dependency](vminsights-enable-overview.md#agents) installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms).
+>Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](./vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -304,7 +304,7 @@ Le volet **Mises à jour de la machine** affiche les données de la solution Upd
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 
-Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
@@ -550,7 +550,7 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
+En savoir plus sur les [recherches dans les journaux](../log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -603,3 +603,4 @@ Vérifiez le `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file`
 ## <a name="suggestions"></a>Suggestions
 
 Avez-vous des commentaires à nous transmettre à propos de Service Map ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) vous permet de nous suggérer des fonctionnalités ou de voter pour des suggestions en cours.
+

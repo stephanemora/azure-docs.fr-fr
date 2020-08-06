@@ -5,17 +5,17 @@ description: Déboguez vos pipelines Azure Machine Learning en Python. Découvre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
+ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557432"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372958"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Dans cet article, vous allez découvrir comment déboguer et résoudre les probl
 * Déboguer à l’aide d’Application Insights
 * Déboguer de manière interactive à l’aide de Visual Studio Code (VS Code) et du plug-in Python Tools pour Visual Studio (PTVS)
 
-## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Déboguer et résoudre les problèmes dans le SDK Azure Machine Learning
+## <a name="azure-machine-learning-sdk"></a>Kit de développement logiciel (SDK) Azure Machine Learning
 Les sections suivantes offrent une vue d’ensemble des écueils habituels de la création de pipelines et exposent différentes stratégies pour déboguer votre code qui s’exécute dans un pipeline. Servez-vous des conseils suivants quand vous avez des difficultés à exécuter un pipeline comme prévu.
 
 ### <a name="testing-scripts-locally"></a>Tester les scripts localement
@@ -127,9 +127,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Déboguer et résoudre les problèmes dans le concepteur Azure Machine Learning (préversion)
+## <a name="azure-machine-learning-designer-preview"></a>Concepteur Azure Machine Learning (préversion)
 
 Cette section fournit une vue d’ensemble de la résolution des problèmes des pipelines dans le concepteur. Pour les pipelines créés dans le concepteur, vous trouverez le fichier **70_driver_log** dans la page de création ou dans la page des détails d’exécutions de pipeline.
+
+### <a name="enable-logging-for-real-time-endpoints"></a>Activer la journalisation pour les points de terminaison en temps réel
+
+Pour déboguer et dépanner des points de terminaison en temps réel dans le concepteur, vous devez activer la journalisation d’Application Insights à l’aide du Kit de développement logiciel (SDK). La journalisation vous permet de déboguer et dépanner les problèmes de déploiement et d’utilisation du modèle. Pour plus d’informations, consultez [Journalisation pour les modèles déployés](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Obtenir des journaux à partir de la page de création
 
@@ -156,10 +160,10 @@ Vous pouvez également trouver les fichiers journaux d’exécutions spécifique
 > [!IMPORTANT]
 > Pour mettre à jour un pipeline à partir de la page des détails d’exécution du pipeline, vous devez **cloner** l’exécution du pipeline dans un nouveau brouillon de pipeline. Une exécution de pipeline est un instantané du pipeline. Elle est similaire à un fichier journal et ne peut pas être modifiée. 
 
-## <a name="debug-and-troubleshoot-in-application-insights"></a>Déboguez et détectez des problèmes dans Application Insights
+## <a name="application-insights"></a>Application Insights
 Pour en savoir plus sur l’utilisation de la bibliothèque Python OpenCensus de cette manière, consultez ce guide : [Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Déboguer et détecter un problème dans Visual Studio Code
+## <a name="visual-studio-code"></a>Visual Studio Code
 
 Dans certains cas, vous devrez peut-être déboguer interactivement le code Python utilisé dans votre pipeline ML. Visual Studio Code (VS Code) et le plug-in Python Tools pour Visual Studio (PTVS) pouvez attacher au code en cours d’exécution dans l’environnement d’apprentissage.
 

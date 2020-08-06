@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019384"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Activation du Proxy d’application Azure AD : Historique de publication des versions
 Cet article répertorie les versions et les fonctionnalités du Proxy d’application Azure Active Directory (Azure AD) qui ont été publiées. L’équipe Azure AD met régulièrement à jour le Proxy d’application avec de nouvelles fonctions et fonctionnalités. Les connecteurs du Proxy d’application sont mis à jour automatiquement lorsqu’une nouvelle version est publiée. 
@@ -35,6 +35,31 @@ Ressource |  Détails
 Activer le Proxy d’application | Les prérequis pour l’activation du Proxy d’application et l’installation et l’inscription d’un connecteur sont détaillés dans ce [tutoriel](application-proxy-add-on-premises-application.md).
 Présentation des connecteurs de proxy d’application Azure AD | Apprenez-en plus sur la [gestion des connecteurs](application-proxy-connectors.md) et leur [mise à niveau automatique](application-proxy-connectors.md#automatic-updates).
 Télécharger le connecteur de proxy d’application Azure AD |  [Téléchargez le connecteur le plus récent](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>État de la version
+
+22 juillet 2020 : Disponible au téléchargement. Cette version est disponible uniquement pour l’installation via la page de téléchargement. Une mise à jour automatique de cette version sera publiée ultérieurement.
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+-   Amélioration du support pour les environnements cloud Azure Government. Pour plus d’informations sur la façon d’installer correctement le connecteur pour le cloud Azure Government, consultez les [conditions préalables](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) et les [étapes d’installation](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Prise en charge de l’utilisation du client web Services Bureau à distance avec Proxy d’application. Pour plus d’informations, consultez [Publier le Bureau à distance avec Proxy d’application d’Azure AD](application-proxy-integrate-with-remote-desktop-services.md).
+- Amélioration des négociations des extensions WebSocket. 
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- Correction d’un problème WebSocket qui forçait les chaînes en minuscules.
+- Correction d’un problème qui entraînait parfois la non-réponse des connecteurs.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>État de la version
+
+17 juillet 2020 : publiée pour téléchargement. Cette version est disponible uniquement pour l’installation via la page de téléchargement. Une mise à jour automatique de cette version sera publiée ultérieurement.
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- Résolution du problème de fuite de mémoire présent dans la version précédente.
+- Améliorations générales de la prise en charge de WebSocket.
 
 ## <a name="1515260"></a>1.5.1526.0
 

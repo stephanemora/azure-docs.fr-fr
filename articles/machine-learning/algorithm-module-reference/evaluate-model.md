@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171111"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285949"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -80,9 +80,9 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
   
 -   L’**exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
   
--   La **précision** correspond à la proportion de résultats réels sur tous les résultats positifs.  
+-   La **précision** correspond à la proportion de résultats réels sur tous les résultats positifs. Précision = TP/(TP+FP)  
   
--   Le **rappel** correspond à la fraction de tous les résultats corrects retournés par le modèle.  
+-   Le **Rappel** est la fraction de la quantité totale d’instances pertinentes qui ont été réellement récupérées. Rappel = TP/(TP+FN)  
   
 -   Le **score F1** est calculé comme la moyenne pondérée de précision et de rappel comprise entre 0 et 1, la valeur de score F1 idéale étant 1.  
   

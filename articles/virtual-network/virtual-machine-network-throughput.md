@@ -1,6 +1,6 @@
 ---
 title: Débit réseau des machines virtuelles Azure | Microsoft Docs
-description: Découvrez plus d’informations sur le débit réseau des machines virtuelles Azure.
+description: Apprenez-en davantage sur le débit réseau des machines virtuelles Azure, notamment la façon dont la bande passante est allouée à un ordinateur virtuel.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695998"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265112"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -56,8 +56,8 @@ Le transfert de données entre les points de terminaison nécessite la création
 
 Aujourd'hui, la pile de mise en réseau Azure prend en charge 250 000 flux de réseau au total, avec un bon niveau de performance pour les machines virtuelles ayant plus de 8 cœurs d’UC et 100 000 flux au total, avec un bon niveau de performance pour les machines virtuelles ayant moins de 8 cœurs d’UC. Au-delà de cette limite, le niveau de performance du réseau se dégrade normalement en cas de flux supplémentaires jusqu’à une limite inconditionnelle de 500 000 flux au total, à savoir respectivement 250 000 flux entrants et 250 000 flux sortants, après quoi les flux supplémentaires sont supprimés.
 
-||Machines virtuelles avec < 8 cœurs d’UC|Machines virtuelles avec plus de 8 cœurs d’UC|
-|---|---|---|
+| Niveau de performance | Machines virtuelles avec < 8 cœurs d’UC | Machines virtuelles avec plus de 8 cœurs d’UC |
+| ----------------- | --------------------- | --------------------- |
 |<b>Bon niveau de performance</b>|100 000 flux |250 000 flux|
 |<b>Performances dégradées</b>|Plus de 100 000 flux|Plus de 250 000 flux|
 |<b>Limite de flux</b>|500 000 flux|500 000 flux|

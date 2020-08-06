@@ -1,26 +1,19 @@
 ---
 title: Vue d’ensemble de l’agent de machine virtuelle Linux Azure
 description: Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186824"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269119"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 
@@ -72,7 +65,7 @@ Le flux d'informations de la plateforme à l'agent se produit via deux canaux :
 Les systèmes suivants ont été testés et fonctionnent avec l’agent Linux Azure :
 
 > [!NOTE]
-> Notez que cette liste peut être différente de la liste officielle des systèmes pris en charge sur la plateforme Microsoft Azure, disponible ici : [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Cette liste peut être différente de la liste officielle des [distributions prises en charge](../linux/endorsed-distros.md).
 > 
 > 
 
@@ -344,5 +337,4 @@ Les images cloud Ubuntu utilisent [cloud-init](https://launchpad.net/ubuntu/+sou
 * Pour plus d’informations, consultez les ressources suivantes pour configurer le point de montage du disque de ressources et l’espace d’échange sur les images cloud Ubuntu durant le provisionnement :
   
   * [Wiki Ubuntu : configurer les partitions d’échange](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injection de données personnalisées dans une machine virtuelle Azure](../windows/classic/inject-custom-data.md)
-
+  * [Injection de données personnalisées dans une machine virtuelle Azure](../windows/tutorial-automate-vm-deployment.md)

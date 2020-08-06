@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084192"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Comment filtrer par langue dans la Recherche cognitive Azure 
 
@@ -34,7 +34,7 @@ Dans la Recherche cognitive Azure, les requêtes ciblent un index unique. Les d�
 
 L'exemple suivant est extrait de l'[exemple d’immobilier](search-get-started-portal.md), qui comporte plusieurs champs de chaîne avec du contenu dans différentes langues. Notez les assignations de l’analyseur de langue pour les champs de cet index. Les champs qui contiennent des chaînes produisent de meilleurs résultats en lien avec une recherche en texte intégral quand ils sont associés à un analyseur conçu pour traiter les règles linguistiques de la langue cible.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Capture d’écran montrant l’écran Champs de l’exemple immobilier. Un groupe de champs est mis en surbrillance pour indiquer de quelle façon les attributions de l’analyseur de langue correspondent aux langues des champs en surbrillance.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Pour des exemples de code montrant des définitions de champ avec des analyseurs de langue, voir [Définir un index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) et [Définir un index (REST)](search-create-index-rest-api.md).

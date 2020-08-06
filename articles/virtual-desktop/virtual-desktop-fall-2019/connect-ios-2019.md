@@ -1,6 +1,6 @@
 ---
-title: Se connecter à Windows Virtual Desktop à partir d’iOS – Azure
-description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client iOS.
+title: Se connecter à Windows Virtual Desktop (classique) à partir d’iOS – Azure
+description: Explique comment se connecter à Windows Virtual Desktop (classique) à l’aide du client iOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06de85e23b1d6350a48735506c8931922d40b799
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270734"
 ---
-# <a name="connect-with-the-ios-client"></a>Se connecter avec le client iOS
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Se connecter à Windows Virtual Desktop (classique) avec le client iOS
 
 > S’applique à : iOS 13.0 ou ultérieur. Compatible avec iPhone, iPad et iPod touch.
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../connect-ios.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-ios.md).
 
 Vous pouvez accéder aux ressources Windows Virtual Desktop à partir de votre appareil iOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client iOS.
 

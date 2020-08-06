@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060149"
 ---
-# <a name="configure-a-content-key-authorization-policy"></a>Configurer une stratégie d’autorisation de clé de contenu
+# <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Configurer une stratégie d’autorisation de clé de contenu à l’aide du Kit de développement logiciel (SDK) .NET Media Services
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -34,7 +34,7 @@ Si vous souhaitez que Media Services chiffre un élément multimédia, vous deve
 
 Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou DRM. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation de clé de contenu peut disposer d’une ou de plusieurs restrictions d’autorisation. Les stratégies peuvent être ouvertes ou à restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (Simple Web Token) et [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JSON Web Token).
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation de clé de contenu peut disposer d’une ou de plusieurs restrictions d’autorisation. Les stratégies peuvent être ouvertes ou à restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (Simple Web Token) et [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JSON Web Token).
 
 Media Services ne fournit pas de service STS. Vous pouvez créer un service STS personnalisé ou utiliser Azure Access Control Service pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu, le service de remise de clés Media Services retourne la clé de chiffrement au client.
 
@@ -439,4 +439,3 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Configurer une stratégie de remise d’éléments](media-services-dotnet-configure-asset-delivery-policy.md).
-

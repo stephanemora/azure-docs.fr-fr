@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449309"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373213"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Octroyer un accès Key Vault à votre compte de stockage
 
-Pour permettre à Key Vault d’accéder et de gérer vos clés de compte de stockage, vous devez l’autoriser à accéder à votre compte de stockage. L’application Key Vault a besoin d’autorisations afin de *répertorier* et de *regénérer* des clés pour votre compte de stockage. Ces autorisations sont activées par le biais du rôle RBAC intégré [Rôle de service d’opérateur de clé de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Pour permettre à Key Vault d’accéder et de gérer vos clés de compte de stockage, vous devez l’autoriser à accéder à votre compte de stockage. L’application Key Vault a besoin d’autorisations afin de *répertorier* et de *regénérer* des clés pour votre compte de stockage. Ces autorisations sont activées par le biais du rôle intégré [Rôle de service d’opérateur de clé de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
 Attribuez ce rôle au principal de service Key Vault, en limitant la portée à votre compte de stockage, à l’aide de la cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) Azure PowerShell.
 
@@ -164,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Activer la régénération des clés
 
-Pour permettre à Key Vault de régénérer régulièrement vos clés de compte de stockage, utilisez la cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) afin de définir une période de régénération. Dans cet exemple, nous définissons une période de régénération de trois jours. Au bout de trois jours, Key Vault régénère « key2 » et permute la clé active de « key2 » à « key1 » (à remplacer par « Primary » et « Secondary » pour les comptes de stockage classiques).
+Pour permettre à Key Vault de régénérer régulièrement vos clés de compte de stockage, utilisez la cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) afin de définir une période de régénération. Dans cet exemple, nous définissons une période de régénération de trois jours. Le moment venu d’opérer une rotation, Key Vault régénère la clé qui n’est pas active, puis définit la clé nouvellement créée comme active. Une seule des clés est utilisée pour émettre des jetons SAS à tout moment. Il s’agit du nœud actif.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

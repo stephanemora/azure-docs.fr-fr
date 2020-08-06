@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078162"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -77,27 +77,27 @@ En ce qui concerne les applications logiques créées et exécutées dans un env
 
 ## <a name="connectors"></a>Connecteurs
 
-Les connecteurs Azure Logic Apps aident votre application logique à accéder aux applications, services et systèmes localement ou dans le cloud en fournissant des [déclencheurs](#triggers), des [actions](#actions), ou les deux. Les connecteurs sont classés en tant que connecteurs standard ou entreprise. Pour une vue d’ensemble de ces connecteurs, consultez la [liste des connecteurs Azure Logic Apps](../connectors/apis-list.md). Si aucun connecteur prédéfini n’est disponible pour les API REST que vous voulez utiliser dans vos applications logiques, vous pouvez créer des [connecteurs personnalisés](https://docs.microsoft.com/connectors/custom-connectors), qui ne sont que des wrappers autour de ces API REST. Les connecteurs personnalisés sont facturés comme des connecteurs standard. Les sections offrent plus d’informations sur la facturation des déclencheurs et des actions.
+Les connecteurs Azure Logic Apps aident votre application logique à accéder aux applications, services et systèmes localement ou dans le cloud en fournissant des [déclencheurs](#triggers), des [actions](#actions), ou les deux. Les connecteurs sont classés en tant que connecteurs standard ou entreprise. Pour une vue d’ensemble de ces connecteurs, consultez la [liste des connecteurs Azure Logic Apps](../connectors/apis-list.md). Si aucun connecteur prédéfini n’est disponible pour les API REST que vous voulez utiliser dans vos applications logiques, vous pouvez créer des [connecteurs personnalisés](/connectors/custom-connectors), qui ne sont que des wrappers autour de ces API REST. Les connecteurs personnalisés sont facturés comme des connecteurs standard. Les sections offrent plus d’informations sur la facturation des déclencheurs et des actions.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Déclencheurs
 
-Les déclencheurs sont des actions particulières qui créent une instance d’application logique, quand un événement spécifique se produit. Les déclencheurs agissent de différentes façons, ce qui affecte la façon dont l’application logique est mesurée. Voici les différents types de déclencheurs qui existent dans Azure Logic Apps :
+Un déclencheur est toujours la première étape du workflow d’une application logique. Il s’agit d’une action spéciale qui crée et exécute une instance d’application logique lorsque des critères spécifiques sont remplis ou qu’un événement spécifique se produit. Les déclencheurs agissent de différentes façons, ce qui affecte la façon dont l’application logique est mesurée. Voici les différents types de déclencheurs qui existent dans Azure Logic Apps :
 
-* **Déclencheur d’interrogation** : ce déclencheur vérifie constamment un point de terminaison pour les messages conformes aux critères de création d’une instance d’application logique et de démarrage de flux de travail. Même quand aucune application logique n’est créée, Logic Apps mesure chaque requête d’interrogation en tant qu’exécution. Pour spécifier l’intervalle d’interrogation, configurez le déclencheur par le biais du concepteur d’application logique.
+* **Déclencheur de périodicité** : Vous pouvez utiliser ce déclencheur générique, qui n’est spécifique à aucun service ou système, pour démarrer un workflow d’application logique et créer une instance d’application logique qui s’exécute en fonction de l’intervalle de périodicité que vous avez configuré dans le déclencheur. Par exemple, vous pouvez configurer un déclencheur de périodicité qui s’exécute tous les trois jours ou d’après un calendrier plus complexe.
+
+* **Déclencheur d’interrogation** : Vous pouvez utiliser ce déclencheur de récurrence plus spécialisé, qui est généralement associé au connecteur géré pour un service ou un système spécifique, pour rechercher des événements ou des messages qui répondent aux critères de création et d’exécution d’une instance d’application logique en fonction de l’intervalle de périodicité que vous avez configuré dans le déclencheur. Même quand aucune instance d’application logique n’est créée, par exemple, lorsque les déclencheurs sont ignorés, le service Logic Apps mesure chaque requête d’interrogation en tant qu’exécution. Pour spécifier l’intervalle d’interrogation, configurez le déclencheur par le biais du concepteur d’application logique.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Déclencheur de webhook** : ce déclencheur attend qu’un client envoie une requête à un point de terminaison spécifique. Chaque requête envoyée au point de terminaison webhook est considérée comme une exécution d’action. Par exemple, les déclencheurs Requête et Webhook HTTP sont tous deux des déclencheurs webhook.
-
-* **Déclencheur de périodicité** : ce déclencheur crée une instance d’application logique en fonction de l’intervalle de périodicité que vous avez configuré dans le déclencheur. Par exemple, vous pouvez configurer un déclencheur de périodicité qui s’exécute tous les trois jours ou d’après un calendrier plus complexe.
+* **Déclencheur de webhook** : Au lieu d’utiliser un déclencheur d’interrogation, vous pouvez utiliser un déclencheur de webhook pour attendre que le client envoie une requête à votre application logique à une URL de point de terminaison spécifique. Chaque requête envoyée au point de terminaison du webhook est considérée comme une exécution d’action. Par exemple, les déclencheurs Requête et Webhook HTTP sont tous deux des déclencheurs de webhook génériques. Certains connecteurs pour les services ou les systèmes possèdent également des déclencheurs de webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Actions
 
-Azure Logic Apps mesure les actions « intégrées » (telles que HTTP) en tant qu’actions natives. Par exemple, les actions intégrées incluent les appels HTTP, les appels à partir d’Azure Functions ou de Gestion des API et les étapes de flux de contrôle telles que les conditions, les boucles et les instructions switch. Chaque action a son propre type. Par exemple, les actions qui appellent des [connecteurs](https://docs.microsoft.com/connectors) ont le type « ApiConnection ». Ces connecteurs sont classés en connecteurs standard ou d’entreprise, et sont mesurés en fonction de leur [tarification](https://azure.microsoft.com/pricing/details/logic-apps) respective. Les connecteurs d’entreprise en *préversion* sont facturés comme connecteurs standard.
+Azure Logic Apps mesure les actions « intégrées » (telles que HTTP) en tant qu’actions natives. Par exemple, les actions intégrées incluent les appels HTTP, les appels à partir d’Azure Functions ou de Gestion des API et les étapes de flux de contrôle telles que les conditions, les boucles et les instructions switch. Chaque action a son propre type. Par exemple, les actions qui appellent des [connecteurs](/connectors) ont le type « ApiConnection ». Ces connecteurs sont classés en connecteurs standard ou d’entreprise, et sont mesurés en fonction de leur [tarification](https://azure.microsoft.com/pricing/details/logic-apps) respective. Les connecteurs d’entreprise en *préversion* sont facturés comme connecteurs standard.
 
 Azure Logic Apps mesure toutes les actions ayant réussi ou non en tant qu’exécutions. Cependant, Logic Apps ne mesure pas les actions suivantes :
 
@@ -122,7 +122,7 @@ Si vous avez un [*environnement de service d'intégration* (ISE)](../logic-apps/
 
 Pour choisir un compte d’intégration gratuit, de base ou standard, étudiez ces descriptions de cas d’usage :
 
-* **Gratuit** : Lorsque vous voulez essayer les scénarios exploratoires, pas les scénarios de production. Ce niveau est disponible uniquement pour les régions publiques dans Azure (par exemple, USA Ouest et Asie Sud-Est), mais pas pour [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) ni [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Gratuit** : Lorsque vous voulez essayer les scénarios exploratoires, pas les scénarios de production. Ce niveau est disponible uniquement pour les régions publiques dans Azure (par exemple, USA Ouest et Asie Sud-Est), mais pas pour [Azure China 21Vianet](/azure/china/overview-operations) ni [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **De base** : quand vous souhaitez utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante.
 

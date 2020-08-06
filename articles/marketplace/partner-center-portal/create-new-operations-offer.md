@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001432"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Créer une offre Dynamics 365 for Operations
 
@@ -295,7 +295,7 @@ S’il s’agit de votre première publication de cette offre, vous pouvez :
     - **Non démarrée** – La section n’a pas encore été modifiée et doit être complétée.
     - **Incomplète** – La section comporte des erreurs qui doivent être corrigées ou nécessite un complément d’informations. Revenir à la ou les sections et les mettre à jour.
     - **Complète** – La section est complète, toutes les données obligatoires ont été fournies et aucune erreur n’est présente. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
-- Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
+- Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application. Pour plus d’informations sur les instructions de test et sur la réalisation d’une première publication, consultez [Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Revenez à l’Espace partenaires et sélectionnez **Go-Live** pour l’offre de publication sur le public.
 
 ## <a name="next-step"></a>Étape suivante

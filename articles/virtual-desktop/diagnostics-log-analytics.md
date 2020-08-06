@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85cd94c9ba0cf8909e2013a49d43a473a313db8b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292606"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
 >[!IMPORTANT]
->Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
->
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Windows Virtual Desktop utilise [Azure Monitor](../azure-monitor/overview.md) pour la supervision et les alertes, comme de nombreux autres services Azure. Les administrateurs peuvent ainsi identifier les problèmes par le biais d’une interface unique. Le service crée des journaux d’activité pour les actions des utilisateurs et des administrateurs. Chaque journal d’activité se divise en les catégories suivantes :
 
@@ -133,52 +130,16 @@ Les rapports Log Analytics ne portent que sur les états intermédiaires suivant
 
 ## <a name="example-queries"></a>Exemples de requêtes
 
-Les exemples de requêtes suivants montrent comment la fonctionnalité de diagnostic génère un rapport pour les activités les plus fréquentes dans votre système.
+Accédez à des exemples de requêtes par le biais de l’interface utilisateur d’Azure Monitor Log Analytics :
+1. Accédez à votre espace de travail Log Analytics, puis sélectionnez **Journaux**. L’interface utilisateur de l’exemple de requête s’affiche automatiquement.
+1. Changez le filtre en **Catégorie**.
+1. Sélectionnez **Windows Virtual Desktop** pour examiner les requêtes disponibles.
+1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée. 
 
-Pour obtenir la liste des connexions établies par vos utilisateurs, exécutez cette applet de commande :
+Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+La liste de requêtes suivante vous permet de consulter les informations ou les problèmes de connexion pour un seul utilisateur. Vous pouvez exécuter ces requêtes dans l’[éditeur de requête Log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Pour chaque requête, remplacez `userupn` par l’UPN de l’utilisateur que vous souhaitez rechercher.
 
-Pour afficher l’activité de flux de vos utilisateurs :
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Pour rechercher toutes les connexions d’un seul utilisateur :
 
@@ -199,7 +160,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Pour rechercher la durée de session par utilisateur :
 
@@ -224,7 +184,7 @@ WVDErrors
 |take 100
 ```
 
-Pour déterminer si une erreur spécifique s’est produite :
+Pour déterminer si une erreur spécifique s’est produite pour d’autres utilisateurs :
 
 ```kusto
 WVDErrors
@@ -232,27 +192,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Pour rechercher l’occurrence d’une erreur pour tous les utilisateurs :
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Pour interroger les applications que les utilisateurs ont ouvertes, exécutez la requête suivante :
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- Quand un utilisateur ouvre le Bureau complet, l’utilisation de son application dans la session n’est pas suivie sous la forme de points de contrôle dans la table WVDCheckpoints.
 >- La colonne ResourcesAlias de la table WVDConnections indique si un utilisateur s’est connecté à un bureau complet ou à une application publiée. La colonne affiche uniquement la première application ouverte pendant la connexion. Toutes les applications publiées que l’utilisateur ouvre sont suivies dans WVDCheckpoints.

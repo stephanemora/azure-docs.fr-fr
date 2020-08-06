@@ -3,14 +3,14 @@ title: Sécurité des données Azure Automation
 description: Cet article vous aide à découvrir comment Azure Automation protège votre confidentialité et sécurise vos données.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/03/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004645"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -50,7 +50,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Données | Policy |
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
-| Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. |
+| Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. Les ressources incluent des variables, des planifications, des informations d’identification, des certificats, des packages Python 2 et des connexions. |
 | Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
 | travaux |Une tâche est supprimée et définitivement retirée 30 jours après avoir été modifiée (par exemple, suite à la fin, à l’arrêt ou à l’interruption de la tâche). |
 | Modules |Un module est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait le module. |
@@ -66,7 +66,7 @@ Quand vous supprimez un compte Automation dans Azure, tous les objets du compte 
 
 ### <a name="runbooks"></a>Runbooks
 
-Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) dans Windows PowerShell. Vous pouvez importer ces fichiers de script dans un autre compte Automation, comme expliqué dans [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
+Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) dans Windows PowerShell. Vous pouvez importer ces fichiers de script dans un autre compte Automation, comme expliqué dans [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Modules d'intégration
 

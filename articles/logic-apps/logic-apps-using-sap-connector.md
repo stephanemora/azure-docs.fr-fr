@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85323166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086606"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -134,7 +134,7 @@ Ces conditions préalables s’appliquent lorsque vos applications logiques s’
 
   * Si votre connexion SAP échoue avec le message d’erreur « Vérifiez vos informations de compte et vos autorisations, puis réessayez », les fichiers d’assembly peuvent se trouver au mauvais emplacement. Veillez à copier les fichiers d’assembly dans le dossier d’installation de la passerelle de données.
 
-    Pour vous aider à résoudre le problèmes, [utilisez la visionneuse du journal de liaison d’assembly .NET](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), qui vous permet de vérifier que les fichiers d’assembly se trouvent à l’emplacement approprié. Si vous le souhaitez, vous pouvez sélectionner l’option **Inscription du Global Assembly Cache** lors de l’installation de la bibliothèque de client SAP.
+    Pour vous aider à résoudre le problèmes, [utilisez la visionneuse du journal de liaison d’assembly .NET](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), qui vous permet de vérifier que les fichiers d’assembly se trouvent à l’emplacement approprié. Si vous le souhaitez, vous pouvez sélectionner l’option **Inscription du Global Assembly Cache** lors de l’installation de la bibliothèque de client SAP.
 
 <a name="sap-library-versions"></a>
 
@@ -187,7 +187,7 @@ Cet exemple utilise une application logique que vous pouvez déclencher à l’a
 Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application.
 
 > [!NOTE]
-> Lorsqu’une application logique reçoit des paquets IDoc de SAP, le [déclencheur de requête](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) ne prend pas en charge le schéma XML « brut » généré par la documentation WE60 IDoc de SAP. Toutefois, le schéma XML « brut » est pris en charge pour les scénarios qui envoient des messages d’applications logiques *à* SAP. Vous pouvez utiliser le déclencheur de requête avec le XML IDoc de SAP, mais pas avec IDoc sur RFC. Vous pouvez également transformer le XML au format requis. 
+> Lorsqu’une application logique reçoit des paquets IDoc de SAP, le [déclencheur de requête](../connectors/connectors-native-reqres.md) ne prend pas en charge le schéma XML « brut » généré par la documentation WE60 IDoc de SAP. Toutefois, le schéma XML « brut » est pris en charge pour les scénarios qui envoient des messages d’applications logiques *à* SAP. Vous pouvez utiliser le déclencheur de requête avec le XML IDoc de SAP, mais pas avec IDoc sur RFC. Vous pouvez également transformer le XML au format requis. 
 
 Dans cet exemple, vous allez créer une application logique avec un point de terminaison dans Azure afin de pouvoir envoyer des *requêtes HTTP POST* à votre application logique. Lorsque votre application logique reçoit ces requêtes HTTP, le déclencheur est activé et passe à l’étape suivante de votre flux de travail.
 
@@ -262,7 +262,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
       > [!TIP]
       > Spécifiez la valeur de l’**action SAP** via l’éditeur d’expressions. De cette façon, vous pouvez utiliser la même action pour différents types de messages.
 
-      Pour plus d’informations sur les opérations IDoc, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      Pour plus d’informations sur les opérations IDoc, consultez [Schémas de message pour les opérations IDoc](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    1. Cliquez dans la zone **Message d’entrée** pour afficher la liste du contenu dynamique. Dans cette liste, sous **Lors de la réception d’une demande HTTP**, sélectionnez le champ **Corps**.
 
@@ -291,6 +291,29 @@ Ajoutez maintenant une action de réponse au flux de travail de votre applicatio
    ![Terminer l’action SAP](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
 1. Enregistrez votre application logique.
+
+#### <a name="add-rfc-request-response"></a>Ajouter une requête-réponse RFC
+
+> [!NOTE]
+> Le déclencheur SAP reçoit des IDocs via tRFC, qui n’a pas de paramètre de réponse par définition. 
+
+Vous devez créer un modèle de requête et de réponse si vous avez besoin de recevoir des réponses en utilisant un appel de fonction distant (RFC) à Logic Apps à partir de SAP ABAP. Pour recevoir des IDocs dans votre application logique, vous devez faire de la première action une [requête HTTP](../connectors/connectors-native-reqres.md#add-a-response-action) avec un code d’état `200 OK` et aucun contenu. Cette étape recommandée termine immédiatement le transfert asynchrone SAP LUW sur tRFC, ce qui rend la conversation SAP CPIC à nouveau disponible. Vous pouvez ensuite ajouter d’autres actions dans votre application logique pour traiter l’IDoc reçu sans bloquer d’autres transferts.
+
+Pour implémenter un modèle de requête et de réponse, vous devez d’abord découvrir le schéma RFC à l’aide de la [commande `generate schema`](#generate-schemas-for-artifacts-in-sap). Le schéma généré comporte deux nœuds racines possibles : 
+
+1. Le nœud de requête, qui est l’appel que vous recevez de SAP.
+1. Le nœud de réponse, qui est votre réponse à SAP.
+
+Dans l’exemple suivant, un modèle de requête et de réponse est généré à partir du module RFC `STFC_CONNECTION`. Le code XML de la requête est analysé pour extraire une valeur de nœud dans laquelle SAP demande `<ECHOTEXT>`. La réponse insère l’horodatage actuel sous la forme d’une valeur dynamique. Vous recevez une réponse similaire lorsque vous envoyez un RFC `STFC_CONNECTION` à SAP depuis une application logique.
+
+```http
+
+<STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <ECHOTEXT>@{first(xpath(xml(triggerBody()?['Content']), '/*[local-name()="STFC_CONNECTION"]/*[local-name()="REQUTEXT"]/text()'))}</ECHOTEXT>
+  <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
+
+
+```
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
@@ -379,7 +402,7 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
    ![Exemple de déclencheur qui reçoit plusieurs messages](media/logic-apps-using-sap-connector/example-trigger.png)
 
-   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -422,11 +445,11 @@ Si vous ne pouvez pas envoyer de paquets IDoc de SAP vers le déclencheur de vot
 
 <a name="find-extended-error-logs"></a>
 
-#### <a name="find-extended-error-logs"></a>Rechercher des journaux d’erreurs étendus
+## <a name="find-extended-error-logs"></a>Rechercher des journaux d’erreurs étendus
 
 Pour obtenir les messages d’erreur complets, consultez les journaux étendus de votre adaptateur SAP. 
 
-Pour les versions de la passerelle de données locale à partir de juin 2020, vous pouvez [activer les journaux de la passerelle dans les paramètres de l’application](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+Pour les versions de la passerelle de données locale à partir de juin 2020, vous pouvez [activer les journaux de la passerelle dans les paramètres de l’application](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
 Pour les versions de la passerelle de données locale d’avril 2020 et versions antérieures, les journaux sont désactivés par défaut. Pour récupérer les journaux étendus, procédez comme suit :
 
@@ -481,7 +504,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 #### <a name="create-rfc-destination"></a>Créer une destination RFC
 
-1. Pour ouvrir les paramètres **Configuration des connexions RFC**, dans votre interface SAP, utilisez le code de transaction (T Code) **sm59** avec le préfixe **/n**.
+1. Pour ouvrir les paramètres **Configuration des connexions RFC**, dans votre interface SAP, utilisez le code de transaction (T-code) **sm59** avec le préfixe **/n**.
 
 1. Sélectionnez **Connexions TCP/IP** > **Créer**.
 
@@ -501,7 +524,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 #### <a name="create-abap-connection"></a>Créer une connexion ABAP
 
-1. Pour ouvrir les paramètres **Configuration des connexions RFC**, dans votre interface SAP, utilisez le code de transaction (T Code) **sm59*** avec le préfixe **/n**.
+1. Pour ouvrir les paramètres **Configuration des connexions RFC**, dans votre interface SAP, utilisez le code de transaction (T-code) **sm59*** avec le préfixe **/n**.
 
 1. Sélectionnez **Connexions ABAP** > **Créer**.
 
@@ -513,7 +536,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 #### <a name="create-receiver-port"></a>Créer un port de réception
 
-1. Pour ouvrir les paramètres **Ports pour le traitement des Idocs**, dans votre interface SAP, utilisez le code de transaction (T Code) **we21*** avec le préfixe **/n**.
+1. Pour ouvrir les paramètres **Ports pour le traitement des IDocs**, dans votre interface SAP, utilisez le code de transaction (T-code) **we21** avec le préfixe **/n**.
 
 1. Sélectionnez **Ports** > **RFC transactionnel** > **créer**.
 
@@ -525,7 +548,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 #### <a name="create-sender-port"></a>Créer un port d’envoi
 
-1.  Pour ouvrir les paramètres **Ports pour le traitement des Idocs**, dans votre interface SAP, utilisez le code de transaction (T Code) **we21*** avec le préfixe **/n**.
+1.  Pour ouvrir les paramètres **Ports pour le traitement des IDocs**, dans votre interface SAP, utilisez le code de transaction (T-code) **we21** avec le préfixe **/n**.
 
 1. Sélectionnez **Ports** > **RFC transactionnel** > **créer**.
 
@@ -537,7 +560,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 #### <a name="create-logical-system-partner"></a>Créer un partenaire de système logique
 
-1. Pour ouvrir les paramètres **Modifier la vue « Systèmes logiques » : Vue d’ensemble**, dans votre interface SAP, utilisez le code de transaction (T Code) **bd54**.
+1. Pour ouvrir les paramètres **Modifier la vue « Systèmes logiques » : Vue d’ensemble**, dans votre interface SAP, utilisez le code de transaction (T-code) **bd54**.
 
 1. Acceptez le message d’avertissement qui s’affiche : **Attention : La table est un client croisé**
 
@@ -553,7 +576,7 @@ Pour envoyer des Idocs de SAP à votre application logique, vous avez besoin de 
 
 Pour les environnements de production, vous devez créer deux profils partenaires. Le premier profil est destiné à l’expéditeur, qui est votre organisation et le système SAP. Le deuxième profil est pour le destinataire, qui est votre application logique.
 
-1. Pour ouvrir les paramètres **Profils partenaires**, dans votre interface SAP, utilisez le code de transaction (T Code) **we20** avec le préfixe **/n**.
+1. Pour ouvrir les paramètres **Profils partenaires**, dans votre interface SAP, utilisez le code de transaction (T-code) **we20** avec le préfixe **/n**.
 
 1. Sous **Profils partenaires**, sélectionnez **Type de partenaire LS** > **Créer**.
 
@@ -581,7 +604,7 @@ Pour les environnements de production, vous devez créer deux profils partenaire
 
 #### <a name="test-sending-messages"></a>Tester l’envoi de messages
 
-1. Pour ouvrir les paramètres **Outil de test pour le traitement des Idocs**, dans votre interface SAP, utilisez le code de transaction (T Code) **we19** avec le préfixe **/n**.
+1. Pour ouvrir les paramètres **Outil de test pour le traitement des IDocs**, dans votre interface SAP, utilisez le code de transaction (T-code) **we19** avec le préfixe **/n**.
 
 1. Sous **Modèle de test**, sélectionnez **Via le type de message**, et entrez votre type de message, par exemple **CREMAS**. Sélectionnez **Create** (Créer).
 
@@ -593,7 +616,7 @@ Pour les environnements de production, vous devez créer deux profils partenaire
 
 1. Pour démarrer le traitement d’Idocs sortants, sélectionnez **Continuer**. Une fois le traitement terminé, le message **IDoc envoyé au système SAP ou au programme externe** s’affiche.
 
-1.  Pour rechercher les erreurs de traitement, utilisez le code de transaction (T Code) **sm58** avec le préfixe **/n**.
+1.  Pour rechercher les erreurs de traitement, utilisez le code de transaction (T-code) **sm58** avec le préfixe **/n**.
 
 ## <a name="receive-idoc-packets-from-sap"></a>Recevoir des paquets d’IDocs de SAP
 
@@ -633,12 +656,262 @@ Vous pouvez utiliser le modèle de démarrage rapide correspondant à ce modèle
 
 Cet exemple utilise une application logique que vous pouvez déclencher à l’aide d’une requête HTTP. Pour générer les schémas pour l’IDoc et la BAPI spécifiés, l’action SAP **Générer un schéma** envoie une requête à un système SAP.
 
-Cette action SAP renvoie un schéma XML, et non le contenu ou les données du document XML proprement dit. Les schémas renvoyés dans la réponse sont chargés sur un compte d’intégration avec le connecteur Azure Resource Manager. Les schémas contiennent les éléments suivants :
+Cette action SAP renvoie un [schéma XML](#sample-xml-schemas), et non le contenu ou les données du document XML proprement dit. Les schémas renvoyés dans la réponse sont chargés sur un compte d’intégration avec le connecteur Azure Resource Manager. Les schémas contiennent les éléments suivants :
 
 * La structure du message de la requête. Utilisez ces informations pour constituer votre liste BAPI `get`.
 * La structure du message de réponse. Utilisez ces informations pour analyser la réponse. 
 
 Pour envoyer le message de la requête, utilisez l’action SAP générique **Envoyer un message à SAP** ou les actions ciblées **Appeler BAPI**.
+
+### <a name="sample-xml-schemas"></a>Exemples de schémas XML
+
+Si vous apprenez à générer un schéma XML à utiliser pour créer un document type, consultez les exemples suivants. Ces exemples montrent la manière dont vous pouvez travailler avec de nombreux types de charges utiles, notamment :
+
+* [Requêtes RFC](#xml-samples-for-rfc-requests)
+* [Requêtes BAPI](#xml-samples-for-bapi-requests)
+* [Requêtes IDoc](#xml-samples-for-idoc-requests)
+* Types de données de schéma XML simples ou complexes
+* Paramètres de table
+* Comportements XML facultatifs
+
+Vous pouvez commencer votre schéma XML par un prologue XML facultatif. Le connecteur SAP fonctionne avec ou sans prologue XML.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8">
+
+```
+
+#### <a name="xml-samples-for-rfc-requests"></a>Exemples XML pour les requêtes RFC
+
+L’exemple suivant est un appel RFC de base. Le nom du RFC est `STFC_CONNECTION`. Cette requête utilise l’espace de noms par défaut `xmlns=`. Toutefois, vous pouvez attribuer et utiliser des alias d’espaces de noms tels que `xmmlns:exampleAlias=`. La valeur de l’espace de noms est l’espace de noms de tous les RFC dans SAP pour les services Microsoft. Il existe un paramètre d’entrée simple dans la requête HTTP, `<REQUTEXT>`.
+
+```xml
+
+<STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <REQUTEXT>exampleInput</REQUTEXT>
+</STFC_CONNECTION>
+
+```
+
+L’exemple suivant est un appel RFC avec un paramètre de table. Cet exemple d’appel et son groupe de RFC de test sont disponibles dans le cadre de tous les systèmes SAP. Le nom du paramètre de table est `TCPICDAT`. Le type de ligne de table est `ABAPTEXT`, et cet élément se répète pour chaque ligne de la table. Cet exemple contient une seule ligne, appelée `LINE`. Les requêtes dotées d’un paramètre de table peuvent contenir un nombre quelconque de champs, où le nombre est un entier positif (*n*). 
+
+```xml
+
+<STFC_WRITE_TO_TCPIC xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <RESTART_QNAME>exampleQName</RESTART_QNAME>
+    <TCPICDAT>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput1</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput2</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput3</LINE>
+      </ABAPTEXT>
+    </TCPICDAT>
+</STFC_WRITE_TO_TCPIC>
+
+```
+
+L’exemple suivant est un appel RFC avec un paramètre de table ayant un champ anonyme. Un champ anonyme est un champ auquel aucun nom n’a été attribué. Les types complexes sont déclarés sous un espace de noms distinct, dans lequel la déclaration définit une nouvelle valeur par défaut pour le nœud actuel et tous ses éléments enfants. L’exemple utilise le code hexadécimal `x002F` comme caractère d’échappement à la place du symbole */* , car ce dernier est réservé dans le nom de champ SAP.
+
+```xml
+
+<RFC_XML_TEST_1 xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <IM_XML_TABLE>
+    <RFC_XMLCNT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      <_x002F_AnonymousField>exampleFieldInput</_x002F_AnonymousField>
+    </RFC_XMLCNT>
+  </IM_XML_TABLE>
+</RFC_XML_TEST_1>
+
+```
+
+L’exemple suivant comprend des préfixes pour les espaces de noms. Vous pouvez déclarer tous les préfixes à la fois, ou vous pouvez déclarer un nombre quelconque de préfixes comme attributs d’un nœud. L’alias d’espace de noms RFC `ns0` est utilisé comme racine et paramètres pour le type de base. Notez que les types complexes sont déclarés sous un espace de noms différent pour les types RFC avec l’alias `ns3` au lieu de l’espace de noms RFC standard avec l’alias `ns0`.
+
+```xml
+
+<ns0:BBP_RFC_READ_TABLE xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Rfc/" xmlns:ns3="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
+  <ns0:DELIMITER>0</ns0:DELIMITER>
+  <ns0:QUERY_TABLE>KNA1</ns0:QUERY_TABLE>
+  <ns0:ROWCOUNT>250</ns0:ROWCOUNT>
+  <ns0:ROWSKIPS>0</ns0:ROWSKIPS>
+  <ns0:FIELDS>
+    <ns3:RFC_DB_FLD>
+      <ns3:FIELDNAME>KUNNR</ns3:FIELDNAME>
+    </ns3:RFC_DB_FLD>
+  </ns0:FIELDS>
+</ns0:BBP_RFC_READ_TABLE>
+
+```
+
+#### <a name="xml-samples-for-bapi-requests"></a>Exemples XML pour les requêtes BAPI
+
+> [!TIP]
+> Si vous utilisez le concepteur Logic Apps pour modifier votre requête BAPI, vous pouvez utiliser les fonctions de recherche suivantes : 
+> 
+> * Sélectionnez un objet dans le concepteur afin d’afficher le menu déroulant des méthodes disponibles.
+> * Filtrez les types d’objets métier par mot clé à l’aide de la liste de recherche fournie par l’appel d’API BAPI.
+
+> [!NOTE]
+> SAP met les objets métier à la disposition des systèmes externes en les décrivant en réponse au RFC `RPY_BOR_TREE_INIT`, que Logic Apps émet sans filtre d’entrée. Logic Apps inspecte la table de sortie `BOR_TREE`. Le champ `SHORT_TEXT` est utilisé pour les noms d’objets métier. Les objets métier non retournés par SAP dans la table de sortie ne sont pas accessibles à Logic Apps.
+> Si vous utilisez des objets métier personnalisés, vous devez veiller à publier et à mettre en production ces objets métier dans SAP. Dans le cas contraire, SAP ne répertorie pas vos objets métier personnalisés dans la table de sortie `BOR_TREE`. Vous ne pouvez pas accéder à vos objets métier personnalisés dans Logic Apps tant que vous n’exposez pas les objets métier à partir de SAP. 
+
+L’exemple suivant récupère une liste de banques à l’aide de la méthode BAPI `GETLIST`. Cet exemple contient l’objet métier d’une banque, `BUS1011`. 
+
+```xml
+
+<GETLIST xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_CTRY>US</BANK_CTRY>
+  <MAX_ROWS>10</MAX_ROWS>
+</GETLIST>
+
+```
+
+L’exemple suivant crée un objet banque à l’aide de la méthode `CREATE`. Cet exemple utilise le même objet métier que l’exemple précédent, `BUS1011`. Lorsque vous utilisez la méthode `CREATE` pour créer une banque, veillez à valider vos modifications, car cette méthode n’est pas validée par défaut.
+
+> [!TIP]
+> Veillez à ce que votre document XML respecte les règles de validation configurées dans votre système SAP. Par exemple, dans cet exemple de document, la clé de la banque (`<BANK_KEY>`) doit être un numéro de routage bancaire, également appelé « numéro ABA » aux États-Unis.
+
+```xml
+
+<CREATE xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_ADDRESS>
+    <BANK_NAME xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleBankName</BANK_NAME>
+    <REGION xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleRegionName</REGION>
+    <STREET xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleStreetAddress</STREET>
+    <CITY xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">Redmond</CITY>
+  </BANK_ADDRESS>
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</CREATE>
+
+```
+
+L’exemple suivant récupère les détails d’une banque en utilisant le numéro de routage bancaire, soit la valeur de `<BANK_KEY>`. 
+
+```xml
+
+<GETDETAIL xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</GETDETAIL>
+
+```
+
+#### <a name="xml-samples-for-idoc-requests"></a>Exemples XML pour les requêtes IDoc
+
+Pour générer un schéma XML IDoc SAP simple, utilisez l’application **SAP Logon** et le T-code `WE-60`. Accédez à la documentation SAP par le biais de l’interface graphique utilisateur et générez des schémas XML au format XSD pour vos extensions et types IDoc. Pour obtenir une explication des formats et charges utiles SAP génériques, ainsi que de leurs boîtes de dialogue intégrées, consultez la [documentation SAP](https://help.sap.com/viewer/index).
+
+Cet exemple déclare le nœud racine et les espaces de noms. L’URI de l’exemple de code, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send`, déclare la configuration suivante :
+
+* `/IDoc` est le nœud racine pour tous les IDocs
+* `/3` est la version des types d’enregistrement pour les définitions communes de segments
+* `/ORDERS05` est le type IDoc
+* `//` est un segment vide, car il n’existe pas d’extension IDoc
+* `/700` est la version SAP
+* `/Send` est l’action permettant d’envoyer les informations à SAP
+
+```xml
+
+<ns0:Send xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization" xmlns:ns1="http://Microsoft.LobServices.Sap/2007/03/Types/Idoc/Common/" xmlns:ns2="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700">
+  <ns0:idocData>
+
+```
+
+Vous pouvez répéter le nœud `idocData` pour envoyer un lot d’IDocs en un seul appel. Dans l’exemple ci-dessous, il existe un enregistrement de contrôle, `EDI_DC40`, et plusieurs enregistrements de données.
+
+```xml
+
+<...>
+  <ns0:idocData>
+    <ns2:EDI_DC40>
+      <ns1:TABNAM>EDI_DC40</ns1:TABNAM>
+<...>
+      <ns1:ARCKEY>Cor1908207-5</ns1:ARCKEY>
+    </ns2:EDI_DC40>
+    <ns2:E2EDK01005>
+      <ns2:DATAHEADERCOLUMN_SEGNAM>E23DK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:CURCY>USD</ns2:CURCY>
+    </ns2:E2EDK01005>
+    <ns2:E2EDK03>
+<...>
+  </ns0:idocData>
+
+```
+
+L’exemple suivant est un exemple d’enregistrement de contrôle IDoc, qui utilise le préfixe `EDI_DC`. Vous devez mettre à jour les valeurs pour qu’elles correspondent à votre installation SAP et au type IDoc. Par exemple, votre code client IDoc n’est peut-être pas `800`. Contactez votre équipe SAP pour vous assurer que vous utilisez les valeurs correctes pour votre installation SAP.
+
+```xml
+
+<ns2:EDI_DC40>
+  <ns:TABNAM>EDI_DC40</ns1:TABNAM>
+  <ns:MANDT>800</ns1:MANDT>
+  <ns:DIRECT>2</ns1:DIRECT>
+  <ns:IDOCTYP>ORDERS05</ns1:IDOCTYP>
+  <ns:CIMTYP></ns1:CIMTYP>
+  <ns:MESTYP>ORDERS</ns1:MESTYP>
+  <ns:STD>X</ns1:STD>
+  <ns:STDVRS>004010</ns1:STDVRS>
+  <ns:STDMES></ns1:STDMES>
+  <ns:SNDPOR>SAPENI</ns1:SNDPOR>
+  <ns:SNDPRT>LS</ns1:SNDPRT>
+  <ns:SNDPFC>AG</ns1:SNDPFC>
+  <ns:SNDPRN>ABAP1PXP1</ns1:SNDPRN>
+  <ns:SNDLAD></ns1:SNDLAD>
+  <ns:RCVPOR>BTSFILE</ns1:RCVPOR>
+  <ns:RCVPRT>LI</ns1:RCVPRT>
+
+```
+
+L’exemple suivant est un exemple d’enregistrement de données avec des segments ordinaires. Cet exemple utilise le format de date SAP. Les documents fortement typés peuvent utiliser des formats de date XML natifs, tels que `2020-12-31 23:59:59`.
+
+```xml
+
+<ns2:E2EDK01005>
+  <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+    <ns2:CURCY>USD</ns2:CURCY>
+    <ns2:BSART>OR</ns2:BSART>
+    <ns2:BELNR>1908207-5</ns2:BELNR>
+    <ns2:ABLAD>CC</ns2:ABLAD>
+  </ns2>
+  <ns2:E2EDK03>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK03</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:IDDAT>002</ns2:IDDAT>
+      <ns2:DATUM>20160611</ns2:DATUM>
+  </ns2:E2EDK03>
+
+```
+
+L’exemple suivant est un enregistrement de données avec des segments groupés. Cela inclut un nœud parent de groupe, `E2EDKT1002GRP`, et plusieurs nœuds enfants, notamment `E2EDKT1002` et `E2EDKT2001`. 
+
+```xml
+
+<ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <NS2:TDID>ZONE</ns2:TDID>
+  </ns2:E2EDKT1002>
+  <ns2:E2EDKT2001>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:TDLINE>CRSD</ns2:TDLINE>
+  </ns2:E2EDKT2001>
+</ns2:E2EDKT1002GRP>
+
+```
+
+La méthode recommandée consiste à créer un identificateur IDoc à utiliser avec tRFC. Vous pouvez définir cet identificateur de transaction, `tid`, à l’aide de l’[opération Envoyer un IDoc](https://docs.microsoft.com/connectors/sap/#send-idoc) dans l’API du connecteur SAP.
+
+L’exemple suivant est une méthode alternative pour définir l’identificateur de transaction, ou `tid`. Dans cet exemple, le dernier nœud de segment d’enregistrement de données et le nœud de données IDoc sont fermés. Ensuite, l’identificateur unique, `guid`, est utilisé comme identificateur tRFC pour détecter les doublons. 
+
+```xml
+
+    </E2STZUM002GRP>
+  </idocData>
+  <guid>8820ea40-5825-4b2f-ac3c-b83adc34321c</guid>
+</Send>
+
+```
 
 ### <a name="add-an-http-request-trigger"></a>Ajouter un déclencheur de requête HTTP
 
@@ -709,7 +982,7 @@ Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    ![Afficher deux éléments](media/logic-apps-using-sap-connector/schema-generator-example.png)
 
-   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -868,11 +1141,36 @@ Voici un exemple montrant ce modèle :
 
    ![Propriétés de l’action Envoyer l’IDOC](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
 
-1. Pour confirmer explicitement l’ID de transaction, ajoutez l’action **Confirmer l’ID de transaction**. Cliquez dans la zone **ID de transaction** pour faire apparaître la liste des contenus dynamiques. Dans cette liste, sélectionnez la valeur **ID de transaction** qui est retournée depuis l’action **Envoyer l’IDOC**.
+1. Pour confirmer explicitement l’ID de transaction, ajoutez l’action **Confirmer l’ID de transaction** en veillant à [ne pas envoyer d’IDocs en double à SAP](#avoid-sending-duplicate-idocs). Cliquez dans la zone **ID de transaction** pour faire apparaître la liste des contenus dynamiques. Dans cette liste, sélectionnez la valeur **ID de transaction** qui est retournée depuis l’action **Envoyer l’IDOC**.
 
    ![Action Confirmer l’ID de transaction](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
 
    Après l’exécution de cette étape, la transaction actuelle est marquée comme terminée aux deux extrémités, sur le côté connecteur SAP et sur le côté système SAP.
+
+#### <a name="avoid-sending-duplicate-idocs"></a>Ne pas envoyer d’IDocs en double
+
+Si vous rencontrez un problème d’envoi d’IDocs en double à SAP à partir de votre application logique, procédez comme suit pour créer une variable de chaîne qui servira d’identificateur de transaction IDoc. La création de cet identificateur de transaction permet d’éviter les transmissions réseau en double en cas de problèmes tels que des pannes temporaires, des problèmes réseau ou des accusés de réception perdus.
+
+> [!NOTE]
+> Les systèmes SAP oublient un identificateur de transaction après une durée spécifiée, ou 24 heures par défaut. Par conséquent, SAP ne manque jamais de confirmer un identificateur de transaction si l’ID ou le GUID est inconnu.
+> Si la confirmation d’un identificateur de transaction échoue, cet échec indique que la communication avec le système SAP a échoué avant que SAP ait pu accuser réception de la confirmation.
+
+1. Dans le concepteur Logic Apps, ajoutez l’action **Initialiser la variable** à votre application logique. 
+1. Dans l’éditeur de l’action **Initialiser la variable**, configurez les paramètres suivants. Ensuite, enregistrez vos modifications.
+    1. Pour **Nom**, entrez un nom pour votre variable. Par exemple : `IDOCtransferID`.
+    2. Pour **Type**, sélectionnez **Chaîne** comme type de variable.
+    3. Pour **Valeur**, sélectionnez la zone de texte **Entrer la valeur initiale** pour ouvrir le menu de contenu dynamique. Sélectionnez l’onglet **Expressions**. Dans la liste des fonctions, entrez la fonction `guid()`. Ensuite, sélectionnez **OK** pour enregistrer vos modifications. Le champ **Valeur** est maintenant défini sur la fonction `guid()`, qui génère un GUID.
+1. Après l’action **Initialiser la variable**, ajoutez l’action **Envoyer un IDOC**.
+1. Dans l’éditeur de l’action **Envoyer un IDOC**, configurez les paramètres suivants. Ensuite, enregistrez vos modifications.
+    1. Pour **Type d’IDOC**, sélectionnez votre type de message et, pour **Message IDOC d’entrée**, spécifiez votre message.
+    1. Pour **Version SAP**, sélectionnez les valeurs de votre configuration SAP.
+    1. Pour **Version des types d’enregistrement**, sélectionnez les valeurs de votre configuration SAP.
+    1. Pour **Confirmer le TID**, sélectionnez **Non**.
+    1. Sélectionnez **Ajouter une liste de paramètres** > **GUID de l’ID de transaction**. Sélectionnez la zone de texte pour ouvrir le menu de contenu dynamique. Sous l’onglet **Variables**, sélectionnez le nom de la variable que vous avez créée. Par exemple : `IDOCtransferID`.
+1. Dans la barre de titre de l’action **Envoyer un IDOC**, sélectionnez **…**  > **Paramètres**. Pour **Stratégie de nouvelles tentatives**, sélectionnez **Aucune** > **Terminé**.
+1. Après l’action **Envoyer un IDOC**, ajoutez l’action **Confirmer l’ID de transaction**.
+1. Dans l’éditeur de l’action **Confirmer l’ID de transaction**, configurez les paramètres suivants. Ensuite, enregistrez vos modifications.
+    1. Pour **ID de transaction**, entrez à nouveau le nom de votre variable. Par exemple : `IDOCtransferID`.
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
@@ -884,7 +1182,7 @@ Voici les problèmes et limitations connus pour le connecteur SAP (non-ISE) mana
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sap/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/sap/).
 
 > [!NOTE]
 > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.

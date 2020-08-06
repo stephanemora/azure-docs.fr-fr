@@ -2,13 +2,13 @@
 title: Déployer une instance de conteneur compatible GPU
 description: Découvrez comment déployer des instances de conteneur Azure pour exécuter des applications de conteneur nécessitant beaucoup de ressources système à l’aide de ressources GPU.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387085"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -33,9 +33,6 @@ D’autres régions seront également prises en charge au fil du temps.
 
 ## <a name="about-gpu-resources"></a>À propos des ressources GPU
 
-> [!IMPORTANT]
-> Les ressources GPU sont disponibles sur demande uniquement. Vous pouvez demander l’accès aux ressources GPU en ouvrant une [demande de support Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Nombre et référence SKU
 
 Pour utiliser des GPU dans une instance de conteneur, vous devez spécifier une *ressource GPU* avec les informations suivantes :
@@ -53,6 +50,9 @@ Pour utiliser des GPU dans une instance de conteneur, vous devez spécifier une 
 
 Lors du déploiement des ressources GPU, définissez des ressources UC et mémoire appropriées pour la charge de travail, jusqu’aux valeurs maximales indiquées dans le tableau précédent. Ces valeurs sont actuellement supérieures aux ressources disponibles pour l’UC et la mémoire dans les groupes de conteneurs sans ressources GPU.  
 
+> [!IMPORTANT]
+> Les [limites d’abonnement](container-instances-quotas.md) par défaut (quotas) pour les ressources GPU diffèrent par référence (SKU). Les limites d’UC par défaut pour les références (SKU) P100 et V100 sont initialement définies sur 0. Pour demander une augmentation dans une région disponible, veuillez envoyer une [demande de support Azure][azure-support].
+
 ### <a name="things-to-know"></a>À savoir
 
 * **Durée de déploiement** : la création d’un groupe de conteneurs comportant des ressources GPU peut prendre jusqu’à **8 à 10 minutes**. Ce délai est dû au temps supplémentaire nécessaire pour la gestion et la configuration d’une machine virtuelle GPU dans Azure. 
@@ -63,7 +63,7 @@ Lors du déploiement des ressources GPU, définissez des ressources UC et mémoi
 
 * **Pilotes CUDA** : les instances de conteneur avec ressources GPU sont préconfigurées avec des pilotes NVIDIA CUDA et des runtimes de conteneur. Vous pouvez donc utiliser des images de conteneur développées pour les charges de travail CUDA.
 
-  Nous prenons en charge CUDA 9.0 à ce stade. Par exemple, vous pouvez utiliser suivant les images de base suivantes pour votre fichier Docker :
+  À ce stade, nous prenons en charge uniquement CUDA 9.0. Par exemple, vous pouvez utiliser les images de base suivantes pour votre fichier Docker :
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     

@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004101"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -137,7 +137,7 @@ Ces rôles intégrés peuvent modifier la classification des données d’une ba
 - Contributeur
 - Gestionnaire de sécurité SQL
 
-Pour plus d’informations sur les autorisations basées sur les rôles, consultez [RBAC pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+En savoir plus sur les autorisations en fonction du rôle dans [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Gérer les classifications
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024446"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274678"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -80,8 +80,7 @@ Ce paramètre s’applique aux applications iOS et Android suivantes :
 - Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
+- Microsoft Power Automate
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -123,9 +122,22 @@ Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l
 Ce paramètre s’applique aux applications clientes suivantes :
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Planificateur Microsoft
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- MultiLine for Intune
+- Nine Mail - Email & Calendar
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype Entreprise et Microsoft Visio ne prennent pas en charge l’octroi **Exiger une stratégie de protection des applications**. Si vous avez besoin que ces applications fonctionnent, utilisez exclusivement l’octroi **Exiger une stratégie de protection des applications**. L’utilisation de la clause entre les deux octrois ne fonctionnera pas pour ces trois applications.
 
 **Remarques**
 

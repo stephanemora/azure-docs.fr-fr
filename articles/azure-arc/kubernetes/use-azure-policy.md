@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050041"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle (préversion)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111267"
 Utiliser Azure Policy pour faire en sorte que chaque ressource `Microsoft.Kubernetes/connectedclusters` ou ressource `Microsoft.ContainerService/managedClusters` activée par Git-Ops fasse l'objet d'une application spécifique de `Microsoft.KubernetesConfiguration/sourceControlConfigurations`. Pour utiliser Azure Policy, vous sélectionnez une définition de stratégie et créez une attribution de stratégie. Lors de la création de l’attribution de stratégie, vous définissez l’étendue de l’attribution, à savoir un groupe de ressources ou un abonnement Azure. Vous définissez également les paramètres pour la configuration `sourceControlConfiguration` qui sera créée. Une fois l’attribution créée, le moteur de stratégie identifie toutes les ressources `connectedCluster` ou `managedCluster` qui se trouvent dans l’étendue, et applique la `sourceControlConfiguration` à chacune d’elles.
 
 Si vous utilisez plusieurs dépôts Git comme sources fidèles pour chaque cluster (par exemple, un dépôt pour l’opérateur IT/de cluster central et d’autres pour les équipes d’applications), vous pouvez activer cela en utilisant plusieurs attributions de stratégies, chacune étant configurée pour utiliser dépôt Git distinct.
+
+## <a name="prerequisite"></a>Configuration requise
+
+Vérifiez que vous disposez des autorisations `Microsoft.Authorization/policyAssignments/write` sur l’étendue (abonnement ou groupe de ressources) dans laquelle vous souhaitez créer cette attribution de stratégie.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
@@ -42,7 +46,7 @@ Une fois l’attribution de stratégie créée, pour toute nouvelle ressource `c
 
 ## <a name="verify-a-policy-assignment"></a>Vérifier une attribution de stratégie
 
-1. Dans le portail Azure, accédez à l’une de vos ressources `connectedCluster`, puis, dans la section **Paramètres** de la barre latérale, sélectionnez **Stratégies** (l’expérience utilisateur pour le cluster managé AKS n’est pas encore implémentée, mais elle est disponible).
+1. Dans le portail Azure, accédez à l’une de vos ressources `connectedCluster`, puis, dans la section **Paramètres** de la barre latérale, sélectionnez **Stratégies** (l’expérience utilisateur pour le cluster AKS n’est pas encore implémentée, mais sera bientôt disponible).
 2. Dans la liste, vous devriez voir l’attribution de stratégie que vous avez créée ci-dessus, et l’**État de conformité** devrait être *Conforme*.
 3. Dans la section **Paramètres** de la barre latérale, sélectionnez **Configurations**.
 4. Dans la liste, vous devriez voir la `sourceControlConfiguration` que l’attribution de stratégie a créée.

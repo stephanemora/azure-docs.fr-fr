@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9373893b1381e9a2f54bb83717e6001efac295
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386331"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -74,7 +74,7 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
 - **v1**
 
-   Pour la référence SKU v1, les routes définies par l’utilisateur sont prises en charge sur le sous-réseau Application Gateway, tant qu’elles n’altèrent pas la communication de demande/réponse de bout en bout. Par exemple, vous pouvez configurer une route définie par l’utilisateur dans le sous-réseau Application Gateway pour pointer vers une appliance de pare-feu afin d’inspecter un paquet. Mais vous devez vérifier que le paquet peut atteindre sa destination prévue après l’inspection. S’il n’y parvient pas, cela peut entraîner un comportement incorrect de la sonde d’intégrité ou du routage du trafic. Sont incluses les routes apprises ou 0.0.0.0/0 par défaut propagées par Azure ExpressRoute ou des passerelles VPN dans le réseau virtuel.
+   Pour la référence SKU v1, les routes définies par l’utilisateur sont prises en charge sur le sous-réseau Application Gateway, tant qu’elles n’altèrent pas la communication de demande/réponse de bout en bout. Par exemple, vous pouvez configurer une route définie par l’utilisateur dans le sous-réseau Application Gateway pour pointer vers une appliance de pare-feu afin d’inspecter un paquet. Mais vous devez vérifier que le paquet peut atteindre sa destination prévue après l’inspection. S’il n’y parvient pas, cela peut entraîner un comportement incorrect de la sonde d’intégrité ou du routage du trafic. Sont incluses les routes apprises ou 0.0.0.0/0 par défaut propagées par Azure ExpressRoute ou des passerelles VPN dans le réseau virtuel. Tout scénario dans lequel 0.0.0.0/0 doit être redirigé localement (tunneling forcé) n’est pas pris en charge pour v1.
 
 - **v2**
 
@@ -286,7 +286,7 @@ En utilisant des règles de réécriture, vous pouvez ajouter, supprimer ou mett
 Vous pouvez régler les en-têtes et les paramètres d’URL sur des valeurs statiques ou d’autres en-têtes et variables de serveur. Cela facilite les cas d’usage importants, tels que l’extraction d’adresses IP des clients, la suppression d’informations sensibles relatives au back-end, le renforcement de la sécurité, etc.
 Pour plus d'informations, consultez les pages suivantes :
 
- - [Vue d’ensemble de la réécriture des en-têtes HTTP](rewrite-http-headers-url.md)
+ - [Vue d’ensemble de la réécriture des en-têtes HTTP et des URL](rewrite-http-headers-url.md)
  - [Configurer la réécriture des en-têtes HTTP](rewrite-http-headers-portal.md)
  - [Configurer la réécriture d’URL](rewrite-url-portal.md)
 

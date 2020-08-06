@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050288"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurer une application App Service supprimée à l’aide de PowerShell
 
@@ -58,7 +58,7 @@ Les informations détaillées incluent :
 Une fois que vous avez identifié l’application à restaurer, vous pouvez la restaurer à l’aide de `Restore-AzDeletedWebApp`.
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > Les emplacements de déploiement ne sont pas restaurés dans le cadre de votre application. Si vous devez restaurer un emplacement de préproduction, utilisez l'indicateur `-Slot <slot-name>`.
@@ -66,7 +66,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 Les entrées de la commande sont les suivantes :
 
-- **Groupe de ressources** : Groupe de ressources cible dans lequel l’application sera restaurée.
+- **Groupe de ressources cible** : Groupe de ressources cible dans lequel l’application sera restaurée.
 - **Name** : Nom de l’application qui doit être globalement unique.
 - **TargetAppServicePlanName** : Plan App Service lié à l’application.
 

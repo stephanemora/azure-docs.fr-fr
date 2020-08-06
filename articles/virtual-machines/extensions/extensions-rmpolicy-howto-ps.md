@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Policy pour restreindre l’installation d’extensions de machines virtuelles
+title: Utiliser Azure Policy pour restreindre l’installation d’extensions de machines virtuelles (Windows)
 description: Découvrez comment utiliser Azure Policy pour restreindre les déploiements d’extension.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069763"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Windows
 
@@ -98,7 +98,7 @@ Lorsque vous avez terminé, appuyez sur **Ctrl + O**, puis sur **Entrée** pour 
 
 ## <a name="create-the-policy"></a>Création de la stratégie
 
-Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez une définition de stratégie à l'aide de la cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
+Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez une définition de stratégie à l'aide de la cmdlet [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
  Les règles de stratégie et les paramètres correspondent aux fichiers que vous avez créés et stockés en tant que fichiers .json dans votre Cloud Shell.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Affecter la stratégie
 
-Dans cet exemple, la stratégie est affectée à un groupe de ressources à l'aide de la commande [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access Agent ou Custom Script. 
+Dans cet exemple, la stratégie est affectée à un groupe de ressources à l'aide de la commande [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access Agent ou Custom Script. 
 
-Utilisez la cmdlet [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) pour obtenir l'ID d'abonnement qui remplacera celui de l'exemple.
+Utilisez la cmdlet [Get-AzSubscription | Format-Table](/powershell/module/az.accounts/get-azsubscription) pour obtenir l'ID d'abonnement qui remplacera celui de l'exemple.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

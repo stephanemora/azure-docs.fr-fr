@@ -4,15 +4,15 @@ description: Découvrez comment créer et configurer des ressources techniques p
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107153"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407946"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Créer vos ressources techniques Machine virtuelle Azure
 
@@ -43,7 +43,7 @@ Concevoir, créer et tester ces ressources demande du temps et des connaissances
 
 Vous pouvez utiliser l’un des environnements de script suivants pour faciliter la gestion des machines virtuelles et des disques durs virtuels :
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 Vous pouvez aussi ajouter les outils suivants à votre environnement de développement :
@@ -282,4 +282,4 @@ Si vous avez rencontré des difficultés pour créer votre nouveau disque dur vi
 
 Sinon :
 
-* [Certifier votre image de machine virtuelle](get-sas-uri.md) explique comment tester et soumettre une image de machine virtuelle pour la certification de la Place de marché Azure, y compris où obtenir l’outil *Certification Test Tool for Azure Certified*  et comment l’utiliser pour certifier votre image de machine virtuelle.
+* [Tester une machine virtuelle déployée depuis un VHD](azure-vm-image-certification.md) explique comment tester et soumettre une image de machine virtuelle pour la certification de la Place de marché Azure, y compris où obtenir l’outil *Certification Test Tool for Azure Certified*  et comment l’utiliser pour certifier votre image de machine virtuelle.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76315029"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086589"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -99,9 +99,13 @@ Les métriques suivantes sont disponibles pour le pare-feu Azure :
 
     Nombre d’unité : nombre
 
-- **Données traitées** : quantité de données qui transitent par le pare-feu.
+- **Données traitées** : somme des données qui traversent le pare-feu dans une fenêtre temporelle donnée.
 
     Unité : octets
+
+- **Débit** : nombre de données traversant le pare-feu par seconde.
+
+    Unité : bits par seconde
 
 - **État d'intégrité du pare-feu** : indique l'intégrité du pare-feu en fonction de la disponibilité du port SNAT.
 

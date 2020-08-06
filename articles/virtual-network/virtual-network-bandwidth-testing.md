@@ -1,7 +1,7 @@
 ---
 title: Test du débit réseau de machine virtuelle Azure
 titlesuffix: Azure Virtual Network
-description: Découvrez comment tester le débit du réseau des machines virtuelles Azure.
+description: Utilisez NTTTCP pour cibler le réseau à des fins de test et réduire l’utilisation d’autres ressources qui pourraient avoir un impact sur les performances.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708244"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265175"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test de bande passante/débit (NTTTCP)
 

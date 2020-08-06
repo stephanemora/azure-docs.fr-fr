@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c350b10fb3db82af47551591d95e87cacd63a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065016"
 ---
 # <a name="network-security-groups"></a>Groupes de sécurité réseau
 <a name="network-security-groups"></a>
@@ -42,6 +42,7 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 |Action     | Autoriser ou refuser        |
 
 Les règles de sécurité des groupes de sécurité réseau sont évaluées par priorité selon un tuple à 5 éléments (source, port source, destination, port de destination et protocole) pour autoriser ou refuser le trafic. Un enregistrement de flux est créé pour les connexions existantes. La communication est autorisée ou refusée en fonction de l’état de connexion de l’enregistrement de flux. L’enregistrement de flux permet d’obtenir un groupe de sécurité réseau avec état. Si vous spécifiez une règle de sécurité sortante vers n’importe quelle adresse sur le port 80, par exemple, il n’est pas nécessaire d’indiquer une règle de sécurité entrante pour la réponse au trafic sortant. Vous devez uniquement spécifier une règle de sécurité entrante si la communication est établie en externe. Le contraire est également vrai. Si le trafic entrant est autorisé sur un port, il n’est pas nécessaire de spécifier une règle de sécurité sortante pour répondre au trafic sur ce port.
+
 Les connexions existantes ne peuvent pas être interrompues quand vous supprimez une règle de sécurité ayant activé le flux. Les flux de trafic sont interrompus quand les connexions sont arrêtées et qu’aucun trafic ne transite dans un sens ou dans l’autre pendant au moins quelques minutes.
 
 Le nombre de règles de sécurité que vous pouvez créer dans un groupe de sécurité réseau est limité. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -100,7 +101,7 @@ Les règles de sécurité augmentée simplifient la définition de la sécurité
 
 #### <a name="service-tags"></a>Balises de service
 
-Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Elle permet de réduire la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau.
+Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Elle permet de minimiser la complexité des mises à jour fréquentes des règles de sécurité réseau.
 
 Pour plus d’informations, consultez [Balises de Service Azure](service-tags-overview.md). Pour obtenir un exemple d’utilisation de la balise de service de stockage pour limiter l’accès réseau, consultez [Limiter l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources.md).
 
@@ -141,9 +142,7 @@ Pour le trafic sortant, Azure traite d’abord les règles dans un groupe de sé
 
 Il est important de noter que les règles de sécurité dans un groupe de sécurité réseau (NSG) associé à un sous-réseau peuvent perturber la connectivité entre les machines virtuelles (VM) qui le composent. Par exemple, si une règle est ajoutée à *NSG1* qui refuse tout le trafic entrant et sortant, *VM1* et *VM2* ne seront plus en mesure de communiquer entre elles. Une autre règle doit être ajoutée spécifiquement pour l’autoriser. 
 
-
-
-Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-network-interface.md#view-effective-security-rules) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. Le Flux IP vous indique si la communication est autorisée ou refusée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
+Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-network-interface.md#view-effective-security-rules) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. La vérification du flux IP vous indique si la communication est autorisée ou refusée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
 
 > [!NOTE]
 > Les groupes de sécurité réseau sont associés à des sous-réseaux ou à des machines virtuelles et services cloud déployés dans le modèle de déploiement classique, et à des sous-réseaux ou des interfaces réseau dans le modèle de déploiement Resource Manager. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -161,7 +160,7 @@ Vous pouvez facilement afficher des règles d’agrégation appliquées à une i
 
   Si vous avez créé votre abonnement Azure avant le 15 novembre 2017, vous pouvez, en plus d’utiliser des services de relais SMTP, envoyer des messages électroniques via le port TCP 25 directement. Si vous avez créé votre abonnement après le 15 novembre 2017, vous ne serez peut-être pas en mesure d’envoyer des messages électroniques via le port TCP 25 directement. Le comportement des communications sortantes via le port 25 dépend de votre type d’abonnement :
 
-     - **Contrat Entreprise** : Les communications sortantes via le port 25 sont autorisées. Vous êtes en mesure d’envoyer du courrier sortant directement depuis les machines virtuelles vers des fournisseurs de messagerie électronique externes, sans limitations de la plateforme Azure. 
+     - **Contrat Entreprise** : Les communications sortantes via le port 25 sont autorisées. Vous pouvez envoyer du courrier sortant directement depuis des machines virtuelles vers des fournisseurs de messagerie électronique externes, sans restrictions de la plateforme Azure. 
      - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Si vous devez envoyer des courriers électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)* . Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des courriers électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
      - **MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et Essai gratuit** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des courriers électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
      - **Fournisseur de services cloud** : Les clients qui consomment des ressources Azure via un fournisseur de services cloud peuvent créer une demande de support auprès de celui-ci et demander qu’il crée une demande de déblocage en son nom, si un relais SMTP sécurisé ne peut pas être utilisé.

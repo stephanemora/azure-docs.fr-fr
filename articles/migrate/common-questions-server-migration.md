@@ -3,12 +3,12 @@ title: Questions courantes sur la migration de serveur Azure Migrate
 description: Obtenez des réponses aux questions courantes sur l’utilisation d’Azure Migrate Server Migration pour migrer des machines.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224126"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321222"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
@@ -80,7 +80,7 @@ Non. Azure Migrate prend en charge la migration uniquement vers des disques mana
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Combien de machines virtuelles puis-je répliquer en même temps avec la migration sans agent ?
 
-Actuellement, vous pouvez migrer simultanément 100 machines virtuelles par instance de vCenter Server. Procédez à une migration par lots de 10 machines virtuelles.
+Actuellement, vous pouvez migrer simultanément 300 machines virtuelles par instance de vCenter Server. Procédez à une migration par lots de 10 machines virtuelles.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Comment faire pour limiter la réplication lors de l’utilisation de l’appliance Azure Migrate pour une réplication VMware sans agent ?  
 
@@ -106,7 +106,7 @@ La migration de machines en les traitant comme des serveurs physiques est utile 
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>J’ai déployé deux appliances (ou plus) pour découvrir des machines virtuelles dans vCenter Server. Cependant, lorsque j’essaie de migrer les machines virtuelles, je ne vois que celles qui correspondent à l’une des appliances.
 
-Bien que cela puisse représenter un bon cas d’usage, nous ne le prenons pas en charge actuellement. Le déploiement de deux appliances (ou plus) pour découvrir le même ensemble de machines virtuelles provoque un problème de service : la propriété des machines virtuelles ne cesse de basculer entre les appliances. C’est la raison pour laquelle les machines virtuelles apparaissent et disparaissent. Dans ce cas, pour résoudre le problème, vous devez supprimer une appliance et procéder à une actualisation matérielle.
+Si plusieurs appliances sont configurées, il est indispensable qu’il n’y ait pas de chevauchement entre les machines virtuelles sur les comptes vCenter fournis. Une découverte avec un tel chevauchement n’est pas un scénario pris en charge.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Ai-je besoin de VMware vCenter pour migrer des machines virtuelles VMware ?
 Pour [migrer des machines virtuelles VMware](server-migrate-overview.md) à l’aide d’une migration sans agent ou basée sur un agent VMware, les hôtes ESXi sur lesquels résident les machines virtuelles doivent être managés par vCenter Server. Si vous n’avez pas vCenter Server, vous pouvez migrer des machines virtuelles VMware en les migrant en tant que serveurs physiques. [Plus d’informations](migrate-support-matrix-physical-migration.md)

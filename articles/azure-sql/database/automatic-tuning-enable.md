@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982784"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373502"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ Le réglage automatique surveille toutes les actions effectuées sur la base de 
 
 ## <a name="permissions"></a>Autorisations
 
-Comme le réglage automatique est une fonctionnalité Azure, vous devez utiliser les rôles RBAC intégrés d’Azure pour pouvoir vous en servir. L’authentification SQL seule ne suffit pas pour utiliser la fonctionnalité du portail Azure.
+Le réglage automatique étant une fonctionnalité Azure, pour vous en servir, vous devez utiliser les rôles intégrés d’Azure. L’authentification SQL seule ne suffit pas pour utiliser la fonctionnalité du portail Azure.
 
 Pour utiliser le réglage automatique, l’autorisation minimale requise à accorder à l’utilisateur est le rôle [Contributeur SQL Database](../../role-based-access-control/built-in-roles.md#sql-db-contributor) intégré d’Azure. Vous pouvez également utiliser des rôles avec des privilèges plus élevés, comme Contributeur SQL Server, Contributeur SQL Managed Instance, Contributeur et Propriétaire.
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024015"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,9 @@ Oui. Les pages de données associées à une table donnée peuvent être stocké
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Puis-je déplacer mes bases de données d’Azure SQL Database vers le niveau de service Hyperscale ?
 
-Oui. Vous pouvez déplacer vos bases de données existantes d’Azure SQL Database vers Hyperscale. Il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Pour les preuves de concept, nous vous recommandons d’effectuer une copie de votre base de données et de migrer la copie vers Hyperscale.
+Oui. Vous pouvez déplacer vos bases de données existantes d’Azure SQL Database vers Hyperscale. Il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Pour les preuves de concept, nous vous recommandons d’effectuer une copie de votre base de données et de migrer la copie vers Hyperscale. 
+
+Le temps nécessaire pour déplacer une base de données existante vers Hyperscale comprend le temps de copie des données et celui de relecture des modifications apportées dans la base de données source lors de la copie des données. Le temps de copie des données est proportionnel à la taille des données. Le temps de relecture des modifications sera plus court si le déplacement est effectué pendant une période de faible activité d’écriture.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Puis-je déplacer mes bases de données Hyperscale vers d’autres niveaux de service ?
 

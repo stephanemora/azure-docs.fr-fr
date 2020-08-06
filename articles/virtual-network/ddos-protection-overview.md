@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du service Protection DDos Standard Azure
-description: Découvrez le service Protection DDos Azure.
+description: Découvrez comment la norme Azure DDoS Protection, combinée avec les meilleures pratiques de conception d’application, fournit une protection contre les attaques DDoS.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e92f3b5d8c48c783648285c9a03d8cb8d391a5ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130967"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289601"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -33,10 +33,10 @@ Combiné aux bonnes pratiques de conception d’application, le service de prote
 |Atténuation automatique des attaques                    |Oui                                   |Oui                                           |
 |Garantie de disponibilité                          |Région Azure                          |Application                                   |
 |Stratégies d’atténuation des risques                             |Optimisé pour le volume de la région du trafic Azure |Optimisé pour le volume du trafic des applications          |
-|Métriques et alertes                                |Non                                     |Journaux des métriques et ressources des attaques en temps réel via                                                                                            Azure Monitor                                 |
-|Rapports d’atténuation des risques                              |Non                                     |Rapports d’atténuation des attaques après l’attaque                |
-|Journaux des flux d’atténuation des risques                            |Non                                     |Flux de journal NRT pour l’intégration de SIEM           |
-|Personnalisation de la stratégie d’atténuation des risques                 |Non                                     |Engager des experts DDos                           |
+|Métriques et alertes                                |Non                                    |Journaux des métriques et ressources des attaques en temps réel via                                                                                            Azure Monitor                                 |
+|Rapports d’atténuation des risques                              |Non                                    |Rapports d’atténuation des attaques après l’attaque                |
+|Journaux des flux d’atténuation des risques                            |Non                                    |Flux de journal NRT pour l’intégration de SIEM           |
+|Personnalisation de la stratégie d’atténuation des risques                 |Non                                    |Engager des experts DDos                           |
 |Support                                         |Meilleur travail                           |Accès à des experts DDos pendant une attaque active|
 |Contrat SLA                                             |Région Azure                          |Garantie d’application et protection des coûts       |
 |Tarifs                                         |Gratuit                                  |Par mois et basé sur l’utilisation                         |

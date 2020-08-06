@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f4263d372b82779fe68a6a15cc7db61a31359e14
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ac5fad935e5c37df3a8bd64189a59612eaf097aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091366"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Accéder anonymement aux conteneurs et objets blob publics avec .NET
 
-Le Stockage Azure prend en charge l’accès en lecture public anonyme pour les conteneurs et les objets blob. Les clients peuvent accéder aux conteneurs et objets blob publics de manière anonyme à l’aide des bibliothèques clientes de Stockage Azure, ainsi qu’avec d’autres outils et utilitaires qui prennent en charge l’accès aux données dans le Stockage Azure.
+Stockage Azure prend en charge l’accès en lecture public facultatif pour les conteneurs et les blobs. Les clients peuvent accéder aux conteneurs et objets blob publics de manière anonyme à l’aide des bibliothèques clientes de Stockage Azure, ainsi qu’avec d’autres outils et utilitaires qui prennent en charge l’accès aux données dans le Stockage Azure.
 
-Cet article montre comment accéder à un conteneur ou à un objet blob public à partir de .NET. Pour obtenir des informations sur la configuration de l’accès en lecture anonyme sur un conteneur, consultez . Pour plus d’informations sur la façon d’empêcher tout accès anonyme à un compte de stockage, consultez .
+Cet article montre comment accéder à un conteneur ou à un objet blob public à partir de .NET. Pour plus d’informations sur la configuration de l’accès en lecture anonyme sur un conteneur, consultez [Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob](anonymous-read-access-configure.md). Pour plus d’informations sur la façon d’empêcher tout accès anonyme à un compte de stockage, consultez [Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs](anonymous-read-access-prevent.md).
 
 Un client ayant un accès anonyme aux conteneurs et aux objets Blob peut utiliser des constructeurs qui ne nécessitent pas d’informations d’identification. Les exemples suivants illustrent différentes manières de référencer des conteneurs et objets blob de façon anonyme.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253373"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275426"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
@@ -49,14 +49,21 @@ Plusieurs stratégies d’accès conditionnel peuvent s’appliquer lorsque vous
 
 Toutes les stratégies sont appliquées en deux phases :
 
-- Phase 1 : 
-   - Collecte des détails : Rassemblez les détails pour identifier les stratégies qui seraient déjà satisfaites.
-   - Pendant cette phase, les utilisateurs peuvent voir une invite de certificat si la conformité de l’appareil fait partie de vos stratégies d’accès conditionnel. Cette invite peut s’afficher pour les applications de navigateur lorsque le système d’exploitation de l’appareil n’est pas Windows 10.
-   - La phase 1 de l’évaluation de la stratégie se produit pour toutes les stratégies activées et les stratégies en [mode Rapport uniquement](concept-conditional-access-report-only.md).
-- Phase 2 :
-   - Application : En tenant compte des détails collectés lors de la phase 1, demandez à l’utilisateur de satisfaire toutes les autres exigences qui n’ont pas été respectées.
-   - Appliquez les résultats à la session. 
-   - La phase 2 de l’évaluation de la stratégie se produit pour toutes les stratégies activées.
+- Phase 1 : Collecter les détails de la session 
+   - Rassemblez les détails de la session, tels que l’emplacement de l’utilisateur et l’identité de l’appareil, qui seront nécessaires à l’évaluation de la stratégie. 
+   - Pendant cette phase, les utilisateurs peuvent voir une invite de certificat si la conformité de l’appareil fait partie de vos stratégies d’accès conditionnel. Cette invite peut s’afficher pour les applications de navigateur lorsque le système d’exploitation de l’appareil n’est pas Windows 10. 
+   - La phase 1 de l’évaluation de la stratégie se produit pour les stratégies activées et les stratégies en [mode rapport seul](concept-conditional-access-report-only.md).
+- Phase 2 : Application 
+   - Utilisez les détails de la session collectés lors de la phase 1 pour identifier les exigences qui n’ont pas été respectées. 
+   - Si une stratégie est configurée pour bloquer l’accès, grâce au contrôle d’octroi et de blocage, l’application s’arrête ici et l’utilisateur est bloqué. 
+   - L’utilisateur sera ensuite invité à remplir les exigences supplémentaires de contrôle d’octroi qui n’ont pas été satisfaites durant la phase 1 dans l’ordre suivant, jusqu’à ce que la stratégie soit satisfaite :  
+      - Authentification multifacteur 
+      - Application cliente approuvée/stratégie de protection d’application 
+      - Appareil géré (jonction d’Azure AD conforme ou hybride) 
+      - Conditions d’utilisation 
+      - Contrôles personnalisés  
+      - Une fois que les contrôles d’octroi ont été satisfaits, appliquez les contrôles de session (appliqués par l’application, Microsoft Cloud App Security et durée de vie du jeton). 
+   - La phase 2 de l’évaluation de la stratégie se produit pour toutes les stratégies activées. 
 
 ### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?
 
@@ -71,7 +78,7 @@ Si vous souhaitez configurer une condition d’emplacement applicable à toutes 
 
 Si vous ne pouvez pas accéder au portail Azure AD en raison d’un paramètre incorrect dans une stratégie d’accès conditionnel :
 
-- Vérifiez s’il existe d’autres administrateurs dans votre organisation dont l’accès n’a pas encore été verrouillé. Un administrateur ayant accès au portail Azure peut désactiver la stratégie qui affecte votre connexion. 
+- Vérifiez s’il existe d’autres administrateurs dans votre organisation dont l’accès n’a pas encore été verrouillé. Un administrateur ayant accès au portail Azure peut désactiver la stratégie qui entrave votre connexion. 
 - Si aucun des administrateurs de votre organisation ne peut mettre à jour la stratégie, vous devez soumettre une demande de support. Le support Microsoft peut vérifier et mettre à jour les stratégies d’accès conditionnel qui empêchent l’accès.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Que se passe-t-il si vous avez configuré des stratégies dans le portail Azure Classic et le portail Azure ?  

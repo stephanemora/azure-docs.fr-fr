@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005087"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux à un domaine managé par Azure Active Directory Domain Services
 
@@ -116,7 +116,7 @@ Maintenant que les packages nécessaires sont installés sur la machine virtuell
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Enfin, joignez la machine au domaine managé à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur faisant partie du domaine managé et spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@AADDSCONTOSO.COM` :
+1. Enfin, joignez la machine virtuelle au domaine managé à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur faisant partie du domaine managé et spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
@@ -142,7 +142,7 @@ Successfully enrolled machine in realm
     * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé est disponible ou dans un réseau virtuel appairé.
     * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé.
 
-1. Commencez par joindre le domaine à l'aide de la commande `adcli join`. Cette commande créera également le fichier Keytab pour l'authentification de la machine. Utilisez un compte d’utilisateur membre du domaine managé.
+1. Commencez par joindre le domaine à l’aide de la commande `adcli join`. Cette commande crée également le fichier Keytab pour l’authentification de la machine. Utilisez un compte d’utilisateur membre du domaine managé.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin

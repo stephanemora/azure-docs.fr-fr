@@ -3,12 +3,13 @@ title: Filtrage et pré-traitement dans le Kit de développement logiciel (SDK) 
 description: Écrivez des processeurs de télémétrie et des initialiseurs de télémétrie que le Kit de développement logiciel (SDK) doit filtrer ou ajoutez des propriétés aux données avant que la télémétrie ne soit envoyée au portail Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: eec3cf44eb516ce20db564e1bed32e5741bfd02a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075788"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366753"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -17,7 +18,7 @@ Vous pouvez écrire et configurer des plug-ins pour le kit de développement log
 * [échantillonnage](sampling.md) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
 * Le filtrage avec des processeurs de télémétrie vous permet de filtrer la télémétrie dans le kit de développement logiciel (SDK) avant l’envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Le filtrage est une approche plus simple que l’échantillonnage pour réduire le trafic. Il vous offre plus de contrôle sur ce qui est transmis, mais affecte vos statistiques. Par exemple, vous pouvez filtrer toutes les requêtes réussies.
 * [Les initialiseurs de télémétrie ajoutent ou modifient des propriétés](#add-properties) à n’importe quelle télémétrie envoyée à partir de votre application, notamment les données de télémétrie fournies par les modules standard. Par exemple, vous pouvez ajouter des valeurs calculées ou des numéros de version permettant de filtrer les données dans le portail.
-* [L'API SDK](../../azure-monitor/app/api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
+* [L'API SDK](./api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
 
 Avant de commencer :
 
@@ -34,7 +35,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 > [!WARNING]
 > Filtrer la télémétrie envoyée depuis le Kit de développement logiciel (SDK) à l’aide de processeurs peut fausser les statistiques que vous voyez dans le portail et rendre difficile le suivi des éléments associés.
 >
-> Envisagez plutôt d'utiliser l' [échantillonnage](../../azure-monitor/app/sampling.md).
+> Envisagez plutôt d'utiliser l' [échantillonnage](./sampling.md).
 >
 >
 
@@ -352,7 +353,7 @@ Insérer un initialiseur de télémétrie immédiatement après le code d’init
 </script>
 ```
 
-Pour obtenir un résumé des propriétés non personnalisées disponibles dans le telemetryItem, consultez le [modèle d’exportation de données Application Insights](../../azure-monitor/app/export-data-model.md).
+Pour obtenir un résumé des propriétés non personnalisées disponibles dans le telemetryItem, consultez le [modèle d’exportation de données Application Insights](./export-data-model.md).
 
 Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez. Ils sont appelés dans l’ordre dans lequel ils sont ajoutés.
 
@@ -498,7 +499,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Ajouter des informations à partir de HttpContext
 
-L’exemple d’initialiseur suivant lit les données depuis [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) et les ajoute à une instance `RequestTelemetry`. `IHttpContextAccessor` est automatiquement fourni via l’injection d'une dépendance de constructeur.
+L’exemple d’initialiseur suivant lit les données depuis [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) et les ajoute à une instance `RequestTelemetry`. `IHttpContextAccessor` est automatiquement fourni via l’injection d'une dépendance de constructeur.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -542,8 +543,8 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Présentation de l’API](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Référence ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Présentation de l’API](./api-custom-events-metrics.md)
+* [Référence ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Code de Kit de développement logiciel (SDK)
 
@@ -552,6 +553,7 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
-* [Recherche d’événements et de journaux d’activité](../../azure-monitor/app/diagnostic-search.md)
-* [Échantillonnage](../../azure-monitor/app/sampling.md)
-* [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)
+* [Recherche d’événements et de journaux d’activité](./diagnostic-search.md)
+* [Échantillonnage](./sampling.md)
+* [Dépannage](../faq.md)
+

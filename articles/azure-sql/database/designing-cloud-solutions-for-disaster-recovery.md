@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344643"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405039"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Si une panne se produit dans la région B, le processus de réplication entre la
 > Pour une récupération d’urgence, nous recommandons la configuration dans laquelle le déploiement de l’application est limité à deux régions. En effet, la plupart des zones géographiques Azure comptent seulement deux régions. Cette configuration ne protège pas votre application d’une défaillance grave simultanée des deux régions. Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Une fois la panne atténuée, la base de données secondaire est automatiquement resynchronisée avec la base de données primaire. Pendant la synchronisation, les performances de la base de données principale peuvent être impactées. L’impact dépend de la quantité de données que la nouvelle base de données primaire a acquises depuis le basculement. Le diagramme suivant illustre une panne dans la région secondaire :
+ Une fois la panne atténuée, la base de données secondaire est automatiquement resynchronisée avec la base de données primaire. Pendant la synchronisation, les performances de la base de données principale peuvent être impactées. L’impact dépend de la quantité de données que la nouvelle base de données primaire a acquises depuis le basculement. 
+
+> [!NOTE]
+> Une fois la panne atténuée, Traffic Manager commencera à acheminer les connexions vers l’application dans la région A en tant que point de terminaison de priorité plus élevée. Si vous envisagez de conserver la base de donnée principale dans la région B pendant un certain temps, vous devez modifier la table de priorité dans le profil Traffic Manager en conséquence. 
+>
+ 
+ Le diagramme suivant illustre une panne dans la région secondaire :
 
 ![Scénario 1 Configuration après une panne dans la région secondaire.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 

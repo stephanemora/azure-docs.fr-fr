@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d79d1bf846cc023b86c3e33b17c91cce77ffe9ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089870"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protéger vos machines et applications
 Quand Azure Security Center identifie des failles de sécurité potentielles, des suggestions sont émises pour vous guider tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.

@@ -5,15 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678543"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292064"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
@@ -135,7 +135,7 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
 
 **R** : B1ls prend uniquement en charge les images Linux. Si vous déployez une autre image de système d’exploitation, vous ne bénéficierez peut-être pas de la meilleure expérience utilisateur.
 
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Optimisé pour le calcul](sizes-compute.md)
@@ -143,6 +143,10 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
 - [Optimisé pour le stockage](sizes-storage.md)
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386524"
 ---
 ## <a name="limitations"></a>Limites
 
@@ -53,7 +53,7 @@ Si vous affectez un groupe hôte à une zone de disponibilité, toutes les machi
 
 Un hôte peut être créé dans un domaine d’erreur spécifique. À l’instar d’une machine virtuelle dans un groupe identique ou un groupe à haute disponibilité, les hôtes situés dans différents domaines d’erreur sont placés sur des racks physiques différents dans le centre de données. Lorsque vous créez un groupe hôte, vous devez spécifier le nombre de domaines d’erreur. Lorsque vous créez des hôtes dans le groupe hôte, vous affectez un domaine d’erreur pour chaque hôte. Les machines virtuelles ne nécessitent aucune attribution de domaine d’erreur.
 
-Domaines d’erreur et colocation ne sont pas les mêmes choses. Le fait d’avoir le même domaine d’erreur pour deux hôtes ne signifie pas qu’ils sont à proximité les uns des autres.
+Des domaines d’erreur n’équivalent pas à une colocation. Le fait d’avoir le même domaine d’erreur pour deux hôtes ne signifie pas qu’ils sont à proximité les uns des autres.
 
 Les domaines d’erreur sont étendus au groupe hôte. Vous ne devez pas faire d’hypothèses sur l’anti-affinité entre deux groupes hôtes (sauf s’ils se trouvent dans des zones de disponibilité différentes).
 
@@ -79,7 +79,15 @@ Une fois qu’un hôte dédié est approvisionné, Azure l’attribue au serveur
 
 ## <a name="quotas"></a>Quotas
 
-Il existe une limite de quota par défaut de 3 000 processeurs virtuels pour les hôtes dédiés, par région. Toutefois, le nombre d’hôtes que vous pouvez déployer est également limité par le quota de la série de tailles de machine virtuelle utilisée pour l’hôte. Par exemple, un abonnement avec **paiement à l’utilisation** peut uniquement avoir un quota de 10 processeurs virtuels disponibles pour la série de tailles Dsv3, dans la région USA Est. Dans ce cas, vous devez demander une augmentation du quota à au moins 64 processeurs virtuels avant de pouvoir déployer un hôte dédié. Sélectionnez le bouton **Demander une augmentation** dans le coin supérieur droit pour faire une demande.
+Deux types de quotas sont utilisés lorsque vous déployez un hôte dédié.
+
+1. Quota de processeurs virtuels hôtes dédiés. La limite de quota par défaut est de 3000 processeurs virtuels par région.
+1. Quota de famille de tailles de machine virtuelle. Par exemple, un abonnement avec **paiement à l’utilisation** peut uniquement avoir un quota de 10 processeurs virtuels disponibles pour la série de tailles Dsv3, dans la région USA Est. Pour déployer un hôte dédié Dsv3, vous devez demander une augmentation de quota à au moins 64 processeurs virtuels avant de pouvoir déployer l’hôte dédié. 
+
+Pour demander une augmentation du quota, créez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+L’approvisionnement d’un hôte dédié consomme le quota de processeurs virtuels hôtes dédiés et le quota de famille de tailles de machine virtuelle, mais il ne consomme pas les processeurs virtuels régionaux.
+
 
 ![Capture d’écran de la page d’utilisation et des quotas dans le portail](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073660"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connecter des ordinateurs Linux à Azure Monitor
 
@@ -93,7 +93,7 @@ L’agent Log Analytics pour Linux est fourni dans un groupe de scripts shell à
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple :  
+    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple : 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -155,6 +155,18 @@ Si l'authentification est requise dans l'un ou l'autre cas, vous devez spécifie
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
+
+## <a name="supported-linux-hardening"></a>Renforcement de la sécurité Linux pris en charge
+L’agent OMS prend en charge une personnalisation limitée de Linux. 
+
+Les éléments suivants sont actuellement pris en charge : 
+- FIP
+
+Les éléments suivants sont prévus, mais ne sont pas encore pris en charge :
+- CIS -SELINUX
+
+Les autres méthodes de renforcement de la sécurité et de personnalisation ne sont pas prises en charge ni prévues pour l’agent OMS.  
+
 
 ## <a name="upgrade-from-a-previous-release"></a>Mettre à niveau à partir d’une version antérieure
 

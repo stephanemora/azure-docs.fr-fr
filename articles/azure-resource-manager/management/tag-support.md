@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: f59e50e3eadb50db97756aa990f4de822a8ba089
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/28/2020
+ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337991"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -323,15 +323,19 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | automationAccounts / softwareUpdateConfigurations | Non | Non |
 > | automationAccounts / webhooks | Non | Non |
 
+>[!NOTE]
+>Azure Automation prend en charge uniquement la création d’un maximum de 15 paires nom-valeur de balise pour chaque ressource Automation.
+> 
+
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Oui | Oui |
-> | privateClouds / authorizations | Non | Non |
-> | privateClouds / clusters | Non | Non |
-> | privateClouds / hcxEnterpriseSites | Non | Non |
+> | Clouds privés / autorisations | Non | Non |
+> | Clouds privés / clusters | Non | Non |
+> | Clouds privés / hcxEnterpriseSites | Non | Non |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
@@ -1800,7 +1804,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | privateLinkServicesForPowerBI | Oui | Oui |
 > | tenants | Oui | Oui |
-> | tenants / workspaces | Non | Non |
+> | locataires / espaces de travail | Non | Non |
 > | workspaceCollections | Oui | Oui |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012483"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -25,13 +25,13 @@ Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 
 ## <a name="sql-server-developer-edition"></a>SQL Server Developer Edition
 
-| | |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
 | Éditions DSVM prises en charge      | Windows 2016 : SQL Server 2017, Windows 2019 : SQL Server 2019      |
-| Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
-| Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL :<br/>  `nyctaxi` <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft Machine Learning Server et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Outils connexes sur la machine virtuelle DSVM       | SQL Server Management Studio <br/> Pilotes ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
+| Utilisations classiques      | <ul><li>Développement rapide localement avec le plus petit jeu de données</li><li>Exécution de R en base de données</li></ul> |
+| Liens vers des exemples      | <ul><li>Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL :<br/>  `nyctaxi`</li><li>Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft Machine Learning Server et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
+| Outils connexes sur la machine virtuelle DSVM       | <ul><li>SQL Server Management Studio</li><li>Pilotes ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > L’édition Développeur de SQL Server peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production.
@@ -62,13 +62,13 @@ De plus, l’environnement DSVM est fourni avec des pilotes ODBC et JDBC pour co
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (autonome)
 
-| | |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance (nœud unique In-process) autonome de la plateforme populaire Apache Spark, un système pour le traitement des données et l’apprentissage automatique rapides et à grande échelle     |
 | Éditions DSVM prises en charge      | Linux     |
-| Utilisations classiques      | * Développement rapide d’applications Spark/PySpark localement avec un jeu de données plus petit et un déploiement ultérieur sur des clusters Spark volumineux tels qu’Azure HDInsight<br/> * Test du contexte Spark de Microsoft Machine Learning Server <br />* Utilisation de la bibliothèque [MMLSpark](https://github.com/Azure/mmlspark) open source de SparkML ou de Microsoft pour créer des applications ML |
-| Liens vers des exemples      |    Exemple Jupyter : <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (contexte Spark) : /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Outils connexes sur la machine virtuelle DSVM       | PySpark, Scala<br/>Jupyter (noyaux Spark/PySpark)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
+| Utilisations classiques      | <ul><li>Développement rapide d’applications Spark/PySpark localement avec un jeu de données plus petit et un déploiement ultérieur sur des clusters Spark volumineux tels qu’Azure HDInsight</li><li>Test du contexte Spark de Microsoft Machine Learning Server</li><li>Utilisation de la bibliothèque [MMLSpark](https://github.com/Azure/mmlspark) open source de SparkML ou de Microsoft pour créer des applications ML</li></ul> |
+| Liens vers des exemples      |    Exemple Jupyter :<ul><li>~/notebooks/SparkML/pySpark</li><li>~/notebooks/MMLSpark</li></ul><p>Microsoft Machine Learning Server (contexte Spark) : /dsvm/samples/MRS/MRSSparkContextSample.R</p> |
+| Outils connexes sur la machine virtuelle DSVM       | <ul><li>PySpark, Scala</li><li>Jupyter (noyaux Spark/PySpark)</li><li>Microsoft Machine Learning Server, SparkR, Sparklyr</li><li>Apache Drill</li></ul> |
 
 ### <a name="how-to-use-it"></a>Comment l’utiliser ?
 Vous pouvez envoyer des travaux Spark sur la ligne de commande en exécutant la commande `spark-submit` ou `pyspark`. Vous pouvez également créer un bloc-notes Jupyter en créant un bloc-notes avec le noyau Spark.

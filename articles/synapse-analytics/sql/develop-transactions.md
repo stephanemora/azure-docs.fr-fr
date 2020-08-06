@@ -1,5 +1,5 @@
 ---
-title: Utilisation de transactions
+title: Utiliser des transactions
 description: Conseils relatifs à l’implémentation de transactions dans un pool SQL (entrepôt de données), dans le cadre du développement de solutions.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 07c507eb139c4c4d339db1ede46956cb09a61dcf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962915"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075701"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Utilisation de transactions dans un pool SQL
 

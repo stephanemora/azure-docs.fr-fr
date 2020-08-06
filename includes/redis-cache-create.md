@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0557f8eb2fd120baeebee96acb4ef539344e3e7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73719097"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528823"
 ---
 1. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Créer une ressource**. 
    
@@ -37,7 +37,10 @@ ms.locfileid: "73719097"
    
    ![Créer un cache Azure pour Redis](media/redis-cache-create/redis-cache-cache-create.png) 
    
-   La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
+   > [!NOTE]
+   > Normalement, le provisionnement du cache prend 15 à 20 minutes environ.   
+   
+   Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
    
    ![Cache Azure pour Redis créé](media/redis-cache-create/redis-cache-cache-created.png)
 

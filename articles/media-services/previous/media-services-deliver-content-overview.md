@@ -1,25 +1,21 @@
 ---
-title: Fournir du contenu aux clients | Microsoft Docs
+title: Distribution de contenu aux clients
 description: Cette rubrique donne une vue d’ensemble de ce qu’implique la distribution de votre contenu avec Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060354"
 ---
 # <a name="deliver-content-to-customers"></a>Fournir du contenu aux clients
 Quand vous distribuez votre contenu de diffusion en continu ou de vidéo à la demande aux clients, votre objectif est de fournir une vidéo de haute qualité à divers appareils dans différentes conditions de réseau.
@@ -55,7 +51,7 @@ Vous pouvez définir des filtres pour vos éléments multimédias avec Media Ser
 
 Pour plus d’informations, consultez [Filtres et manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
-## <a name="locators"></a><a id="locators"/>Localisateurs
+## <a name="locators"></a><a name="locators"></a>Localisateurs
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre élément multimédia en créant un localisateur. Un localisateur fournit un point d’entrée pour accéder aux fichiers contenus dans une ressource. Media Services prend en charge deux types de localisateurs :
 
 * Localisateurs OnDemandOrigin. Ils sont utilisés pour diffuser du contenu multimédia (par exemple, MPEG-DASH, HLS ou Smooth Streaming) ou télécharger progressivement des fichiers.
@@ -70,9 +66,9 @@ Les localisateurs ont une date d’expiration. Le portail Azure définit une dat
 > 
 > 
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
-Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Vous pouvez accorder différents droits d’accès aux utilisateurs en utilisant les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez la page [Sécurisation des médias](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Vous pouvez accorder différents droits d’accès aux utilisateurs en utilisant les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez la page [Sécurisation des médias](/previous-versions/azure/dn282272(v=azure.100)).
 
 Lorsque vous créez un localisateur, il peut y avoir un délai de 30 secondes dû au processus de stockage et de propagation requis dans Azure Storage.
 
@@ -87,7 +83,7 @@ Pour fournir aux utilisateurs des URL de diffusion en continu, vous devez d’ab
 
 Vous ne pouvez transmettre en continu avec le protocole TLS que si le point de terminaison de streaming à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de diffusion sont basées sur des points de terminaison créés après le 10 septembre 2014, l’URL contient « streaming.mediaservices.windows.net ». Les URL de diffusion qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole TLS. Si votre URL suit l’ancien format et que vous souhaitez être en mesure de diffuser via le protocole TLS, créez un point de terminaison de diffusion en continu. Utilisez des URL basées sur le nouveau point de terminaison de streaming pour diffuser en continu votre contenu via le protocole TLS.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>Formats d’URL de streaming
+## <a name="streaming-url-formats"></a><a name="URLs"></a>Formats d’URL de streaming
 
 ### <a name="mpeg-dash-format"></a>Format MPEG-DASH
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=mpd-time-csf)
@@ -192,4 +188,3 @@ Certains clients Smooth Streaming hérités peuvent ne pas prendre en charge les
 
 ## <a name="related-topics"></a>Rubriques connexes
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
-

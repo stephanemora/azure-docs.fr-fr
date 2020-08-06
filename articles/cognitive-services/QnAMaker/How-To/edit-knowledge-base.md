@@ -2,13 +2,13 @@
 title: Modifier une base de connaissances - QnA Maker
 description: QnA Maker vous permet de gérer le contenu de votre base de connaissances en fournissant une expérience d’édition simple d’utilisation.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054018"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modifier des paires de Q/R dans votre base de connaissances
 
@@ -111,6 +111,10 @@ Vous ne pouvez pas lier des paires QnA dans les métadonnées de la réponse.
 ## <a name="add-metadata"></a>Ajouter des métadonnées
 
 Ajoutez des paires de métadonnées en sélectionnant d’abord **Afficher les options**, puis en sélectionnant **Afficher les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le signe **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
+
+Apprenez-en plus sur les métadonnées dans le guide de démarrage rapide du portail QnA Maker pour les métadonnées :
+* [Création – Ajouter des métadonnées à une paire QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Prédiction de requête – Filtrer les réponses par métadonnées](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Enregistrez les changements apportés aux paires QnA
 

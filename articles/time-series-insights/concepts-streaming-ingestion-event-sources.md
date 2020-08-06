@@ -1,6 +1,6 @@
 ---
-title: 'Sources d’événements d’ingestion de diffusion en continu : Azure Time Series Insights | Microsoft Docs'
-description: En savoir plus sur la diffusion en continu de données dans Azure Time Series Insights.
+title: 'Sources d’événements d’ingestion de diffusion en continu : Azure Time Series Insights Gen2 | Microsoft Docs'
+description: En savoir plus sur la diffusion en continu de données dans Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,18 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.custom: seodec18
-ms.openlocfilehash: 602f5a0df6cbd7c308d45d02795e7404c46c73a7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: c2a25632942c0c39a20fa0c7f51a1e8937bdd873
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059385"
 ---
-# <a name="time-series-insights-event-sources"></a>Sources d'événements Time Series Insights
+# <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
- Votre environnement TSI peut avoir jusqu’à deux sources d’événements de diffusion en continu. Deux types de ressources Azure sont pris en charge en tant qu’entrées :
+ Votre environnement Azure Time Series Insights Gen2 peut avoir jusqu’à deux sources d’événements de diffusion en continu. Deux types de ressources Azure sont pris en charge en tant qu’entrées :
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
@@ -28,23 +27,23 @@ Les événements doivent être envoyés en tant que JSON encodé en UTF-8.
 
 ## <a name="create-or-edit-event-sources"></a>Créer ou modifier des sources d’événements
 
-Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Time Series Insights ou autre abonnement. Vous pouvez utiliser [le portail Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)et [l’API REST](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) pour créer, modifier ou supprimer les sources d’événements de votre environnement.
+Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Vous pouvez utiliser [le portail Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et [l’API REST](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) pour créer, modifier ou supprimer des sources d’événements de votre environnement.
 
-Lorsque vous connectez une source d'événements, votre environnement TSI lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l'événement le plus ancien.
+Lorsque vous connectez une source d’événements, votre environnement Azure Time Series Insights Gen2 lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l’événement le plus ancien.
 
 > [!IMPORTANT]
 >
-> * Vous pouvez rencontrer une latence initiale élevée lors de la jonction d’une source d’événement à votre environnement en préversion.
+> * Vous pouvez rencontrer une latence initiale élevée lorsque vous connectez une source d’événement à votre environnement Azure Time Series Insights Gen2.
 > La latence de la source d’événement dépend du nombre d’événements actuellement présents dans votre IoT Hub ou votre Event Hub.
 > * Une latence élevée sera impartie après la réception des données de la source d’événements. Si vous rencontrez une latence élevée, soumettez un ticket de support via le portail Azure.
 
 ## <a name="streaming-ingestion-best-practices"></a>Meilleures pratiques en matière d’ingestion de diffusion en continu
 
-* Créez toujours un groupe de consommateurs unique pour votre environnement TSI afin de consommer des données de votre source d’événements. La réutilisation des groupes de consommateurs peut entraîner des déconnexions aléatoires et peut entraîner une perte de données.
+* Créez toujours un groupe de consommateurs unique pour votre environnement Azure Time Series Insights Gen2 afin de consommer des données de votre source d’événements. La réutilisation des groupes de consommateurs peut entraîner des déconnexions aléatoires et peut entraîner une perte de données.
 
-* Configurez votre environnement TSI et votre IoT Hub et/ou Event Hubs dans la même région qu’Azure. Bien qu’il soit possible de configurer des sources d’événements dans une région distincte, ce scénario n’est pas pris en charge et nous ne pouvons pas garantir une haute disponibilité.
+* Configurez votre environnement Azure Time Series Insights Gen2 et votre hub IoT et/ou Event Hubs dans la même région Azure. Bien qu’il soit possible de configurer des sources d’événements dans une région distincte, ce scénario n’est pas pris en charge et nous ne pouvons pas garantir une haute disponibilité.
 
-* N’allez pas au-delà de la [limite du débit](concepts-streaming-throughput-limitations.md) de votre environnement ou de la limite de partition.
+* N’allez pas au-delà de la [limite du débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement ou de la limite de partition.
 
 * Configurez une [alerte](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
 
@@ -56,7 +55,7 @@ Lorsque vous connectez une source d'événements, votre environnement TSI lit to
 
 ### <a name="historical-data-ingestion"></a>Ingestion de données historiques
 
-L’utilisation du pipeline de streaming pour importer des données historiques n’est pas prise en charge actuellement dans Azure Time Series Insights en préversion. Si vous devez importer des données passées dans votre environnement, suivez les instructions ci-dessous :
+L’utilisation du pipeline de streaming pour importer des données historiques n’est actuellement pas prise en charge dans Azure Time Series Insights Gen2. Si vous devez importer des données passées dans votre environnement, suivez les instructions ci-dessous :
 
 * Ne diffusez pas parallèlement des données historiques et dynamiques. L’ingestion de données dans le désordre entraînera une dégradation des performances de requête.
 * Ingérez les données historiques de façon chronologique pour obtenir des performances optimales.
@@ -65,9 +64,9 @@ L’utilisation du pipeline de streaming pour importer des données historiques 
 
 ## <a name="event-source-timestamp"></a>Horodateur de la source de l’événement
 
-Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements au fil du temps. il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute) et pour la série de traçage dans l’explorateur TSI. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
+Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements dans le temps. Il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) et pour tracer des séries dans l’explorateur Azure Time Series Insights Gen2. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
 
-En général, les utilisateurs choisissent de personnaliser la propriété d’horodatage et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture au lieu d’utiliser le hub par défaut mis en file d’attente. Cela est particulièrement nécessaire lorsque les appareils présentent une perte de connectivité intermittente et qu’un lot de messages retardés est transféré à STI.
+En général, les utilisateurs choisissent de personnaliser la propriété d’horodatage et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture au lieu d’utiliser le hub par défaut mis en file d’attente. Cela est particulièrement nécessaire lorsque les appareils présentent une perte de connectivité intermittente et qu’un lot de messages retardés est transféré à Azure Time Series Insights Gen2.
 
 Si votre horodateur personnalisé se trouve dans un objet JSON imbriqué ou un tableau, vous devrez fournir le nom de propriété correct en suivant nos conventions d’affectation de noms [de mise à plat et d’échappement](concepts-json-flattening-escaping-rules.md). Par exemple, l’horodateur de la source de l’événement pour la charge utile JSON indiquée [ici](concepts-json-flattening-escaping-rules.md#example-a) doit être saisi ainsi : `"values.time"`.
 
@@ -85,7 +84,7 @@ Le décalage de fuseau horaire doit être mis en forme de l’une des manières 
 
 * Lisez les [Règles de mise à plat et d’échappement JSON](./concepts-json-flattening-escaping-rules.md) pour comprendre comment les événements seront stockés. 
 
-* Comprendre les [limites de débit](concepts-streaming-throughput-limitations.md) de votre environnement
+* Comprendre les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement
 
 
 

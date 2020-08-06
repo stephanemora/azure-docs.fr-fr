@@ -3,12 +3,12 @@ title: Résoudre les problèmes de connectivité - Azure Event Hubs | Microsoft 
 description: Cet article fournit des informations sur la résolution des problèmes de connectivité avec Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322381"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039325"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Résoudre les problèmes de connectivité - Azure Event Hubs
 Il existe plusieurs raisons pour lesquelles des applications clientes peuvent ne pas parvenir à se connecter à un Event Hub. Les problèmes de connectivité que vous rencontrez peuvent être permanents ou transitoires. Si le problème se produit tout le temps (permanent), vous souhaiterez peut-être vérifier la chaîne de connexion, les paramètres de pare-feu de votre organisation, les paramètres du pare-feu IP, les paramètres de sécurité réseau (points de terminaison de service, points de terminaison privés, etc.), entre autres. Pour les problèmes temporaires, la mise à niveau vers la dernière version du kit de développement logiciel (SDK), l’exécution de commandes pour vérifier les paquets ignorés et l’obtention de traces réseau peuvent vous aider à résoudre les problèmes. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Vérifier que les adresses IP sont autorisées dans votre pare-feu d’entreprise
-Lorsque vous utilisez Azure, vous devez parfois autoriser des plages d’adresses IP ou des URL spécifiques dans votre pare-feu ou proxy d’entreprise pour accéder à tous les services Azure que vous utilisez ou essayez d’utiliser. Vérifiez que le trafic est autorisé sur les adresses IP utilisées par Event Hubs. Pour les adresses IP utilisées par Azure Event Hubs : consultez [Plages d’adresses IP Azure et balises de service - Cloud public](https://www.microsoft.com/download/details.aspx?id=56519) et [Balise de service tag - EventHub](network-security.md#service-tags).
+Lorsque vous utilisez Azure, vous devez parfois autoriser des plages d’adresses IP ou des URL spécifiques dans votre pare-feu ou proxy d’entreprise pour accéder à tous les services Azure que vous utilisez ou essayez d’utiliser. Vérifiez que le trafic est autorisé sur les adresses IP utilisées par Event Hubs. Pour les adresses IP utilisées par Azure Event Hubs : consultez le document [Plages d’adresses IP Azure et balises de service – Cloud public](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Vérifiez également que l’adresse IP de votre espace de noms est autorisée. Pour trouver les adresses IP à autoriser pour vos connexions, procédez comme suit :
 
@@ -75,13 +75,16 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
     ```
 3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP des 3 instances en cours d’exécution dans 3 zones de disponibilité. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Vérifier que la balise de service AzureEventGrid est autorisée dans vos groupes de sécurité réseau
+Si votre application s’exécute à l’intérieur d’un sous-réseau et qu’il existe un groupe de sécurité réseau associé, vérifiez si le trafic sortant Internet est autorisé ou si la balise de service AzureEventGrid est autorisée. Consultez [Balises de service du réseau virtuel](../virtual-network/service-tags-overview.md) et recherchez `EventHub`.
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Vérifier si l’application doit être en exécutée sur un sous-réseau spécifique d’un réseau virtuel
 Vérifiez que votre application s’exécute sur un sous-réseau de réseau virtuel qui a accès à l’espace de noms. Si ce n’est pas le cas, exécutez l’application dans le sous-réseau qui a accès à l’espace de noms ou ajoutez l’adresse IP de la machine sur laquelle l’application s’exécute au [pare-feu IP](event-hubs-ip-filtering.md). 
 
 Lorsque vous créez un point de terminaison de service de réseau virtuel pour un espace de noms Event Hub, l’espace de noms accepte le trafic uniquement à partir du sous-réseau qui est lié au point de terminaison du service. Toutefois, il existe une exception à ce comportement. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. Pour plus d’informations, consultez [Points de terminaison de service réseau](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Vérifiez les paramètres de pare-feu IP pour votre espace de noms
-Vérifiez que l’adresse IP de la machine sur laquelle l’application est en cours d’exécution n’est pas bloquée par le pare-feu IP.  
+Vérifiez que l’IP publique de la machine sur laquelle l’application s’exécute n’est pas bloquée par le pare-feu IP.  
 
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -110,7 +113,7 @@ Si l’espace de noms Event Hubs est configuré pour être accessible uniquement
 
 [Le service Azure Private Link](../private-link/private-link-overview.md) vous permet d’accéder à Azure Event Hubs sur un **point de terminaison privé** de votre réseau virtuel. Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
-Pour plus d’informations, consultez [Configurer les points de terminaison privés](private-link-service.md). 
+Pour plus d’informations, consultez [Configurer des points de terminaison privés](private-link-service.md). Reportez-vous à la section **Valider le fonctionnement de la connexion au point de terminaison privé** pour confirmer qu’un point de terminaison privé est utilisé. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Résoudre les problèmes liés au réseau
 Pour résoudre les problèmes liés au réseau avec Event Hubs, procédez comme suit : 
@@ -152,15 +155,15 @@ Vous pouvez utiliser des commandes équivalentes dans d’autres outils, par exe
 
 Si les étapes précédentes n’ont pas résolu le problème, obtenez une trace réseau et analysez-la à l’aide d’un outil tel que [Wireshark](https://www.wireshark.org/). Contactez le [support Microsoft](https://support.microsoft.com/) si nécessaire. 
 
-### <a name="service-upgradesrestarts"></a>Mises à niveau/redémarrages de service
-Des problèmes de connectivité temporaires peuvent se produire en raison de mises à niveau et redémarrages du service principal. Lorsqu’ils se produisent, vous pouvez voir les symptômes suivants : 
+### <a name="service-upgradesrestarts"></a>Mises à niveau/redémarrages du service
+Des problèmes de connectivité temporaires peuvent se produire en raison de mises à niveau et redémarrages du service principal. Lorsqu’ils se produisent, vous pouvez observer les symptômes suivants : 
 
 - Il peut y avoir une chute des messages/demandes entrants.
 - Le fichier journal peut contenir des messages d’erreur.
 - Les applications peuvent être déconnectées du service pendant quelques secondes.
 - Les demandes peuvent être momentanément limitées.
 
-Si le code d’application utilise le kit de développement logiciel (SDK), la stratégie de nouvelle tentative est déjà intégrée et active. L’application se reconnectera sans que cela ait un impact significatif sur l’application/le flux de travail. Sinon, réessayez de vous connecter au service après quelques minutes pour voir si les problèmes disparaissent. 
+Si le code d’application utilise le kit de développement logiciel (SDK), la stratégie de nouvelle tentative est déjà intégrée et active. L’application se reconnectera sans que cela ait un impact significatif sur l’application/le flux de travail. Le fait d’intercepter ces erreurs temporaires, d’effectuer une sauvegarde et une nouvelle tentative d’appel permet de garantir la résilience de votre code à ces problèmes temporaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

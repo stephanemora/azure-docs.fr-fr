@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286000"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurer un laboratoire avec des machines virtuelles GPU
 
@@ -32,7 +32,7 @@ Comme décrit dans le tableau suivant, la taille de GPU pour le *calcul* est des
 | ---- | ----- | --- | ----------- | 
 | GPU de petite taille (calcul) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle (IA) et le Deep Learning. |
 
-Les tailles de GPU pour la *visualisation* sont destinées aux applications nécessitant beaucoup de ressources graphiques.  Par exemple, le [type de classe d’ingénierie SolidWorks](./class-type-solidworks.md) montre l’utilisation de la taille **petite de GPU (visualisation)** .  Le GPU de visualisation convient à ce type de classe, car les étudiants interagissent avec l’environnement de conception assistée par ordinateur (CAO) de SolidWorks 3D pour la modélisation et la visualisation des objets solides.
+Les tailles de GPU pour la *visualisation* sont destinées aux applications nécessitant beaucoup de ressources graphiques.  Par exemple, le [type de classe d’ingénierie SOLIDWORKS](./class-type-solidworks.md) montre l’utilisation de la taille **GPU de petite taille (visualisation)** .  Le GPU de visualisation convient à ce type de classe, car les étudiants interagissent avec l’environnement de conception 3D assistée par ordinateur (CAO) de SOLIDWORKS pour la modélisation et la visualisation d’objets solides.
 
 | Taille | Cœurs | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
@@ -45,7 +45,7 @@ Pour tirer parti des fonctionnalités GPU de vos machines virtuelles de labo, as
 ![Capture d’écran du « Nouveau labo » montrant l’option « Installer les pilotes GPU »](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Comme indiqué dans l’image ci-dessus, cette option est activée par défaut, ce qui garantit que les *derniers* pilotes sont installés pour le type de GPU et d’image que vous avez sélectionnés.
-- Lorsque vous sélectionnez une taille de GPU pour le *calcul*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  Dans ce cas, les [pilotes d’architecture de calcul unifiée (CUDA)](https://www.nvidia.com/object/io_69526.html) les plus récents sont installés, ce qui permet un calcul hautes performances.
+- Lorsque vous sélectionnez une taille de GPU pour le *calcul*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  Dans ce cas, les [pilotes d’architecture de calcul unifiée (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) les plus récents sont installés, ce qui permet un calcul hautes performances.
 - Lorsque vous sélectionnez une taille de GPU pour la *visualisation*, les machines virtuelles de votre laboratoire sont alimentées par la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie [GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Dans ce cas, les derniers pilotes GRID sont installés, ce qui permet l’utilisation d’applications gourmandes en ressources graphiques.
 
 ### <a name="install-the-drivers-manually"></a>Pour installer manuellement les pilotes
@@ -113,7 +113,7 @@ Suivez les instructions de la section « Vérifier l’installation des pilotes
 Voir les articles suivants :
 
 - [Créer et gérer des laboratoires de classe](how-to-manage-classroom-labs.md)
-- [Type de classe pour la conception assistée par ordinateur (CAO) SolidWorks](class-type-solidworks.md)
+- [Type de classe pour la conception assistée par ordinateur (CAO) SOLIDWORKS](class-type-solidworks.md)
 - [Type de classe MATLAB (laboratoire de matrice)](class-type-matlab.md)
 
 

@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023824"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article présente des méthodes couramment employées pour résoudre les problèmes liés au runtime d'intégration auto-hébergé dans Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Collecter les journaux du runtime d’intégration auto-hébergé auprès d’Azure Data Factory
+
+Azure Data Factory prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités qui n’ont pas été exécutées sur l’IR auto-hébergé ou partagé. Vous pouvez suivre les étapes ci-dessous pour obtenir l’ID du rapport d’erreur, puis saisir l’ID du rapport pour localiser les problèmes connexes connus.
+
+1. Accédez à la page **Exécutions d’activités**.
+
+1. Sous la colonne **ERREUR**, cliquez sur le bouton ci-dessous.
+
+    ![Page Exécutions d’activités](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Vous verrez les journaux relatifs à l’exécution de l’activité qui a échoué. Cliquez sur le bouton **Envoyer les journaux** pour obtenir de l’aide.
+
+    ![Envoyer les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Vous pouvez choisir les journaux que vous souhaitez envoyer. Pour *IR auto-hébergé*, vous pouvez charger les journaux relatifs à l’activité ayant échoué ou tous les journaux sur le nœud de l’IR auto-hébergé. Pour *IR partagé*, vous pouvez uniquement charger les journaux relatifs à l’activité ayant échoué.
+
+    ![Choisir les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Lorsque les journaux sont chargés, conservez une trace de l’ID du rapport au cas où vous auriez besoin d’une aide supplémentaire pour résoudre le problème.
+
+    ![Charger les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Les requêtes de consultation et de chargement des journaux seront exécutées sur toutes les instances de l’IR auto-hébergé en ligne. Assurez-vous que toutes les instances de l’IR auto-hébergé sont en ligne en cas de journal manquant. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Problèmes courants et leur résolution
 

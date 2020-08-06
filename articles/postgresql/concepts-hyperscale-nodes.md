@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/28/2020
+ms.openlocfilehash: af743ca56572f507091db01f11d3283294a9e3d5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974000"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382795"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Nœuds dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -22,7 +22,9 @@ Le type d’hébergement Hyperscale (Citus) permet à Azure Database pour les se
 
 Chaque groupe de serveurs dispose d’un nœud coordinateur et de plusieurs Workers. Les applications envoient leurs requêtes vers le nœud coordinateur, qui les relaie vers les Workers concernés et accumule leurs résultats. Les applications ne sont pas en mesure de se connecter directement aux Workers.
 
-Soit le coordinateur achemine chaque requête vers un nœud Worker unique, soit il la met en parallèle sur plusieurs d’entre eux, en fonction de l’emplacement des données requises, sur un nœud unique ou sur plusieurs nœuds. Le coordinateur décide de la mesure à prendre en consultant les tables de métadonnées. Ces tables suivent les noms DNS et l’intégrité des nœuds Worker, ainsi que la distribution des données entre les nœuds.
+Hyperscale (CITUS) permet à l’administrateur de base de données de *distribuer* des tables, en stockant des différentes lignes sur différents nœuds Worker. Les tables distribuées sont la clé des performances d’Hyperscale. À défaut de distribuer les tables, celles-ci restent entièrement sur le nœud coordinateur et ne peut pas tirer parti du parallélisme entre ordinateurs.
+
+Soit le coordinateur achemine chaque requête sur des tables distribuées vers un nœud Worker unique, soit il la met en parallèle sur plusieurs autres, en fonction de l’emplacement des données requises, sur un nœud unique ou sur plusieurs nœuds. Le coordinateur décide de la mesure à prendre en consultant les tables de métadonnées. Ces tables suivent les noms DNS et l’intégrité des nœuds Worker, ainsi que la distribution des données entre les nœuds.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment les nœuds stockent les [données distribuées](concepts-hyperscale-distributed-data.md)
+- En savoir plus sur les [tables distribuées ](concepts-hyperscale-distributed-data.md)

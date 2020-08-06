@@ -1,6 +1,6 @@
 ---
 title: Créer une machine virtuelle Windows avec mise en réseau accélérée - Azure PowerShell
-description: Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée.
+description: Créez une machine virtuelle Windows avec une mise en réseau accélérée afin d’améliorer ses performances de mise en réseau.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289619"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée à l’aide d’Azure PowerShell
 
@@ -63,7 +63,7 @@ Les distributions suivantes sont prises en charge directement à partir de la ga
 
 La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul avec deux processeurs virtuels ou plus.  Séries prises en charge : Dv2/DSv2 et F/Fs.
 
-Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum quatre processeurs virtuels. Séries prises en charge : D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms et Ms/Mmsv2.
+Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum quatre processeurs virtuels. Séries prises en charge : D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, et Ms/Mmsv2.
 
 Pour plus d’informations sur les instances de machine virtuelle, reportez-vous à [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

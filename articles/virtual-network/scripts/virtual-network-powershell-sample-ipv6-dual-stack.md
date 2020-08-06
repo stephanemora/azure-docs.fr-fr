@@ -1,7 +1,7 @@
 ---
 title: Exemple de script Azure PowerShell - Configurer des points de terminaison IPv6
 titlesuffix: Azure Virtual Network
-description: Activer les points de terminaison IPv6 à l’aide de Powershell dans un réseau virtuel Azure
+description: Configurez des points de terminaison IPv6 dans un réseau virtuel à l’aide d’un script Azure PowerShell et trouvez des liens vers la documentation spécifique à la commande afin d’obtenir de l’aide sur l’exemple PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4dfc6da8dcf33f49ceb203b32e81033fd81fa329
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83153023d7d58f215d5e62d8502baa01b99ed2e1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291891"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Configurer des points de terminaison IPv6 dans le réseau virtuel avec l’exemple de script Azure PowerShell (préversion)
 
@@ -269,6 +269,6 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 Vous pouvez trouver des exemples supplémentaires de scripts PowerShell de mise en réseau dans la [documentation Vue d’ensemble de la mise en réseau Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/28/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389290"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169427"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -86,7 +87,7 @@ Pour inscrire une application pour votre locataire Azure AD B2C, vous pouvez uti
 
 Ensuite, exposez l’API en ajoutant une étendue :
 
-1. Sous **Gérer**, sélectionnez **Exposer une API**.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Exposer une API**.
 1. Sélectionnez **Ajouter une étendue**, puis sélectionnez **Enregistrer et continuer** pour accepter l’URI d’ID d’application par défaut.
 1. Entrez les valeurs suivantes pour créer une étendue qui autorise l’exécution de stratégie personnalisée dans votre locataires Azure AD B2C :
     * **Nom de l’étendue** : `user_impersonation`
@@ -109,13 +110,13 @@ Ensuite, exposez l’API en ajoutant une étendue :
 
 Ensuite, spécifiez que l’application doit être traitée comme un client public :
 
-1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
 1. Sous **Paramètres avancés**, activez **Considérer l’application comme un client public** (sélectionnez **Oui**). Assurez-vous que **« allowPublicClient » : true** est défini dans le manifeste de l’application. 
 1. Sélectionnez **Enregistrer**.
 
 Maintenant, accordez des autorisations à l’étendue de l’API que vous avez exposée précédemment dans l’inscription  *IdentityExperienceFramework* :
 
-1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Autorisations d’API**.
 1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
 1. Sélectionnez l’onglet **Mes API**, puis sélectionnez l’application **IdentityExperienceFramework**.
 1. Sous **Autorisation**, sélectionnez l’étendue **user_impersonation** que vous avez définie précédemment.

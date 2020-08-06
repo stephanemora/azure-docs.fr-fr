@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059855"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions
+
+> [!IMPORTANT]
+> Le connecteur de données Qualys VM dans Azure Sentinel est actuellement en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le connecteur Qualys Vulnerability Management (VM) vous permet de connecter facilement tous les journaux de votre solution de sécurité [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’intégration entre Qualys VM et Azure Sentinel utilise Azure Functions pour extraire des données de journal à l’aide de l’API REST.
 

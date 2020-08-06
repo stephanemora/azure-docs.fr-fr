@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075738"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -48,7 +48,22 @@ VMware est un fournisseur Windows Virtual Desktop approuvé qui peut aider les c
 
 Le leadership mondial de 10ZiG dans les appareils de point de terminaison de client Thin et Zero ainsi que les logiciels de gestion pour bureaux virtuels se traduit dans la manière dont ils fonctionnent pour leurs clients. Son matériel client Thin est fourni avec des fonctionnalités et des options parfaitement élaborées, conçues pour garantir que les clients reçoivent les appareils clients répondant à leurs besoins. 10ZiG personnalise ses appareils pour les adapter aux divers environnements avec des clients basés sur Windows et Linux, qui offrent des performances optimales en matière de bureaux virtuels, tant à l’intérieur qu’à l’extérieur du cloud.
 
-- [Visitez le site web du partenaire](https://www.10zig.com/).
+- [Visitez le site web du partenaire](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Logo Automai](./media/partners/automai.png)
+
+Vous pouvez utiliser la plateforme d’automatisation robotisée d’Automai pour tester les principaux processus métier clés dans un environnement Windows Virtual Desktop avant que votre déploiement ne soit mis en service.
+
+Grâce à l’outil ScenarioBuilder d’Automai et au moteur de workflow basé sur l’interface graphique utilisateur, les équipes informatiques peuvent enregistrer des workflows d’utilisateur final réels et les traduire automatiquement en scripts. Automai utilise ensuite des bots exécutant des processus sur des appareils de bureau individuels pour émuler l’activité des utilisateurs finaux dans une simulation et rapporter les résultats. Cela simplifie grandement les processus de test, de sorte que les administrateurs informatiques peuvent effectuer des tests de stress, même dans les scénarios les plus complexes.
+
+Une fois que vous êtes prêt pour le lancement, vous pouvez utiliser tous les scripts de workflow que vous avez créés pour le test de charge pour surveiller en permanence les performances pendant la production. Les bots d’Automai peuvent faire plus que simplement surveiller la disponibilité. Les bots peuvent également tester les workflows des utilisateurs finaux à partir d’emplacements clés, en effectuant des captures d’écran et en recueillant les rapports d’erreurs en temps réel. Cela se traduit par une approche plus proactive que réactive des correctifs de bogues pour les applications Windows Virtual Desktop.
+
+Automai vous permet d’utiliser les mêmes scripts pour le test de performances, le tests fonctionnel, l’analyse des performances et même l’automatisation du processus robotique, le tout sur une seule plateforme.
+
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Visitez le site web du partenaire](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ Les licences flottantes de point de terminaison des clients Ekran System sont au
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Visitez la page du partenaire](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logo FabulaTech](./media/partners/fabulatech.png)
+
+FabulaTech s’intègre parfaitement aux clients Windows Virtual Desktop. Une fois installé, le logiciel FabulaTech commence automatiquement à fonctionner lorsque vous établissez une connexion avec un appareil de bureau à distance.
+
+Lorsqu’un utilisateur se connecte à son bureau virtuel, le logiciel FabulaTech crée un appareil virtuel. Par exemple, vous pouvez créer une webcam, un scanneur ou un lecteur d’empreintes digitales virtuel. Toutes les applications qui s’exécutent dans une session à distance peuvent accéder à l’appareil virtuel comme s’il s’agissait d’un appareil physique. Vous pouvez configurer l’appareil virtuel dans Windows Virtual Desktop à l’aide du menu Icône de la barre d’état système, ce qui signifie que vous pouvez également utiliser cette solution sur des clients légers. En plus de cela, toutes les communications se produisent sur la connexion Bureau à distance existante, ce qui signifie que le pare-feu est configuré pour vous. Tout fonctionne d’emblée.
+
+- [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Visitez le site web du partenaire](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible IT
 
@@ -223,7 +249,7 @@ Lorsqu’il est utilisé avec Windows Virtual Desktop, Cloudpaging réduit davan
 
 PolicyPak Software est un partenaire Windows Virtual Desktop qui effectue une gestion totale des paramètres pour les applications, le bureau, les navigateurs, les paramètres Java et les paramètres de sécurité. PolicyPak assure la conformité de vos paramètres de bureau, de système et de sécurité. PolicyPak améliore la valeur de Windows Virtual Desktop en ajoutant une suite de composants permettant d’améliorer l’administration intégrée de Windows. Utilisez votre stratégie de groupe Active Directory existante et/ou Windows Intune pour fournir les paramètres de PolicyPak et améliorer la capacité des administrateurs à gérer leurs machines Windows 10. 
 
-Les principaux cas d’usage de PolicyPak sont les suivants : supprimer les droits d’administrateur local et ignorer les invites UAC, bloquer les ransomware, gérer plusieurs navigateurs, gérer les modes d’entreprise et de compatibilité d’Internet Explorer, réduire le nombre d’objets de stratégie de groupe, gérer les associations de fichiers Windows 10, gérer le menu Démarrer et la barre des tâches dans Windows 10, et gérer les fonctionnalités de Windows 10 et les fonctionnalités facultatives.  
+Les principaux cas d’usage de PolicyPak sont les suivants : supprimer les droits d’administrateur locaux et ignorer les invites UAC, bloquer les ransomwares, gérer plusieurs navigateurs, gérer les modes d’entreprise et de compatibilité d’Internet Explorer, réduire le nombre de GPO, gérer les associations de fichiers Windows 10, gérer le menu Démarrer et la barre des tâches dans Windows 10 et gérer les fonctionnalités de Windows 10 et les fonctionnalités facultatives.  
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Visitez le site web du partenaire](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).

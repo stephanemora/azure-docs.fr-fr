@@ -8,14 +8,15 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601449"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386450"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,11 +185,20 @@ Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes e
 Le bloc-notes trouve automatiquement tous les noyaux Jupyter installés sur l’instance de calcul connectée.  Pour ajouter un noyau à l’instance de calcul :
 
 1. Dans la barre d’outils du bloc-notes, s²électionnez [**Ouvrir le terminal**](#terminal).
-1. Utilisez la fenêtre de terminal pour créer un environnement.
+1. Utilisez la fenêtre de terminal pour créer un environnement.  Par exemple, le code ci-dessous crée `newenv` :
+    ```shell
+    conda create --name newenv
+    ```
 1. Active l’environnement.  Par exemple, après la création de `newenv` :
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Installer pip et le package ipykernel dans le nouvel environnement et créer un noyau pour ce conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

@@ -2,25 +2,22 @@
 title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285898"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -72,6 +69,11 @@ La configuration suivante est nécessaire pour activer les restrictions liées a
 
 Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com et login.windows.net, insérez deux en-têtes HTTP : *Restrict-Access-To-Tenants* et *Restrict-Access-Context*.
 
+> [!NOTE]
+> Lors de la configuration de l’interception SSL et de l’injection d’en-tête, assurez-vous que le trafic vers https://device.login.microsoftonline.com est exclu. Cette URL est utilisée pour l’authentification de l’appareil et l’exécution de l’inspection TLS peut interférer avec l’authentification par certificat client, ce qui peut entraîner des problèmes d’inscription de l’appareil et d’accès conditionnel en fonction de l’appareil.
+
+
+
 Les éléments suivants doivent être inclus dans les en-têtes :
 
 - Pour *Restrict-Access-To-Tenants*, utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un client peut être utilisé pour identifier le client dans cette liste. Par exemple, pour autoriser l’accès aux clients Contoso et Fabrikam, la paire nom/valeur ressemble à :  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -84,6 +86,9 @@ Les éléments suivants doivent être inclus dans les en-têtes :
 Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des locataires non approuvés, le proxy doit remplacer l’en-tête *Restrict-Access-To-Tenants* si celui-ci est déjà présent dans la requête entrante.
 
 Les clients doivent être forcés à utiliser le proxy pour toutes les demandes à login.microsoftonline.com, login.microsoft.com et login.windows.net. Par exemple, si des fichiers PAC sont utilisés pour indiquer aux locataires d’utiliser le proxy, les utilisateurs finaux ne doivent pas être en mesure de modifier ou de désactiver les fichiers PAC.
+
+> [!NOTE]
+> N’incluez pas de sous-domaines sous *.login.microsoftonline.com dans la configuration de votre proxy. Cette action inclut device.login.microsoftonline.com et peut interférer avec l’authentification par certificat client, qui est utilisée dans les scénarios d’inscription d’appareil et d’accès conditionnel basé sur les appareils. Configurez votre serveur proxy de façon à exclure device.login.microsoftonline.com de l’inspection TLS et de l’injection d’en-tête.
 
 ## <a name="the-user-experience"></a>Expérience utilisateur
 
@@ -101,7 +106,7 @@ Bien que la configuration des restrictions liées au locataire est effectuée su
 
 2. Sélectionnez **Azure Active Directory** dans le volet de gauche. La vue d’ensemble d’Azure Active Directory s’affiche.
 
-3. Sous le titre **Autres fonctionnalités**, sélectionnez **Restrictions liées au locataire**.
+3. Sur la page Vue d’ensemble, sélectionnez **Restrictions liées au locataire**.
 
 L’administrateur du locataire spécifié en tant que locataire Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie de restrictions liées au locataire, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
 

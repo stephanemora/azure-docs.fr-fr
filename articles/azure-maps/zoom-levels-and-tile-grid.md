@@ -1,19 +1,19 @@
 ---
-title: Niveaux de zoom et grille mosaïque | Microsoft Azure Maps
+title: Niveaux de zoom et grille mosaïque dans Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les niveaux de zoom et la grille mosaïque dans Microsoft Azure Maps.
-author: Philmea
-ms.author: philmea
-ms.date: 01/22/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: philmea
+ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093049"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
@@ -24,15 +24,11 @@ Azure Maps utilise le système de coordonnées de projection Spherical Mercator 
 
 Pour optimiser les performances de récupération et d’affichage de la carte, celle-ci est divisée en mosaïques carrées. Le kit de développement logiciel (SDK) Azure Maps utilise des mosaïques d’une taille de 512 x 512 pixels pour les cartes routières, et de 256 x 256 pixels pour les images satellites. Azure Maps fournit des mosaïques Raster et Vecteur pour 23 niveaux de zoom, numérotés de 0 à 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
 
-<center>
-
-![Mosaïque de la carte du monde](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="Mosaïque de la carte du monde":::
 
 Le niveau de zoom 1 utilise quatre mosaïques pour afficher le monde : un carré de 2 x 2
 
-<center>
-
-![Disposition de mosaïque 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Disposition de mosaïque 2x2":::
 
 Chaque niveau de zoom supplémentaire divise en quatre les mosaïques du niveau précédent, en créant une grille de 2<sup>zoom</sup> x 2<sup>zoom</sup>. Le niveau de zoom 22 est une grille de 2<sup>22</sup> x 2<sup>22</sup> ou de 4 194 304 x 4 194 304 mosaïques (17 592 186 044 416 mosaïques au total).
 
@@ -80,11 +76,7 @@ var mapHeight = mapWidth;
 
 Étant donné que la largeur et la hauteur de la carte sont différentes à chaque niveau de zoom, il en est de même pour les coordonnées des pixels. Le pixel situé dans le coin supérieur gauche de la carte possède toujours les coordonnées suivantes (0, 0). Le pixel situé dans le coin inférieur droit de la carte possède des coordonnées *(largeur-1, hauteur-1)* ou fait référence aux équations de la section précédente *(TileSize \* 2<sup>zoom</sup>–1 , tileSize\* 2<sup>zoom</sup>–1)* . Par exemple, lors de l’utilisation de 512 mosaïques carrées au niveau 2, les coordonnées de pixels sont comprises entre (0, 0) et (2047, 2047), comme suit :
 
-<center>
-
-![Carte présentant des dimensions en pixels](media/zoom-levels-and-tile-grid/map-width-height.png)
-
-</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Carte présentant des dimensions en pixels":::
 
 Avec une latitude et une longitude en degrés données, et le niveau de détail, les coordonnées XY du pixel sont calculées comme suit :
 
@@ -110,9 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Chaque mosaïque reçoit des coordonnées XY allant de (0,0) dans le coin supérieur gauche à *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* dans le coin inférieur droit. Par exemple, au niveau de zoom 2, les coordonnées de la mosaïque vont de (0, 0) à (7, 7) comme suit :
 
-<center>
-
-![Carte des coordonnées de mosaïque](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Carte des coordonnées de mosaïque":::
 
 Avec une paire de coordonnées XY de pixels, vous pouvez facilement déterminer les coordonnées XY de la mosaïque contenant ce pixel :
 
@@ -126,17 +116,13 @@ Les mosaïques sont appelées selon le niveau de zoom. Les coordonnées x et y c
 
 Quand vous déterminez le niveau de zoom à utiliser, n’oubliez pas que chaque emplacement correspond à une position fixe sur sa mosaïque. Ainsi, le nombre de mosaïques nécessaires pour afficher l’étendue donnée d’un territoire dépend du placement spécifique de la grille de zoom sur la carte du monde. Par exemple, si deux points sont éloignés l’un de l’autre de 900 mètres, trois mosaïques *peuvent* suffire pour afficher un itinéraire entre eux au niveau de zoom 17. Toutefois, si le point occidental se trouve à droite de sa mosaïque et que le point oriental se trouve à gauche, on obtient quatre mosaïques :
 
-<center>
-
-![Échelle de démonstration du zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Échelle de démonstration du zoom":::
 
 Lorsque le niveau de zoom est déterminé, les valeurs x et y peuvent être calculées. La mosaïque en haut à gauche de chaque grille de zoom correspond à x=0, y=0 ; la mosaïque en bas à droite correspond à x=2<sup>zoom -1</sup>, y=2<sup>zoom-1</sup>.
 
 La grille de zoom pour le niveau de zoom 1 est proposée ici :
 
-<center>
-
-![Grille de zoom pour le niveau de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Grille de zoom pour le niveau de zoom 1":::
 
 ## <a name="quadkey-indices"></a>Index Quadkey
 
@@ -157,9 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 Les `Qquadkeys` possèdent plusieurs propriétés intéressantes. Tout d’abord, la longueur d’une `quadkey` (le nombre de chiffres) est égale au niveau de zoom de la mosaïque correspondante. Deuxièmement, la `quadkey` de toute mosaïque commence par la `quadkey` de sa mosaïque parente (la mosaïque conteneur au niveau précédent). Comme indiqué dans l’exemple ci-dessous, la mosaïque 2 est le parent des mosaïques 20 à 23 :
 
-<center>
-
-![Pyramide de mosaïques quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Pyramide de mosaïques quadkey":::
 
 Enfin, les `quadkeys` fournissent une clé d’index unidimensionnelle qui préserve habituellement la proximité des mosaïques dans l’espace XY. En d’autres termes, deux mosaïques ayant des coordonnées XY proches ont généralement des `quadkeys` relativement proches les unes des autres. Cela est important pour optimiser les performances de la base de données, car les mosaïques voisines font souvent l’objet de requêtes dans des groupes et il est souhaitable de les conserver sur les mêmes blocs de disque, afin de réduire le nombre de lectures.
 

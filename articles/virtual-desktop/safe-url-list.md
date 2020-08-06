@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075603"
 ---
 # <a name="safe-url-list"></a>Liste des URL sécurisées
 
@@ -33,6 +33,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |catalogartifact.azureedge.net|443|Place de marché Azure|AzureCloud|
 |kms.core.windows.net|1688|Activation de Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Prise en charge du portail Azure|AzureCloud|
+| 169.254.169.254 | 80 | [Point de terminaison Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop prend désormais en charge l’étiquette FQDN. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
@@ -59,8 +60,8 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 >Vous devez utiliser le caractère générique (*) pour les URL impliquant du trafic de service. Si vous préférez ne pas utiliser * pour le trafic lié à l’agent, voici comment trouver les URL sans caractères génériques :
 >
 >1. Inscrivez vos machines virtuelles dans le pool d’hôtes Windows Virtual Desktop.
->2. Ouvrez **Observateur d’événements**, accédez à **Journaux Windows** > **Application** > **WVD-Agent**, puis recherchez l’ID d’événement 3702.
->3. Placez en liste verte les URL que vous trouvez sous l’ID d’événement 3702. Les URL sous l’ID d’événement 3702 sont spécifiques à la région. Vous devez répéter le processus de déblocage avec les URL appropriées pour chaque région où vous souhaitez déployer vos machines virtuelles.
+>2. Ouvrez **Observateur d’événements**, accédez à **Journaux Windows** > **Application** > **WVD-Agent**, puis recherchez l’ID d’événement 3701.
+>3. Placez en liste verte les URL que vous trouvez sous l’ID d’événement 3701. Les URL sous l’ID d’événement 3701 sont spécifiques à la région. Vous devez répéter le processus de déblocage avec les URL appropriées pour chaque région où vous souhaitez déployer vos machines virtuelles.
 
 ## <a name="remote-desktop-clients"></a>Clients Bureau à distance
 

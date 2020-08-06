@@ -1,29 +1,29 @@
 ---
 title: Utiliser Azure CLI pour affecter un rôle RBAC pour l’accès aux données
 titleSuffix: Azure Storage
-description: Découvrez comment utiliser Azure CLI pour affecter des autorisations à un principal de sécurité Azure Active Directory avec le contrôle d’accès en fonction du rôle (RBAC). Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
+description: Découvrez comment utiliser Azure CLI pour affecter des autorisations à un principal de sécurité Azure Active Directory avec le contrôle d’accès en fonction du rôle (RBAC). Le service Stockage Azure prend en charge les rôles personnalisés Azure et intégrés pour l’authentification via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afa48c07e628eaeb013c24fa38fcda1adea2555a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808859"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368968"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser Azure CLI pour affecter un rôle RBAC pour l’accès aux données blob et de file d’attente
 
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Cet article décrit comment utiliser Azure CLI pour répertorier les rôles RBAC intégrés et les attribuer aux utilisateurs. Pour plus d’informations sur l’utilisation d’Azure CLI, consultez [Interface de ligne de commande Azure (CLI)](https://docs.microsoft.com/cli/azure).
+Cet article décrit comment utiliser Azure CLI pour répertorier les rôles Azure intégrés et les attribuer à des utilisateurs. Pour plus d’informations sur l’utilisation d’Azure CLI, consultez [Interface de ligne de commande Azure (CLI)](/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Rôles RBAC pour objets blob et files d’attente
 
@@ -35,7 +35,7 @@ Cet article décrit comment utiliser Azure CLI pour répertorier les rôles RBAC
 
 ## <a name="list-available-rbac-roles"></a>Répertorier les rôles RBAC disponibles
 
-Pour répertorier les rôles RBAC intégrés disponibles avec Azure CLI, utilisez la commande [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
+Pour répertorier les rôles Azure intégrés disponibles avec Azure CLI, utilisez la commande [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli-interactive
 az role definition list --out table

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004543"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l'agent Connected Machine
 
@@ -48,6 +48,9 @@ L'exemple de commande suivant permet d'activer la journalisation détaillée ave
 
 L'exemple de commande suivant permet d'activer la journalisation détaillée avec l'agent Connected Machine pour Linux lors d'une installation interactive.
 
+>[!NOTE]
+>Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -73,12 +76,15 @@ Le tableau suivant répertorie certaines erreurs connues ainsi que des suggestio
 |--------|------|---------------|---------|
 |Échec de l'acquisition du flux de périphérique du jeton d'autorisation |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Impossible de joindre le point de terminaison `login.windows.net` | Vérifiez la connectivité au point de terminaison. |
 |Échec de l'acquisition du flux de périphérique du jeton d'autorisation |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Le proxy ou le pare-feu bloque l'accès au point de terminaison `login.windows.net`. | Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
-|Échec de l'acquisition du jeton d'autorisation à partir du nom de principal du service |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Le proxy ou le pare-feu bloque l'accès au point de terminaison `login.windows.net`. |Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
-|Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Invalid client secret is provided` |Secret du principal de service incorrect ou non valide. |Vérifiez le secret du principal de service. |
+|Échec de l'acquisition du flux de périphérique du jeton d'autorisation  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | L’objet de stratégie de groupe (GPO) *Configuration ordinateur\Modèles d’administration\Système\Profils utilisateur\Supprimer les profils utilisateur datant de plus d’un certain nombre de jours lors du redémarrage du système* est activé. | Vérifiez que le GPO est activé et cible la machine concernée. Pour plus d’informations, consultez la note de bas de page <sup>[1](#footnote1)</sup>. |
+|Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Le proxy ou le pare-feu bloque l'accès au point de terminaison `login.windows.net`. |Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
+|Échec de l'acquisition du jeton d'autorisation à partir du nom de principal du service |`Invalid client secret is provided` |Secret du principal de service incorrect ou non valide. |Vérifiez le secret du principal de service. |
 | Échec de l'acquisition du jeton d'autorisation à partir du nom du principal de service |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Principal du service et/ou ID de locataire incorrects. |Vérifiez le principal de service et/ou l'ID du locataire.|
 |Obtenir une réponse des ressources ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Informations d'identification et/ou autorisations incorrectes |Vérifiez que vous ou le principal de service êtes membre du rôle **Intégration d'Azure Connected Machine**. |
 |Échec de la ressource ARM AzcmagentConnect |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Les fournisseurs de ressources Azure ne sont pas inscrits. |Inscrivez les [fournisseurs de ressources](./agent-overview.md#register-azure-resource-providers). |
 |Échec de la ressource ARM AzcmagentConnect |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Le serveur proxy ou le pare-feu bloque l'accès au point de terminaison `management.azure.com`. |Vérifiez que la connectivité au point de terminaison n'est pas bloquée par un pare-feu ou par un serveur proxy. |
+
+<a name="footnote1"></a><sup>1</sup> Si ce GPO est activé et s’applique aux machines dotées de l’agent Connected Machine, il supprime le profil utilisateur associé au compte intégré spécifié pour le service *himds*. Par conséquent, il supprime également le certificat d’authentification utilisé pour communiquer avec le service mis en cache dans le magasin de certificats local pendant 30 jours. Avant la délai de 30 jours, une tentative de renouvellement du certificat est effectuée. Pour résoudre ce problème, suivez les étapes visant à [désinscrire la machine](manage-agent.md#unregister-machine), puis inscrivez-la de nouveau auprès du service qui exécute `azcmagent connect`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

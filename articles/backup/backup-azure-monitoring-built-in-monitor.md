@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054540"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -28,7 +28,7 @@ Les travaux provenant des solutions Sauvegarde Azure suivantes sont indiqués ic
 - Sauvegarde des machines virtuelles Azure
 - Sauvegarde de fichiers Azure
 - Sauvegarde de charge de travail Azure comme SQL et SAP HANA
-- Azure Backup Agent (MAB)
+- Agent Microsoft Azure Recovery Services (MARS)
 
 Les travaux provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichés.
 
@@ -44,7 +44,7 @@ Les alertes sont principalement des scénarios dans le cadre desquels les utilis
 Les scénarios suivants sont définis par le service en tant que scénarios pouvant donner lieu à des alertes.
 
 - Échecs de sauvegarde/restauration
-- Sauvegarde réussie avec des avertissements pour Azure Backup Agent (MAB)
+- Sauvegarde réussie avec des avertissements pour l’agent MARS (Microsoft Azure Recovery Services)
 - Arrêt de la protection avec données conservées/Arrêt de la protection avec données supprimées
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Les alertes provenant des solutions Sauvegarde Azure suivantes sont indiquées ici
@@ -52,7 +52,7 @@ Les scénarios suivants sont définis par le service en tant que scénarios pouv
 - Sauvegardes de machines virtuelles Azure
 - Sauvegardes de fichiers Azure
 - Sauvegardes de charge de travail Azure comme SQL, SAP HANA
-- Azure Backup Agent (MAB)
+- Agent Microsoft Azure Recovery Services (MARS) 
 
 > [!NOTE]
 > Les alertes provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichées ici.

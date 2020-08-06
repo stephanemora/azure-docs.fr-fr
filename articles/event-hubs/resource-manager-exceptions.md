@@ -3,12 +3,12 @@ title: Azure Event Hubs – Exceptions Resource Manager | Microsoft Docs
 description: Liste des exceptions Azure Event Hubs signalées par Azure Resource Manager et actions suggérées.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1a3ca647bbf9e6590446549455a9853411fd7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312518"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281036"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Exceptions Resource Manager
 Cet article répertorie les exceptions générées lors de l’interaction avec Azure Event Hubs à l’aide d’Azure Resource Manager par le biais de modèles ou d’appels directs.
@@ -44,7 +44,7 @@ Les sections suivantes indiquent différentes exceptions ou erreurs signalées p
 | BadRequest | Aucun | Impossible de mettre à jour un espace de noms secondaire. | L’espace de noms ne peut pas être mis à jour, car il s’agit de l’espace de noms secondaire dans une [association GéoDR](event-hubs-geo-dr.md). | Le cas échéant, modifiez l’espace de noms principal dans cette association à la place. Sinon, vous pouvez arrêter l’association GéoDR pour effectuer la modification. |
 | BadRequest | Aucun | Impossible de définir l’augmentation automatique de la référence SKU de base. | L’augmentation automatique ne peut pas être activée sur les espaces de noms Event Hubs de niveau De base. | Pour [activer l’augmentation automatique](event-hubs-auto-inflate.md) sur un espace de noms, assurez-vous qu’il s’agit d’un niveau Standard. |
 | BadRequest | Aucun | La capacité est insuffisante pour créer l’espace de noms. Contactez votre administrateur Event Hubs. | La région sélectionnée est au maximum de sa capacité et d’autres espaces de noms ne peuvent pas être créés. | Sélectionnez une autre région pour héberger votre espace de noms. |
-| BadRequest | Aucun | L’opération ne peut pas être effectuée sur le type d’entité « ConsumerGroup », car l’espace de noms « nom de l’espace de noms » utilise le niveau « De base ».  | Les espaces de noms Event Hubs de niveau De base ont un [quota]\((event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) d’un groupe de consommateurs (valeur par défaut). La création de groupes de consommateurs supplémentaires n’est pas prise en charge. | Continuez d’utiliser le groupe de consommateurs par défaut ($Default) ou, si vous avez besoin de plus de groupes, envisagez plutôt d’utiliser un espace de noms Event Hubs de niveau Standard. | 
+| BadRequest | Aucun | L’opération ne peut pas être effectuée sur le type d’entité « ConsumerGroup », car l’espace de noms « nom de l’espace de noms » utilise le niveau « De base ».  | Les espaces de noms Event Hubs de niveau De base ont un [quota](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) d’un groupe de consommateurs (par défaut). La création de groupes de consommateurs supplémentaires n’est pas prise en charge. | Continuez d’utiliser le groupe de consommateurs par défaut ($Default) ou, si vous avez besoin de plus de groupes, envisagez plutôt d’utiliser un espace de noms Event Hubs de niveau Standard. | 
 | BadRequest | Aucun | L’espace de noms « nom de l’espace de noms » n’existe pas. | L’espace de noms fourni est introuvable. | Vérifiez que le nom de l’espace de noms est correct et qu’il se trouve dans votre abonnement. Si ce n’est pas le cas, [créez un espace de noms Event Hubs](event-hubs-create.md). | 
 | BadRequest | Aucun | La propriété d’emplacement de la ressource ne correspond pas à son Espace de noms conteneur. | La création d’un Event Hub dans une région spécifique a échoué, car celle-ci ne correspondait pas à la région de l’espace de noms. | Essayez de créer l’Event Hub dans la même région que l’espace de noms. | 
 

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des services de mise en réseau Azure
-description: 'Découvrez les services de mise en réseau dans Azure et leur fonctionnalités : services de connectivité, services de protection des applications, services de distribution des applications et analyse du réseau.'
+description: 'Découvrez les services de mise en réseau dans Azure : services de connectivité, services de protection des applications, services de distribution des applications et surveillance réseau.'
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282158"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 83d1804aaebb20439f40cc0516b03f436837855c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1295160beac83351f3f5243054f91558ad6e0191
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75968307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020971"
 ---
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
@@ -21,5 +21,4 @@ Le moyen le plus simple de créer votre premier compte de stockage Azure est d�
 
 Vous pouvez également créer un compte de stockage Azure à l’aide d’[Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), de l’[interface de ligne de commande Azure](../articles/storage/common/storage-azure-cli.md) ou du [fournisseur de ressources de stockage Azure pour .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/).
 
-Si vous préférez ne pas créer de compte de stockage dans Azure pour le moment, vous avez la possibilité d’utiliser l’émulateur de stockage Azure pour exécuter et tester votre code dans un environnement local. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/common/storage-use-emulator.md).
-
+Si vous préférez ne pas créer de compte de stockage dans Azure pour le moment, vous avez la possibilité d’utiliser l’émulateur de stockage Azure pour exécuter et tester votre code dans un environnement local. Pour plus d’informations, consultez [Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure](../articles/storage/common/storage-use-azurite.md).

@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258827"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405124"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Cycle de vie de l’hébergement d’Azure Service Fabric
 Cet article fournit une vue d’ensemble des événements qui se produisent quand une application est activée sur un nœud et des différentes configurations de cluster utilisées pour contrôler le comportement.
@@ -83,7 +83,7 @@ Service Fabric utilise toujours une interruption linéaire quand il rencontre un
 
 * Si le CodePackage continue de planter et s’interrompt, ServiceType est désactivé. Cependant, si la configuration des activations est telle qu’elle a un redémarrage rapide, le CodePackage peut se trouver opérationnel à quelques reprises avant de pouvoir constater la désactivation de ServiceType. Par exemple, supposons que votre CodePackage soit opérationnel, qu’il inscrive le ServiceType auprès de Service Fabric, puis qu’il plante. Dans ce cas, une fois que l’hébergement reçoit une inscription de type, la période **ServiceTypeDisableGraceInterval** est annulée. Et ceci peut se répéter jusqu’à ce que votre CodePackage s’interrompe à une valeur supérieure à **ServiceTypeDisableGraceInterval** : ServiceType sera désactivé sur le nœud. Il peut donc s’écouler un certain temps avant que votre ServiceType soit désactivé sur le nœud.
 
-* Dans le cas d’activations, quand le système Service Fabric doit placer un réplica sur un nœud, RA (ReconfigurationAgent) demande au sous-système d’hébergement d’activer l’application et réessaye la demande d’activation toutes les 15 secondes (**RAPMessageRetryInterval**). Pour que le système Service Fabric sache que ServiceType a été désactivé, l’opération d’activation dans l’hébergement doit être active pendant une période plus longue que l’intervalle de nouvelle tentative et **ServiceTypeDisableGraceInterval**. Par exemple, supposons que le cluster a les configurations suivantes : **ActivationMaxFailureCount** défini sur 5 et **ActivationRetryBackoffInterval** défini sur 1 seconde. Cela signifie que l’opération d’activation abandonnera après (0 + 1 + 2 + 3 + 4) = 10 secondes (la première nouvelle tentative étant immédiate) et qu’après cela, l’hébergement abandonne les nouvelles tentatives. Dans ce cas, l’opération d’activation sera terminée et il n’y aura pas de nouvelle tentative au bout de 15 secondes. Cela est dû au fait que Service Fabric a épuisé toutes les tentatives dans les 15 secondes. Ainsi, chaque nouvelle tentative de ReconfigurationAgent crée une nouvelle opération d’activation dans le sous-système d’hébergement et le modèle continue à se répéter : ServiceType ne sera jamais désactivé sur le nœud. Comme le ServiceType n’est pas désactivé sur le nœud Sf, le composant FM (FailoverManager) du système ne déplace pas le réplica vers un autre nœud.
+* Dans le cas d’activations, quand le système Service Fabric doit placer un réplica sur un nœud, RA (ReconfigurationAgent) demande au sous-système d’hébergement d’activer l’application et réessaye la demande d’activation toutes les 15 secondes (**RAPMessageRetryInterval**). Pour que le système Service Fabric sache que ServiceType a été désactivé, l’opération d’activation dans l’hébergement doit être active pendant une période plus longue que l’intervalle de nouvelle tentative et **ServiceTypeDisableGraceInterval**. Par exemple, supposons que le cluster a les configurations suivantes : **ActivationMaxFailureCount** défini sur 5 et **ActivationRetryBackoffInterval** défini sur 1 seconde. Cela signifie que l’opération d’activation abandonnera après (0 + 1 + 2 + 3 + 4) = 10 secondes (la première nouvelle tentative étant immédiate) et qu’après cela, l’hébergement abandonne les nouvelles tentatives. Dans ce cas, l’opération d’activation sera terminée et il n’y aura pas de nouvelle tentative au bout de 15 secondes. Cela est dû au fait que Service Fabric a épuisé toutes les tentatives dans les 15 secondes. Ainsi, chaque nouvelle tentative de ReconfigurationAgent crée une nouvelle opération d’activation dans le sous-système d’hébergement et le modèle continue à se répéter : ServiceType ne sera jamais désactivé sur le nœud. Comme le ServiceType n’est pas désactivé sur le nœud, le composant FM (FailoverManager) du système Service Fabric ne déplace pas le réplica vers un autre nœud.
 > 
 
 ## <a name="deactivation"></a>Désactivation

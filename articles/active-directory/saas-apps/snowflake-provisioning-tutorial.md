@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367187"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016301"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
 
@@ -163,6 +163,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
 * Les jetons SCIM générés par Snowflake expirent dans 6 mois. N’oubliez pas que ces derniers doivent être actualisés avant leur expiration pour permettre aux synchronisations de provisionnement de continuer de fonctionner. 
+
+## <a name="change-log"></a>Journal des modifications
+
+* 21/07/2020 : activation de la suppression réversible pour tous les utilisateurs (via l’attribut actif).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

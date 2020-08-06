@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 5bf397cac26d3cc46e11f8ac60110629a528cd62
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49692c08787103b09e6e1502f7a9a58736239fdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018993"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -138,7 +138,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
 | Attribuée par l'utilisateur | Non disponible | Non disponible  | Non disponible  | Non disponible |
 
 
@@ -224,7 +224,7 @@ Reportez-vous à la liste suivante pour configurer l’identité managée du ser
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-La fonctionnalité [Identité managée pour les applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) est disponible en préversion et disponible dans toutes les régions.
+La fonctionnalité [Identité managée pour les applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) est disponible dans toutes les régions.
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |

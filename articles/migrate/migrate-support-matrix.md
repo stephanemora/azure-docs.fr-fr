@@ -2,14 +2,14 @@
 title: Tableau de prise en charge Azure Migrate
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022716"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -21,14 +21,16 @@ Le tableau récapitule les scénarios de détection, d’évaluation et de migra
 
 **Déploiement** | **Détails** 
 --- | --- 
-**Détection spécifique de l’application** | Vous pouvez détecter des applications, des rôles et des fonctionnalités qui s’exécutent sur des machines virtuelles VMware. Actuellement, cette fonctionnalité est limitée à la détection. L’évaluation est actuellement au niveau de la machine. Nous n’offrons pas encore d’évaluation spécifique d’une application, d’un rôle ou d’une fonctionnalité. 
-**Évaluation locale** | Évaluez les charges de travail et les données locales qui s’exécutent sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques. Évaluez en utilisant Azure Migrate Server Assessment et l’Assistant Migration de données Microsoft ainsi que d’autres outils et offres ISV.
-**Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez en utilisant Azure Migrate Server Assessment et Azure Database Migration Service ainsi que d’autres outils et offres ISV.
+**Découverte** | Vous pouvez découvrir des métadonnées de machine et des données de performances dynamiques.
+**App-discovery** | Vous pouvez détecter des applications, des rôles et des fonctionnalités qui s’exécutent sur des machines virtuelles VMware. Actuellement, cette fonctionnalité est limitée à la détection. L’évaluation est actuellement au niveau de la machine. Nous n’offrons pas encore d’évaluations basées sur une application, un rôle ou une fonctionnalité. 
+**Évaluation** | Évaluez les charges de travail et les données locales qui s’exécutent sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques. Effectuez des évaluations en utilisant Azure Migrate Server Assessment, Assistant Migration de données Microsoft (DMA) ainsi que d’autres outils et offres ISV.
+**Migration** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez en utilisant Azure Migrate Server Assessment et Azure Database Migration Service ainsi que d’autres outils et offres ISV.
 
 > [!NOTE]
 > Actuellement, les outils ISV ne peuvent pas envoyer de données à Azure Migrate dans Azure Government. Vous pouvez utiliser les outils intégrés de Microsoft, ou utiliser les outils des partenaires de façon indépendante.
 
 ## <a name="supported-tools"></a>Outils pris en charge
+
 
 La prise en charge d’outils spécifiques est récapitulée ci-dessous.
 
@@ -73,7 +75,11 @@ Créer un coffre de clés pour la migration sans agent VMware | Pour migrer des 
 
 ## <a name="supported-geographies-public-cloud"></a>Zones géographiques prises en charge (cloud public)
 
-Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques dans le cloud public. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques dans le cloud public.
+
+- Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles.
+- La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+- Lorsque vous créez un projet, vous sélectionnez une zone géographique. Le projet et les ressources associées sont créés dans l’une des régions de la zone géographique. La région est allouée par le service Azure Migrate.
 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---

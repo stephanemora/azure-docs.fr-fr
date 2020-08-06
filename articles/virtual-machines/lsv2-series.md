@@ -4,15 +4,15 @@ description: Spécifications pour les machines virtuelles de la série Lsv2.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675976"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284810"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -37,14 +37,14 @@ Migration dynamique : Non pris en charge
 
 Mises à jour avec préservation de la mémoire : Non pris en charge
 
-| Taille | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture/Mbits/s) | Débit de disque de données sans mise en cache (IOPS/Mbits/s)<sup>4</sup> | Débit maximal de disque de données sans mise en cache avec mode rafale (IOPS/Mbits/s)<sup>5</sup>| Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400 000/2 000  | 8 000/160   | 8000/1280 | 16 | 2 / 3 200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800 000/4 000  | 16 000/320  | 16000/1280 | 32 | 4 / 6 400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,5 M/8 000    | 32 000/640  | 32000/1280 | 32 | 8 / 12 800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6 x 1,92 To  | 2,2 M/14 000   | 48000/960  | 48000/2000 | 32 | 8 / 16 000+ |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2,9 M/16 000   | 64 000/1 280 | 64000/2000 | 32 | 8 / 16 000+ |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10 x 1,92 To | 3,8 M / 20 000 | 80000/1400 | 80 000/2 000 | 32 | 8 / 16 000+ |
+| Taille | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture/Mbits/s) | Débit de disque de données sans mise en cache (IOPS/Mbits/s)<sup>4</sup> | Débit maximal de disque de données sans mise en cache avec mode rafale (IOPS/Mbits/s)<sup>5</sup>| Nombre max de disques de données | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400 000/2 000  | 8 000/160   | 8000/1280 | 16 | 2 | 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800 000/4 000  | 16 000/320  | 16000/1280 | 32 | 4 | 6 400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,5 M/8 000    | 32 000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6 x 1,92 To  | 2,2 M/14 000   | 48000/960  | 48000/2000 | 32 | 8 | 16000+ |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2,9 M/16 000   | 64 000/1 280 | 64000/2000 | 32 | 8 | 16000+ |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10 x 1,92 To | 3,8 M / 20 000 | 80000/1400 | 80 000/2 000 | 32 | 8 | 16000+ |
 
 <sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 Mbits/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 Mbits/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications. Ce disque est éphémère, et toutes les données seront perdues lors de l'arrêt/la libération.
 
@@ -74,6 +74,21 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 - Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et Mbit/s  où Mbit/s  = 10^6 octets par seconde.
 - Si vous souhaitez obtenir des performances optimales pour vos machines virtuelles, vous devez limiter le nombre de disques de données à 2 disques par processeur virtuel.
 - La **bande passante réseau attendue** est la [bande passante agrégée maximale qui est allouée par type de machine virtuelle](../virtual-network/virtual-machine-network-throughput.md) entre toutes les cartes réseau, pour toutes les destinations. Les limites supérieures ne sont pas garanties, mais servent de points de repère pour sélectionner le type de machine virtuelle adapté à l’application prévue. Les performances réseau réelles dépendent de nombreux facteurs, notamment la congestion du réseau, les charges de l’application, ainsi que les paramètres réseau. Pour plus d’informations sur l’optimisation du débit du réseau, consultez [Optimisation du débit du réseau pour Windows et Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md). Pour atteindre la performance réseau attendue sous Linux ou Windows, il peut être nécessaire de sélectionner une version spécifique ou d’optimiser votre machine virtuelle. Pour plus d’informations, consultez [Tester de manière fiable le débit d’une machine virtuelle](../virtual-network/virtual-network-bandwidth-testing.md).
+
+
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
+
+- [Usage général](sizes-general.md)
+- [Mémoire optimisée](sizes-memory.md)
+- [Optimisé pour le stockage](sizes-storage.md)
+- [Optimisé pour le GPU](sizes-gpu.md)
+- [Calcul haute performance](sizes-hpc.md)
+- [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

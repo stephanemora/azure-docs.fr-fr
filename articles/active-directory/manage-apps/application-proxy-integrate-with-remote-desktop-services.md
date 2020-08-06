@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 07/22/2020
 ms.author: kenwith
 ms.custom: it-pro
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019520"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -29,7 +29,7 @@ Les Services Bureau à distance et le proxy d’application Azure AD fonctionnen
 
 Le public concerné par cet article est le suivant :
 - Clients actuels du proxy d’application qui souhaitent proposer plus d’applications à leurs utilisateurs finaux en publiant des applications locales via les Services Bureau à distance.
-- Clients actuels des Services Bureau à distance qui souhaitent réduire la surface d’attaque de leur déploiement à l’aide du proxy d’application Azure AD. Ce scénario propose un ensemble limité de contrôles de vérification en deux étapes et d’accès conditionnel à RDS.
+- Clients actuels des Services Bureau à distance qui souhaitent réduire la surface d’attaque de leur déploiement à l’aide du proxy d’application Azure AD. Ce scénario propose un ensemble de contrôles de vérification en deux étapes et d’accès conditionnel à RDS.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Comment le proxy d’application s’intègre dans le déploiement RDS standard
 
@@ -46,17 +46,17 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 
 ## <a name="requirements"></a>Spécifications
 
-- Utilisez un client autre que le client web Bureau à distance, dans la mesure où le client web ne prend pas en charge le proxy d’application.
-
 - Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application avec le proxy d’application afin de vous proposer une expérience d’authentification unique pour les deux applications.
 
 - Vous devez déjà avoir [déployé RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](application-proxy-add-on-premises-application.md).
 
-- Ce scénario suppose que vos utilisateurs finaux passent par Internet Explorer sur les ordinateurs de bureau Windows 7 ou Windows 10 qui se connectent via la page web du Bureau à distance. Si vous avez besoin de prendre en charge d’autres systèmes d’exploitation, consultez [Prise en charge pour d’autres configurations client](#support-for-other-client-configurations).
+- Vos utilisateurs finaux doivent utiliser un navigateur compatible pour se connecter à Site Web Bureau à distance ou au client Site Web Bureau à distance. Pour plus d’informations, consultez [Prise en charge des configurations client](#support-for-other-client-configurations).
 
-- Lors de la publication sur Site Web Bureau à distance, il est recommandé d’utiliser les mêmes noms de domaine complets interne et externe. Si les noms de domaine complets interne et externe sont différents, vous devez alors désactiver la traduction d’en-tête de requête pour éviter que le client reçoive des liens non valides. 
+- Lors de la publication sur Site Web Bureau à distance, il est recommandé d’utiliser les mêmes noms de domaine complets interne et externe. Si les noms de domaine complets interne et externe sont différents, vous devez alors désactiver la traduction d’en-tête de requête pour éviter que le client reçoive des liens non valides.
 
-- Dans Internet Explorer, activez le module complémentaire ActiveX Service de données distant.
+- Si vous utilisez Site Web Bureau à distance sur Internet Explorer, vous devez activer le module complémentaire ActiveX RDS.
+
+- Si vous utilisez le client Site Web Bureau à distance, vous devez utiliser le [connecteur version 1.5.1975 ou une version ultérieure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) de Proxy d’application.
 
 - Pour le flux de préauthentification d’Azure AD, les utilisateurs peuvent se connecter uniquement aux ressources dont la publication est à leur disposition dans le volet **RemoteApp et Bureaux**. Les utilisateurs ne peuvent pas se connecter à un Bureau à l’aide du volet **Se connecter à un ordinateur distant**.
 
@@ -72,7 +72,11 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
    - Méthode de préauthentification : Azure Active Directory
    - Traduire l’URL dans les en-têtes : Non
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
-3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**. Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance.
+3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**.
+
+   >[!Note]
+   >Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance.
+
 4. Sélectionnez **Azure Active Directory**, puis **Inscription des applications**. Choisissez votre application dans la liste.
 5. Dans **Gérer**, sélectionnez **Personnalisation**.
 6. Mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., `https://\<rdhost\>.com/RDWeb`).
@@ -111,6 +115,11 @@ Connectez-vous au déploiement RDS en tant qu’administrateur et modifiez le no
 
 Maintenant que vous avez configuré le Bureau à distance, le proxy d’application Azure AD a repris le dessus comme composant accessible sur Internet de RDS. Vous pouvez supprimer les autres points de terminaison accessibles sur Internet de vos ordinateurs Site Web Bureau à distance et Passerelle Bureau à distance.
 
+### <a name="enable-the-rd-web-client"></a>Activer le client Site Web Bureau à distance
+Si vous souhaitez également que les utilisateurs puissent utiliser le client Site Web Bureau à distance, suivez les étapes de la section [Configurer le client Site Web Bureau à distance pour vos utilisateurs](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) afin de l’activer.
+
+Le client Site Web Bureau à distance permet aux utilisateurs d’accéder à l’infrastructure de Bureau à distance de votre organisation par le biais d’un navigateur web compatible avec HTML5 comme Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures).
+
 ## <a name="test-the-scenario"></a>Test du scénario
 
 Testez le scénario avec Internet Explorer sur un ordinateur Windows 7 ou 10.
@@ -122,11 +131,12 @@ Testez le scénario avec Internet Explorer sur un ordinateur Windows 7 ou 10.
 
 ## <a name="support-for-other-client-configurations"></a>Prise en charge pour d’autres configurations client
 
-La configuration décrite dans cet article est destinée aux utilisateurs Windows 7 ou 10, dotés d’Internet Explorer et du module complémentaire ActiveX Service de données distant. Toutefois, le cas échéant, vous pouvez prendre en charge d’autres systèmes d’exploitation et navigateurs. La différence réside dans la méthode d’authentification que vous utilisez.
+La configuration décrite dans cet article concerne l’accès à RDS via Site Web Bureau à distance ou le client Site Web Bureau à distance. Toutefois, le cas échéant, vous pouvez prendre en charge d’autres systèmes d’exploitation et navigateurs. La différence réside dans la méthode d’authentification que vous utilisez.
 
 | Méthode d'authentification | Configuration client prise en charge |
 | --------------------- | ------------------------------ |
-| Pré-authentification    | Windows 7/10 avec Internet Explorer + module complémentaire ActiveX Service de données distant |
+| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer + module complémentaire ActiveX RDS |
+| Pré-authentification    | Client Site Web Bureau à distance : navigateur web compatible avec HTML5, tel que Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures) |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
 
 Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la préauthentification, vous pouvez utiliser les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
@@ -137,5 +147,5 @@ Pour utiliser l’authentification PassThrough, seulement deux modifications doi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
-[Considérations de sécurité pour l’accès aux applications à distance à l’aide du proxy d’application Azure AD](application-proxy-security.md)
+[Activer l’accès distant à SharePoint à l’aide de Proxy d’application d’Azure AD](application-proxy-integrate-with-sharepoint-server.md)
+[Considérations de sécurité pour l’accès aux applications à distance à l’aide de Proxy d’application d’Azure AD](application-proxy-security.md)

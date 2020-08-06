@@ -4,16 +4,16 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513777"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282447"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -111,7 +111,7 @@ Vous pouvez charger le contenu d’un répertoire sans copier le répertoire pro
 
 ### <a name="upload-specific-files"></a>Charger des fichiers spécifiques
 
-Vous pouvez spécifier des noms de fichiers complets ou utiliser des noms partiels avec des caractères génériques (*).
+Vous pouvez charger des fichiers spécifiques en utilisant des noms de fichiers complets, des noms partiels avec des caractères génériques (*), ou des dates et des heures.
 
 #### <a name="specify-multiple-complete-file-names"></a>Spécifier plusieurs noms de fichiers complets
 
@@ -140,6 +140,18 @@ Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `
 Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude-pattern`. Pour plus d’informations, consultez la documentation de référence sur [azcopy copy](storage-ref-azcopy-copy.md).
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `–recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `–include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés après une date et une heure 
+
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntaxe** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exemple** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+Pour obtenir des informations de référence détaillées, consultez les documents de référence [azcopy copy](storage-ref-azcopy-copy.md).
 
 ## <a name="download-files"></a>Télécharger les fichiers
 
@@ -202,7 +214,7 @@ Vous pouvez télécharger le contenu d’un répertoire sans copier le répertoi
 
 ### <a name="download-specific-files"></a>Télécharger des fichiers spécifiques
 
-Vous pouvez spécifier des noms de fichiers complets ou utiliser des noms partiels avec des caractères génériques (*).
+Vous pouvez télécharger des fichiers spécifiques en utilisant des noms de fichiers complets, des noms partiels avec des caractères génériques (*), ou des dates et des heures. 
 
 #### <a name="specify-multiple-complete-file-names"></a>Spécifier plusieurs noms de fichiers complets
 
@@ -231,6 +243,18 @@ Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `
 Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude-pattern`. Pour plus d’informations, consultez la documentation de référence sur [azcopy copy](storage-ref-azcopy-copy.md).
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `–recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `–include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Télécharger les fichiers qui ont été modifiés après une date et une heure 
+
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exemple** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+Pour obtenir des informations de référence détaillées, consultez les documents de référence [azcopy copy](storage-ref-azcopy-copy.md).
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copier des objets blob entre des comptes de stockage
 

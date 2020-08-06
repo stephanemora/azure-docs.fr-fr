@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019061"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -55,9 +55,12 @@ Les identités managées n’ont pas d’objet application dans l’annuaire, qu
 
 Non, il n’existe aucun plan de prise en charge des identités managées pour les ressources Azure dans Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Les identités managées pour les ressources Azure fonctionnent-elles avec la bibliothèque d’authentification Active Directory (ADAL) ou la bibliothèque d’authentification Microsoft (MSAL) ?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>Quelles sont les informations d’identification associées à une identité managée ? Quelle est la durée de validité et quelle est la fréquence de rotation ?
 
-Non, les identités managées pour les ressources Azure ne sont pas encore intégrées aux bibliothèques ADAL ni MSAL. Pour plus d’informations sur l’acquisition d’un jeton pour des identités managées pour les ressources Azure à l’aide du point de terminaison REST, consultez le [Guide pratique d’utilisation d’identités managées pour les ressources Azure sur une machine virtuelle Azure pour acquérir un jeton d’accès](how-to-use-vm-token.md).
+> [!NOTE]
+> Le mode d’authentification des identités managées est un détail d’implémentation interne susceptible d’être modifié sans préavis.
+
+Les identités managées utilisent l’authentification par certificat. Les informations d’identification de chaque identité managée ont une date d’expiration de 90 jours et elles sont renouvelées après 45 jours.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Quelle est la limite de sécurité des identités managées pour les ressources Azure ?
 
@@ -75,7 +78,7 @@ La limite de sécurité de l’identité est la ressource à laquelle elle est j
 
 Non. Si vous déplacez un abonnement vers un autre répertoire, vous devez les recréer manuellement et accorder à nouveau les attributions de rôle runbook automation d’Azure.
 - Pour les identités managées affectées par le système : désactivez et réactivez-les. 
-- Pour les identités managées affectées par l’utilisateur : supprimez, recréez et joignez-les à nouveau aux ressources nécessaires (par exemple, des machines virtuelles)
+- Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Puis-je utiliser une identité managée pour accéder à une ressource dans un autre répertoire/abonné ?
 

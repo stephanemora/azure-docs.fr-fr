@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725900"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124304"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connecter des applications Azure Functions pour le traitement des données
 
@@ -78,7 +78,7 @@ Il s’agit de votre fonction Azure de base.
 
 Vous pouvez maintenant compiler et exécuter la fonction. Même si les fonctions Azure sont destinées à s’exécuter dans le cloud, vous pouvez également les exécuter et les déboguer localement.
 
-Pour plus d’informations à ce sujet, consultez [Déboguer localement un déclencheur Event Grid](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Pour plus d’informations à ce sujet, consultez [*Déboguer localement un déclencheur Event Grid*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Ajouter le SDK Azure Digital Twins à votre application de fonction Azure
 
@@ -163,9 +163,9 @@ Utilisez la valeur de *principalId* dans la commande suivante afin d’attribuer
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Pour plus d’informations sur les identités managées, consultez [Guide pratique pour utiliser des identités managées avec App Service et Azure Functions](../app-service/overview-managed-identity.md).
+Pour plus d’informations sur les identités managées, consultez [*Guide pratique pour utiliser des identités managées avec App Service et Azure Functions*](../app-service/overview-managed-identity.md).
 
-Enfin, vous pouvez rendre l’URL de votre instance Azure Digital Twins accessible à votre fonction en définissant une variable d’environnement. Pour plus d’informations, consultez [Variables d’environnement](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Enfin, vous pouvez rendre l’URL de votre instance Azure Digital Twins accessible à votre fonction en définissant une variable d’environnement. Pour plus d’informations, consultez [*Variables d’environnement*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > L’URL de l’instance Azure Digital Twins est créée en ajoutant *https://* au début du *nom d’hôte* de votre instance Azure Digital Twins. Pour afficher le nom d’hôte, ainsi que toutes les propriétés de votre instance, vous pouvez exécuter `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -209,7 +209,7 @@ Notez également l’**ID d’objet** qui figure dans cette page, car vous en au
 
 ### <a name="assign-access-roles"></a>Attribuer des rôles d’accès
 
-Étant donné qu’Azure Digital Twins utilise le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources (pour plus d’informations, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)), vous devez également ajouter un rôle pour chaque application de fonction que vous souhaitez autoriser à accéder à Azure Digital Twins.
+Étant donné qu’Azure Digital Twins utilise le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources (pour plus d’informations, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md)), vous devez également ajouter un rôle pour chaque application de fonction que vous souhaitez autoriser à accéder à Azure Digital Twins.
 
 Pour affecter un rôle, vous avez besoin de l’**ID de ressource** de l’instance Azure Digital Twins que vous avez créée. Si vous ne l’avez pas enregistré lors de la création de votre instance, vous pouvez le récupérer à l’aide de cette commande :
 
@@ -232,4 +232,4 @@ Dans cet article, vous avez vu les étapes permettant de configurer une fonction
 * Un point de terminaison Event Grid qui reçoit des messages d’autres services
 
 Dans la suite, vous allez voir comment créer une fonction Azure de base pour ingérer des données IoT Hub dans Azure Digital Twins :
-* [Guide pratique pour ingérer des données de télémétrie à partir d’IoT Hub](how-to-ingest-iot-hub-data.md).
+* [*Guide pratique : Ingérer la télémétrie depuis IoT Hub*](how-to-ingest-iot-hub-data.md)

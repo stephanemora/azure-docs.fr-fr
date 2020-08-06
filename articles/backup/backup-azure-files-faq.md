@@ -3,16 +3,16 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488696"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382710"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
-Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](/answers/topics/azure-backup.html).
 
 Pour analyser rapidement les sections de cet article, utilisez les liens sur la droite, en dessous de **Dans cet article**.
 
@@ -34,13 +34,13 @@ Oui. La protection des partages de fichiers Azure connectés à des groupes de s
 
 Lorsque vous essayez de sauvegarder, le fait de sélectionner un compte de stockage pour détecter les partages de fichiers dans celui-ci permet d’enregistrer le compte de stockage avec le coffre à partir duquel cette action est effectuée. Si vous choisissez de protéger les partages de fichiers avec un autre coffre, [annulez l’enregistrement](manage-afs-backup.md#unregister-a-storage-account) du compte de stockage sélectionné à partir de ce coffre.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Pourquoi ne puis-je pas modifier le coffre pour configurer la sauvegarde pour le partage de fichiers ?
+
+Si le compte de stockage est déjà inscrit auprès d’un coffre ou si d’autres partages de fichiers dans le compte de stockage sont protégés à l’aide d’un coffre, vous n’avez pas la possibilité de le modifier, car tous les partages de fichiers dans un compte de stockage ne peuvent être protégés que par le même coffre. Si vous souhaitez modifier le coffre, vous devez [arrêter la protection de tous les partages de fichiers dans le compte de stockage](manage-afs-backup.md#stop-protection-on-a-file-share) à partir du coffre connecté, [annuler l’inscription](manage-afs-backup.md#unregister-a-storage-account) du compte de stockage, puis choisir un autre coffre pour la protection.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Puis-je modifier le coffre dans lequel je sauvegarde mes partages de fichiers ?
 
 Oui. Toutefois, vous devrez [arrêter la protection sur un partage de fichiers](manage-afs-backup.md#stop-protection-on-a-file-share) à partir du coffre connecté, [désinscrire](manage-afs-backup.md#unregister-a-storage-account) ce compte de stockage, puis le protéger à partir d’un autre coffre.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Combien de partages de fichiers Azure puis-je protéger dans un coffre ?
-
-Vous pouvez protéger les partages de fichiers Azure d’un maximum de 50 comptes de stockage par coffre. Vous pouvez également protéger jusqu’à 200 partages de fichiers Azure dans un seul coffre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Puis-je protéger deux partages de fichiers différents du même compte de stockage dans différents coffres ?
 
@@ -56,7 +56,7 @@ Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Puis-je effectuer une restauration d’un partage de fichiers Azure supprimé ?
 
-Si le partage de fichiers est dans l’état de suppression réversible, vous devez d’abord annuler la suppression du partage de fichiers pour effectuer l’opération de restauration. L’opération d’annulation de la suppression mettra le partage de fichiers dans l’état sauvegardé. Vous pourrez alors effectuer une restauration à n’importe quel point dans le temps. Pour découvrir comment annuler la suppression de votre partage de fichiers, cliquez sur [ce lien](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) ou consultez le [script d’annulation de la suppression de partage de fichiers](./scripts/backup-powershell-script-undelete-file-share.md). En cas de suppression définitive du partage de fichiers, vous ne pourrez pas restaurer le contenu et les captures instantanées.
+Si le partage de fichiers est dans l’état de suppression réversible, vous devez d’abord annuler la suppression du partage de fichiers pour effectuer l’opération de restauration. L’opération d’annulation de la suppression mettra le partage de fichiers dans l’état sauvegardé. Vous pourrez alors effectuer une restauration à n’importe quel point dans le temps. Pour découvrir comment annuler la suppression de votre partage de fichiers, cliquez sur [ce lien](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) ou consultez le [script d’annulation de la suppression de partage de fichiers](./scripts/backup-powershell-script-undelete-file-share.md). En cas de suppression définitive du partage de fichiers, vous ne pourrez pas restaurer le contenu et les captures instantanées.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Puis-je effectuer une restauration à partir de sauvegardes après avoir arrêté la protection sur un partage de fichiers Azure ?
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser GitOps pour une configuration de cluster compatible avec Azure Arc (préversion)
+title: Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes compatible avec Azure Arc (préversion)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,24 +8,24 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser GitOps pour une configuration de cluster compatible avec Azure Arc (préversion)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049968"
 ---
-# <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Utiliser GitOps pour une configuration compatible avec Azure Arc (préversion)
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes compatible avec Azure Arc (préversion)
 
-Cette architecture utilise un flux de travail GitOps pour configurer le cluster et déployer des applications. La configuration est décrite de manière déclarative dans des fichiers .yaml et stockée dans Git. Un agent surveille les modifications apportées au dépôt Git et les applique.  Le même agent vérifie aussi périodiquement que l’état du cluster correspond à l’état déclaré dans le dépôt Git, et rétablit le cluster dans l’état souhaité si des modifications non managées ont été apportées.
+GitOps est la pratique qui consiste à déclarer l’état souhaité de la configuration de Kubernetes (déploiements, espaces de noms, etc.) dans un référentiel Git, suivi d’un déploiement par interrogation et par extraction de ces configurations vers le cluster à l’aide d’un opérateur. Ce document traite de la configuration de ces workflows sur des clusters Kubernetes compatibles avec Azure Arc.
 
-La connexion entre votre cluster et un ou plusieurs dépôts Git est suivie dans Azure Resource Manager en tant que ressource d’extension `sourceControlConfiguration`. Les propriétés de ressource `sourceControlConfiguration` indiquent où et comment les ressources Kubernetes doivent circuler de Git vers votre cluster. Les données de `sourceControlConfiguration` sont chiffrées au repos dans une base de données CosmosDb pour garantir leur confidentialité.
+La connexion entre votre cluster et un ou plusieurs dépôts Git est suivie dans Azure Resource Manager en tant que ressource d’extension `sourceControlConfiguration`. Les propriétés de ressource `sourceControlConfiguration` indiquent où et comment les ressources Kubernetes doivent circuler de Git vers votre cluster. Les données `sourceControlConfiguration` sont stockées et chiffrées au repos dans une base de données Azure Cosmos DB pour garantir leur confidentialité.
 
-Le `config-agent` Kubernetes compatible avec Azure Arc en cours d’exécution dans votre cluster est chargé de surveiller les ressources `sourceControlConfiguration` nouvelles ou mises à jour, et orchestre l’ajout, la mise à jour ou la suppression automatiques des liens du dépôt Git.
-
-Les mêmes modèles peuvent être utilisés pour gérer une plus grande collection de clusters, qui peut être déployée dans des environnements hétérogènes. Par exemple, vous pouvez avoir un dépôt qui définit la configuration de base pour votre organisation et l’appliquer à des dizaines de clusters Kubernetes à la fois.
+Le `config-agent` s’exécutant dans votre cluster est responsable de la surveillance des ressources d’extension `sourceControlConfiguration` nouvelles ou mises à jour sur la ressource Kubernetes compatible avec Azure Arc, du déploiement d’un opérateur de flux pour surveiller le référentiel Git et de la propagation des mises à jour apportées au `sourceControlConfiguration`. Il est même possible de créer plusieurs ressources `sourceControlConfiguration` avec une étendue `namespace` sur le même cluster Kubernetes compatible avec Azure Arc afin d’obtenir une architecture mutualisée. Dans ce cas, chaque opérateur peut déployer des configurations uniquement dans son espace de noms respectif.
 
 Le dépôt Git peut contenir toutes sortes de ressources Kubernetes valides, telles que Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  Il peut également contenir des graphiques Helm pour le déploiement d’applications. Un ensemble commun de scénarios inclut la définition d’une configuration de base pour votre organisation, qui peut inclure des rôles et liaisons RBAC courants, des agents de surveillance ou de journalisation, ou des services à l’ensemble du cluster.
+
+Le même modèle peut être utilisé pour gérer une plus grande collection de clusters, qui peut être déployée dans des environnements hétérogènes. Par exemple, vous pouvez avoir un dépôt qui définit la configuration de base pour votre organisation et l’appliquer à des dizaines de clusters Kubernetes à la fois. [Azure Policy peut automatiser](use-azure-policy.md) la création d’un `sourceControlConfiguration` avec un ensemble spécifique de paramètres sur toutes les ressources Kubernetes compatibles avec Azure Arc dans une étendue (abonnement ou groupe de ressources).
 
 Ce guide de prise en main explique comment appliquer un ensemble de configurations avec une étendue d’administration de cluster.
 
@@ -39,12 +39,12 @@ L’exemple de dépôt est structuré autour du personnage d’un opérateur de 
 **Deployment:** `cluster-config/azure-vote`
 **ConfigMap:** `team-a/endpoints`
 
-Le `config-agent` interroge Azure concernant la présence d’une `sourceControlConfiguration` nouvelle ou mise à jour toutes les 30 secondes.  Il s’agit de la durée maximale nécessaire pour que le `config-agent` sélectionne une configuration nouvelle ou mise à jour.
-Si vous associez un dépôt privé, assurez-vous que vous accomplissez également les étapes décrites dans [Appliquer une configuration à partir d’un dépôt Git privé](#apply-configuration-from-a-private-git-repository).
+Le `config-agent` interroge Azure à la recherche d’un `sourceControlConfiguration` nouveau ou mis à jour toutes les 30 secondes, ce qui correspond à la durée maximale prise par `config-agent` pour récupérer une configuration nouvelle ou mise à jour.
+Si vous associez un dépôt privé à `sourceControlConfiguration`, assurez-vous d’accomplir également les étapes décrites dans [Appliquer une configuration à partir d’un dépôt Git privé](#apply-configuration-from-a-private-git-repository).
 
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
-À l’aide de l’extension Azure CLI pour `k8sconfiguration`, nous allons lier notre cluster connecté à un [exemple de dépôt Git](https://github.com/Azure/arc-k8s-demo). Nous allons donner à cette configuration un nom `cluster-config`, demander à l’agent de déployer l’opérateur dans l’espace de noms `cluster-config` et accorder à l’opérateur des autorisations `cluster-admin`.
+À l’aide de l’extension Azure CLI pour `k8sconfiguration`, nous allons lier notre cluster connecté à un [exemple de référentiel Git](https://github.com/Azure/arc-k8s-demo). Nous allons donner à cette configuration un nom `cluster-config`, demander à l’agent de déployer l’opérateur dans l’espace de noms `cluster-config` et accorder à l’opérateur des autorisations `cluster-admin`.
 
 ```console
 az k8sconfiguration create \
@@ -117,7 +117,7 @@ Ces scénarios sont pris en charge par Flux, mais pas encore par sourceControlCo
 
 Voici quelques paramètres supplémentaires pour personnaliser la création de la configuration :
 
-`--enable-helm-operator` : commutateur *facultatif* pour activer la prise en charge des déploiements de graphiques Helm. Par défaut, cette fonctionnalité est désactivée.
+`--enable-helm-operator` : commutateur *facultatif* pour activer la prise en charge des déploiements de graphiques Helm.
 
 `--helm-operator-chart-values` : valeurs de graphique *facultatives* pour l’opérateur Helm (si activé).  Par exemple, « --set helm.versions=v3 ».
 
@@ -125,7 +125,7 @@ Voici quelques paramètres supplémentaires pour personnaliser la création de l
 
 `--operator-namespace` : nom *facultatif* pour l’espace de noms de l’opérateur. Valeur par défaut : « default »
 
-`--operator-params` : paramètres *facultatifs* pour l’opérateur. Doit être entouré d’apostrophes. Par exemple : ```--operator-params='--git-readonly --git-path=releases/prod' ```
+`--operator-params` : paramètres *facultatifs* pour l’opérateur. Doit être entouré d’apostrophes. Par exemple : ```--operator-params='--git-readonly --git-path=releases' ```
 
 Options prises en charge dans --operator-params
 
@@ -143,13 +143,16 @@ Options prises en charge dans --operator-params
 
 * Si « --git-user » ou « --git-email » ne sont pas activés (ce qui signifie que vous ne souhaitez pas que Flux écrive dans le dépôt), l’option --git-readonly est automatiquement définie (si vous ne l’avez pas encore définie).
 
-* Si l’option enableHelmOperator a la valeur true, les chaînes operatorInstanceName et operatorNamespace ne peuvent pas dépasser 47 caractères combinés.  Si vous ne parvenez pas à respecter cette limite, vous obtenez l’erreur suivante :
+* Si l’option enableHelmOperator a la valeur true, les chaînes operatorInstanceName et operatorNamespace ne peuvent pas dépasser 47 caractères combinés.  Si vous ne parvenez pas à respecter cette limite, vous obtiendrez l’erreur suivante :
 
    ```console
    {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
    ```
 
-Pour plus d’informations, consultez la [Documentation de Flux](https://aka.ms/FluxcdReadme).
+Pour plus d’informations, consultez la [documentation Flux](https://aka.ms/FluxcdReadme).
+
+> [!TIP]
+> Il est possible de créer un sourceControlConfiguration également sur le portail Azure, sous l’onglet **Configurations** du panneau des ressources Kubernetes compatibles avec Azure Arc.
 
 ## <a name="validate-the-sourcecontrolconfiguration"></a>Valider le configuration sourceControlConfiguration
 
@@ -206,7 +209,7 @@ Pendant le processus d’approvisionnement, la configuration `sourceControlConfi
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Appliquer une configuration à partir d’un dépôt Git privé
 
-Si vous utilisez un dépôt Git privé, vous devez effectuer une tâche supplémentaire pour boucler la boucle, à savoir ajouter la clé publique générée par `flux` en tant que **clé de déploiement** dans le dépôt.
+Si vous utilisez un dépôt Git privé, vous devez effectuer une tâche supplémentaire pour boucler la boucle, à savoir ajouter la clé publique générée par `flux` comme **clé de déploiement** dans le dépôt.
 
 **Obtenir la clé publique à l’aide d’Azure CLI**
 
@@ -232,7 +235,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 5. Collez la clé publique (sans les apostrophes qui l’entourent).
 6. Cliquez sur **Add key** (Ajouter une clé).
 
-Pour plus d’informations sur la gestion des clés de déploiement, consultez les documents GitHub.
+Pour plus d’informations sur la gestion de ces clés, consultez les documents GitHub.
 
 **Si vous utilisez un dépôt Azure DevOps, ajoutez la clé à vos clés SSH.**
 
@@ -292,9 +295,11 @@ kubectl -n itops get all
 
 ## <a name="delete-a-configuration"></a>Supprimer une configuration
 
-Vous pouvez supprimer une configuration `sourceControlConfiguration` à l’aide d’Azure CLI ou du portail Azure.  Une fois que vous avez lancé la commande de suppression, la ressource `sourceControlConfiguration` est supprimée immédiatement dans Azure, mais la suppression complète des objets associés du cluster peut prendre jusqu’à 1 heure (nous avons un élément de backlog pour raccourcir ce délai). Si la configuration `sourceControlConfiguration` a été créée avec une étendue d’espace de noms, cet espace de noms n’est pas supprimé du cluster (pour éviter de rompre d’autres ressources qui peuvent avoir été créées dans cet espace de noms).
+Supprimez un `sourceControlConfiguration` à l’aide d’Azure CLI ou du portail Azure.  Une fois que vous avez lancé la commande de suppression, la ressource `sourceControlConfiguration` est immédiatement supprimée dans Azure, mais la suppression complète des objets associés du cluster peut prendre jusqu’à une heure (nous avons un élément de backlog pour réduire ce délai).
 
-Notez que les modifications apportées au cluster en raison des déploiements à partir du dépôt Git suivi ne sont pas supprimées lors de la suppression de la configuration `sourceControlConfiguration`.
+> [!NOTE]
+> Une fois qu’une étendue sourceControlConfiguration avec espace de noms est créée, il est possible pour les utilisateurs ayant une liaison de rôle `edit` sur l’espace de noms de déployer des charges de travail sur cet espace de noms. Lorsque cette étendue `sourceControlConfiguration` avec espace de noms est supprimée, l’espace de noms reste intact et ne peut pas être supprimé pour éviter d’arrêter ces autres charges de travail.
+> Les modifications apportées au cluster en raison des déploiements à partir du référentiel Git suivi ne sont pas supprimées lors de la suppression de `sourceControlConfiguration`.
 
 ```console
 az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
@@ -308,5 +313,5 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser GitOps avec Helm pour la configuration du cluster](./use-gitops-with-helm.md)
+- [Utiliser Helm avec la configuration du contrôle de code source](./use-gitops-with-helm.md)
 - [Utiliser Azure Policy pour gérer la configuration du cluster](./use-azure-policy.md)

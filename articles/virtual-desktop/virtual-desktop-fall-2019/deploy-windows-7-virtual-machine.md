@@ -1,6 +1,6 @@
 ---
-title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop – Azure
-description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop.
+title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique) – Azure
+description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 92ab8e006ab7fef3c7e856cc34467b4510055174
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99c82f63e88815edba13bf88ba23c18493649dd9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275884"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285082"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../deploy-windows-7-virtual-machine.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la version actuelle de Windows Virtual Desktop, consultez [cet article](../deploy-windows-7-virtual-machine.md).
 
 Le processus de déploiement d’une machine virtuelle Windows 7 sur Windows Virtual Desktop diffère légèrement de celui des machines virtuelles exécutant des versions ultérieures de Windows. Ce guide vous explique comment déployer Windows 7.
 

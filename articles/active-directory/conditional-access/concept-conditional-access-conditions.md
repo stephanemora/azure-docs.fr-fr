@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024442"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275001"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -63,6 +63,9 @@ Pour plus d’informations sur les emplacements, consultez l’article [Qu’est
 ## <a name="client-apps-preview"></a>Applications clientes (préversion)
 
 Par défaut, les stratégies d’accès conditionnel s’appliquent aux applications basées sur un navigateur ainsi qu’aux applications qui utilisent des protocoles d’authentification moderne. En plus de ces applications, les administrateurs peuvent choisir d’inclure les clients Exchange ActiveSync et d’autres clients qui utilisent des protocoles hérités.
+
+> [!NOTE]
+> La condition Configurer l’option Oui/Non dans les applications clientes a été supprimée pour qu’il soit plus facile de voir quelles applications clientes sont sélectionnées. Cela n’a aucun impact sur les applications clientes auxquelles s’applique une stratégie existante.
 
 - Browser
    - Cette option inclut les applications web qui utilisent des protocoles comme SAML, WS-Federation, OpenID Connect, ou les services inscrits en tant que clients confidentiels OAuth.

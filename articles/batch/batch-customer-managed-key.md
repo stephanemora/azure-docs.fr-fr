@@ -3,14 +3,14 @@ title: Configurer des clés managées par le client pour votre compte Azure Batc
 description: En savoir plus sur le chiffrement des données Batch à l’aide de clés
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: d0dcb79d5e319abd46515162ce5a17e935d9693b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062541"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurer des clés managées par le client pour votre compte Azure Batch avec Azure Key Vault et l’identité managée
 
@@ -20,7 +20,8 @@ Les clés que vous fournissez doivent être générées dans [Azure Key Vault](.
 
 > [!IMPORTANT]
 > Dans Azure Batch, la prise en charge des clés managées par le client est actuellement disponible en préversion publique dans les régions USA Centre-Ouest, USA Est, USA Centre Sud, USA Ouest 2, US Gov Virginie et US Gov Arizona.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Créer un compte Batch avec identité managée affectée par le système
 
@@ -57,6 +58,9 @@ az batch account show \
     -g $resourceGroupName \
     --query identity
 ```
+
+> [!NOTE]
+> L’identité managée affectée par le système créée dans un compte Batch est utilisée uniquement pour récupérer des clés gérées par le client dans le coffre de clés. Cette identité n’est pas disponible sur les pools Batch.
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurer votre instance Azure Key Vault
 
@@ -145,4 +149,5 @@ az batch account set \
   * **Après la restauration de l’accès, combien de temps faut-il pour que le compte Batch fonctionne à nouveau ?** Cela peut prendre jusqu’à 10 minutes pour que le compte soit à nouveau accessible après la restauration.
   * **Qu’arrive-t-il à mes ressources lorsque le compte Batch est indisponible ?** Les pools en cours d’exécution continuent à s’exécuter lorsque l’accès Batch aux clés managées par le client est perdu. Toutefois, les nœuds passent à l’état indisponible et les tâches cessent de s’exécuter (elles sont replacées dans la file d’attente). Une fois l’accès restauré, les nœuds sont à nouveau disponibles et les tâches redémarrent.
   * **Ce mécanisme de chiffrement s’applique-t-il aux disques de machine virtuelle dans un pool Batch ?** Non. Pour les pools de configuration de service Cloud, aucun chiffrement n’est appliqué pour le système d’exploitation et le disque temporaire. Pour les pools de configuration de machine virtuelle, le système d’exploitation et les disques de données spécifiés sont chiffrés par défaut avec une clé managée par la plate-forme Microsoft. Actuellement, vous ne pouvez pas spécifier votre propre clé pour ces disques. Pour chiffrer le disque temporaire des machines virtuelles pour un pool Batch avec une clé managée par la plate-forme Microsoft, vous devez activer la propriété [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) dans votre pool de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration). Pour les environnements très sensibles, nous vous recommandons d’activer le chiffrement de disque temporaire et d’éviter de stocker des données sensibles sur le système d’exploitation et les disques de données.
+  * **L’identité managée affectée par le système sur le compte Batch est-elle disponible sur les nœuds de calcul ?** Non. Cette identité managée est actuellement utilisée uniquement pour accéder au coffre de clés Azure pour la clé gérée par le client.
   

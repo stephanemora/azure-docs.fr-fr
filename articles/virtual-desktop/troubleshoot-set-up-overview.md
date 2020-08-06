@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976487"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292551"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
+# <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Vue d’ensemble de la résolution des problèmes, commentaires et support pour Windows Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Cet article fournit une vue d’ensemble des problèmes que vous pouvez rencontrer lors de la configuration d’un environnement Windows Virtual Desktop et fournit des moyens de résoudre les problèmes.
 
-## <a name="report-issues-during-public-preview"></a>Signaler des problèmes pendant la phase de préversion publique
+## <a name="report-issues"></a>Signaler des problèmes
 
-Pour signaler des problèmes ou suggérer des fonctionnalités lors de la phase de préversion publique de la version Printemps 2020, visitez le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Vous pouvez utiliser la Communauté technique pour discuter des bonnes pratiques ou bien pour suggérer et soutenir de nouvelles fonctionnalités. Quand vous signalez un problème lié à la préversion publique, veillez à étiqueter le type de problème en tant que **Spring 2020 Update (Preview)** (Mise à jour Printemps 2020 (préversion)).
+Pour signaler des problèmes ou suggérer des fonctionnalités pour Windows Virtual Desktop avec intégration d’Azure Resource Manager, consultez la [Communauté technique de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Vous pouvez utiliser la Communauté technique pour discuter des bonnes pratiques ou bien pour suggérer et soutenir de nouvelles fonctionnalités.
 
 Quand vous demandez de l’aide ou que vous proposez une nouvelle fonctionnalité, veillez à décrire votre sujet aussi précisément que possible. Des informations détaillées peuvent aider les autres utilisateurs à répondre à votre question ou à comprendre la fonctionnalité pour laquelle vous proposez un vote.
 

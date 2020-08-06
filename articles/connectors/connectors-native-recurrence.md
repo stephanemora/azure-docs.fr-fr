@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: 8706ae12d45b9c6667ae99078d479f0e907840fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007553"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Créer, planifier et exécuter des tâches et des flux de travail récurrents avec le déclencheur Récurrence dans Azure Logic Apps
 
@@ -78,7 +78,7 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Fenêt
    | **Heure de début** | `startTime` | Non | String | Indiquez une date et une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2020 à 14h00, alors spécifiez « 2020-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Vous pouvez également spécifier « 2020-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début ne peut pas dépasser 49 ans dans le futur, et doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **Aux jours indiqués** | `weekDays` | Non | Chaîne ou tableau de chaînes | Si vous sélectionnez « Semaine », vous pouvez sélectionner un ou plusieurs jours où vous voulez exécuter le workflow : **Lundi**, **Mardi**, **Mercredi**, **Jeudi**, **Vendredi**, **Samedi** et **Dimanche** |
    | **Aux heures indiquées** | `hours` | Non | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 23 pour les heures de la journée durant lesquelles exécuter le flux de travail. <p><p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 pour les heures de la journée, mais les minutes de la journée sont calculées en fonction de démarrage de la récurrence. Pour définir des minutes spécifiques du jour, par exemple, 10h00, 12h00 et 14h00, spécifiez ces valeurs à l’aide de la propriété **Aux minutes indiquées**. |
-   | **Aux minutes indiquées** | `minutes` | Non | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 59 pour les minutes de l’heure durant lesquelles exécuter le flux de travail. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. |
+   | **Aux minutes indiquées** | `minutes` | Non | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 59 pour les minutes de l’heure durant lesquelles exécuter le flux de travail. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. <p>**Remarque** : Parfois, l’horodatage de l’exécution déclenchée peut varier jusqu’à une minute par rapport à l’heure prévue. Si vous devez transmettre l’horodatage exactement comme prévu aux actions suivantes, vous pouvez utiliser des expressions de modèle pour modifier l’horodatage en conséquence. Pour plus d’informations, consultez [Fonctions de date et d’heure pour les expressions](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
    |||||
 
    Par exemple, supposons que nous sommes le lundi 4 septembre 2020 aujourd’hui. Le déclencheur Récurrence suivant ne s’active *pas avant* la date et l’heure de début définies, à savoir le vendredi 18 septembre 2020 à 8h00 (PST). Notez toutefois que la périodicité planifiée est définie sur 10h30, 12h30 et 14h30 uniquement le lundi. Par conséquent, le déclencheur s’activera et créera une instance de flux de travail d’application logique pour la première fois le lundi à 10h30. Pour plus d’informations sur le fonctionnement des heures de début, consultez ces [exemples d’heure de début](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).

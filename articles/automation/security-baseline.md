@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045901"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -60,15 +60,15 @@ Si les règles NSG et les itinéraires définis par l’utilisateur ne s’appli
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
-**Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -120,7 +120,7 @@ Si vous utilisez des Runbook Workers hybrides hébergés sur des machines virtue
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../firewall/threat-intel.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -128,7 +128,7 @@ Si vous utilisez des Runbook Workers hybrides hébergés sur des machines virtue
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -172,7 +172,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -184,7 +184,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -222,7 +222,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Interrogation des journaux Update Management](./automation-update-management-query-logs.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -274,7 +274,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -290,7 +290,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 * [Guide pratique pour générer des alertes sur les données de journal Azure Monitor](../azure-monitor/learn/tutorial-response.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -344,7 +344,7 @@ En revanche, si vous vous servez de la fonctionnalité Runbook Worker hybride, A
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -352,7 +352,7 @@ En revanche, si vous vous servez de la fonctionnalité Runbook Worker hybride, A
 
 **Conseils** : Le compte Azure Automation n’intègre pas le concept des mots de passe par défaut. Les clients sont responsables des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut qui s’exécutent sur le service ou sur ses Runbook Workers hybrides.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -368,7 +368,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -382,7 +382,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [Authentification sur Azure avec Azure AD](./automation-use-azure-ad.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -430,7 +430,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -484,7 +484,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -510,7 +510,7 @@ Toutefois, si vous utilisez des Runbook Workers hybrides qui s’appuient sur de
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -532,7 +532,7 @@ Toutefois, si vous utilisez des Runbook Workers hybrides qui s’appuient sur de
 
 * [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](../firewall/threat-intel.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -566,7 +566,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 **Aide** : Utilisez un outil de découverte actif tiers pour identifier toutes les informations sensibles stockées, traitées ou transmises par les systèmes technologiques de l’organisation, qu’elles soient situées sur site ou chez un fournisseur de services distant, et mettez à jour l’inventaire des informations sensibles de l’organisation.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -620,7 +620,7 @@ Lorsque vous utilisez des Runbook Workers hybrides, les disques virtuels des mac
 
 * [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -650,7 +650,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Gestion des mises à jour et des correctifs des machines virtuelles Azure](./automation-tutorial-update-management.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -664,7 +664,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Gestion des mises à jour et des correctifs des machines virtuelles Azure](./automation-tutorial-update-management.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -700,7 +700,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -770,7 +770,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Gestion des modules dans Azure Automation](./shared-resources/modules.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -792,7 +792,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -840,7 +840,7 @@ Le contrôle d’application adaptatif est une solution de bout en bout intellig
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -902,7 +902,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez la re
 
 * [Guide pratique pour corriger les recommandations Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -918,7 +918,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez la re
 
 * [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Déploiement d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
+* [Déploiement d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
 
@@ -958,7 +958,7 @@ Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base com
 
 * [Utilisation de l’intégration du contrôle de code source](./source-control-integration.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -972,7 +972,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, veillez à bie
 
 * [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -998,7 +998,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Azure
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](./automation-dsc-onboarding.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -1028,7 +1028,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Azure
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](./automation-dsc-onboarding.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -1064,9 +1064,9 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Azure
 
 **Conseils** : Exécuter le moteur d’analyse des informations d’identification pour identifier les informations d’identification dans le code. Le moteur d’analyse des informations d’identification encourage également le déplacement des informations d’identification découvertes vers des emplacements plus sécurisés, tels qu’Azure Key Vault.
 
-* [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1092,7 +1092,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Micro
 
 * [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -1124,7 +1124,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Informations de référence sur les modèles Azure Resource Manager pour les ressources Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Création d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./automation-create-account-template.md)
+* [Création d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Informations de référence sur les modèles Azure Resource Manager pour les ressources Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Création d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./automation-create-account-template.md)
+* [Création d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1258,7 +1258,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

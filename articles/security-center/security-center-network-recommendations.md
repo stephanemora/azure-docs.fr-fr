@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77431483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076367"
 ---
 # <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -116,7 +116,7 @@ Pour explorer une ressource au niveau du détail :
 
 ## <a name="legacy-networking"></a>Mise en réseau héritée <a name ="legacy-networking"></a>
 
-Si vous n’avez pas le niveau Standard de Security Center, cette section explique comment afficher les suggestions de mise en réseau gratuites.
+Si vous n’avez pas le niveau Standard de Security Center, cette section explique comment afficher les recommandations de mise en réseau gratuites.
 
 Pour accéder à ces informations, dans le panneau Mise en réseau, cliquez sur **Afficher la mise en réseau héritée**. 
 

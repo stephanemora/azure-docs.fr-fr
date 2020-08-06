@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040206"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Modifier le comportement HTTP à l’aide du moteur de règles Azure CDN de Verizon Premium
 
@@ -55,7 +55,7 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
     ![Options de nouvelle règle CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
+   > L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure. Par exemple, si vous avez une règle qui autorise l’accès à une ressource selon une propriété de requête et une autre règle qui refuse l’accès à toutes les requêtes, la deuxième règle l’emporte sur la première. Les règles remplacent les règles antérieures uniquement si elles interagissent avec les mêmes propriétés.
    >
 
 3. Entrez un nom dans la zone de texte **Nom / Description** .

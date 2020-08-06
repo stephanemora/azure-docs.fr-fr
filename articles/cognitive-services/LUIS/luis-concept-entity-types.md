@@ -3,12 +3,12 @@ title: Types d’entités - LUIS
 description: Une entité extrait des données d’un énoncé de l’utilisateur au moment de l’exécution de la prédiction. Un objectif secondaire _facultatif_ est d’améliorer la prédiction de l’intention ou d’autres entités à l’aide de l’entité en tant que caractéristique.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337617"
 ---
 # <a name="extract-data-with-entities"></a>Extraire des données avec des entités
 
@@ -77,6 +77,12 @@ Pour créer efficacement les entités issues du machine learning :
 * Votre étiquetage doit être cohérent au niveau des intentions. Cela inclut jusqu’aux énoncés que vous fournissez dans l’intention **Aucune**, qui incluent cette entité. Dans le cas contraire, le modèle n’est pas en mesure de déterminer les séquences efficacement.
 * Si vous disposez d’une entité issue du machine learning avec des sous-entités, assurez-vous que les différentes commandes et variantes de l’entité et des sous-entités sont présentées dans les énoncés étiquetés. Les exemples d’énoncés étiquetés doivent inclure toutes les formes valides, ainsi que les entités qui apparaissent, sont absentes et sont réorganisées au sein de l’énoncé.
 * Vous devez éviter de surajuster les entités à un jeu très fixe. Un **surajustement** se produit lorsque le modèle ne généralise pas bien et qu’il s’agit d’un problème courant dans les modèles Machine Learning. Cela implique que l’application ne fonctionnera pas correctement sur de nouvelles données. Vous devez faire varier les exemples d’énoncés étiquetés pour que l’application puisse généraliser au-delà des exemples limités que vous fournissez. Vous devez faire varier les différentes sous-entités avec suffisamment de modifications pour que le modèle considère plus le concept que les exemples indiqués.
+
+## <a name="effective-prebuilt-entities"></a>Entités prédéfinies efficaces
+
+Pour créer des entités efficaces qui extraient des données courantes, telles que celles fournies par les [entités prédéfinies](luis-reference-prebuilt-entities.md), nous vous recommandons de procéder comme suit.
+
+Améliorez l’extraction des données en apportant vos propres données à une entité en tant que fonctionnalité. Ainsi, toutes les étiquettes supplémentaires provenant de vos données apprendront le contexte de l’emplacement des noms de personnes dans votre application.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

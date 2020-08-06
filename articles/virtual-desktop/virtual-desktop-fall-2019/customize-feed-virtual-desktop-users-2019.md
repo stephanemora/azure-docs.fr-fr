@@ -1,6 +1,6 @@
 ---
-title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop - Azure
-description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop avec des applets de commande PowerShell
+title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique) – Azure
+description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique) avec des cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244563"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288660"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../customize-feed-for-virtual-desktop-users.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../customize-feed-for-virtual-desktop-users.md).
 
 Vous pouvez personnaliser le flux pour que les ressources d’application distante et de Bureau à distance apparaissent de façon reconnaissable pour vos utilisateurs.
 

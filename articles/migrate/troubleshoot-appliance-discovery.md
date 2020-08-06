@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114055"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171857"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -164,6 +164,9 @@ La détection d’application s’exécute une fois toutes les 24 heures. Si vo
 
 ## <a name="unable-to-export-application-inventory"></a>Impossible d’exporter l’inventaire des applications
 Vérifiez que l’utilisateur qui télécharge l’inventaire à partir du portail dispose de privilèges de contributeur sur l’abonnement.
+
+## <a name="no-suitable-authentication-method-found-to-complete-authentication-publickey"></a>Aucune méthode d’authentification appropriée n’a été trouvée pour terminer l’authentification (PublicKey)
+L’authentification par clé ne fonctionnera pas, utilisez l’authentification par mot de passe.
 
 ## <a name="common-app-discovery-errors"></a>Erreurs courantes de découverte d’applications
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090448"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -46,6 +46,9 @@ Les différentes configurations de Load Balancer Standard fournissent les métri
 | Compteurs d’octets |  Équilibreur de charge interne et public | Load Balancer Standard indique les données traitées par serveur frontal. Vous pouvez remarquer que les octets ne sont pas répartis de manière égale entre les instances du serveur principal. Cela est normal, car l’algorithme d’Azure Load Balance est basé sur les flux | Average |
 | Compteurs de paquets |  Équilibreur de charge interne et public | Load Balancer Standard indique les paquets traités par serveur frontal.| Average |
 
+  >[!NOTE]
+  >Lorsque vous utilisez la distribution du trafic à partir d’un équilibreur de charge interne via un appliance virtuelle réseau ou un pare-feu, les métriques de paquet Syn, de compteur d’octets et de compteur de paquets ne sont pas disponibles et affichent zéro. 
+  
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Afficher vos métriques d’équilibreur de charge dans le portail Azure
 
 Le Portail Azure présente les métriques d’équilibreur de charge via la page Métriques, qui est disponible sur la page de ressource d’équilibreur de charge pour une ressource spécifique, ainsi que sur la page Azure Monitor. 

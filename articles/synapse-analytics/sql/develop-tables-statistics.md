@@ -1,5 +1,5 @@
 ---
-title: Créer et mettre à jour des statistiques
+title: Créer et mettre à jour des statistiques à l’aide de ressources Azure Synapse SQL
 description: Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes dans SQL Synapse.
 services: synapse-analytics
 author: filippopovic
@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020597"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiques dans SQL Synapse
 

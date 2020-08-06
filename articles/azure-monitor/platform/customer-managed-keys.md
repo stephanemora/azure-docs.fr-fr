@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539412"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382948"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -187,14 +187,14 @@ Créez un coffre de clés Azure, ou utilisez-en un existant, pour générer ou i
 
 Ces paramètres peuvent être mis à jour par le biais de l’interface CLI et de PowerShell :
 
-- [Suppression réversible](../../key-vault/general/overview-soft-delete.md)
-- La [protection contre la suppression définitive](../../key-vault/general/overview-soft-delete.md#purge-protection) protège contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
+- [Suppression réversible](../../key-vault/general/soft-delete-overview.md)
+- La [protection contre la suppression définitive](../../key-vault/general/soft-delete-overview.md#purge-protection) protège contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
 
 ### <a name="create-cluster-resource"></a>Création d’une ressource de *cluster*
 
 Cette ressource est utilisée comme connexion d’identité intermédiaire entre votre coffre de clés et vos espaces de travail Log Analytics. Une fois que vous avez reçu une confirmation que vos abonnements ont été autorisés, créez une ressource *Cluster* Log Analytics dans la région où se trouvent vos espaces de travail.
 
-Vous devez spécifier le niveau (sku) de *réservation de capacité* lors de la création d’une ressource *cluster*. Le niveau de *réservation de capacité* peut varier entre 1 000 et 2 000 Go par jour, et vous pouvez le modifier ultérieurement par incréments de 100. Si vous avez besoin d’un niveau de réservation de capacité supérieur à 2 000 Go par jour, contactez-nous à l’adresse LAIngestionRate@microsoft.com. [En savoir plus](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Vous devez spécifier le niveau (sku) de *réservation de capacité* lors de la création d’une ressource *cluster*. Le niveau de *réservation de capacité* peut varier entre 1000 et 3000 Go par jour, et vous pouvez le modifier ultérieurement par incréments de 100. Si vous avez besoin d’un niveau de réservation de capacité supérieur à 3000 Go par jour, contactez-nous à l’adresse LAIngestionRate@microsoft.com. [En savoir plus](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 La propriété *billingType* détermine l’attribution de facturation pour la ressource *cluster* et ses données :
 - *Cluster* (par défaut) -- Les coûts de la réservation de capacité pour votre cluster sont attribués à la ressource *Cluster*.
@@ -467,9 +467,9 @@ Toutes vos données restent accessibles après l’opération de rotation de cl�
 Le langage de requête utilisé dans Log Analytics est expressif et peut contenir des informations sensibles dans les commentaires que vous ajoutez aux requêtes ou dans la syntaxe de requête. Certaines organisations requièrent que ces informations soient protégées dans le cadre de la stratégie CMK et vous devez sauvegarder vos requêtes en les chiffrant avec votre clé. Azure Monitor vous permet de stocker des requêtes de *recherches enregistrées* et d’*alertes de journal* chiffrées avec votre clé dans votre propre compte de stockage lorsque vous êtes connecté à votre espace de travail. 
 
 > [!NOTE]
-> La clé CMK pour les requêtes utilisées dans les classeurs et les tableaux de bord Azure n’est pas encore prise en charge. Ces requêtes restent chiffrées avec la clé Microsoft.  
+> Les requêtes Log Analytics peuvent être enregistrées dans différents magasins en fonction du scénario utilisé. Les requêtes restent chiffrées avec Microsoft Key (MMK) dans les scénarios suivants, quelle que soit la configuration de CMK : Classeurs dans Azure Monitor, tableaux de bord Azure, application logique Azure, Azure Notebooks et Automation Runbooks.
 
-Lorsque vous [apportez votre propre stockage](./private-storage.md) (BYOS) et que vous l’associez à votre espace de travail, le service charge les requêtes de *recherches enregistrées* et d’*alertes de journal*  dans votre compte de stockage. Cela signifie que vous contrôlez le compte de stockage et la [stratégie de chiffrement au repos](../../storage/common/encryption-customer-managed-keys.md) à l’aide de la même clé que celle utilisée pour chiffrer les données dans le cluster Log Analytics ou d’une clé différente. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage. 
+Lorsque vous apportez votre propre stockage (BYOS) et que vous l’associez à votre espace de travail, le service charge les requêtes de *recherches enregistrées* et d’*alertes de journal*  dans votre compte de stockage. Cela signifie que vous contrôlez le compte de stockage et la [stratégie de chiffrement au repos](../../storage/common/encryption-customer-managed-keys.md) à l’aide de la même clé que celle utilisée pour chiffrer les données dans le cluster Log Analytics ou d’une clé différente. Toutefois, vous êtes responsable des coûts associés à ce compte de stockage. 
 
 **Considérations à prendre en compte avant de définir la clé CMK pour les requêtes**
 * Vous devez disposer d’autorisations d’écriture pour votre espace de travail et votre compte de stockage.
@@ -599,7 +599,7 @@ Après la configuration, toute nouvelle requête d’alerte sera sauvegardée da
 
 - **Mettre à jour la *réservation de capacité* dans une ressource *cluster***
 
-  À mesure que le volume de données de vos espaces de travail associés change au fil du temps, vous souhaitez mettre à jour le niveau de réservation de capacité de manière appropriée. Suivez la [mise à jour de la ressource *cluster*](#update-cluster-resource-with-key-identifier-details) et fournissez votre nouvelle valeur de capacité. Celle-ci peut varier entre 1 000 et 2 000 Go par jour par incréments de 100. Pour un niveau de réservation de capacité supérieur à 2 000 Go par jour, adressez-vous à votre contact Microsoft pour l’activer. Notez que vous n’avez pas besoin de fournir tout le corps de la requête REST et que vous devez inclure la propriété sku :
+  À mesure que le volume de données de vos espaces de travail associés change au fil du temps, vous souhaitez mettre à jour le niveau de réservation de capacité de manière appropriée. Suivez la [mise à jour de la ressource *cluster*](#update-cluster-resource-with-key-identifier-details) et fournissez votre nouvelle valeur de capacité. Celle-ci peut varier entre 1000 et 3000 Go par jour par incréments de 100. Pour un niveau de réservation de capacité supérieur à 3000 Go par jour, adressez-vous à votre contact Microsoft pour l’activer. Notez que vous n’avez pas besoin de fournir le corps entier de la requête REST et que vous devez inclure la propriété sku :
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
@@ -706,8 +706,8 @@ Après la configuration, toute nouvelle requête d’alerte sera sauvegardée da
 - Le chiffrement CMK s’applique aux données nouvellement ingérées après la configuration de CMK. Les données qui ont été ingérées avant la configuration de CMK demeurent chiffrées avec la clé Microsoft. Vous pouvez interroger les données ingérées avant et après la configuration de CMK de manière fluide.
 
 - Le coffre de clés Azure doit être configuré comme récupérable. Les propriétés ci-après, qui ne sont pas activées par défaut, doivent être configurées à l’aide de l’interface CLI ou de PowerShell :<br>
-  - [Suppression réversible](../../key-vault/general/overview-soft-delete.md)
-  - La [protection contre le vidage](../../key-vault/general/overview-soft-delete.md#purge-protection) doit être activée pour bénéficier d’une protection contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
+  - [Suppression réversible](../../key-vault/general/soft-delete-overview.md)
+  - La [protection contre le vidage](../../key-vault/general/soft-delete-overview.md#purge-protection) doit être activée pour bénéficier d’une protection contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
 
 - Le déplacement de la ressource de *cluster* vers un autre groupe de ressources ou abonnement n’est pas pris en charge.
 
@@ -763,7 +763,7 @@ Après la configuration, toute nouvelle requête d’alerte sera sauvegardée da
   -  400 -- Le cluster est en cours de suppression. L’opération asynchrone est en cours. Le cluster doit effectuer cette opération avant l’exécution d’une opération de mise à jour.
   -  400 -- Les KeyVaultProperties ne sont pas vides, mais leur format est incorrect. Consultez [mise à jour de l’identificateur de la clé](#update-cluster-resource-with-key-identifier-details).
   -  400 -- Échec de validation de la clé dans Key Vault. Peut être dû à un manque d’autorisations ou à l’inexistence de la clé. Vérifiez que vous [avez défini la clé et la stratégie d’accès](#grant-key-vault-permissions) dans Key Vault.
-  -  400 -- La clé n’est pas récupérable. La suppression réversible et la protection contre le vidage doivent être définis pour Key Vault. Consulter la [documentation sur Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400 -- La clé n’est pas récupérable. La suppression réversible et la protection contre le vidage doivent être définis pour Key Vault. Consulter la [documentation sur Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Impossible d’exécuter une opération pour le moment. Attendez que l’opération asynchrone se termine et réessayez.
   -  400 -- Le cluster est en cours de suppression. Attendez que l’opération asynchrone se termine et réessayez.
 

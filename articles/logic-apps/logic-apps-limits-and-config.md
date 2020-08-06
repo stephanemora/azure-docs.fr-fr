@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/25/2020
-ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/28/2020
+ms.openlocfilehash: 2aa267f3c04225699d3ce65b5f8ee3b573ac0c78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520781"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323755"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -389,8 +389,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
-> Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
-> Pour les connecteurs managés, vous devez continuer à utiliser les adresses IP.
+> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP sortants de connecteur géré pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible. 
 
 <a name="multi-tenant-outbound"></a>
 

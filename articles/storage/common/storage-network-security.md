@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080021"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070655"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -388,6 +388,7 @@ Le paramètre **Autoriser les services Microsoft approuvés...** permet à une i
 
 | Service                        | Nom du fournisseur de ressources                 | Objectif            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Gestion des API Azure           | Microsoft.ApiManagement/service        | Active l’accès au service Gestion des API pour les comptes de stockage derrière un pare-feu à l’aide de stratégies. [Plus d’informations](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy) |
 | Recherche cognitive Azure         | Microsoft.Search/searchServices        | Permet aux services Recherche cognitive d’accéder aux comptes de stockage pour l’indexation, le traitement et l’interrogation. |
 | Tâches Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks peut accéder aux comptes de stockage lors de la génération d’images conteneur. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Autorise l’accès aux comptes de stockage par le biais du Runtime ADF. |

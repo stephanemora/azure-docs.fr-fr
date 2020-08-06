@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945441"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321749"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
@@ -16,15 +16,32 @@ ms.locfileid: "84945441"
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 
-Vous pouvez déployer les types de ressources suivants au niveau du locataire :
+Tous les types de ressources ne peuvent pas être déployés au niveau du locataire. Cette section répertorie les types de ressources pris en charge.
 
-* [déploiements](/azure/templates/microsoft.resources/deployments) : pour les modèles imbriqués déployés sur des groupes d'administration ou des abonnements.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+Pour les stratégies Azure, utilisez :
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Pour le contrôle d’accès en fonction du rôle, utilisez :
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Pour les modèles imbriqués qui sont déployés sur des groupes d’administration, des abonnements ou des groupes de ressources, utilisez :
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+Pour créer des groupes d’administration, utilisez :
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+Pour la gestion des coûts, utilisez :
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>schéma
 
@@ -93,6 +110,56 @@ Pour les déploiements au niveau du locataire, vous devez fournir un emplacement
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement sur un locataire, vous pouvez cibler le locataire ou les groupes d’administration, les abonnements et les groupes de ressources dans le locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Les ressources définies dans la section Ressources du modèle sont appliquées au locataire.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 

@@ -1,5 +1,5 @@
 ---
-title: Optimisation des transactions pour le pool SQL
+title: Optimiser les transactions pour le pool SQL
 description: Découvrez comment optimiser les performances de votre code transactionnel dans le pool SQL (entrepôt de données) tout en minimisant les risques de restaurations de longue durée.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0c55cc6e0fc15b663667a5131e2dd333106418cd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075717"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Optimisation des transactions dans le pool SQL
 

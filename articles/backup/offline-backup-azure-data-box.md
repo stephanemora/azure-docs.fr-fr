@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091026"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
@@ -153,7 +153,7 @@ L’agent MARS fonctionne dans le contexte du système local : il est donc néc
 Pour vous assurer de pouvoir monter votre appareil Data Box en tant que système local à l’aide du protocole NFS :
 
 1. Activez la fonctionnalité Client pour NFS sur le serveur Windows sur lequel l’agent MARS est installé. Spécifiez l’autre source *WIM:D:\Sources\Install.wim:4*.
-1. Téléchargez PSExec à partir de <https://download.sysinternals.com/files/PSTools.zip> sur le serveur sur lequel l’agent MARS est installé.
+1. Téléchargez PsExec à partir de la page [Sysinternals](/sysinternals/downloads/psexec) sur le serveur sur lequel l’agent MARS est installé.
 1. Ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante avec le répertoire contenant *PSExec.exe* comme répertoire actif.
 
     ```cmd

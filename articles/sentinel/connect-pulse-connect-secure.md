@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 01d41b20c543262280e215cf4e31fd0cccce877f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6de717f0ed9a2e27e15199b6f0ea566e0fdcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021628"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Connecter votre solution Pulse Connect Secure à Azure Sentinel
+
+> [!IMPORTANT]
+> Le connecteur de données Pulse Connect Secure dans Azure Sentinel est en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique comment connecter votre appliance [Pulse Connect Secure](https://www.pulsesecure.net/products/pulse-connect-secure/) à Azure Sentinel. Le connecteur de données Pulse Connect Secure vous permet de connecter facilement vos journaux Pulse Connect Secure à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’investigation. L'intégration entre Pulse Connect Secure et Azure Sentinel utilise Syslog.
 

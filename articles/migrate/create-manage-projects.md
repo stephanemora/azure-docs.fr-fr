@@ -2,13 +2,13 @@
 title: Créer et gérer des projets Azure Migrate
 description: Rechercher, créer, gérer et supprimer des projets dans Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071798"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Créer et gérer des projets Azure Migrate
 
@@ -65,7 +65,6 @@ Supprimez comme suit :
     - Le type de ressource est **Microsoft.Migrate/migrateprojects**.
     - Si le groupe de ressources est utilisé uniquement par le projet Azure Migrate, vous pouvez supprimer l’intégralité du groupe de ressources.
 
-
 Notez les points suivants :
 
 - Quand vous supprimez, le projet et les métadonnées concernant les machines découvertes sont supprimés.
@@ -73,6 +72,7 @@ Notez les points suivants :
 - Si vous utilisez l’analyse des dépendances avec un espace de travail Azure Log Analytics :
     - Cependant, si vous avez attaché un espace de travail Log Analytics à l’outil Server Assessment, l’espace de travail n’est pas supprimé automatiquement. Le même espace de travail Log Analytics peut être utilisé dans plusieurs scénarios.
     - Si vous souhaitez supprimer l’espace de travail Log Analytics, faites-le manuellement.
+- La suppression du projet est irréversible. Les objets supprimés ne peuvent pas être récupérés.
 
 ### <a name="delete-a-workspace-manually"></a>Supprimer un espace de travail manuellement
 

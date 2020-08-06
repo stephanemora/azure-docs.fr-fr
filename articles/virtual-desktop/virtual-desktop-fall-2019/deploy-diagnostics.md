@@ -1,6 +1,6 @@
 ---
-title: Déployer l’outil de diagnostic pour Windows Virtual Desktop - Azure
-description: Comment déployer l’outil UX de diagnostic pour Windows Virtual Desktop.
+title: Déployer l’outil de diagnostic pour Windows Virtual Desktop (classique) – Azure
+description: Comment déployer l’outil de diagnostic de l’expérience utilisateur pour Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285099"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Déployer l’outil de diagnostic Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop.
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
 
 >[!IMPORTANT]
 >Depuis le 16 mars 2020, nous avons désactivé temporairement les requêtes de diagnostic qui nuisaient à l’expérience utilisateur en raison de l’augmentation de la demande sur le service. Cela entraînera l’arrêt de l’outil, car il s’appuie sur ces requêtes pour fonctionner. Nous mettrons à jour cet article lorsque les requêtes de diagnostic seront à nouveau disponibles.

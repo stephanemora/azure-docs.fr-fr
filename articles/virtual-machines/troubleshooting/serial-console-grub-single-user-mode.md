@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70883929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284708"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 Le GRand Unified Bootloader (GRUB) est probablement la première chose que vous voyez lorsque vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, le GRUB n’est pas accessible par le biais du protocole SSH. Dans GRUB, vous pouvez modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -37,7 +37,7 @@ Pour passer en mode mono-utilisateur, entrez un GRUB lors de du démarrage de vo
 ## <a name="general-grub-access"></a>Accès général au GRUB
 Pour accéder au GRUB, redémarrez votre machine virtuelle alors que le volet Console série est ouvert. Certaines distributions nécessitent une entrée au clavier pour afficher le GRUB, et d’autres l’affichent automatiquement pendant quelques secondes afin de permettre à l’utilisateur d’effectuer une entrée au clavier pour annuler le délai d’expiration.
 
-Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. Selon votre distribution, un travail de configuration peut être nécessaire pour s’assurer que le GRUB est activé. Pour obtenir des informations spécifiques à votre distribution, consultez la section suivante et notre page [Support pour Linux sur Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. Selon votre distribution, un travail de configuration peut être nécessaire pour s’assurer que le GRUB est activé. Pour obtenir des informations spécifiques de la distribution, consultez la section suivante.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Redémarrer votre machine virtuelle pour accéder au GRUB dans la console série
 Vous pouvez redémarrer votre machine virtuelle dans la console série en pointant sur le bouton **Redémarrer**, puis en sélectionnant **Redémarrer la machine virtuelle**. Une notification sur le redémarrage s’affiche en bas du volet.
@@ -113,7 +113,7 @@ Si vous avez configuré le GRUB et l’accès racine à l’aide des instruction
 
    Vous êtes invité à entrer le mot de passe de l’administrateur avant de pouvoir passer en mode mono-utilisateur. Ce mot de passe est celui que vous avez créé avec les instructions précédentes.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Image animée montrant une interface de ligne de commande. L’utilisateur sélectionne un serveur, repère la fin de la ligne du noyau, puis entre le texte spécifié.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrez en mode mono-utilisateur unique sans compte racine activé dans RHEL
 Si vous n’avez pas activé l’utilisateur racine en suivant les instructions précédentes, vous pouvez toujours réinitialiser votre mot de passe racine en procédant comme suit :
@@ -137,7 +137,7 @@ Si vous n’avez pas activé l’utilisateur racine en suivant les instructions 
 1. Vous êtes maintenant à la racine. Vous pouvez réinitialiser votre mot de passe racine en entrant `passwd`, puis suivre les instructions précédentes pour entrer en mode mono-utilisateur. 
 1. Une fois que vous avez terminé, entrez `reboot -f` pour redémarrer.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Image animée montrant une interface de ligne de commande. L’utilisateur sélectionne un serveur, repère la fin de la ligne du noyau et entre les commandes spécifiées.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Les instructions précédentes vous amènent dans l’interpréteur de commandes d’urgence, ce qui vous permet d’effectuer des tâches telles que la modification de `fstab`. Toutefois, nous vous suggérons généralement de réinitialiser votre mot de passe racine et de l’utiliser pour passer en mode mono-utilisateur.
@@ -241,7 +241,7 @@ Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilis
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la console série, consultez :
 * [Documentation de la console série Linux](serial-console-linux.md)
-* [Utilisation de la console série pour activer GRUB dans diverses distributions](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Utilisation de la console série pour activer GRUB dans diverses distributions](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Utiliser la console série pour les appels SysRq et NMI](serial-console-nmi-sysrq.md)
 * [Machines virtuelles de console série pour Windows](serial-console-windows.md)
 * [Diagnostics de démarrage](boot-diagnostics.md)

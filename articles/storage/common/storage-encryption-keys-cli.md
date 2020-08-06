@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506195"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276684"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide d’Azure CLI
 
@@ -30,6 +30,7 @@ Pour activer des clés gérées par le client pour votre compte de stockage, aff
 Pour attribuer une identité managée à l’aide d’Azure CLI, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -90,9 +91,33 @@ Le chiffrement du stockage Azure prend en charge les clés RSA et RSA-HSM dans l
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurer le chiffrement avec les clés gérées par le client
 
-Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. À cette étape, configurez votre compte de stockage Azure pour utiliser les clés gérées par le client et spécifiez la clé à lui associer.
+Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. Dans cette étape, configurez votre compte de stockage Azure pour utiliser des clés gérées par le client à l’aide d’Azure Key Vault, puis spécifiez la clé à lui associer.
 
-Pour mettre à jour les paramètres de chiffrement du compte de stockage, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update), comme illustré dans l’exemple suivant. Incluez le paramètre `--encryption-key-source` et définissez-le sur `Microsoft.Keyvault` pour activer les clés gérées par le client pour le compte de stockage. L’exemple exécute également une requête pour l’URI du coffre de clés et la dernière version de la clé, ces deux valeurs étant nécessaires pour associer la clé au compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
+Lorsque vous configurez le chiffrement avec des clés gérées par le client, vous pouvez choisir de faire pivoter automatiquement la clé utilisée pour le chiffrement lorsque la version change dans le coffre de clés associé. Vous pouvez également spécifier explicitement une version de clé à utiliser pour le chiffrement jusqu’à ce que la version de clé soit mise à jour manuellement.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurer le chiffrement pour la rotation automatique des clés gérées par le client
+
+Afin de configurer le chiffrement avec rotation automatique des clés gérées par le client, installez [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou une version ultérieure. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+Pour faire pivoter automatiquement les clés gérées par le client, omettez la version de clé lorsque vous configurez des clés gérées par le client pour le compte de stockage. Pour mettre à jour les paramètres de chiffrement du compte de stockage, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update), comme illustré dans l’exemple suivant. Incluez le paramètre `--encryption-key-source` et définissez-le sur `Microsoft.Keyvault` pour activer les clés gérées par le client pour le compte. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configurer le chiffrement pour la rotation manuelle des versions de clé
+
+Pour spécifier explicitement une version de clé à utiliser pour le chiffrement, fournissez la version de clé lorsque vous configurez le chiffrement avec les clés gérées par le client pour le compte de stockage. Pour mettre à jour les paramètres de chiffrement du compte de stockage, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update), comme illustré dans l’exemple suivant. Incluez le paramètre `--encryption-key-source` et définissez-le sur `Microsoft.Keyvault` pour activer les clés gérées par le client pour le compte. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Mettre à jour la version de la clé
-
-Lors de la création d’une nouvelle version d’une clé, vous devez mettre à jour le compte de stockage afin qu’il utilise cette nouvelle version. Tout d’abord, lancez une requête pour l’URI du coffre de clés en appelant [az keyvault show](/cli/azure/keyvault#az-keyvault-show)et pour la version de la clé en appelant [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Appelez ensuite [az storage account update](/cli/azure/storage/account#az-storage-account-update) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans la section précédente.
+Lorsque vous faites pivoter manuellement la version de clé, vous devez mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version. Tout d’abord, lancez une requête pour l’URI du coffre de clés en appelant [az keyvault show](/cli/azure/keyvault#az-keyvault-show)et pour la version de la clé en appelant [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Appelez ensuite [az storage account update](/cli/azure/storage/account#az-storage-account-update) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans l’exemple précédent.
 
 ## <a name="use-a-different-key"></a>Utiliser une autre clé
 
@@ -124,7 +147,7 @@ Pour modifier la clé utilisée pour le chiffrement de Stockage Azure, appelez [
 
 ## <a name="revoke-customer-managed-keys"></a>Révoquer des clés gérées par le client
 
-Si vous pensez qu’une clé a peut-être été compromise, vous pouvez révoquer les clés gérées par le client en supprimant la stratégie d’accès au coffre de clés. Pour révoquer une clé gérée par le client, appelez la commande [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy), comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+Vous pouvez révoquer des clés gérées par le client en supprimant la stratégie d’accès du coffre de clés. Pour révoquer une clé gérée par le client, appelez la commande [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy), comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
 ```azurecli-interactive
 az keyvault delete-policy \

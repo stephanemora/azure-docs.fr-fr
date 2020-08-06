@@ -1,6 +1,6 @@
 ---
-title: Surveiller les applications Apache Spark
-description: Utilisez Azure Synapse Studio pour surveiller vos applications Apache Spark.
+title: Surveiller des applications Apache Spark à l’aide de Synapse Studio
+description: Utilisez Synapse Studio pour surveiller vos applications Apache Spark.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 20c4216e7af0cb4100204ebae1b484a53e3c50a6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971217"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387351"
 ---
-# <a name="use-the-azure-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Azure Synapse Studio pour surveiller vos applications Apache Spark
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Synapse Studio pour surveiller vos applications Apache Spark
 
 Azure Synapse Analytics vous permet d’utiliser Apache Spark pour exécuter des blocs-notes, des travaux et d’autres types d’applications sur vos pools Apache Spark dans votre espace de travail.
 
@@ -33,13 +33,13 @@ Ce tutoriel décrit les tâches suivantes :
 
 Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
-- Un espace de travail Azure Synapse Studio. Pour obtenir des instructions, consultez [Créer un espace de travail Azure Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Un espace de travail Synapse Studio. Pour obtenir des instructions, consultez [Créer un espace de travail Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
 - Un pool Apache Spark.
 
-## <a name="monitor-running-apache-spark-application"></a>Superviser l’exécution des applications Apache Spark
+## <a name="monitor-running-apache-spark-application"></a>Superviser l’exécution d’applications Apache Spark
 
-Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark en cours d’exécution, sélectionnez l’application Apache Spark concernée. Si l’application Apache Spark est toujours en cours d’exécution, vous pouvez surveiller la progression.
+Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark en cours d’exécution, sélectionnez l’application Apache Spark concernée et affichez les détails. Si l’application Apache Spark est toujours en cours d’exécution, vous pouvez surveiller la progression.
 
   ![sélectionner une tâche en cours d’exécution](./media/how-to-monitor-spark-applications/select-running-job.png)
 
@@ -57,7 +57,7 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
     ![afficher la tâche en cours d’exécution](./media/how-to-monitor-spark-applications/view-running-job.png)
 
-## <a name="view-completed-apache-spark-application"></a>Afficher les applications Apache Spark terminées
+## <a name="view-completed-apache-spark-application"></a>Afficher une application Apache Spark terminée
 
 Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark terminées, sélectionnez l’application Apache Spark concernée.
 
@@ -105,7 +105,7 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
    ![détails de l’index](./media/how-to-monitor-spark-applications/details-for-stage.png)
 
-## <a name="view-canceled-apache-spark-application"></a>Afficher les applications Apache Spark annulées
+## <a name="view-canceled-apache-spark-application"></a>Afficher une application Apache Spark annulée
 
 Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark annulées, sélectionnez l’application Apache Spark concernée.
 
@@ -125,7 +125,7 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
    ![afficher une tâche annulée](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
-## <a name="debug-failed-apache-spark-application"></a>Déboguer les applications Apache Spark ayant échoué
+## <a name="debug-failed-apache-spark-application"></a>Déboguer une application Apache Spark défaillante
 
 Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour afficher les détails des applications Apache Spark ayant échoué, sélectionnez l’application Apache Spark concernée.
 
@@ -147,4 +147,4 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la surveillance des exécutions de pipeline, consultez l’article [Surveiller les exécutions de pipeline avec Azure Synapse Studio](how-to-monitor-pipeline-runs.md).  
+Pour plus d’informations sur la surveillance des exécutions de pipeline, consultez l’article [Surveiller les exécutions de pipeline à l’aide de Synapse Studio](how-to-monitor-pipeline-runs.md).  

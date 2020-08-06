@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adc0d63a51535b27b42abbe0115ff25594eb2b4f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086923"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292472"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -102,6 +102,6 @@ Pour désactiver l’application du Windows Store :
 
 Pour plus d’informations sur Windows Virtual Desktop et Windows 10 Entreprise multisession :
 
-- Lisez notre [Documentation de la préversion de Windows Virtual Desktop](overview.md).
+- Lisez notre [documentation Windows Virtual Desktop](overview.md)
 - Consultez le site de la [Tech Community Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - Configurez votre déploiement Windows Virtual Desktop à l’aide des [tutoriels Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

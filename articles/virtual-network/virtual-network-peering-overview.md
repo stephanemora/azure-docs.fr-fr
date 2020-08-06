@@ -1,7 +1,7 @@
 ---
 title: Peering de réseaux virtuels Azure
 titlesuffix: Azure Virtual Network
-description: En savoir plus sur le peering de réseaux virtuels dans Azure.
+description: Découvrez l’appairage de réseaux virtuels dans Azure, notamment la façon dont il vous permet de connecter des réseaux dans Réseau virtuel Microsoft Azure.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232952"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265158"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 

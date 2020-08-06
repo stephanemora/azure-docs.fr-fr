@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 2cdac18ed20c90861fe23f0a9ccbd02680d380af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: 5be50453dff9acaf4a9876eec1d95b56abebf745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029839"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versions d’API dans la Recherche cognitive Azure
 
@@ -24,7 +24,7 @@ En règle générale, l’équipe de Recherche cognitive Azure publie de nouvell
 La même règle s’applique pour les mises à jour du Kit de développement logiciel (SDK). Le SDK de Recherche cognitive Azure suit les règles de [gestion sémantique de version](https://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Une nouvelle version majeure du Kit de développement logiciel (SDK) est publiée uniquement en cas de modifications qui interrompent la compatibilité descendante. Les mises à jour de fonctionnalités sans rupture incrémentent la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
 
 > [!Important]
-> Les Kits de développement logiciel (SDK) Azure pour .NET, Java, Python et JavaScript déploient de nouvelles bibliothèques de client pour Recherche cognitive Azure. Actuellement, aucune des bibliothèques des Kits de développement logiciel (SDK) Azure ne prend en charge les API REST de recherche (2020-06-30) ou les API REST de gestion (2020-03-13) les plus récentes, mais cela changera au fil du temps. Vous pouvez consulter régulièrement cette page ou la rubrique [Nouveautés](whats-new.md) pour connaître les annonces sur les améliorations fonctionnelles. 
+> Les Kits de développement logiciel (SDK) Azure pour .NET, Java, Python et JavaScript déploient de nouvelles bibliothèques de client pour Recherche cognitive Azure. Actuellement, aucune des bibliothèques des Kits de développement logiciel (SDK) Azure ne prend entièrement en charge les API REST de recherche (2020-06-30) ou les API REST de gestion (2020-03-13) les plus récentes, mais cela changera au fil du temps. Vous pouvez consulter régulièrement cette page ou la rubrique [Nouveautés](whats-new.md) pour connaître les annonces sur les améliorations fonctionnelles. 
 
 ## <a name="rest-apis"></a>API REST
 
@@ -69,7 +69,7 @@ L’historique des versions du package est disponible sur NuGet.org. Ce tableau 
 
 | Version du SDK | Statut | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
+| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST Recherche (api-version = 2020-06-30), mais ne prend pas encore en charge les filtres géographiques et [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Publiée en mai 2019. Cible l’API REST de recherche api-version=2019-05-06.|
 | [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | PRÉVERSION | Publiée en avril 2019. Cible l’API REST de recherche api-version=2019-05-06-Preview.|
 | [Microsoft.Azure.Management.Search 3.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Cible l’API REST de gestion de versions 19-08-2015.  |

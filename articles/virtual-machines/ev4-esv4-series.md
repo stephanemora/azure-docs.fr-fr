@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 28bde63bb9972b8e8de6261282007c1762fd6818
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134328"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269306"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
@@ -42,16 +42,16 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|
-| Standard_E2_v4  | 2 | 16   | Stockage distant uniquement | 4 | 2/1 000  |
-| Standard_E4_v4  | 4 | 32  | Stockage distant uniquement | 8 | 2/2 000  |
-| Standard_E8_v4  | 8 | 64 | Stockage distant uniquement | 16 | 4/4 000 |
-| Standard_E16_v4 | 16 | 128 | Stockage distant uniquement | 32 | 8/8 000 |
-| Standard_E20_v4 | 20 | 160 | Stockage distant uniquement | 32 | 8/10 000 |
-| Standard_E32_v4 | 32 | 256 | Stockage distant uniquement | 32 | 8/16 000 |
-| Standard_E48_v4 | 48 | 384 | Stockage distant uniquement | 32 | 8/24 000 |
-| Standard_E64_v4 | 64 | 504 | Stockage distant uniquement | 32| 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|
+| Standard_E2_v4  | 2 | 16   | Stockage distant uniquement | 4 | 2|1 000  |
+| Standard_E4_v4  | 4 | 32  | Stockage distant uniquement | 8 | 2|2000  |
+| Standard_E8_v4  | 8 | 64 | Stockage distant uniquement | 16 | 4|4000 |
+| Standard_E16_v4 | 16 | 128 | Stockage distant uniquement | 32 | 8|8000 |
+| Standard_E20_v4 | 20 | 160 | Stockage distant uniquement | 32 | 8|10000 |
+| Standard_E32_v4 | 32 | 256 | Stockage distant uniquement | 32 | 8|16000 |
+| Standard_E48_v4 | 48 | 384 | Stockage distant uniquement | 32 | 8|24 000 |
+| Standard_E64_v4 | 64 | 504 | Stockage distant uniquement | 32| 8|30000 |
 
 
 ## <a name="esv4-series"></a>Série Esv4
@@ -71,22 +71,22 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit maximal mis en cache : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Stockage distant uniquement | 4 | 19 000/120 (50) | 3 200/48 | 2/1 000  |
-| Standard_E4s_v4  | 4 | 32  | Stockage distant uniquement | 8 | 38 500/242 (100) | 6 400/96 | 2/2 000  |
-| Standard_E8s_v4  | 8 | 64  | Stockage distant uniquement | 16 | 77 000/485 (200) | 12 800/192 | 4/4 000 |
-| Standard_E16s_v4 | 16 | 128 | Stockage distant uniquement | 32 | 154 000/968 (400) | 25 600/384 | 8/8 000 |
-| Standard_E20s_v4 | 20 | 160 | Stockage distant uniquement | 32 | 193 000/1 211 (500) | 32 000/480  | 8/10 000 |
-| Standard_E32s_v4 | 32 | 256 | Stockage distant uniquement | 32 | 308 000/1 936 (800) | 51 200/768  | 8/16 000 |
-| Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 462 000/2 904 (1200) | 76 800/1152 | 8/24 000 |
-| Standard_E64s_v4<sup>1</sup> | 64 | 504| Stockage distant uniquement | 32 | 615 000/3 872 (1600) | 80 000/1 200 | 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit maximal mis en cache : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_E2s_v4  | 2 | 16  | Stockage distant uniquement | 4 | 19 000/120 (50) | 3 200/48 | 2|1 000  |
+| Standard_E4s_v4  | 4 | 32  | Stockage distant uniquement | 8 | 38500/242 (100) | 6 400/96 | 2|2000  |
+| Standard_E8s_v4  | 8 | 64  | Stockage distant uniquement | 16 | 77000/485 (200) | 12 800/192 | 4|4000 |
+| Standard_E16s_v4 | 16 | 128 | Stockage distant uniquement | 32 | 154000/968 (400) | 25 600/384 | 8|8000 |
+| Standard_E20s_v4 | 20 | 160 | Stockage distant uniquement | 32 | 193 000/1 211 (500) | 32 000/480  | 8|10000 |
+| Standard_E32s_v4 | 32 | 256 | Stockage distant uniquement | 32 | 308000/1936 (800) | 51 200/768  | 8|16000 |
+| Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 462000/2904 (1200) | 76 800/1152 | 8|24 000 |
+| Standard_E64s_v4<sup>1</sup> | 64 | 504| Stockage distant uniquement | 32 | 615000/3872 (1600) | 80 000/1 200 | 8|30000 |
 
-<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./windows/constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -94,6 +94,11 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

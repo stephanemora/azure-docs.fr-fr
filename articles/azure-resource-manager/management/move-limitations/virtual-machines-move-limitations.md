@@ -2,13 +2,13 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/21/2020
+ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063094"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -20,7 +20,7 @@ Les scénarios suivants ne sont pas encore pris en charge :
 
 * Les disques managés dans les zones de disponibilité ne peuvent pas être déplacés vers un autre abonnement.
 * Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés.
-* Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Annulez l'approvisionnement de la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
+* Les machines virtuelles créées à partir de ressources Place de marché et auxquelles des plans sont associés ne peuvent pas être déplacées entre des abonnements. Annulez l'approvisionnement de la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
 * Les machines virtuelles d'un réseau virtuel existant ne peuvent pas être déplacées vers un nouvel abonnement si vous ne déplacez pas toutes les ressources dans le réseau virtuel.
 * Les machines virtuelles et les groupes de machines virtuelles identiques basse priorité ne peuvent pas être déplacés entre des groupes de ressources ou abonnements.
 * Les machines virtuelles d’un groupe à haute disponibilité ne peuvent pas être déplacées individuellement.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276395"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensem
 Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-account-create.md).
 
 > [!IMPORTANT]
-> Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service de réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md)  a été activée. 
+> Pour les comptes de stockage sur lesquels la fonctionnalité [Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) a été activée, utilisez le paramètre **Autoriser les services Microsoft approuvés…** pour [activer le service Import/Export](/azure/storage/common/storage-network-security) afin d’importer/exporter des données vers ou depuis Azure.
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge
 

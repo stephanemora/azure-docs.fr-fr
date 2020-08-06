@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023991"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -218,7 +218,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 
 | Problème | Description |
 | :---- | :--------- |
-| Le volet Gérer les sauvegardes d’un serveur n’affiche pas les bases de données Hyperscale. Elles seront filtrés à partir de la vue.  | Hyperscale dispose d'une méthode distincte pour la gestion des sauvegardes. Par conséquent, les paramètres Conservation à long terme et Conservation des sauvegardes dans le temps ne s'appliquent pas. En conséquence, les bases de données Hyperscale n’apparaissent pas dans le volet Gérer les sauvegardes.|
+| Le volet Gérer les sauvegardes d’un serveur n’affiche pas les bases de données Hyperscale. Elles seront filtrés à partir de la vue.  | Hyperscale dispose d'une méthode distincte pour la gestion des sauvegardes. Par conséquent, les paramètres Conservation à long terme et Conservation des sauvegardes dans le temps ne s'appliquent pas. En conséquence, les bases de données Hyperscale n’apparaissent pas dans le volet Gérer les sauvegardes.<br><br>Pour les bases de données migrées vers Hyperscale à partir d’autres niveaux de service d’Azure SQL Database, les sauvegardes avant migration sont conservées pendant toute la période de [rétention des sauvegardes](automated-backups-overview.md#backup-retention) de la base de données source. Ces sauvegardes de fichiers peuvent servir à [restaurer](recovery-using-backups.md#programmatic-recovery-using-automated-backups) la base de données source à un état antérieur à la migration.|
 | Restauration dans le temps | Une base de données non Hyperscale ne peut pas être restaurée en tant que base de données Hyperscale, et une base de données Hyperscale ne peut pas être restaurée en tant que base de données non Hyperscale. Pour une base de données non Hyperscale qui a été migrée vers Hyperscale en changeant son niveau de service, la restauration à un moment donné avant la migration et pendant la période de rétention de la sauvegarde de la base de données est possible [par programmation](recovery-using-backups.md#programmatic-recovery-using-automated-backups). La base de données restaurée sera non Hyperscale. |
 | Si une base de données contient un ou plusieurs fichiers de données d’une taille supérieure à 1 To, la migration échoue | Dans certains cas, il peut être possible de contourner ce problème en réduisant la taille des fichiers volumineux à une valeur inférieure à 1 To. Si vous migrez une base de données qui est utilisée pendant le processus de migration, vérifiez qu’aucun fichier ne dépasse 1 To. Utilisez la requête suivante pour déterminer la taille des fichiers de base de données. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instance managée SQL | L'option Azure SQL Managed Instance n'est actuellement pas prise en charge avec les bases de données Hyperscale. |

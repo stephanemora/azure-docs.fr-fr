@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2020
-ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539616"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323942"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
@@ -67,22 +67,16 @@ Azure Monitor pour machines virtuelles prend en charge un espace de travail Log 
 >
 
 Si vous n’avez pas d’espace de travail Log Analytics, vous pouvez en créer un en utilisant l’une des ressources suivantes :
-* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [Azure CLI](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure portal](../learn/quick-create-workspace.md)
+* [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
-Vous pouvez également créer un espace de travail pendant que vous activez la surveillance pour une machine virtuelle ou un groupe de machines virtuelles identiques Azure dans le portail Azure.
+- Machine virtuelle Azure
+- Groupe de machines virtuelles identiques Azure
+- Machine virtuelle hybride connectée à Azure Arc
 
-Pour configurer un scénario à grande échelle qui utilise Azure Policy, Azure PowerShell ou des modèles Azure Resource Manager, vous devez installer la solution *VMInsights*. Pour ce faire, vous pouvez appliquer l’une des méthodes suivantes :
-
-* Utilisez [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
-* Sur la page [**Couverture de stratégie**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) d’Azure Monitor pour machines virtuelles, sélectionnez **Configurer l’espace de travail**. 
-
-### <a name="azure-arc-machines"></a>Machines Azure Arc
-Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Arc dans les régions où le service d’extension Arc est disponible. Les utilisateurs doivent exécuter la version 0.9 ou supérieure de l’agent Arc pour activer Azure Monitor pour machines virtuelles sur leurs serveurs Arc.
-
-### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux qu’Azure Monitor pour machines virtuelles prend en charge. Plus loin dans cette section, figure une liste complète détaillant les versions principales et mineures de système d’exploitation et de noyau Linux prises en charge.
 
@@ -158,54 +152,40 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 |:--|:--|
 | 9 | 4,9 | 
 
-### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
-
-La fonctionnalité Map dans Azure Monitor pour machines virtuelles obtient ses données à partir de Microsoft Dependency Agent. Celui-ci dépend de l’agent Log Analytics pour ses connexions à Log Analytics. Par conséquent, Log Analytics Agent doit être installé et configuré avec l’agent Dependency sur le système.
-
-Que vous activiez Azure Monitor pour machines virtuelles pour une seule machine virtuelle Azure ou que vous utilisiez les méthodes de déploiement à grande échelle, utilisez l’extension de l’agent Azure VM Dependency pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) ou [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) pour installer l’agent dans le cadre de cette expérience.
-
->[!NOTE]
->Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](service-map.md).  
-
-Dans un environnement hybride, vous pouvez télécharger et installer l’agent Dependency manuellement ou à l’aide d’une méthode automatisée.
-
-Le tableau suivant décrit les sources connectées prises en charge par la fonctionnalité Map dans un environnement hybride.
+## <a name="supported-azure-arc-machines"></a>Machines Azure Arc prises en charge
+Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Arc dans les régions où le service d’extension Arc est disponible. Vous devez exécuter la version 0.9 ou une version supérieure de l’agent Arc.
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
-| Agents Windows | Oui | Outre l’agent [Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
-| Agents Linux | Oui | Outre l’agent [Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Windows | Oui | Outre l’agent [Log Analytics pour Windows](../platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Linux | Oui | Outre l’agent [Log Analytics pour Linux](../platform/log-analytics-agent.md), les agents Linux ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Groupe d’administration Microsoft System Center Operations Manager | Non | |
 
-Vous pouvez télécharger le Dependency Agent à partir des emplacements suivants :
+## <a name="agents"></a>Agents
+Azure Monitor pour machines virtuelles nécessite l’installation des deux agents suivants sur chaque machine virtuelle ou groupe de machines virtuelles identiques à surveiller. L’installation de ces agents et leur connexion à l’espace de travail est la seule condition requise pour l’intégration de la ressource.
 
-| Fichier | Système d''exploitation | Version | SHA-256 |
-|:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
+- [Agent Log Analytics](../platform/log-analytics-agent.md). Collecte les événements et les données de performances de la machine virtuelle ou du groupe de machines virtuelles identiques et les livre à l’espace de travail Log Analytics. Les méthodes de déploiement de l’agent Log Analytics sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/oms-windows.md) et [Linux](../../virtual-machines/extensions/oms-linux.md).
+- Agent de dépendances. Collecte les données découvertes sur les processus exécutés sur la machine virtuelle et les dépendances de processus externes, qui sont utilisées par la [fonctionnalité de mappage dans Azure Monitor pour machines virtuelles](vminsights-maps.md). Il s’appuie sur l’agent Log Analytics pour remettre ses données à Azure Monitor. Les méthodes de déploiement de l’agent de dépendances sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) et [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+> [!NOTE]
+> L’agent Log Analytics est le même agent que celui utilisé par Operations Manager. Azure Monitor pour machines virtuelles peut surveiller les agents qui sont également surveillés par Operations Manager s’ils sont connectés directement, et que vous y installez l’agent de dépendances. Les agents connectés à Azure Monitor via une [connexion de groupe d’administration](../tform/../platform/om-agents.md) ne peuvent pas être surveillés par Azure Monitor pour machines virtuelles.
 
-Pour activer les fonctionnalités et y accéder dans Azure Monitor pour les machines virtuelles, vous devez avoir le rôle *Contributeur Log Analytics*. Pour afficher les données de performances, d’intégrité et de mappage, vous devez avoir le rôle *Lecteur d’analyse* pour la machine virtuelle Azure. L’espace de travail Log Analytics doit être configuré pour Azure Monitor pour machines virtuelles.
+Voici plusieurs méthodes pour déployer ces agents. 
 
-Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../../azure-monitor/platform/manage-access.md).
+| Méthode | Description |
+|:---|:---|
+| [Azure portal](vminsights-enable-single-vm.md) | Installez les deux agents sur une seule machine virtuelle, des machines virtuelles hybrides ou un groupe de machines virtuelles identiques connectés à Azure Arc. |
+| [Modèles Microsoft Azure Resource Manager](vminsights-enable-powershell.md) | Installez les deux agents à l’aide de l’une des méthodes prises en charge pour déployer un modèle Resource Manager, notamment l’interface CLI et PowerShell. |
+| [Azure Policy](vminsights-enable-at-scale-policy.md) | Attribuez une initiative Azure Policy pour installer automatiquement les agents lors de la création d’une machine virtuelle ou d’un groupe de machines virtuelles identiques. |
+| [Installation manuelle](vminsights-enable-hybrid-cloud.md) | Installez les agents dans le système d’exploitation invité sur les ordinateurs hébergés en dehors d’Azure, notamment dans votre centre de centres ou dans d’autres environnements clouds. |
 
-## <a name="how-to-enable-azure-monitor-for-vms"></a>Comment activer Azure Monitor pour machines virtuelles
 
-Pour activer Azure Monitor pour les machines virtuelles, utilisez l’une des méthodes décrites dans ce tableau :
 
-| État du déploiement | Méthode | Description |
-|------------------|--------|-------------|
-| Machine virtuelle Azure unique, Azure VMSS ou machine Azure Arc | [Activer à partir du portail](vminsights-enable-single-vm.md) | Sélectionnez **Insights** directement à partir du menu dans le portail Azure. |
-| Plusieurs machines virtuelles Azure, Azure VMSS ou machines Azure Arc | [Activer via Azure Policy](vminsights-enable-at-scale-policy.md) | Utilisez Azure Policy pour activer automatiquement la création d’une machine virtuelle ou d’un VMSS. |
-| | [Activer à l’aide de modèles Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Utilisez Azure PowerShell ou des modèles Azure Resource Manager pour activer plusieurs machines virtuelles Azure, machines virtuelles Azure Arc ou groupes de machines virtuelles identiques Azure sur un abonnement ou un groupe de ressources spécifié. |
-| Cloud hybride | [Activer pour l’environnement hybride](vminsights-enable-hybrid-cloud.md) | Déployez sur des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou d’autres environnements cloud. |
 
 ## <a name="management-packs"></a>Packs d’administration
+Lorsqu’un espace de travail Log Analytics est configuré pour Azure Monitor pour machines virtuelles, deux packs d’administration sont transférés à tous les ordinateurs Windows connectés à cet espace de travail. Les packs d’administration sont nommés *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* et *Microsoft.IntelligencePacks.VMInsights* et sont écrits dans *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*. 
 
-Lorsque Azure Monitor pour machines virtuelles est activé et configuré avec un espace de travail Log Analytics, un pack d’administration est transféré à tous les ordinateurs Windows qui sont en rapport avec cet espace de travail. Si vous avez [intégré votre groupe d’administration System Center Operations Manager](../../azure-monitor/platform/om-agents.md) à l’espace de travail Log Analytics, le pack d’administration Service Map est déployé à partir du groupe d’administration sur les ordinateurs Windows connectés au groupe d’administration.  
-
-Le pack d’administration se nomme *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Il est écrit dans le dossier `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\`. Le pack d’administration utilise la source de données `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
+La source de données utilisée par le pack d’administration *ApplicationDependencyMonitor* est * *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. La source de données utilisée par le pack d’administration *VMInsights* est *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
 
@@ -217,8 +197,7 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-À présent que vous avez activé la surveillance de votre machine virtuelle, des informations de surveillance sont disponibles pour analyse dans Azure Monitor pour machines virtuelles.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment utiliser la fonctionnalité d’analyse des performances, consultez [Afficher les performances d’Azure Monitor pour machines virtuelles](vminsights-performance.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
+

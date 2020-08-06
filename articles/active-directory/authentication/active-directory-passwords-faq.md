@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051305"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Foire aux questions concernant la réinitialisation du mot de passe en libre-service
 
-Voici quelques questions fréquemment posées (FAQ) concernant toutes les tâches liées à la réinitialisation des mots de passe.
+Voici quelques questions fréquemment posées (FAQ) sur tout ce qui concerne la réinitialisation de mot de passe en libre-service.
 
 Si vous avez une question d’ordre général sur Azure Active Directory (Azure AD) et la réinitialisation du mot de passe en libre-service qui ne trouve pas de réponse ici, vous pouvez demander de l’aide à la communauté sur la [Page de questions Microsoft Q&A pour Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
 
@@ -38,7 +38,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
   > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe (https://aka.ms/ssprsetup) pour inscrire leurs informations d’authentification. Ils peuvent également s’inscrire par le biais du volet d’accès (https://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
   >
-  >
+  > Si vous activez l’[inscription combinée](concept-registration-mfa-sspr-combined.md), les utilisateurs peuvent s’inscrire en même temps pour SSPR et Azure Multi-Factor Authentication.
 * **Q :  Si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
 
   > **R :** Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.

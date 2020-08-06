@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080588"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -48,8 +48,8 @@ Si la demande de votre application augmente, la charge sur les instances de mach
     | *Statistiques de fragment de temps* | Définit la manière dont les métriques collectées dans chaque fragment de temps doivent être agrégées à des fins d’analyse.                             | Average        |
     | *Opérateur*             | Opérateur utilisé pour comparer les données de métrique au seuil.                                                     | Supérieur à   |
     | *Seuil*            | Pourcentage qui amène la règle de mise à l’échelle automatique à déclencher une action.                                                 | 70             |
-    | *Durée*             | Temps de surveillance avant que les valeurs de métrique et de seuil soient comparées.                                   | 10 minutes     |
-    | *opération*            | Définit si le groupe identique doit augmenter ou réduire l’échelle lorsque la règle s’applique et avec quel incrément                        | Augmenter le pourcentage de |
+    | *Durée*             | Temps de surveillance avant que les valeurs de métrique et de seuil soient comparées. N’inclut pas de période de refroidissement.                                   | 10 minutes     |
+    | *opération*            | Définit si le groupe identique doit augmenter ou réduire l’échelle lorsque la règle s’applique et avec quel incrément.                        | Augmenter le pourcentage de |
     | *Nombre d’instances*       | Le pourcentage d’instances de machine virtuelle doit être modifié lorsque la règle se déclenche.                                            | 20             |
     | *Refroidissement (minutes)*  | Temps d’attente avant que la règle soit appliquée à nouveau afin que les actions de mise à l’échelle automatique aient le temps de porter effet. | 5 minutes      |
 

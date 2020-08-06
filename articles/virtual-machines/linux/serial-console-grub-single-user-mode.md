@@ -4,16 +4,16 @@ description: Utilisation d’une console série pour le grub dans des machines v
 services: virtual-machines-linux
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7e558464c82db9d71132c4b1f53f9892d2d653
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758510"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292245"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB est l’acronyme du programme d’amorçage GRand Unified Bootloader. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -78,7 +78,7 @@ Si vous avez configuré le GRUB et l’accès racine conformément aux instructi
 1. Appuyez sur Ctrl + X pour quitter et redémarrer votre ordinateur avec les paramètres appliqués
 1. Vous serez invité à indiquer le mot de passe administrateur avant de pouvoir entrer en mode mono-utilisateur : il s’agit du mot de passe que vous avez créé en suivant les instructions ci-dessus    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Image animée montrant une interface de ligne de commande. L’utilisateur sélectionne un serveur, repère la fin de la ligne du noyau, puis entre le texte spécifié.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrez en mode mono-utilisateur unique sans compte racine activé dans RHEL
 Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur racine, vous pouvez toujours réinitialiser votre mot de passe racine. Suivez ces instructions :
@@ -95,7 +95,7 @@ Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur ra
 1. Lorsque vous démarrez en mode mono-utilisateur, saisissez `chroot /sysroot` pour basculer vers la prison `sysroot`
 1. Vous êtes maintenant au niveau de la racine. Vous pouvez réinitialiser votre mot de passe racine avec `passwd`, puis suivre les instructions ci-dessus pour entrer en mode mono-utilisateur. Entrez `reboot -f` pour redémarrer après avoir terminé.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Image animée montrant une interface de ligne de commande. L’utilisateur sélectionne un serveur, repère la fin de la ligne du noyau et entre les commandes spécifiées.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Remarque : les instructions ci-dessus vous amènent dans l’interpréteur de commandes d’urgence, ce qui vous permet d’effectuer des tâches telles que la modification de `fstab`. Toutefois, il est généralement conseillé de réinitialiser votre mot de passe racine et de l’utiliser pour entrer en mode mono-utilisateur. 
 
@@ -157,7 +157,7 @@ L’accès au GRUB dans SLES requiert une configuration de chargeur de démarrag
 1. Pour entrer dans le GRUB, redémarrez votre machine virtuelle et appuyez sur n’importe quelle touche pendant la séquence de démarrage afin que le GRUB reste à l’écran
     - Le délai d’expiration par défaut pour le GRUB est de 1 s. Vous pouvez le modifier en changeant la variable `GRUB_TIMEOUT` dans `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![Image animée montrant une interface de ligne de commande. L’utilisateur entre le texte spécifié, sélectionne l’option spécifiée et enregistre les paramètres.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Mode mono-utilisateur dans SUSE SLES
 Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgence si SLES ne peut pas démarrer normalement. Pour entrer manuellement dans l’interpréteur de commandes d’urgence, appliquez les instructions suivantes :
@@ -178,7 +178,7 @@ Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GR
 Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilisateur dans Oracle Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* La page principale de documentation de la console série Linux se trouve [ici](serial-console.md).
+* La page principale de documentation de la console série Linux se trouve [ici](../troubleshooting/serial-console-linux.md).
 * Utiliser la console série pour [les appels SysRq et NMI](serial-console-nmi-sysrq.md)
-* La console série est également disponible pour les machines virtuelles [Windows](../windows/serial-console.md)
-* En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md)
+* La console série est également disponible pour les machines virtuelles [Windows](../troubleshooting/serial-console-windows.md)
+* En savoir plus sur les [diagnostics de démarrage](../troubleshooting/boot-diagnostics.md)

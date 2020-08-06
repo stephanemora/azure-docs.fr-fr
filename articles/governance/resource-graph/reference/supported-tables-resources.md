@@ -1,15 +1,15 @@
 ---
 title: Types de ressources Azure Resource Manager prises en charge
 description: Fournit la liste des types de ressources Azure Resource Manager prises en charge par Azure Resource Graph et l’historique des modifications.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087524"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informations de référence sur le type de ressource et la table Azure Resource Graph
 
@@ -19,6 +19,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
+- microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources

@@ -1,20 +1,20 @@
 ---
 title: Créer une offre de module Azure IoT Edge avec l’Espace partenaires dans la Place de marché Azure
-description: Découvrez comment créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure à l’aide de l’Espace partenaires.
+description: Découvrez comment créer, configurer et publier une offre de module IoT Edge dans Place de marché Azure à l’aide d’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: anbene
-ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: article
+author: keferna
+ms.author: keferna
+ms.date: 07/22/2020
+ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520270"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320032"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure
+# <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
 Cet article explique comment créer et publier une offre de module IoT (Internet of Things) Edge pour la Place de marché Azure. Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 

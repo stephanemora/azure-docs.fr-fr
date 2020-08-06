@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999494"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Device Manager pour surveiller les composants et l’état du matériel
 
@@ -49,11 +49,11 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
 
 1. Accédez à **Appareils**et sélectionnez un appareil StorSimple. Accédez à **Surveiller > Hardware health** (Intégrité matérielle).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
+    ![Capture d'écran montrant le panneau Paramètres du service Gestionnaire de périphériques. Sous Surveiller, l’option Intégrité matérielle est sélectionnée.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
 2. Recherchez la section **Composants matériels** et faites un choix parmi les composants disponibles. Cliquez simplement sur l’étiquette du composant pour développer la liste et afficher l’état des différents composants de l’appareil. Consultez la [liste détaillée des composants du boîtier principal](#component-list-for-primary-enclosure-of-storsimple-device) et la [liste détaillée des composants détaillées du boîtier EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
+    ![Capture d’écran montrant un composant sélectionné dans la section Composants matériels. Un panneau adjacent affiche le nom et l’état des parties de ce composant.](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
 3. Utilisez le codage couleur suivant pour interpréter l'état du composant :
    
@@ -64,22 +64,22 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
    
    La capture d’écran suivante montre un appareil dont différents composants sont à l’état **OK**, **Avertissement** et **Échec**.
        
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
+   ![Capture d’écran montrant trois composants dans la section Composants matériels : l’un à l’état OK, l’autre à l’état Échec et le dernier à l’état Avertissement.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
    En développant la liste **Composants partagés**, nous pouvons voir que la mémoire NVRAM et le cluster sont défectueux.
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Capture d’écran montrant l’élément Composants partagés sélectionné. Dans le panneau adjacent, le NVRAM et le cluster sont à l’état Avertissement.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    En développant la liste **Composants du contrôleur 1**, nous pouvons voir que le nœud de cluster est en échec.  
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
+   ![Capture d’écran montrant l’élément Composants du contrôleur 1 sélectionné. Dans le panneau adjacent, le nœud de cluster est à l’état Échec.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
 4. Si vous rencontrez un composant dont l'état n'est pas **sain** , contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Liste des composants du boîtier principal de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal (sur les modèles 8100 et 8600) de votre appareil StorSimple local.
 
-| Composant | Module | Type | Location | Unité remplaçable sur site (FRU) ? | Description |
+| Composant | Module | Type | Emplacement | Unité remplaçable sur site (FRU) ? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Lecteur à l’emplacement [0-11] |Lecteurs de disque |Physique |Partagé |Oui |Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal. |
 | Capteur de température ambiante |Boîtier |Physique |Partagé |Non |Mesure de la température à l’intérieur du châssis. |
@@ -120,7 +120,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Liste des composants du boîtier EBOD de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier EBOD (uniquement sur le modèle 8600) de votre appareil StorSimple local.
 
-| Composant | Module | Type | Location | FRU ? | Description |
+| Composant | Module | Type | Emplacement | FRU ? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Lecteur à l’emplacement [0-11] |Lecteurs de disque |Physique |Partagé |Oui |Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD. |
 | Capteur de température ambiante |Boîtier |Physique |Partagé |Non |Mesure de la température à l’intérieur du châssis. |

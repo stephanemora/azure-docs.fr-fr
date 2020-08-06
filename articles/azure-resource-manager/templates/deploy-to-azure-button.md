@@ -2,13 +2,13 @@
 title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079446"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
@@ -28,7 +28,11 @@ L’image apparaît comme suit :
 
 ## <a name="create-url-for-deploying-template"></a>Créer une URL pour le déploiement du modèle
 
-Pour créer l’URL de votre modèle, commencez par l’URL brute du modèle dans votre référentiel :
+Pour créer l’URL de votre modèle, commencez par l’URL brute du modèle dans votre référentiel. Pour afficher l’URL brute, sélectionnez **Brute**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="sélectionnez Brute":::
+
+Le format de l’URL est le suivant :
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

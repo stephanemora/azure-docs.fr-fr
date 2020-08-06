@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565907"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371411"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administration des services pour Recherche cognitive Azure sur le portail Azure
 
@@ -123,7 +123,7 @@ Bien que l'ajout de réplicas à votre service entraîne une augmentation du dé
 
 Il est plus courant d’ajouter des réplicas, mais lorsque le stockage est restreint, vous pouvez ajouter des partitions pour obtenir plus de capacité. La possibilité d’ajouter ou non des partitions dépend du niveau auquel vous avez approvisionné le service. Le niveau De base est verrouillé sur une partition. Les niveaux Standard et supérieurs prennent en charge des partitions supplémentaires.
 
-Les partitions sont ajoutées par multiples de 12 (notamment 1, 2, 3, 4, 6 ou 12). Il s’agit d’un artefact de partitionnement. Un index est créé dans 12 fragments (ou shards) qui peuvent tous être stockés dans 1 partition ou répartis équitablement dans 2, 3, 4, 6 ou 12 partitions (un fragment par partition).
+Les partitions sont ajoutées par diviseurs de 12 (à savoir, 1, 2, 3, 4, 6 ou 12). Il s’agit d’un artefact de partitionnement. Un index est créé dans 12 fragments (ou shards) qui peuvent tous être stockés dans 1 partition ou répartis équitablement dans 2, 3, 4, 6 ou 12 partitions (un fragment par partition).
 
 ### <a name="remove-replicas"></a>Suppression de réplicas
 

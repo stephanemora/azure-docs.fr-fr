@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022121"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notifications Push sécurisées avec Azure Notification Hubs
 
@@ -122,7 +122,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 4. Maintenant, nous devons gérer la notification entrante et utiliser la méthode ci-dessus pour récupérer le contenu à afficher. Nous devons tout d'abord permettre à l'application iOS de s'exécuter en arrière-plan lorsqu'elle reçoit une notification Push. Dans **XCode**, sélectionnez votre projet d’application dans le volet gauche, puis cliquez sur votre cible d’application principale dans la section **Cibles** du volet central.
 5. Cliquez ensuite sur l’onglet **Capacités** en haut du volet central et cochez la case **Notifications distantes**.
 
-    ![][IOS1]
+    ![Capture d’écran de XCode, avec le projet d’application sélectionné et l’onglet Capacités ouvert. La case à cocher Notifications à distance est activée.][IOS1]
 
 6. Dans `AppDelegate.m`, ajoutez la méthode suivante pour gérer les notifications Push :
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 15e6cf7adfda995148a75ec21b8d8e5d8a5cab2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559064"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086028"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -41,18 +41,22 @@ Ce tableau répertorie les fonctionnalités de stockage de blobs que vous pouvez
 |Journaux de diagnostic|Mise à la disposition générale|PRÉVERSION <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Niveau d’accès archive|Mise à la disposition générale|Non pris en charge|[Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md)|
 |Connexion à Azure Monitor|PRÉVERSION |Pas encore pris en charge|[Surveillance du stockage Azure](../common/monitor-storage.md)|
-|Instantanés|PRÉVERSION|Pas encore pris en charge|[Instantanés d’objet blob](snapshots-overview.md)|
-|Sites web statiques|PRÉVERSION|Pas encore pris en charge|[Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)|
-|Stockage non modifiable|PRÉVERSION|Pas encore pris en charge|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
+|Instantanés|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Pas encore pris en charge|[Instantanés d’objet blob](snapshots-overview.md)|
+|Sites web statiques|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Pas encore pris en charge|[Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)|
+|Stockage non modifiable|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Pas encore pris en charge|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
 |Stratégies de gestion du cycle de vie|PRÉVERSION|Pas encore pris en charge|[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)|
 |Blobfuse|PRÉVERSION|Pas encore pris en charge|[Comment monter le stockage Blob en tant que système de fichiers avec blobfuse](storage-how-to-mount-container-linux.md)|
 |Modifier le flux|Pas encore pris en charge|Pas encore pris en charge|[Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)|
 |Basculement de compte|Pas encore pris en charge|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL de conteneurs de blobs|Pas encore pris en charge|Pas encore pris en charge|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|ACL de conteneurs de blobs|Pas encore pris en charge<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Pas encore pris en charge<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domaines personnalisés|Pas encore pris en charge|Pas encore pris en charge|[Mapper un domaine personnalisé à un point de terminaison Stockage Blob Azure](storage-custom-domain-name.md)|
 |Suppression réversible|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob de Stockage Azure](storage-blob-soft-delete.md)|
 
-<div id="diagnostic-logging"><sup>1</sup> Pour les comptes de stockage d’objets blob de blocs Premium, les journaux de diagnostic (classiques) ne peuvent pas être activés à l’aide du portail Azure. Activez-les à l’aide de PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> Pour les comptes de stockage d’objets blob de blocs Premium, les journaux de diagnostic (classiques) ne peuvent pas être activés à l’aide du portail Azure. Activez-les à l’aide de PowerShell.</div><br>
+
+<div id="blob-container-ACL"><sup>2</sup> Vous pouvez définir des listes de contrôle d’accès (ACL, access-control list) sur le dossier racine du conteneur, mais pas sur le conteneur lui-même.</div><br>
+
+<div id="preview-form"><sup>3</sup> Pour utiliser des instantanés, un stockage immuable ou des sites web statiques avec Data Lake Storage Gen2, vous devez vous inscrire à la préversion en remplissant ce <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulaire</a>.  </div>
 
 ## <a name="see-also"></a>Voir aussi
 

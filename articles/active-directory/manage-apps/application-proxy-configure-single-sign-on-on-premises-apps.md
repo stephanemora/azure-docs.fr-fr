@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764823"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387266"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Authentification unique SAML pour les applications locales avec le proxy d’application
 
@@ -47,7 +47,7 @@ Les diagrammes de protocole ci-dessous décrivent la séquence de l’authentifi
 
 4. Sélectionnez **SAML** comme méthode d’authentification unique.
 
-5. Configurez d’abord l’authentification unique SAML pour qu’elle fonctionne sur le réseau d’entreprise. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). Suivez les étapes de [Entrer la configuration SAML de base](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) pour configurer l’authentification basée sur SAML pour l’application.
+5. Commencez par configurer l’authentification unique SAML pour qu’elle fonctionne sur le réseau d’entreprise. Pour configurer l’authentification SAML pour l’application, consultez la section Configuration SAML de base de l’article [Configurer l’authentification unique SAML](configure-saml-single-sign-on.md).
 
 6. Ajoutez au moins un utilisateur à l’application et vérifiez que le compte de test a accès à l’application. En étant connecté au réseau d’entreprise, utilisez le compte de test pour vérifier si vous avez une authentification unique pour l’application. 
 
@@ -81,7 +81,7 @@ Pour fournir l’authentification unique aux applications locales, vous devez ac
 
 4. Cochez la case en regard de l’**URL de réponse** mise à jour pour la marquer comme valeur par défaut.
 
-   * Après avoir marqué l’**URL de réponse** requise comme l’URL de réponse par défaut, vous pouvez également supprimer l’**URL de réponse** précédemment configurée qui utilisait l’URL interne.
+   * Après avoir marqué l’**URL de réponse** requise comme URL par défaut, vous pouvez également supprimer l’**URL de réponse** précédemment configurée qui utilisait l’URL interne.
 
    * Pour un flux initié par le fournisseur de services, vérifiez que l’application back-end spécifie l’**URL de réponse** ou l’URL du service consommateur d’assertion correcte pour recevoir le jeton d’authentification.
 

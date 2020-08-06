@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274661"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
@@ -40,7 +40,10 @@ Les options suivantes sont disponibles pour l’inclusion lors de la création d
    - Rôles d’annuaire
       - Permet aux administrateurs de sélectionner des rôles d’annuaire Azure AD spécifiques utilisés pour déterminer l’attribution. Par exemple, les organisations peuvent créer une stratégie plus restrictive sur les utilisateurs qui ont le rôle d’administrateur général.
    - Utilisateurs et groupes
-      - Permet le ciblage d’ensembles spécifiques d’utilisateurs. Par exemple, les organisations peuvent sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés.
+      - Permet le ciblage d’ensembles spécifiques d’utilisateurs. Par exemple, les organisations peuvent sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés. La stratégie sera appliquée aux utilisateurs et groupes imbriqués.
+
+> [!WARNING]
+> Si des utilisateurs ou des groupes sont membres de plus de 2 048 groupes, leur accès peut être bloqué. Cette limite s’applique à l’appartenance de groupe directe et imbriquée.
 
 ## <a name="exclude-users"></a>Exclure des utilisateurs
 
