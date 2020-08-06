@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067340"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure (MABS)
 
@@ -49,7 +49,7 @@ Assurez-vous que les prérequis suivants sont remplis avant de démarrer le work
 
 * Sur le serveur DPM ou MABS, assurez-vous que soit installé Microsoft Edge ou Internet Explorer 11 et que JavaScript soit activé.
 * Créez un compte de stockage Azure dans le même abonnement que le coffre Recovery Services.
-* Assurez-vous de disposer des [autorisations nécessaires](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion.
+* Assurez-vous de disposer des [autorisations nécessaires](../active-directory/develop/howto-create-service-principal-portal.md) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion.
 * Inscrivez le fournisseur de ressources Microsoft.ImportExport dans l’abonnement contenant le compte de stockage Azure. Pour inscrire le fournisseur de ressources :
     1. Dans le menu principal, cliquez sur **Abonnements**.
     2. Si vous disposez de plusieurs abonnements, sélectionnez celui que vous utilisez pour la sauvegarde hors connexion. Si vous n’utilisez qu’un seul abonnement, celui-ci s’affiche.
@@ -64,7 +64,7 @@ Assurez-vous que les prérequis suivants sont remplis avant de démarrer le work
 
 ## <a name="workflow"></a>Workflow
 
-Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) susmentionnée.
+Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](../storage/common/storage-import-export-service.md) susmentionnée.
 
 ## <a name="initiate-offline-backup"></a>Lancer la sauvegarde hors connexion
 
@@ -188,7 +188,7 @@ La durée nécessaire au traitement d’une tâche d’importation Azure varie. 
 
 ### <a name="monitor-azure-import-job-status"></a>Surveiller l’état de la tâche d’importation Azure
 
-Vous pouvez suivre l’état de votre tâche d’importation à partir du portail Azure en accédant à la page **Tâches d’importation/exportation** et en sélectionnant votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Storage Import Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) (Service d’importation/exportation du stockage).
+Vous pouvez suivre l’état de votre tâche d’importation à partir du portail Azure en accédant à la page **Tâches d’importation/exportation** et en sélectionnant votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Storage Import Export service](../storage/common/storage-import-export-service.md) (Service d’importation/exportation du stockage).
 
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
 

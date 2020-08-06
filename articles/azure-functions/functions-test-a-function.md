@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085076"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -40,13 +40,13 @@ Pour configurer votre environnement, créez une fonction et testez l’applicati
 3. [Créez une fonction de minuteur à partir du modèle](./functions-create-scheduled-function.md) et nommez-la **MyTimerTrigger**.
 4. [Créez une application de test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) dans la solution et nommez-la **Functions.Tests**.
 5. Utilisez NuGet pour ajouter des références à partir de l’application de test à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Faites référence à l’application *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) à partir de l’application *Functions.Tests*.
+6. [Faites référence à l’application *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) à partir de l’application *Functions.Tests*.
 
 ### <a name="create-test-classes"></a>Créer des classes de test
 
 Une fois les projets créés, vous pouvez créer les classes servant à exécuter les tests automatisés.
 
-Chaque fonction utilise une instance [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) pour gérer la journalisation des messages. Certains tests ne consignent pas les messages ou ne se soucient pas de la manière dont la journalisation est implémentée. D'autres tests doivent évaluer les messages consignés afin de déterminer si un test a abouti.
+Chaque fonction utilise une instance [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) pour gérer la journalisation des messages. Certains tests ne consignent pas les messages ou ne se soucient pas de la manière dont la journalisation est implémentée. D'autres tests doivent évaluer les messages consignés afin de déterminer si un test a abouti.
 
 Vous allez créer une nouvelle classe nommée `ListLogger` qui contient une liste interne de messages à évaluer pendant un test. Pour implémenter l’interface `ILogger` requise, la classe a besoin d’une portée. La classe suivante imite une portée pour les cas de test à passer à la classe `ListLogger`.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 La classe `TestFactory` implémente les membres suivants :
 
-- **Données** : Cette propriété renvoie une collection [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) d’exemples de données. Les paires clé/valeur représentent les valeurs transmises dans une chaîne de requête.
+- **Données** : Cette propriété renvoie une collection [IEnumerable](/dotnet/api/system.collections.ienumerable) d’exemples de données. Les paires clé/valeur représentent les valeurs transmises dans une chaîne de requête.
 
 - **CreateDictionary** : Cette méthode accepte une paire clé/valeur en tant qu’arguments et renvoie une nouvelle `Dictionary` utilisée pour créer `QueryCollection` afin de représenter les valeurs de chaîne de requête.
 

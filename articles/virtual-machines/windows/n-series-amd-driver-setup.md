@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 4693ad8b168ce1ddd7c07afe650a89fc1888ccd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999001"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU AMD sur les machines virtuelles de série N exécutant Windows
 
@@ -23,7 +23,7 @@ Si vous choisissez d’installer manuellement les pilotes GPU AMD, cet article i
 
 Seuls les pilotes GPU publiés par Microsoft sont pris en charge sur les machines virtuelles de série NVv4. N’installez PAS de pilotes GPU à partir d’une autre source.
 
-Pour obtenir les spécifications de base, les capacités de stockage et les informations relatives aux disques, consultez [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tailles de machine virtuelle Windows GPU).
+Pour obtenir les spécifications de base, les capacités de stockage et les informations relatives aux disques, consultez [GPU Windows VM sizes](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json) (Tailles de machine virtuelle Windows GPU).
 
 
 
@@ -57,5 +57,3 @@ Vous pouvez utiliser dxdiag pour vérifier les propriétés d'affichage du GPU, 
 Si vous exécutez Windows 10 build 1903 ou version ultérieure, dxdiag n'affichera aucune information dans l'onglet « Affichage ». Utilisez l'option « Enregistrer toutes les informations » située en bas et le fichier de sortie affichera les informations relatives au GPU AMD MI25.
 
 ![Propriétés du pilote GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

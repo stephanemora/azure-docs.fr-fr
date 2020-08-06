@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008606"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gérer les informations d’identification dans Azure Automation
 
@@ -44,7 +44,7 @@ Les cmdlets du tableau suivant permettent d’accéder aux informations d’iden
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Récupère un objet `PSCredential` à utiliser dans un runbook ou une configuration DSC. Dans la plupart des cas, il est préférable d’utiliser cette [cmdlet interne](modules.md#internal-cmdlets) plutôt que la cmdlet `Get-AzAutomationCredential`, car cette dernière ne récupère que les informations d’identification, qu’il n’est généralement pas utile de passer à une autre cmdlet. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Obtient des informations d’identification avec une invite pour le nom d’utilisateur et le mot de passe. Cette cmdlet fait partie du module Microsoft.PowerShell.Security par défaut. Voir [Modules par défaut](modules.md#default-modules).|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Crée des informations d’identification. Cette cmdlet fait partie du module Azure par défaut. Voir [Modules par défaut](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | Crée des informations d’identification. Cette cmdlet fait partie du module Azure par défaut. Voir [Modules par défaut](modules.md#default-modules).|
 
 Pour récupérer des objets `PSCredential` dans votre code, vous devez importer le module `Orchestrator.AssetManagement.Cmdlets`. Pour plus d’informations, consultez [Gestion des modules dans Azure Automation](modules.md).
 

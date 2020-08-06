@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057635"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -63,4 +63,4 @@ Pour en savoir plus sur les recommandations d’Advisor, consultez les ressource
 * [Recommandations d’Advisor en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations d’Advisor en matière de fiabilité](advisor-high-availability-recommendations.md)
 * [Recommandations d’Advisor en matière de sécurité](advisor-security-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

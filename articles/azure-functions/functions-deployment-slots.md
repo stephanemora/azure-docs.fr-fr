@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f8abc670535f240d436e90c34f7245a3d176f517
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055426"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -96,7 +96,7 @@ Tous les emplacements sont mis à l’échelle du nombre de rôles de travail da
 
 ## <a name="add-a-slot"></a>Ajouter un emplacement
 
-Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou le portail. Les étapes suivantes montrent comment créer un emplacement sur le portail :
+Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou le portail. Les étapes suivantes montrent comment créer un emplacement sur le portail :
 
 1. Accédez à votre application de fonction.
 
@@ -110,7 +110,7 @@ Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](http
 
 ## <a name="swap-slots"></a>Permuter des emplacements
 
-Vous pouvez permuter des emplacements via l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou le portail. Les étapes suivantes expliquent comment permuter des emplacements dans le portail :
+Vous pouvez permuter des emplacements via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou le portail. Les étapes suivantes expliquent comment permuter des emplacements dans le portail :
 
 1. Accédez à l’application de fonction.
 1. Sélectionnez **Deployment slots** (Emplacements de déploiement), puis **Swap** (Échanger).
@@ -129,7 +129,7 @@ Si une permutation provoque une erreur ou si vous souhaitez simplement « annul
 
 ## <a name="remove-a-slot"></a>Supprimer un emplacement
 
-Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou le portail. Les étapes suivantes montrent comment supprimer un emplacement sur le portail :
+Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou le portail. Les étapes suivantes montrent comment supprimer un emplacement sur le portail :
 
 1. Dans l’application de fonction, accédez à **Deployment slots** (Emplacements de déploiement), puis sélectionnez le nom de l’emplacement.
 
@@ -149,13 +149,13 @@ Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](ht
 
 ## <a name="automate-slot-management"></a>Automatiser la gestion des emplacements
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest) vous permet d’automatiser les actions suivantes pour un emplacement :
+[Azure CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest) vous permet d’automatiser les actions suivantes pour un emplacement :
 
-- [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
+- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
+- [swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [auto-swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Changer le plan App Service
 

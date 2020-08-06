@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055293"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -181,7 +181,7 @@ Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichi
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights.snapshotConfiguration
 
-Pour plus d’informations sur les instantanés, consultez [Captures instantanées de débogage sur exceptions levées dans des applications .NET](/azure/azure-monitor/app/snapshot-debugger) et [Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Pour plus d’informations sur les instantanés, consultez [Captures instantanées de débogage sur exceptions levées dans des applications .NET](../azure-monitor/app/snapshot-debugger.md) et [Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Propriété | Default | Description |
 | --------- | --------- | --------- | 
@@ -310,7 +310,7 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Les versions 2.x et ultérieures suivent la disposition d’ASP.NET Core pour le filtrage des catégories du journal. Ce paramètre vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
+|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Les versions 2.x et ultérieures suivent la disposition d’ASP.NET Core pour le filtrage des catégories du journal. Ce paramètre vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
 |console|n/a| Le paramètre de journalisation de la [console](#console). |
 |applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
 

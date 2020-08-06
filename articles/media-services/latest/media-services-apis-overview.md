@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043410"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Développer avec les API Media Services v3
 
-En tant que développeur, vous pouvez utiliser [l’API REST](https://docs.microsoft.com/rest/api/media/) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
+En tant que développeur, vous pouvez utiliser [l’API REST](/rest/api/media/) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 
@@ -54,7 +54,7 @@ Dans la figure suivante, les nombres représentent le flux des requêtes dans l�
    * URI de ressource pour REST Media Services.
    * Valeurs de l’application Azure AD : ID client et secret client.
 
-   Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services](access-api-cli-how-to.md).
+   Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services](./access-api-howto.md).
 
 2. Le jeton d’accès Azure AD est envoyé au niveau intermédiaire.
 4. Le niveau intermédiaire envoie une requête à l’API REST Azure Media avec le jeton Azure AD.
@@ -80,36 +80,36 @@ Pour en savoir plus sur l’affectation de noms avec Azure Resource Manager, con
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Noms des fichiers/objets blob dans une ressource
 
-Les noms des fichiers/objets blob au sein d’une ressource doivent respecter les [exigences en matière de nom d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) et de [nom NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Ces exigences se justifient par le fait que les fichiers peuvent être copiés du stockage d’objets blob vers un disque NTFS local à des fins de traitement.
+Les noms des fichiers/objets blob au sein d’une ressource doivent respecter les [exigences en matière de nom d’objet blob](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) et de [nom NTFS](/windows/win32/fileio/naming-a-file). Ces exigences se justifient par le fait que les fichiers peuvent être copiés du stockage d’objets blob vers un disque NTFS local à des fins de traitement.
 
 ## <a name="long-running-operations"></a>Opérations de longue durée
 
 Les opérations marquées par `x-ms-long-running-operation` dans les [fichiers swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) Azure Media Services exécutent des opérations de longue durée. 
 
-Pour plus d’informations sur le suivi des opérations asynchrones Azure, consultez [Opérations asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Pour plus d’informations sur le suivi des opérations asynchrones Azure, consultez [Opérations asynchrones](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
 
 Media Services propose les opérations de longue durée suivantes :
 
-* [Créer des événements en direct](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Mettre à jour des événements en direct](https://docs.microsoft.com/rest/api/media/liveevents/update)
-* [Supprimer l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Démarrer l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/start)
-* [Arrêter l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [Créer des événements en direct](/rest/api/media/liveevents/create)
+* [Mettre à jour des événements en direct](/rest/api/media/liveevents/update)
+* [Supprimer l’événement en direct](/rest/api/media/liveevents/delete)
+* [Démarrer l’événement en direct](/rest/api/media/liveevents/start)
+* [Arrêter l’événement en direct](/rest/api/media/liveevents/stop)
 
   Utilisez le paramètre `removeOutputsOnStop` pour supprimer toutes les sorties en temps réel associées lors de l’arrêt de l’événement.  
-* [Réinitialiser l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/reset)
-* [Créer une sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Supprimer la sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Créer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
-* [Mettre à jour un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
-* [Supprimer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
-* [Démarrer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [Arrêter un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
-* [Mettre à l’échelle un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+* [Réinitialiser l’événement en direct](/rest/api/media/liveevents/reset)
+* [Créer une sortie en temps réel](/rest/api/media/liveevents/create)
+* [Supprimer la sortie en temps réel](/rest/api/media/liveevents/delete)
+* [Créer un StreamingEndpoint](/rest/api/media/streamingendpoints/create)
+* [Mettre à jour un StreamingEndpoint](/rest/api/media/streamingendpoints/update)
+* [Supprimer un StreamingEndpoint](/rest/api/media/streamingendpoints/delete)
+* [Démarrer un StreamingEndpoint](/rest/api/media/streamingendpoints/start)
+* [Arrêter un StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
+* [Mettre à l’échelle un StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
 En cas de soumission réussie d’une longue opération, vous recevez un message « 202 accepté » et devez interroger la fin de l’opération à l’aide de l’ID d’opération retourné.
 
-L’article [Suivre les opérations asynchrones Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explique en détail comment suivre l’état des opérations asynchrones Azure à l’aide des valeurs retournées dans la réponse.
+L’article [Suivre les opérations asynchrones Azure](../../azure-resource-manager/management/async-operations.md) explique en détail comment suivre l’état des opérations asynchrones Azure à l’aide des valeurs retournées dans la réponse.
 
 Une seule opération de longue durée est prise en charge pour un événement en direct donné ou l’une de ses sorties en temps réel associées. Une fois démarrée, une opération de longue durée doit se terminer avant de commencer une opération de longue durée ultérieure sur le même LiveEvent ou sur les sorties en temps réel associées. Pour les événements en direct avec plusieurs sorties en temps réel, vous devez attendre la fin de l’exécution d’une opération de longue durée sur une sortie en temps réel avant de déclencher une opération de longue durée sur une autre sortie en temps réel. 
 
@@ -148,7 +148,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="see-also"></a>Voir aussi
 
-Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services](access-api-cli-how-to.md).
+Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services](./access-api-howto.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

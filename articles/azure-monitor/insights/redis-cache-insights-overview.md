@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045854"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explorer Azure Monitor pour Azure Cache pour Redis (préversion)
 
@@ -120,7 +120,7 @@ Lorsque vous sélectionnez **Échecs** en haut de la page, le tableau **Échecs*
 
 ### <a name="metric-definitions"></a>Définitions de métriques
 
-Pour obtenir la liste complète des définitions de métriques qui composent ces classeurs, consultez l’[article sur les mesures disponibles et les intervalles de création des rapports](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Pour obtenir la liste complète des définitions de métriques qui composent ces classeurs, consultez l’[article sur les mesures disponibles et les intervalles de création des rapports](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Afficher à partir d’une ressource Azure Cache pour Redis
 
@@ -156,7 +156,7 @@ La sélection de l’un des autres onglets pour **Performances** ou **Opération
 
 ## <a name="pin-export-and-expand"></a>Épingler, exporter et développer
 
-Pour épingler une section de métrique à un [tableau de bord Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), sélectionnez le symbole en forme de punaise dans le coin supérieur droit de la section.
+Pour épingler une section de métrique à un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md), sélectionnez le symbole en forme de punaise dans le coin supérieur droit de la section.
 
 ![Une section de métrique avec le symbole en forme de punaise mis en surbrillance](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Pour obtenir des conseils sur la résolution des problèmes, consultez l’[arti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Configurez les [alertes de métriques](../platform/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications.md) pour configurer des alertes automatisées qui facilitent la détection des problèmes.
+* Configurez les [alertes de métriques](../platform/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications-portal.md) pour configurer des alertes automatisées qui facilitent la détection des problèmes.
 
 * Découvrez les scénarios que les classeurs prennent en charge, comment créer ou personnaliser des rapports, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md).

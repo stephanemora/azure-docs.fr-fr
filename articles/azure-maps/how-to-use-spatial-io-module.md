@@ -1,19 +1,20 @@
 ---
 title: Utiliser le module E/S spatiales Azure Maps | Microsoft Azure Maps
 description: Découvrez comment utiliser le module E/S spatiales fourni par le kit de développement logiciel (SDK) web Azure Maps. Ce module propose de puissantes fonctionnalités pour permettre aux développeurs d’intégrer facilement les données spatiales au kit de développement logiciel (SDK) web Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f848274f67b5ebf5349cbef24a769aaae39b9955
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804637"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287038"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Utiliser le module E/S spatiales Azure Maps
 
@@ -39,7 +40,7 @@ Cette vidéo fournit une vue d’ensemble du module E/S spatiales dans le Kit de
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant d'utiliser le module E/S spatiales, vous devez [créer un compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) et [obtenir la clé primaire d’abonnement pour votre compte](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Avant d'utiliser le module E/S spatiales, vous devez [créer un compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) et [obtenir la clé primaire d’abonnement pour votre compte](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Installation du module E/S spatiales
 

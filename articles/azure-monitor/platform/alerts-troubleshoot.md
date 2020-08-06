@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045246"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Résolution des problèmes relatifs aux alertes Azure Monitor
 
@@ -241,13 +241,13 @@ Si vous avez reçu une erreur lors de la tentative de création, de mise à jour
 
 1. **Avez-vous reçu une erreur d’autorisation ?**  
 
-    Vous devez disposer du  [rôle intégré Contributeur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou des autorisations spécifiques liées aux règles et aux alertes d’action.
+    Vous devez disposer du  [rôle intégré Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou des autorisations spécifiques liées aux règles et aux alertes d’action.
 
 1. **Avez-vous vérifié les paramètres de la règle d’action ?**  
 
-    Consultez la [documentation de la règle d’action](alerts-action-rules.md) ou la commande [PowerShell Set-AzActionRule de la règle d’action](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0). 
+    Consultez la [documentation de la règle d’action](alerts-action-rules.md) ou la commande [PowerShell Set-AzActionRule de la règle d’action](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Si vous utilisez une alerte de journal, consultez la section [Résolution des alertes de journal](alert-log-troubleshoot.md).
+- Si vous utilisez une alerte de journal, consultez la section [Résolution des alertes de journal](./alerts-troubleshoot-log.md).
 - Revenez au [portail Azure](https://portal.azure.com) pour vérifier si vous avez résolu votre problème avec les conseils ci-dessus 

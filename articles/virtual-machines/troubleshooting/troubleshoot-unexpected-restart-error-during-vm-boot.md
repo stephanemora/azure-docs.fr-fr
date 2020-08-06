@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: daefaca45adb061295928c64b6a0e328a12d8a3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036180"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Démarrage du système d’exploitation – L’ordinateur a redémarré de manière inattendue ou a rencontré une erreur inattendue
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes de résolution des problèmes lorsque la machin
 
 ## <a name="symptom"></a>Symptôme
 
-Quand vous utilisez les [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant l’échec de l’installation de Windows avec l’erreur suivante :
+Quand vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant l’échec de l’installation de Windows avec l’erreur suivante :
 
 **L’ordinateur a redémarré de manière inattendue ou a rencontré une erreur inattendue. L’installation de Windows ne peut pas continuer. Pour installer Windows, cliquez sur « OK » pour redémarrer l’ordinateur, puis redémarrez l’installation.**
 
@@ -37,7 +37,7 @@ Quand vous utilisez les [Diagnostics de démarrage](https://docs.microsoft.com/a
 
 ## <a name="cause"></a>Cause
 
-L’ordinateur tente d’effectuer un démarrage initial d’une [image généralisée](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mais rencontre des problèmes dus au traitement d’un fichier de réponses personnalisé (Unattend.Xml). Les fichiers de réponses personnalisés ne sont pas pris en charge dans Azure. 
+L’ordinateur tente d’effectuer un démarrage initial d’une [image généralisée](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mais rencontre des problèmes dus au traitement d’un fichier de réponses personnalisé (Unattend.Xml). Les fichiers de réponses personnalisés ne sont pas pris en charge dans Azure. 
 
 Le fichier de réponses est un fichier XML spécial contenant des définitions et des valeurs pour les paramètres de configuration que vous souhaitez automatiser lors de l’installation du système d’exploitation Windows Server. Les options de configuration incluent des instructions sur la façon de partitionner des disques, l’emplacement où trouver l’image Windows à installer, les clés de produit à appliquer et d’autres commandes à exécuter.
 
@@ -57,7 +57,7 @@ Cette situation se produit quand une image a été préparée pour une utilisati
 
 - Dans la commande précédente, remplacez `<NameOfYourAnswerFile.XML>` par le nom de votre fichier.
 
-Pour résoudre ce problème, suivez les [conseils d’Azure sur la préparation/capture d’image](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) et préparez une nouvelle image généralisée. Pendant l’exécution de sysprep, n’utilisez pas l’indicateur `/unattend:<answerfile>`. À la place, utilisez uniquement les indicateurs ci-dessous :
+Pour résoudre ce problème, suivez les [conseils d’Azure sur la préparation/capture d’image](../windows/upload-generalized-managed.md) et préparez une nouvelle image généralisée. Pendant l’exécution de sysprep, n’utilisez pas l’indicateur `/unattend:<answerfile>`. À la place, utilisez uniquement les indicateurs ci-dessous :
 
 `sysprep /oobe /generalize /shutdown`
 

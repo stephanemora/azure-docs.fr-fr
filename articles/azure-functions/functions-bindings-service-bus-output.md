@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079721"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Liaison de sortie Azure Service Bus pour Azure Functions
 
@@ -311,7 +311,7 @@ Quand vous utilisez des fonctions C# :
 
 * Les fonctions asynchrones ont besoin d’une valeur renvoyée ou de `IAsyncCollector` au lieu d’un paramètre `out`.
 
-* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
+* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ Quand vous utilisez des fonctions C# :
 
 * Les fonctions asynchrones ont besoin d’une valeur renvoyée ou de `IAsyncCollector` au lieu d’un paramètre `out`.
 
-* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
+* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,11 +336,11 @@ Accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) plutôt que la liaison de sortie intégrée.
+Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](../service-bus-messaging/index.yml) plutôt que la liaison de sortie intégrée.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) plutôt que la liaison de sortie intégrée.
+Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](../service-bus-messaging/index.yml) plutôt que la liaison de sortie intégrée.
 
 ---
 
@@ -348,8 +348,8 @@ Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](https://doc
 
 | Liaison | Informations de référence |
 |---|---|
-| Service Bus | [Codes d’erreur de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Limites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Codes d’erreur de Service Bus](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Service Bus | [Limites de Service Bus](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -388,7 +388,7 @@ Si vous avez défini `isSessionsEnabled` sur `true`, les options `sessionHandler
 |---------|---------|---------|
 |prefetchCount|0|Obtient ou définit le nombre de messages que le destinataire des messages peut demander simultanément.|
 |maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
-|autoComplete|true|Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. |
+|autoComplete|true|Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. |
 |maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier par instance mise à l’échelle. Par défaut, le runtime Functions traite plusieurs messages simultanément.|
 |maxConcurrentSessions|2000|Nombre maximal de sessions qui peuvent être traitées simultanément par instance mise à l’échelle.|
 

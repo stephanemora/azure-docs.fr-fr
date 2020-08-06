@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283484"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -63,7 +63,7 @@ Faites ce travail sur le serveur, et non côté client (ou sur le serveur et cô
 
 ### <a name="verify-your-applications-outputs"></a>Vérifiez les sorties de votre application
 
-Toute sortie présentée visuellement ou au sein d’un document doit toujours être encodée et placée dans une séquence d’échappement. L’[échappement](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), également appelé *encodage de sortie*, permet de garantir que les données non fiables ne véhiculent pas d’attaque par injection de code. L’échappement, associé à la validation des données, offre des défenses multiniveau pour améliorer la sécurité du système dans son ensemble.
+Toute sortie présentée visuellement ou au sein d’un document doit toujours être encodée et placée dans une séquence d’échappement. L’[échappement](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), également appelé *encodage de sortie*, permet de garantir que les données non fiables ne véhiculent pas d’attaque par injection de code. L’échappement, associé à la validation des données, offre des défenses multiniveau pour améliorer la sécurité du système dans son ensemble.
 
 L’échappement garantit que tout est affiché sous forme de *sortie.* L’échappement informe également l’interpréteur que les données ne sont pas destinées à être exécutées pour éviter l’exécution des attaques. Il s’agit d’une autre technique d’attaque courants appelée *script intersites* (XSS).
 

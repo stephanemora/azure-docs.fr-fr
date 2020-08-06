@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081863"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Contraintes de code des fonctions d’orchestrateur
 
@@ -18,7 +18,7 @@ Durable Functions est une extension d’[Azure Functions](../functions-overview.
 
 ## <a name="orchestrator-code-constraints"></a>Contraintes du code d’orchestrateur
 
-Les fonctions d’orchestrateur utilisent l’[approvisionnement en événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) pour garantir une exécution fiable et maintenir l’état des variables locales. Le [comportement de réexécution](durable-functions-orchestrations.md#reliability) du code d’orchestrateur crée des contraintes sur le type de code qui peut être écrit dans une fonction d’orchestrateur. Par exemple, les fonctions d’orchestrateur doivent être *déterministes* : une fonction d’orchestrateur sera réexécutée à plusieurs reprises et doit générer le même résultat à chaque fois.
+Les fonctions d’orchestrateur utilisent l’[approvisionnement en événements](/azure/architecture/patterns/event-sourcing) pour garantir une exécution fiable et maintenir l’état des variables locales. Le [comportement de réexécution](durable-functions-orchestrations.md#reliability) du code d’orchestrateur crée des contraintes sur le type de code qui peut être écrit dans une fonction d’orchestrateur. Par exemple, les fonctions d’orchestrateur doivent être *déterministes* : une fonction d’orchestrateur sera réexécutée à plusieurs reprises et doit générer le même résultat à chaque fois.
 
 ### <a name="using-deterministic-apis"></a>Utilisation des API déterministes
 

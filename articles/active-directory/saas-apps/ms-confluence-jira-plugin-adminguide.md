@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5884685f12c4697558a008287f446e52e5105d3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73161194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016783"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guide de l’administrateur Atlassian Jira et Confluence pour Azure Active Directory
 
@@ -147,7 +147,7 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
 * **Comment désactiver WebSudo (désactiver la session administrateur sécurisée)** :
 
-  * Pour Jira, les sessions administrateur sécurisées (c’est-à-dire la confirmation du mot de passe avant d’accéder aux fonctions d’administration) sont activées par défaut. Si vous voulez supprimer cette possibilité dans votre instance Jira, indiquez la ligne suivante dans votre fichier jira-config.properties : `ira.websudo.is.disabled = true`
+  * Pour Jira, les sessions administrateur sécurisées (c’est-à-dire la confirmation du mot de passe avant d’accéder aux fonctions d’administration) sont activées par défaut. Si vous voulez supprimer cette possibilité dans votre instance Jira, indiquez la ligne suivante dans votre fichier jira-config.properties : `jira.websudo.is.disabled = true`
 
   * Pour Confluence, suivez les étapes indiquées sur le [site de support technique de Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 

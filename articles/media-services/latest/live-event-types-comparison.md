@@ -13,22 +13,22 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78244641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090057"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
-Dans Azure Media Services, un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être défini sur *Pass-through* (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). 
+Dans Azure Media Services, un [événement en direct](/rest/api/media/liveevents) peut être défini sur *Pass-through* (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). 
 
 Cet article compare les fonctionnalités des types d’événements en direct.
 
 ## <a name="types-comparison"></a>Comparaison des types 
 
-Le tableau suivant compare les fonctionnalités des types d’événements en direct. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
+Le tableau suivant compare les fonctionnalités des types d’événements en direct. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype) :
 
 * **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Les flux reçus transitent par l’Événement en temps réel sans traitement supplémentaire. Également appelé événement en direct pass-through.
 * **LiveEventEncodingType.Standard** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits (plus d’informations plus loin dans cet article).
@@ -65,7 +65,7 @@ Le tableau suivant compare les fonctionnalités des types d’événements en di
 
 ## <a name="system-presets"></a>Présélections système
 
-La présélection [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding) détermine les résolutions et débits de la sortie émanant de l’encodeur live. Si vous utilisez un encodeur live **Standard** (LiveEventEncodingType.Standard), la présélection *Default720p* spécifie un jeu de 6 paires résolution/débit, comme présenté ci-dessous. Autrement, si vous utilisez un encodeur live **Premium1080p** (LiveEventEncodingType.Premium1080p), la présélection *Default1080p* spécifie le jeu de sortie des paires résolution/débit.
+La présélection [presetName](/rest/api/media/liveevents/create#liveeventencoding) détermine les résolutions et débits de la sortie émanant de l’encodeur live. Si vous utilisez un encodeur live **Standard** (LiveEventEncodingType.Standard), la présélection *Default720p* spécifie un jeu de 6 paires résolution/débit, comme présenté ci-dessous. Autrement, si vous utilisez un encodeur live **Premium1080p** (LiveEventEncodingType.Premium1080p), la présélection *Default1080p* spécifie le jeu de sortie des paires résolution/débit.
 
 > [!NOTE]
 > Vous ne pouvez pas appliquer la présélection Default1080p à un événement réel si elle a été configurée pour l’encodage live Standard. Vous obtiendrez une erreur. Vous obtiendrez également une erreur si vous essayez d’appliquer la présélection Default720p à un encodeur live Premium1080p.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134808"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021577"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 
@@ -199,7 +199,7 @@ Selon les scénarios, vous ne pourrez peut-être pas toujours créer de variable
 - Par exemple, une récupération SharePoint a deux serveurs frontaux. Une application métier n’a qu’un seul serveur frontal.
 - Dans ce scénario, vous ne pouvez pas créer des variables distinctes pour chaque plan de récupération.
 
-Dans l'exemple suivant, nous créons une [variable complexe](/powershell/module/servicemanagement/azure/set-azureautomationvariable) sur le compte Azure Automation.
+Dans l'exemple suivant, nous créons une [variable complexe](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) sur le compte Azure Automation.
 
 Pour ce faire, nous spécifions plusieurs valeurs à l'aide d'Azure PowerShell.
 

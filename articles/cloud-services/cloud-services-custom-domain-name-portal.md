@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092726"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que `http://contoso.cloudapp.net`. Azure attribue également une adresse IP virtuelle.
@@ -63,7 +63,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
        ![section aperçu rapide indiquant l’URL du site][csurl]
 
        **OR**
-   * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
+   * Installez et configurez [Azure Powershell](/powershell/azure/), puis utilisez la commande suivante :
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -96,7 +96,7 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
        ![section aperçu rapide illustrant l’adresse IP virtuelle publique][vip]
 
        **OR**
-   * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
+   * Installez et configurez [Azure Powershell](/powershell/azure/), puis utilisez la commande suivante :
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

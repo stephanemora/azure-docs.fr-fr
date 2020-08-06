@@ -6,17 +6,17 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/18/2019
-ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/22/2020
+ms.openlocfilehash: b8cf0425a4a40c4692f4c0c7fcf11dbb23019b23
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027826"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132668"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 
-Azure Cosmos DB fournit des métriques concernant le débit, le stockage, la cohérence, la disponibilité et la latence. Le portail Azure fournit une vue agrégée de ces métriques. Vous pouvez également consulter des métriques Azure Cosmos DB à partir de l’API Azure Monitor. Pour savoir comment consulter des métriques à partir d’Azure Monitor, consultez l’article [Obtenir des métriques d’Azure Monitor](cosmos-db-azure-monitor-metrics.md). 
+Azure Cosmos DB fournit des métriques concernant le débit, le stockage, la cohérence, la disponibilité et la latence. Le portail Azure fournit une vue agrégée de ces métriques. Vous pouvez également consulter des métriques Azure Cosmos DB à partir de l’API Azure Monitor. Les valeurs de dimension des métriques, comme le nom du conteneur, ne respectent pas la casse. Vous devez donc utiliser une comparaison ne respectant pas la casse lorsque vous comparez les chaînes sur ces valeurs de dimension. Pour savoir comment consulter des métriques à partir d’Azure Monitor, consultez l’article [Obtenir des métriques d’Azure Monitor](cosmos-db-azure-monitor-metrics.md).
 
 Cet article explique des cas d’utilisation courants et montre comment utiliser les métriques d’Azure Cosmos DB pour analyser et déboguer ces problèmes. Les métriques sont collectées toutes les cinq minutes et sont conservées pendant sept jours.
 

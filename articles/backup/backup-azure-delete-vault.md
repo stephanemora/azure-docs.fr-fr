@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055205"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -27,7 +27,7 @@ Si vous essayez de supprimer le coffre sans enlever les dépendances, vous obten
 
 - Impossible de supprimer le coffre car il contient des ressources. Veuillez vérifier qu’aucun élément de sauvegarde, serveur protégé ou serveur de gestion des sauvegardes n’est associé à ce coffre. Annulez l’inscription des conteneurs suivants associés à ce coffre avant de procéder à la suppression.
 
-- Le coffre Recovery Services ne peut pas être supprimé, car il contient des éléments de sauvegarde dans l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours de l’opération de suppression. Essayez de supprimer le coffre une fois que les éléments de sauvegarde ont été supprimés définitivement et qu’il ne contient plus d’élément dans l’état de suppression réversible. Pour plus d’informations, consultez [Suppression réversible pour la Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+- Le coffre Recovery Services ne peut pas être supprimé, car il contient des éléments de sauvegarde dans l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours de l’opération de suppression. Essayez de supprimer le coffre une fois que les éléments de sauvegarde ont été supprimés définitivement et qu’il ne contient plus d’élément dans l’état de suppression réversible. Pour plus d’informations, consultez [Suppression réversible pour la Sauvegarde Azure](./backup-azure-security-feature-cloud.md).
 
 ## <a name="proper-way-to-delete-a-vault"></a>Méthode appropriée pour supprimer un coffre
 
@@ -36,9 +36,9 @@ Si vous essayez de supprimer le coffre sans enlever les dépendances, vous obten
 
 Pour supprimer correctement un coffre, vous devez suivre les étapes ci-après dans l’ordre indiqué :
 
-- **Étape 1** : Désactivez la fonctionnalité de suppression réversible. Pour connaître les étapes de désactivation de la suppression réversible, [cliquez ici](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
+- **Étape 1** : Désactivez la fonctionnalité de suppression réversible. Pour connaître les étapes de désactivation de la suppression réversible, [cliquez ici](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-- **Étape 2** : Une fois la suppression réversible désactivée, vérifiez s’il existe des éléments à l’état de suppression réversible. Si c’est le cas, vous devez *annuler leur suppression* et les *supprimer* de nouveau. [Suivez ces étapes](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) pour rechercher les éléments à l’état de suppression réversible et les supprimer définitivement.
+- **Étape 2** : Une fois la suppression réversible désactivée, vérifiez s’il existe des éléments à l’état de suppression réversible. Si c’est le cas, vous devez *annuler leur suppression* et les *supprimer* de nouveau. [Suivez ces étapes](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) pour rechercher les éléments à l’état de suppression réversible et les supprimer définitivement.
 
 - **Étape 3** : Vous devez vérifier s’il existe des éléments protégés aux trois emplacements ci-dessous :
 
@@ -209,7 +209,7 @@ Pour arrêter la protection et supprimer les données de sauvegarde :
            [<CommonParameters>]
     ```
 
-  [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sur la désactivation de la protection d’un élément protégé par la Sauvegarde Azure.
+  [En savoir plus](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) sur la désactivation de la protection d’un élément protégé par la Sauvegarde Azure.
 
 - Arrêtez la protection et supprimez les données de tous les éléments protégés par la sauvegarde dans le cloud (par exemple, une machine virtuelle laaS, un partage de fichiers Azure, etc.) :
 
@@ -225,7 +225,7 @@ Pour arrêter la protection et supprimer les données de sauvegarde :
        [<CommonParameters>]
     ```
 
-    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)  sur la désactivation de la protection d’un élément protégé par la Sauvegarde.
+    [En savoir plus](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection)  sur la désactivation de la protection d’un élément protégé par la Sauvegarde.
 
 - Pour les fichiers et dossiers locaux protégés à l’aide de la sauvegarde Azure Backup Agent (MARS) sur Azure, utilisez la commande PowerShell suivante pour supprimer les données sauvegardées de chaque module PowerShell MARS :
 
@@ -263,7 +263,7 @@ Après avoir supprimé les données sauvegardées, annulez l’inscription de to
               [<CommonParameters>]
     ```
 
-    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sur l’annulation de l’inscription d’un conteneur Windows Server ou d’un autre conteneur auprès du coffre.
+    [En savoir plus](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) sur l’annulation de l’inscription d’un conteneur Windows Server ou d’un autre conteneur auprès du coffre.
 
 - Pour les machines locales protégées à l’aide de MABS ou de DPM sur Azure :
 
@@ -278,7 +278,7 @@ Après avoir supprimé les données sauvegardées, annulez l’inscription de to
           [<CommonParameters>]
     ```
 
-    [En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sur l’annulation de l’inscription d’un conteneur de gestion de la Sauvegarde auprès du coffre.
+    [En savoir plus](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) sur l’annulation de l’inscription d’un conteneur de gestion de la Sauvegarde auprès du coffre.
 
 Après avoir supprimé définitivement des données sauvegardées et annulé l’inscription de tous les conteneurs, supprimez le coffre.
 
@@ -293,7 +293,7 @@ Pour supprimer un coffre Recovery Services :
       [<CommonParameters>]
    ```
 
-[En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sur la suppression d’un coffre Recovery Services.
+[En savoir plus](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sur la suppression d’un coffre Recovery Services.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Supprimer le coffre Recovery Services à l’aide de l’interface de ligne de commande (CLI)
 
@@ -330,7 +330,7 @@ Pour supprimer un coffre Recovery Services existant, effectuez les opérations s
                        [--yes]
     ```
 
-    Pour plus d’informations, consultez cet  [article](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest).
+    Pour plus d’informations, consultez cet  [article](/cli/azure/backup/vault?view=azure-cli-latest).
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager
 

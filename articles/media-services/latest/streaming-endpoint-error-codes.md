@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091978"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erreurs (d’origine) du point de terminaison de streaming 
 
@@ -200,7 +200,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Codes d’erreur d’encodage](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Codes d’erreur d’encodage](/rest/api/media/jobs/get#joberrorcode)
 - [Concepts Azure Media Services](concepts-overview.md)
 - [Quotas et limites](limits-quotas-constraints.md)
 

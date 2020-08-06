@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072023"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services 
 
@@ -227,7 +227,7 @@ Pour plus d’informations, consultez la page [JWT token authentication in Azure
 Pour plus d’informations sur Azure AD :
 
 * Vous pouvez trouver des informations pour les développeurs dans le [Guide du développeur Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Problèmes de mise en œuvre
 Utilisez les informations de dépannage suivantes pour résoudre vos éventuels problèmes d’implémentation.
@@ -296,7 +296,7 @@ La substitution de la clé de signature est un point important à prendre en com
 
 Azure AD utilise des normes reconnues pour établir une relation de confiance entre lui-même et les applications qui utilisent Azure AD. Azure AD utilise plus particulièrement une clé de signature se composant d’une paire clé publique-clé privée. Lorsqu’Azure AD crée un jeton de sécurité contenant des informations sur l’utilisateur, ce jeton est signé par Azure AD à l’aide d’une clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et qu’il a bien été émis par Azure AD, l’application doit valider la signature du jeton. L’application utilise la clé publique exposée par Azure AD, laquelle est contenue dans le document des métadonnées de fédération du locataire. Cette clé publique, de même que la clé de signature dont elle est dérivée, est la même que celle utilisée pour tous les locataires dans Azure AD.
 
-Pour plus d’informations sur la substitution de la clé Azure AD, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](../../active-directory/active-directory-signing-key-rollover.md).
+Pour plus d’informations sur la substitution de la clé Azure AD, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Dans la [paire de clés publique-privée](https://login.microsoftonline.com/common/discovery/keys/) :
 
@@ -329,7 +329,7 @@ Si vous regardez comment une application web appelle une application API sous [I
 * Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
 * Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Porteur » dans l’en-tête « Autorisation » de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT. Si la validation réussit, elle renvoie la ressource souhaitée.
 
-Dans ce flux d’identité de l’application, l’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ». Le [schéma de flux d’autorisation](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) explique comment fonctionne le flux relatif au code d’autorisation.
+Dans ce flux d’identité de l’application, l’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ». Le [schéma de flux d’autorisation](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) explique comment fonctionne le flux relatif au code d’autorisation.
 
 L’acquisition de licence avec restriction de jeton suit le même modèle de sous-système approuvé. Le service de distribution de licences dans Media Services est une ressource API web, ou bien la « ressource backend » à laquelle une application web doit accéder. Où se trouve le jeton d’accès ?
 

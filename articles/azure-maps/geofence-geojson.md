@@ -1,19 +1,19 @@
 ---
 title: Format de données GeoJSON pour la limite géographique | Microsoft Azure Maps
 description: Dans cet article, vous découvrirez comment préparer les données de limite géographique qui peuvent être utilisées dans les API GET et POST Geofence de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335616"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131303"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 

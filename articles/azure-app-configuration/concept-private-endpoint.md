@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042121"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilisation de points de terminaison privés pour Azure App Configuration
 
@@ -22,9 +22,6 @@ L’utilisation de points de terminaison privés pour votre magasin App Configur
 - Sécuriser les détails de configuration de votre application en configurant le pare-feu pour bloquer toutes les connexions à App Configuration sur le point de terminaison public.
 - Améliorer la sécurité du réseau virtuel (VNet), en veillant à ce que les données n’échappent pas su réseau virtuel.
 - Vous connecter en toute sécurité au magasin App Configuration à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide de [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [d’ExpressRoutes](../expressroute/expressroute-locations.md) avec un peering privé.
-
-> [!NOTE]
-> La fonctionnalité de point de terminaison privé est maintenant en disponibilité générale dans toutes les régions, *à l’exception* de la région Inde Centre. Dans la région **Inde Centre**, Azure App Configuration permet d’utiliser des points de terminaison privés en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.
 
 ## <a name="conceptual-overview"></a>Vue d'ensemble conceptuelle
 

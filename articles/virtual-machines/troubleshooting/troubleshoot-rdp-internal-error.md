@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 8600971ffd23b1c253e8de807d365c46409b37bc
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036384"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
@@ -55,8 +55,7 @@ Connectez-vous à la [console série et ouvrez une instance de PowerShell](./ser
 
 #### <a name="step-1-check-the-rdp-port"></a>Étape 1 : Vérifier le port RDP
 
-1. Dans une instance de PowerShell, utilisez [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) pour vérifier si le port 8080 est utilisé par d’autres applications :
+1. Dans une instance de PowerShell, utilisez [NETSTAT](/windows-server/administration/windows-commands/netstat) pour vérifier si le port 8080 est utilisé par d’autres applications :
 
     ```powershell
     Netstat -anob |more
@@ -186,7 +185,7 @@ Le client RDP utilise par défaut le protocole TLS 1.0. Toutefois, il peut être
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
-1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md).
 2. Une fois le disque de système d’exploitation attaché à une machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Disk Management. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
 3. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
@@ -299,4 +298,4 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](../windows/troubleshoot-recovery-disks-portal.md), puis vérifiez que le problème est résolu.
+5. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](./troubleshoot-recovery-disks-portal-windows.md), puis vérifiez que le problème est résolu.

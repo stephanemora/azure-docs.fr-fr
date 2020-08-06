@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083019"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personnaliser un point de terminaison HTTP dans Azure Functions
 
@@ -47,7 +47,7 @@ Par défaut, la fonction de votre déclencheur par HTTP est configurée pour acc
 
 1. Sélectionnez **Enregistrer**.
 
-Pour en savoir plus sur la personnalisation des fonctions HTTP, consultez [Liaisons HTTP Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
+Pour en savoir plus sur la personnalisation des fonctions HTTP, consultez [Liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md).
 
 ### <a name="test-your-api"></a>Tester l’API
 
@@ -74,8 +74,8 @@ Dans la section suivante, vous ferez apparaître votre API par le biais d’un p
 
 Un proxy peut pointer vers n’importe quelle ressource HTTP, notamment :
 - Azure Functions 
-- Applications API dans [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
-- Conteneurs Docker dans [App Service sur Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
+- Applications API dans [Azure App Service](../app-service/overview.md)
+- Conteneurs Docker dans [App Service sur Linux](../app-service/containers/app-service-linux-intro.md)
 - Toute autre API hébergée
 
 Pour en savoir plus sur les proxys, consultez [Utilisation d’Azure Functions Proxies].
@@ -86,7 +86,7 @@ Dans cette section, vous allez créer un proxy qui sert de frontend à votre API
 
 ### <a name="setting-up-the-frontend-environment"></a>Configuration de l’environnement frontend
 
-Répétez les étapes de la page [Créer une application de fonction](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) pour créer une application de fonction dans laquelle vous allez créer votre proxy. L’URL de cette nouvelle application sert de frontend à notre API et l’application de fonction que vous avez modifiée précédemment sert de backend.
+Répétez les étapes de la page [Créer une application de fonction](./functions-create-first-azure-function.md#create-a-function-app) pour créer une application de fonction dans laquelle vous allez créer votre proxy. L’URL de cette nouvelle application sert de frontend à notre API et l’application de fonction que vous avez modifiée précédemment sert de backend.
 
 1. Accédez à votre nouvelle application de fonction frontend sur le portail.
 1. Sélectionnez **Fonctionnalités de la plateforme** et choisissez **Paramètres de l’application**.
@@ -126,7 +126,7 @@ Maintenant, utilisez un proxy pour créer une API factice pour votre solution. C
 
 Pour créer cette API fictive, nous allons créer un nouveau proxy, cette fois en utilisant [l’Éditeur App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Pour commencer, accédez à votre application de fonction sur le portail. Sélectionnez **Fonctionnalités de la plateforme**, puis, sous **Outils de développement**, recherchez **Éditeur App Service**. L’Éditeur App Service s’ouvre dans un nouvel onglet.
 
-Sélectionnez `proxies.json` dans la barre de navigation gauche. Ce fichier stocke la configuration de tous vos proxys. Si vous utilisez l’une des [méthodes de déploiement de Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), vous maintenez ce fichier dans le contrôle de code source. Pour en savoir plus sur ce fichier, consultez la page [Configuration avancée des proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
+Sélectionnez `proxies.json` dans la barre de navigation gauche. Ce fichier stocke la configuration de tous vos proxys. Si vous utilisez l’une des [méthodes de déploiement de Functions](./functions-continuous-deployment.md), vous maintenez ce fichier dans le contrôle de code source. Pour en savoir plus sur ce fichier, consultez la page [Configuration avancée des proxys](./functions-proxies.md#advanced-configuration).
 
 Si vous avez suivi toutes les étapes jusqu’à présent, votre proxies.json doit se présenter ainsi :
 
@@ -180,7 +180,7 @@ Vous allez maintenant ajouter votre API factice. Remplacez votre fichier proxies
 }
 ```
 
-Ce code ajoute un nouveau proxy, `GetUserByName`, sans la propriété `backendUri`. Au lieu d’appeler une autre ressource, il modifie la réponse par défaut des proxys par substitution de réponse. Les substitutions de demandes et de réponses peuvent également être utilisées en association avec une URL principale. Cette technique est particulièrement utile pour la redirection via proxy vers un système hérité, où vous devrez peut-être modifier les en-têtes, interroger des paramètres, etc. Pour en savoir plus sur les substitutions de demandes et de réponses, consultez la page [Modifier les demandes et les réponses dans les proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Ce code ajoute un nouveau proxy, `GetUserByName`, sans la propriété `backendUri`. Au lieu d’appeler une autre ressource, il modifie la réponse par défaut des proxys par substitution de réponse. Les substitutions de demandes et de réponses peuvent également être utilisées en association avec une URL principale. Cette technique est particulièrement utile pour la redirection via proxy vers un système hérité, où vous devrez peut-être modifier les en-têtes, interroger des paramètres, etc. Pour en savoir plus sur les substitutions de demandes et de réponses, consultez la page [Modifier les demandes et les réponses dans les proxys](./functions-proxies.md).
 
 Testez votre API factice en appelant le point de terminaison `<YourProxyApp>.azurewebsites.net/api/users/{username}` à l’aide d’un navigateur ou du client REST de votre choix. Veillez à remplacer _{username}_ par une valeur de chaîne représentant un nom d’utilisateur.
 
@@ -190,10 +190,10 @@ Dans cet article, vous avez appris à créer et à personnaliser une API sur Azu
 
 Les références suivantes peuvent être utiles pour développer davantage votre API :
 
-- [Liaisons HTTP Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md)
 - [Utilisation d’Azure Functions Proxies]
-- [Documenter une API Azure Functions (préversion)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
+- [Documenter une API Azure Functions (préversion)](./functions-openapi-definition.md)
 
 
-[Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Utilisation d’Azure Functions Proxies]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Create your first function]: ./functions-create-first-azure-function.md
+[Utilisation d’Azure Functions Proxies]: ./functions-proxies.md

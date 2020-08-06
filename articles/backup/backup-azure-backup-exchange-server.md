@@ -4,12 +4,12 @@ description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l�
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091128"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azu
 
 Pour installer l’agent de protection DPM sur le serveur Exchange, procédez comme suit :
 
-1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installez l’agent sur le serveur Exchange en cliquant sur **Gestion > Agents > Installer** dans la Console Administrateur DPM. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Installez l’agent sur le serveur Exchange en cliquant sur **Gestion > Agents > Installer** dans la Console Administrateur DPM. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Créer un groupe de protection pour le serveur Exchange
 
@@ -49,7 +49,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 4. Sélectionnez la base de données du serveur Exchange que vous souhaitez protéger, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
+   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

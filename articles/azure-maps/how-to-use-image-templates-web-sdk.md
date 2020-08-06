@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285677"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
@@ -148,44 +148,337 @@ Ce tableau liste tous les modèles d’image actuellement disponibles dans le SD
 
 **Modèles d’icône de symbole**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| marker | marker-thick | marker-circle | marker-flat |
-|![icône marker](./media/image-templates/marker.png)|![icône marker-thick](./media/image-templates/marker-thick.png)|![icône marker-circle](./media/image-templates/marker-circle.png)|![icône marker-flat](./media/image-templates/marker-flat.png)|
-||||
-| marker-square | marker-square-cluster | marker-arrow | marker-ball-pin | 
-|![icône marker-square](./media/image-templates/marker-square.png)|![icône marker-square-cluster](./media/image-templates/marker-square-cluster.png)|![icône marker-arrow](./media/image-templates/marker-arrow.png)|![icône marker-ball-pin](./media/image-templates/marker-ball-pin.png)|
-||||
-| marker-square-rounded | marker-square-rounded-cluster | indicateur | flag-triangle |
-| ![icône marker-square-rounded](./media/image-templates/marker-square-rounded.png) | ![icône marker-square-rounded-cluster](./media/image-templates/marker-square-rounded-cluster.png) | ![icône flag](./media/image-templates/flag.png) | ![icône flag-triangle](./media/image-templates/flag-triangle.png) |
-||||
-| triangle | triangle-thick | triangle-arrow-up | triangle-arrow-left |
-| ![icône triangle](./media/image-templates/triangle.png) | ![icône triangle-thick](./media/image-templates/triangle-thick.png) | ![icône triangle-arrow-up](./media/image-templates/triangle-arrow-up.png) | ![icône triangle-arrow-left](./media/image-templates/triangle-arrow-left.png) |
-||||
-| hexagon | hexagon-thick | hexagon-rounded | hexagon-rounded-thick |
-| ![icône hexagon](./media/image-templates/hexagon.png) | ![icône hexagon-thick](./media/image-templates/hexagon-thick.png) | ![icône hexagon-rounded](./media/image-templates/hexagon-rounded.png) | ![icône hexagon-rounded-thick](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| pin | pin-round | rounded-square | rounded-square-thick |
-| ![icône pin](./media/image-templates/pin.png) | ![icône pin-round](./media/image-templates/pin-round.png) | ![icône rounded-square](./media/image-templates/rounded-square.png) | ![icône rounded-square-thick](./media/image-templates/rounded-square-thick.png) |
-||||
-| arrow-up | arrow-up-thin | voiture ||
-| ![icône arrow-up](./media/image-templates/arrow-up.png) | ![icône arrow-up-thin](./media/image-templates/arrow-up-thin.png) | ![icône car](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      marker
+   :::column-end:::
+   :::column span="":::
+      marker-thick
+   :::column-end:::
+   :::column span="":::
+      marker-circle
+   :::column-end:::
+   :::column span="":::
+      marker-flat
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône marker](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-thick](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-circle](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-flat](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marker-square
+   :::column-end:::
+   :::column span="":::
+      marker-square-cluster
+   :::column-end:::
+   :::column span="":::
+      marker-arrow
+   :::column-end:::
+   :::column span="":::
+      marker-ball-pin
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône marker-square](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-square-cluster](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-arrow](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-ball-pin](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marker-square-rounded
+   :::column-end:::
+   :::column span="":::
+      marker-square-rounded-cluster
+   :::column-end:::
+   :::column span="":::
+      indicateur
+   :::column-end:::
+   :::column span="":::
+      flag-triangle
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône marker-square-rounded](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône marker-square-rounded-cluster](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône flag](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône flag-triangle](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      triangle
+   :::column-end:::
+   :::column span="":::
+      triangle-thick
+   :::column-end:::
+   :::column span="":::
+      triangle-arrow-up
+   :::column-end:::
+   :::column span="":::
+      triangle-arrow-left
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône triangle](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône triangle-thick](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône triangle-arrow-up](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône triangle-arrow-left](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      hexagon
+   :::column-end:::
+   :::column span="":::
+      hexagon-thick
+   :::column-end:::
+   :::column span="":::
+      hexagon-rounded
+   :::column-end:::
+   :::column span="":::
+      hexagon-rounded-thick
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône hexagon](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône hexagon-thick](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône hexagon-rounded](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône hexagon-rounded-thick](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      pin
+   :::column-end:::
+   :::column span="":::
+      pin-round
+   :::column-end:::
+   :::column span="":::
+      rounded-square
+   :::column-end:::
+   :::column span="":::
+      rounded-square-thick
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône pin](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône pin-round](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône rounded-square](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône rounded-square-thick](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      arrow-up
+   :::column-end:::
+   :::column span="":::
+      arrow-up-thin
+   :::column-end:::
+   :::column span="":::
+      voiture
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône arrow-up](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône arrow-up-thin](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône car](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Modèles de motif de remplissage de polygones**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| checker | checker-rotated | circles | circles-spaced |
-| ![icône checker](./media/image-templates/checker.png) | ![icône checker-rotated](./media/image-templates/checker-rotated.png) | ![icône circles](./media/image-templates/circles.png) | ![icône circles-spaced](./media/image-templates/circles-spaced.png) |
-|||||
-| diagonal-lines-up | diagonal-lines-down | diagonal-stripes-up | diagonal-stripes-down |
-| ![icône diagonal-lines-up](./media/image-templates/diagonal-lines-up.png) | ![icône diagonal-lines-down](./media/image-templates/diagonal-lines-down.png) | ![icône diagonal-stripes-up](./media/image-templates/diagonal-stripes-up.png) | ![icône diagonal-stripes-down](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| grid-lines | rotated-grid-lines | rotated-grid-stripes | x-fill |
-| ![icône grid-lines](./media/image-templates/grid-lines.png) | ![icône rotated-grid-lines](./media/image-templates/rotated-grid-lines.png) | ![icône rotated-grid-stripes](./media/image-templates/rotated-grid-stripes.png) | ![icône x-fill](./media/image-templates/x-fill.png) |
-|||||
-| zig-zag | zig-zag-vertical | dots |  |
-| ![icône zig-zag](./media/image-templates/zig-zag.png) | ![icône zig-zag-vertical](./media/image-templates/zig-zag-vertical.png) | ![icône dots](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      checker
+   :::column-end:::
+   :::column span="":::
+      checker-rotated
+   :::column-end:::
+   :::column span="":::
+      circles
+   :::column-end:::
+   :::column span="":::
+      circles-spaced
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône checker](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône checker-rotated](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône circles](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône circles-spaced](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      diagonal-lines-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-lines-down
+   :::column-end:::
+   :::column span="":::
+      diagonal-stripes-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-stripes-down
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône diagonal-lines-up](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône diagonal-lines-down](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône diagonal-stripes-up](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône diagonal-stripes-down](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      grid-lines
+   :::column-end:::
+   :::column span="":::
+      rotated-grid-lines
+   :::column-end:::
+   :::column span="":::
+      rotated-grid-stripes
+   :::column-end:::
+   :::column span="":::
+      x-fill
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône grid-lines](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône rotated-grid-lines](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône rotated-grid-stripes](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône x-fill](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      zig-zag
+   :::column-end:::
+   :::column span="":::
+      zig-zag-vertical
+   :::column-end:::
+   :::column span="":::
+      dots
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![icône zig-zag](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône zig-zag-vertical](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![icône dots](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Icônes d’images préchargées**
 

@@ -3,12 +3,12 @@ title: Recevoir des événements à l’aide de l’hôte de processeur d’év�
 description: Cet article décrit l’hôte de processeur d’événements d’Azure Event Hubs, qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002520"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320636"
 
 Azure Event Hubs est un puissant service d’ingestion de télémétrie qui permet de diffuser des millions d’événements à moindre coût. Cet article décrit comment consommer les événements ingérés à l’aide de l’*hôte de processeur d’événements* (EPH) ; un agent consommateur intelligent qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.  
 
-La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](https://msdn.microsoft.com/library/dn568101.aspx), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
+La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](/previous-versions/msp-n-p/dn568101(v=pandp.10)), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
 
 ## <a name="home-security-scenario"></a>Scénario de sécurité pour domicile
 
@@ -162,7 +162,7 @@ En outre, une surcharge de [RegisterEventProcessorAsync](/dotnet/api/microsoft.a
 Voici le fonctionnement de la réception d’époque :
 
 ### <a name="with-epoch"></a>Avec époque
-L’époque est un identificateur unique (valeur d’époque) utilisé par le service pour appliquer la propriété de partition/bail. Vous créez un récepteur basé sur une époque à l’aide de la méthode [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Cette méthode crée un récepteur basé sur une époque. Le récepteur est créé pour une partition de hub d’événements spécifique dans le groupe de consommateurs spécifié.
+L’époque est un identificateur unique (valeur d’époque) utilisé par le service pour appliquer la propriété de partition/bail. Vous créez un récepteur basé sur une époque à l’aide de la méthode [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Cette méthode crée un récepteur basé sur une époque. Le récepteur est créé pour une partition de hub d’événements spécifique dans le groupe de consommateurs spécifié.
 
 La fonctionnalité d’époque permet aux utilisateurs de s’assurer qu’il n’existe qu’un seul récepteur sur un groupe de consommateurs à tout moment dans le temps, avec les règles suivantes :
 
@@ -171,7 +171,7 @@ La fonctionnalité d’époque permet aux utilisateurs de s’assurer qu’il n�
 - S’il existe un récepteur avec une valeur d’époque e1 et qu’un récepteur est créé avec une valeur d’époque e2, où e1 > e2, la création d’e2 échoue avec une erreur signalant qu’il existe déjà un récepteur avec l’époque e1.
 
 ### <a name="no-epoch"></a>Sans époque
-Vous créez un récepteur non basé sur une époque à l’aide de la méthode [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
+Vous créez un récepteur non basé sur une époque à l’aide de la méthode [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
 
 Il existe certains scénarios de flux de traitement où les utilisateurs souhaitent créer plusieurs récepteurs sur un même groupe de consommateurs. Pour prendre en charge ces scénarios, nous pouvons créer un récepteur sans époque ; dans ce cas, nous autorisons jusqu’à cinq récepteurs simultanés sur le groupe de consommateurs.
 

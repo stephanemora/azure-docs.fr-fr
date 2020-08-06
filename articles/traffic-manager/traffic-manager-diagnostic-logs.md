@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089054"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Activation de la journalisation des ressources dans Azure Traffic Manager
 
@@ -68,9 +68,8 @@ Tous les journaux de ressource disponibles via Azure Monitor partagent un schém
 
 Le tableau suivant inclut le schéma des journaux d’activité propre à la ressource de profil Azure Traffic Manager.
 
-|||||
+|Nom du champ|Type de champ|Définition|Exemple|
 |----|----|---|---|
-|**Nom du champ**|**Type de champ**|**Définition**|**Exemple**|
 |EndpointName|String|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
 |Statut|String|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
 |||||

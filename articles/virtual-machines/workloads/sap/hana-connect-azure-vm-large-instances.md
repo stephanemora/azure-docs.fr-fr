@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74224723"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082169"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connexion de machines virtuelles Azure à de grandes instances HANA
 
-L'article [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) mentionne que le déploiement minimal de grandes instances HANA avec la couche d’application SAP dans Azure se présente comme suit :
+L'article [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](./hana-overview-architecture.md) mentionne que le déploiement minimal de grandes instances HANA avec la couche d’application SAP dans Azure se présente comme suit :
 
 ![Réseau virtuel Azure connecté à SAP HANA sur Azure (grandes instances) et en local](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -94,13 +94,13 @@ Certaines plages d’adresses IP nécessaires au déploiement de grandes instan
 
 Plages d'adresses IP facultatives susceptibles de devoir être soumises à Microsoft :
 
-- Si vous optez pour utiliser [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct du niveau local vers des unités de grande instance HANA, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
-- Si vous choisissez d’utiliser [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct entre un locataire de grandes instances HANA dans une région Azure et un autre locataire de grandes instances HANA dans une autre région Azure, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
+- Si vous optez pour utiliser [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) pour activer le routage direct du niveau local vers des unités de grande instance HANA, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
+- Si vous choisissez d’utiliser [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) pour activer le routage direct entre un locataire de grandes instances HANA dans une région Azure et un autre locataire de grandes instances HANA dans une autre région Azure, vous devez réserver une autre plage d'adresses IP /29. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 
 Pour plus d’informations sur l’utilisation d'ExpressRoute Global Reach et de grandes instances HANA, consultez les documents suivants :
 
-- [Architecture réseau de SAP HANA (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Connecter un réseau virtuel à de grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [Architecture réseau de SAP HANA (grandes instances)](./hana-network-architecture.md)
+- [Connecter un réseau virtuel à de grandes instances HANA](./hana-connect-vnet-express-route.md)
  
 Vous devez définir et planifier les plages d’adresses IP décrites précédemment. Toutefois, vous n’avez pas besoin de les transmettre toutes à Microsoft. Voici les plages d’adresses IP que vous devrez nommer à Microsoft :
 

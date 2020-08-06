@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010799"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -71,7 +71,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 > [!NOTE]
 > Vos URL de certificats observés doivent être de la forme `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > La propriété « authenticationSettings », facultative, est prévue pour le cas où plusieurs identités sont affectées à la machine virtuelle.
@@ -204,7 +204,7 @@ L’interface de ligne de commande Azure permet de déployer l’extension de ma
 Tenez compte des restrictions et conditions suivantes :
 - Restrictions de Key Vault :
   - Doit exister au moment du déploiement 
-  - La stratégie d’accès Key Vault doit être définie pour l’identité de machine virtuelle/VMSS à l’aide d’une identité managée. Voir [Fournir une authentification Key Vault avec une identité managée](../../key-vault/managed-identity.md).
+  - La stratégie d’accès Key Vault doit être définie pour l’identité de machine virtuelle/VMSS à l’aide d’une identité managée. Voir [Fournir une authentification Key Vault avec une identité managée](../../key-vault/general/managed-identity.md).
 
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique

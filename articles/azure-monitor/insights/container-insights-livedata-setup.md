@@ -4,12 +4,12 @@ description: Cet article décrit la configuration de la vue en temps réel des �
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116699"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Guide pratique pour configurer la fonctionnalité Live Data (préversion)
 
@@ -42,7 +42,7 @@ Le portail Azure vous invite à valider vos informations d’identification de c
 >L’autorisation d’accès à votre cluster est managée par Kubernetes et le modèle de sécurité avec lequel elle est configurée. Les utilisateurs accédant à cette fonctionnalité nécessitent l’autorisation de télécharger la configuration Kubernetes (*kubeconfig*), ce qui équivaut à exécuter `az aks get-credentials -n {your cluster name} -g {your resource group}`. Ce fichier de configuration contient le jeton d’autorisation et d’authentification du **Rôle utilisateur de cluster Azure Kubernetes Service**, dans le cas où RBAC Azure est activé avec des clusters AKS sans autorisation RBAC activée. Il contient des informations sur Azure AD et des détails de l’inscription cliente, lorsque AKS est activé avec l’authentification unique basée sur SAML Azure Active Directory (AD).
 
 >[!IMPORTANT]
->L’utilisateur de cette fonctionnalité nécessite le [Rôle utilisateur de cluster Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) sur le cluster pour télécharger le fichier `kubeconfig` et utiliser cette fonctionnalité. Les utilisateurs n’ont **pas** besoin d’un accès contributeur au cluster pour utiliser cette fonctionnalité.
+>L’utilisateur de cette fonctionnalité nécessite le [Rôle utilisateur de cluster Azure Kubernetes](../../role-based-access-control/built-in-roles.md) sur le cluster pour télécharger le fichier `kubeconfig` et utiliser cette fonctionnalité. Les utilisateurs n’ont **pas** besoin d’un accès contributeur au cluster pour utiliser cette fonctionnalité.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Utilisation de clusterMonitoringUser avec des clusters où RBAC est activé
 

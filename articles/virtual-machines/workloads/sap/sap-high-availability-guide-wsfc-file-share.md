@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068693"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
@@ -114,7 +114,7 @@ Les espaces de stockage direct sont utilisés en tant que disque partagé pour u
 Lorsque vous choisissez les espaces de stockage direct, tenez compte des cas d’utilisation suivants :
 
 - Les machines virtuelles utilisées pour créer le cluster d’espaces de stockage direct doivent être déployées dans un groupe à haute disponibilité Azure.
-- Pour la récupération d’urgence d’un cluster d’espaces de stockage direct, vous pouvez utiliser les services [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Pour la récupération d’urgence d’un cluster d’espaces de stockage direct, vous pouvez utiliser les services [Azure Site Recovery](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - Il n’est pas possible de déployer le cluster d’espaces de stockage direct sur différentes Zones de disponibilité Azure.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Conditions préalables liées à SAP pour les partages de fichiers avec montée en puissance parallèle dans Azure

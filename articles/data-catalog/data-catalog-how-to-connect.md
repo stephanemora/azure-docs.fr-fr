@@ -4,14 +4,14 @@ description: Article de procédure relatif à la connexion aux sources de donné
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68976786"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081251"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
 ## <a name="introduction"></a>Introduction

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012941"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -115,25 +115,6 @@ Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effect
 Un pipeline publié s’exécute sur les ressources de calcul que vous définissez dans le brouillon de pipeline pour chaque module.
 
 Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que le Kit de développement logiciel (SDK).
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passer de l’interface visuelle au concepteur
-
-L’interface visuelle (préversion) a été mise à jour et est désormais Concepteur Azure Machine Learning (préversion). Le concepteur a été remanié pour utiliser un back-end basé sur un pipeline qui s’intègre entièrement aux autres fonctionnalités d’Azure Machine Learning. 
-
-Suite à ces mises à jour, certains concepts et termes de l’interface visuelle ont été modifiés ou renommés. Consultez le tableau ci-dessous pour connaître les modifications conceptuelles les plus importantes. 
-
-| Concept dans le concepteur | Précédemment dans l’interface visuelle |
-| ---- |:----:|
-| Brouillon de pipeline | Expérience |
-| Points de terminaison en temps réel | Service Web |
-
-### <a name="migrating-to-the-designer"></a>Migration vers le concepteur
-
-Vous pouvez convertir des expériences d’interface visuelle et des services Web existants en pipelines et points de terminaison en temps réel dans le concepteur. Procédez comme suit pour migrer vos ressources d’interface visuelle :
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

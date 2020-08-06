@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b077dc2fe3ba7528d03490a19312de946647a522
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74887015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086300"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 multidébit 4 K
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -29,7 +29,7 @@ ms.locfileid: "74887015"
  Cette présélection produit un ensemble de 12 fichiers MP4 alignés sur le groupe d’images, de 20 000 kbits/s à 1 000 kbits/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](./media-services-scale-media-processing-overview.md).  
   
 > [!NOTE]
 >  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  

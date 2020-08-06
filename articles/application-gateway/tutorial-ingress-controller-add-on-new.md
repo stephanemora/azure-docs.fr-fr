@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 439313f0f42adf0513ce490ab6569171cce7934b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4634421829cf71c0c5b9476f8ff3d08b9caa7dbd
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117329"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutoriel : Activer le module complémentaire Ingress Controller (préversion) pour un cluster AKS existant avec une nouvelle instance Application Gateway
 
@@ -40,7 +40,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 Enregistrez l’indicateur de fonctionnalité *AKS-IngressApplicationGatewayAddon* à l’aide de la commande [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register), comme indiqué dans l’exemple suivant. Vous ne devez effectuer cette opération qu’une seule fois par abonnement, alors que le module complémentaire est toujours en préversion.
 ```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
+az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
 Quelques minutes peuvent être nécessaires avant que l’état apparaisse`Registered`. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053218"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -49,7 +49,7 @@ Le reste de l’article explique comment utiliser la [CLI Media Services v3](h
 
 ## <a name="prerequisites"></a>Prérequis 
 
-[Créer un compte Media Services](create-account-cli-how-to.md).
+[Créer un compte Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ Le reste de l’article explique comment utiliser la [CLI Media Services v3](h
 
 Exécutez la commande `mru`.
 
-La commande [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) suivante définit les unités réservées au multimédia sur le compte « amsaccount » à l’aide des paramètres **count** et **type**.
+La commande [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) suivante définit les unités réservées au multimédia sur le compte « amsaccount » à l’aide des paramètres **count** et **type**.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -74,4 +74,4 @@ Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unit
 ## <a name="see-also"></a>Voir aussi
 
 * [Quotas et limites](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676571"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069793"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messages d’erreur pour les groupes de machines virtuelles identiques et les machines virtuelles Spot
 
@@ -35,7 +35,6 @@ Voici quelques codes d’erreur que vous pouvez recevoir quand vous utilisez des
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Le prix maximal est pris en charge uniquement pour les machines virtuelles Azure Spot. | Pour plus d’informations, consultez [Machines virtuelles Spot](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  La demande de déplacement de ressources contient une machine virtuelle Azure Spot. Non pris en charge actuellement. Consultez les détails de l’erreur pour connaître les ID des machines virtuelles. | Vous ne pouvez pas déplacer des machines virtuelles Spot. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  La demande de déplacement de ressources contient un groupe de machines virtuelles identiques Azure Spot. Non pris en charge actuellement. Consultez les détails de l’erreur pour connaître les ID des groupes de machines virtuelles identiques. | Vous ne pouvez pas déplacer des instances de groupes de machines virtuelles identiques Spot. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Les disques de système d’exploitation éphémères ne sont pas pris en charge pour les machines virtuelles Spot. | Utilisez un disque de système d'exploitation standard pour votre machine virtuelle Spot. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Les machines virtuelles Azure Spot ne sont pas prises en charge dans les groupes de machines virtuelles identiques avec le mode d’orchestration de machine virtuelle. | Définissez le mode d’orchestration sur le groupe de machines virtuelles identiques pour utiliser des instances Spot. |
 
 

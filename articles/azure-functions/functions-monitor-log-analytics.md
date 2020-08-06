@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a84dda648ccc1dc73956aeb5d8364c4c3f31c9f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055277"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorage d’Azure Functions avec Azure Monitor Logs
 
 Azure Functions s’intègre à [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) pour effectuer le monitorage des fonctions. Cet article explique comment configurer Azure Functions de façon à envoyer des journaux générés par le système et par l’utilisateur à Azure Monitor Logs.
 
-Azure Monitor Logs offre la possibilité de consolider les journaux de différentes ressources dans le même espace de travail, où ils peuvent être analysés avec des [requêtes](../azure-monitor/log-query/log-query-overview.md) pour récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](../azure-monitor/log-query/portals.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](../azure-monitor/visualizations.md) ou les [règles d’alerte](../azure-monitor/platform/alerts-overview.md).
+Azure Monitor Logs offre la possibilité de consolider les journaux de différentes ressources dans le même espace de travail, où ils peuvent être analysés avec des [requêtes](../azure-monitor/log-query/log-query-overview.md) pour récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](../azure-monitor/log-query/log-query-overview.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](../azure-monitor/visualizations.md) ou les [règles d’alerte](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) utilisé par Azure Data Explorer qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](../azure-monitor/log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.
 

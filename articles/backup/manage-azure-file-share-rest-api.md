@@ -3,16 +3,16 @@ title: Gérer la sauvegarde de partage de fichiers Azure avec l’API REST
 description: Découvrez comment utiliser l’API REST pour gérer et superviser les partages de fichiers Azure sauvegardés par Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073248"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gérer la sauvegarde de partage de fichiers Azure avec l’API REST
 
-Cet article explique comment effectuer les tâches pour gérer et superviser les partages de fichiers Azure sauvegardés par [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Cet article explique comment effectuer les tâches pour gérer et superviser les partages de fichiers Azure sauvegardés par [Sauvegarde Azure](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 
@@ -38,7 +38,7 @@ Par exemple, la réponse finale d’une opération [de déclenchement de la sauv
 }
 ```
 
-Le travail de sauvegarde de partage de fichiers Azure est identifié par le champ **jobId** et peut être suivi comme indiqué [ici](https://docs.microsoft.com/rest/api/backup/jobdetails/) en utilisant une requête GET.
+Le travail de sauvegarde de partage de fichiers Azure est identifié par le champ **jobId** et peut être suivi comme indiqué [ici](/rest/api/backup/jobdetails/) en utilisant une requête GET.
 
 ### <a name="tracking-the-job"></a>Suivi de la tâche
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Arrêter la protection et supprimer les données
 
-Pour supprimer la protection sur un partage de fichiers protégé ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Pour supprimer la protection sur un partage de fichiers protégé ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

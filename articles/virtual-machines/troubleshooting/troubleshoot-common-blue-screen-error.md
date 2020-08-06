@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088543"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows affiche une erreur dans un écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit les erreurs dans un écran bleu que vous pouvez rencontrer quand vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit les étapes pour vous aider à collecter des données pour un ticket de support. 
@@ -47,7 +47,7 @@ Pour résoudre ce problème, vous devez d’abord collecter le fichier d’image
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
 1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
-2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md). 
+2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Connectez-vous à la machine virtuelle de récupération à l’aide du Bureau à distance.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Rechercher le fichier d’image et envoyer un ticket de support
@@ -100,9 +100,6 @@ Pour activer le journal de vidage et la console série, exécutez le script suiv
     reg unload HKLM\BROKENSYSTEM
     ```
 
-3. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](./troubleshoot-recovery-disks-portal-windows.md).
 4. Démarrez la machine virtuelle pour reproduire le problème, et un fichier d’image est généré.
 5. Attachez le disque du système d’exploitation à une machine virtuelle de récupération, collectez le fichier d’image, puis [envoyez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) avec le fichier d’image.
-
-
-

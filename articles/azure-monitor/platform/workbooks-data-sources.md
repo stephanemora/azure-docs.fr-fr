@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081421"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Sources de données des classeurs Azure Monitor
 
@@ -61,7 +61,7 @@ Pour qu’un contrôle de requête utilise cette source de données, utilisez la
 
 ## <a name="azure-data-explorer"></a>Explorateur de données Azure
 
-Les classeurs prennent maintenant en charge l’interrogation de clusters [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) avec le puissant langage de requête [Kusto](https://docs.microsoft.com/azure/kusto/query/index).   
+Les classeurs prennent maintenant en charge l’interrogation de clusters [Azure Data Explorer](/azure/data-explorer/) avec le puissant langage de requête [Kusto](/azure/kusto/query/index).   
 
 ![Capture d’écran de la fenêtre de requête Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ Le fournisseur JSON vous permet de créer un résultat de requête à partir d�
 > [!NOTE]
 > La méthode suggérée pour interroger les informations Azure Alerte consiste à utiliser la source de données [Azure Resource Graph](#azure-resource-graph), en interrogeant le tableau `AlertsManagementResources`.
 >
-> Pour obtenir des exemples, consultez la [référence de table Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)ou le [modèle Alerts](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook).
+> Pour obtenir des exemples, consultez la [référence de table Azure Resource Graph](../../governance/resource-graph/reference/supported-tables-resources.md)ou le [modèle Alerts](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook).
 >
 > La source de données Alerts reste disponible pendant un certain temps, tandis que les auteurs passent à l’utilisation de ARG. L’utilisation de cette source de données dans les modèles est déconseillée. 
 
@@ -113,5 +113,5 @@ Pour éviter d’effectuer automatiquement des appels à des hôtes non approuv�
 
 * [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
-* [Conseils d’optimisation des requêtes de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Conseils d’optimisation des requêtes de Log Analytics](../log-query/query-optimization.md)
 * 

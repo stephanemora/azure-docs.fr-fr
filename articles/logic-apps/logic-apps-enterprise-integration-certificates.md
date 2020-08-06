@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090329"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Améliorer la sécurité des messages B2B à l’aide de certificats
 
@@ -59,7 +59,7 @@ Pour utiliser un *certificat public* dans vos applications logiques avec fonctio
 
 ## <a name="upload-a-private-certificate"></a>Téléchargement d’un certificat privé
 
-Pour utiliser un *certificat privé* dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord télécharger le certificat dans votre compte d’intégration. Vous devez également disposer d’une clé privée que vous ajoutez d’abord à [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Pour utiliser un *certificat privé* dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord télécharger le certificat dans votre compte d’intégration. Vous devez également disposer d’une clé privée que vous ajoutez d’abord à [Azure Key Vault](../key-vault/general/overview.md). 
 
 Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-enterprise-integration-agreements.md) que vous créez, le certificat est disponible pour vous aider à sécuriser vos messages B2B.
 
@@ -68,7 +68,7 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
 
 1. [Ajoutez votre clé privée dans Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) et indiquez un **nom de clé**.
    
-2. Vous devez autoriser Azure Logic Apps à effectuer des opérations sur Azure Key Vault. Pour accorder l’accès au principal de service Logic Apps, utilisez la commande PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), par exemple :
+2. Vous devez autoriser Azure Logic Apps à effectuer des opérations sur Azure Key Vault. Pour accorder l’accès au principal de service Logic Apps, utilisez la commande PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), par exemple :
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`

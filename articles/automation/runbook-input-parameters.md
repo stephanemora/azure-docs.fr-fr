@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 13691fe05ca42af3a9d5b09ea36eb58bcdf1df08
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042149"
 ---
 # <a name="configure-runbook-input-parameters"></a>Configurer les paramètres d’entrée de runbook
 
@@ -148,7 +148,7 @@ Dans l’étiquette située sous la zone d’entrée, vous pouvez voir les propr
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Applets de commande du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook Automation créé dans un groupe de ressources par défaut en utilisant [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Applets de commande du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook Automation créé dans un groupe de ressources par défaut en utilisant [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

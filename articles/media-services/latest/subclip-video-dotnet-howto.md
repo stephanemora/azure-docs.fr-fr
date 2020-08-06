@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31fa7fe6b16b7ba97b8ce5e6697f1aaaf88aa294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67304790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091893"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Sous-découper une vidéo lors de l’encodage avec Media Services - .NET
 
-Vous pouvez découper ou sous-découper une vidéo lors de son encodage à l’aide d’un [travail](https://docs.microsoft.com/rest/api/media/jobs). Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](https://docs.microsoft.com/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset).
+Vous pouvez découper ou sous-découper une vidéo lors de son encodage à l’aide d’un [travail](/rest/api/media/jobs). Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset).
 
 L’exemple C# suivant crée un travail qui découpe une vidéo dans un élément multimédia à mesure qu’il envoie un travail d’encodage. 
 
@@ -30,7 +30,7 @@ L’exemple C# suivant crée un travail qui découpe une vidéo dans un élémen
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
-- [Créer un compte Azure Media Services](create-account-cli-how-to.md)
+- [Créer un compte Azure Media Services](./create-account-howto.md)
 - Créez une transformation, ainsi que les éléments multimédias d’entrée et de sortie. Vous pouvez voir comment créer une transformation et des éléments multimédias d’entrée et de sortie dans le didacticiel [Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Charger, encoder et diffuser en continu des vidéos à l’aide de .NET).
 - Consultez la rubrique dédiée au [concept d’encodage](encoding-concept.md).
 

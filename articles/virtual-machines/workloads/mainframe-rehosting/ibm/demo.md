@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052402"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1
 
@@ -72,7 +72,7 @@ Maintenant que vous disposez du ou des packages, vous devez les charger sur votr
 
 2. Sélectionnez l’onglet **SSH**, puis copiez la commande SSH dans le Presse-papiers.
 
-3. Connectez-vous à votre machine virtuelle à l’aide de vos informations d’identification et le [client SSH](/azure/virtual-machines/linux/use-remote-desktop) choisi. Cette démonstration utilise les extensions Linux pour Windows 10, qui ajoutent un interpréteur de commandes bash à l’invite de commandes Windows. PuTTY fonctionne également correctement.
+3. Connectez-vous à votre machine virtuelle à l’aide de vos informations d’identification et le [client SSH](../../../linux/use-remote-desktop.md) choisi. Cette démonstration utilise les extensions Linux pour Windows 10, qui ajoutent un interpréteur de commandes bash à l’invite de commandes Windows. PuTTY fonctionne également correctement.
 
 4. Une fois connecté, créez un répertoire pour charger les packages d’IBM. N’oubliez pas Linux respecte la casse. Par exemple, cette démonstration suppose que les packages sont chargés sur :
 
@@ -188,9 +188,9 @@ Félicitations ! Vous exécutez à présent un environnement de mainframe IBM su
 
 ## <a name="learn-more"></a>En savoir plus
 
-- [Migration de mainframe : mythes et réalités](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Dépannage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Migration de mainframe : mythes et réalités](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale sur Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Dépannage](../../../troubleshooting/index.yml)
 - [Démystifier la migration d’un mainframe vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

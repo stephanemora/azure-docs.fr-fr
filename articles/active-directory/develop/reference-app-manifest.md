@@ -1,5 +1,6 @@
 ---
 title: Comprendre le manifeste d’application Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Présentation détaillée de l’utilisation du manifeste d’application Azure Active Directory, qui représente la configuration d’identité d’une application dans un locataire Azure AD et permet de faciliter l’autorisation OAuth, le consentement et bien plus encore.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026745"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
-Le manifeste d’application contient une définition de tous les attributs d’un objet d’application dans la plateforme d’identité Microsoft. Il sert également de mécanisme de mise à jour de l’objet d’application. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+Le manifeste d’application contient une définition de tous les attributs d’un objet d’application dans la plateforme d’identité Microsoft. Il sert également de mécanisme de mise à jour de l’objet d’application. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](/graph/api/resources/application).
 
-Vous pouvez configurer les attributs d’une application via le portail Azure ou par programmation à l’aide de [l’API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou de [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Toutefois, il existe des scénarios dans lesquels vous devez modifier le manifeste de l’application pour configurer un attribut de l’application. Ces scénarios sont les suivants :
+Vous pouvez configurer les attributs d’une application via le portail Azure ou par programmation à l’aide de [l’API REST](/graph/api/resources/application) ou de [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Toutefois, il existe des scénarios dans lesquels vous devez modifier le manifeste de l’application pour configurer un attribut de l’application. Ces scénarios sont les suivants :
 
 * Si vous avez inscrit l’application en tant que comptes Microsoft personnels et Azure AD multi-locataires, vous ne pouvez pas modifier les comptes Microsoft pris en charge dans l’interface utilisateur. À la place, vous devez utiliser l’éditeur de manifeste d’application pour changer le type de compte pris en charge.
 * Si vous avez besoin de définir les autorisations et les rôles que votre application prend en charge, vous devez modifier le manifeste de l’application.
@@ -433,7 +434,7 @@ Exemple :
 | parentalControlSettings | String |
 
 - `countriesBlockedForMinors` spécifie les pays ou régions dans lesquels l’application est bloquée pour les utilisateurs mineurs.
-- `legalAgeGroupRule` spécifie la règle de groupe de tranche d’âge légal qui s’applique aux utilisateurs de l’application. Peut être défini sur `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` ou `BlockMinors`.  
+- `legalAgeGroupRule` spécifie la règle de groupe de tranche d’âge légal qui s’applique aux utilisateurs de l’application. Peut être défini sur `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` ou `BlockMinors`.
 
 Exemple :
 
@@ -493,7 +494,7 @@ Exemple :
 | :--- | :--- |
 | publicClient | Boolean|
 
-Spécifie si cette application est un client public (comme une application installée s’exécutant sur un appareil mobile). 
+Spécifie si cette application est un client public (comme une application installée s’exécutant sur un appareil mobile).
 
 Cette propriété est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `allowPublicClient` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
 
@@ -669,7 +670,7 @@ Lorsque vous essayez de charger un manifeste téléchargé précédemment, vous 
 
 Lorsque vous voyez l’une de ces erreurs, nous recommandons l’une des actions suivantes :
 
-1. Modifiez les attributs individuellement dans l’éditeur de manifeste au lieu de charger un manifeste téléchargé précédemment. Utilisez la table [référence du manifeste](#manifest-reference) pour comprendre la syntaxe et la sémantique des anciens et des nouveaux attributs afin que vous puissiez modifier correctement les attributs qui vous intéresse. 
+1. Modifiez les attributs individuellement dans l’éditeur de manifeste au lieu de charger un manifeste téléchargé précédemment. Utilisez la table [référence du manifeste](#manifest-reference) pour comprendre la syntaxe et la sémantique des anciens et des nouveaux attributs afin que vous puissiez modifier correctement les attributs qui vous intéresse.
 1. Si votre flux de travail vous oblige à enregistrer les manifestes dans votre référentiel de code source pour une utilisation ultérieure, nous vous suggérons de relocaliser les manifestes enregistrés dans votre référentiel avec celui que vous voyez dans l’expérience **inscriptions d’applications**.
 
 ## <a name="next-steps"></a>Étapes suivantes

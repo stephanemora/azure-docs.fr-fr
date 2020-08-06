@@ -3,16 +3,16 @@ title: Schéma JSON de jumeau de module - Azure
 description: Cette rubrique décrit le schéma JSON de jumeau de module de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053061"
 ---
 # <a name="module-twin-json-schema"></a>Schéma JSON de jumeau de module
 
-Les jumeaux d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Azure IoT Hub conserve un jumeau d’appareil pour chaque appareil que vous y connectez. Pour une explication détaillée, consultez [Comprendre et utiliser les jumeaux de Module IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+Les jumeaux d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Azure IoT Hub conserve un jumeau d’appareil pour chaque appareil que vous y connectez. Pour une explication détaillée, consultez [Comprendre et utiliser les jumeaux de Module IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md).
 
 Cette rubrique décrit le schéma JSON de jumeau de module de Live Video Analytics sur IoT Edge.
 
@@ -43,7 +43,7 @@ Live Video Analytics sur IoT Edge expose les propriétés de jumeau de module su
 
 <sup>*</sup>Vous DEVEZ fournir un certificat ou un mot de passe de principal de service. 
 
-Les propriétés dynamiques peuvent être mises à jour sans redémarrage du module. Vous pouvez obtenir les valeurs de plusieurs de ces propriétés en suivant les instructions de l’article [Obtention d’accès à l’API Media Services](../latest/access-api-cli-how-to.md). 
+Les propriétés dynamiques peuvent être mises à jour sans redémarrage du module. Vous pouvez obtenir les valeurs de plusieurs de ces propriétés en suivant les instructions de l’article [Obtention d’accès à l’API Media Services](../latest/access-api-howto.md). 
 
 Pour plus d’informations sur le rôle des paramètres de diagnostic facultatifs, consultez l’article [Surveillance et journalisation](monitoring-logging.md).
 

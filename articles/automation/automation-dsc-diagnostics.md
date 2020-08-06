@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015151"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Intégration aux journaux Azure Monitor
 
@@ -34,7 +34,7 @@ Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle s
 
 Pour commencer à envoyer vos rapports Automation State Configuration vers les journaux Azure Monitor, vous devez disposer des éléments suivants :
 
-- Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](/powershell/azure/overview) (v2.3.0).
+- Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](/powershell/azure/) (v2.3.0).
 - Un compte Azure Automation. Pour plus d’informations, consultez [Présentation d’Azure Automation](automation-intro.md).
 - Un espace de travail Log Analytics avec une offre de service Automation & Control. Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 - Au moins un nœud Azure Automation State Configuration. Pour plus d’informations, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).

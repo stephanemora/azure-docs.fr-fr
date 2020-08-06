@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279217"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
@@ -63,7 +63,7 @@ Il existe plusieurs solutions :
 - Ils peuvent également découvrir de nouveaux modèles d’entreprise, en fournissant des services gérés.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quelles sont les primes disponibles pour les partenaires du programme des fournisseurs de solutions cloud StorSimple ? Suis-je éligible à une prime du programme des fournisseurs de solutions cloud ?
-Pour plus d'informations sur les primes, accédez à la [page descriptive des primes du programme des fournisseurs de solutions cloud](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Pour plus d'informations sur les primes, accédez à la [page descriptive des primes du programme des fournisseurs de solutions cloud](https://partner.microsoft.com/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Déployer et gérer StorSimple en tant que partenaire

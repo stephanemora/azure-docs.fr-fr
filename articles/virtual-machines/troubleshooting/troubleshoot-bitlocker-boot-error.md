@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088527"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132960"
 
 ## <a name="symptom"></a>Symptôme
 
- Une machine virtuelle Windows ne démarre pas. Lorsque vous regardez les captures d’écran de la fenêtre [Diagnostics de démarrage](../windows/boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants :
+ Une machine virtuelle Windows ne démarre pas. Lorsque vous regardez les captures d’écran de la fenêtre [Diagnostics de démarrage](./boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants :
 
 - Connectez le pilote USB qui contient la clé BitLocker.
 
@@ -48,7 +48,7 @@ Pour résoudre ce problème, arrêtez et libérez la machine virtuelle, et puis 
 Si cette méthode ne résout pas le problème, effectuez les étapes suivantes pour restaurer le fichier BEK manuellement :
 
 1. Prenez un instantané du disque système de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
-2. [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md). Pour exécuter la commande [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) de l’étape 7, la fonction de **chiffrement de lecteur BitLocker** doit être activée dans la machine virtuelle de récupération.
+2. [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md). Pour exécuter la commande [manage-bde](/windows-server/administration/windows-commands/manage-bde) de l’étape 7, la fonction de **chiffrement de lecteur BitLocker** doit être activée dans la machine virtuelle de récupération.
 
     Lorsque vous attachez un disque managé, vous pouvez recevoir un message d’erreur du type « Contient des paramètres de chiffrement et ne peut donc pas être utilisé comme disque de données ». Dans ce cas, exécutez le script suivant pour réessayer d’attacher le disque :
 
@@ -70,7 +70,7 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
     ```
      Vous ne pouvez pas attacher un disque managé à une machine virtuelle qui a été restaurée à partir d’une image d’objet blob.
 
-3. Une fois que le disque est attaché, établissez une connexion entre le Bureau à distance et la machine virtuelle de récupération, de manière à pouvoir exécuter des scripts Azure PowerShell. Vérifiez que vous avez installé [la dernière version d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) sur la machine virtuelle de récupération.
+3. Une fois que le disque est attaché, établissez une connexion entre le Bureau à distance et la machine virtuelle de récupération, de manière à pouvoir exécuter des scripts Azure PowerShell. Vérifiez que vous avez installé [la dernière version d’Azure PowerShell](/powershell/azure/) sur la machine virtuelle de récupération.
 
 4. Ouvrez une session Azure PowerShell avec élévation de privilèges (Exécuter en tant qu’administrateur). Pour vous connecter à l’abonnement Azure, exécutez les commandes suivantes :
 

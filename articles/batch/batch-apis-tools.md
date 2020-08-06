@@ -4,12 +4,12 @@ description: Découvrez les API et les outils disponibles pour développer des s
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a3b2bb080e80e5ddc5ac12413f312dcd930d03f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c7484e59391be8f4853c2394bff20c6d9676dec9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032190"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
@@ -65,7 +65,7 @@ Les API Azure Resource Manager pour le service Batch fournissent un accès par p
 
 Ces outils en ligne de commande fournissent les mêmes fonctionnalités que les API des services Batch et Batch Management : 
 
-- [Applets de commande PowerShell pour Batch](/powershell/module/az.batch/) : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](/powershell/azure/overview) vous permettent de gérer les ressources du service Batch avec PowerShell.
+- [Applets de commande PowerShell pour Batch](/powershell/module/az.batch/) : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](/powershell/azure/) vous permettent de gérer les ressources du service Batch avec PowerShell.
 - [Azure CLI](/cli/azure) : Azure CLI est un ensemble d’outils multiplateforme qui fournit des commandes shell permettant d’interagir avec de nombreux services Azure, notamment les services Batch et Batch Management. Consultez la page [Gérer les ressources Batch avec Azure CLI](batch-cli-get-started.md) pour plus d’informations sur l’utilisation d’Azure CLI avec Batch.
 
 ## <a name="other-tools-for-application-development"></a>Autres outils pour le développement d’applications

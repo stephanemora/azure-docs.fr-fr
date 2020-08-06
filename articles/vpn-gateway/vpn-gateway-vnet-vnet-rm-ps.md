@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009490"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -81,7 +81,7 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
 
 * La création d’une passerelle peut prendre jusqu’à 45 minutes. C’est pourquoi Azure Cloud Shell expire périodiquement au cours de cet exercice. Pour redémarrer Cloud Shell, cliquez dans le coin supérieur gauche du terminal. Veillez à redéclarer les éventuelles variables au redémarrage du terminal.
 
-* Si vous préférez installer localement la dernière version du module Azure PowerShell, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/overview).
+* Si vous préférez installer localement la dernière version du module Azure PowerShell, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
 

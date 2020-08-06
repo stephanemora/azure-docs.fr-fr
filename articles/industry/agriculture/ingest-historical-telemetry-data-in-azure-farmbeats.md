@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061224"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -61,8 +61,14 @@ Procédez comme suit :
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Exécutez la commande suivante : Cela permet de connecter un compte authentifié et d’utiliser les requêtes Azure AD.
 
-6. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Procédez comme suit :
 
     ```
 
-7. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
+8. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Procédez comme suit :
 
     ```
 
-8. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
+9. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Créer des métadonnées d’appareils ou de capteurs

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090397"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Afficher et créer des requêtes de surveillance et de suivi dans des journaux Azure Monitor pour Azure Logic Apps
 
-Vous pouvez afficher les requêtes sous-jacentes qui produisent les résultats des [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) et créer des requêtes qui filtrent les résultats en fonction de vos critères spécifiques. Par exemple, vous pouvez rechercher des messages sur la base d’un numéro de contrôle d’échange spécifique. Les requêtes utilisent le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference) que vous pouvez modifier si vous voulez voir des résultats différents. Pour plus d’informations, voir [Requêtes de journal Azure Monitor](../azure-monitor/log-query/query-language.md).
+Vous pouvez afficher les requêtes sous-jacentes qui produisent les résultats des [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) et créer des requêtes qui filtrent les résultats en fonction de vos critères spécifiques. Par exemple, vous pouvez rechercher des messages sur la base d’un numéro de contrôle d’échange spécifique. Les requêtes utilisent le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference) que vous pouvez modifier si vous voulez voir des résultats différents. Pour plus d’informations, voir [Requêtes de journal Azure Monitor](../azure-monitor/log-query/query-language.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

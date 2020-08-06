@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792358"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090380"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger et confirmer des messages B2B AS2 avec Azure Logic Apps et Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Cet article explique comment créer une application logique qui reçoit une requ
 
   Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md) associé à votre abonnement Azure et lié à votre application logique. Votre application logique et votre compte d’intégration doivent tous deux exister dans le même emplacement ou dans la même région Azure.
+* Un [compte d’intégration](./logic-apps-enterprise-integration-create-integration-account.md) associé à votre abonnement Azure et lié à votre application logique. Votre application logique et votre compte d’intégration doivent tous deux exister dans le même emplacement ou dans la même région Azure.
 
 * Au moins deux [partenaires commerciaux](../logic-apps/logic-apps-enterprise-integration-partners.md) que vous avez déjà définis dans votre compte d’intégration, ainsi que des [contrats AS2 et X12](logic-apps-enterprise-integration-agreements.md) pour ces partenaires.
 

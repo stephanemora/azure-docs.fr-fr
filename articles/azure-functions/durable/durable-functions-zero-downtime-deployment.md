@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093066"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 
-Pour permettre un bon fonctionnement du [modèle d’exécution fiable](durable-functions-checkpointing-and-replay.md) de Durable Functions, les orchestrations doivent être déterministes, ce qui représente un point supplémentaire à prendre en compte quand vous déployez des mises à jour. Quand un déploiement contient des changements apportés aux signatures de fonction d’activité ou à la logique d’orchestrateur, les instances d’orchestration actives cessent de fonctionner correctement. Cette situation est particulièrement problématique pour les instances d’orchestration de longue durée, qui peuvent représenter des heures ou des jours de travail.
+Pour permettre un bon fonctionnement du [modèle d’exécution fiable](./durable-functions-orchestrations.md) de Durable Functions, les orchestrations doivent être déterministes, ce qui représente un point supplémentaire à prendre en compte quand vous déployez des mises à jour. Quand un déploiement contient des changements apportés aux signatures de fonction d’activité ou à la logique d’orchestrateur, les instances d’orchestration actives cessent de fonctionner correctement. Cette situation est particulièrement problématique pour les instances d’orchestration de longue durée, qui peuvent représenter des heures ou des jours de travail.
 
 Pour éviter ces échecs, vous avez deux options : 
 - Retardez votre déploiement jusqu’à ce que toutes les instances d’orchestration en cours d’exécution soient terminées.
@@ -52,7 +52,7 @@ Utilisez la procédure suivante pour mettre en œuvre ce scénario.
 
 1. Pour chaque emplacement, affectez au [paramètre d’application AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) la chaîne de connexion d’un compte de stockage partagé. Cette chaîne de connexion de compte de stockage est utilisée par le runtime Azure Functions. Ce compte est utilisé par le runtime d’Azure Functions. Il gère les clés de la fonction.
 
-1. Pour chaque emplacement, créez un paramètre d’application, par exemple, `DurableManagementStorage`. Définissez sa valeur en fonction de la chaîne de connexion de différents comptes de stockage. Ces comptes de stockage sont utilisés par l’extension Durable Functions pour l’[exécution fiable](durable-functions-checkpointing-and-replay.md). Utilisez un compte de stockage distinct pour chaque emplacement. Ne marquez pas ce paramètre en tant que paramètre d’emplacement de déploiement.
+1. Pour chaque emplacement, créez un paramètre d’application, par exemple, `DurableManagementStorage`. Définissez sa valeur en fonction de la chaîne de connexion de différents comptes de stockage. Ces comptes de stockage sont utilisés par l’extension Durable Functions pour l’[exécution fiable](./durable-functions-orchestrations.md). Utilisez un compte de stockage distinct pour chaque emplacement. Ne marquez pas ce paramètre en tant que paramètre d’emplacement de déploiement.
 
 1. Dans la [section durableTask du fichier host.json](durable-functions-bindings.md#hostjson-settings) de votre application de fonction, spécifiez `azureStorageConnectionStringName` en tant que nom du paramètre d’application créé à l’étape 3.
 
@@ -172,4 +172,3 @@ Pour plus d’informations, consultez [Gérer des instances dans Durable Functio
 
 > [!div class="nextstepaction"]
 > [Gestion de versions de Durable Functions](durable-functions-versioning.md)
-

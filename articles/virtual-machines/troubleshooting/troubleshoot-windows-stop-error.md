@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85656757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005903"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erreur d’arrêt Windows - État Pas de mémoire
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes pour les
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez des [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d'écran de la machine virtuelle, vous constatez que la capture d'écran affiche le code d’erreur : `0xC0000017`. En fonction de la version de Windows exécutée, ce code peut apparaître dans le **Gestionnaire de démarrage Windows** ou sur l’**écran de récupération**.
+Lorsque vous utilisez des [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d'écran de la machine virtuelle, vous constatez que la capture d'écran affiche le code d’erreur : `0xC0000017`. En fonction de la version de Windows exécutée, ce code peut apparaître dans le **Gestionnaire de démarrage Windows** ou sur l’**écran de récupération**.
 
    **Gestionnaire de démarrage Windows**
 
@@ -57,7 +57,7 @@ Le disque du système d’exploitation est saturé, trop fragmenté ou le systè
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>Pour les machines virtuelles de 2e génération, attribuez une lettre à la partition Extensible Firmware Interface (EFI) :
@@ -94,7 +94,7 @@ Si vous utilisez une machine virtuelle de 2e génération, il se peut que la par
 Maintenant que le disque défectueux est joint à la machine virtuelle de réparation, vous devez vérifier que le système d’exploitation sur ce disque dispose de suffisamment d’espace pour fonctionner correctement. 
 
 1. Vérifiez si le disque est plein en cliquant avec le bouton de droite sur le lecteur du disque joint et en sélectionnant **Propriétés**.
-1. Si le disque dispose de **moins de 300 Mo d’espace libre**, [augmentez-le jusqu’à un maximum de 1 To en utilisant PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Si le disque dispose de **moins de 300 Mo d’espace libre**, [augmentez-le jusqu’à un maximum de 1 To en utilisant PowerShell](../windows/expand-os-disk.md).
 1. Une fois la taille de **1 To** atteinte, vous devrez effectuer un nettoyage du disque. Vous pouvez utiliser l’[outil Nettoyage de disque](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) pour libérer de l’espace.
 1. Ouvrez une instance d’invite de commandes avec élévation de privilèges (exécuter en tant qu’administrateur) et effectuez une défragmentation sur le lecteur :
 
@@ -223,4 +223,4 @@ Pour activer la collecte de l’image mémoire et la console série, exécutez l
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

@@ -3,12 +3,12 @@ title: Créer un fichier de paramètres
 description: Créer un fichier de paramètres pour transmettre des valeurs pendant le déploiement d’un modèle d’Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082934"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
@@ -186,8 +186,8 @@ L'exemple suivant indique les formats des différents types de paramètres.
 
 Consultez l'article :
 
-- [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](./deploy-powershell.md#pass-parameter-values)
-- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](./deploy-cli.md#parameters)
+- [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](./deploy-cli.md#parameters)
+- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
 
 ## <a name="file-name"></a>Nom de fichier
 

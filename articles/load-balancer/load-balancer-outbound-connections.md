@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: b22ce64e7058f093a102aebec8b00842c8a41cb5
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a2292dc789938b8bde709728f5bbffe661529cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072627"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -36,7 +36,7 @@ Azure Load Balancer fournit une connectivité sortante via différents mécanism
 | Ports SNAT| TCP | Les ports SNAT sont des ports éphémères disponibles pour une adresse IP publique source donnée. Un seul port SNAT est utilisé par flux vers un port et adresse IP de destination uniques. En cas de flux TCP multiples vers les mêmes adresse IP, port et protocole de destination, chaque flux TCP utilise un seul port de traduction d’adresses réseau sources. Cela garantit que les flux sont uniques quand ils proviennent de la même adresse IP publique et sont dirigés vers les mêmes adresse IP, port et protocole de destination. Plusieurs flux, chacun dirigé vers une adresse IP, un port et un protocole de destination distincts, partagent un même port SNAT. L’adresse IP, le port et le protocole de destination rendent les flux uniques sans qu’il soit nécessaire de recourir à des ports sources supplémentaires pour distinguer les flux dans l’espace d’adressage IP public.|
 |Ports SNAT | UDP | Les ports SNAT UDP sont gérés par un algorithme différent de celui qui gère les ports SNAT TCP.  Load Balancer utilise un algorithme appelé « NAT à cône restrictif sur les ports » pour UDP.  Un seul port SNAT est utilisé pour chaque flux, quels que soient le port et l’adresse IP de destination.|
 | Épuisement | - | En cas d’épuisement des ressources de port SNAT, les flux sortants échouent tant que les flux existants ne libèrent pas des ports SNAT. L’équilibreur de charge récupère les ports de traduction d’adresses réseau sources lorsque le flux se ferme, et utilise un [délai d’inactivité de 4 minutes](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) pour récupérer les ports de traduction d’adresses réseau sources des flux inactifs. Les Ports SNAT UDP s’épuisent généralement beaucoup plus rapidement que les ports SNAT TCP, car l’algorithme utilisé n’est pas le même. Vous devez concevoir et adapter les tests en tenant compte de cette différence.|
-| Comportement de mise à disposition de ports SNAT | TCP | Si le client/serveur envoie un paquet FINACK, le port SNAT est mis à disposition après un délai de 240 secondes. Si une instance RST est observée, le port SNAT est mis à disposition après un délai de 15 secondes. Si le délai d’inactivité est atteint, le port est mis à disposition.|
+| Comportement de mise à disposition de ports SNAT | TCP | Si le client/serveur envoie un paquet FINACK, le port SNAT est mis à disposition après un délai de 240 secondes. Si une instance RST est visible, le port SNAT est mis à disposition après un délai de 15 secondes. Si le délai d’inactivité est atteint, le port est mis à disposition.|
 | Comportement de mise à disposition de ports SNAT | UDP |Si le délai d’inactivité est atteint, le port est mis à disposition.|
 | Réutilisation des ports SNAT | TCP, UDP | Une fois qu’un port a été libéré, le port peut être réutilisé en fonction des besoins.  Vous pouvez considérer les ports SNAT sous la forme d’une série allant du moins jusqu’au plus disponible pour un scénario donné, et le premier port SNAT disponible est utilisé pour les nouvelles connexions.|
 

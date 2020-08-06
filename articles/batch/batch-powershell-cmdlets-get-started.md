@@ -4,12 +4,12 @@ description: Brève présentation des applets de commande Azure PowerShell à ut
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092777"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -21,7 +21,7 @@ Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nou
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Installez and configurez le module Azure PowerShell](/powershell/azure/overview). Pour installer un module Azure Batch spécifique, comme un module en pré-mise en production, consultez [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* [Installez and configurez le module Azure PowerShell](/powershell/azure/). Pour installer un module Azure Batch spécifique, comme un module en pré-mise en production, consultez [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Exécutez l’applet de commande **Connect-AzAccount** pour vous connecter à votre abonnement (les applets de commande Azure Batch font partie du module Azure Resource Manager) :
 

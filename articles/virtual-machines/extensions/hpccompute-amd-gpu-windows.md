@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010867"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extension du pilote GPU AMD pour Windows
 
-Cet article fournit une vue d’ensemble de l’extension de machine virtuelle pour déployer des pilotes GPU AMD sur des machines virtuelles [série NVv4](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) Windows. Lorsque vous installez des pilotes AMD à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final AMD](https://amd.com/radeonsoftwarems). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
+Cet article fournit une vue d’ensemble de l’extension de machine virtuelle pour déployer des pilotes GPU AMD sur des machines virtuelles [série NVv4](../nvv4-series.md) Windows. Lorsque vous installez des pilotes AMD à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final AMD](https://amd.com/radeonsoftwarems). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
-Des instructions sur l’installation manuelle des pilotes et les versions actuellement prises en charge sont disponibles [ici](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+Des instructions sur l’installation manuelle des pilotes et les versions actuellement prises en charge sont disponibles [ici](../windows/n-series-amd-driver-setup.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -81,7 +81,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement.
 
-La configuration JSON pour une extension de machine virtuelle peut être imbriquée à l’intérieur de la ressource de machine virtuelle ou placée à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement de la configuration JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+La configuration JSON pour une extension de machine virtuelle peut être imbriquée à l’intérieur de la ressource de machine virtuelle ou placée à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement de la configuration JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 L’exemple suivant suppose que l’extension est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 
@@ -172,4 +172,4 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les extensions de machine virtuelle, consultez la page [Extensions et fonctionnalités de machine virtuelle pour Windows](features-windows.md).
 
-Pour plus d’informations sur les machines virtuelles de gamme N, consultez la page [Tailles de machine virtuelle à GPU optimisé](../windows/sizes-gpu.md).
+Pour plus d’informations sur les machines virtuelles de gamme N, consultez la page [Tailles de machine virtuelle à GPU optimisé](../sizes-gpu.md).

@@ -4,12 +4,12 @@ description: Exécuter des requêtes sur les données Advisor dans Azure Resourc
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057770"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Interroger les données Advisor dans l’Explorateur Resource Graph (Azure Resource Graph)
 
@@ -24,7 +24,7 @@ Les ressources Advisor sont désormais intégrées à [Azure Resource Graph](htt
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Types de ressources Advisor dans Azure Graph
 
-Types de ressources Advisor disponibles dans [Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) : Trois types de ressources sont disponibles pour l’interrogation des ressources Advisor. Voici la liste des ressources qui peuvent désormais être interrogées dans Resource Graph.
+Types de ressources Advisor disponibles dans [Resource Graph](../governance/resource-graph/index.yml) : Trois types de ressources sont disponibles pour l’interrogation des ressources Advisor. Voici la liste des ressources qui peuvent désormais être interrogées dans Resource Graph.
 * Microsoft.Advisor/configurations
 * Microsoft.Advisor/recommendations
 * Microsoft.Advisor/suppressions
@@ -42,4 +42,4 @@ Pour plus d’informations sur les recommandations d’Advisor, consultez :
 * [Recommandations d’Advisor en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations d’Advisor en matière de sécurité](advisor-security-recommendations.md)
 * [Recommandations d’Advisor en matière d’excellence opérationnelle](advisor-operational-excellence-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

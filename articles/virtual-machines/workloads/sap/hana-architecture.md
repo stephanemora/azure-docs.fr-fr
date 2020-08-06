@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa059ec8159779969c7ef7a5f4c97f3e985993a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614518"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082186"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
 
@@ -41,7 +41,7 @@ L’architecture présentée est divisée en trois sections :
 
    Pour les bases de données et les applications SAP NetWeaver prises en charge pour être exécutées dans Azure, voir [Remarque sur la prise en charge SAP n° 1928533 – Applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533). Pour la documentation sur le déploiement des solutions SAP sur Azure, consultez :
 
-  -  [Utiliser SAP sur des machines virtuelles Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Utiliser SAP sur des machines virtuelles Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités de grande instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité du système local à Azure. Depuis le mois de mai 2019, une optimisation a été introduite, qui permet la communication entre les unités d’instance de grande taille HANA et les machines virtuelles Azure sans implication de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute Fast Path est présentée dans cette architecture (lignes rouges). 

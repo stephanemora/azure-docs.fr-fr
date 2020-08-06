@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078745"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exporter des flux de Power Automate et les déployer sur Azure Logic Apps
 
@@ -20,9 +20,9 @@ Pour étendre les fonctionnalités de votre flux, vous pouvez le migrer de [Powe
 > [!NOTE]
 > Les connecteurs Power Automate ne sont pas tous disponibles dans Azure Logic Apps. Vous pouvez migrer uniquement les flux Power Automate qui ont les connecteurs équivalents dans Azure Logic Apps. Par exemple, le déclencheur de bouton, le connecteur d’approbation et le connecteur de notification sont propres à Power Automate. Les flux basés sur OpenAPI dans Power Automate ne sont pas pris en charge pour l’exportation et le déploiement en tant que modèles d’application logique.
 >
-> * Pour connaître les connecteurs Power Automate qui n’ont pas d’équivalents Logic Apps, consultez [Connecteurs Power Automate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Pour connaître les connecteurs Power Automate qui n’ont pas d’équivalents Logic Apps, consultez [Connecteurs Power Automate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Pour connaître les connecteurs Logic Apps qui n’ont pas d’équivalents Power Automate, consultez [Connecteurs Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Pour connaître les connecteurs Logic Apps qui n’ont pas d’équivalents Power Automate, consultez [Connecteurs Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Prérequis
 

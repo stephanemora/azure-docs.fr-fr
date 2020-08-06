@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285422"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
@@ -22,7 +22,7 @@ Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gé
 Key Vault est un système de gestion de clés externe basé sur le cloud. Il fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels (HSM) validés FIPS 140-2 niveau 2. Il n'autorise pas l'accès direct à une clé stockée, mais fournit des services de chiffrement et de déchiffrement aux entités autorisées. Key Vault peut générer la clé, l'importer ou [la faire transférer à partir d'un appareil HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires « Usage général » et « Mémoire optimisée ».
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires « Usage général » et « Mémoire optimisée ». Pour connaître les autres limitations, consultez la section [Limitation](concepts-data-encryption-mysql.md#limitations).
 
 ## <a name="benefits"></a>Avantages
 
@@ -52,7 +52,7 @@ Pour qu'un serveur MySQL utilise les clés gérées par le client stockées dans
 * **wrapKey** : pour pouvoir chiffrer la clé de chiffrement de données.
 * **unwrapKey** : pour pouvoir déchiffrer la clé de chiffrement de données.
 
-L'administrateur Key Vault peut également [activer la journalisation des événements d'audit Key Vault](../azure-monitor/insights/azure-key-vault.md) afin qu'ils puissent être audités ultérieurement.
+L'administrateur Key Vault peut également [activer la journalisation des événements d'audit Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) afin qu'ils puissent être audités ultérieurement.
 
 Lorsque le serveur est configuré pour utiliser la clé gérée par le client stockée dans le coffre de clés, le serveur envoie la clé de chiffrement de données au coffre de clés pour les chiffrements. Key Vault retourne la clé de chiffrement chiffrée, qui est stockée dans la base de données utilisateur. De même, le cas échéant, le serveur envoie les clés de chiffrement de données protégées au coffre de clés pour le déchiffrement. Les auditeurs peuvent utiliser Azure Monitor pour consulter les journaux d'événements d'audit Key Vault, si la journalisation est activée.
 

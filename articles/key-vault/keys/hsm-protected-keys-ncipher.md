@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 4eea0529e88e183ab517e8546e3ec1cb3cd0af7d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e67769d37b45a9e1344ce6aa72bd1e60e6bfe287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061269"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importer des clés protégées par HSM pour Key Vault (nCipher)
 
@@ -62,7 +62,7 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 | Abonnement à Azure |Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) |
 | Niveau de service Premium d’Azure Key Vault pour prendre en charge les clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Modules HSM nShield, cartes à puces et logiciel de support de nCipher |Vous devez disposer d’un accès au module de sécurité matérielle nCipher et de quelques connaissances de bases concernant les modules de sécurité matérielle nShield de nCipher. Consultez [Modules de sécurité matérielle nShield de nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) pour obtenir une liste des modèles compatibles ou pour acheter un module de sécurité matérielle si vous n’en avez pas déjà. |
-| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel nCipher nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation minimal Windows 7 et d’[Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0)**version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
+| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel nCipher nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation minimal Windows 7 et d’[Azure PowerShell](/powershell/azure/?view=azps-1.2.0)**version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Générez et transférez votre clé sur le module de sécurité matériel du coffre de clés Azure
 
@@ -80,7 +80,7 @@ Pour cette première étape, exécutez les procédures qui suivent sur la statio
 
 ### <a name="step-11-install-azure-powershell"></a>Étape 1.1 : Installation d’Azure PowerShell
 
-Depuis la station de travail connectée à Internet, téléchargez et installez le module Azure PowerShell qui inclut les applets de commande servant à gérer le coffre de clés Azure. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Depuis la station de travail connectée à Internet, téléchargez et installez le module Azure PowerShell qui inclut les applets de commande servant à gérer le coffre de clés Azure. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Étape 1.2 : Obtenir votre ID d’abonnement Azure
 

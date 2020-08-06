@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036435"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Résoudre les problèmes de connectivité des applications sur des machines virtuelles dans Azure
 
@@ -117,7 +117,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
   
   * Vérifiez que la configuration de points de terminaison de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
   * Assurez-vous que les ACL (listes de contrôle d’accès) sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet.
-  * Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](../windows/classic/setup-endpoints.md).
+  * Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager :
   
   * Vérifiez que la configuration de la règle NAT de trafic entrant de la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
@@ -138,11 +138,9 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Étape 4 Si vous ne pouvez pas accéder à l’application, utilisez Vérification IP pour vérifier les paramètres. 
 
-Pour plus d’informations, consultez [Vue d’ensemble de la surveillance réseau Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Pour plus d’informations, consultez [Vue d’ensemble de la surveillance réseau Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md)
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](troubleshoot-ssh-connection.md)
-
-

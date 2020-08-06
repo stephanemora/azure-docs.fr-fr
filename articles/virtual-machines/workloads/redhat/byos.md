@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052161"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure
 
@@ -69,7 +69,7 @@ La suite de ce document se concentre sur la méthode CLI pour provisionner et ac
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Utiliser les images Red Hat Gold depuis Azure CLI
 
-Les instructions suivantes vous guident tout au long du processus de déploiement initial pour une machine virtuelle RHEL avec Azure CLI. Elle part du principe [qu’Azure CLI est installé](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Les instructions suivantes vous guident tout au long du processus de déploiement initial pour une machine virtuelle RHEL avec Azure CLI. Elle part du principe [qu’Azure CLI est installé](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Veillez à mettre toutes les lettres en minuscules dans les références à l’éditeur, à l’offre, à l’abonnement et à l’image pour toutes les commandes suivantes.
@@ -200,7 +200,7 @@ Pour connaître les étapes à suivre pour appliquer Azure Disk Encryption, cons
 
     Dans ce cas, contactez Microsoft ou Red Hat pour activer votre abonnement.
 
-- Si vous modifiez un instantané à partir d’une image BYOS RHEL et que vous tentez de publier cette image personnalisée sur [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), vous devez fournir des informations d’abonnement qui correspondent à la source d’origine de l’instantané. Par exemple, la commande peut se présenter comme suit :
+- Si vous modifiez un instantané à partir d’une image BYOS RHEL et que vous tentez de publier cette image personnalisée sur [Shared Image Gallery](../../linux/shared-image-galleries.md), vous devez fournir des informations d’abonnement qui correspondent à la source d’origine de l’instantané. Par exemple, la commande peut se présenter comme suit :
 
     ```azurecli
     az vm create –image \

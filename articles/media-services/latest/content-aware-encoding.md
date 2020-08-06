@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039140"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utiliser la présélection de l’encodage sensible au contenu pour rechercher la valeur optimale de vitesse de transmission pour une résolution donnée
 
-Afin de préparer le contenu pour une diffusion en [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), la vidéo doit être encodée à plusieurs débits (du plus élevé au plus faible). Cela garantit une dégradation appropriée de la qualité, la vitesse de transmission et la résolution de la vidéo sont réduites en parallèle. Un tel codage à vitesses de transmission multiples utilise ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de vitesses de transmission. Consultez les [présélections d’encodage intégrées](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services.
+Afin de préparer le contenu pour une diffusion en [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), la vidéo doit être encodée à plusieurs débits (du plus élevé au plus faible). Cela garantit une dégradation appropriée de la qualité, la vitesse de transmission et la résolution de la vidéo sont réduites en parallèle. Un tel codage à vitesses de transmission multiples utilise ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de vitesses de transmission. Consultez les [présélections d’encodage intégrées](/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services.
 
 Vous devez être conscient du contenu que vous traitez et personnaliser ou ajuster l’échelle d’encodage à la complexité de la vidéo. À chaque résolution, il existe un débit au-delà duquel toute augmentation de la qualité n’est pas perceptive : l’encodeur fonctionne à la valeur de débit optimale. Le niveau suivant d’optimisation consiste à sélectionner les résolutions en fonction du contenu, par exemple, une vidéo de présentation PowerPoint ne bénéficie d’aucune amélioration en passant sous 720p. Pour aller plus loin, l’encodeur peut être chargé afin d’optimiser les paramètres pour chaque scène de la vidéo. 
 

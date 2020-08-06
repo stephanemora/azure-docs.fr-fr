@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045522"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
 Cet article inclut divers exemples de [requêtes](log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
 
-Consultez les [informations de référence sur le langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](get-started-queries.md).
+Consultez les [informations de référence sur le langage Kusto](/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Si vous ne connaissez pas Azure Monitor, lisez une [leçon sur la création de requêtes](get-started-queries.md).
 
 ## <a name="events"></a>Événements
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Usage
 
-Le type de données `Usage` permet d’assurer le suivi du volume de données ingérées par la solution ou le type de données. Il existe d’autres techniques pour étudier les volumes de données ingérées par [ordinateur](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) ou [abonnement, groupe de ressources ou ressource Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+Le type de données `Usage` permet d’assurer le suivi du volume de données ingérées par la solution ou le type de données. Il existe d’autres techniques pour étudier les volumes de données ingérées par [ordinateur](../platform/manage-cost-storage.md#data-volume-by-computer) ou [abonnement, groupe de ressources ou ressource Azure](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Volume de données par solution
 

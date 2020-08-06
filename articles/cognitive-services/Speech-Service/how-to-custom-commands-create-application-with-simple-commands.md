@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284164"
 ---
 # <a name="create-application-with-simple-commands"></a>Créer une application avec des commandes simples
 
@@ -97,7 +97,7 @@ La commande doit maintenant avoir une règle d’exécution. Cette règle indiqu
 1. Revenez à la section **Règles d'exécution** et sélectionnez **Enregistrer** pour enregistrer toutes les modifications apportées. 
 
 
- > [!NOTE]
+    > [!NOTE]
     > Il n’est pas nécessaire d’utiliser la règle de saisie semi-automatique par défaut fournie avec la commande. Si nécessaire, vous pouvez supprimer la règle de saisie semi-automatique par défaut et ajouter votre propre règle.
 
 ### <a name="try-it-out"></a>Faites un essai

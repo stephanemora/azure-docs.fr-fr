@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610589"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281325"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -51,7 +51,7 @@ Les *disques de système d’exploitation éphémères* sont des dispositifs de 
 
 Les disques de système d’exploitation éphémères ne sont pas spécifiques de Service Fabric mais des *groupes de machines virtuelles identiques* Azure mappées à des types de nœuds Service Fabric. Pour les utiliser avec Service Fabric, vous devez disposer des éléments suivants dans votre modèle Azure Resource Manager de cluster :
 
-1. Vérifiez que les types de nœuds spécifient les [tailles de machines virtuelles Azure prises en charge](../virtual-machines/windows/ephemeral-os-disks.md) pour les disques de système d’exploitation éphémères, et que la taille de machine virtuelle offre une taille de cache suffisante pour prendre en charge la taille de son disque de système d’exploitation (voir *Note* ci-dessous). Par exemple :
+1. Vérifiez que les types de nœuds spécifient les [tailles de machines virtuelles Azure prises en charge](../virtual-machines/ephemeral-os-disks.md) pour les disques de système d’exploitation éphémères, et que la taille de machine virtuelle offre une taille de cache suffisante pour prendre en charge la taille de son disque de système d’exploitation (voir *Note* ci-dessous). Par exemple :
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Les disques de système d’exploitation éphémères ne sont pas spécifiques d
 > Pour effectuer une migration, les utilisateurs devront [ajouter](./virtual-machine-scale-set-scale-node-type-scale-out.md) un nouveau nodeType avec des disques éphémères, déplacer les charges de travail vers le nouveau nodeType, puis [supprimer](./service-fabric-how-to-remove-node-type.md) le nodeType existant.
 >
 
-Pour plus d’informations et d’autres options de configuration, voir [Disques de système d’exploitation éphémères pour machines virtuelles Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+Pour plus d’informations et d’autres options de configuration, voir [Disques de système d’exploitation éphémères pour machines virtuelles Azure](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Sélectionner les niveaux de durabilité et de fiabilité du cluster

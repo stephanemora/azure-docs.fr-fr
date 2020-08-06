@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071907"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
 
@@ -53,7 +53,7 @@ Dans cette leçon, vous allez apprendre à créer une application Windows Store 
 
 ![Exemple d'application Windows Store de diffusion en continu lisse][PlayerApplication]
 
-Pour plus d'informations sur le développement d'une application Windows Store, consultez la rubrique [Développement d'applications fantastiques pour Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Cette leçon aborde les procédures suivantes :
+Pour plus d'informations sur le développement d'une application Windows Store, consultez la rubrique [Développement d'applications fantastiques pour Windows 8](https://developer.microsoft.com/en-us/windows/). Cette leçon aborde les procédures suivantes :
 
 1. Création d'un projet Windows Store
 2. Conception de l'interface utilisateur (XAML)
@@ -1045,4 +1045,3 @@ Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la foncti
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

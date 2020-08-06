@@ -14,18 +14,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fb2d2d33d380819a88da57a78c449e22256bf41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076630"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Utilisation de Notification Hubs à partir de PHP
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Ruby en utilisant l’interface REST des hubs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Ruby en utilisant l’interface REST des hubs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -56,7 +56,7 @@ $hub->sendNotification($notification, null);
 Si vous ne l’avez pas déjà fait, suivez le [tutoriel de démarrage] jusqu’à la dernière section où vous devez implémenter le back-end.
 En outre, si vous le souhaitez, vous pouvez utiliser le code de l’[exemple de wrapper REST PHP] et accéder directement à la section du didacticiel [Suivi du didacticiel](#complete-tutorial).
 
-Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l’implémentation PHP des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
+Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100)). Dans cette section, nous allons décrire l’implémentation PHP des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
 
 1. Analyse de la chaîne de connexion
 2. Génération du jeton d'autorisation
@@ -102,7 +102,7 @@ class NotificationHub {
 
 ### <a name="create-a-security-token"></a>Créer un jeton de sécurité
 
-Reportez-vous à la documentation Azure pour plus d’informations sur la façon de [créer un jeton de sécurité SAP](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
+Reportez-vous à la documentation Azure pour plus d’informations sur la façon de [créer un jeton de sécurité SAP](/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
 
 Ajoutez la méthode `generateSasToken` à la classe `NotificationHub` pour créer le jeton à partir de l’URI de la demande actuelle et des informations d’identification extraites de la chaîne de connexion.
 
@@ -151,7 +151,7 @@ class Notification {
 
 Cette classe est un conteneur pour un corps de notification natif, ou un ensemble de propriétés dans le cas d’un modèle de notification, et un ensemble d’en-têtes contenant le format (plateforme native ou modèle) et des propriétés propres à la plateforme (notamment la propriété d’expiration d’Apple et les en-têtes WNS).
 
-Pour connaître toutes les options disponibles, consultez la [documentation sur les API REST de Notification Hubs](https://msdn.microsoft.com/library/dn495827.aspx) et les formats spécifiques des plateformes de notification.
+Pour connaître toutes les options disponibles, consultez la [documentation sur les API REST de Notification Hubs](/previous-versions/azure/reference/dn495827(v=azure.100)) et les formats spécifiques des plateformes de notification.
 
 Munis de cette classe, nous pouvons à présent écrire les méthodes d’envoi des notifications à l’intérieur de la classe `NotificationHub` :
 
@@ -290,4 +290,3 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 
 [exemple de wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Envoyer des notifications Push à des applications iOS avec Azure Notification Hubs](ios-sdk-get-started.md))
-

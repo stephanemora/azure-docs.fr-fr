@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment utiliser l’appartenance de groupe Azure Active Directory pour restreindre l’accès aux ressources de cluster à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (ACS)
 services: container-service
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: bb48e4f72506a69969cae39810640d23d771bde3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/21/2020
+ms.openlocfilehash: 646b1b5fb5079f0b959aaa2337c1dbab09ff4134
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057330"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Contrôler l’accès aux ressources de cluster à l’aide du contrôle d’accès en fonction du rôle et des identités Azure Active Directory dans Azure Kubernetes Service
 
@@ -137,7 +137,7 @@ Créez un fichier nommé `role-dev-namespace.yaml` et collez le manifeste YAML s
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-full-access
   namespace: dev
@@ -168,7 +168,7 @@ Maintenant, créez un RoleBinding pour le groupe *appdev* afin d’utiliser le R
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-access
   namespace: dev
@@ -202,7 +202,7 @@ Créez un fichier nommé `role-sre-namespace.yaml` et collez le manifeste YAML s
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-full-access
   namespace: sre
@@ -233,7 +233,7 @@ Créez un RoleBinding pour le groupe *opssre* afin d’utiliser le Role créé p
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-access
   namespace: sre
@@ -266,13 +266,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Planifiez un pod NGINX de base à l’aide de la commande [kubectl run][kubectl-run] dans l’espace de noms *dev* :
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+kubectl run nginx-dev --image=nginx --namespace dev
 ```
 
 En tant qu’invite de connexion, entrez les informations d’identification de votre propre compte `appdev@contoso.com` créé au début de l’article. Une fois que vous êtes correctement connecté, le jeton de compte est mis en cache pour des commandes `kubectl` futures. Le pod NGINX est correctement planifié, comme le montre l’exemple de sortie suivant :
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+$ kubectl run nginx-dev --image=nginx --namespace dev
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B24ZD6FP8 to authenticate.
 
@@ -313,7 +313,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 De la même façon, essayez de planifier un pod dans un espace de noms différent, tel que *sre*. L’appartenance de groupe de l’utilisateur ne s’aligne pas avec un Role et des RoleBinding Kubernetes pour accorder ces autorisations, comme le montre l’exemple de sortie suivant :
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
+$ kubectl run nginx-dev --image=nginx --namespace sre
 
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot create resource "pods" in API group "" in the namespace "sre"
 ```
@@ -331,14 +331,14 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Essayez de planifier et d’afficher les pods dans l’espace de noms *sre* attribué. Lorsque vous y êtes invité, connectez-vous avec vos propres informations d’identification `opssre@contoso.com` créées au début de l’article :
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+kubectl run nginx-sre --image=nginx --namespace sre
 kubectl get pods --namespace sre
 ```
 
 Comme le montre l’exemple de sortie suivant, vous pouvez correctement créer et afficher les pods :
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+$ kubectl run nginx-sre --image=nginx --namespace sre
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BM4RHP3FD to authenticate.
 
@@ -354,7 +354,7 @@ nginx-sre   1/1     Running   0
 
 ```console
 kubectl get pods --all-namespaces
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+kubectl run nginx-sre --image=nginx --namespace dev
 ```
 
 Ces commandes `kubectl` échouent, comme le montre l’exemple de sortie suivant. L’appartenance de groupe de l’utilisateur et le Role et les RoleBindings Kubernetes n’accordent pas d’autorisations pour créer ou gérer des ressources dans d’autres espaces de noms :
@@ -363,7 +363,7 @@ Ces commandes `kubectl` échouent, comme le montre l’exemple de sortie suivant
 $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot list pods at the cluster scope
 
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+$ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 

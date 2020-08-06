@@ -3,12 +3,12 @@ title: Ajouter un référentiel d’artefacts à votre laboratoire dans Azure De
 description: Découvrez comment ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d823f437cddef0a33c7d7ea3b4c4fbdaad90fb8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013452"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Une fois la cmdlet AzResourceGroupDeployment de nouveau exécutée avec succès, la commande affiche des informations importantes, telles que l’état d’approvisionnement (qui doit être Réussi) et les différentes sorties pour le modèle.
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Cette section fournit un exemple de script PowerShell, qui peut être utilisé pour ajouter un référentiel d’artefacts à un laboratoire. Si vous n’avez pas Azure PowerShell, accédez à la section [How to install and configure Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) (Comment installer et configurer Azure PowerShell) pour obtenir des instructions détaillées afin de l’installer.
+Cette section fournit un exemple de script PowerShell, qui peut être utilisé pour ajouter un référentiel d’artefacts à un laboratoire. Si vous n’avez pas Azure PowerShell, accédez à la section [How to install and configure Azure PowerShell](/powershell/azure/?view=azps-1.2.0) (Comment installer et configurer Azure PowerShell) pour obtenir des instructions détaillées afin de l’installer.
 
 ### <a name="full-script"></a>Script complet
 Voici le script complet, y compris les commentaires et messages détaillés :

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090091"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Créer un plan de migration avec Azure Migrate
 
@@ -151,7 +151,7 @@ Avant de finaliser votre plan de migration, assurez-vous que ces considérations
 
 - Bénéficiez d’un support pour votre implémentation, si nécessaire. De nombreuses organisations choisissent une aide externe pour prendre en charge la migration vers le cloud. Pour passer à Azure rapidement et en toute confiance avec une assistance personnalisée, envisagez de recourir à [un fournisseur de services managés Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF) ou [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Créez un plan de migration cloud efficace contenant des informations détaillées sur la liste/les groupes d’applications à migrer, les contraintes de disponibilité et de temps d’arrêt de votre application et de vos bases de données, ainsi que les jalons de migration souhaités. Votre plan de migration doit également prendre en compte la durée de la copie des données et inclure une mémoire tampon à considérer pour les activités de test et de basculement après la migration. Les tests post-migration doivent inclure des cas d’utilisation de test fonctionnel, d’intégration, de sécurité et de performances pour s’assurer que les applications migrées fonctionnent comme prévu et que tous les objets de base de données et les relations de données ont été transférés vers le cloud. Les tests post-migration doivent inclure des cas d’utilisation de test fonctionnel, d’intégration, de sécurité et de performances pour s’assurer que les applications migrées fonctionnent comme prévu et que tous les objets de base de données et les relations de données ont été transférés vers le cloud.  
+Créez un plan de migration cloud efficace contenant des informations détaillées sur la liste/les groupes d’applications à migrer, les contraintes de disponibilité et de temps d’arrêt de votre application et de vos bases de données, ainsi que les jalons de migration souhaités. Votre plan de migration doit également prendre en compte la durée de la copie des données et inclure une mémoire tampon à considérer pour les activités de test et de basculement après la migration. Les tests post-migration doivent inclure des cas d’utilisation de test fonctionnel, d’intégration, de sécurité et de performances pour s’assurer que les applications migrées fonctionnent comme prévu et que tous les objets de base de données et les relations de données ont été transférés vers le cloud.  
 
 Utilisez cette analyse pour créer une feuille de route de migration et déclarer une fenêtre de maintenance afin de migrer vos applications et bases de données avec un temps d’arrêt minimal nul et limiter l’impact opérationnel/commercial potentiel pendant la migration.  
 
