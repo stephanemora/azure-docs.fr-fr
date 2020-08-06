@@ -3,15 +3,15 @@ title: Démarrage rapide Azure - Exécution d’un travail Batch - CLI
 description: Apprenez rapidement à exécuter un travail Batch avec l’interface de ligne de commande Azure. Créez et gérez des ressources Azure à partir de la ligne de commande ou dans des scripts.
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.custom: mvc
-ms.openlocfilehash: 3ec3ab6cc988ba1d11231a1bda1eec15d6e811c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4c56695180f8f07384f31b750cec03f9d14fb9da
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116330"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504158"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : exécution de votre premier travail Batch avec l’interface de ligne de commande Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide montre comment utiliser l’interface de ligne de commande Azure pour créer un compte Batch, un *pool* de nœuds de calcul (machines virtuelles) et un *travail* qui exécute des *tâches* sur le pool. Chaque exemple de tâche exécute une commande de base sur un des nœuds du pool. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
@@ -164,7 +164,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-Vous pouvez afficher le contenu de `stdout.txt` dans un éditeur de texte. Le contenu affiche les variables d’environnement Azure Batch qui sont définies sur le nœud. Lorsque vous créez vos propres travaux Batch, vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les applications et les scripts exécutés par les lignes de commande. Par exemple : 
+Vous pouvez afficher le contenu de `stdout.txt` dans un éditeur de texte. Le contenu affiche les variables d’environnement Azure Batch qui sont définies sur le nœud. Lorsque vous créez vos propres travaux Batch, vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les applications et les scripts exécutés par les lignes de commande. Par exemple :
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

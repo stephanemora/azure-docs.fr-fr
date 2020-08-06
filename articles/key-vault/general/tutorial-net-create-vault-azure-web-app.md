@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013264"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513330"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure avec .NET
 
@@ -53,11 +53,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Notez la valeur `vaultUri` retournée, qui est au format « https://&lt;nom_de_votre_coffre_de_clés&gt;.vault.azure.net/ ». Elle sera utilisée à l’étape [Mettre à jour le code](#update-the-code).
 
-Vous pouvez maintenant placer un secret dans votre coffre de clés avec la commande [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Définissez le nom de votre secret sur « MySecret » et la valeur sur « Success! ».
-
-```azurecli-interactive
-az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## <a name="create-a-net-web-app"></a>Créer une application web .NET
 
