@@ -4,16 +4,16 @@ description: Cet article fournit des instructions sur l’activation de Microsof
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291972"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
@@ -140,6 +140,33 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | resizeOSDisk | Si la partition du système d’exploitation doit être redimensionnée pour occuper tout le disque dur virtuel du système d’exploitation avant de fractionner le volume système. |
 | location | Emplacement pour toutes les ressources. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Activer le chiffrement sur des disques NVMe pour machines virtuelles Lsv2
+
+Ce scénario décrit l’activation de Azure Disk Encryption sur des disques NVMe pour les machines virtuelles de la série Lsv2.  La série Lsv2 est dotée d’un stockage NVMe local. Les disques NVMe locaux sont temporaire. Les données présentes sur ces disques seront perdues si vous arrêtez/libérez votre machine virtuelle (voir [Série Lsv2](../lsv2-series.md)).
+
+Pour activer le chiffrement sur les disques NVMe :
+
+1. Initialisez les disques NVMe et créez des volumes NTFS.
+1. Activez le chiffrement sur la machine virtuelle avec le paramètre VolumeType défini sur All. Cela active le chiffrement pour tous les disques de système de système d’exploitation et de données, y compris les volumes basés sur des disques NVMe. Pour plus d’informations, consultez [Activer le chiffrement sur une machine virtuelle Windows existante ou en cours d’exécution](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+Le chiffrement est conservé sur les disques NVMe dans les scénarios suivants :
+- Redémarrage de machine virtuelle
+- Réimageage VMSS
+- Permutation de système d’exploitation
+
+Les disques NVMe ne seront pas initialisés dans les scénarios suivants :
+
+- Démarrage de machine virtuelle après désallocation/libération
+- Réparation de service
+- Sauvegarde
+
+Dans ces scénarios, les disques NVMe doivent être initialisés après le démarrage de la machine virtuelle. Pour activer le chiffrement sur les disques NVMe, exécutez la commande pour réactiver Azure Disk Encryption après l’initialisation des disques NVMe.
+
+Outre les scénarios énumérés dans la section [Scénarios non pris en charge](#unsupported-scenarios), le chiffrement des disques NVMe n’est pas pris en charge pour les ressources suivantes :
+
+- Machines virtuelles chiffrées avec Azure Disk Encryption avec AAD (version précédente)
+- Disques NVMe avec espaces de stockage
+- Azure Site Recovery de références (SKU) avec des disques NVMe (consultez [Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure : Machines répliquées – Stockage](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nouvelles machines virtuelles IaaS créées à partir d’un disque dur virtuel chiffré par le client et de clés de chiffrement
 
@@ -236,9 +263,8 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Déplacement d’une machine virtuelle chiffrée vers un autre abonnement ou une autre région.
 - Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
 - Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md))
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
-- Application du [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md) à des machines virtuelles chiffrées par ADE et vice versa.
+- Application d’ADE à une machine virtuelle dotée d’un disque de données [chiffré côté serveur avec des clés gérées par le client](disk-encryption.md) (SSE + CMK) ou application du chiffrement SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE.
 - Migration d’une machine virtuelle chiffrée par ADE vers le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
 
 
