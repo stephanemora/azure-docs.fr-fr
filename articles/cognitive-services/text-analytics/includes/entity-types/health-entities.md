@@ -6,18 +6,18 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 906e8e9e6cde80a2151c6b8671f64854cb431250
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108491"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373066"
 ---
 ## <a name="health-entity-categories"></a>Catégories d’entités nommées :
 
-Les catégories d’entités retournées par [Analyse de texte pour la santé](../../how-tos/text-analytics-for-health.md) sont les suivantes.  Notez que seul le texte en anglais est pris en charge dans cette préversion de conteneur et qu’une seule version de modèle est fournie dans chaque image conteneur.
+Les catégories d’entités retournées par l’[Analyse de texte pour l’intégrité](../../how-tos/text-analytics-for-health.md) sont les suivantes.  Notez que seul le texte en anglais est pris en charge dans cette préversion de conteneur et qu’une seule version de modèle est fournie dans chaque image conteneur.
 
 ### <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
 

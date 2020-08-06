@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038612"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Superviser la sécurité de vos conteneurs
 
@@ -36,13 +36,11 @@ Cette page explique comment utiliser les fonctionnalités de sécurité des cont
 
 1. Pour déclencher l’analyse d’une image, envoyez l’image à votre registre. 
 
-    Une fois l’analyse terminée (généralement au bout d’une dizaine de minutes), les résultats sont disponibles dans les recommandations de Security Center.
-    
+    Une fois l’analyse terminée (généralement après environ 2 minutes, mais elle peut prendre jusqu’à 15 minutes), les résultats sont disponibles sous forme de suggestions Security Center comme suit :
 
 1. Pour voir les résultats, accédez à la page **Recommandations**. Si des problèmes ont été détectés, vous voyez cette recommandation :
 
     ![Recommandation de correction des problèmes ](media/monitor-container-security/acr-finding.png)
-
 
 1. Sélectionnez la recommandation. 
     La page de détails de la recommandation s’ouvre et présente des informations supplémentaires. Vous y trouverez notamment la liste des registres contenant des images vulnérables (« Ressources affectées ») et les étapes de correction. 

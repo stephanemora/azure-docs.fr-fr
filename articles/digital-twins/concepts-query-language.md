@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537488"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337923"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -28,7 +28,7 @@ Azure Digital Twins fournit des fonctionnalités de requête étendues par rappo
 > Toutes les opérations de requête Azure Digital Twins respectent la casse.
 
 Voici les opérations disponibles dans langage de magasin de données des requêtes Azure Digital Twins :
-* Obtenir des jumeaux par propriétés des jumeaux numériques.
+* Obtenir des jumeaux par propriétés de jumeaux numériques (y compris des [balises](how-to-use-tags.md)).
 * Obtenir des jumeaux par interfaces des jumeaux numériques.
 * Obtenir des jumeaux par propriétés des relations.
 * Obtenir des jumeaux via des types de relations multiples (requêtes`JOIN`). Le nombre de `JOIN`s autorisées (un niveau pour la préversion publique) est limité.

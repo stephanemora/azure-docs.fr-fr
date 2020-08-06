@@ -3,12 +3,12 @@ title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373622"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373757"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -373,7 +373,7 @@ Au sein des propriétés _details.constraintTemplate_ et _details.constraint_ de
 
 ## <a name="assign-a-built-in-policy-definition"></a>Affecter une définition de stratégie intégrée
 
-Pour que vous puissiez affecter une définition de stratégie à votre cluster Kubernetes, il faut que les opérations d’attribution de stratégie de contrôle d’accès en fonction du rôle (RBAC) appropriées vous aient été attribuées. Les rôles RBAC intégrés **Contributeur de la stratégie de ressource** et **Propriétaire** incluent ces opérations. Pour plus d’informations, consultez [Autorisations RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+Pour que vous puissiez affecter une définition de stratégie à votre cluster Kubernetes, il faut que les opérations d’attribution de stratégie de contrôle d’accès en fonction du rôle (RBAC) appropriées vous aient été attribuées. Les rôles Azure intégrés **Contributeur de la stratégie de ressource** et **Propriétaire** incluent ces opérations. Pour plus d’informations, consultez [Autorisations RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 Recherchez les définitions de stratégie intégrées pour la gestion de votre cluster à l’aide du portail Azure en procédant comme suit :
 

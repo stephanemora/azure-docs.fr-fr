@@ -3,12 +3,12 @@ title: Contrôles de sécurité
 description: En savoir plus sur les contrôles de sécurité utilisés dans le service Sauvegarde Azure. Ces contrôles permettent au service d’empêcher, de détecter et de répondre aux failles de sécurité.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: c5a324ac3738abfcf1a51442d7acd78a01e5717e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4a59ab0edeeba480475ac593d2721f95c7b5f48a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513538"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371717"
 ---
 # <a name="security-controls-for-azure-backup"></a>Contrôles de sécurité pour la Sauvegarde Azure
 
@@ -38,7 +38,7 @@ Cet article décrit les contrôles de sécurité intégrés à la Sauvegarde Azu
 | Contrôle de sécurité | Oui/Non | Notes| Documentation
 |---|---|--|--|
 | Authentification| Oui | L’authentification est effectuée via Azure Active Directory. |  |
-| Autorisation| Oui | Des rôles RBAC intégrés et gérés par le client sont utilisés. Pour plus d’informations, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération de Sauvegarde Azure](./backup-rbac-rs-vault.md). |  |
+| Autorisation| Oui | Des rôles Azure intégrés et gérés par le client sont utilisés. Pour plus d’informations, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération de Sauvegarde Azure](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Protection de données
 

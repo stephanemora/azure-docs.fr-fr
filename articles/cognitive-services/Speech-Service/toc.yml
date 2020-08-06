@@ -494,10 +494,8 @@
       items:
         - name: Vue d’ensemble des mots clés personnalisés
           href: custom-keyword-overview.md
-        - name: Instructions de nommage des mots clés personnalisés
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Reconnaissance des mots clés personnalisés
-          href: speech-devices-sdk-create-kws.md
+        - name: Principes de base des mots clés personnalisés
+          href: custom-keyword-basics.md
 - name: Reconnaissance de l’orateur
   items:
     - name: Vue d’ensemble

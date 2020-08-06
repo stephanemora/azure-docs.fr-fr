@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374438"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387776"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -55,7 +55,7 @@ Il existe deux principales façons de permettre à vos utilisateurs d’utiliser
 ### <a name="considerations-for-federation-based-sso"></a>Points à noter concernant l’authentification unique basée sur la fédération
 
 - **Utilisation d’OpenID Connect et d’OAuth** : si l’application à laquelle vous vous connectez la prend en charge, utilisez la méthode OIDC/OAuth 2.0 afin d’activer l’authentification unique pour cette application. Cette méthode nécessite moins de configuration et offre une expérience utilisateur plus riche. Pour plus d’informations, consultez [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md) et [Guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configuration des point de terminaison pour l’authentification unique SAML** - Si vous utilisez le SAML, vos développeurs auront besoin de certaines informations avant de configurer l’application. Pour plus d’informations, voir [Modifier la configuration SAML de base](configure-single-sign-on-non-gallery-applications.md).
+- **Configuration des point de terminaison pour l’authentification unique SAML** - Si vous utilisez le SAML, vos développeurs auront besoin de certaines informations avant de configurer l’application. Pour plus d’informations, consultez [Configurer l’authentification unique SAML](configure-saml-single-sign-on.md).
 - **Gestion des certificats pour l’authentification unique SAML** : lorsque vous activez l’authentification unique fédérée pour votre application, Azure AD crée un certificat qui est par défaut valide pendant trois ans. Vous pouvez personnaliser la date d’expiration de ce certificat si nécessaire. Vérifiez que vous disposez de processus permettant de renouveler les certificats avant leur expiration. Pour plus d’informations, consultez [Gestion des certificats Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Points à noter concernant l’authentification basée sur les mots de passe

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311566"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
 Pour inscrire une application monopage dans la plateforme d’identité Microsoft, procédez comme suit. Les étapes d’inscription diffèrent entre MSAL.js 1.0, qui prend en charge le flux d’octroi implicite, et MSAL.js 2.0, qui prend en charge le flux du code d’autorisation avec PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Créer l’inscription d’application
 
@@ -38,7 +40,7 @@ Ensuite, configurez l’inscription d’application avec un **URI de redirection
 - [MSAL.js 2.0 avec flux de code d’autorisation](#redirect-uri-msaljs-20-with-auth-code-flow) (recommandé)
 - [MSAL.js 1.0 avec flux implicite](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirection : MSAL.js 2.0 avec flux de code d’autorisation
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirection : [MSAL.js 2.0 avec flux de code d’autorisation](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Procédez comme suit pour ajouter un URI de redirection pour une application qui utilise MSAL.js 2.0 ou version ultérieure. MSAL.js 2.0+ prend en charge le flux de code d’autorisation avec PKCE et CORS en réponse aux [restrictions de cookies tierces du navigateur](reference-third-party-cookies-spas.md). Le flux d’octroi implicite n’est pas pris en charge dans MSAL.js 2.0+.
 
@@ -50,7 +52,9 @@ Procédez comme suit pour ajouter un URI de redirection pour une application qui
 
 Vous avez maintenant terminé l’inscription de votre application monopage, et avez configuré un URI de redirection vers lequel le client sera redirigé et auquel tous les jetons de sécurité seront envoyés. Si vous configurez votre URI de redirection à l’aide de la vignette **Application monopage** dans le volet **Ajouter une plateforme**, l’inscription de votre application est configurée pour prendre en charge le flux de code d’autorisation avec PKCE et CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirection : MSAL.js 1.0 avec flux implicite
+Pour plus de conseils, suivez le [tutoriel](tutorial-v2-javascript-auth-code.md).
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirection : [MSAL.js 1.0 avec flux implicite](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Procédez comme suit pour ajouter un URI de redirection pour une application monopage qui utilise MSAL.js, version 1.3 ou antérieure, et le flux d’octroi implicite. Les applications qui utilisent MSAL.js, version 1.3 ou antérieure, ne prennent pas en charge le flux de code d’autorisation.
 
@@ -64,6 +68,8 @@ Procédez comme suit pour ajouter un URI de redirection pour une application mon
 1. Sélectionnez **Configurer** pour terminer l’ajout de l’URI de redirection.
 
 Vous avez maintenant terminé l’inscription de votre application monopage, et avez configuré un URI de redirection vers lequel le client sera redirigé et auquel tous les jetons de sécurité seront envoyés. En sélectionnant l’une des options **Jetons d’ID** ou **Jetons d’accès**, vous avez activé le flux d’octroi implicite.
+
+Pour plus de conseils, suivez le [tutoriel](tutorial-v2-javascript-spa.md).
 
 ## <a name="note-about-authorization-flows"></a>Remarque à propos des flux d’autorisation
 

@@ -3,7 +3,7 @@ title: Déléguer la gouvernance des accès aux gestionnaires de package dans le
 description: Découvrez comment déléguer la gouvernance des accès des administrateurs informatiques aux gestionnaires de package et chefs de projet pour qu’ils puissent gérer les accès eux-mêmes.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acea7503e5cdde9ff55c27f16351b21453fe521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e81389ec953829115062a31a019caf040850cbea
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078332"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798633"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux gestionnaires de package dans le cadre de la gestion des droits d’utilisation Azure AD
 

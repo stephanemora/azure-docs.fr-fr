@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: c2a25632942c0c39a20fa0c7f51a1e8937bdd873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059385"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491967"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -27,7 +27,7 @@ Les événements doivent être envoyés en tant que JSON encodé en UTF-8.
 
 ## <a name="create-or-edit-event-sources"></a>Créer ou modifier des sources d’événements
 
-Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Vous pouvez utiliser [le portail Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et [l’API REST](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) pour créer, modifier ou supprimer des sources d’événements de votre environnement.
+Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Vous pouvez utiliser [le portail Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et [l’API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer des sources d’événements de votre environnement.
 
 Lorsque vous connectez une source d’événements, votre environnement Azure Time Series Insights Gen2 lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l’événement le plus ancien.
 

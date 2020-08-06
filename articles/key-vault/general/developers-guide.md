@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476765"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386212"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -40,7 +40,7 @@ Avant d’utiliser des clés, des secrets ou des certificats dans votre coffre d
 
 - [Créer et gérer les coffres de clés avec l’interface de ligne de commande](../secrets/quick-create-cli.md)
 - [Créer et gérer les coffres de clés avec PowerShell](../secrets/quick-create-powershell.md)
-- [Créer et gérer les coffres de clés avec le port Azure](../secrets/quick-create-portal.md)
+- [Créer et gérer les coffres de clés avec le portail Azure](../secrets/quick-create-portal.md)
 - [Créer et gérer les coffres de clés avec Python](../secrets/quick-create-python.md)
 - [Créer et gérer les coffres de clés avec Java](../secrets/quick-create-java.md)
 - [Créer et gérer les coffres de clés avec Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Pour plus d’informations sur la version 2.x du kit SDK .NET, consultez les [No
 
 Dans Node.js, l’API de gestion Key Vault et l’API des objets Key Vault sont distinctes. L’article de présentation suivant vous donne accès aux deux API. 
 
-[Modules Azure Key Vault pour Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Modules Azure Key Vault pour Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliothèques Azure Key Vault pour Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Bibliothèques Azure Key Vault pour Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -100,7 +100,7 @@ Pour obtenir des exemples complets d’utilisation de Key Vault avec vos applica
 
 Les articles et scénarios suivants fournissent des conseils spécifiques sur l’utilisation d’Azure Key Vault :
 
-- [Modifier l’ID de client de Key Vault après un déplacement d’abonnement](subscription-move-fix.md) - Lorsque vous déplacez votre abonnement Azure du client A vers le client B, vos coffres de clés existants ne sont pas accessibles par les principaux (utilisateurs et applications) dans le client B. Ce guide vous aide à résoudre ce problème.
+- [Modifier l’ID de client de Key Vault après un déplacement d’abonnement](move-subscription.md) - Lorsque vous déplacez votre abonnement Azure du client A vers le client B, vos coffres de clés existants ne sont pas accessibles par les principaux (utilisateurs et applications) dans le client B. Ce guide vous aide à résoudre ce problème.
 - [Accès à Key Vault derrière un pare-feu](access-behind-firewall.md) - Pour accéder à un coffre de clés, votre application cliente Key Vault doit être en mesure d’accéder à plusieurs points de terminaison pour différentes fonctionnalités.
 - [Génération et transfert de clés protégées par HSM pour Azure Key Vault](../keys/hsm-protected-keys.md) : ces informations vous aideront à planifier, générer, puis transférer vos propres clés protégées par le module de sécurité matériel (HSM) utilisées avec Azure Key Vault.
 - [Transmission de valeurs sécurisées (par exemple des mots de passe) lors du déploiement](../../azure-resource-manager/templates/key-vault-parameter.md) - Lorsque vous devez passer une valeur sécurisée (par exemple un mot de passe) en tant que paramètre au cours du déploiement, vous pouvez stocker cette valeur en tant que clé secrète dans un coffre de clés Azure et faire référence à la valeur dans d'autres modèles Resource Manager.
@@ -122,7 +122,7 @@ Ces articles concernent d’autres scénarios et services qui utilisent ou intè
 
 ## <a name="key-vault-overviews-and-concepts"></a>Concepts et présentations des coffres de clés
 
-- [Comportement de suppression réversible de Key Vault](overview-soft-delete.md) : décrit une fonctionnalité qui permet la récupération des objets supprimés, que la suppression soit accidentelle ou intentionnelle.
+- [Comportement de suppression réversible de Key Vault](soft-delete-overview.md) : décrit une fonctionnalité qui permet la récupération des objets supprimés, que la suppression soit accidentelle ou intentionnelle.
 - [Limitation du client Key Vault](overview-throttling.md) : vous oriente vers les concepts de base de la limitation et propose une approche pour votre application.
 - [Vue d’ensemble des clés de compte de stockage Key Vault](../secrets/overview-storage-keys.md) : décrit les clés de comptes de stockage Azure d’intégration Key Vault.
 - [Mondes de sécurité Key Vault](overview-security-worlds.md) : décrit les relations entre les régions et les zones de sécurité.

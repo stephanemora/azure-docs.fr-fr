@@ -1,6 +1,5 @@
 ---
-title: Réentraîner un service web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : reformer un service web – Azure'
 description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ee2a830d8d87ff2d82825791cb4d3554232cfa12
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c86612e41dfb6d1460306fba8c89e579b1023581
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086158"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324962"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
+
+**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+
 
 Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio (classique). Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
 
@@ -59,7 +61,7 @@ Pour cet exemple, nous utilisons le langage C# pour créer l’application de re
 
 Suivez les étapes ci-dessous pour appeler les API de recyclage :
 
-1. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Application console (.NET Framework)** .
+1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Console App (.NET Framework)** .
 1. Connectez-vous au portail des services web Azure Machine Learning.
 1. Cliquez sur le service web que vous utilisez.
 1. Cliquez sur **Consommer**.

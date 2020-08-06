@@ -1,6 +1,6 @@
 ---
 title: Exemples d’interface de ligne de commande Azure - mise en réseau
-description: Exemples d’interface de ligne de commande Azure
+description: Découvrez des exemples Azure CLI pour la mise en réseau, incluant des exemples pour la connectivité entre les ressources Azure, et des exemples pour l’équilibrage de charge et la direction du trafic.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c038f0d238646f43b93ba2a2c6a1120ab5feccee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232404"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497288"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Exemples d’interface de ligne de commande Azure pour la mise en réseau
 

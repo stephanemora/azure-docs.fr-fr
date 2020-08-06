@@ -98,7 +98,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour activer Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -112,7 +112,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -124,11 +124,11 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer Application Gateway de façon à utiliser le protocole HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
 
-* [Création d’un groupe identique qui fait référence à une passerelle d’application](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#create-a-scale-set-that-references-an-application-gateway)
+* [Créer un groupe identique qui fait référence à une passerelle d’application](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#create-a-scale-set-that-references-an-application-gateway)
 
 * [Présentation de l’équilibrage de charge de niveau 7 avec les passerelles d’applications web Azure](https://docs.microsoft.com/azure/application-gateway/overview)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -154,7 +154,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -186,7 +186,7 @@ Utilisez Azure Policy pour valider (ou corriger) des configurations de ressource
 
 * [Exemples Azure Policy pour le réseau](https://docs.microsoft.com/azure/governance/policy/samples/#network)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -272,7 +272,7 @@ Si votre organisation souhaite conserver les données du journal des événement
 
 * [Comment configurer la période de conservation d’un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -328,13 +328,13 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Implémentez une solution tierce de journalisation DNS à partir de la Place de marché Azure en fonction des besoins de votre organisation.
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10 : Activer l’enregistrement d’audit en ligne de commande
 
-**Conseils** : Azure Security Center fournit une surveillance du journal des événements de sécurité pour les machines virtuelles Azure. Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées lorsque l’approvisionnement automatique est activé OU vous pouvez installer l’agent manuellement. L’agent active l’événement de création de processus 4688 et le champ CommandLine à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center.
+**Aide** : Azure Security Center fournit une surveillance du journal des événements de sécurité pour les machines virtuelles Azure. Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées lorsque l’approvisionnement automatique est activé OU vous pouvez installer l’agent manuellement. L’agent active l’événement de création de processus 4688 et le champ CommandLine à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center.
 
 En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuellement la journalisation de la console au niveau de chaque nœud et utiliser Syslog pour stocker les données. Exploitez également l’espace de travail Log Analytics d’Azure Monitor pour examiner les journaux et effectuer des requêtes sur les données Syslog des machines virtuelles Azure.
 
@@ -344,7 +344,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Sources de données Syslog dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -366,9 +366,9 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Conseils** : Azure Virtual Machine Scale Sets et Azure Active Directory n’ont pas le concept de mots de passe par défaut. Le client est responsable des applications tierces et des services de marketplace susceptibles d’utiliser des mots de passe par défaut.
+**Aide** : Azure Virtual Machine Scale Sets et Azure Active Directory n’ont pas le concept de mots de passe par défaut. Le client est responsable des applications tierces et des services de marketplace susceptibles d’utiliser des mots de passe par défaut.
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -380,7 +380,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Informations sur Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -442,7 +442,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -480,7 +480,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Comment surveiller des machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -494,7 +494,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -518,7 +518,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -578,13 +578,13 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
 
-**Aide** : Grâce au contrôle d’accès en fonction du rôle (RBAC), vous pouvez séparer les tâches au sein de votre équipe et n’accorder aux utilisateurs que les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI ou d’Azure PowerShell.
+**Conseils** : Grâce au contrôle d’accès en fonction du rôle (RBAC), vous pouvez séparer les tâches au sein de votre équipe et n’accorder aux utilisateurs que les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI ou d’Azure PowerShell.
 
 * [Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Rôles intégrés Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -592,13 +592,13 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Implémentez un outil tiers, tel qu’une solution automatisée de prévention contre la perte de données basée sur l’hôte, pour appliquer des contrôles d’accès afin d’atténuer le risque de violations de données.
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
-**Conseils** : Les disques virtuels des machines virtuelles sont chiffrés au repos à l’aide d’un chiffrement côté serveur ou d’Azure Disk Encryption (ADE). Azure Disk Encryption utilise la fonctionnalité DM-Crypt de Linux pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée. Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
+**Aide** : Les disques virtuels des machines virtuelles sont chiffrés au repos à l’aide d’un chiffrement côté serveur ou d’Azure Disk Encryption (ADE). Azure Disk Encryption utilise la fonctionnalité DM-Crypt de Linux pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée. Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 
 * [Azure Disk Encryption pour les groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
 
@@ -608,13 +608,13 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Conseils** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes qui se déclenchent lorsque des modifications sont apportées à des groupes de machines virtuelles identiques et aux ressources associées.
+**Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes qui se déclenchent lorsque des modifications sont apportées à des groupes de machines virtuelles identiques et aux ressources associées.
 
 * [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 * [Journalisation Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -624,7 +624,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Aide** : Suivez les recommandations d’Azure Security Center en matière d’évaluation des vulnérabilités sur vos machines virtuelles Azure. Utilisez la solution de sécurité Azure recommandée ou tierce pour effectuer des évaluations de vulnérabilités pour vos machines virtuelles.
+**Conseils** : Suivez les recommandations d’Azure Security Center en matière d’évaluation des vulnérabilités sur vos machines virtuelles Azure. Utilisez la solution de sécurité Azure recommandée ou tierce pour effectuer des évaluations de vulnérabilités pour vos machines virtuelles.
 
 * [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
@@ -644,9 +644,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Conseils** : Les groupes de machines virtuelles identiques Azure peuvent utiliser la mise à niveau automatique des images du système d’exploitation. Vous pouvez utiliser l’extension Azure Desired State Configuration (DSC) pour les machines virtuelles sous-jacentes du groupe de machines virtuelles identiques. L’extension DSC est utilisée pour configurer les machines virtuelles à mesure de leur mise en ligne afin qu’elles exécutent le logiciel souhaité.
+**Aide** : Les groupes de machines virtuelles identiques Azure peuvent utiliser la mise à niveau automatique des images du système d’exploitation. Vous pouvez utiliser l’extension Azure Desired State Configuration (DSC) pour les machines virtuelles sous-jacentes du groupe de machines virtuelles identiques. L’extension DSC est utilisée pour configurer les machines virtuelles à mesure de leur mise en ligne afin qu’elles exécutent le logiciel souhaité.
 
-* [Utilisation des groupes de machines virtuelles identiques avec l’extension Azure DSC](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-dsc)
+* [Utilisation des groupes identiques de machines virtuelles avec l’extension DSC Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-dsc)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -684,7 +684,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -714,7 +714,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
-**Conseils** : Créez un inventaire des ressources Azure et logiciels approuvés pour les ressources de calcul en fonction des besoins de votre organisation.
+**Aide** : Créez un inventaire des ressources Azure et logiciels approuvés pour les ressources de calcul en fonction des besoins de votre organisation.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -760,7 +760,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 * [Présentation d'Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -812,7 +812,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 * [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -862,7 +862,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 * [Guide pratique pour corriger les recommandations Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -922,7 +922,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -932,7 +932,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -942,7 +942,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -978,7 +978,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Fournir une authentification Key Vault avec une identité managée](https://docs.microsoft.com/azure/key-vault/managed-identity)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1020,7 +1020,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 **Aide** : Non applicable aux machines virtuelles Azure, car il s’agit d’une ressource de calcul.
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Non applicable
 
@@ -1046,13 +1046,13 @@ Vous aurez besoin d’un outil tiers pour la protection contre les programmes ma
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : Garantir des sauvegardes automatiques régulières
 
-**Conseils** : Créez un instantané de l’instance Microsoft Azure Virtual Machine Scale Sets ou du disque managé attaché à l’instance à l’aide de PowerShell ou d’API REST. Vous pouvez également utiliser Azure Automation pour exécuter les scripts de sauvegarde à intervalles réguliers.
+**Aide** : Créez un instantané de l’instance Microsoft Azure Virtual Machine Scale Sets ou du disque managé attaché à l’instance à l’aide de PowerShell ou d’API REST. Vous pouvez également utiliser Azure Automation pour exécuter les scripts de sauvegarde à intervalles réguliers.
 
 * [Guide pratique pour prendre un instantané d’un groupe de machines virtuelles identiques et d’un disque managé](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
 * [Présentation d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1076,7 +1076,7 @@ Activez Sauvegarde Azure et les machines virtuelles Azure cibles, ainsi que la f
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
-**Conseils** : Assurez-vous que la restauration des données du disque managé s’effectue régulièrement dans Sauvegarde Azure. Si nécessaire, testez la restauration du contenu sur un réseau virtuel ou abonnement isolé. Testez régulièrement la restauration des clés gérées par le client qui ont été sauvegardées.
+**Aide** : Assurez-vous que la restauration des données du disque managé s’effectue régulièrement dans Sauvegarde Azure. Si nécessaire, testez la restauration du contenu sur un réseau virtuel ou abonnement isolé. Testez régulièrement la restauration des clés gérées par le client qui ont été sauvegardées.
 
 Si vous utilisez Azure Disk Encryption, vous pouvez restaurer vos groupes de machines virtuelles identiques Azure à l’aide des clés de chiffrement du disque. Lorsque vous utilisez le chiffrement de disque, vous pouvez restaurer la machine virtuelle Azure à l’aide des clés de chiffrement du disque.
 
@@ -1132,7 +1132,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1174,7 +1174,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

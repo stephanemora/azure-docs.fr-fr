@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52c715b65ed3d37446dfc42a1375bf686fc25000
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735946"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288505"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
 
-Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Elles prennent également en charge la technologie [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) avec des [machines virtuelles Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+Les séries Edv4 et Edsv4 s’exécutent sur les processeurs Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) dans une configuration hyper-thread. Idéales pour les applications d’entreprise gourmandes en mémoire, elles proposent jusqu’à 504 Gio de RAM, la [technologie Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), la [technologie Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) et la [technologie Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Elles prennent également en charge la technologie [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Ces nouvelles tailles de machines virtuelles disposeront d’un stockage local 50 % plus volumineux ainsi que de meilleures IOPS de disque local en lecture et en écriture par rapport aux tailles [Ev3/Esv3](./ev3-esv3-series.md) avec des [machines virtuelles Gen2](./linux/generation-2.md).
 
 ## <a name="edv4-series"></a>Série Edv4
 
@@ -34,16 +34,16 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|
-| Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2/1 000 |
-| Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2/2 000 |
-| Standard_E8d_v4 | 8 | 64 | 300 | 16 | 77000/485 | 4/4 000 |
-| Standard_E16d_v4 | 16 | 128 | 600 | 32 | 154000/968 | 8/8 000 |
-| Standard_E20d_v4 | 20 | 160 | 750 | 32 | 193000/1211  | 8/10 000 |
-| Standard_E32d_v4 | 32 | 256 | 1200 | 32 | 308000/1936 | 8/16 000 |
-| Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904 | 8/24 000 |
-| Standard_E64d_v4 | 64 | 504 | 2 400 | 32 | 615000/3872 | 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|
+| Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2|1 000 |
+| Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
+| Standard_E8d_v4 | 8 | 64 | 300 | 16 | 77000/485 | 4|4000 |
+| Standard_E16d_v4 | 16 | 128 | 600 | 32 | 154000/968 | 8|8000 |
+| Standard_E20d_v4 | 20 | 160 | 750 | 32 | 193000/1211  | 8|10000 |
+| Standard_E32d_v4 | 32 | 256 | 1200 | 32 | 308000/1936 | 8|16000 |
+| Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904 | 8|24 000 |
+| Standard_E64d_v4 | 64 | 504 | 2 400 | 32 | 615000/3872 | 8|30000 |
 
 
 ## <a name="edsv4-series"></a>Série Edsv4
@@ -60,23 +60,23 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3 200/48 | 2/1 000 |
-| Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6 400/96 | 2/2 000 |
-| Standard_E8ds_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12 800/192 | 4/4 000 |
-| Standard_E16ds_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25 600/384 | 8/8 000 |
-| Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32 000/480  | 8/10 000 |
-| Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51 200/768  | 8/16 000 |
-| Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8/24 000 |
-| Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3 200/48 | 2|1 000 |
+| Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6 400/96 | 2|2000 |
+| Standard_E8ds_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12 800/192 | 4|4000 |
+| Standard_E16ds_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25 600/384 | 8|8000 |
+| Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32 000/480  | 8|10000 |
+| Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51 200/768  | 8|16000 |
+| Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8|24 000 |
+| Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8|30000 |
 
-<sup>1</sup> [Tailles avec nombre de cœurs limité disponibles](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+<sup>1</sup> [Tailles avec nombre de cœurs limité disponibles](./windows/constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -84,6 +84,11 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,18 +1,18 @@
 ---
 title: Comprendre les concepts du référentiel de modèles IoT Azure | Microsoft Docs
 description: En tant que développeur de solutions ou professionnel en informatique, découvrez les concepts de base du référentiel de modèles IoT Azure.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 53ae5bf15c303f26d48550734f46e69ef1fcdd75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475496"
 ---
 # <a name="azure-iot-model-repository"></a>Référentiel de modèles IoT Azure
 
@@ -42,7 +42,7 @@ Pour afficher un modèle public par programmation à l’aide de l’API REST, c
 
 ```csharp
 var httpClient = new HttpClient();
-httpClient.BaseAddress = new Uri("<url>");
+httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
@@ -81,7 +81,7 @@ Le tableau suivant récapitule les rôles pris en charge et leurs capacités dan
 |----|----------|
 |TenantAdministrator|Gérer l’accès, Lire des modèles|
 |Creator|Créer des modèles, Lire des modèles|
-|Serveur de publication|Publier des modèles, Lire des modèles|
+|Publisher|Publier des modèles, Lire des modèles|
 
 #### <a name="passing-a-security-token-when-accessing-company-models-with-a-rest-api"></a>Passage d’un jeton de sécurité lors de l’accès aux modèles d’entreprise avec une API REST
 
@@ -182,7 +182,7 @@ Pour publier un modèle à l’aide du portail :
 
 2. Développez **Modèles d’entreprise** dans le volet gauche, puis sélectionnez le modèle que vous souhaitez publier. Sélectionnez ensuite **Publier**.
 
-    ![Publier le modèle](./media/concepts-model-repository/publish-model.png)
+    ![Publier un modèle](./media/concepts-model-repository/publish-model.png)
 
 > [!NOTE]
 > Si vous recevez une notification indiquant que vous n’avez pas d’ID MPN (Microsoft Partner Network), suivez les étapes d’inscription indiquées dans la notification. Pour plus d’informations, consultez les conditions préalables au début de cette section.

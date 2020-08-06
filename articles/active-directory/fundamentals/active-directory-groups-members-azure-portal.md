@@ -2,7 +2,7 @@
 title: Ajouter ou supprimer les membres d’un groupe - Azure Active Directory | Microsoft Docs
 description: Instructions pour ajouter ou supprimer des membres dans un groupe à l’aide d’Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23b4076fe91d807fd67218ef9576a3bf1ff65f21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604333"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797574"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Ajouter ou supprimer les membres d’un groupe avec Azure Active Directory
 À l’aide d’Azure Active Directory, vous pouvez continuer à ajouter et supprimer les membres d’un groupe.
