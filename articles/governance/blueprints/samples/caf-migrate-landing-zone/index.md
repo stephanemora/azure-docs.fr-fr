@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migra
 description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud pour Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044819"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852308"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -26,7 +26,6 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 
 - Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) destinée à héberger les secrets utilisés pour les certificats, clés et secret déployés dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre migration.
-- [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - [Réseau virtuel Azure](../../../../virtual-network/virtual-networks-overview.md) fournissant un réseau isolé et des sous-réseaux pour votre machine virtuelle.
 - [Projet Azure Migrate](../../../../migrate/migrate-services-overview.md) pour la découverte et l’évaluation. Nous ajoutons les outils pour l’évaluation de serveur, la migration de serveur, l’évaluation de base de données et la migration de base de données.  
 

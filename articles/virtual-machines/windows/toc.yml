@@ -173,7 +173,7 @@
     - name: Types et tailles des machines virtuelles
       items:
         - name: Tailles de machine virtuelle
-          href: sizes.md
+          href: ../sizes.md
         - name: Machines virtuelles de 2e génération
           href: generation-2.md
         - name: Usage général
@@ -385,7 +385,7 @@
             - name: Codes d’erreur
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Utiliser C#
-          href: csharp.md
+          href: ../../azure-resource-manager/templates/deploy-rest.md
         - name: Utiliser un disque spécialisé
           items:
             - name: Portail
@@ -393,7 +393,7 @@
             - name: PowerShell
               href: create-vm-specialized.md
         - name: Créer une machine virtuelle avec Chef
-          href: ../../chef/chef-automation.md
+          href: /azure/developer/chef/windows-vm-configure
         - name: Utiliser Java
           href: java.md
         - name: Utiliser Python
@@ -657,7 +657,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -667,9 +667,9 @@
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Contrôle de la maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: CLI
+            - name: Interface de ligne de commande
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -707,7 +707,7 @@
                     - name: Historique des versions
                       href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Format des journaux de ressources JSON Lines
-                      href: ../../azure-monitor/platform/resource-logs-append-blobs.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+                      href: ../../azure-monitor/platform/resource-logs-blob-format.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                     - name: Dépannage
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agent Log Analytics
@@ -765,13 +765,13 @@
                 - name: Vue d’ensemble de l’activation de la supervision
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Activer pour une seule machine virtuelle Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Activer à l’aide d’Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Activer à l’aide d’Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Activer pour un environnement hybride
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Mapper des dépendances
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Superviser les performances
@@ -809,7 +809,7 @@
         - name: Données personnalisées
           href: ../custom-data.md
         - name: Chef
-          href: chef-automation.md
+          href: /azure/developer/chef/windows-vm-configure
         - name: Publier l’application web à partir de Visual Studio
           href: publish-web-app-from-visual-studio.md
     - name: Exécuter des applications

@@ -45,9 +45,9 @@
     - name: 13 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
     - name: 14a - Générer avec Jenkins
-      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 14b - Intégrer Jenkins avec Azure DevOps
-      href: ../../jenkins/tutorial-build-deploy-jenkins.md
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
     - name: 15a - Configurer une stratégie de déploiement progressif
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b - Configurer une stratégie de déploiement Canary
@@ -190,7 +190,7 @@
     - name: Types et tailles des machines virtuelles
       items:
         - name: Tailles de machine virtuelle
-          href: sizes.md
+          href: ../sizes.md
         - name: Machines virtuelles de 2e génération
           href: generation-2.md
         - name: Usage général
@@ -726,9 +726,9 @@
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Contrôle de la maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: CLI
+            - name: Interface de ligne de commande
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -806,13 +806,13 @@
                 - name: Vue d’ensemble de l’activation de la supervision
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Activer pour une seule machine virtuelle Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Activer à l’aide d’Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Activer à l’aide d’Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Activer pour un environnement hybride
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Mapper des dépendances
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Superviser les performances
@@ -850,11 +850,11 @@
         - name: Ansible
           items:
             - name: Installation et configuration
-              href: ansible-install-configure.md
+              href: /azure/developer/ansible/install-on-linux-vm
             - name: Créer une machine virtuelle Linux
-              href: ansible-create-vm.md
+              href: /azure/developer/ansible/vm-configure
             - name: Gérer une machine virtuelle Linux
-              href: ansible-manage-linux-vm.md
+              href: /azure/developer/ansible/vm-manage
         - name: Terraform
           items:
             - name: Installation et configuration
