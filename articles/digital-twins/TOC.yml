@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: Activer les journaux de diagnostic
           href: troubleshoot-diagnostics.md
+        - name: Activer les alertes
+          href: troubleshoot-alerts.md
         - name: Problèmes connus
           href: troubleshoot-known-issues.md
         - name: Résolution des problèmes
