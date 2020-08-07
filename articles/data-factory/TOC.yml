@@ -209,14 +209,14 @@
       items:
         - name: Création visuelle de fabriques de données
           href: author-visually.md
+        - name: Développement et débogage itératifs
+          href: iterative-development-debugging.md
         - name: Hub de gestion
           href: author-management-hub.md
         - name: Contrôle de code source
           href: source-control.md
         - name: Intégration et livraison continues
           href: continuous-integration-deployment.md
-        - name: Développement et débogage itératifs
-          href: iterative-development-debugging.md
     - name: Connecteurs
       items:
         - name: Vue d’ensemble des connecteurs
@@ -562,6 +562,8 @@
       items:
         - name: Paramétrage des services liés
           href: parameterize-linked-services.md
+        - name: Paramètres globaux
+          href: author-global-parameters.md
         - name: Langage d’expression
           href: control-flow-expression-language-functions.md
         - name: Variables système
