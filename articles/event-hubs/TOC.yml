@@ -75,7 +75,7 @@
     - name: Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
     - name: Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
-      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
       maintainContext: true
 - name: Exemples
   items:

@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Concepts
   items:
-    - name: stockage clé-valeur
+    - name: Clés et valeurs
       href: concept-key-value.md
     - name: Capture instantanée à un point dans le temps
       href: concept-point-time-snapshot.md
