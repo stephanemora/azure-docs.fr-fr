@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Transmettre en continu des journaux d’activité vers un Event Hub
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Assistant Log Analytics
+      href: tutorial-log-analytics-wizard.md
 - name: Concepts
   items:
     - name: Planifier un déploiement de rapport et de supervision

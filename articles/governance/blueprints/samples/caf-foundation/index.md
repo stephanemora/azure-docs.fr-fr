@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de base du framework d’ado
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901302"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852342"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -35,7 +35,7 @@ Cette implémentation intègre plusieurs services Azure utilisés pour fournir u
   - Exiger un chiffrement de transfert sécurisé de compte de stockage Azure
   - Refuser des types de ressources (choisir lors du déploiement)  
 - Initiatives
-  - Activer la surveillance dans Azure Security Center (89 stratégies)
+  - Activer la supervision dans Azure Security Center (plus de 100 définitions de stratégie)
 
 Tous ces éléments se conforment aux pratiques éprouvées publiés dans [Centre des architectures Azure - Architectures de référence](/azure/architecture/reference-architectures/).
 

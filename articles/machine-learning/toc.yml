@@ -229,7 +229,7 @@
         - name: Définir les répertoires d’entrée et de sortie
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Débogage interactif
+        - name: Visual Studio Code
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
         - name: Intégration Git
@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Déclencher un pipeline
           href: how-to-trigger-published-pipeline.md
+        - name: Concepteur (glisser-déposer)
+          items:
+            - name: Journaliser les métriques
+              displayName: 'designer, logging'
+              href: how-to-track-designer-experiments.md
+            - name: Transformer les données
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Réentraîner en utilisant des pipelines publiés
+              displayName: 'retrain, designer, published pipeline'
+              href: how-to-retrain-designer.md
+            - name: Prédictions par lot
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Exécuter du code Python
+              displayName: 'feature extraction, feature engineering'
+              href: how-to-designer-python.md
         - name: Déboguer et dépanner les pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Déboguer des pipelines dans Application Insights
           href: how-to-debug-pipelines-application-insights.md
-        - name: Métriques des journaux du concepteur
-          displayName: 'designer, logging'
-          href: how-to-track-designer-experiments.md
-        - name: Données de transformation du concepteur
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Réentraînement du concepteur avec des pipelines publiés
-          displayName: 'retrain, designer, published pipeline'
-          href: how-to-retrain-designer.md
-        - name: Prédictions par lots avec le concepteur
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Code Python d’exécution du concepteur
-          displayName: 'feature extraction, feature engineering'
-          href: how-to-designer-python.md
         - name: Utiliser l’étape d’exécution parallèle
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +477,9 @@
     - name: Gérer les ressources VS Code
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
+    - name: Débogage interactif VS Code
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
     - name: Exporter et supprimer des données
       displayName: GDPR
       href: how-to-export-delete-data.md

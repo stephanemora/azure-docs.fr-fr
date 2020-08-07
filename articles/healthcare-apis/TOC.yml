@@ -19,7 +19,7 @@
       href: fhir-oss-powershell-quickstart.md
     - name: Déployer le serveur FHIR pour Azure - CLI
       href: fhir-oss-cli-quickstart.md
-    - name: Déployer IoT Connector - Portail
+    - name: Déployer le connecteur Azure IoT pour FHIR (préversion) - Portail
       href: iot-fhir-portal-quickstart.md
 - name: Tutoriels
   expanded: false
@@ -86,7 +86,7 @@
       href: enable-diagnostic-logging.md
     - name: Obtenir un jeton pour l’API Azure pour FHIR - CLI
       href: get-healthcare-apis-access-token-cli.md
-    - name: Résoudre les problèmes d’IoT Connector
+    - name: Résoudre les problèmes d’échec dans le connecteur Azure IoT pour FHIR (préversion)
       href: iot-troubleshoot-guide.md
 - name: Concepts
   expanded: false
@@ -97,12 +97,12 @@
       href: azure-ad-hcapi-token-validation.md
     - name: Utiliser des en-têtes HTTP personnalisés pour ajouter des données aux journaux d’audit
       href: use-custom-headers.md
-    - name: Fonctionnement d’IoT Connector
+    - name: Travaux du connecteur Azure IoT pour FHIR (préversion)
       expanded: false
       items:
-        - name: Flux de données IoT Connector
+        - name: Flux de données du connecteur Azure IoT pour FHIR (préversion)
           href: iot-data-flow.md
-        - name: Modèles de mappage IoT Connector
+        - name: Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
           href: iot-mapping-templates.md
 - name: Ressources
   items:
