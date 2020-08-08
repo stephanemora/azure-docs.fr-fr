@@ -85,6 +85,10 @@
           items:
             - name: Créer une ressource
               href: samples/resource-manager-app-resource.md
+            - name: Azure App Service
+              href: samples/resource-manager-web-app.md
+            - name: Azure Functions
+              href: samples/resource-manager-function-app.md
         - name: Paramètres de diagnostic
           href: samples/resource-manager-diagnostic-settings.md
         - name: Espaces de travail Log Analytics
@@ -216,7 +220,7 @@
               href: platform/manage-access.md
         - name: Agents de machine virtuelle
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/agents-overview.md
             - name: Questions fréquentes (FAQ)
               href: faq.md#agents

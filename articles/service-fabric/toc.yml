@@ -671,7 +671,7 @@
                 - name: Effectuer un scale-out programmatiquement
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Effectuer un scale-up du type de nœud principal
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: Ajouter un type de nœud
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Supprimer un type de nœud

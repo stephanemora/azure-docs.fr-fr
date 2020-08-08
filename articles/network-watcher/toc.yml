@@ -7,14 +7,14 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Configurer les journaux de flux NSG avec un modèle ARM
-      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - Portail
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - PowerShell
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: Configurer les journaux de flux NSG avec un modèle ARM
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriels
   items:
     - name: Diagnostiquer un problème de routage sur une machine virtuelle

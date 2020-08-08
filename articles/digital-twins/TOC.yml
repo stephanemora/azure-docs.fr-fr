@@ -55,7 +55,7 @@
         - name: Gérer des modèles personnalisés
           href: how-to-manage-model.md
         - name: Analyser et valider les modèles
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
         - name: Ajouter des étiquettes
           href: how-to-use-tags.md
     - name: Utiliser un environnement d’exécution en direct
