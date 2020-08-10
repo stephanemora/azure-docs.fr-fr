@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Services partagés ISO 2700
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072875"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927349"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
@@ -25,7 +25,7 @@ Le centre de données virtuel est un ensemble éprouvé d’architectures de ré
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une infrastructure de services partagés sécurisée, entièrement supervisée et prête pour les entreprises, basée sur les normes ISO 27001. Cet environnement comporte les éléments suivants :
 
-- Rôles de [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) utilisés pour la ségrégation des tâches du point de vue du plan de contrôle. Trois rôles sont définis avant le déploiement d’une infrastructure :
+- [Rôles Azure](../../../../role-based-access-control/overview.md) utilisés pour la répartition des tâches du point de vue du plan de contrôle. Trois rôles sont définis avant le déploiement d’une infrastructure :
   - Le rôle NetOps dispose des droits nécessaires pour gérer l’environnement réseau, notamment les paramètres du pare-feu, les paramètres du groupe de sécurité réseau, le routage et d’autres fonctionnalités réseau.
   - Le rôle SecOps dispose des droits nécessaires pour déployer et gérer [Azure Security Center](../../../../security-center/security-center-intro.md), définir des [stratégies Azure](../../../policy/overview.md) et d’autres droits liés à la sécurité.
   - Le rôle SysOps dispose des droits nécessaires pour définir des [stratégies Azure](../../../policy/overview.md) au sein de l’abonnement, gérer [Log Analytics](../../../../azure-monitor/overview.md) pour tout l’environnement, ainsi que d’autres droits opérationnels.

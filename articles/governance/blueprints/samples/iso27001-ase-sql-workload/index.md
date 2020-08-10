@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Charge de travail ASE/SQL IS
 description: Vue d’ensemble et architecture de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536831"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926091"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -28,7 +28,7 @@ L’exemple de blueprint Charge de travail App Service Environment/SQL Database 
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une infrastructure de charge de travail sécurisée, entièrement supervisée et prête pour les entreprises, basée sur les normes ISO 27001. Cet environnement comporte les éléments suivants :
 
-- Rôle de [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) nommé DevOps disposant des droits nécessaires pour déployer et gérer des ressources dans un environnement [Azure App Service Environment](../../../../app-service/environment/intro.md) déployé par l’exemple de blueprint
+- [Rôle Azure](../../../../role-based-access-control/overview.md) nommé DevOps disposant des droits nécessaires pour déployer et gérer des ressources dans un [Azure App Service Environment](../../../../app-service/environment/intro.md) déployé par l’exemple de blueprint
 - [Stratégies Azure](../../../policy/overview.md) pour verrouiller les services pouvant être déployés dans l’environnement et interdire la création d’une ressource d’adresse IP publique
 - Un réseau virtuel contenant un seul sous-réseau et appairé à un environnement de [services partagés](../iso27001-shared/index.md) préexistant avec forçage du trafic à travers le pare-feu des [services partagés](../iso27001-shared/index.md) Le réseau virtuel héberge les ressources suivantes :
   - Un [environnement Azure App Service Environment](../../../../app-service/environment/intro.md) utilisable pour héberger une ou plusieurs applications web, API web ou fonctions
