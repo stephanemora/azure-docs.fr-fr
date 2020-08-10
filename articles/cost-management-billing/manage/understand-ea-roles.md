@@ -1,18 +1,18 @@
 ---
 title: Comprendre les rôles d’administrateur d’entreprise dans Azure
-description: Découvrez les rôles d’administrateur d’entreprise dans Azure.
+description: Découvrez les rôles d’administrateur d’entreprise dans Azure. Vous pouvez affecter cinq rôles d’administration distincts.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8a4705a68b0b96a8f95cc2356cda454fdef65054
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124338"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531487"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
 
@@ -103,9 +103,9 @@ Vous pouvez voir différents tarifs dans le portail Azure en fonction de votre r
 
 Pour découvrir comment définir ces stratégies, consultez [Gérer l’accès aux informations de facturation pour Azure](manage-billing-access.md).
 
-Le tableau suivant montre la relation entre les rôles d’administrateur Contrat Entreprise, la stratégie d’affichage des frais, le rôle RBAC (contrôle d’accès en fonction du rôle) du portail Azure et les tarifs que vous voyez dans le portail Azure. L’administrateur d’entreprise voit toujours les détails relatifs à l’utilisation en fonction des tarifs Contrat Entreprise de l’organisation. Toutefois, l’administrateur de service et le propriétaire du compte voient différents tarifs en fonction de la stratégie d’affichage des frais et de leur rôle RBAC. Le rôle Administrateur de service listé dans le tableau suivant fait référence aux rôles Administrateur de service et Administrateur de service (lecture seule).
+Le tableau suivant montre la relation entre les rôles d’administrateur Contrat Entreprise, la stratégie d’affichage des frais, le rôle Azure du portail Azure et les tarifs que vous voyez dans le portail Azure. L’administrateur d’entreprise voit toujours les détails relatifs à l’utilisation en fonction des tarifs Contrat Entreprise de l’organisation. Toutefois, l’administrateur de service et le propriétaire du compte voient différents tarifs en fonction de la stratégie d’affichage des frais et de leur rôle Azure. Le rôle Administrateur de service listé dans le tableau suivant fait référence aux rôles Administrateur de service et Administrateur de service (lecture seule).
 
-|Rôle d’administrateur Contrat Entreprise|Stratégie d’affichage des frais pour le rôle|Rôle RBAC|Affichage des tarifs|
+|Rôle d’administrateur Contrat Entreprise|Stratégie d’affichage des frais pour le rôle|Rôle Azure|Affichage des tarifs|
 |---|---|---|---|
 |Propriétaire du compte OU Administrateur de service|✔ Activée|Propriétaire|Tarifs Contrat Entreprise de l’organisation|
 |Propriétaire du compte OU Administrateur de service|✘ Désactivée|Propriétaire|Tarifs au détail|
@@ -113,7 +113,7 @@ Le tableau suivant montre la relation entre les rôles d’administrateur Contra
 |Propriétaire du compte OU Administrateur de service|✘ Désactivée |Aucun|Aucun tarif|
 |None|Non applicable |Propriétaire|Tarifs au détail|
 
-Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégies d’affichage des frais dans Enterprise Portal. Vous pouvez mettre à jour le rôle RBAC dans le portail Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégies d’affichage des frais dans Enterprise Portal. Vous pouvez mettre à jour le rôle Azure dans le portail Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 

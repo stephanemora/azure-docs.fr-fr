@@ -1,17 +1,17 @@
 ---
 title: Créer un abonnement Azure supplémentaire
-description: Découvrez comment ajouter un nouvel abonnement Azure dans le Portail Azure.
+description: Découvrez comment ajouter un nouvel abonnement Azure dans le Portail Azure. Consultez les informations sur les formulaires de compte de facturation et affichez les ressources disponibles supplémentaires.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d27120f6bd0978b69d664ab3ab2e86bfee4f1755
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200844"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460964"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Créer un abonnement Azure supplémentaire
 
@@ -50,7 +50,7 @@ Pour créer des abonnements, vous avez besoin des autorisations suivantes :
 
 |Champ  |Définition  |
 |---------|---------|
-|Name     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
+|Nom     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
 |Offre     | Sélectionnez EA Dev/Test si vous envisagez d’utiliser cet abonnement pour le développement ou pour tester les charges de travail. Sinon, choisissez Microsoft Azure Enterprise. Pour pouvoir créer des abonnements EA Dev/Test, vous devez activer l’offre DevTest pour votre compte d’inscription.|
 
 **Contrat client Microsoft**
@@ -60,7 +60,7 @@ Pour créer des abonnements, vous avez besoin des autorisations suivantes :
 |Profil de facturation     | Les frais de votre abonnement sont facturés au profil de facturation que vous avez sélectionné. Si vous avez accès à un seul profil de facturation, la sélection est grisée.     |
 |Section de facture     | Les frais de votre abonnement sont indiqués dans cette section de la facture du profil de facturation. Si vous avez accès à une seule section de facturation, la sélection est grisée.  |
 |Plan     | Sélectionnez Plan Microsoft Azure pour Dev/Test si vous envisagez d’utiliser cet abonnement pour le développement ou pour tester les charges de travail. Sinon, choisissez Plan Microsoft Azure. Si une seule offre est activée pour le profil de facturation, la sélection est grisée.  |
-|Name     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
+|Nom     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
 
 **Contrat Partenaire Microsoft**
 
@@ -68,7 +68,7 @@ Pour créer des abonnements, vous avez besoin des autorisations suivantes :
 |---------|---------|
 |Customer    | L’abonnement est créé pour le client que vous sélectionnez. Si vous n’avez qu’un seul client, la sélection est grisée.  |
 |Reseller    | Revendeur qui fournira des services au client. Il s’agit d’un champ facultatif, qui s’applique uniquement aux fournisseurs indirects dans le modèle CSP à deux niveaux. |
-|Name     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
+|Nom     | Nom d’affichage qui vous aide à identifier facilement l’abonnement dans le portail Azure.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Créer programmatiquement un abonnement Azure supplémentaire
 

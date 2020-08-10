@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286595"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553476"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Modifier les informations de contact de votre compte Azure
 
@@ -24,7 +24,7 @@ Cet article vous aide à mettre à jour les informations de contact de votre com
 
 *Adresse de facturation* : l’adresse de facturation est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable des factures générées pour un compte de facturation. Pour un compte de facturation d’un MOSP (Microsoft Online Service Program), il existe une seule adresse de facturation, elle s’affiche sur toutes les factures générées pour le compte. Pour un compte de facturation d’un contrat client Microsoft (MCA), une adresse de facturation existe pour chaque profil de facturation ; elle est affichée dans la facture générée pour le profil de facturation.
 
-*Adresse e-mail du contact pour les e-mails marketing et de service* : vous pouvez spécifier une adresse e-mail différente de l’adresse avec laquelle vous vous connectez pour recevoir des notifications de facturation, de service et de recommandation concernant votre compte Azure.  
+*Adresse e-mail du contact pour les e-mails marketing et de service* : vous pouvez spécifier une adresse e-mail différente de l’adresse avec laquelle vous vous connectez pour recevoir des notifications importantes de facturation, de service et de recommandation concernant votre compte Azure. Les e-mails de notification de service, tels que les problèmes de sécurité urgents, les changements de prix ou les changements cassants apportés aux services en cours d’utilisation par votre compte, sont toujours envoyés à votre adresse de connexion.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Mettre à jour une adresse de compte de facturation MOSP
 

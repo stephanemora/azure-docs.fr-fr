@@ -3,16 +3,16 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537797"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563481"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -20,7 +20,7 @@ L’article décrit dans quelle mesure les contrats et avenants Azure EA peuvent
 
 ## <a name="enrollment-provisioning-status"></a>État du provisionnement de l’inscription
 
-La date de début d’un nouveau Paiement anticipé Azure est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes de Paiement anticipé Azure par le biais du portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande de Paiement anticipé Azure a été traité dans une autre région. La date de début de couverture sur le bon de commande sur https://www.explore.ms indique le début du Paiement anticipé Azure. La date de début de couverture est le moment où le Paiement anticipé Azure apparaît dans le portail Azure EA.
+La date de début d’un nouveau Paiement anticipé Azure est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes de Paiement anticipé Azure par le biais du portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande de Paiement anticipé Azure a été traité dans une autre région. La date de début de couverture sur le bon de commande indique le début du Paiement anticipé Azure. La date de début de couverture est le moment où le Paiement anticipé Azure apparaît dans le portail Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Prise en charge des clients Entreprise
 
@@ -43,7 +43,7 @@ Une inscription a l’une des valeurs d’état suivantes. Chaque valeur déterm
 
 **Expiré** : l’inscription EA expire lorsqu’elle atteint la date de fin du contrat entreprise. Le client EA est exclu de la durée prolongée et tous ses services sont désactivés.
 
-À partir du 1er août 2019, les nouveaux formulaires d’annulation ne sont pas acceptés pour les clients commerciaux Azure. Au lieu de cela, toutes les inscriptions rentrent dans l’état de durée prolongée indéterminée. Si vous souhaitez cesser d’utiliser des services Azure, fermez votre abonnement dans le [portail Azure](https://portal.azure.com). Ou bien, votre partenaire peut envoyer une demande de cessation sur https://www.explore.ms. Rien ne change pour les clients ayant des types de contrat public.
+À partir du 1er août 2019, les nouveaux formulaires d’annulation ne sont pas acceptés pour les clients commerciaux Azure. Au lieu de cela, toutes les inscriptions rentrent dans l’état de durée prolongée indéterminée. Si vous souhaitez cesser d’utiliser des services Azure, fermez votre abonnement dans le [portail Azure](https://portal.azure.com). Votre partenaire peut également envoyer une demande de cessation. Rien ne change pour les clients ayant des types de contrat public.
 
 **Transféré** : l’état transféré est appliqué aux inscriptions dont les comptes et services associés sont transférés vers une nouvelle inscription. Les inscriptions ne sont pas automatiquement transférées si un nouveau numéro d’inscription est généré lors du renouvellement. Le numéro d’inscription précédent doit être inclus dans la demande de renouvellement du client pour qu’un transfert automatique puisse avoir lieu.
 

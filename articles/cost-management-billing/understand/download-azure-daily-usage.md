@@ -1,6 +1,6 @@
 ---
 title: Afficher et télécharger les informations d’utilisation et les frais Azure
-description: Décrit comment télécharger ou afficher vos informations d’utilisation quotidienne et vos frais Azure.
+description: Découvrez comment télécharger ou voir vos frais et utilisation quotidienne d’Azure, et affichez les ressources disponibles supplémentaires.
 keywords: facturation de l’utilisation, frais d’utilisation, téléchargement des informations d’utilisation, afficher l’utilisation, facture azure, utilisation d’azure
 author: bandersmsft
 ms.author: banders
@@ -8,12 +8,12 @@ tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322026"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460505"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger vos informations d’utilisation et vos frais Azure
 

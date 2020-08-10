@@ -1,18 +1,18 @@
 ---
 title: Bien démarrer avec un compte de facturation dans le cadre d’un Contrat client Microsoft - Azure
-description: Comprendre le fonctionnement de votre compte de facturation associé à un Contrat client Microsoft
+description: Apprenez-en davantage sur votre compte de facturation de Contrat client Microsoft, notamment les profils de facturation et les modes de paiement des factures.
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbb8f9aae7eb05ac3c4955beb71dba003ddacd0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371002"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461899"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126123"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530008"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
@@ -33,7 +33,7 @@ Pour plus d'informations, consultez [Déploiement Azure Resource Manager et dép
 
 ## <a name="assign-a-subscription-administrator"></a>Attribuer un administrateur d’abonnement
 
-Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un administrateur existant lui attribue le rôle de [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) (un rôle RBAC) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
+Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un administrateur existant lui attribue le rôle de [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) (un rôle Azure) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
 
 Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 9e5657211e640c741dbf1bf2b5473a3ea5e10487
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287303"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759889"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Déterminer la réservation à acheter
 
@@ -91,6 +91,8 @@ Notez les points suivants :
 Les achats de réservation calculés par le moteur de recommandations apparaissent sous l’onglet **Recommandé** du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Cette image en fournit un exemple.
 
 ![Image présentant les recommandations](./media/determine-reservation-purchase/select-product-ri.png)
+
+Apprenez-en davantage sur les [recommandations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Recommandations dans l’application Cost Management pour Power BI
 

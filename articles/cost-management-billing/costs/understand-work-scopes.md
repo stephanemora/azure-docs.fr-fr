@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077156"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501523"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -93,8 +93,8 @@ Bien que les étendues de gouvernance soient liées à un seul répertoire, ce n
 
 Les étendues de facturation EA prennent en charge les rôles suivants :
 
-- **Administrateur d’entreprise** : peut gérer les paramètres des comptes de facturation et l’accès à ces derniers, peut afficher tous les coûts et peut gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation EA est identique au [rôle RBAC Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Utilisateur d’entreprise en lecture seule** : peut afficher les paramètres de compte de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation EA est identique au [rôle RBAC Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrateur d’entreprise** : peut gérer les paramètres des comptes de facturation et l’accès à ces derniers, peut afficher tous les coûts et peut gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de Contrat Entreprise est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Utilisateur d’entreprise en lecture seule** : peut afficher les paramètres de compte de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de Contrat Entreprise est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrateur de service** : peut gérer les paramètres des départements, comme le centre de coûts, peut afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations.  Le paramètre de compte de facturation **Affichage des frais pour l’administrateur de service** doit être activé pour que les administrateurs de service et les utilisateurs en lecture seule puissent afficher les coûts. Si le paramètre **Affichage des frais pour l’administrateur de service** est désactivé, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s’ils sont propriétaires de compte ou d’abonnement.
 - **Utilisateur de service en lecture seule** : peut afficher les paramètres de département, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. Si le paramètre **Affichage des frais pour l’administrateur de service** est désactivé, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s’ils sont propriétaires de compte ou d’abonnement.
 - **Propriétaire du compte** : peut gérer les paramètres de compte d’inscription (comme le centre de coûts), afficher tous les coûts et gérer la configuration des coûts (par exemple les budgets et les exportations) pour le compte d’inscription. Le paramètre de compte de facturation **Affichage des frais pour le propriétaire du compte** doit être activé pour que les propriétaires de compte et les utilisateurs RBAC puissent afficher les coûts.
@@ -141,10 +141,10 @@ Les étendues de facturation de Contrat client ne s’appliquent pas aux partena
 
 Les étendues de facturation de contrat client prennent en charge les rôles suivants :
 
-- **Propriétaire** : peut gérer les paramètres de facturation et l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Collaborateur** : peut gérer les paramètres de facturation, mais pas l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lecteur** : peut afficher les paramètres de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Gestionnaire de factures** : peut afficher et payer les factures, et peut afficher les données et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Propriétaire** : peut gérer les paramètres de facturation et l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Collaborateur** : peut gérer les paramètres de facturation, mais pas l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Lecteur** : peut afficher les paramètres de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Gestionnaire de factures** : peut afficher et payer les factures, et peut afficher les données et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Créateur de l’abonnement Azure** : peut créer des abonnements Azure, afficher les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au rôle de propriétaire de compte d’inscription EA.
 
 Les abonnements Azure sont imbriqués sous les sections de facture, comme ils le sont dans les comptes d’inscription EA. Les utilisateurs de facturation ont accès aux données de coûts concernant les abonnements et les groupes de ressources se trouvant dans leurs étendues respectives. Toutefois, ils ne peuvent pas afficher ou gérer les ressources dans le Portail Azure. Les utilisateurs de facturation peuvent afficher les coûts en accédant à **Gestion des coûts + facturation** dans la liste de services du Portail Azure. Ensuite, ils peuvent filtrer les coûts sur les abonnements et groupes de ressources spécifiques dont ils ont besoin pour créer leurs rapports.

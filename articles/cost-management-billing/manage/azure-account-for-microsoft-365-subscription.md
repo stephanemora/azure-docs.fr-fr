@@ -1,6 +1,6 @@
 ---
 title: S’inscrire à Microsoft 365 avec un compte Azure
-description: Apprenez à créer un abonnement Microsoft 365 avec un compte Azure
+description: Apprenez à créer un abonnement Microsoft 365 avec un compte Azure. Vous pouvez également associer des comptes Azure et Microsoft 365 existants entre eux.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810378"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461882"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Souscrire un abonnement Microsoft 365 avec un compte Azure
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Souscrire un abonnement Microsoft 365 avec un compte Azure
 
 Si vous êtes un abonné Azure, vous pouvez utiliser votre compte Azure pour souscrire un abonnement Microsoft 365. Si vous faites partie d’une organisation qui a un abonnement Azure, vous pouvez créer des abonnements Microsoft 365 pour les utilisateurs dans votre instance Azure Active Directory (Azure AD) existante. Inscrivez-vous à Microsoft 365 avec un compte détenant les autorisations Administrateur général ou Administrateur de facturation dans votre locataire Azure Active Directory. Pour plus d’informations, consultez les pages [Vérifier mes autorisations de compte dans Azure AD](#RoleInAzureAD) et [Attribution de rôles d’administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

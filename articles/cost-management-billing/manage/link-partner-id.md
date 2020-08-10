@@ -7,28 +7,28 @@ ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281784"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529908"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
 Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. À l’aide du lien d’administrateur partenaire, les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la remise du service.
 
-Le lien d’administrateur partenaire permet à Microsoft d’identifier et de gratifier les partenaires qui favorisent la réussite des clients Azure. Microsoft peut attribuer une influence et un revenu consommé Azure à votre organisation en fonction des autorisations du compte (rôle RBAC) et de l’étendue (abonnement, groupe de ressources, ressource).
+Le lien d’administrateur partenaire permet à Microsoft d’identifier et de gratifier les partenaires qui favorisent la réussite des clients Azure. Microsoft peut attribuer une influence et un revenu consommé Azure à votre organisation en fonction des autorisations du compte (rôle Azure) et de l’étendue (abonnement, groupe de ressources, ressource).
 
 ## <a name="get-access-from-your-customer"></a>Accéder à votre client
 
 Avant de lier votre ID partenaire, votre client doit vous donner accès à ses ressources Azure en utilisant l’une des options suivantes :
 
-- **Utilisateur invité** : votre client peut vous ajouter en tant qu’utilisateur invité et vous attribuer des rôles de contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utilisateur invité** : votre client peut vous ajouter en tant qu’utilisateur invité et attribuer des rôles Azure. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Compte Active Directory** : votre client peut créer un compte d’utilisateur pour vous dans son propre répertoire et affecter un rôle RBAC.
+- **Compte Active Directory** : votre client peut créer un compte d’utilisateur pour vous dans son propre répertoire et affecter un rôle Azure.
 
-- **Principal du service** : votre client peut ajouter une application ou un script provenant de votre organisation dans son répertoire et affecter un rôle RBAC. L’identité de l’application ou du script correspond à un principal du service.
+- **Principal du service** : votre client peut ajouter une application ou un script provenant de votre organisation dans son répertoire et affecter un rôle Azure. L’identité de l’application ou du script correspond à un principal du service.
 
 - **Azure Lighthouse** : Votre client peut déléguer un abonnement (ou un groupe de ressources) pour permettre à vos utilisateurs de l’utiliser à partir de votre locataire. Pour plus d’informations, consultez [Gestion des ressources déléguées Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
@@ -168,9 +168,8 @@ Partner Admin Link (PAL) permet à Microsoft d’identifier et de gratifier les 
 
 **Quelles sont les données collectées par PAL ?**
 
-L’association PAL aux informations d’identification existantes ne fournit pas de nouvelles données client à Microsoft. Elle fournit simplement la télémétrie à Microsoft où un partenaire est activement impliqué dans l’environnement Azure d’un client. Microsoft peut attribuer une influence et un revenu consommé Azure depuis l’environnement client vers l’organisation partenaire en fonction des autorisations du compte (rôle RBAC) et de l’étendue (groupe d’administration, abonnement, groupe de ressources, ressource) fournies au partenaire par le client. 
+L’association PAL aux informations d’identification existantes ne fournit pas de nouvelles données client à Microsoft. Elle fournit simplement la télémétrie à Microsoft où un partenaire est activement impliqué dans l’environnement Azure d’un client. Microsoft peut attribuer une influence et un revenu consommé Azure depuis l’environnement client vers l’organisation partenaire en fonction des autorisations du compte (rôle Azure) et de l’étendue (groupe d’administration, abonnement, groupe de ressources, ressource) fournies au partenaire par le client. 
 
 **Cela a-t-il un impact sur la sécurité de l’environnement Azure d’un client ?**
 
-L’association PAL ajoute uniquement l’ID MPN du partenaire aux informations d’identification déjà provisionnées et ne modifie aucune autorisation (rôle RBAC) ni ne fournit de données de service Azure supplémentaires au partenaire ou à Microsoft. 
-
+L’association PAL ajoute uniquement l’ID MPN du partenaire aux informations d’identification déjà provisionnées et ne modifie aucune autorisation (rôle Azure) ni ne fournit de données de service Azure supplémentaires au partenaire ou à Microsoft. 
