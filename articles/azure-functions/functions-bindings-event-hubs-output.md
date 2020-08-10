@@ -6,18 +6,18 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d1fecddd2c82e4b0d2d67ad14d93d3459f57fb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041728"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Liaison de sortie Azure Event Hubs pour Azure Functions
 
-Cet article explique comment utiliser des liaisons [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) pour Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour des Event Hubs.
+Cet article explique comment utiliser des liaisons [Azure Event Hubs](../event-hubs/event-hubs-about.md) pour Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour des Event Hubs.
 
-Pour plus d'informations sur les détails d'installation et de configuration, consultez la [vue d'ensemble](functions-bindings-event-hubs.md).
+Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-output.md)]
 

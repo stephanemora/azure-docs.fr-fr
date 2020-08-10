@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bd04d037f7852bd7d9ea51719abf27f09093b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85101008"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495673"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Attribution de variables avec SQL Synapse
+# <a name="assign-variables-with-synapse-sql"></a>Attribuer des variables avec SQL Synapse
 
 Dans cet article, vous trouverez des conseils pour l’attribution de variables T-SQL avec SQL Synapse.
 
-## <a name="setting-variables-with-declare"></a>Définition de variables via l’instruction DECLARE
+## <a name="set-variables-with-declare"></a>Définir des variables via l’instruction DECLARE
 
 Dans SQL Synapse, les variables sont définies au moyen de l’instruction `DECLARE` ou `SET`. L’initialisation de variables avec l’instruction DECLARE constitue l’une des méthodes les plus flexibles pour définir une valeur de variable dans SQL Synapse.
 
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Définition de valeurs avec l’instruction SET
+## <a name="set-values-with-set"></a>Définir des valeurs avec l’instruction SET
 
 L’instruction SET est couramment utilisée pour définir une variable unique.
 

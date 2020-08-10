@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509016"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423454"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -26,11 +26,12 @@ La console série du Portail Azure permet aux machines virtuelles et aux instanc
 
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
+La console série est généralement disponible dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
+
 Pour en savoir plus sur la console série Windows, consultez [Console série Windows](./serial-console-windows.md).
 
 > [!NOTE]
-> La console série est généralement disponible dans les régions Azure Mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
-
+> La console série est actuellement incompatible avec un compte de stockage de diagnostics à démarrage managé. Pour utiliser la console série, veillez à utiliser un compte de stockage personnalisé.
 
 ## <a name="prerequisites"></a>Prérequis
 

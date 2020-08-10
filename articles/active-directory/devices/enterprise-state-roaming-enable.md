@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252999"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541887"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
 
@@ -31,7 +31,7 @@ Lorsque vous activez Enterprise State Roaming, votre organisation reçoit automa
 ## <a name="to-enable-enterprise-state-roaming"></a>Activer Enterprise State Roaming
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com/).
-1. Sélectionnez **Azure Active Directory** &gt; **Appareils** &gt; **Enterprise State Roaming**.
+1. Sélectionnez **Azure Active Directory** > **Appareils** > **Enterprise State Roaming**.
 1. Sélectionnez **Les utilisateurs peuvent synchroniser les paramètres et les données d’application entre les appareils**. Pour plus d’informations, consultez [Comment configurer les paramètres de l’appareil](/azure/active-directory/device-management-azure-portal).
   
    ![Image du paramètre d’appareil «Les utilisateurs peuvent synchroniser les paramètres et les données d’application sur différents appareils»](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,7 +56,7 @@ La valeur de pays/région est définie dans le cadre du processus de création d
 Procédez comme suit pour afficher un rapport d’état de synchronisation d’appareil par utilisateur.
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com/).
-1. Sélectionnez **Azure Active Directory** &gt; **Utilisateurs** &gt; **Tous les utilisateurs**.
+1. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
 1. Sélectionnez l’utilisateur, puis **Appareils**.
 1. Sous **Afficher**, sélectionnez **Paramètres de synchronisation des appareils et données d’application** pour afficher l’état de synchronisation.
   

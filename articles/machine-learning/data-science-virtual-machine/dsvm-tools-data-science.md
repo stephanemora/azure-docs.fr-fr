@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012404"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Outils d’apprentissage automatique et de science des données sur les machines virtuelles de science des données (DSVM) Azure
 Les machines virtuelles DSVM (Data Science Virtual Machine) offrent un ensemble complet d’outils et de bibliothèques de Machine Learning disponibles dans des langages courants tels que Python, R et Julia.
@@ -26,7 +26,7 @@ Voici une partie des outils et des bibliothèques de Machine Learning disponible
 
 Consultez la référence complète du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python.](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |   Azure Machine Learning est un service cloud que vous pouvez utiliser pour développer et déployer des modèles Machine Learning. Vous pouvez suivre vos modèles avec le SDK Python pendant les opérations de création, d’entraînement, de scaling et de gestion que vous effectuez sur ceux-ci. Déployez des modèles en tant que conteneurs et exécutez-les dans le cloud, localement, ou sur Azure IoT Edge.   |
 | Éditions prises en charge     | Windows (environnement Conda : AzureML), Linux (environnement Conda : py36)    |
@@ -38,7 +38,7 @@ Consultez la référence complète du [Kit de développement logiciel (SDK) Azur
 
 ## <a name="h2o"></a>H2O
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une plateforme d’intelligence artificielle open source prenant en charge des fonctionnalités de Machine Learning en mémoire, distribuées, rapides et scalables.  |
 | Versions prises en charge      | Linux   |
@@ -52,7 +52,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 
 ## <a name="lightgbm"></a>LightGBM
 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Un framework de boosting de gradient (GBDT, GBRT, GBM ou MART) rapide, distribué et hautes performances basé sur des algorithmes d’arbre de décision. Il est utilisé pour le classement, la classification et de nombreuses autres tâches de Machine Learning.    |
 | Versions prises en charge      | Windows, Linux    |
@@ -62,7 +62,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Outils associés      | MXNet, XgBoost  |
 
 ## <a name="rattle"></a>Rattle
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |   Une interface graphique utilisateur pour l’exploration de données à l’aide de R.   |
 | Éditions prises en charge     | Windows, Linux     |
@@ -72,7 +72,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Outils associés      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |   Une bibliothèque système d’entraînement rapide, open source et hors cœur    |
 | Éditions prises en charge     | Windows, Linux     |
@@ -84,7 +84,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 
 
 ## <a name="weka"></a>Weka
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |  Une collection d’algorithmes de Machine Learning pour les tâches d’exploration de données. Les algorithmes peuvent être appliqués directement à un jeu de données ou être appelés à partir de votre propre code Java. Weka contient des outils pour le prétraitement des données, la classification, la régression, le clustering, les règles d’association et la visualisation. |
 | Éditions prises en charge     | Windows, Linux     |
@@ -94,7 +94,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Outils associés      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="xgboost"></a>XGBoost 
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |   Une bibliothèque de boosting de gradient (GBDT, GBRT ou GBM) rapide, portable et distribuée pour Python, R, Java, Scala, C++, etc. S’exécute sur une seule machine, et sur Apache Hadoop et Spark.    |
 | Éditions prises en charge     | Windows, Linux     |
@@ -105,7 +105,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 | Outils associés      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
-|    |           |
+| Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Moteur de requête SQL open source sur le Big Data    |
 | Versions DSVM prises en charge      | Windows 2019, Linux  |

@@ -6,18 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082713"
 ---
 # <a name="feature-list"></a>Liste des fonctionnalités #
 Voici la liste des fonctionnalités testées et des fonctionnalités non prises en charge :
 
-|                                         | TESTÉE | PARTIELLEMENT TESTÉE | NON TESTÉE | NON PRISE EN CHARGE | REMARQUES                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Fonctionnalité | TESTÉE | PARTIELLEMENT TESTÉE | NON TESTÉE | NON PRISE EN CHARGE | REMARQUES |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Lecture                                |        |                  |          |             |                                                                                                                      |
 | Lecture à la demande de base                | X      |                  |          |             | Prend uniquement en charge les flux en provenance d'Azure Media Services                                                                      |
 | Lecture en direct de base                     | X      |                  |          |             | Prend uniquement en charge les flux en provenance d'Azure Media Services                                                                      |

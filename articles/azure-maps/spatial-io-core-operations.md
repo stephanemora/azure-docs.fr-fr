@@ -1,19 +1,20 @@
 ---
 title: Opérations d’E/S principales | Microsoft Azure Maps
 description: Découvrez comment lire et écrire efficacement des données XML et délimitées à l’aide de bibliothèques principales à partir du module d’E/S spatiales.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 021680a81cc5f97bb92c3a9e14036e1a88dae278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371438"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279506"
 ---
 # <a name="core-io-operations"></a>Opérations d’E/S principales
 
@@ -30,7 +31,7 @@ La classe `atlas.io.core.CsvReader` lit les chaînes qui contiennent des jeux de
 
 Par défaut, le lecteur utilise la virgule comme délimiteur. Toutefois, le délimiteur peut être remplacé par un caractère unique ou défini sur `'auto'`. Quand la valeur est `'auto'`, le lecteur analyse la première ligne de texte de la chaîne. Ensuite, il sélectionne le caractère le plus courant dans le tableau ci-dessous pour l’utiliser comme délimiteur.
 
-| | |
+| Délimiteur | Caractère |
 | :-- | :-- |
 | Comma | `,` |
 | Onglet | `\t` |
@@ -145,4 +146,4 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Détails des formats de données pris en charge](spatial-io-supported-data-format-details.md)
+> [Détails sur les formats de données pris en charge](spatial-io-supported-data-format-details.md)

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114756"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422332"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -113,7 +113,7 @@ En fonction de l’API que vous utilisez, un élément Azure Cosmos peut représ
 
 | Entité Cosmos | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- |
-|Élément Azure Cosmos | Document | Ligne | Document | Nœud ou arête | Élément |
+|Élément Azure Cosmos | Élément | Ligne | Document | Nœud ou arête | Élément |
 
 ### <a name="properties-of-an-item"></a>Propriétés d’un élément
 

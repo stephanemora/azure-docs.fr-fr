@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fdd72842db790a8f4ecadfc875069962dcf449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728144"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497084"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
 
@@ -72,7 +72,7 @@ Règles de liste de mots bloqués :
 Pour configurer la stratégie de nommage, l’un des rôles suivants est nécessaire :
 - Administrateur général
 - Administrateur de groupe
-- Administrateur d’utilisateurs
+
 
 Certains administrateurs peuvent être exemptés de ces stratégies dans toutes les charges de travail et tous les points de terminaison de groupe. Ils peuvent ainsi créer des groupes en utilisant des mots bloqués et avec leurs propres conventions de nommage. Les rôles d’administrateur exemptés de la stratégie de nommage de groupes sont indiqués ci-dessous.
 

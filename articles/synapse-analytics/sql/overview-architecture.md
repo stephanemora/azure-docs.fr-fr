@@ -1,5 +1,5 @@
 ---
-title: Architecture Azure Synapse SQL
+title: Architecture de SQL Synapse
 description: Découvrez comment Azure Synapse SQL combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec Stockage Azure pour obtenir des performances et une scalabilité élevées.
 services: synapse-analytics
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046853"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architecture Azure Synapse SQL 
 

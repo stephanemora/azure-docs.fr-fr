@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078923"
 ---
 # <a name="sensor-partner-integration"></a>Intégration de partenaire de capteur
 
@@ -131,7 +131,7 @@ FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’ap
 - /**SensorModel** : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
 - /**Sensor** : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
 
-  **DeviceModel** |  |
+  DeviceModel | Description |
   --- | ---
   Type (nœud, passerelle)  | Type de l’appareil – Nœud ou passerelle |
   Fabricant  | Nom du fabricant |
@@ -140,7 +140,7 @@ FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’ap
   Nom  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit. |
   Description  | Description explicite du modèle. |
   Propriétés  | Propriétés supplémentaires fournies par le fabricant. |
-  **Appareil** |  |
+  **Appareil** | **Description** |
   DeviceModelId  |ID du modèle d’appareil associé. |
   HardwareId   |ID unique de l’appareil, par exemple l’adresse MAC.  |
   ReportingInterval |Intervalle de rapport en secondes. |
@@ -149,7 +149,7 @@ FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’ap
   Nom  | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom correspondant à celui de l’appareil côté partenaire. Si le nom de l’appareil est défini par l’utilisateur côté partenaire, ce nom doit être propagé sur FarmBeats.  |
   Description  | Description explicite.  |
   Propriétés  |Propriétés supplémentaires fournies par le fabricant.  |
-  **SensorModel** |  |
+  **SensorModel** | **Description** |
   Type (analogique, numérique)  |Mentionne le type de capteur (analogique ou numérique).|
   Fabricant  | Nom du fabricant. |
   ProductCode  | Code produit ou nom ou numéro du modèle. Par exemple, RS-CO2-N01.  |
@@ -163,7 +163,7 @@ FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’ap
   Nom  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
   Description  | Description explicite du modèle.
   Propriétés  | Propriétés supplémentaires fournies par le fabricant.
-  **Capteur**  |  |
+  **Capteur**  | **Description** |
   HardwareId  | ID unique du capteur défini par le fabricant.
   SensorModelId  | ID du modèle de capteur associé.
   Emplacement  | Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.

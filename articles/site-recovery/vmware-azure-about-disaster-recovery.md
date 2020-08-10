@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021458"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 
@@ -23,6 +23,9 @@ Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous
 
 - [Sauvegarde Azure](../backup/backup-overview.md) : sauvegarde vos données locales et de machines virtuelles Azure. Vous pouvez sauvegarder un fichier, des dossiers, des charges de travail spécifiques ou une machine virtuelle entière. 
 - [Azure Site Recovery](site-recovery-overview.md) : assure la résilience et la reprise d’activité d’applications et charges de travail exécutées sur des machines locales ou des machines virtuelles Azure IaaS. Le service Site Recovery orchestre la réplication et gère le basculement vers Azure en cas d’interruption. Il gère également la récupération à partir d’Azure sur votre site principal. 
+
+> [!NOTE]
+> Site Recovery ne déplace pas et ne stocke pas les données client en dehors de la région cible dans laquelle la récupération d’urgence a été configurée pour les ordinateurs sources. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Comment le service Site Recovery effectue-t-il la reprise d’activité ?
 

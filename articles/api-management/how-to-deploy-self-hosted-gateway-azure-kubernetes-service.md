@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015219"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Déployer sur Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Déployer une passerelle auto-hébergée sur AKS
 
-1. Sélectionnez **Passerelles** sous **Paramètres**.
+1. Sélectionnez **Gateways** (Passerelles) sous **Deployment and infrastructure** (Déploiement et infrastructure).
 2. Sélectionnez la ressource de passerelle auto-hébergée que vous souhaitez déployer.
 3. Sélectionnez **Déploiement**.
 4. Notez qu’un nouveau jeton dans la zone de texte **Jeton** a été généré automatiquement pour vous avec les valeurs par défaut de **Expiration** et **Clé secrète**. Ajustez l’un ou l’autre, ou les deux, si vous le souhaitez, puis sélectionnez **Générer** pour créer un autre jeton.
