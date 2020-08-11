@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086685"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533867"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Démarrage rapide : Créer une instance managée de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,9 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 > 3. Sélectionnez l’opération de déploiement de l’instance managée SQL en cours.
 
 > [!IMPORTANT]
-> Pour connaître l’état de la création d’une instance managée, vous devez disposer d’**autorisations de lecture** pour le groupe de ressources. Si vous ne disposez pas de cette autorisation ou si vous la révoquez pendant la création de l’instance managée, SQL Managed Instance peut ne pas figurer dans la liste des déploiements de groupes de ressources.
+> - La création d’une instance managée SQL est une opération longue. Elle peut durer plusieurs heures à chaque fois selon les circonstances. Consultez [Durée des opérations de gestion](management-operations-overview.md#management-operations-duration) pour connaître la durée type des opérations de création.
+> - Le début de la création d’une instance managée SQL peut être retardé quand d’autres opérations conséquentes sont exécutées, par exemple de longues opérations de restauration ou de mise à l’échelle sur d’autres instances managées du même sous-réseau. Pour en savoir plus, consultez [Impact sur les opérations de gestion](management-operations-overview.md#management-operations-cross-impact).
+> - Pour connaître l’état de la création d’une instance managée, vous devez disposer d’**autorisations de lecture** pour le groupe de ressources. Si vous ne disposez pas de cette autorisation ou si vous la révoquez pendant la création de l’instance managée, SQL Managed Instance peut ne pas figurer dans la liste des déploiements de groupes de ressources.
 >
 
 ## <a name="view-resources-created"></a>Afficher les ressources créées

@@ -3,12 +3,12 @@ title: Organiser vos ressources avec des groupes d’administration - Azure Gove
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132923"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529345"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -38,7 +38,7 @@ Un autre scénario où vous pouvez utiliser les groupes d’administration consi
 
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire
 
-Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. L’[administrateur général d’Azure AD doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) au rôle Administrateur d’accès utilisateur de ce groupe racine au départ. Une fois l’accès obtenu, l’administrateur peut attribuer un rôle RBAC à d’autres utilisateurs ou groupes de l’annuaire pour gérer la hiérarchie. En tant qu’administrateur, vous pouvez attribuer votre propre compte comme propriétaire du groupe d’administration racine.
+Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations de rôles Azure au niveau de l’annuaire. L’[administrateur général d’Azure AD doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) au rôle Administrateur d’accès utilisateur de ce groupe racine au départ. Une fois l’accès obtenu, l’administrateur peut attribuer un rôle Azure à d’autres utilisateurs ou groupes de l’annuaire pour gérer la hiérarchie. En tant qu’administrateur, vous pouvez attribuer votre propre compte comme propriétaire du groupe d’administration racine.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Faits importants sur le groupe d’administration racine
 
@@ -50,7 +50,7 @@ Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique
   - Lors de leur création, les nouveaux abonnements sont attribués par défaut au groupe d’administration racine.
 - Tous les clients Azure peuvent voir le groupe d’administration racine, mais tous ne peuvent pas le gérer.
   - Toute personne ayant accès à un abonnement peut voir où celui-ci se trouve dans la hiérarchie.  
-  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux Azure AD sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès. Une fois qu’ils ont accès au groupe d’administration racine, les administrateurs généraux peuvent attribuer un rôle RBAC aux autres utilisateurs pour  
+  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux Azure AD sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès. Une fois qu’ils ont accès au groupe d’administration racine, les administrateurs généraux peuvent attribuer un rôle Azure aux autres utilisateurs pour  
     le gérer.
 - Dans le SDK, le groupe d’administration racine, ou « racine de locataire », fonctionne comme un groupe d’administration.
 
@@ -82,12 +82,12 @@ Si vous avez des questions sur ce processus de renvoi, contactez : `managementg
   
 ## <a name="management-group-access"></a>Accès aux groupes d’administration
 
-Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles.
-Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle RBAC à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources. Par exemple, un contributeur de machine virtuelle avec rôle RBAC peut être affecté à un groupe d’administration. Ce rôle n’a aucun effet sur le groupe d’administration, mais il hérite de toutes les machines virtuelles situées sous ce groupe d’administration.
+Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles.
+Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle Azure à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources. Par exemple, un contributeur de machine virtuelle avec un rôle Azure peut être affecté à un groupe d’administration. Ce rôle n’a aucun effet sur le groupe d’administration, mais il hérite de toutes les machines virtuelles situées sous ce groupe d’administration.
 
 Le graphique suivant montre la liste des rôles, ainsi que les actions prises en charge par les groupes d’administration.
 
-| Nom du rôle RBAC             | Créer | Renommer | Déplacer\*\* | DELETE | Attribuer l’accès | Attribuer la stratégie | Lire  |
+| Nom du rôle Azure             | Créer | Renommer | Déplacer\*\* | DELETE | Attribuer l’accès | Attribuer la stratégie | Lire  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Propriétaire                       | X      | X      | X        | X      | X             | X             | X     |
 |Contributeur                 | X      | X      | X        | X      |               |               | X     |

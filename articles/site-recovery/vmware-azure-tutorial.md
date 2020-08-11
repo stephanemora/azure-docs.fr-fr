@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290666"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501199"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -87,7 +87,7 @@ Tous ces composants sont installés ensemble sur une seule machine locale, appel
 1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMware vSphere.
 2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**.
 
-     ![Modèle OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Capture d’écran de la commande Déployer le modèle OVF dans le client VMWare vSphere](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. Dans **Sélectionner une source**, entrez l’emplacement du modèle OVF téléchargé.
 4. Dans **Examiner les détails**, sélectionnez **Suivant**.
@@ -153,7 +153,7 @@ Sélectionnez et vérifiez les ressources cibles.
 1. Sélectionnez **Préparer l’infrastructure** > **Cible**. Sélectionnez l’abonnement Azure à utiliser. Nous utilisons un modèle Resource Manager.
 2. Site Recovery vérifie que vous disposez d’un ou plusieurs réseaux virtuels. Vous devez en disposer lors de la configuration des composants Azure dans le [premier didacticiel](tutorial-prepare-azure.md) de cette série.
 
-   ![Onglet cible](./media/vmware-azure-tutorial/storage-network.png)
+   ![Capture d’écran des options Préparer l’infrastructure > Cible](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
@@ -165,7 +165,7 @@ Sélectionnez et vérifiez les ressources cibles.
 6. Dans **Rétention des points de récupération**, précisez le temps de rétention de chaque point de récupération. Pour ce didacticiel, nous utilisons 72 heures. Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre de rétention.
 7. Dans **Fréquence des captures instantanées cohérentes au niveau de l’application**, spécifiez la fréquence de création des captures instantanées cohérentes au niveau de l’application. Nous utilisons la valeur par défaut, 60 minutes. Sélectionnez **OK** pour créer la stratégie.
 
-   ![Créer une stratégie de réplication](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Capture d’écran des options Créer une stratégie de réplication](./media/vmware-azure-tutorial/replication-policy.png)
 
 - La stratégie est automatiquement associée au serveur de configuration.
 - Par défaut, une stratégie de correspondance est automatiquement créée pour la restauration automatique. Par exemple, si la stratégie de réplication est **rep-policy**, la stratégie de restauration automatique correspond alors à **rep-policy-failback**. Cette stratégie n’est utilisée qu’à partir du moment où vous initiez une restauration automatique à partir d’Azure.

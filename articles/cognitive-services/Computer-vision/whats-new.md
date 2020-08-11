@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280832"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759204"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -23,15 +23,15 @@ Découvrir les nouveautés du service. Ces éléments peuvent être des notes de
 
 ## <a name="july-2020"></a>Juillet 2020
 
-### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>L’API de lecture v3.1-preview.1 ajoute la prise en charge du chinois simplifié
-L’API de lecture v3.1-preview.1 de Vision par ordinateur ajoute la prise en charge du chinois simplifié.
+### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Ajout de la prise en charge du chinois simplifié à la préversion publique de l’API de lecture v3.1
+La prise en charge du chinois simplifié est ajoutée à la préversion publique de l’API de lecture v3.1 de Vision par ordinateur.
 
 * Cette préversion de l’API de lecture prend en charge l’anglais, le néerlandais, le français, l’allemand, l’italien, le portugais, le chinois simplifié et l’espagnol.
 
 Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’API de lecture v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [En savoir plus sur la préversion publique de l’API de lecture v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mai 2020
 L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des mises à jour de l’[API Lire](concept-recognizing-text.md) :

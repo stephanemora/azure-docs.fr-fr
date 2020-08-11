@@ -10,18 +10,20 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 472ff9de069e7d95cb1753a6b05830649806d2fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6efd33b9f8825b5b5699b6106dadafec851ed454
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734552"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488548"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Vous utilisez ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud.
 
-Un domaine managé est un espace de noms DNS associé à un annuaire. Le domaine managé s’intègre à votre locataire Azure AD existant, ce qui permet aux utilisateurs de se connecter à l’aide de leurs informations d’identification actuelles. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources, et ainsi fournir une migration lift-and-shift plus simple des ressources locales vers Azure.
+Quand vous créez un domaine managé Azure AD DS, vous définissez un espace de noms unique. Cet espace de noms est le nom de domaine, par exemple *aaddscontoso.com*. Deux contrôleurs de domaine sont ensuite déployés dans la région Azure sélectionnée. Ce déploiement de contrôleurs de domaine est appelé jeu de réplicas. Le domaine managé s’intègre à votre locataire Azure AD existant, ce qui permet aux utilisateurs de se connecter à l’aide de leurs informations d’identification actuelles. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources, et ainsi fournir une migration lift-and-shift plus simple des ressources locales vers Azure.
+
+Vous pouvez développer un domaine managé pour avoir plusieurs jeux de réplicas par locataire Azure AD. Les jeux de réplicas peuvent être ajoutés à n’importe quel réseau virtuel appairé dans toute région Azure prenant en charge Azure AD DS. D’autres jeux de réplicas dans des régions Azure différentes assurent la reprise d’activité géographique pour les applications héritées si une région Azure est mise hors connexion. Les jeux de réplicas sont actuellement en préversion. Pour plus d’informations, consultez [Concepts et caractéristiques des jeux de réplicas pour les domaines managés][concepts-replica-sets].
 
 Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter au service et aux applications connectés au domaine managé à l’aide de leurs informations d’identification existantes. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources. Ces fonctionnalités fournissent une migration lift-and-shift plus simple des ressources locales vers Azure.
 
@@ -150,3 +152,4 @@ Pour commencer, [créez un domaine managé à l’aide du portail Azure][tutoria
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
+[concepts-replica-sets]: concepts-replica-sets.md

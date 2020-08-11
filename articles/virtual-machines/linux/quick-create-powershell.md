@@ -5,19 +5,19 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510325"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513449"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Démarrage rapide : Créer une machine virtuelle Linux dans Azure avec PowerShell
 
-Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide de démarrage rapide explique comment utiliser le module Azure PowerShell pour déployer une machine virtuelle Linux dans Azure. Ce démarrage rapide utilise l’image du marketplace Ubuntu 16.04 LTS fournie par Canonical. Pour voir votre machine virtuelle en action, vous établirez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
+Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide de démarrage rapide explique comment utiliser le module Azure PowerShell pour déployer une machine virtuelle Linux dans Azure. Ce guide de démarrage rapide utilise l’image de la Place de marché Ubuntu 18.04 LTS fournie par Canonical. Pour voir votre machine virtuelle en action, vous établirez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -29,17 +29,18 @@ Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite 
 
 ## <a name="create-ssh-key-pair"></a>Créer la paire de clés SSH
 
-Vous aurez besoin d’une paire de clés SSH pour suivre ce guide de démarrage rapide. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
+Utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
 
-Ouvrez un interpréteur de commandes bash et utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous n’avez pas d’interpréteur de commandes bash sur votre ordinateur local, vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Pour plus d’informations sur la création de paires de clés SSH, notamment l’utilisation de PuTTy, voir [Guide pratique pour utiliser des clés SSH avec Windows](ssh-from-windows.md).
+Vous êtes invité à fournir un nom de fichier pour la paire de clés, ou vous pouvez appuyer sur **Entrée** pour utiliser l’emplacement par défaut de `/home/<username>/.ssh/id_rsa`. Si vous le souhaitez, vous pouvez aussi créer un mot de passe pour les clés.
 
-Si vous créez votre paire de clés SSH à l’aide de Cloud Shell, elle est stockée dans une image de conteneur du [compte de stockage automatiquement créé par Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Ne supprimez pas ce compte de stockage, ou le partage de fichiers qu’il contient, tant que vous n’avez pas récupéré vos clés, faute de quoi vous perdrez votre accès à la machine virtuelle. 
+Pour plus d’informations sur la création de paires de clés SSH, consultez [Guide pratique pour utiliser des clés SSH avec Windows](ssh-from-windows.md).
+
+Si vous créez votre paire de clés SSH en utilisant Cloud Shell, elle sera stockée dans un [compte de stockage créé automatiquement par Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Ne supprimez pas ce compte de stockage ou le partage de fichiers qu’il contient tant que vous n’avez pas récupéré vos clés, faute de quoi vous perdrez votre accès à la machine virtuelle. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -147,7 +148,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -178,7 +179,7 @@ Créer une connexion SSH à la machine virtuelle à l’aide de l’adresse IP p
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Avec le même interpréteur de commandes bash que celui utilisé pour créer votre paire de clés (comme [Azure Cloud Shell](https://shell.azure.com/bash) ou votre interpréteur de commandes bash local), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH.
+Avec le même shell que celui que vous avez utilisé pour créer votre paire de clés SSH, collez la commande suivante dans le shell pour créer une session SSH. Remplacez *10.111.12.123* par l’adresse IP de votre machine virtuelle.
 
 ```bash
 ssh azureuser@10.111.12.123

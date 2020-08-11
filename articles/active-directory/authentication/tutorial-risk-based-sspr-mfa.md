@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034994"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419629"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutoriel : Utiliser les détections de risques pour les connexions utilisateur pour déclencher l’authentification multifacteur Azure et le changement du mot de passe
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD actif avec au moins une licence Azure AD Premium activée ou une licence d’évaluation P2 activée.
+* Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P2 ou une licence d’évaluation activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*Administrateur général*.
 * Azure AD configuré pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure

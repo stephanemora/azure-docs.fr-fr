@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683583"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amazon Web Services (AWS)
 
@@ -105,7 +105,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en sélectionnant **Enregistrer**.
+1. Dans la section **Configuration SAML de base**, mettez à jour les champs **Identificateur (ID d’entité)** et **URL de réponse** avec la même valeur par défaut : `https://signin.aws.amazon.com/saml`. Vous devez sélectionner **Enregistrer** pour enregistrer les changements de configuration.
 
 1. Quand vous configurez plusieurs instances, indiquez la valeur d’identificateur. À partir de la deuxième instance, utilisez le format suivant, y compris un signe **#** pour spécifier une valeur SPN unique.
 
@@ -123,7 +123,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | [Indiquez une valeur comprise entre 900 secondes (15 minutes) et 43 200 secondes (12 heures)] |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML** (Étape 3), sélectionnez **Ajouter un certificat**.
+
+    ![Créer un certificat SAML](common/add-saml-certificate.png)
+
+1. Générez un nouveau certificat de signature SAML, puis sélectionnez **Nouveau certificat**. Entrez une adresse e-mail pour les notifications de certificat.
+   
+    ![Nouveau certificat SAML](common/new-saml-certificate.png) 
+
+1. Dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

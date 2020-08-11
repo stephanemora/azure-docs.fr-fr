@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc6673615c85b34975d6743da6da88ca841bcf35
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b13decc142328525376ca8b3a93c74b95c90dae6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005359"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481871"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Dans cet article, vous apprendrez comment :
 Ce tutoriel vous montre comment créer des flux d’utilisateur recommandés à l’aide du portail Azure. Si vous recherchez des informations sur la façon de configurer un flux ROPC (informations d’identification de mot de passe du propriétaire de la ressource) dans votre application, consultez [Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C](configure-ropc.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!IMPORTANT]
+> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). À présent, nous avons consolidé les flux utilisateur dans les versions **Recommandé** (préversion de nouvelle génération) et **Standard** (en disponibilité générale). Tous les flux utilisateur hérités V1.1 et V2 seront déconseillés d’ici le **1er août 2021**. Pour plus d’informations, consultez [Versions de flux utilisateur dans Azure AD B2C](user-flow-versions.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,15 +53,16 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 
     ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. Sous l’onglet **Recommandé**, sélectionnez le flux utilisateur **Inscription et connexion**.
+1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**.
 
-    ![Page Sélectionner un flux d'utilisateur avec Inscription et connexion en surbrillance](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Page Sélectionner un flux d'utilisateur avec Inscription et connexion en surbrillance](./media/tutorial-create-user-flows/select-user-flow-type.png)
+
+1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**. ([Apprenez-en davantage](user-flow-versions.md) sur les version de flux utilisateur.)
+
+    ![Page Créer un flux d'utilisateur du Portail Azure avec propriétés en surbrillance](./media/tutorial-create-user-flows/select-version.png)
 
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
 1. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
-
-    ![Page Créer un flux d'utilisateur du Portail Azure avec propriétés en surbrillance](./media/tutorial-create-user-flows/signup-signin-properties.png)
-
 1. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
 
     ![Page de sélection des attributs et revendications avec trois revendications sélectionnées](./media/tutorial-create-user-flows/signup-signin-attributes.png)
@@ -83,11 +87,12 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre application, vous utilisez un flux d’utilisateur de modification de profil.
 
 1. Dans le menu de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
-1. Sélectionnez le flux d’utilisateur **Modification de profil** sous l’onglet **Recommandé**.
+1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Modifications de profil**. 
+1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *profileediting1*.
 1. Sous **Fournisseurs d’identité**, sélectionnez **Connexion du compte local**.
-1. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
-1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+2. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
+3. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
@@ -101,12 +106,13 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 Pour permettre aux utilisateurs de votre application de réinitialiser leur mot de passe, utilisez un flux utilisateur de réinitialisation de mot de passe.
 
 1. Dans le menu de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
-1. Sélectionnez le flux d’utilisateur **Réinitialisation de mot de passe** sous l’onglet **Recommandé**.
+1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**. 
+1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
 1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
-1. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
-1. Cliquez sur **OK**.
-1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+2. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
+3. Cliquez sur **OK**.
+4. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 

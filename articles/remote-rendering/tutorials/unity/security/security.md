@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207804"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445905"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles
 
@@ -143,7 +143,7 @@ Modifions **RemoteRenderingCoordinator** pour charger un modèle personnalisé �
     }
     ```
 
-    Ce code ajoute trois variables de chaîne supplémentaires à votre composant **RemoteRenderingCoordinator**.\
+    Ce code ajoute trois variables de chaîne supplémentaires à votre composant **RemoteRenderingCoordinator**.
     ![Modèle lié](./media/storage-account-linked-model.png)
 
 1. Ajoutez vos valeurs au composant **RemoteRenderingCoordinator**. Après avoir suivi le [Démarrage rapide de conversion de modèle](../../../quickstarts/convert-model.md), vos valeurs doivent être les suivantes :
@@ -156,7 +156,7 @@ Modifions **RemoteRenderingCoordinator** pour charger un modèle personnalisé �
     > Si vous [exécutez le script **Conversion. ps1**](../../../quickstarts/convert-model.md#run-the-conversion), sans l’argument « -UseContainerSas », le script génère automatiquement toutes les valeurs précédentes du jeton SAS. ![Modèle lié](./media/converted-output.png)
 1. Pour le moment, supprimez ou désactivez le GameObject **TestModel** de façon à libérer de l’espace pour le chargement de votre modèle personnalisé.
 1. Lisez la scène et connectez-vous à une session à distance.
-1. Cliquez avec le bouton droit sur votre **RemoteRenderingCoordinator**, puis sélectionnez **Load Linked Custom Model** (Charger le modèle personnalisé lié).\
+1. Cliquez avec le bouton droit sur votre **RemoteRenderingCoordinator**, puis sélectionnez **Load Linked Custom Model** (Charger le modèle personnalisé lié).
     ![Charger le modèle lié](./media/load-linked-model.png)
 
 Ces étapes ont permis de renforcer la sécurité de l’application en supprimant le jeton SAS de l’application locale.
@@ -176,16 +176,13 @@ Le script **RemoteRenderingCoordinator** comporte un délégué nommé **ARRCred
 1. Suivez la [procédure : Configurer l’authentification – Authentification des applications déployées](../../../how-tos/authentication.md#authentication-for-deployed-applications), en particulier les instructions de la section [Authentification utilisateur Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) dans la documentation Azure Spatial Anchors. Cela implique d’inscrire une nouvelle application Azure Active Directory et de configurer l’accès à votre instance ARR.
 1. Après avoir configuré la nouvelle application AAD, vérifiez que votre application AAD se présente comme dans l’image suivante :
 
-    **Application AAD -> Authentification**\
-    ![Authentification de l’application](./media/app-authentication-public.png)
+    **Application AAD -> Authentification** ![Authentification de l’application](./media/app-authentication-public.png)
 
-    **Application AAD -> Autorisations de l’API**\
-    ![API d’application](./media/request-api-permissions-step-five.png)
+    **Application AAD -> Autorisations de l’API** ![API d’application](./media/request-api-permissions-step-five.png)
 
 1. Après avoir configuré votre compte Remote Rendering, vérifiez que votre configuration se présente comme dans l’image suivante :
 
-    **AAR -> AccessControl (IAM)** \
-    ![Rôle ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl (IAM)** ![Rôle ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > Un rôle *Propriétaire* n’est pas suffisant pour gérer les sessions via l’application cliente. Vous devez attribuer le rôle **Client Remote Rendering** à chaque utilisateur auquel vous souhaitez accorder la possibilité de gérer des sessions. Par ailleurs, vous devez attribuer le rôle **Administrateur Remote Rendering** à chaque utilisateur qui doit pouvoir gérer les sessions et convertir les modèles.
@@ -356,10 +353,8 @@ Dans l’éditeur Unity, quand l’authentification AAD est active, il est néce
 
 1. Appuyez sur Play (Lecture) dans l’éditeur Unity et acceptez l’exécution d’une session.
     Comme le composant **AADAuthentication** dispose d’un contrôleur d’affichage, il est automatiquement connecté pour afficher une invite après le panneau modal d’autorisation de session.
-1. Suivez les instructions figurant dans le panneau à droite de **AppMenu**.\
-    Vous devez voir quelque chose qui ressemble à ceci :\
-    ![Composant d’authentification AAD](./media/device-flow-instructions.png)\
-    Après avoir entré le code fourni sur votre appareil secondaire (ou dans le navigateur de ce même appareil) et vous être connecté avec vos informations d’identification, un jeton d’accès est retourné à l’application à l’origine de la demande, en l’occurrence, l’éditeur Unity.
+1. Suivez les instructions figurant dans le panneau à droite de **AppMenu**.
+    Vous devez voir quelque chose de semblable à ceci : ![Composant d’authentification AAD](./media/device-flow-instructions.png) Après avoir entré le code fourni sur votre appareil secondaire (ou dans le navigateur de ce même appareil) et vous être connecté avec vos informations d’identification, un jeton d’accès est retourné à l’application à l’origine de la demande, en l’occurrence, l’éditeur Unity.
 1. Après cette étape, tout doit se dérouler normalement dans l’application. Si les étapes ne s’enchaînent pas comme prévu, vérifiez s’il y a des erreurs dans la console Unity.
 
 ## <a name="build-to-device"></a>Générer pour l’appareil

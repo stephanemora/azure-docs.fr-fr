@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer une application iOS'
-description: Dans ce démarrage rapide, vous allez apprendre à générer une application iOS à l’aide de Spatial Anchors.
+description: Découvrez comment créer une application iOS en utilisant Azure Spatial Anchors par programmation en Swift ou Objective-C.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df66979d1e8f400f2630f5e531cd201244fdc6d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873102"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809984"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Démarrage rapide : Créer une application iOS avec Azure Spatial Anchors, en Swift ou Objective-C
 
@@ -101,7 +101,7 @@ Localisez le champ `spatialAnchorsAccountKey` et remplacez `Set me` par la clé 
 
 Localisez le champ `spatialAnchorsAccountId` et remplacez `Set me` par l’identificateur du compte.
 
-Recherchez `startSession()` et ajoutez la ligne suivante, en remplaçant le domaine de votre compte : `cloudSession!.configuration.accountDomain = "MyAccountDomain";`.
+Recherchez le champ `spatialAnchorsAccountDomain` et remplacez `Set me` par le domaine du compte.
 
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
@@ -111,7 +111,7 @@ Localisez le champ `SpatialAnchorsAccountKey` et remplacez `Set me` par la clé 
 
 Localisez le champ `SpatialAnchorsAccountId` et remplacez `Set me` par l’identificateur du compte.
 
-Recherchez `startSession()` et ajoutez la ligne suivante, en remplaçant le domaine de votre compte : `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
+Recherchez le champ `SpatialAnchorsAccountDomain` et remplacez `Set me` par le domaine du compte.
 
 ---
 

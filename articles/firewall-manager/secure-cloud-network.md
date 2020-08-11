@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084702"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420819"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure Firewall Manager
 
@@ -108,7 +108,7 @@ Répétez la procédure pour connecter le réseau virtuel **spoke-02** : nom d
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Configurer le routage en étoile
 
-Dans le portail Azure, ouvrez Cloud Shell et exécutez la commande Azure PowerShell suivante pour configurer le routage en étoile requis.
+Dans le portail Azure, ouvrez Cloud Shell et exécutez la commande Azure PowerShell suivante pour configurer le routage en étoile requis. Pour les connexions en étoile/de branche appairées, la propagation doit être définie sur **AUCUNE**. Ceci empêche toute communication Any-To-Any entre les membres spokes et route le trafic vers le pare-feu en utilisant la route par défaut.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 582bb3e0f98535ccdc7be059de904e152db6ac77
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e6d728647bb654ee2645bb1e3eb5968dcab337a8
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870982"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810344"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Démarrage rapide : Créer une application HoloLens avec Azure Spatial Anchors, en C++/WinRT et DirectX
 
@@ -54,7 +54,7 @@ Localisez le champ `SpatialAnchorsAccountKey` et remplacez `Set me` par la clé 
 
 Localisez le champ `SpatialAnchorsAccountId` et remplacez `Set me` par l’identificateur du compte.
 
-Recherchez `case DemoStep::ConfigSession:` et ajoutez la ligne suivante, en remplaçant le domaine de votre compte : `configuration.AccountDomain("MyAccountDomain");`.
+Recherchez le champ `SpatialAnchorsAccountDomain` et remplacez `Set me` par le domaine du compte.
 
 ## <a name="deploy-the-app-to-your-hololens"></a>Déployer l’application sur votre HoloLens
 

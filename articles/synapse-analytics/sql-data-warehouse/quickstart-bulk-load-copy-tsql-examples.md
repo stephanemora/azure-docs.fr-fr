@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371955"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528461"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
@@ -88,13 +88,13 @@ L’authentification de l’identité managée est requise lorsque votre compte 
    > [!NOTE]
    > Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Propriétaire des données Blob du stockage, Contributeur ou Lecteur** à votre serveur SQL.
+3. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure **Propriétaire, Contributeur ou Lecteur des données Blob du stockage** à votre serveur SQL.
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
     > [!IMPORTANT]
-    > Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur. 
+    > Spécifiez le rôle Azure Propriétaire, Contributeur ou Lecteur des **données Blob** de **stockage**. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur. 
 
     ![Octroi d’une autorisation RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Authentification Azure Active Directory (AAD)
 #### <a name="steps"></a>Étapes
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Propriétaire des données Blob du stockage, Contributeur ou Lecteur** à votre utilisateur AAD. 
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure **Propriétaire, Contributeur ou Lecteur des données Blob du stockage** à votre utilisateur AAD. 
 
     > [!IMPORTANT]
-    > Spécifiez le rôle RBAC **Stockage** **Données blob** Propriétaire, Contributeur ou Lecteur. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur.
+    > Spécifiez le rôle Azure Propriétaire, Contributeur ou Lecteur des **données Blob** de **stockage**. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur.
 
     ![Octroi d’une autorisation RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

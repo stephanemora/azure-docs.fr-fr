@@ -12,12 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76704219"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799410"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 
@@ -75,6 +75,13 @@ Pour exposer une nouvelle étendue via l’interface utilisateur vous devez...
 
 1. Définissez l’**État** et sélectionnez **Ajouter une étendue** lorsque vous avez terminé.
 
+1. (Facultatif) Pour supprimer les demandes de consentement des utilisateurs de votre application pour les étendues que vous avez définies, vous pouvez préautoriser l’application cliente à accéder à votre API web. Vous devez préautoriser *uniquement* les applications clientes que vous approuvez, car vos utilisateurs n’auront pas la possibilité de refuser le consentement.
+    1. Sous **Applications clientes autorisées**, sélectionnez **Ajouter une application cliente**.
+    1. Entrez l’**ID d’application (client)** de l’application cliente que vous souhaitez préautoriser, par exemple celui d’une application web que vous avez inscrite précédemment.
+    1. Sous **Étendues autorisées**, sélectionnez les étendues pour lesquelles vous souhaitez supprimer les invites de consentement, puis sélectionnez **Ajouter une application**.
+
+    L’application cliente est désormais une application cliente préautorisée, et les utilisateurs ne seront pas invités à donner leur consentement quand ils s’y connectent.
+
 1. Suivez les étapes pour [vérifier que l’API web est exposée à d’autres applications](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Exposer une nouvelle étendue ou un nouveau rôle via le manifeste de l’application
@@ -84,7 +91,7 @@ Pour exposer une nouvelle étendue via l’interface utilisateur vous devez...
 Pour exposer une nouvelle étendue via le manifeste de l'application vous devez...
 
 1. sélectionner la section **Manifeste** sur la **page de présentation** de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de **Modifier** le manifeste depuis le portail. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.
-    
+
     L’exemple suivant explique comment exposer une nouvelle étendue appelée `Employees.Read.All` sur la ressource/l’API, en ajoutant l’élément JSON suivant pour la collection `oauth2Permissions`.
 
       ```json
@@ -112,12 +119,15 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
 
 1. Revenez à votre locataire Azure AD, sélectionnez **Inscriptions des applications**, puis recherchez et sélectionnez l’application cliente que vous souhaitez configurer.
 1. Répétez l’étape décrite dans la section [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
-1. Lorsque vous arrivez à l’étape intitulée [Sélectionner une API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
+1. Quand vous arrivez à l’étape [Sélectionner une API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), sélectionnez votre ressource (l’inscription d’application API web).
+    * Si vous avez créé l’inscription d’application API web à l’aide du portail Azure, votre ressource d’API est indiquée dans l’onglet **Mes API**.
+    * Si vous avez autorisé Visual Studio à créer l’inscription d’application API web durant la création du projet, votre ressource d’API est indiquée dans l’onglet **API utilisées par mon organisation**.
+
+Après avoir sélectionné la ressource d’API web, vous devez voir la nouvelle étendue disponible pour les demandes d’autorisations clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
 
-Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Cet article contient des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API, y compris :  
+Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Cet article contient des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API, y compris :
 
 * Le membre appRoles, qui est une collection d’entités [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type), utilisée pour définir les [autorisations d’application](developer-glossary.md#permissions) pour une API web.
 * Le membre oauth2Permissions, qui est une collection d’entités [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type), utilisée pour définir les [autorisations déléguées](developer-glossary.md#permissions) pour une API web.

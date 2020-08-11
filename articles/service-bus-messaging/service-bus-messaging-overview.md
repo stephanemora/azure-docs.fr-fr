@@ -3,12 +3,12 @@ title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
 description: Cet article offre une vue d’ensemble d’Azure Service Bus, répartiteur de messages d’intégration d’entreprise complètement managé.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341672"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501472"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
@@ -92,7 +92,7 @@ Une erreur peut amener le client à douter du résultat d’une opération d’e
 ### <a name="security-protocols"></a>Protocoles de sécurité
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAP), le [Contrôle d’accès en fonction du rôle](authenticate-application.md) (RBAC) et les [Identités managées pour les ressources Azure](service-bus-managed-service-identity.md).
+Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAP), le [Contrôle d’accès en fonction du rôle Azure](authenticate-application.md) (RBAC Azure) et les [Identités managées pour les ressources Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Géorécupération d’urgence
 

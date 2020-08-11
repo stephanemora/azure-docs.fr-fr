@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b36469a89c7bae39ae3c2d62792c2ccde0fcfda9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498506"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799325"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -20,7 +20,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 ## <a name="june-2020"></a>Juin 2020
 
 ### <a name="general"></a>Général
-- [Déployer Azure Monitor](platform/deploy-scale.md) - Nouvel article.
+- [Déployer Azure Monitor](deploy-scale.md) - Nouvel article.
 - [Clé gérée par le client dans Azure Monitor](platform/customer-managed-keys.md) - Mise à jour de la propriété billingtype. Ajout de commandes PowerShell.
 
 ### <a name="agents"></a>Agents
@@ -35,7 +35,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 - [Azure Application Insights pour les applications web JavaScript](app/javascript.md) - Mise à jour de la section sur le SDK JavaScript. Mise à jour de l’extrait de code pour signaler les échecs de chargement.
 - [Configurer BYOS (Bring Your Own Storage) pour Profiler et le Débogueur de capture instantanée](app/profiler-bring-your-own-storage.md) - Nouvel article.
 - [Suivi des requêtes entrantes dans Azure Application Insights avec OpenCensus Python](app/opencensus-python-request.md) - Mise à jour de la journalisation et de la configuration pour OpenCensus.
-- [Superviser une application web ASP.NET dynamique avec Azure Application Insights](app/monitor-performance-live-website-now.md) - Mise à jour de la date de dépréciation pour Status Monitor v1.
+- [Superviser une application web ASP.NET en production avec Azure Application Insights](app/monitor-performance-live-website-now.md) - Mise à jour de la date de dépréciation pour Status Monitor v1.
 - [Superviser les services Node.js avec Azure Application Insights](app/nodejs.md) - Plusieurs mises à jour, notamment la migration à partir de versions antérieures et la configuration du SDK.
 - [Superviser les applications Python avec Azure Monitor (préversion)](app/opencensus-python.md) - Ajout d’une section sur la configuration des exportateurs Azure Monitor.
 - [Superviser vos applications sans modification du code - Instrumentation automatique pour Azure Monitor Application Insights](app/codeless-overview.md) - Nouvel article.
@@ -258,7 +258,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 - [Superviser les applications Python avec Azure Monitor (préversion)](app/opencensus-python.md) - Ajout de métriques standard.
 - [Prise en charge du mappage de source pour les applications JavaScript – Azure Monitor Application Insights](app/source-map-support.md) - Nouvel article.
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a>Containers
 
 - [Questions fréquentes (FAQ) Azure Monitor](faq.md) - Mise à jour relative à Azure Monitor pour conteneurs.
 - [Configurer la supervision de GPU avec Azure Monitor pour conteneurs](insights/container-insights-gpu-monitoring.md) - Nouvel article.

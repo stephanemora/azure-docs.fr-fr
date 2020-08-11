@@ -12,13 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055390"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808369"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Démarrage rapide : Afficher la liste des applications qui utilisent votre locataire Azure Active Directory (Azure AD) à des fins de gestion des identités
 
@@ -68,11 +67,17 @@ Pour rechercher une application particulière :
 3. Essayez d’entrer les premières lettres du nom de l’application. Cet exemple montre toutes les applications qui commencent par **Sales**.
     ![L’exemple affiche toutes les applications qui commencent par Sales](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Vous n’avez pas créé de ressource dans le cadre de ce guide de démarrage rapide. Il n’y a donc rien à nettoyer.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à voir les applications dans votre locataire Azure AD. Vous avez appris à filtrer la liste des applications par type, état et visibilité. Vous avez également appris comment rechercher une application particulière.
-
-- [Ajouter une application](add-application-portal.md)
-- [Configurer une application](add-application-portal-configure.md)
-- [Configurer l’authentification unique](add-application-portal-setup-sso.md)
-- [Supprimer une application](delete-application-portal.md)
+Passez à l’article suivant pour apprendre à utiliser Azure AD comme fournisseur d’identité pour une application.
+> [!div class="nextstepaction"]
+> [Ajouter une application](add-application-portal.md)

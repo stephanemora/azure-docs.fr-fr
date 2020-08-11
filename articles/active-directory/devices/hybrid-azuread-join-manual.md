@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025776"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428379"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -59,6 +59,9 @@ Assurez-vous que les URL suivantes sont accessibles à partir d’ordinateurs au
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * Le STS de votre organisation (pour les domaines fédérés), qui doit être inclus dans les paramètres intranet locaux de l’utilisateur
+
+> [!WARNING]
+> Si votre organisation utilise des serveurs proxy qui interceptent le trafic SSL dans des scénarios de protection contre la perte de données ou de restrictions de locataire Azure AD par exemple, veillez à exclure le trafic à destination de « https://device.login.microsoftonline.com  » de l’inspection TLS. Faute d’exclure « https://device.login.microsoftonline.com  », l’authentification par certificat client peut être sujette à des interférences, ce qui occasionne des problèmes d’inscription d’appareil et d’accès conditionnel en fonction de l’appareil.
 
 Si votre organisation envisage d’utiliser l’authentification unique fluide, l’URL suivante doit être accessible à partir des ordinateurs à l’intérieur de votre organisation. Elle doit également être ajoutée à la zone intranet local de l’utilisateur.
 

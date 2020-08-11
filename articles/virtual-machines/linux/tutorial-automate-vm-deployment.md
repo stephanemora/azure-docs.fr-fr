@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461478"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433015"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Didacticiel : comment utiliser cloud-init pour personnaliser une machine virtuelle Linux dans Azure au premier démarrage
 
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Tester l’application web
-Vous pouvez maintenant ouvrir un navigateur web et entrer *http:\/\/\<adresse_IP_publique>* dans la barre d’adresse. Indiquez votre propre adresse IP publique à partir du processus de création de la machine virtuelle. Votre application Node.js apparaît telle que dans l’exemple suivant :
+Vous pouvez maintenant ouvrir un navigateur web et entrer *http:\/\/\<publicIpAddress>* dans la barre d’adresse. Indiquez votre propre adresse IP publique à partir du processus de création de la machine virtuelle. Votre application Node.js apparaît telle que dans l’exemple suivant :
 
 ![Afficher le site NGINX en cours d’exécution](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Tester l’application web sécurisée
-Vous pouvez maintenant ouvrir un navigateur web et entrer *https:\/\/\<adresse_IP_publique>* dans la barre d’adresse. Fournissez votre propre adresse IP publique comme indiqué dans la sortie du processus précédent de création de machine virtuelle. Acceptez l’avertissement de sécurité si vous avez utilisé un certificat auto-signé :
+Vous pouvez maintenant ouvrir un navigateur web et entrer *https:\/\/\<publicIpAddress>* dans la barre d’adresse. Fournissez votre propre adresse IP publique comme indiqué dans la sortie du processus précédent de création de machine virtuelle. Acceptez l’avertissement de sécurité si vous avez utilisé un certificat auto-signé :
 
 ![Accepter l’avertissement de sécurité du navigateur web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

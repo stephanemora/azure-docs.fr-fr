@@ -3,12 +3,13 @@ title: Tutoriel – Déclencher la génération d’images par mise à jour d�
 description: Dans ce tutoriel, vous allez configurer une tâche Azure Container Registry pour déclencher automatiquement la génération d’images conteneur dans le cloud lorsqu’une image de base est mise à jour dans un autre registre de conteneurs Azure privé.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77617682"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407130"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutoriel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un autre registre de conteneurs privé 
 
@@ -162,7 +163,7 @@ Tout d’abord, connectez-vous au registre de conteneurs à l’aide de la comma
 az acr login --name $ACR_NAME
 ```
 
-À présent, exécutez localement le conteneur avec `docker run`. Remplacez **\<run-id\>** par l’ID d’exécution trouvé dans la sortie de l’étape précédente (par exemple, « da6 »). Cet exemple nomme le conteneur `myapp` et inclut le paramètre `--rm` pour supprimer le conteneur lorsque vous l’arrêtez.
+À présent, exécutez localement le conteneur avec `docker run`. Remplacez **\<run-id\>** par l’ID d’exécution trouvé dans la sortie de l’étape précédente (par exemple, « da6 »). Cet exemple nomme le conteneur `myapp` et inclut le paramètre `--rm` pour supprimer le conteneur lorsque vous l’arrêtez.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

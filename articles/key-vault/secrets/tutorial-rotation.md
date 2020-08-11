@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 67fe36cf86c886f9d67d98cc8d34a090db4a71cb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372996"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541417"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
@@ -41,7 +41,8 @@ Ce tutoriel montre comment automatiser la rotation régulière des secrets pour 
 
 Vous pouvez utiliser le lien de déploiement ci-dessous, si vous n’avez pas de coffre de clés existant ni SQL Server :
 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+[![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+
 1. Sous **Groupe de ressources**, sélectionnez **Créer**. Nommez le groupe **akvrotation**.
 1. Sous **Nom de connexion de l’administrateur SQL**, tapez nom de connexion de l’administrateur SQL. 
 1. Sélectionnez **Revoir + créer**.
@@ -76,8 +77,10 @@ L’application de fonction nécessite les composants suivants :
 - Une stratégie d’accès pour que l’identité Function App accède aux secrets dans Key Vault
 - Un abonnement aux événements EventGrid pour l’événement **SecretNearExpiry**
 
-1. Sélectionnez le lien de déploiement d’un modèle Azure :
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Sélectionnez le lien de déploiement d’un modèle Azure : 
+
+   [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+
 1. Dans la liste **Groupe de ressources**, sélectionnez **akvrotation**.
 1. Dans **Nom du serveur SQL Server**, tapez le nom du serveur SQL Server avec le mot de passe à permuter.
 1. Dans **Nom du coffre de clés**, tapez le nom du coffre de clés.
@@ -217,8 +220,10 @@ L’application web nécessite les composants suivants :
 - Une application web avec identité managée par le système
 - Une stratégie d’accès pour accéder aux secrets dans Key Vault par le biais d’une identité managée d’application web
 
-1. Sélectionnez le lien de déploiement d’un modèle Azure :
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Sélectionnez le lien de déploiement d’un modèle Azure : 
+
+   [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+
 1. Sélectionnez le groupe de ressources **akvrotation**.
 1. Dans **Nom du serveur SQL Server**, tapez le nom du serveur SQL Server avec le mot de passe à permuter.
 1. Dans **Nom du coffre de clés**, tapez le nom du coffre de clés.

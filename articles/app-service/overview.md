@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073728"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421805"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -31,11 +31,11 @@ Voici quelques-unes des principales fonctionnalités d’App Service :
 * **Connexion aux plateformes SaaS et données locales** : choisissez parmi plus de 50 [connecteurs](../connectors/apis-list.md) pour des systèmes d’entreprise tels que SAP, des services SaaS tels que Salesforce et des services Internet tels que Facebook. Accédez aux données locales à l’aide de [connexions hybrides](app-service-hybrid-connections.md) et de [réseaux virtuels Azure](web-sites-integrate-with-vnet.md).
 * **Sécurité et conformité** : App Service est [conforme aux normes ISO, SOC et PCI](https://www.microsoft.com/en-us/trustcenter). Authentifiez les utilisateurs avec [Azure Active Directory](configure-authentication-provider-aad.md) ou avec une connexion sociale ([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) et [ Microsoft](configure-authentication-provider-microsoft.md)). Créez des [restrictions par adresse IP](app-service-ip-restrictions.md) et [gérez les identités de service](overview-managed-identity.md).
 * **Modèles d’application** : faites votre choix parmi une liste complète de modèles d’application dans [Place de marché Azure](https://azure.microsoft.com/marketplace/), tels que WordPress, Joomla et Drupal.
-* **Intégration Visual Studio** : les outils dédiés de Visual Studio rationalisent le travail de création, de déploiement et de débogage.
+* **Intégration Visual Studio et Visual Studio Code** : les outils dédiés de Visual Studio et Visual Studio Code rationalisent le travail de création, de déploiement et de débogage.
 * **API et fonctionnalités mobiles** : App Service fournit une prise en charge CORS clés en main pour les scénarios API RESTful et simplifie les scénarios d’application mobile grâce à l’authentification, la synchronisation des données hors connexion, des notifications push et bien plus encore.
 * **Code sans serveur** : exécutez un extrait de code ou un script à la demande sans avoir à configurer ou gérer explicitement l’infrastructure, et ne payez que pour le temps de calcul que votre code utilise réellement (voir [Azure Functions](/azure/azure-functions/)).
 
-En plus d’App Service, Azure offre d’autres services qui peuvent être utilisés pour l’hébergement de sites et d’applications web. Pour la plupart des scénarios, App Service est le meilleur choix.  Pour l’architecture microservice, utilisez [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Si vous avez besoin de contrôler davantage les machines virtuelles sur lesquelles votre code s’exécute, utilisez plutôt [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Pour plus d’informations sur le choix entre ces services Azure, consultez [Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services](overview-compare.md).
+En plus d’App Service, Azure offre d’autres services qui peuvent être utilisés pour l’hébergement de sites et d’applications web. Pour la plupart des scénarios, App Service est le meilleur choix.  Pour l’architecture microservice, utilisez le [service Azure Spring Cloud](/azure/spring-cloud/) ou [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Si vous avez besoin de contrôler davantage les machines virtuelles sur lesquelles votre code s’exécute, utilisez plutôt [Machines virtuelles Microsoft Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Pour plus d’informations sur le choix entre ces services Azure, consultez [Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services](overview-compare.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

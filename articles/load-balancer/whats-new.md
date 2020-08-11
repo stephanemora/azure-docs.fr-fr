@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 8b44dc230dbee1b29b9889a1b81e35ebe25f6b97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078683"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447031"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quelles sont les nouveautés d’Azure Load Balancer ?
 
@@ -34,6 +34,16 @@ Vous pouvez également rechercher les dernières mises à jour d’Azure Load Ba
 | Validation | Ajout de la validation pour les ports haute disponibilité | Une validation a été ajoutée pour s’assurer que les règles de ports haute disponibilité et les règles de ports sans haute disponibilité ne sont configurables que lorsque l’adresse IP flottante est activée. Auparavant, la configuration pouvait s’effectuer, mais ne fonctionnait pas comme prévu. Aucune modification de fonctionnalité n’a été apportée. Vous pouvez en savoir plus [ici](load-balancer-ha-ports-overview.md#limitations).| Juin 2020 |
 | Fonctionnalité| Prise en charge d’ipv6 pour Azure Load Balancer (en disponibilité générale) | Vous pouvez avoir des adresses IPv6 en tant que front-end pour vos Azure Load Balancers. Découvrez comment [créer une application à double pile ici](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). |Avril 2020|
 | Fonctionnalité| Réinitialisations TCP lors de l’expiration du délai d’inactivité (en disponibilité générale)| Utilisez les réinitialisations TCP pour créer un comportement d’application plus prévisible. [En savoir plus](load-balancer-tcp-reset.md)| Février 2020 |
+
+## <a name="known-issues"></a>Problèmes connus
+
+Le groupe du produit travaille activement sur la résolution des problèmes connus suivants :
+
+|Problème |Description  |Limitation des risques  |
+| ---------- |---------|---------|
+| Exportation Log Analytics | Log Analytics ne peut pas exporter des métriques pour les équilibreurs de charge standard ni pour les journaux d’état des sondes d’intégrité pour les équilibreurs de charge de base  | [Utilisez Azure Monitor pour les métriques multidimensionnelles de votre équilibreur de charge standard](load-balancer-standard-diagnostics.md). Bien qu’il ne soit pas possible d’utiliser Log Analytics pour la supervision, Azure Monitor fournit la visualisation d’un ensemble étendu de métriques multidimensionnelles. Vous pouvez tirer parti du tableau de bord des métriques préconfigurées via le sous-panneau Insights de votre équilibreur de charge. Si vous utilisez un équilibreur de charge de base, [effectuez une mise à niveau vers un équilibreur de charge standard](upgrade-basic-standard.md) pour une supervision des métriques au niveau production.
+
+  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
-ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970601"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541785"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 
@@ -62,6 +62,10 @@ Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le
 > Resource Graph utilise les abonnements disponibles pour un principal lors de la connexion. Pour afficher les ressources d’un nouvel abonnement ajouté pendant une session active, le principal doit actualiser le contexte. Cette action se produit automatiquement quand vous vous déconnectez puis vous reconnectez.
 
 Azure CLI et Azure PowerShell utilisent des abonnements auxquels l’utilisateur a accès. Lors de l’utilisation directe de l’API REST, la liste des abonnements est fournie par l’utilisateur. Si l’utilisateur a accès à l’un des abonnements de la liste, les résultats de la requête sont retournés pour les abonnements auxquels l’utilisateur a accès. Ce comportement est le même que lors de l’appel de [Groupes de ressources - Liste](/rest/api/resources/resourcegroups/list) : vous obtenez les groupes de ressources auxquels vous avez accès sans indication que le résultat peut être partiel. S’il n’existe aucun abonnement dans la liste des abonnements pour lesquels l’utilisateur dispose des droits appropriés, la réponse est un _403_ (Interdit).
+
+> [!NOTE]
+> Dans la **préversion** de l’API REST `2020-04-01-preview`, la liste des abonnements peut être omise.
+> Quand les propriétés `subscriptions` et `managementGroupId` ne sont pas définies dans la demande, l’_étendue_ est définie sur le locataire. Pour plus d’informations, consultez [Étendue de la requête](./concepts/query-language.md#query-scope).
 
 ## <a name="throttling"></a>Limitation
 

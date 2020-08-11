@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518537"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419663"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutoriel : Configurer des mots de passe interdits personnalisés pour la protection par mot de passe Azure Active Directory
 
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD fonctionnel avec au moins une licence d’essai active.
+* Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P1 ou une licence d’évaluation activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*administrateur général*.
 * Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*. Vous devez utiliser ce compte pour tester un événement de changement de mot de passe dans ce tutoriel.
@@ -77,7 +77,7 @@ Pour activer la liste personnalisée de mots de passe interdits et y ajouter des
 
     Spécifiez vos propres mots de passe personnalisés à interdire, comme indiqué dans l’exemple suivant
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modifier la liste de mots de passe interdits personnalisée sous Méthodes d’authentification sur le portail Azure](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Gardez l’option **Activer la protection par mot de passe sur Windows Server Active Directory** avec la valeur *Non*.
 1. Pour activer les mots de passe interdits personnalisés et vos entrées, sélectionnez **Enregistrer**.

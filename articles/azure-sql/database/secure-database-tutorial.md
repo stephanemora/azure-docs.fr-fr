@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092930"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496914"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Pour ajouter un utilisateur avec l’authentification SQL :
 Avec l’authentification Azure Active Directory, les utilisateurs de base de données doivent être créés en tant qu’utilisateurs de base de données autonomes. Un utilisateur de base de données autonome est mappé à une identité dans l’annuaire Azure AD associé à la base de données et ne dispose d’aucune connexion dans la base de données *master*. L’identité Azure AD peut correspondre à un utilisateur individuel ou à un groupe. Pour plus d’informations, consultez [Utilisateurs de base de données autonome, rendez votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) et suivez le [tutoriel Azure AD](authentication-aad-configure.md) sur la façon de s’authentifier avec Azure AD.
 
 > [!NOTE]
-> Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l’aide du portail Azure. Les rôles RBAC Azure ne se propagent pas aux entrepôts de données, bases de données ou serveurs SQL. Ils servent uniquement à gérer les ressources Azure et ne s’appliquent pas aux autorisations de base de données.
+> Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l’aide du portail Azure. Les rôles Azure ne se propagent pas aux entrepôts de données, bases de données ou serveurs SQL. Ils servent uniquement à gérer les ressources Azure et ne s’appliquent pas aux autorisations de base de données.
 >
 > Par exemple, le rôle *Contributeur SQL Server* ne permet pas de se connecter à une base de données ou à un entrepôt de données. Cette autorisation doit être accordée au sein de la base de données à l’aide d’instructions T-SQL.
 

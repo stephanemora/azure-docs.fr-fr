@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223905"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808233"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)
 
@@ -44,9 +43,15 @@ Pour supprimer une application de votre locataire Azure AD :
 1. À la section **Gérer** dans le volet gauche, sélectionnez **Propriétés**.
 1. Sélectionnez **Supprimer**, puis sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application de votre locataire Azure AD.
 
+> [!TIP]
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous aurez terminé cette série de guides de démarrage rapide, envisagez de supprimer l’application pour nettoyer votre locataire de test. La suppression d’application est traitée dans ce guide de démarrage rapide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)
-- [Scénarios courants de gestion d’applications](common-scenarios.md)
-- [Contrôle et visibilité de la gestion des applications](cloud-app-security.md)
+Vous avez terminé la série de guides de démarrage rapide. Pour continuer, apprenez-en davantage sur les bonnes pratiques relatives à la gestion des applications.
+> [!div class="nextstepaction"]
+> [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340837"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531810"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : Créer et gérer un partage de fichiers Azure avec Azure PowerShell 
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers](storage-files-introduction.md) Azure avec PowerShell. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -88,7 +88,7 @@ Dans la plupart des cas, vous allez utiliser votre partage de fichiers Azure sur
 - Vous tirez profit de ressources serverless, comme [Azure Functions](../../azure-functions/functions-overview.md) par exemple. 
 - Vous créez un service à valeur ajoutée qui interagit avec de nombreux partages de fichiers Azure, par exemple en effectuant des sauvegardes ou des analyses antivirus.
 
-Les exemples suivants montrent comment utiliser le module Azure PowerShell pour manipuler votre partage de fichiers Azure avec le protocole REST de fichier. Le paramètre `-Context` sert à récupérer la clé de compte du stockage pour effectuer les actions indiquées sur le partage de fichiers. Pour récupérer la clé du compte de stockage, vous devez disposer du rôle RBAC `Owner` sur le compte de stockage.
+Les exemples suivants montrent comment utiliser le module Azure PowerShell pour manipuler votre partage de fichiers Azure avec le protocole REST de fichier. Le paramètre `-Context` sert à récupérer la clé de compte du stockage pour effectuer les actions indiquées sur le partage de fichiers. Pour récupérer la clé du compte de stockage, vous devez disposer du rôle Azure `Owner` sur le compte de stockage.
 
 #### <a name="create-directory"></a>Créer un répertoire
 Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure, utilisez l’applet de commande [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).

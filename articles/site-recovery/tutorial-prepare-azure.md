@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130919"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498971"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Préparer Azure pour la reprise d’activité locale sur Azure
 
@@ -62,7 +62,7 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 6. Dans **Région**, sélectionnez la région dans laquelle le coffre doit se trouver. Nous utilisons **Europe Ouest**.
 7. Sélectionnez **Revoir + créer**.
 
-   ![Créer un coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Capture d’écran de la page Créer un coffre Recovery Services](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    Le nouveau coffre est maintenant répertorié dans **Tableau de bord** > **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
 
@@ -81,7 +81,7 @@ Les machines locales sont répliquées sur des disques managés Azure. Durant le
 9. Nous laissons les options par défaut de la protection DDoS de base, sans point de terminaison de service ou pare-feu sur le réseau.
 9. Sélectionnez **Create** (Créer).
 
-   ![Créez un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
+   ![Capture d’écran des options Créer un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
 
 La création du réseau virtuel prend quelques secondes. Une fois qu’il est créé, vous le voyez dans le tableau de bord du portail Azure.
 

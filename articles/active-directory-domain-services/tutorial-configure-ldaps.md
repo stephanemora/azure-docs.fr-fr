@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024857"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404172"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -110,6 +110,7 @@ Pour utiliser le protocole LDAP sécurisé, le trafic réseau est chiffré avec 
 * Une clé **privée** est appliquée au domaine managé.
     * Cette clé privée est utilisée pour *déchiffrer* le trafic LDAP sécurisé. La clé privée doit être appliquée seulement au domaine managé, et ne doit pas être distribuée à grande échelle sur des ordinateurs clients.
     * Un certificat qui inclut la clé privée utilise le format de fichier *.PFX*.
+    * L’algorithme de chiffrement du certificat doit être *TripleDES-SHA1*.
 * Une clé **publique** est appliquée aux ordinateurs clients.
     * Cette clé publique est utilisée pour *chiffrer* le trafic LDAP sécurisé. La clé publique peut être distribuée aux ordinateurs clients.
     * Les certificats sans clé privée utilisent le format de fichier *.CER*.
@@ -149,7 +150,7 @@ Pour pouvoir utiliser le certificat numérique créé à l’étape précédente
 
 1. Comme ce certificat est utilisé pour déchiffrer des données, vous devez en contrôler l’accès avec soin. Vous pouvez utiliser un mot de passe pour protéger le certificat. Sans le mot de passe correct, le certificat ne peut pas être appliqué à un service.
 
-    Dans la page **Sécurité**, choisissez l’option **Mot de passe** pour protéger le fichier de certificat *.PFX*. Entrez et confirmez un mot de passe, puis sélectionnez **Suivant**. Ce mot de passe est utilisé dans la section suivante pour activer le protocole LDAP sécurisé pour votre domaine managé.
+    Dans la page **Sécurité**, choisissez l’option **Mot de passe** pour protéger le fichier de certificat *.PFX*. L’algorithme de chiffrement doit être *TripleDES-SHA1*. Entrez et confirmez un mot de passe, puis sélectionnez **Suivant**. Ce mot de passe est utilisé dans la section suivante pour activer le protocole LDAP sécurisé pour votre domaine managé.
 1. Dans la page **Fichier à exporter**, spécifiez le nom du fichier et l’emplacement où vous voulez exporter le certificat, par exemple *C:\Users\accountname\azure-ad-ds.pfx*. Notez le mot de passe et l’emplacement du fichier *.PFX*, car vous devrez fournir ces informations aux étapes suivantes.
 1. Dans la page de vérification, sélectionnez **Terminer** pour exporter le certificat vers un fichier de certificat *.PFX*. Une boîte de dialogue de confirmation s’affiche quand le certificat a été exporté avec succès.
 1. Laissez la console MMC ouverte pour l’utiliser dans la section suivante.
@@ -210,7 +211,7 @@ Une notification vous informe que le protocole LDAP sécurisé est en cours de c
 
 L’activation du protocole LDAP sécurisé pour votre domaine managé prend quelques minutes. Si le certificat LDAP sécurisé que vous fournissez ne correspond pas aux critères demandés, l’action d’activation du protocole LDAP sécurisé pour le domaine managé échoue.
 
-Voici quelques raisons d’échec courantes : le nom de domaine est incorrect, le certificat expire bientôt ou il a déjà expiré. Vous pouvez recréer le certificat avec des paramètres valides, puis activer le protocole LDAP sécurisé en utilisant ce certificat mis à jour.
+Voici quelques raisons d’échec courantes : le nom de domaine est incorrect, l’algorithme de chiffrement du certificat n’est pas *TripleDES-SHA1* ou le certificat expire ou a déjà expiré. Vous pouvez recréer le certificat avec des paramètres valides, puis activer le protocole LDAP sécurisé en utilisant ce certificat mis à jour.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Verrouiller l’accès LDAP sécurisé via Internet
 
@@ -231,7 +232,7 @@ Créons une règle pour autoriser l’accès LDAP sécurisé entrant sur le port
     | Destination                       | Quelconque          |
     | Plages de ports de destination           | 636          |
     | Protocol                          | TCP          |
-    | Action                            | Allow        |
+    | Action                            | Autoriser        |
     | Priority                          | 401          |
     | Nom                              | AllowLDAPS   |
 

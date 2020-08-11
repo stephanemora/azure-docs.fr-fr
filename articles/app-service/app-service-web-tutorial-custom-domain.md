@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050655"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543557"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -95,7 +95,12 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 ## <a name="get-domain-verification-id"></a>Obtenir l’ID de vérification du domaine
 
-Pour ajouter un domaine personnalisé à votre application, vous devez vérifier votre propriété du domaine, en ajoutant un ID de vérification sous forme d’enregistrement TXT avec votre fournisseur de domaine. Dans le volet de navigation de gauche de la page de votre application, cliquez sur **Domaines personnalisés** sous **Paramètres**. Copiez la valeur de l’ID de vérification des domaines personnalisés à partir d’ici. Vous avez besoin de cet ID de vérification pour l’étape suivante.
+Pour ajouter un domaine personnalisé à votre application, vous devez vérifier votre propriété du domaine, en ajoutant un ID de vérification sous forme d’enregistrement TXT avec votre fournisseur de domaine. Dans le volet de navigation de gauche de la page de votre application, cliquez sur **Domaines personnalisés**. Copiez l’**ID de vérification des domaines personnalisés** dans la page **Domaines personnalisés** pour l’étape suivante.
+
+![Obtenir l’ID de vérification des domaines personnalisés](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> L’ajout d’ID de vérification de domaines à votre domaine personnalisé peut empêcher les entrées DNS non résolues et les acquisitions de sous-domaine. Pour plus d’informations sur cette menace critique courante, consultez [Acquisition de sous-domaine](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Mapper votre domaine
 

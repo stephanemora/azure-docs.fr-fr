@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des serve
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113249"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420785"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -138,7 +138,7 @@ Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation 
 
 Azure Migrate a besoin d’autorisations pour découvrir les serveurs locaux.
 
-- **Windows :** Vous devez avoir le rôle d’administrateur de domaine ou bien d’administrateur local sur chaque serveur Windows à inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+- **Windows :** Vous avez besoin d’un compte de domaine pour découvrir les serveurs joints à un domaine et d’un compte local pour découvrir les machines qui ne sont pas jointes à un domaine. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
 - **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir.
 
 ## <a name="prepare-for-physical-server-migration"></a>Préparer les serveurs physiques à une migration

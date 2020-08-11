@@ -4,12 +4,12 @@ description: Créez et exécutez rapidement un notebook Jupyter sur Azure Noteb
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832098"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423284"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Créer et partager un notebook dans Azure Notebooks (préversion)
 
@@ -43,9 +43,9 @@ Aucun.
 
 1. Après quelques instants, Azure Notebooks vous dirige vers le nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook** :
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="Nouveau projet vide et commande d’ajout d’un notebook." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
-1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* ( *.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
+1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* (*.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
 
     ![Fenêtre contextuelle Créer un notebook](media/quickstarts/new-notebook-popup.png)
 

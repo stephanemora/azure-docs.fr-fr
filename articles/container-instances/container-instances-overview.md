@@ -2,14 +2,14 @@
 title: Conteneurs serverless dans Azure
 description: Le service Azure Container Instances offre le moyen le plus simple et le plus rapide d’exécuter des conteneurs isolés dans Azure, sans avoir à gérer des machines virtuelles ni à adopter un orchestrateur de plus haut niveau.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259508"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498682"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 
@@ -20,6 +20,11 @@ Azure Container Instances est une excellente solution pour les scénarios qui pe
 ## <a name="fast-startup-times"></a>Temps de démarrage rapide
 
 Les conteneurs offrent des avantages de démarrage conséquents sur les machines virtuelles. Azure Container Instances peut démarrer des conteneurs dans Azure en quelques secondes, sans avoir à configurer ni gérer des machines virtuelles.
+
+Récupérez les images conteneur Linux ou Windows à partir de Docker Hub, d’un [registre de conteneurs Azure](../container-registry/index.yml) privé ou d’un autre registre Docker cloud. Azure Container Instances met en cache plusieurs images de systèmes d’exploitation de base courants, accélérant ainsi le déploiement de vos images d’application personnalisées.
+
+> [!NOTE]
+> Actuellement, vous ne pouvez pas déployer une image à partir d’un registre local vers Azure Container Instances.
 
 ## <a name="container-access"></a>Accès au conteneur
 
@@ -68,7 +73,7 @@ Azure Container Instances prend en charge la planification de [groupes de plusie
 
 ## <a name="virtual-network-deployment"></a>Déploiement d’un réseau virtuel
 
-Cette fonctionnalité d’Azure Container Instances est actuellement disponible pour les charges de travail de production dans certaines régions Azure. Elle permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). Quand elles sont déployées dans un sous-réseau au sein de votre réseau virtuel, les instances de conteneur peuvent communiquer de manière sécurisée avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (par le biais d’une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou d’[ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
-ms.openlocfilehash: 1281f5c3355a09659f2f45c4cf944271936f50d8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636352"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533102"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS 
 
@@ -411,4 +412,6 @@ Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le gro
 ## <a name="next-steps"></a>Étapes suivantes  
 
 > [!div class="nextstepaction"]
-> [Gérer les volumes avec Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Créer un volume NFS](azure-netapp-files-create-volumes.md)   

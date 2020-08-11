@@ -1,18 +1,18 @@
 ---
 title: Exemples de contrôles de blueprint Canada Federal PBMM
 description: Correspondance des contrôles des exemples de blueprint Canada Federal PBMM. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3022dc32f689d1cbfc8b5b6545d1252ce47ca33d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085631"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500127"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
-L’article suivant explique en détail comment l’exemple de blueprint Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) Azure Blueprints correspond aux contrôles Canada Federal PBMM. Pour plus d’informations sur les contrôles, consultez [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+L’article suivant explique en détail comment l’exemple de blueprint Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) Azure Blueprints correspond aux contrôles Canada Federal PBMM. Pour plus d’informations sur les contrôles, consultez [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 Les correspondances suivantes sont relatives aux contrôles **Canada Federal PBMM**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] : Audit - Contrôles Canada Federal PBMM**.
 
@@ -116,8 +116,8 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant la génération de rapports et l’analyse centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
+- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 
@@ -126,8 +126,9 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 Ce blueprint vous permet de garantir que les événements système sont journalisés en affectant des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure. Ces définitions de stratégie vérifient et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles et la configuration des paramètres d’audit pour les autres types de ressources Azure. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. L’audit et Advanced Data Security sont configurés sur les serveurs SQL.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
+- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer l’espace de travail Log Analytics pour les machines virtuelles - Signaler 
+
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Auditer le paramètre de diagnostic
@@ -167,25 +168,25 @@ Ce blueprint permet de limiter et de contrôler les accès privilégiés en affe
 
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Linux autorisant les connexions à distance à partir de comptes sans mot de passe et/ou associés à des autorisations incorrectes définies dans le fichier passwd. Ce blueprint affecte également des définitions de stratégie qui auditent la configuration du type de chiffrement de mot de passe pour les machines virtuelles Windows. En supervisant ces indicateurs, vous pouvez vérifier que les authentificateurs de système sont conformes à la stratégie d’identification et d’authentification de votre organisation.
 
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
+- Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
+- Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
+- Déployer des exigences pour auditer les machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
+- Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestion des authentificateurs | Authentification basée sur mot de passe
 
 Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe, vous pouvez prendre des mesures correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
 
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) Identification et authentification (utilisateurs extérieurs à l’organisation) | Niveaux d’assurance relatifs à l’identité et aux informations d’identification
 
@@ -289,7 +290,7 @@ Ce blueprint permet de gérer la protection des points de terminaison, notamment
 Ce blueprint vous aide à superviser votre système en auditant et en appliquant la journalisation et la sécurité des données aux ressources Azure. Plus précisément, les stratégies affectées auditent et appliquent le déploiement de l’agent Log Analytics et de paramètres de sécurité renforcée pour les bases de données SQL, les comptes de stockage et les ressources réseau. Ces fonctionnalités peuvent vous aider à détecter des comportements anormaux et des indicateurs d’attaques afin de prendre des mesures appropriées.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows

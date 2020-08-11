@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035058"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419544"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD actif avec une licence Azure AD Premium activée ou une licence d’évaluation activée.
+* Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P1 ou une licence d’évaluation activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*administrateur général*.
 * Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*. Vous testez l’expérience Azure Multi-Factor Authentication de l’utilisateur final à l’aide de ce compte dans ce tutoriel.
@@ -65,7 +65,7 @@ Tout d’abord, créez une stratégie d’accès conditionnel et affectez votre 
 1. Cochez la case **Utilisateurs et groupes**, puis choisissez **Sélectionner** pour parcourir les utilisateurs et les groupes Azure AD disponibles.
 1. Recherchez et sélectionnez votre groupe Azure AD, par exemple *MFA-Test-Group*, puis choisissez **Sélectionner**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Sélectionner votre groupe Azure AD à utiliser avec la stratégie d’accès conditionnel](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Pour appliquer la stratégie d’accès conditionnel au groupe, sélectionnez **Terminé**.
 

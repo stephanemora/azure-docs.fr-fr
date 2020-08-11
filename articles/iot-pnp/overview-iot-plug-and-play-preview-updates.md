@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: c2dcba05e3b1fc5cfc32d6f1b38c22b811b73626
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 60ad7f5df4f13d626d7a2c24990c7f48db28d01d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475224"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>Actualisation de la préversion de l’IoT Plug-and-Play
 
@@ -86,7 +86,7 @@ Le Kit de développement logiciel (SDK) du service est disponible en [Node.js](h
 
 L’extension [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) assure la prise en charge de la création en langage DTDL v1, l’intégration avec la version précédente du référentiel de modèles et la génération de code.
 
-Si vous avez besoin de la prise en charge de la création en langage DTDL v2 dans VS Code, installez la nouvelle [extension DTDL](https://github.com/azure/vscode-dtdl) dans VS Code. L’extension ne fournit pas d’intégration avec le référentiel de modèles ou la génération de code. La gestion des modèles dans le référentiel s’effectue désormais à l’aide d’une [interface utilisateur web](https://aka.ms/iotmodelrepo).
+Si vous avez besoin de la prise en charge de la création en langage DTDL v2 dans VS Code, installez la nouvelle [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) dans VS Code. L’extension ne fournit pas d’intégration avec le référentiel de modèles ou la génération de code. La gestion des modèles dans le référentiel s’effectue désormais via une [interface utilisateur web](https://aka.ms/iotmodelrepo) ou [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## <a name="digital-twin-service-side-rest-apis"></a>API REST côté service de jumeau numérique
 
@@ -103,8 +103,6 @@ Les API REST existantes continuent d’être prises en charge dans cette mise en
 Il existe désormais un unique référentiel de modèles qui contient à la fois des modèles publiés publics et des modèles d’entreprise protégés par un RBAC privé. Tous les modèles ont un identificateur unique et sont immuables une fois créés.
 
 Les référentiels de modèles d’entreprise existants de la mise en production précédente ne sont pas pris en charge dans cette mise en production. Vous pouvez continuer à utiliser le site web [Azure Certified pour IoT](https://preview.catalog.azureiotsolutions.com/products) pour gérer les anciens modèles DTDL v1. Toutefois, vous ne pouvez plus utiliser ce site web pour inscrire, tester et certifier des appareils.
-
-L’extension Azure IoT pour Azure CLI ne prend pas en charge le nouveau référentiel de modèles. Les commandes `az iot pnp` fonctionnent uniquement avec les référentiels de modèles de la mise en production précédente.
 
 ## <a name="azure-iot-central"></a>Azure IoT Central
 

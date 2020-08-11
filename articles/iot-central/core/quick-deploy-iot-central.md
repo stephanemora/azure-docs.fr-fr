@@ -3,18 +3,18 @@ title: Créer une application Azure IoT Central | Microsoft Docs
 description: Créez une application Azure IoT Central. Créez l’application avec le plan tarifaire gratuit ou avec l’un des plans tarifaires standard.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758151"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552575"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Créer une application Azure IoT Central
 
@@ -43,8 +43,11 @@ Pour créer une application Azure IoT Central à partir du modèle **Application
     ![Informations de facturation Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Si vous avez choisi **Application personnalisée** dans la page précédente, vous voyez une liste déroulante **Modèle d’application**. À partir de là, vous pouvez basculer entre les modèles personnalisés et les modèles hérités. Vous pouvez également voir d’autres modèles mis à la disposition de votre organisation.
+    > Si vous avez choisi **Application personnalisée** dans la page précédente, vous voyez une liste déroulante **Modèle d’application**. La liste déroulante peut montrer d’autres modèles qui ont été mis à votre disposition par votre organisation. 
 
+    >[!IMPORTANT]
+    >Le modèle **Application personnalisée (héritée)** (V2) a été mis hors service, car toutes les fonctionnalités précédemment disponibles dans le modèle d’application héritée sont désormais disponibles dans le dernier modèle **Application personnalisée** (V3). 
+    
 1. Choisissez de créez cette application avec le plan tarifaire gratuit de 7 jours ou avec l’un des plans tarifaires standard :
 
     - Les applications que vous créez à partir du plan *gratuit* sont gratuites pendant sept jours et prennent en charge jusqu’à cinq appareils. Vous pouvez les convertir de sorte qu’elles utilisent un plan tarifaire standard à tout moment avant leur expiration.

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’Azure DevOps Starter | Microsoft Docs
-description: Comprendre l’intérêt d’Azure DevOps Starter
+description: Découvrez comment Azure DevOps Starter vous aide à lancer, déployer et gérer votre application à partir d’une seule vue dans le portail Azure.
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91e62cae242279e1923fc31970c233ec70bf7f11
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233684"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461338"
 ---
 # <a name="overview-of-azure-devops-starter"></a>Vue d’ensemble d’Azure DevOps Starter
 

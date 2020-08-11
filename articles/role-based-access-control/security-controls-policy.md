@@ -7,16 +7,16 @@ author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3ac67d6222e6b7df1d7989c234c3ef0a5fa137f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a40244fb958993cbed9e8585190939eb43e5acc2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327941"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461780"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure RBAC
 
-[Azure Policy](../governance/policy/index.yml) permet d’appliquer des règles pour vos ressources Azure afin que votre infrastructure soit conforme aux standards de l’entreprise.
+[Azure Policy](../governance/policy/index.yml) permet d’appliquer des règles pour vos ressources Azure pour que votre infrastructure soit conforme aux standards de l’entreprise.
 La [Conformité réglementaire d’Azure Policy](../governance/policy/concepts/regulatory-compliance.md) fournit des définitions d’initiatives créées et gérées par Microsoft, qui sont dites _intégrées_, pour les **domaines de conformité** et les **contrôles de sécurité** associés à différents standards de conformité. Cette page liste les **domaines de conformité** et les **contrôles de sécurité** pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Vous pouvez affecter les composants intégrés pour un **contrôle de sécurité** individuellement, afin de rendre vos ressources Azure conformes au standard spécifique.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]

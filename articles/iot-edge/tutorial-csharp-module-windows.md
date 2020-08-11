@@ -11,12 +11,12 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: b71db71ac61e0dcd65a2546b2164610e618dab18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 105dbed66b67f16b305cea74b9761abbef64d5fd
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733507"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439781"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutoriel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -83,7 +83,7 @@ Azure IoT Edge Tools fournit des modèles de projet pour tous les langages de mo
    | ----- | ----- |
    | Sélectionner un modèle | Sélectionnez **Module C#** . |
    | Nom du projet de module | Nommez votre module **CSharpModule**. |
-   | Dépôt d’images Docker | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie avec le nom du projet de module. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/csharpmodule. |
+   | Dépôt d’images Docker | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie avec le nom du projet de module. Remplacez **localhost:5000** par la valeur de **Serveur de connexion** provenant de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le portail Azure. <br><br> Le référentiel d’images final se présente comme ceci : \<registry name\>.azurecr.io/csharpmodule. |
 
    ![Configurer votre projet pour l’appareil cible, le type de module et le registre de conteneurs](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -309,9 +309,11 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 
    La commande de génération et d’envoi (push) déclenche trois opérations. Tout d’abord, elle crée un dossier dans la solution appelé **config** contenant les manifestes de déploiement en entier. Il est généré à partir des informations dans le modèle de déploiement et d’autres fichiers de solution. Ensuite, elle exécute `docker build` pour générer l’image de conteneur basée sur le fichier docker correspondant à votre architecture cible. Puis, elle exécute `docker push` pour envoyer (push) le dépôt d’images vers votre registre de conteneurs.
 
+   Ce processus peut prendre plusieurs minutes la première fois, mais il est plus rapide la prochaine fois que vous exécutez les commandes.
+
 ## <a name="deploy-modules-to-device"></a>Déployer des modules sur un appareil
 
-Utilisez Visual Studio Cloud Explorer et l’extension Azure IoT Edge Tools pour déployer le projet de module sur votre appareil IoT Edge. Vous disposez déjà d’un manifeste de déploiement préparé pour votre scénario. C ’est le fichier **deployment.json** dans le dossier config. Il vous suffit alors de sélectionner l’appareil qui recevra le déploiement.
+Utilisez Visual Studio Cloud Explorer et l’extension Azure IoT Edge Tools pour déployer le projet de module sur votre appareil IoT Edge. Vous disposez déjà d’un manifeste de déploiement préparé pour votre scénario, à savoir le fichier **deployment.windows-amd64.json** figurant dans le dossier config. Il vous suffit alors de sélectionner l’appareil qui recevra le déploiement.
 
 Vérifiez que votre appareil IoT Edge est opérationnel.
 
@@ -321,7 +323,7 @@ Vérifiez que votre appareil IoT Edge est opérationnel.
 
 3. Sélectionnez **Créer un déploiement**.
 
-4. Dans l’Explorateur de fichiers, sélectionnez le fichier **deployment.windows-amd64** dans le dossier config de votre solution.
+4. Dans l’Explorateur de fichiers, sélectionnez le fichier **deployment.windows-amd64.json** dans le dossier config de votre solution.
 
 5. Actualisez Cloud Explorer pour voir les modules déployés listés sous votre appareil.
 

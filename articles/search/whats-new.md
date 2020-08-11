@@ -6,19 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
-ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076337"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553923"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
 Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service.
 
 ## <a name="feature-announcements-in-2020"></a>Annonces de fonctionnalités en 2020
+
+### <a name="august-2020"></a>Août 2020
+
+|Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
+|---------|------------------|-------------|---------------|
+| [double chiffrement](search-security-overview.md#encryption) | Sécurité | Activez le double chiffrement au niveau de la couche de stockage en configurant le chiffrement de clé gérée par le client (CMK) sur les nouveaux services de recherche. Créez un service, [configurez et appliquez des clés gérées par le client](search-security-manage-encryption-keys.md) à des index ou à des cartes de synonymes, et bénéficiez du double chiffrement sur ce contenu. | En disponibilité générale sur tous les services de recherche créés après le 1er août 2020 dans les régions suivantes : USA Ouest 2, USA Est, USA Centre Sud, US Gov Virginie, US Gov Arizona. Utilisez le portail, les API REST de gestion ou les SDK pour créer le service. |
 
 ### <a name="july-2020"></a>Juillet 2020
 

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529622"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554020"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -29,9 +29,9 @@ Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.micr
 
 Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Dans la mesure où elles sont fixes, songez aux implications quand vous remplissez chaque propriété :
 
-* Le nom du service fait partie du point de terminaison de l’URL ([consultez ces conseils](#name-the-service) pour les noms de service utiles).
-* Le niveau de service [affecte la facturation](search-sku-tier.md) et définit une limite de capacité.
-* La région du service peut déterminer la disponibilité de certains scénarios. Si vous êtes intéressé par l’exploration des connaissances et l’enrichissement par IA, utilisez Cognitive Services et éventuellement Azure Machine Learning dans la même région que la Recherche cognitive Azure.
+* Le nom du service fait désormais partie du point de terminaison de l’URL ([Passez en revue ces conseils](#name-the-service) pour des noms de service explicites).
+* Le niveau de service [affecte la facturation](search-sku-tier.md) et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
+* La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez placer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 
@@ -51,7 +51,7 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 ## <a name="choose-a-subscription"></a>Sélectionnez un abonnement
 
-Si vous avez plusieurs abonnements, choisissez-en un pour votre service de recherche.
+Si vous avez plusieurs abonnements, choisissez-en un pour votre service de recherche. Si vous implémentez le [double chiffrement](search-security-overview.md#double-encryption) ou d’autres fonctionnalités qui dépendent d’identités de service managées, choisissez le même abonnement que celui utilisé pour Azure Key Vault ou d’autres services pour lesquels des identités managées sont utilisées.
 
 ## <a name="set-a-resource-group"></a>Définir un groupe de ressources
 
@@ -89,6 +89,8 @@ La Recherche cognitive Azure est disponible dans la plupart des régions. Vous t
 
 > [!Note]
 > Les régions Inde Centre et Émirats arabes unis Nord sont actuellement indisponibles pour les nouveaux services. Pour les services déjà présents dans ces régions, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. Les restrictions sont temporaires et ne concernent que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
+>
+> Le double chiffrement est disponible seulement dans certaines régions. Pour plus d’informations, consultez [Double chiffrement](search-security-overview.md#double-encryption).
 
 ### <a name="requirements"></a>Spécifications
 

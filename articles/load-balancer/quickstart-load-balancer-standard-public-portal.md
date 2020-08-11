@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125188"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475803"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
 Découvrez comment bien démarrer avec Azure Load Balancer en utilisant le portail Azure pour créer un équilibreur de charge public et trois machines virtuelles.
 
@@ -36,7 +36,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Option 1 (par défaut) : Créer un équilibreur de charge (référence SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Option 1 (par défaut) : Créer un équilibreur de charge public (référence SKU Standard)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
@@ -76,7 +76,7 @@ Dans cette section, vous configurez :
 
 * Les paramètres d’équilibreur de charge d’un pool d’adresses de back-ends
 * Une sonde d’intégrité
-* Une règle d’équilibreur de charge et une règle de trafic sortant automatique
+* Une règle d’équilibreur de charge
 
 ### <a name="create-a-backend-pool"></a>Créer un pool principal
 
@@ -281,7 +281,7 @@ Pour plus d’informations sur les connexions sortantes, consultez [Connexions s
 
 8. Sélectionnez **Enregistrer**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Option n°2 : Créer un équilibreur de charge (référence SKU De base)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Option n°2 : Créer un équilibreur de charge public (référence SKU De base)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
@@ -468,8 +468,9 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 5. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**.
 
 6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
+    
     | Paramètre | Valeur |
-    |-|-|
+    |---|---|
     | **Surveillance** | |
     | Diagnostics de démarrage | Sélectionnez **Désactivé** |
 
@@ -484,6 +485,24 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Nom |  **myVM2** |**myVM3**|
     | Groupe à haute disponibilité| Sélectionnez **myAvailabilitySet** | Sélectionnez **myAvailabilitySet**|
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends
+
+Les machines virtuelles créées lors des étapes précédentes doivent être ajoutées au pool de back-ends de **myLoadBalancer**.
+
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
+
+2. Sous **Paramètres**, sélectionnez **Pools de back-ends**, puis **myBackendPool**.
+
+3. Sélectionnez **Machines virtuelles** dans **Associé à**.
+
+4. Dans la section **Machines virtuelles**, sélectionnez **+ Ajouter**.
+
+5. Cochez les cases en regard de **myVM1**, **myVM2** et **myVM3**.
+
+6. Sélectionnez **Ajouter**.
+
+7. Sélectionnez **Enregistrer**.
 
 ---
 

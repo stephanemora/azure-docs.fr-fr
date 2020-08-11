@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054489"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480422"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutoriel : Publier des applications managées Azure dans la Place de marché
 
@@ -98,7 +98,7 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
      Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées. L’action `*/read` est automatiquement autorisée ; vous n’avez donc pas besoin d’inclure ce paramètre.
    * **PrincipalId** : Cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
-   * **Définition de rôle** : Cette propriété dresse une liste de tous les rôles RBAC intégrés qui sont fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
+   * **Définition de rôle** : Cette propriété est la liste de tous les rôles intégrés Azure fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
    * **Paramètres de stratégie** : Appliquez une stratégie [Azure Policy](../../governance/policy/overview.md) à votre application managée afin de spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../../governance/policy/samples/index.md).
 
 Vous pouvez ajouter plusieurs autorisations. Nous vous recommandons de créer un groupe d’utilisateurs AD et de spécifier son ID dans **PrincipalId**. De cette manière, vous pouvez ajouter plus d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence (SKU).

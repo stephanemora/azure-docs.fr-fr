@@ -3,12 +3,12 @@ title: Exemples de requêtes avancées
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment en utilisant des colonnes, en listant les étiquettes utilisées et en mettant en correspondance des ressources avec des expressions régulières.
 ms.date: 07/14/2020
 ms.topic: sample
-ms.openlocfilehash: 38013be583c74e968160cb7ec3a4dd32ede213b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087490"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534785"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph avancées
 
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip"></a>Lister les machines virtuelles avec leur interface réseau et leur adresse IP publique
 
-Cette requête utilise deux commandes **leftouter** `join` pour réunir des machines virtuelles, leurs interfaces réseau associées et toute adresse IP publique associée à ces interfaces réseau.
+Cette requête utilise deux commandes **leftouter** `join` pour réunir des machines virtuelles créées avec le modèle de déploiement Resource Manager, leurs interfaces réseau associées et toute adresse IP publique associée à ces interfaces réseau.
 
 ```kusto
 Resources

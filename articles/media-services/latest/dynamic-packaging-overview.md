@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090108"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489773"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetage dynamique dans Media Services v3
 
@@ -33,6 +33,8 @@ Dans Media Services, un [point de terminaison de streaming](streaming-endpoint-c
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Pour préparer vos fichiers sources en vue de leur distribution
 
 Pour bénéficier de l’empaquetage dynamique, vous devez [encoder](encoding-concept.md) votre fichier mezzanine (source) en un ensemble de fichiers MP4 à vitesse de transmission multiple (format ISO Base Media 14496-12). Vous devez avoir un [actif multimédia](assets-concept.md) avec les fichiers MP4 encodés et les fichiers config de streaming nécessaires à l’empaquetage dynamique de Media Services. À partir de cet ensemble de fichiers MP4, vous pouvez utiliser l’empaquetage dynamique pour distribuer du contenu vidéo via les protocoles de streaming multimédia décrits ci-dessous.
+
+L’empaquetage dynamique d’Azure Media Services prend en charge seulement les fichiers audio et vidéo au format de conteneur MP4. Les fichiers audio doivent également être encodés dans un conteneur MP4 lors de l’utilisation d’autres codecs, comme Dolby.  
 
 > [!TIP]
 > Pour obtenir les fichiers MP4 et les fichiers de configuration de streaming, vous pouvez, par exemple, [encoder votre fichier mezzanine avec Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ Le diagramme suivant illustre le flux de travail du streaming à la demande avec
 
 ![Diagramme d’un workflow de streaming à la demande avec l’empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Le chemin de téléchargement est présent dans l’image ci-dessus juste pour vous montrer que vous pouvez télécharger un fichier MP4 directement via le *point de terminaison de streaming* (origine). (Vous spécifiez la [stratégie de streaming](streaming-policy-concept.md) téléchargeable sur le localisateur de streaming).<br/>L’empaqueteur dynamique ne modifie pas le fichier. 
+Le chemin de téléchargement est présent dans l’image ci-dessus juste pour vous montrer que vous pouvez télécharger un fichier MP4 directement via le *point de terminaison de streaming* (origine). (Vous spécifiez la [stratégie de streaming](streaming-policy-concept.md) téléchargeable sur le localisateur de streaming).<br/>L’empaqueteur dynamique ne modifie pas le fichier. Vous avez la possibilité d’utiliser les API Stockage Blob Azure pour accéder directement à un MP4 pour un téléchargement progressif si vous voulez ignorer les fonctionnalités (d’origine) du *point de terminaison de streaming*. 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Encoder en fichiers MP4 à débit adaptatif
 
@@ -123,17 +125,17 @@ Pour plus d’informations sur le streaming en direct dans Media Services v3, co
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs vidéo pris en charge par l’empaquetage dynamique
 
-L’empaquetage dynamique prend en charge les fichiers MP4 contenant de la vidéo encodée au format [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
+L’empaquetage dynamique prend en charge les fichiers vidéo qui sont à un format de fichier de conteneur MP4 et qui contiennent de la vidéo encodée avec [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
 > Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’*empaquetage dynamique*. L’[encodeur Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) prend en charge l’encodage en H.265 via les API v2 existantes.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio pris en charge par l’empaquetage dynamique
 
-L’empaquetage dynamique prend en charge les données audio encodées avec les protocoles suivants :
+L’empaquetage dynamique prend également en charge les fichiers audio stockés au format de conteneur de fichier MP4 contenant un flux audio encodé dans un des codecs suivants :
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 ou HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 ou E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 ou HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 ou E-AC3).  L’audio encodé doit être stocké au format de conteneur MP4 pour fonctionner avec l’empaquetage dynamique.
 * Dolby Atmos
 
    Le streaming de contenu Dolby Atmos est pris en charge pour les normes telles que le protocole MPEG-DASH avec MP4 fragmenté au format CSF (Common Streaming Format) ou CMAF (Common Media Application Format), et via HLS (HTTP Live Streaming) avec CMAF.
@@ -146,6 +148,10 @@ L’empaquetage dynamique prend en charge les données audio encodées avec les 
     * DTS-HD Lossless (pas de cœur) (dtsl)
 
 L’empaquetage dynamique prend en charge plusieurs pistes audio avec DASH ou HLS (version 4 ou ultérieure) pour le streaming d’actifs multimédias ayant plusieurs pistes audio avec plusieurs langues et codecs.
+
+Pour tous les codecs audio ci-dessus, l’audio encodé doit être stocké au format de conteneur MP4 pour fonctionner avec l’empaquetage dynamique. Le service ne prend pas en charge les formats de fichiers de flux élémentaires bruts sur Stockage Blob (par exemple, les formats suivants ne sont pas pris en charge : .dts, .ac3). 
+
+Seuls les fichiers avec l’extension .mp4 de l’extension .mp4a sont pris en charge pour l’empaquetage audio. 
 
 ### <a name="limitations"></a>Limites
 

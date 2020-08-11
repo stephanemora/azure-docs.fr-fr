@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498988"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Préparer les ressources Azure à la reprise d’activité après sinistre pour Hyper-V
 
@@ -63,7 +63,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 9. Dans **Emplacement**, choisissez un emplacement géographique pour votre compte de stockage. Pour ce tutoriel, utilisez **Europe Ouest**.
 10. Sélectionnez **Créer** pour créer le compte de stockage.
 
-   ![Créez un compte de stockage.](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Capture d’écran des options Créer un compte de stockage](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -74,7 +74,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 3. Dans **Emplacement**, sélectionnez la région où le coffre doit se trouver. Pour ce tutoriel, utilisez **Europe Ouest**.
 4. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
 
-![Créer un coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Capture d’écran de la page Créer un coffre Recovery Services](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 Le nouveau coffre apparaît dans **Tableau de bord** > **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
 
@@ -91,7 +91,7 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 7. Conservez les options par défaut de la protection DDoS de base, sans point de terminaison de service sur le réseau.
 8. Sélectionnez **Create** (Créer).
 
-![Créez un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
+![Capture d’écran des options Créer un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
 
 La création du réseau virtuel prend quelques secondes. Une fois qu’il est créé, vous le voyez dans le tableau de bord du portail Azure.
 

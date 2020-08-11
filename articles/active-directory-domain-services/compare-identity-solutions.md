@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555141"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489586"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparer les services Active Directory Domain Services automanagés, Azure Active Directory et les services Azure Active Directory Domain Services managés
 
@@ -47,7 +47,7 @@ Si vous avez des applications et des services qui doivent accéder à des mécan
 
 Avec Azure AD DS, les composants de service de base sont déployés et gérés pour vous par Microsoft en tant qu’expérience de domaine *managé*. Vous ne pouvez pas déployer, gérer, corriger et sécuriser l’infrastructure AD DS pour des composants tels que les machines virtuelles, le système d’exploitation Windows Server ou les contrôleurs de domaine.
 
-Azure AD DS fournit un sous-ensemble plus petit de fonctionnalités à un environnement AD DS automanagé traditionnel, ce qui réduit la complexité de la conception et de la gestion. Par exemple, il n’existe pas de forêts, de domaines, de sites et de liens de réplication Active Directory à concevoir ni à entretenir. Vous pouvez toujours [créer des approbations de forêt entre des environnements Azure AD DS et locaux (actuellement en préversion)][create-forest-trust].
+Azure AD DS fournit un sous-ensemble plus petit de fonctionnalités à un environnement AD DS automanagé traditionnel, ce qui réduit la complexité de la conception et de la gestion. Par exemple, il n’existe pas de forêts, de domaines, de sites et de liens de réplication Active Directory à concevoir ni à entretenir. Vous pouvez toujours [créer des approbations de forêt entre des environnements Azure AD DS et locaux][create-forest-trust].
 
 Pour les applications et les services qui s’exécutent dans le cloud et qui ont besoin d’accéder à des mécanismes d’authentification traditionnels, tels que Kerberos ou NTLM, Azure AD DS offre une expérience de domaine managé avec charge administrative minimale. Pour plus d’informations, consultez [Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure AD DS][administration-concepts].
 

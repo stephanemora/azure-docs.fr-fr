@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2c71e96dc1c92fc94d403e7c721b2b9f3149b8e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3b9758d52c4be8e4d85c398f5ef1d0b3fae7e86
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100891"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541802"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Démarrage rapide : Créer un coffre de clés à l’aide de l’interface de ligne de commande Azure
 
@@ -69,7 +69,7 @@ La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous v
 
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, ainsi que toutes les ressources associées. Vous pouvez supprimer les ressources comme suit :
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande Azure CLI [az group delete](/cli/azure/group) pour supprimer le groupe de ressources ainsi que toutes les ressources associées :
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338025"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808437"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory (Azure AD)
 
@@ -58,8 +57,15 @@ Pour ajouter une application à votre locataire Azure AD :
 
 Vous avez terminé l’ajout d’une application. Le guide de démarrage rapide suivant vous montre comment changer le logo et d’autres propriétés pour votre application.
 
+> [!TIP]
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous n’envisagez pas de poursuivre la série de guides de démarrage rapide, pensez à supprimer l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer une application](add-application-portal-configure.md)
-- [Configurer l’authentification unique](add-application-portal-setup-sso.md)
-- [Supprimer une application](delete-application-portal.md)
+Passez à l’article suivant pour savoir comment configurer une application.
+> [!div class="nextstepaction"]
+> [Configurer une application](add-application-portal-configure.md)

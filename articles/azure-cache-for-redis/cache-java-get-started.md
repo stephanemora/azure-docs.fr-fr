@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320695"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528824"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Java
 
@@ -30,12 +30,24 @@ Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Re
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Ajoutez des variables d’environnement pour votre **NOM D’HÔTE** et la clé d’accès **Principale**. Vous allez utiliser ces variables à partir de votre code au lieu d’inclure les informations sensibles directement dedans.
+## <a name="setting-up-the-working-environment"></a>Configurer l’environnement de travail 
+
+Ajoutez des variables d’environnement pour votre **nom d’hôte** et votre **clé d’accès primaire** en fonction de votre système d’exploitation. Ouvrez une invite de commandes ou une fenêtre de terminal et configurez les valeurs suivantes :
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Remplacez les espaces réservés par les valeurs suivantes :
+
+- `<YOUR_HOST_NAME>`: le nom d’hôte DNS obtenu à partir de la section *Propriétés* de votre ressource Azure Cache pour Redis dans le portail Azure
+- `<YOUR_PRIMARY_ACCESS_KEY>`: la clé d’accès primaire obtenue à partir de la section *Clés d’accès* de votre ressource Azure Cache pour Redis dans le portail Azure
 
 ## <a name="create-a-new-java-app"></a>Créer une nouvelle application Java
 

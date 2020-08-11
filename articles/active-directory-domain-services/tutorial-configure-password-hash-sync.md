@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024687"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491780"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutoriel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
 
@@ -22,7 +22,7 @@ Pour les environnements hybrides, un locataire Azure Active Directory (Azure AD
 
 Pour utiliser Azure AD DS avec des comptes synchronisés à partir d’un environnement AD DS local, vous devez configurer Azure AD Connect afin de synchroniser ces hachages de mot de passe nécessaires pour l’authentification NTLM et Kerberos. Une fois Azure AD Connect configuré, un événement de création de compte ou de modification de mot de passe local synchronise également les hachages de mot de passe existants avec Azure AD.
 
-Vous n’avez pas besoin d’effectuer ces étapes si vous utilisez des comptes cloud uniquement sans environnement AD DS local.
+Vous n’avez pas besoin d’effectuer ces étapes si vous utilisez des comptes cloud uniquement sans environnement AD DS local ou si vous utilisez une *forêt de ressources*. Pour les domaines managés qui utilisent une forêt de ressources, les hachages de mots de passe ne sont jamais synchronisés. L’authentification des comptes locaux réutilise la ou les approbations de forêt pour vos propres contrôleurs de domaine AD DS.
 
 Dans ce tutoriel, vous allez voir comment :
 

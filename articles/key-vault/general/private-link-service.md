@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521086"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494687"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -233,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
+
+* Vérifiez que le point de terminaison privé est dans l’état Approuvé. 
+    1. Vous pouvez vérifier et corriger cela dans le portail Azure. Ouvrez la ressource Key Vault, puis cliquez sur l’option Réseau. 
+    2. Sélectionnez ensuite l’onglet Connexions de point de terminaison privé. 
+    3. Vérifiez que l’état de la connexion est Approuvé et que l’état de provisionnement est Réussite. 
+    4. Vous pouvez également accéder à la ressource de point de terminaison privé et y examiner les mêmes propriétés, et vérifier que le réseau virtuel correspond à celui que vous utilisez.
+
+* Vérifiez que vous disposez d’une ressource de zone DNS privée. 
+    1. Vous devez avoir d’une ressource de zone DNS privée avec ce nom exact : privatelink.vaultcore.azure.net. 
+    2. Pour savoir comment configurer cela, consultez le lien suivant. [Zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Vérifiez que la zone DNS privée n’est pas liée au réseau virtuel. Ceci peut être le problème si vous continuez de recevoir l’adresse IP publique en retour. 
+    1. Si la zone DNS privée n’est pas liée au réseau virtuel, la requête DNS provenant du réseau virtuel va retourner l’adresse IP publique du coffre de clés. 
+    2. Accédez à la ressource de zone DNS privée dans le portail Azure et cliquez sur l’option des liens du réseau virtuel. 
+    4. Le réseau virtuel qui va effectuer les appels au coffre de clés doit être listé. 
+    5. Si ce n’est pas le cas, ajoutez-le. 
+    6. Pour obtenir des étapes détaillées, consultez le document suivant : [Lier un réseau virtuel à une zone DNS privée](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+
+* Vérifiez que la zone DNS privée contient bien un enregistrement A pour le coffre de clés. 
+    1. Accédez à la page Zone DNS privée. 
+    2. Cliquez sur Vue d’ensemble et vérifiez qu’il existe un enregistrement A avec le nom simple de votre coffre de clés (par exemple fabrikam). Ne spécifiez aucun suffixe.
+    3. Vérifiez bien l’orthographe, puis créez ou corrigez l’enregistrement A. Vous pouvez utiliser une durée de vie de 3600 (1 heure). 
+    4. Veillez à spécifier l’adresse IP privée correcte. 
+    
+* Vérifiez que l’enregistrement a l’adresse IP correcte. 
+    1. Vous pouvez vérifier l’adresse IP en ouvrant la ressource de point de terminaison privé dans le portail Azure 
+    2. Accédez à la ressource Microsoft.Network/privateEndpoints dans le portail Azure (et non pas à la ressource Key Vault).
+    3. Dans la page Vue d’ensemble, recherchez interface réseau, puis cliquez sur ce lien. 
+    4. Le lien montre la vue d’ensemble de la ressource de carte réseau, qui contient la propriété Adresse IP privée. 
+    5. Vérifiez qu’il s’agit de l’adresse IP correcte spécifiée dans l’enregistrement A.
 
 ## <a name="limitations-and-design-considerations"></a>Limitations et remarques sur la conception
 

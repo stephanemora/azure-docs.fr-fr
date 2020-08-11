@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667301"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439567"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Vue d’ensemble d’Azure FarmBeats (préversion)
 
 Azure FarmBeats est une offre interentreprise disponible sur la Place de marché Azure. Cette solution permet d’agréger des jeux de données agricoles provenant de différents fournisseurs. Avec Azure FarmBeats, vous pouvez créer des modèles d’intelligence artificielle (IA) ou des modèles Machine Learning (ML) basés sur les jeux de données fusionnés. En utilisant Azure FarmBeats, les entreprises du secteur agricole peuvent se concentrer sur leur valeur ajoutée principale plutôt que passer du temps sur des tâches indifférenciées d’ingénierie des données.
 
 > [!NOTE]
-> Azure FarmBeats est actuellement disponible en préversion publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats est fourni sans contrat de niveau de service. Utilisez le [Forum Azure FarmBeats](https://aka.ms/FarmBeatsMSDN ) pour obtenir du support technique.
+> Azure FarmBeats est actuellement disponible en préversion publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats est fourni sans contrat de niveau de service. Utilisez le [Forum de support Azure FarmBeats](https://aka.ms/farmbeatssupport) pour obtenir du support.
 
 ![Projet FarmBeats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 

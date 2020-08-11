@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281274"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503818"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -104,7 +104,7 @@ Pour préparer l’abonnement Azure et l’environnement physique/VMware local, 
 5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Pour accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord**, puis sur **Créer**.
 
-   ![Nouveau coffre](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Capture d’écran montrant les options de création de coffre](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
 
@@ -136,15 +136,15 @@ La stratégie est automatiquement associée au serveur de configuration.
 > [!WARNING]
 > Veillez à spécifier **Désactivé** pour le paramètre de fréquence de capture instantanée de cohérence des applications de la stratégie de réplication. Seuls les points de récupération cohérents d’incident sont pris en charge lors de la réplication de serveurs exécutant Windows Server 2008. La spécification de toute autre valeur pour la fréquence des captures instantanées de cohérence des applications entraîne de fausses alertes en rendant critique l’intégrité de réplication du serveur en raison d’un manque points de récupération de cohérence d’application.
 
-   ![Créer une stratégie de réplication](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Capture d’écran montrant les options de création de stratégie de réplication](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Activer la réplication
 
 [Activez la réplication](physical-azure-disaster-recovery.md#enable-replication) pour le serveur Windows Server 2008 SP2 ou 2008 R2 SP1 à migrer.
    
-   ![Ajouter un serveur physique](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Capture d’écran montrant les options d’ajout de machines physiques](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Activer la réplication](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Capture d’écran montrant les options d’activation de la réplication](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Exécuter un test de migration
 
@@ -152,7 +152,7 @@ Vous pouvez effectuer un test de basculement des serveurs de réplication une fo
 
 Exécutez un [test de basculement](tutorial-dr-drill-azure.md) vers Azure afin de vérifier que tout fonctionne bien.
 
-   ![Test de basculement](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Capture d’écran montrant la commande Tester le basculement](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migrer vers Azure
@@ -168,7 +168,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
     - Termine le processus de migration, arrête la réplication pour le serveur et arrête la facturation Site Recovery pour le serveur.
     - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
 
-   ![Terminer la migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Capture d’écran montrant la commande Terminer la migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387283"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808386"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -61,6 +61,16 @@ Pour configurer l’authentification unique pour une application :
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Capture d’écran montrant l’option d’authentification unique dans l’abonnement Enterprise de la page des prix GitHub.":::
 
 
-## <a name="next-step"></a>Étape suivante
+> [!TIP]
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Supprimer une application](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous aurez terminé cette série de guides de démarrage rapide, envisagez de supprimer l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Passez à l’article suivant pour découvrir comment supprimer une application.
+> [!div class="nextstepaction"]
+> [Supprimer une application](delete-application-portal.md)

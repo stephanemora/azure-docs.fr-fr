@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: e0d0804ce1f43d246dc4e87e222cbfbaf7db58aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100969"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534088"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Créer une attribution et allouer du crédit
 
@@ -31,7 +31,7 @@ Le Hub Education Azure accepte toute adresse e-mail dans _____ @___.___ HH:MM:SS
 > [!IMPORTANT]
 > Les comptes professionnels et scolaires sont soumis à leurs propres politiques, notamment si une adresse e-mail d’un domaine autre que l’organisation est autorisée (par exemple, l’ajout de student2@outlook.com au domaine @school.edu). Veillez à vérifier ces politiques avant d’ajouter des utilisateurs.
 
-Quand un compte professionnel ou scolaire (par exemple, student1@school.edu) est ajouté en tant que contrôle d’accès en fonction du rôle (RBAC) dans le portail « Parrainage Enseignant » ou dans le [portail Azure](https://portal.azure.com), Azure envoie automatiquement un e-mail au destinataire. Cet e-mail exige de l’utilisateur qu’il accepte le nouveau compte et le rôle RBAC avant d’avoir accès à l’abonnement. Si vous êtes un assistant d’enseignement ou un professeur, veillez à en informer les étudiants à ce sujet afin que leur abonnement s’affiche dans le portail Azure comme prévu. L’e-mail ressembler à ceci :
+Quand un compte professionnel ou scolaire (par exemple, student1@school.edu) est ajouté en tant que contrôle d’accès en fonction du rôle (RBAC) dans le portail « Parrainage Enseignant » ou dans le [portail Azure](https://portal.azure.com), Azure envoie automatiquement un e-mail au destinataire. Cet e-mail exige de l’utilisateur qu’il accepte le nouveau compte et le rôle Azure avant d’avoir accès à l’abonnement. Si vous êtes un assistant d’enseignement ou un professeur, veillez à en informer les étudiants à ce sujet afin que leur abonnement s’affiche dans le portail Azure comme prévu. L’e-mail ressembler à ceci :
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Prise en main d’Azure Active Directory" border="false":::
 

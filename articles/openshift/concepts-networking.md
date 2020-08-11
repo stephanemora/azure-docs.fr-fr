@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fa39fe3e065c230f7e06ee443d2aa56227dc6f31
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965315"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419969"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Mise en réseau dans Azure Red Hat sur OpenShift 4
 
@@ -102,7 +102,7 @@ Les paramètres réseau suivants sont disponibles dans Azure Red Hat OpenShift 
     * Les routes « privées » sont définies par défaut sur l’équilibreur de charge interne (vous pouvez modifier cela).
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
-Les groupes de sécurité réseau sont créés dans le groupe de ressources des nœuds, qui est verrouillé. Les groupes de sécurité réseau sont attribués directement aux sous-réseaux qui ne se trouvent pas sur les cartes réseau du nœud. Les groupes de sécurité réseau sont immuables, ce qui signifie que vous n’avez pas l’autorisation de les modifier. 
+Les groupes de sécurité réseau sont créés dans le groupe de ressources du nœud, qui est verrouillé. Les groupes de sécurité réseau sont attribués directement aux sous-réseaux et non aux cartes réseau du nœud. Les groupes de sécurité réseau sont immuables, ce qui signifie que vous n’avez pas l’autorisation de les modifier. 
 
 Toutefois, avec un serveur d’API publiquement visible, vous ne pouvez pas créer les groupes de sécurité réseau et les affecter aux cartes réseau.
 

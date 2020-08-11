@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 746c406c4e6d458f699eb844156190e47d5c7a26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bdb7637624a1da5270eb1cba49e9f66e5042ccf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384904"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482003"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 
 Dans le tutoriel que vous avez suivi dans le cadre des prérequis, vous avez créé un flux d’utilisateur pour l’inscription et la connexion nommé *B2C_1_signupsignin1*. Dans cette section, vous ajoutez les fournisseurs d’identité au flux d’utilisateur *B2C_1_signupsignin1*.
 
-1. Sélectionnez **Flux d'utilisateurs (stratégies)** , puis choisissez le flux d'utilisateurs *B2C_1_signupsignin1*.
+1. Sélectionnez **Flux d’utilisateurs**, puis le flux utilisateur *B2C_1_signupsignin1*.
 2. Sélectionnez **Fournisseurs d’identité**, sélectionnez les fournisseurs d’identité **Facebook** et **Contoso Azure AD** que vous avez ajoutés.
 3. Sélectionnez **Enregistrer**.
 

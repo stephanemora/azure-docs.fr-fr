@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388253"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564127"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La suppression réversible sera activée sur tous les coffres de clés
 
@@ -48,7 +48,7 @@ Les principaux de sécurité qui ont besoin d’un accès pour supprimer défini
 
 Si vous avez une stratégie Azure sur vos coffres de clés qui impose que la suppression réversible soit désactivée, cette stratégie doit être désactivée.  Il peut être nécessaire de faire remonter ce problème à un administrateur qui contrôle les stratégies Azure appliquées à votre environnement. Si cette stratégie n’est pas désactivée, vous pouvez perdre la possibilité de créer de nouveaux coffres de clés dans l’étendue de la stratégie appliquée.
 
-Si votre organisation est soumise à des exigences de conformité légales, et qu’elle ne peut pas autoriser la suppression des coffres de clés et des secrets de façon à rester dans un état récupérable, pendant une période étendue, vous devez ajuster la période de conservation de la suppression réversible, qui peut être configurée entre 7 et 90 jours, pour répondre aux standards de votre organisation.
+Si votre organisation est soumise à des exigences de conformité légales et qu’elle ne peut pas autoriser la suppression des coffres de clés et des secrets de façon à rester dans un état récupérable, pendant une période étendue, vous devez ajuster la période de conservation de la suppression réversible, qui peut être configurée entre 7 et 90 jours, pour répondre aux standards de votre organisation.
 
 ## <a name="procedures"></a>Procédures
 
@@ -73,7 +73,7 @@ Vous devez maintenant être en mesure de filtrer et de voir les coffres de clés
 1. Connectez-vous au portail Azure.
 2. Recherchez votre coffre de clés.
 3. Sous Paramètres, sélectionnez « Propriétés ».
-4. Sous Suppression réversible, sélectionnez la case d’option correspondant à « Activer la récupération de ce coffre et de ses objets ».
+4. Sous Suppression réversible, sélectionnez la case d’option « Activer la récupération de ce coffre et de ses objets ».
 5. Définir la période de conservation pour la suppression réversible.
 6. Sélectionnez « Enregistrer ».
 

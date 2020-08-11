@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283450"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534768"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 
 
 > [!IMPORTANT]
-> Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle RBAC affecté à l’identité managée.
+> Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 >
 
 ## <a name="credentials"></a>Informations d'identification
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Exemples
 
-**Accès à la source de données publiquement disponible**
+### <a name="access-a-publicly-available-data-source"></a>**Accéder à une source de données disponible publiquement**
 
 Utilisez le script suivant pour créer une table qui accède à la source de données publiquement disponible.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Accès à une source de données à l’aide d’informations d’identification**
+### <a name="access-a-data-source-using-credentials"></a>**Accéder à une source de données en utilisant des informations d’identification**
 
 Modifiez le script suivant pour créer une table externe qui accède au stockage Azure à l’aide d’un jeton SAP, d’une identité d’utilisateur Azure AD ou d’une identité managée d’espace de travail.
 

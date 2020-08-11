@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281342"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432659"
 ---
 # <a name="changelog"></a>Journal des modifications #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281342"
 
 ### <a name="changes-234"></a>Modifications 2.3.4
 
-- Piste/étiquette de légende vide supprimée lors de la lecture TLS sur iOS et MacOS Safari
+- Piste/étiquette de légende vide supprimée lors de la lecture de HLS sur iOS et macOS Safari
 - Réduction du nombre d’erreurs 412 pour les légendes IMSC1
 - Générer un avertissement dans la console pour 10 réponses de légende IMSC1 vides consécutives pour faciliter le débogage en direct
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (mise à jour officielle du 9 octobre 2019)
 
-### <a name="features"></a>Fonctionnalités
+### <a name="features-232"></a>Fonctionnalités 2.3.2
 
 -Ajout de la prise en charge de PlayReady pour la lecture DASH pour le navigateur Chromium Edge
 
@@ -101,7 +101,7 @@ ms.locfileid: "87281342"
 
 - Lors de l’obtention d’une erreur segmentDecryptError et si le lecteur se trouve dans la périphérie en direct, le lecteur actualise le manifeste au lieu d’essayer le segment suivant.
 - Enrichissement de la journalisation pour le diagnostic
-- Mise à jour de la documentation afin d’inclure la prise en charge de FairPlay for iOS Safari
+- Mise à jour de la documentation afin d’inclure la prise en charge de FairPlay pour iOS Safari
 - Ajout d’un exemple pour le « srclang » de l’option IMSC1
 - Ajout des remplacements padding, textPadding et boxShadow pour les pistes de texte.
 - Ajout d’un code d’erreur (0x0020025B) pour bien indiquer que l’échec du téléchargement du segment est dû à l’absence de connexion Internet, au lieu de simplement lever une erreur 0x00200259
@@ -228,7 +228,7 @@ ms.locfileid: "87281342"
 
 ### <a name="changes-218"></a>Modifications 2.1.8 ###
 
-- [Modification] Mise à jour de l’erreur 0x0600001 à afficher lorsque le contenu AES est lu avec Flash 30, car ce plug-in n’est pas pris en charge pour le moment. Pour plus de détails, voir [Problèmes connus](azure-media-player-known-issues.md).
+- [Modification] Mise à jour de l’erreur 0x0600001 à afficher quand le contenu AES est lu avec Flash 30, car ce plug-in n’est pas pris en charge pour le moment. Pour plus de détails, voir [Problèmes connus](azure-media-player-known-issues.md).
 - [Modification] Ajout de nouvelles tentatives supplémentaires pour les scénarios en direct quand le manifeste demande 404 ou retourne des manifestes vides.
 
 ## <a name="217-official-update"></a>2.1.7 (mise à jour officielle) ##

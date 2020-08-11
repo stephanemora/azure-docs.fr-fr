@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9c2345c93a163464ea735400c9269e2e3fc27ecf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223446"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488165"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Activer Azure Active Directory Domain Services à l’aide de PowerShell
 
@@ -154,9 +154,9 @@ Une fois que le portail Azure a indiqué que le provisionnement du domaine manag
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
     * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
-* Si vous avez créé un domaine managé dans une région qui prend en charge les Zones de disponibilité, créez un groupe de sécurité réseau pour limiter le trafic sur le réseau virtuel pour ce domaine managé. Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
-    * Pour créer le groupe de sécurité réseau et les règles requises, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, il vous est demandé de créer automatiquement le groupe de sécurité réseau et de le configurer.
-* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
+* Créez un groupe de sécurité réseau pour limiter le trafic dans le réseau virtuel du domaine managé. Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
+    * Pour créer le groupe de sécurité réseau et les règles nécessaires, installez d’abord le script `New-AzureAddsNetworkSecurityGroup` à l’aide de la commande `Install-Script -Name New-AaddsNetworkSecurityGroup`, puis exécutez `New-AaddsNetworkSecurityGroup`. Les règles nécessaires au domaine managé sont créées automatiquement.
+* [Activez la synchronisation de mot de passe avec Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les utilisateurs finaux puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="complete-powershell-script"></a>Compléter le script PowerShell
 
@@ -241,9 +241,9 @@ Une fois que le portail Azure a indiqué que le provisionnement du domaine manag
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
     * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
-* Si vous avez créé un domaine managé dans une région qui prend en charge les Zones de disponibilité, créez un groupe de sécurité réseau pour limiter le trafic sur le réseau virtuel pour ce domaine managé. Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
-    * Pour créer le groupe de sécurité réseau et les règles requises, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, il vous est demandé de créer automatiquement le groupe de sécurité réseau et de le configurer.
-* [Activez la synchronisation de mots de passe avec Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de sorte que les utilisateurs puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
+* Créez un groupe de sécurité réseau pour limiter le trafic dans le réseau virtuel du domaine managé. Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
+    * Pour créer le groupe de sécurité réseau et les règles nécessaires, installez d’abord le script `New-AzureAddsNetworkSecurityGroup` à l’aide de la commande `Install-Script -Name New-AaddsNetworkSecurityGroup`, puis exécutez `New-AaddsNetworkSecurityGroup`. Les règles nécessaires au domaine managé sont créées automatiquement.
+* [Activez la synchronisation de mot de passe avec Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les utilisateurs finaux puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

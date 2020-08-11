@@ -10,12 +10,13 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 718c9a62cc867e5d65cc3c79e78ce3282f1037c7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+- devx-track-azurecli
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285847"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799462"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Déployer une application web Django avec PostgreSQL dans Azure App Service
 
@@ -30,6 +31,9 @@ Ce tutoriel explique comment utiliser Azure CLI pour effectuer les tâches suiva
 > * Mettre à jour votre code et effectuer un redéploiement
 > * Afficher les journaux de diagnostic
 > * Gérer l’application web dans le portail Azure.
+
+Vous pouvez également utiliser la [version pour le portail Azure de ce tutoriel](/azure/developer/python/tutorial-python-postgresql-app-portal).
+
 
 ## <a name="set-up-your-initial-environment"></a>Configurer votre environnement initial
 
@@ -106,7 +110,7 @@ L’exemple de dossier djangoapp contient l’application de sondage Django pilo
 
 L’exemple est également modifié pour s’exécuter dans un environnement de production tel qu’App Service :
 
-- Les paramètres de production se trouvent dans le fichier *azuresite/production.py*. Les détails du développement se trouvent dans le fichier *azuresite/Settings.py*.
+- Les paramètres de production se trouvent dans le fichier *azuresite/production.py*. Les détails du développement se trouvent dans *azuresite/Settings.py*.
 - L’application utilise les paramètres de production lorsque la variable d’environnement `DJANGO_ENV` est définie sur « production ». Vous allez créer cette variable d’environnement ultérieurement dans le tutoriel, ainsi que d’autres éléments utilisés pour la configuration de la base de données PostgreSQL.
 
 Ces modifications sont spécifiques de la configuration de Django pour s’exécuter dans n’importe quel environnement de production. Elles ne sont pas propres à App Service. Pour plus d’informations, consultez la [liste de contrôle du déploiement de Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

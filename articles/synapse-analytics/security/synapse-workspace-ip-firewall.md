@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052424"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503920"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Règles de pare-feu IP Azure Synapse Analytics (préversion)
 
@@ -35,7 +35,7 @@ Vous pouvez également ajouter des règles de pare-feu IP à un espace de travai
 
 ![Configuration IP de l’espace de travail Azure Synapse dans le portail Azure](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connecting-to-synapse-from-your-own-network"></a>Connexion à Synapse à partir de votre propre réseau
+## <a name="connect-to-synapse-from-your-own-network"></a>Se connecter à Synapse à partir de votre propre réseau
 
 Vous pouvez vous connecter à votre espace de travail Synapse à l’aide de Synapse Studio. Vous pouvez également utiliser SQL Server Management Studio (SSMS) pour vous connecter aux ressources SQL (pools SQL et SQL à la demande) dans votre espace de travail.
 

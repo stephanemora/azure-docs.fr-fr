@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338042"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808403"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -95,9 +95,17 @@ Pour utiliser un logo personnalisé :
    > [!NOTE]
    > La miniature affichée dans ce volet **Propriétés** n’est pas mise à jour immédiatement. Vous pouvez fermer et rouvrir le volet **Propriétés** pour voir l’icône mise à jour.
 
+
+> [!TIP]
+> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous n’envisagez pas de poursuivre la série de guides de démarrage rapide, pensez à supprimer l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les propriétés d’une application étant configurées, vous pouvez passer à la configuration de l’authentification unique.
-
-- [Configurer l’authentification unique](add-application-portal-setup-sso.md)
-- [Supprimer une application](delete-application-portal.md)
+Passez à l’article suivant pour découvrir comment configurer l’authentification unique pour une application.
+> [!div class="nextstepaction"]
+> [Configurer l’authentification unique](add-application-portal-setup-sso.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68782591"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502390"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Basculer et reprotéger des machines virtuelles Azure entre des régions
 
@@ -38,7 +38,7 @@ Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une régio
 
 1. Dans **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez basculer > **Basculement**.
 
-   ![Basculement](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Capture d’écran montrant les options de basculement pour une machine virtuelle](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
 
@@ -58,7 +58,7 @@ Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une régio
 > [!NOTE]
 > Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque après avoir activé la réplication pour la machine virtuelle, les points de réplication afficheront les disques disponibles pour la récupération. Par exemple, si une machine virtuelle comporte un seul disque et que vous en ajoutez un nouveau, les points de réplication créés avant l’ajout du disque montrent que le point de réplication se compose de « 1 de 2 disques ».
 
-![Basculer avec un disque ajouté](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Capture d’écran montrant le basculement avec un disque ajouté](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Reprotéger la machine virtuelle secondaire
 
@@ -67,7 +67,7 @@ Après avoir basculé la machine virtuelle, vous devez la reprotéger afin qu’
 1. Vérifiez que la machine virtuelle se trouve dans l’état **Basculement validé** et que la région primaire est disponible ; vous pouvez alors y créer des ressources et accéder à celles-ci.
 2. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle ayant été basculée et sélectionnez **Reprotéger**.
 
-   ![Cliquer avec le bouton droit pour reprotéger](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Capture d’écran de l’option de reprotection pour une machine virtuelle](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Vérifiez que la direction de la protection, à savoir depuis la région secondaire vers la région primaire, est déjà sélectionnée.
 3. Vérifiez les informations **Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité**. Les ressources éventuellement marquées comme nouvelles sont créées dans le cadre de l’opération de reprotection.

@@ -7,16 +7,18 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318417"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553272"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
-Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des vignettes présentant des données de plusieurs ressources Azure dans différents groupes de ressources et abonnements.  Vous pouvez épingler différents graphiques et affichages d’Azure Application Insights pour créer des tableaux de bord personnalisés qui donnent une image complète de l’intégrité et des performances de votre application. Ce didacticiel vous guide dans la création d’un tableau de bord personnalisé incluant plusieurs types de données et visualisations d’Azure Application Insights.  Vous allez apprendre à effectuer les actions suivantes :
+Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des vignettes présentant des données de plusieurs ressources Azure dans différents groupes de ressources et abonnements.  Vous pouvez épingler différents graphiques et affichages d’Azure Application Insights pour créer des tableaux de bord personnalisés qui donnent une image complète de l’intégrité et des performances de votre application. Ce didacticiel vous guide dans la création d’un tableau de bord personnalisé incluant plusieurs types de données et visualisations d’Azure Application Insights.
+
+ Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un tableau de bord personnalisé dans Azure
@@ -25,13 +27,14 @@ Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des
 > * Ajouter un graphique de métrique personnalisé Application Insights au tableau de bord
 > * Ajouter les résultats d’une requête Logs (Analytics) au tableau de bord
 
-
-
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
 - Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../app/asp-net.md).
+
+> [!NOTE]
+> Les autorisations requises pour l’utilisation des tableaux de bord sont décrites dans l’article [Présentation du contrôle d’accès relatif aux tableaux de bord](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).

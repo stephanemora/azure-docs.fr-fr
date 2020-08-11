@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058736"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513143"
 ---
 # <a name="about-azure-virtual-wan"></a>À propos d'Azure Virtual WAN
 
@@ -124,9 +124,9 @@ Pour plus d’informations sur les emplacements, consultez l’article [Partenai
 
 Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de routage préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des routes préexistantes et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
 
-* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de route, veuillez patienter jusqu’à la semaine du 3 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
+* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
 
-* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de route, veuillez patienter jusqu’à la semaine du 3 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 

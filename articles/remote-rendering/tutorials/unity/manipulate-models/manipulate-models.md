@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367628"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449046"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 
@@ -332,18 +332,14 @@ Quand un raycast aboutit dans le **RemoteRayCastPointerHandler**, l’élément 
 
 2. Dans le GameObject **TestModel** créé précédemment, ajoutez le composant **RemoteRayCastPointerHandler** et le composant **RemoteEntityHelper**.
 1. Affectez la méthode `EntityToDebugLog` à l’événement `OnRemoteEntityClicked`. Quand le type de sortie de l’événement et le type d’entrée de la méthode correspondent, nous pouvons utiliser la connexion d’événements dynamique de Unity, qui passera automatiquement la valeur de l’événement dans la méthode.
-    1. Créez un champ de rappel.\
-    ![Ajouter le rappel](./media/add-callback-remote-entity-clicked.png)
-    1. Faites glisser le composant **Remote Entity Helper** vers le champ Object pour référencer le GameObject parent.\
-    ![Affecter l’objet](./media/assign-object.png)
-    1. Affectez `EntityToDebugLog` en tant que rappel.\
-    ![Affecter le rappel](./media/remote-entity-event.png)
+    1. Créez un champ de rappel. ![Ajouter le rappel](./media/add-callback-remote-entity-clicked.png)
+    1. Faites glisser le composant **Remote Entity Helper** vers le champ Object pour référencer le GameObject parent. ![Attribuer l’objet](./media/assign-object.png)
+    1. Attribuez `EntityToDebugLog` comme rappel. ![Attribuer le rappel](./media/remote-entity-event.png)
 1. Appuyez sur Play (Lecture) dans l’éditeur Unity pour démarrer la scène, connectez-vous à une session à distance et chargez le modèle de test.
 1. En utilisant la simulation de main de MRTK, maintenez la touche Maj gauche enfoncée.
-1. Orientez la main simulée de telle sorte que le rayon de la main pointe vers le modèle de test.
+1. Orientez la main simulée de telle sorte que son rayon pointe vers le modèle de test.
 1. Cliquez longuement pour simuler un clic aérien (« air-tap »), en exécutant l’événement `OnPointerClicked`.
-1. Recherchez dans la console Unity un message de journal contenant le nom de l’entité enfant sélectionnée. Par exemple :\
-![Exemple d’entité enfant](./media/child-entity-example.png)
+1. Recherchez dans la console Unity un message de journal contenant le nom de l’entité enfant sélectionnée. Par exemple : ![Exemple d’entité enfant](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Synchronisation du graphe d’objets distants dans la hiérarchie Unity
 
@@ -351,9 +347,9 @@ Jusqu’à présent, nous ne nous sommes intéressés qu’à un GameObject loca
 
 1. Démarrez la scène et chargez le modèle de test.
 1. Développez les enfants du GameObject **TestModel** dans la hiérarchie de Unity et sélectionnez le GameObject **TestModel_Entity**.
-1. Dans l’inspecteur, cliquez sur le bouton *Show Children* (Afficher les enfants).\
+1. Dans l’inspecteur, cliquez sur le bouton *Show Children* (Afficher les enfants).
 ![Show Children](./media/show-remote-children.png) (Afficher les enfants)
-1. Continuez de développer les enfants dans la hiérarchie en cliquant sur *Show Children* jusqu’à obtenir une longue liste d’enfants.\
+1. Continuez de développer les enfants dans la hiérarchie en cliquant sur *Show Children* jusqu’à obtenir une longue liste d’enfants.
 ![Tous les enfants](./media/test-model-children.png)
 
 Une liste constituée de plusieurs dizaines d’entités peuple maintenant la hiérarchie. Si vous sélectionnez l’une d’elles, les composants `Transform` et `RemoteEntitySyncObject` s’affichent dans l’inspecteur. Par défaut, chaque entité n’est pas automatiquement synchronisée avec chaque frame. De ce fait, les modifications locales apportées à `Transform` ne sont pas synchronisées avec le serveur. Vous pouvez cocher *Sync Every Frame* (Synchroniser chaque frame) pour ensuite déplacer, mettre à l’échelle ou faire pivoter la transformation dans la vue Scene ; le modèle rendu ne s’affiche pas dans la vue Scene, mais dans la vue Game, où la position et la rotation du modèle se mettent à jour visuellement.
@@ -371,13 +367,13 @@ Le même processus peut être effectué par programmation et correspond à la pr
     }
     ```
 
-1. Ajoutez un rappel supplémentaire à l’événement **RemoteRayCastPointerHandler** `OnRemoteEntityClicked`, en le définissant sur `MakeSyncedGameObject`.\
+1. Ajoutez un rappel supplémentaire à l’événement **RemoteRayCastPointerHandler** `OnRemoteEntityClicked` en le définissant sur `MakeSyncedGameObject`.
 ![Rappel supplémentaire](./media/additional-callback.png)
 1. En utilisant la simulation de main de MRTK, maintenez la touche Maj gauche enfoncée.
 1. Orientez la main simulée de telle sorte que son rayon pointe vers le modèle de test.
 1. Cliquez longuement pour simuler un clic aérien (« air-tap »), en exécutant l’événement `OnPointerClicked`.
-1. Cochez et développez la hiérarchie pour afficher un nouvel objet enfant représentant l’entité sur laquelle vous avez cliqué.\
-![Représentation du GameObject](./media/gameobject-representing-entity.png)\
+1. Cochez et développez la hiérarchie pour afficher un nouvel objet enfant représentant l’entité sur laquelle vous avez cliqué.
+![Représentation du GameObject](./media/gameobject-representing-entity.png)
 1. Après le test, supprimez le rappel pour `MakeSyncedGameObject`, car nous allons l’incorporer par la suite dans d’autres effets.
 
 > [!NOTE]

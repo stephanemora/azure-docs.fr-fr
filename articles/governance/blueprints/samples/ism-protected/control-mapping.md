@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED
 description: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED. Cet exemple de blueprint aide les clients à évaluer des contrôles ISM PROTECTED spécifiques.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517097"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760428"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Australian Government ISM PROTECTED
 
@@ -106,10 +106,10 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 
 - Auditer l'accès réseau non restreint aux comptes de stockage
 - Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
-- \[Préversion\] :  Déployer des prérequis pour auditer les machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
-- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
-- \[Préversion\] : Déployer les prérequis pour l’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
+- Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
+- Déployer des prérequis pour auditer les machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
+- Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
+- Déployer les prérequis pour l’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 L’authentification multifacteur est utilisée pour authentifier les utilisateurs standard
 
@@ -122,8 +122,8 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 Les phrases secrètes utilisées pour l’authentification à un seul facteur ont un minimum de 14 caractères avec complexité, idéalement sous la forme de quatre mots aléatoires
 
-- \[Préversion\] : Afficher les résultats de l’audit des configurations de machines virtuelles Windows dans « Paramètres de sécurité - Stratégies de compte »
-- \[Préversion\] : Déployer les prérequis pour l’audit des configurations de machines virtuelles Windows dans « Paramètres de sécurité - Stratégies de compte »
+- Afficher les résultats de l’audit des configurations de machines virtuelles Windows dans « Paramètres de sécurité - Stratégies de compte »
+- Déployer les prérequis pour l’audit des configurations de machines virtuelles Windows dans « Paramètres de sécurité - Stratégies de compte »
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Instructions pour la gestion de système - Administration de système
 
@@ -147,7 +147,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -159,7 +159,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -171,7 +171,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -183,7 +183,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -195,7 +195,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -207,7 +207,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
@@ -229,8 +229,8 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Les événements suivants sont enregistrés pour les systèmes d’exploitation : accès à des données et des processus importants, plantages d’applications et messages d’erreur, tentatives d’utilisations de privilèges spéciaux, modifications de comptes, modifications apportées à une stratégie de sécurité, modifications apportées aux configurations système, requêtes DNS (Domain Name System) et HTTP (Hypertext Transfer Protocol), échecs de tentative d’accès aux données et ressources système, échecs et redémarrage de service, démarrage et arrêt de système, transfert de données vers un média externe, gestion des utilisateurs ou des groupes, utilisation de privilèges spéciaux
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
+- Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 - Auditer le paramètre de diagnostic
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 Les événements suivants sont enregistrés pour les bases de données : accès aux informations particulièrement importantes, ajout de nouveaux utilisateurs, en particulier des utilisateurs privilégiés, toute requête contenant des commentaires, toute requête contenant plusieurs requêtes incorporées, tout échec ou alerte de requête ou de base de données, tentative d’élévation de privilèges, tentative d’accès ayant réussi ou échoué, modifications de la structure de la base de données, modifications apportées aux rôles d’utilisateur ou aux autorisations de base de données, actions de l’administrateur de base de données, ouvertures et fermetures de session de base de données, modifications des données, utilisation de commandes exécutables
@@ -246,7 +246,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
-- \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
+- L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
