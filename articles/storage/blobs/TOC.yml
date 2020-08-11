@@ -158,8 +158,10 @@
           items:
             - name: Contrôle de version
               href: versioning-overview.md
-            - name: Suppression réversible
-              href: soft-delete-overview.md
+            - name: Suppression réversible pour les objets blob
+              href: soft-delete-blob-overview.md
+            - name: Suppression réversible pour les conteneurs
+              href: soft-delete-container-overview.md
             - name: Instantanés
               href: snapshots-overview.md
             - name: Modifier le flux
@@ -423,8 +425,10 @@
           items:
             - name: Activer la gestion des versions des objets blob
               href: versioning-enable.md
-            - name: Activer la suppression réversible
-              href: soft-delete-enable.md
+            - name: Activer la suppression réversible pour les objets blob
+              href: soft-delete-blob-enable.md
+            - name: Activer la suppression réversible pour les conteneurs
+              href: soft-delete-container-enable.md
             - name: Créer des instantanés (.NET)
               href: snapshots-manage-dotnet.md
             - name: Traiter les journaux de flux de modification

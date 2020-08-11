@@ -128,6 +128,8 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Équilibreur de charge interne - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
+    - name: Configuration de l’équilibreur de charge en sortie uniquement
+      href: egress-only.md
 - name: Dépanner
   items:
     - name: Résoudre les problèmes liés à Azure Load Balancer
