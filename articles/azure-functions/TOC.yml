@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Inscrire des extensions de liaison
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Modèles d’expressions de liaison
           href: functions-bindings-expressions-patterns.md
         - name: Utiliser des valeurs de retour de liaison
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Définir la version du runtime
           href: set-runtime-version.md
-        - name: Inscrire manuellement une extension
-          href: install-update-binding-extensions-manual.md
         - name: Désactiver une fonction
           href: disable-function.md
         - name: Géorécupération d’urgence
@@ -412,7 +411,7 @@
               displayName: Event Grid
         - name: Event Hubs
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: functions-bindings-event-hubs.md
               displayName: Azure Event Hubs
             - name: Déclencheur
