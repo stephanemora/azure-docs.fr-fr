@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514082"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533537"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -24,13 +24,13 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
 Pour restaurer des fichiers ou dossiers à partir du point de récupération, accédez à la machine virtuelle et choisissez le point de récupération.
 
-1. Connectez-vous au [Portail Azure](https://portal.Azure.com), puis, dans le volet de gauche, cliquez sur **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
+1. Connectez-vous au [Portail Azure](https://portal.Azure.com), puis, dans le volet à gauche, sélectionnez **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
 
-2. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarder** pour ouvrir le tableau de bord de sauvegarde.
+2. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarde** pour ouvrir le tableau de bord Sauvegarde.
 
     ![Ouvrir l’élément de sauvegarde du coffre Recovery Services.](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Dans le menu du tableau de bord de sauvegarde, cliquez sur **Récupération de fichiers**.
+3. Dans le menu du tableau de bord Sauvegarde, sélectionnez **Récupération de fichiers**.
 
     ![Bouton Récupération de fichiers](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 4. Dans le menu déroulant **Sélectionner le point de récupération**, sélectionnez le point de récupération qui contient les fichiers dont vous avez besoin. Le dernier point de récupération est sélectionné par défaut.
 
-5. Pour télécharger le logiciel utilisé pour copier les fichiers à partir du point de récupération, cliquez sur **Télécharger le fichier exécutable** (pour les machines virtuelles Windows Azure) ou **Télécharger le script** (pour les machines virtuelles Linux Azure, un script Python est généré).
+5. Pour télécharger le logiciel utilisé pour copier des fichiers à partir du point de récupération, sélectionnez **Télécharger l’exécutable** (pour les machines virtuelles Windows Azure) ou **Télécharger le script** (pour les machines virtuelles Linux Azure, un script Python est généré).
 
     ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     Pour exécuter le fichier exécutable ou le script en tant qu’administrateur, il est recommandé d’enregistrer le fichier téléchargé sur votre ordinateur.
 
-6. Le fichier exécutable ou le script est protégé par mot de passe et nécessite un mot de passe. Dans le menu **Récupération de fichiers**, cliquez sur le bouton Copier pour charger le mot de passe en mémoire.
+6. Le fichier exécutable ou le script est protégé par mot de passe et nécessite un mot de passe. Dans le menu **Récupération de fichiers**, sélectionnez le bouton Copier pour charger le mot de passe en mémoire.
 
     ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -132,28 +132,96 @@ Pour mettre ces partitions en ligne, exécutez les commandes dans les sections s
 
 #### <a name="for-lvm-partitions"></a>Pour les partitions LVM
 
-Pour répertorier les noms de groupes de volumes sous un volume physique :
+Une fois le script exécuté, les partitions LVM sont montées dans le(s)volume(s)/disques(s) physiques(s) spécifié(s) dans le résultat du script. Le processus est le suivant :
+
+1. obtenir la liste unique des noms de groupes de volumes à partir des volumes ou disques physiques ;
+2. répertorier les volumes logiques dans ces groupes de volumes ;
+3. monter les volumes logiques dans un chemin d’accès souhaité.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>Référencement des noms de groupes de volumes à partir des volumes physiques
+
+Listage des noms de groupes de volumes :
+
+```bash
+pvs -o +vguuid
+```
+
+Cette commande répertorie tous les volumes physiques (y compris ceux présents avant l’exécution du script), leurs noms de groupes de volumes correspondants et les ID d’utilisateurs uniques (UUID) de groupes de volumes. Vous trouverez ci-dessous un exemple de sortie de la commande.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+La première colonne (PV) affiche le volume physique, les colonnes suivantes affichent le nom, le format, les attributs, la taille, l’espace libre et l’ID unique du groupe de volumes. La sortie de la commande affiche tous les volumes physiques. Reportez-vous à la sortie du script et identifiez les volumes associés à la sauvegarde. Dans l’exemple ci-dessus, la sortie du script aurait montré /dev/sdf et/dev/sdd. Ainsi, le groupe de volumes *datavg_db* appartient au script et le groupe de volumes *Appvg_new* appartient à l’ordinateur. L’idée finale est de s’assurer qu’un nom de groupe de volumes unique a un ID unique.
+
+###### <a name="duplicate-volume-groups"></a>Groupes de volumes en double
+
+Il existe des scénarios dans lesquels les noms de groupes de volumes peuvent avoir 2 UUID après l’exécution du script. Cela signifie que les noms de groupes de volumes dans l’ordinateur sur lequel le script est exécuté et dans la machine virtuelle sauvegardée sont identiques. Ensuite, nous devons renommer les groupes de volumes de machines virtuelles sauvegardés. Jetez un coup d’œil à l’exemple ci-dessous.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+La sortie du script aurait montré /dev/sdg, /dev/sdh et /dev/sdm2 attachés. Par conséquent, les noms de groupes de volumes correspondants sont Appvg_new et rootvg. Toutefois, les mêmes noms sont également présents dans la liste de groupes de volumes de la machine. Nous pouvons vérifier que le nom d’un VG a deux UUID.
+
+Nous devons maintenant renommer les noms de groupes de volumes pour les volumes basés sur un script, par exemple : /dev/sdg, /dev/sdh, /dev/sdm2. Pour renommer le groupe de volumes, utilisez la commande suivante :
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Nous avons maintenant tous les noms de groupes de volumes avec des ID uniques.
+
+###### <a name="active-volume-groups"></a>Groupes de volumes actifs
+
+Assurez-vous que les groupes de volumes correspondant aux volumes du script sont actifs. La commande ci-dessous permet d’afficher les groupes de volumes actifs. Vérifiez si les groupes de volumes associés au script sont présents dans cette liste.
+
+```bash
+vgdisplay -a
+```  
+
+Autrement, activez le groupe de volumes à l’aide de la commande ci-dessous.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-Pour répertorier tous les volumes logiques, les noms et les chemins d’accès dans un groupe de volumes :
+##### <a name="listing-logical-volumes-within-volume-groups"></a>Listage des volumes logiques dans les groupes de volumes
+
+Une fois que nous obtenons la liste active unique des groupes de volumes associés au script, les volumes logiques présents dans ceux-ci peuvent être répertoriés à l’aide de la commande ci-dessous.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-La commande ```lvdisplay``` indique également si les groupes de volumes sont actifs ou non. Si le groupe de volumes est marqué comme inactif, il doit être réactivé pour être monté. Si volume-group est indiqué comme inactif, utilisez la commande suivante pour l’activer.
+Cette commande affiche le chemin d’accès de chaque volume logique sous la forme « VL Chemin d’accès ».
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-Une fois que le nom du groupe de volumes est actif, exécutez la commande ```lvdisplay``` une fois de plus pour afficher tous les attributs pertinents.
+##### <a name="mounting-logical-volumes"></a>Montage de volumes logiques
 
 Pour monter les volumes logiques sur le chemin d’accès de votre choix :
 
@@ -161,6 +229,9 @@ Pour monter les volumes logiques sur le chemin d’accès de votre choix :
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> N’utilisez pas la commande « mount -a ». Cette commande monte tous les appareils décrits dans « /etc/fstab ». Cela peut signifier que des périphériques en double peuvent être montés. Les données peuvent être redirigées vers des appareils créés par script, qui ne conservent pas les données et, par conséquent, peuvent entraîner une perte de données.
 
 #### <a name="for-raid-arrays"></a>Pour les tableaux RAID
 
@@ -191,7 +262,7 @@ Le tableau suivant indique la compatibilité entre les systèmes d’exploitatio
 |Système d’exploitation serveur | Système d’exploitation client compatible  |
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -225,7 +296,7 @@ Le script requiert également les composants Python et bash pour exécuter et é
 
 ## <a name="access-requirements"></a>Conditions d’accès
 
-Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifiez l’accès aux éléments suivants :
+Si vous exécutez le script sur un ordinateur disposant d’un accès restreint, assurez-vous qu’il a accès aux éléments suivants :
 
 - `download.microsoft.com`
 - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
@@ -272,7 +343,7 @@ Cette section explique comment effectuer une récupération de fichiers à parti
     - node.conn[0].timeo.noop_out_timeout = 5 à node.conn[0].timeo.noop_out_timeout = 30
 - Après avoir apporté les modifications ci-dessus, réexécutez le script. Avec ces modifications, il est très probable que la récupération de fichiers aboutisse.
 - Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (durée d’une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
-- Après la récupération des fichiers, assurez-vous de revenir au portail et de cliquer sur **Démonter les disques** pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
+- Après la récupération de fichier, assurez-vous de revenir au portail et sélectionnez **Démonter les disques** pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -286,7 +357,7 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne seront plus démontés une fois que vous avez cliqué sur le bouton démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. L’exploration de tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
 | Sortie de l’exécutable : Le script s’exécute correctement, mais les « nouveaux volumes attachés » ne s’affichent pas dans la sortie du script. |    Il s’agit d’une erreur temporaire.    | Les volumes auront déjà été attachés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez le même ordinateur pour exécuter des scripts à chaque fois, envisagez de redémarrer la machine et la liste devrait être affichée dans la liste des exécutions du fichier exe ultérieures. |
 | Propre à Linux : Impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur un autre ordinateur dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée. |
-| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques peuvent avoir été attachés, mais les volumes n’ont pas été configurés | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si aucun de ces disques n’est hors connexion, essayez de les mettre en ligne en cliquant dessus avec le bouton droit, puis en cliquant sur **En ligne**.|
+| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques peuvent avoir été attachés, mais les volumes n’ont pas été configurés | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’un de ces disques est en état hors connexion, essayez de le mettre en ligne en cliquant dessus avec le bouton droit, puis sélectionnez **En ligne**.|
 
 ## <a name="security"></a>Sécurité
 
@@ -312,7 +383,7 @@ Le script généré est signé avec le certificat officiel de Microsoft pour le 
 
 Seul un administrateur peut exécuter le script et il doit le faire en mode élevé. Le script exécute uniquement un ensemble d’étapes pré-générée et n’accepte pas d’entrée provenant de sources externes.
 
-Pour exécuter le script, il est nécessaire de disposer d’un mot de passe qui ne sera montré qu’à l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Cela permet de s’assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
+Pour exécuter le script, il est nécessaire de disposer d’un mot de passe qui ne sera montré qu’à l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Cela permet de s’assurer que l’utilisateur autorisé qui télécharge le script est également responsable de l’exécution du script.
 
 #### <a name="browse-files-and-folders"></a>Parcourir des fichiers et dossiers
 
@@ -322,7 +393,7 @@ Nous utilisons un mécanisme d’authentification CHAP mutuel afin que les comp
 
 Le flux de données entre le service de récupération et la machine est protégé par la création d’un tunnel TLS sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur la machine où le script est exécuté).
 
-Les fichiers de liste de contrôle d’accès (ACL) présents dans la machine virtuelle parente ou sauvegardée sont également conservés dans le système de fichiers montés.
+Tout fichier de liste de contrôle d’accès (ACL) présent dans la machine virtuelle parente ou sauvegardée est également conservé dans le système de fichiers monté.
 
 Le script donne accès en lecture seule à un point de récupération et n’est valide que pendant 12 heures. Si vous souhaitez supprimer l’accès plus tôt, connectez-vous au portail Azure/PowerShell/CLI et **démontez des disques** pour ce point de récupération spécifique. Le script est invalidé immédiatement.
 

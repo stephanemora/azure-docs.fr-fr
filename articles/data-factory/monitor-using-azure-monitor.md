@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 2c9bb4bbf52c968afe267bfa3e2b8d6dae980833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801588"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563549"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Monitor fournit des métriques et des journaux d’activité de niveau de 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
-Pour plus de détails, consultez [Vue d’ensemble d’Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
 ## <a name="keeping-azure-data-factory-metrics-and-pipeline-run-data"></a>Conserver les mesures d’Azure Data Factory et les données d’exécution de pipeline
 
@@ -62,11 +62,20 @@ Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
 
     * En mode _Diagnostics Azure_, les journaux de diagnostic circulent dans la table _AzureDiagnostics_.
 
-    * En mode de _spécifique aux ressources_, les journaux de diagnostic de Azure Data Factory circulent vers les tableaux _ADFActivityRun_, _ADFPipelineRun_, _ADFTriggerRun_, _ADFSSISIntegrationRuntimeLogs_, _ADFSSISPackageEventMessageContext_, _ADFSSISPackageEventMessages_, _ADFSSISPackageExecutableStatistics_, _ADFSSISPackageExecutionComponentPhases_, and _ADFSSISPackageExecutionDataStatistics_.
+    * En mode _Spécifique à la ressource_, les journaux de diagnostic d’Azure Data Factory circulent dans les tables suivantes :
+      - _ADFActivityRun_
+      - _ADFPipelineRun_
+      - _ADFTriggerRun_
+      - _ADFSSISIntegrationRuntimeLogs_
+      - _ADFSSISPackageEventMessageContext_
+      - _ADFSSISPackageEventMessages_
+      - _ADFSSISPackageExecutableStatistics_
+      - _ADFSSISPackageExecutionComponentPhases_
+      - _ADFSSISPackageExecutionDataStatistics_
 
-      Vous pouvez sélectionner différents journaux pertinents pour vos charges de travail à envoyer vers les tableaux Log Analytics. Par exemple, si vous n’utilisez pas du tout SQL Server Integration Services (SSIS), vous n’avez pas besoin de sélectionner des journaux SSIS. Si vous souhaitez consigner les opérations de démarrage/arrêt et de maintenance du SSIS Integration Runtime (IR), vous pouvez sélectionner les journaux SSIS IR. Si vous appelez des exécutions de package SSIS uniquement via T-SQL, vous pouvez sélectionner uniquement les journaux de package SSIS. Si vous appelez des exécutions de package SSIS via des activités Exécuter le package SSIS dans des pipelines ADF, vous pouvez sélectionner tous les journaux.
+      Vous pouvez sélectionner différents journaux pertinents pour vos charges de travail à envoyer vers les tableaux Log Analytics. Par exemple, si vous n’utilisez pas du tout SQL Server Integration Services (SSIS), vous n’avez pas besoin de sélectionner des journaux SSIS. Si vous souhaitez consigner les opérations de démarrage/arrêt et de maintenance du SSIS Integration Runtime (IR), vous pouvez sélectionner les journaux SSIS IR. Si vous appelez des exécutions de package SSIS via T-SQL sur SQL Server Management Studio (SSMS), SQL Server Agent ou d’autres outils désignés, vous pouvez sélectionner des journaux de packages SSIS. Si vous appelez des exécutions de package SSIS via des activités Exécuter le package SSIS dans des pipelines ADF, vous pouvez sélectionner tous les journaux.
 
-    * Si vous sélectionnez _AllMetrics_, les métriques pour le nombre/la taille de l’entité ADF, l’activité/le pipeline/le déclencheur, l’utilisation de l’UC d’Integration Runtime (IR)/la mémoire/le nombre de nœuds/la file d’attente, ainsi que pour les exécutions de packages SSIS et les opérations de démarrage/arrêt du runtime d’intégration SSIS seront disponibles.
+    * Si vous sélectionnez _AllMetrics_, plusieurs métriques ADF sont mises à votre disposition pour surveiller ou déclencher des alertes, y compris les métriques pour l’activité ADF, le pipeline et les exécutions de déclencheur, ainsi que pour les opérations de runtime d’intégration de SSIS et les exécutions de packages SSIS.
 
    ![Nommer vos paramètres et sélectionner un espace de travail Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -99,11 +108,11 @@ Cette solution fournit un résumé de l’intégrité globale de votre Data Fact
 
 ### <a name="monitor-data-factory-metrics"></a>Surveiller les métriques de Data Factory
 
-L’installation de Azure Data Factory Analytics crée un ensemble de vues par défaut à l’intérieur de la section classeurs de l’espace de travail Log Analytics choisi. Les résultats des métriques suivantes sont alors activés :
+L’installation de cette solution crée un ensemble de vues par défaut à l’intérieur de la section classeurs de l’espace de travail Log Analytics choisi. Par conséquent, les métriques suivantes sont activés :
 
 * Exécutions d’ADF - 1) Exécutions de pipeline par Data Factory
-* Exécution d’ADF- 2) Exécution d’activité par Data Factor
-* Exécutions d’ADF- 3) Exécutions de déclencheur par Data Factor
+* Exécution d’ADF - 2) Exécutions d’activités par Data Factory
+* Exécutions d’ADF- 3) Exécutions de déclencheur par Data Factory
 * Erreurs d’ADF - 1) 10 premières erreurs de pipeline par Data Factory
 * Erreurs d’ADF - 2) 10 premières exécution d'activité par Data Factory
 * Erreur d’ADF - 3) 10 premières erreurs de déclencheur par Data Factory
@@ -128,28 +137,28 @@ Voici quelques-unes des métriques émises par Azure Data Factory version 2 :
 
 | **Mesure**                           | **Nom d’affichage de la métrique**                  | **Unité** | **Type d’agrégation** | **Description**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| ActivityCanceledRuns                 | Métriques d’exécutions d’activité annulées           | Count    | Total                | Nombre total d’exécutions d’activité ayant été annulées dans une fenêtre d’une minute. |
+| ActivityCancelledRuns                 | Métriques d’exécutions d’activité annulées           | Count    | Total                | Nombre total d’exécutions d’activités annulées dans une fenêtre d’une minute. |
 | ActivityFailedRuns                   | Métriques d’exécutions d’activité ayant échoué             | Count    | Total                | Nombre total d’exécutions d’activité ayant échoué dans une fenêtre d’une minute. |
 | ActivitySucceededRuns                | Métriques d’exécutions d’activité ayant abouti          | Count    | Total                | Nombre total d’exécutions d’activité ayant réussi dans une fenêtre d’une minute. |
-| PipelineCanceledRuns                 | Métriques d’exécutions de pipeline annulées           | Count    | Total                | Nombre total d’exécutions de pipeline ayant été annulées dans une fenêtre d’une minute. |
+| PipelineCancelledRuns                 | Métriques d’exécutions de pipeline annulées           | Count    | Total                | Nombre total d’exécutions de pipelines annulées dans une fenêtre d’une minute. |
 | PipelineFailedRuns                   | Métriques d’exécutions de pipeline ayant échoué             | Count    | Total                | Nombre total d’exécutions de pipeline ayant échoué dans une fenêtre d’une minute. |
 | PipelineSucceededRuns                | Métriques d’exécutions de pipeline ayant abouti          | Count    | Total                | Nombre total d’exécutions de pipeline ayant réussi dans une fenêtre d’une minute. |
-| TriggerCanceledRuns                  | Métriques d’exécutions de déclencheur annulées            | Count    | Total                | Nombre total d’exécutions de déclencheur ayant été annulées dans une fenêtre d’une minute. |
+| TriggerCancelledRuns                  | Métriques d’exécutions de déclencheur annulées            | Count    | Total                | Nombre total d’exécutions de déclencheurs annulées dans une fenêtre d’une minute. |
 | TriggerFailedRuns                    | Métriques d’exécutions de déclencheur ayant échoué              | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué dans une fenêtre d’une minute. |
 | TriggerSucceededRuns                 | Métriques d’exécutions de déclencheur ayant abouti           | Count    | Total                | Nombre total d’exécutions de déclencheur ayant réussi dans une fenêtre d’une minute. |
-| SSISIntegrationRuntimeStartCanceled  | Métriques de démarrage IR SSIS annulées           | Count    | Total                | Nombre total de démarrages IR SSIS ayant été annulés dans une fenêtre d’une minute. |
-| SSISIntegrationRuntimeStartFailed    | Métriques de démarrage IR SSIS ayant échouées             | Count    | Total                | Nombre total de démarrages IR SSIS ayant échoués dans une fenêtre d’une minute. |
-| SSISIntegrationRuntimeStartSucceeded | Métriques de démarrage IR SSIS ayant réussies          | Count    | Total                | Nombre total de démarrages IR SSIS ayant réussi dans une fenêtre d’une minute. |
-| SSISIntegrationRuntimeStopStuck      | Métriques d’arrêt IR SSIS bloquées               | Count    | Total                | Nombre total d’arrêts IR SSIS ayant été bloqués dans une fenêtre d’une minute. |
-| SSISIntegrationRuntimeStopSucceeded  | Métriques d’arrêt IR SSIS ayant réussies           | Count    | Total                | Nombre total d’arrêts IR SSIS ayant réussi dans une fenêtre d’une minute. |
-| SSISPackageExecutionCanceled         | Métriques d’exécutions de package SSIS annulées  | Count    | Total                | Nombre total d’exécutions de packages SSIS ayant été annulés dans une fenêtre d’une minute. |
+| SSISIntegrationRuntimeStartCancelled  | Métriques de démarrages du runtime d’intégration de SSIS annulés           | Count    | Total                | Nombre total de démarrages du runtime d’intégration de SSIS annulés dans une fenêtre d’une minute. |
+| SSISIntegrationRuntimeStartFailed    | Métriques de démarrages du runtime d’intégration de SSIS ayant échoué             | Count    | Total                | Nombre total de démarrages du runtime d’intégration de SSIS ayant échoués dans une fenêtre d’une minute. |
+| SSISIntegrationRuntimeStartSucceeded | Métriques de démarrages du runtime d’intégration de SSIS réussis          | Count    | Total                | Nombre total de démarrages du runtime d’intégration de SSIS ayant réussi dans une fenêtre d’une minute. |
+| SSISIntegrationRuntimeStopStuck      | Métriques d’arrêts du runtime d’intégration de SSIS bloqués               | Count    | Total                | Nombre total d’arrêts du runtime d’intégration de SSIS bloqués dans une fenêtre d’une minute. |
+| SSISIntegrationRuntimeStopSucceeded  | Métriques d’arrêts du runtime d’intégration de SSIS réussis           | Count    | Total                | Nombre total d’arrêts du runtime d’intégration de SSIS ayant réussi dans une fenêtre d’une minute. |
+| SSISPackageExecutionCancelled         | Métriques d’exécutions du package SSIS annulées  | Count    | Total                | Nombre total d’exécutions du package SSIS annulées dans une fenêtre d’une minute. |
 | SSISPackageExecutionFailed           | Métriques d’exécutions de package SSIS ayant échouées    | Count    | Total                | Nombre total d’exécutions de packages SSIS ayant échoué dans une fenêtre d’une minute. |
 | SSISPackageExecutionSucceeded        | Métriques d’exécutions de package SSIS ayant réussies | Count    | Total                | Nombre total d’exécutions de packages SSIS ayant réussi dans une fenêtre d’une minute. |
 
 Pour accéder aux métriques, suivez les instructions fournies dans [Plateforme de données Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 > [!NOTE]
-> Seuls les événements d’exécution de pipeline et d’activité déclenchés et finis sont émis. Les exécutions en cours et de bac à sable (sandbox)/débogage **ne sont pas** émises. En revanche, tous les événements des exécutions de package SSIS sont émis, y compris ceux qui sont terminés, en cours et appelés via T-SQL sur SSMS/SQL Server Agent/d’autres outils désignés, ou en tant qu’exécutions déclenchées/sandbox/débug des activités d’exécution de package SSIS dans des pipelines ADF.
+> Seuls les événements d’exécution de pipeline et d’activité déclenchés et accomplis sont émis. Les exécutions en cours et de débogage **ne sont pas** émises. En revanche, les événements de **toutes** les exécutions de packages SSIS sont émis, y compris ceux qui sont terminés et en cours, indépendamment de leurs méthodes d’invocation. Par exemple, vous pouvez invoquer des exécutions de packages sur des outils SQL Server Data Tools (SSDT) compatibles avec Azure, via T-SQL sur SSMS, SQL Server Agent ou d’autres outils désignés, et en tant qu’exécutions déclenchées ou de débogage d’activités d’exécution de package SSIS dans des pipelines ADF.
 
 ## <a name="data-factory-alerts"></a>Alertes Data Factory
 
@@ -540,7 +549,7 @@ Pour plus d’informations, voir [Paramètres de diagnostic](https://docs.micros
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>Attributs du journal du runtime d’intégration SSIS
 
-Ce sont les attributs/propriétés du journal des opérations de démarrage/d’arrêt/de maintenance des Integration Runtime SSIS (IR).
+Voici les attributs du journal des opérations de démarrage/arrêt/maintenance du runtime d’intégration de SSIS.
 
 ```json
 {
@@ -574,7 +583,7 @@ Ce sont les attributs/propriétés du journal des opérations de démarrage/d’
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Attributs du journal de contexte des messages d’événements SSIS
 
-Il s’agit des attributs/propriétés de journal des conditions liées aux messages d’événement générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme le [tableau/la vue de contexte de message d’événement du catalogue SSIS (SSISDB)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) qui affiche des valeurs d’exécution de nombreuses propriétés du package SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` qui est utile pour la vérification de la conformité/du débogage.
+Voici les attributs de journal des conditions liées aux messages d’événement générés par des exécutions de package SSIS sur votre runtime d’intégration de SSIS. Ils transmettent des informations comme [la table ou la vue de contexte de message d’événement du catalogue SSIS (SSISDB)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) qui affiche des valeurs d’exécution de nombreuses propriétés du package SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` qui est utile pour la vérification de la conformité/du débogage.
 
 ```json
 {
@@ -608,7 +617,7 @@ Il s’agit des attributs/propriétés de journal des conditions liées aux mess
 | **dataFactoryName**        | String | Nom de votre ADF                                                 | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                             | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                         | `Informational` |
-| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB          | `1` (1 désigne les opérations liées aux packages qui ne sont pas stockés dans SSISDB) |
+| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB          | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **contextDepth**           | String | Profondeur du contexte de votre message d’événement                              | `0` (0 désigne le contexte avant le démarrage de l’exécution du package, 1 signifie le contexte lorsqu’une erreur se produit et qu’elle augmente à mesure que le contexte est plus éloigné de l’erreur) |
 | **packagePath**            | String | Chemin d’accès de l’objet du package en tant que source de contexte de message d’événement      | `\Package` |
 | **contextType**            | String | Type d’accès de l’objet du package en tant que source de contexte de message d’événement      | `60`(voir [plus de types de contexte](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
@@ -620,7 +629,7 @@ Il s’agit des attributs/propriétés de journal des conditions liées aux mess
 
 #### <a name="ssis-event-messages-log-attributes"></a>Attributs du journal des messages d’événements SSIS
 
-Il s’agit des attributs/propriétés de journal des messages d’événement générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme le [tableau/la vue des messages d’événements SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) qui affiche le texte et les métadonnées détaillés des messages d’événement. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
+Voici les attributs de journal des messages d’événement générés par les exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des messages d’événements SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) qui affichent le texte ou les métadonnées détaillés des messages d’événement. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
 
 ```json
 {
@@ -658,7 +667,7 @@ Il s’agit des attributs/propriétés de journal des messages d’événement g
 | **dataFactoryName**        | String | Nom de votre ADF                                               | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                           | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                       | `Informational` |
-| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB        | `1` (1 désigne les opérations liées aux packages qui ne sont pas stockés dans SSISDB) |
+| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB        | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **messageTime**            | String | Heure de création du message d’événement au format UTC          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | String | Type du message d'événement                                     | `70`(voir [plus de types de messages](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
 | **messageSourceType**      | String | Type de source du message d'événement                              | `20`(voir [plus de types de sources de messages](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
@@ -674,7 +683,7 @@ Il s’agit des attributs/propriétés de journal des messages d’événement g
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Attributs du journal des statistiques exécutables SSIS
 
-Il s’agit des attributs/propriétés de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre IR SSIS, où les exécutables sont des conteneurs/tâches dans les flux de contrôle de package. Ils transmettent des informations comme le [tableau/la vue des statistiques exécutables SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) qui affiche une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None` et utiles pour identifier les goulots d’étranglement/défaillances au niveau des tâches.
+Voici les attributs de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre runtime d’intégration SSIS, où les exécutables sont des conteneurs ou des tâches dans les flux de contrôle des packages. Ils transmettent des informations comme [la table ou la vue des statistiques exécutables SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) qui affiche une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None` et utiles pour identifier les goulots d’étranglement/défaillances au niveau des tâches.
 
 ```json
 {
@@ -707,7 +716,7 @@ Il s’agit des attributs/propriétés de journal des statistiques exécutables 
 | **dataFactoryName**        | String | Nom de votre ADF                                             | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                         | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                     | `Informational` |
-| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB      | `1` (1 désigne les exécutions liées aux packages qui ne sont pas stockés dans SSISDB) |
+| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB      | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **executionPath**          | String | Chemin d’accès complet du package parent au composant exécuté          | `\Transformation\Data Flow Task` (Ce chemin d'accès capture également les itérations d'un composant) |
 | **startTime**              | String | Heure à laquelle le fichier exécutable entre dans la phase de pré-exécution au format UTC  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | String | Heure à laquelle le fichier exécutable entre dans la phase de post-exécution au format UTC | `2017-06-28T21:00:27.3534352Z` |
@@ -718,7 +727,7 @@ Il s’agit des attributs/propriétés de journal des statistiques exécutables 
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Attributs du journal des phases du composant d’exécution SSIS
 
-Il s’agit des attributs/propriétés de journal des messages d’événement générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme le [tableau/la vue des phases du composant d’exécution SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) qui montre le temps passé par les composants de flux de données dans toutes les phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
+Voici les attributs de journal des statistiques de runtime pour les composants de flux de données générés par des exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des phases du composant d’exécution SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) qui montrent le temps passé par les composants de flux de données dans toutes leurs phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
 
 ```json
 {
@@ -752,7 +761,7 @@ Il s’agit des attributs/propriétés de journal des messages d’événement g
 | **dataFactoryName**        | String | Nom de votre ADF                                                | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                            | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                        | `Informational` |
-| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB         | `1` (1 désigne les exécutions liées aux packages qui ne sont pas stockés dans SSISDB) |
+| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB         | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **packageName**            | String | Nom de votre fichier de package exécuté                              | `MyPackage.dtsx` |
 | **taskName**               | String | Nom de la tâche de flux de données exécutée                                 | `Data Flow Task` |
 | **subcomponentName**       | String | Nom du composant de flux de données                                     | `Derived Column` |
@@ -764,7 +773,7 @@ Il s’agit des attributs/propriétés de journal des messages d’événement g
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Attributs du journal des statistiques des données d’exécution SSIS
 
-Il s’agit des attributs/propriétés de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme le [tableau/la vue des statistiques de données d’exécution SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) qui affiche le nombre de lignes de données déplacées via des tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
+Voici les attributs de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme [la table ou la vue des statistiques de données d’exécution SSISDB](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) qui affiche le nombre de lignes de données déplacées via des tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
 
 ```json
 {
@@ -800,7 +809,7 @@ Il s’agit des attributs/propriétés de journal des déplacements de données 
 | **dataFactoryName**          | String | Nom de votre ADF                                               | `MyADFv2` |
 | **integrationRuntimeName**   | String | Nom de votre IR SSIS                                           | `MySSISIR` |
 | **level**                    | String | Niveau des journaux de diagnostic                                       | `Informational` |
-| **executionId**              | String | ID unique pour le suivi d’une exécution particulière dans SSISDB        | `1` (1 désigne les exécutions liées aux packages qui ne sont pas stockés dans SSISDB) |
+| **executionId**              | String | ID unique pour le suivi d’une exécution particulière dans SSISDB        | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **packageName**              | String | Nom de votre fichier de package exécuté                             | `MyPackage.dtsx` |
 | **taskName**                 | String | Nom de la tâche de flux de données exécutée                                | `Data Flow Task` |
 | **dataflowPathIdString**     | String | ID unique du chemin d’accès du flux de données de suivi                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
@@ -836,24 +845,24 @@ Log Analytics hérite du schéma d’Azure Monitor avec les exceptions suivantes
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Surveiller les opérations SSIS avec Azure Monitor
 
-Pour promouvoir et [insérer des charges de travail SQL Server Integration Services (SSIS), vous pouvez configurer Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF)](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) :
+Pour lever & déplacer vos charges de travail SSIS, vous pouvez [approvisionner le runtime d’intégration SSIS dans ADF](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) qui prend en charge les aspects suivants :
 
 - L’exécution de packages déployés dans le catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance (modèle de déploiement de projet)
 - L’exécution de packages déployés dans le système de fichiers, Azure Files ou une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance (modèle de déploiement de package)
 
-Une fois approvisionnée, vous pouvez [vérifier l’état opérationnel de l’IR SSIS à l’aide de Azure PowerShell ou le **surveiller** sur le hub du portail ADF](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). Avec le modèle de déploiement de projets, les journaux d’exécution de packages SSIS sont stockés dans des tableaux/vues internes SSISDB, de sorte qu’ils peuvent être interrogés, analysés et présentés visuellement à l’aide d’outils désignés comme SQL Server Management Studio (SSMS). Avec le modèle de déploiement de package, les journaux d’exécution de packages SSIS peuvent être stockés dans le système de fichiers/Azure Files en tant que fichiers CSV qui doivent toujours être analysés et traités à l’aide d’autres outils désignés avant de pouvoir être interrogés, analysés et présentés visuellement.
+Une fois approvisionnée, vous pouvez [vérifier l’état opérationnel de l’IR SSIS à l’aide de Azure PowerShell ou le **surveiller** sur le hub du portail ADF](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). Avec le modèle de déploiement de projets, les journaux d’exécution de packages SSIS sont stockés dans des tables ou vues internes SSISDB, de sorte que vous pouvez les interroger, analyser et présenter visuellement à l’aide d’outils désignés tels que SSMS. Avec le modèle de déploiement de package, les journaux d’exécution de packages SSIS peuvent être stockés dans un système de fichiers ou Azure Files en tant que fichiers CSV que vous devez toujours analyser et traiter à l’aide d’autres outils désignés avant de pouvoir les interroger, analyser et présenter visuellement.
 
-Désormais, avec l’intégration [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform), toutes les métriques et tous les journaux générés à partir des opérations IR SSIS et des exécutions de packages SSIS peuvent être interrogés, analysés et présentés visuellement sur le Portail Azure, tandis que les alertes peuvent également être déclenchées.
+Désormais, avec l’intégration d’[Azure Monitor ](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform), vous pouvez interroger, analyser et présenter visuellement l’ensemble des métriques et journaux générés à partir d’opérations de runtime d’intégration SSIS et d’exécutions de packages SSIS sur portail Azure. Vous pouvez en outre déclencher des alertes sur celles-ci.
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>Configurer les paramètres de diagnostic et l’espace de travail pour les opérations SSIS
 
-Pour envoyer toutes les métriques et tous les journaux générés à partir des opérations IR SSIS et des exécutions de packages SSIS à Azure Monitor, suivez les instructions pas à pas pour [configurer les paramètres de diagnostic et l’espace de travail de votre ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
+Pour envoyer toutes les métriques et tous les journaux générés à partir des opérations IR SSIS et des exécutions de packages SSIS à Azure Monitor, vous devez [configurer des paramètres de diagnostic et un espace de travail pour votre ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
 
 ### <a name="ssis-operational-metrics"></a>Métriques opérationnelles SSIS
 
-Les [métriques](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) opérationnelles SSIS sont des compteurs de performances/valeurs numériques décrivant l’état des opérations de démarrage/arrêt d’IR SSIS et des exécutions de packages SSIS à un moment donné. Elles font partie des [métriques ADF dans Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics), y compris celles pour le nombre/la taille des entités ADF, les exécutions d’activité/de pipeline/de déclencheur, l’utilisation de l’UC IR/la mémoire/le nombre de nœuds/la file d’attente.
+Les [métriques](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) opérationnelles SSIS sont des compteurs de performances ou des valeurs numériques décrivant l’état des opérations de démarrage et arrêt du runtime d’intégration SSIS, ainsi que des exécutions de packages SSIS à un moment donné. Elles font partie des [métriques d’ADF dans Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics).
 
-Quand vous configurez les paramètres de diagnostic et l’espace de travail de votre ADF sur Azure Monitor, le fait de cocher la case _AllMetrics_ rend les métriques opérationnelles SSIS disponibles pour [l’analyse interactive à l’aide d’Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [la présentation sur le tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)et [les alertes quasiment en temps réel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
+Quand vous configurez les paramètres de diagnostic et l’espace de travail de votre ADF sur Azure Monitor, le fait de cocher la case _AllMetrics_ rend les métriques opérationnelles SSIS disponibles pour [l’analyse interactive à l’aide d’Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [la présentation sur le tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)et [les alertes en quasi-temps réel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
 
 ![Nommer vos paramètres et sélectionner un espace de travail Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -869,13 +878,13 @@ Pour déclencher des alertes sur les métriques opérationnelles SSIS à partir 
 
 ### <a name="ssis-operational-logs"></a>Journaux opérationnels SSIS
 
-Les [journaux](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) opérationnels SSIS sont des événements générés par les opérations IR SSIS et les exécutions de packages SSIS qui fournissent suffisamment de contexte/informations sur tous les problèmes identifiés et sont utiles pour l’analyse de la cause racine. 
+Les [journaux](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) opérationnels SSIS sont des événements générés par les opérations IR SSIS et les exécutions de packages SSIS qui fournissent suffisamment de contexte sur tous les problèmes identifiés et sont utiles pour l’analyse de la cause racine. 
 
-Quand vous configurez les paramètres de diagnostic et l’espace de travail de votre ADF sur Azure Monitor, vous pouvez sélectionner les journaux des opérations SSIS appropriés et les envoyer à Log Analytics basé sur Azure Data Explorer, où ils seront mis à disposition pour [l’analyse à l’aide d’un langage de requête riche](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [la présentation sur le tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)et [les alertes quasiment en temps réel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Quand vous configurez les paramètres de diagnostic et l’espace de travail pour votre ADF sur Azure Monitor, vous pouvez sélectionner les journaux des opérations SSIS appropriés et les envoyer à Log Analytics basé sur Azure Data Explorer. À partir de là, ils seront mis à disposition pour [l’analyse à l’aide d’un langage de requête riche](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [la présentation sur le tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)et [les alertes en quasi-temps réel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
 ![Nommer vos paramètres et sélectionner un espace de travail Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-Les schémas et le contenu des journaux d’exécution de packages SSIS dans Azure Monitor et Log Analytics sont similaires à ceux des tableaux/vues internes SSISDB.
+Les schémas et le contenu des journaux d’exécution de packages SSIS dans Azure Monitor et Log Analytics sont similaires à ceux des tables ou vues internes de SSISDB.
 
 | Catégories de journaux Azure Monitor          | Tableaux Log Analytics                     | Tableaux/vues internes SSISDB              |
 | ------------------------------------- | ---------------------------------------- | ----------------------------------------- |
@@ -888,11 +897,15 @@ Les schémas et le contenu des journaux d’exécution de packages SSIS dans Azu
 
 Pour plus d’informations sur les attributs/propriétés du journal opérationnel SSIS, consultez [Schémas sur Azure Monitor et Log Analytics pour ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
 
-Les journaux d’exécution de package SSIS que vous avez sélectionné sont toujours envoyés à Log Analytics indépendamment de vos méthodes d’appel, par exemple sur les SQL Server Data Tools Azure (SSDT), via T-SQL sur SSMS/SQL Server Agent/autres outils désignés, ou comme les exécutions déclenchées/sandbox/débug des activités d’exécution de package SSIS dans des pipelines ADF.
+Les journaux d’exécution de package SSIS sélectionnés sont toujours envoyés à Log Analytics, indépendamment de leurs méthodes d’invocation. Par exemple, vous pouvez appeler des exécutions de packages sur des SSDT compatible avec Azure, via T-SQL sur SSMS, SQL Server Agent ou d’autres outils désignés, et comme des exécutions déclenchées ou de débogage d’activités d’exécution de package SSIS dans des pipelines ADF.
 
-Lors de l’interrogation des journaux d’exécution des packages SSIS sur Logs Analytics, vous pouvez les joindre à l’aide des propriétés OperationId/ExecutionId/CorrelationId. OperationId/ExecutionId a toujours la valeur 1 pour toutes les opérations/exécutions relatives aux packages **non** stockés dans SSISDB.
+Lorsque vous interrogez des journaux des opérations de runtime d’intégration SSIS sur Logs Analytics, vous pouvez utiliser les propriétés **OperationName** et **ResultType** définies respectivement sur `Start/Stop/Maintenance` et `Started/InProgress/Succeeded/Failed`. 
 
-![Interroger les journaux d’exécution des packages SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+![Interrogation des journaux des opérations de runtime d’intégration SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+Lors de l’interrogation des journaux d’exécution des packages SSIS sur Logs Analytics, vous pouvez les joindre à l’aide des propriétés **OperationId**/**ExecutionId**/**CorrelationId**. Les propriétés **OperationId**/**ExecutionId** ont toujours la valeur `1` pour toutes les opérations/exécutions relatives à des packages **non** stockés dans SSISDB/invoqués via T-SQL.
+
+![Interroger les journaux d’exécution des packages SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md)
