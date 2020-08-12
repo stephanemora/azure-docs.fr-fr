@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour Hyper-V avec A
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles Hyper-V locales sur Azure à l’aide du site Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132670"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799886"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -156,6 +156,10 @@ Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
 
 Pour la réplication, une machine virtuelle Hyper-V doit exécuter un système d’exploitation pris en charge. En outre, la machine virtuelle doit respecter la configuration requise pour les machines virtuelles Azure. [Découvrez-en plus](hyper-v-azure-support-matrix.md#replicated-vms) dans la matrice de prise en charge.
+
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>Pourquoi un compte de stockage standard supplémentaire est-il requis si je réplique les disques de ma machine virtuelle vers un stockage Premium ?
+
+Lorsque vous répliquez vos machines virtuelles/serveurs physiques locaux vers un stockage Premium, toutes les données résidant sur les disques de l’ordinateur protégé sont répliqués sur le compte de stockage Premium. Un compte de stockage standard supplémentaire est requis pour le stockage de journaux de réplication. Une fois la phase initiale de réplication des données du disque terminée, toutes les modifications apportées aux données du disque local sont suivies en continu et stockées sous forme de journaux de réplication dans ce compte de stockage standard supplémentaire.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
 

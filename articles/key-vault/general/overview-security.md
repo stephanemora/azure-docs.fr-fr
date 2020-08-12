@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3170b51b8e580a625b2dbb4d83229c59bafa900e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090516"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534802"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -46,11 +46,11 @@ Le modèle d’un mécanisme d’authentification unique auprès des deux plans 
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gestion de l’accès administratif à Key Vault
 
-Lorsque vous créez un coffre de clés dans un groupe de ressources, vous gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous pouvez accorder l’accès à un niveau d’étendue spécifique en attribuant les rôles RBAC appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle RBAC :
+Lorsque vous créez un coffre de clés dans un groupe de ressources, vous gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous pouvez accorder l’accès à un niveau d’étendue spécifique en attribuant les rôles Azure appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle Azure :
 
-- **Abonnement**: un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
-- **Groupe de ressources** : un rôle RBAC attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
-- **Ressource spécifique** : un rôle RBAC attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
+- **Abonnement**: Un rôle Azure attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
+- **Groupe de ressources** : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
+- **Ressource spécifique** : Un rôle Azure attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
 
 Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, consultez [RBAC : pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 

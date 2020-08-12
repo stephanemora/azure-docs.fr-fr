@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384003"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481493"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurer la réinitialisation de mot de passe en libre-service pour vos clients
 
 La fonctionnalité de réinitialisation de mot de passe en libre-service permet à vos clients qui se sont inscrits pour obtenir des comptes locaux de réinitialiser eux-mêmes leurs mots de passe. Cela réduit considérablement la charge pesant sur votre personnel de support, surtout si votre application est utilisée régulièrement par des millions de clients. Pour l’instant, l’utilisation d’une adresse e-mail vérifiée est la seule méthode de récupération prise en charge.
 
 > [!NOTE]
-> Cet article s’applique à la réinitialisation de mot de passe libre-service utilisée dans le contexte d’un flux d’utilisateur de **connexion** V1, qui utilise **Local Account SignIn** comme fournisseur d’identité. Si vous avez besoin de flux d’utilisateur de réinitialisation de mot de passe entièrement personnalisables appelés à partir de votre application, consultez [cet article](user-flow-overview.md).
+> Cet article s’applique à la réinitialisation de mot de passe libre-service utilisée dans le contexte d’un flux d’utilisateur de **connexion** standard, qui utilise **Local Account SignIn** comme fournisseur d’identité. Si vous avez besoin de flux d’utilisateur de réinitialisation de mot de passe entièrement personnalisables appelés à partir de votre application, consultez [cet article](user-flow-overview.md).
 >
 >
 

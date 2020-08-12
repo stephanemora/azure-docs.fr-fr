@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144991"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513058"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Guide pratique pour configurer le routage de hub virtuel
 
@@ -22,7 +22,7 @@ Un hub virtuel peut contenir plusieurs passerelles, comme une passerelle VPN sit
 Pour plus d’informations, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Certaines de ces fonctionnalités peuvent toujours être en cours de déploiement. La fin du déploiement est prévue d’ici le 3 août.
+> Certaines de ces fonctionnalités peuvent toujours être en cours de déploiement. La fin du déploiement est prévue d’ici le 17 août.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Créer une table de routage

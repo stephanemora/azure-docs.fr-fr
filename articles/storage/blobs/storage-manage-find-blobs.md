@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499872"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)
 
@@ -63,7 +63,7 @@ Vous pouvez appliquer plusieurs étiquettes à votre objet blob pour mieux décr
 > "Priority" = '01' 
 >
 
-Pour modifier les attributs d’étiquette d’index existants, vous devez d’abord récupérer les attributs d’étiquette existants, les modifier et effectuer le remplacement dans une opération SetBlobTags. Pour supprimer toutes les étiquettes d’index de l’objet blob, appelez l’opération SetBlobTags sans spécifier d’attributs d’étiquette. Comme les étiquettes d’index d’objet blob sont une sous-ressource du contenu des données blob, SetBlobTags ne modifie pas le contenu sous-jacent et ne modifie pas la propriété Last-Modified-Time ou ETag (étiquette d’entité) de l’objet blob. Vous pouvez créer ou modifier des étiquettes d’index pour tous les objets BLOB de base actuels et les versions précédentes. Toutefois, les étiquettes sur les instantanés ou les objets BLOB supprimés de manière réversible ne peuvent pas être modifiées. 
+Pour modifier les attributs d’étiquette d’index existants, vous devez d’abord récupérer les attributs d’étiquette existants, les modifier et effectuer le remplacement dans une opération SetBlobTags. Pour supprimer toutes les étiquettes d’index de l’objet blob, appelez l’opération SetBlobTags sans spécifier d’attributs d’étiquette. Comme les étiquettes d’index d’objet blob sont une sous-ressource du contenu des données blob, SetBlobTags ne modifie pas le contenu sous-jacent et ne modifie pas la propriété Last-Modified-Time ou eTag (étiquette d’entité) de l’objet blob. Vous pouvez créer ou modifier des étiquettes d’index pour tous les objets BLOB de base actuels et les versions précédentes. Toutefois, les étiquettes sur les instantanés ou les objets BLOB supprimés de manière réversible ne peuvent pas être modifiées. 
 
 Les limites suivantes s’appliquent aux étiquettes d’un index d’objet blob :
 - Chaque objet blob peut avoir jusqu’à 10 étiquettes d’index d’objet blob.
@@ -293,6 +293,7 @@ Cette section décrit les problèmes connus et les conditions de la préversion 
 -   Le basculement de compte n’est pas pris en charge pour le moment. L’index d’objet blob peut ne pas être mis à jour correctement après le basculement.
 -   La gestion du cycle de vie prend actuellement en charge uniquement les contrôles d’égalité avec correspondance d’index d’objet blob.
 -   CopyBlob ne copie pas les étiquettes d’index d’objet blob de l’objet blob source vers le nouvel objet blob de destination. Vous pouvez spécifier les étiquettes que vous souhaitez appliquer à l’objet blob de destination pendant l’opération de copie. 
+- En cas d’utilisation de CopyBlob (copie asynchrone) à partir d’un autre compte de stockage avec des étiquettes appliquées sur l’objet blob de destination, le moteur d’index d’objets blob ne retourne pas l’objet blob ni ses balises dans le jeu de filtres. Il est recommandé d’utiliser CopyBlob à partir de l’URL (copie synchrone) en attendant.
 -   Les étiquettes sont conservées lors de la création d’une capture instantanée. Toutefois, la promotion d’une capture instantanée n’est actuellement pas prise en charge et peut aboutir à un ensemble d’étiquettes vide.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
@@ -308,5 +309,7 @@ Non, les étiquettes Azure Resource Manager aident à organiser les ressources d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez un exemple d’utilisation de l’index d’objet blob. Consultez [Utiliser un index d’objet blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
+Pour obtenir un exemple d’utilisation d’un index d’objet blob, consultez [Utiliser un index d’objet blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
+
+En savoir plus sur la [gestion du cycle de vie](storage-lifecycle-management-concepts.md) et définir une règle avec correspondance d’index d’objet blob.
 

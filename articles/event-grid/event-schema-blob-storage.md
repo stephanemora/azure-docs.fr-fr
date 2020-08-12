@@ -3,12 +3,12 @@ title: Stockage Blob Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de stockage Blob avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371275"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458941"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Stockage Blob Azure en tant que source Event Grid
 
@@ -25,7 +25,7 @@ Cet article fournit les propriétés et les schémas des événements de stockag
 Ces événements sont déclenchés quand un client crée, remplace ou supprime un objet blob en appelant des API REST d’objets blob.
 
 > [!NOTE]
-> L’utilisation du point de terminaison DFS *`(abfss://URI) `* pour des comptes d’espace de noms activé non hiérarchique ne génère pas d’événements. Pour ces comptes, seul le point de terminaison d’objet blob *`(wasb:// URI)`* génère des événements.
+> Les conteneurs `$logs` et `$blobchangefeed` ne sont pas intégrés à Event Grid, si bien que l’activité dans ces conteneurs ne génère pas d’événements. De plus, l’utilisation du point de terminaison DFS *`(abfss://URI) `* pour des comptes d’espace de noms activé non hiérarchique ne génère pas d’événements, mais le point de terminaison d’objet blob *`(wasb:// URI)`* génère des événements.
 
  |Nom d'événement |Description|
  |----------|-----------|
@@ -33,7 +33,7 @@ Ces événements sont déclenchés quand un client crée, remplace ou supprime u
  |**Microsoft.Storage.BlobDeleted** |Déclenché quand un objet blob est supprimé. <br>Plus précisément, cet événement est déclenché quand des clients appellent l’opération `DeleteBlob` qui est disponible dans l’API REST d’objet blob. |
 
 > [!NOTE]
-> Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour les appels d’API REST `CopyBlob`, `PutBlob` et `PutBlockList`. Ces appels d’API déclenchent l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour les appels d’API REST `CopyBlob`, `PutBlob` et `PutBlockList`. Ces appels d’API déclenchent l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](./how-to-filter-events.md).
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Liste des événements pour les API REST Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Ces événements sont déclenchés si vous activez un espace de noms hiérarchiq
 |**Microsoft.Storage.DirectoryDeleted**|Déclenché quand un répertoire est supprimé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `DeleteDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
-> Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour l’appel d’API REST `FlushWithClose`. Cet appel d’API déclenche l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour l’appel d’API REST `FlushWithClose`. Cet appel d’API déclenche l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](./how-to-filter-events.md).
 
 <a name="example-event"></a>
 ### <a name="the-contents-of-an-event-response"></a>Le contenu d’une réponse à un événement
@@ -307,8 +307,8 @@ L’objet de données comporte les propriétés suivantes :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | api | string | Opération qui a déclenché l’événement. |
-| clientRequestId | string | ID de requête fourni par le client pour l’opération d’API de stockage. Il peut être utilisé pour mettre en corrélation les journaux de diagnostic du Stockage Azure en utilisant le champ « client-request-id » dans les journaux et peut être fourni dans des demandes du client à l’aide de l’en-tête « x-ms-client-request-id ». Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| clientRequestId | string | ID de requête fourni par le client pour l’opération d’API de stockage. Il peut être utilisé pour mettre en corrélation les journaux de diagnostic du Stockage Azure en utilisant le champ « client-request-id » dans les journaux et peut être fourni dans des demandes du client à l’aide de l’en-tête « x-ms-client-request-id ». Consultez [Format de journal](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
 | contentType | string | Type de contenu spécifié pour l’objet blob. |
 | contentLength | entier | Taille de l’objet blob en octets. |

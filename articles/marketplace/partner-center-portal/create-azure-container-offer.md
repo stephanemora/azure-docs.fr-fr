@@ -4,15 +4,15 @@ description: Découvrez comment créer et publier une offre de conteneur sur la 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109653"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799172"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Créer une offre de conteneur Azure dans la Place de marché Azure
 
@@ -195,14 +195,15 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
- Fournissez des fichiers .png du logo de votre offre dans chacune des quatre tailles de pixel suivantes :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
+
+Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
 - **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (216 x 216)
-- **Large** (255 x 115)
+- **Grand** (entre 216 x 216 et 350 x 350)
 
-Les quatre logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 
@@ -250,13 +251,13 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ### <a name="plan-overview"></a>Vue d’ensemble du plan
 
-Cet onglet vous permet de proposer différentes options de plan dans une même offre. Avant, ces plans étaient appelés références SKU (Stock Keeping Units). Les plans peuvent varier selon les clouds disponibles, tels que les clouds mondiaux et les clouds gouvernementaux, et l’image qu’ils référencent. Pour référencer votre offre dans la Place de marché commerciale, vous devez configurer au moins un plan.
+Cet onglet vous permet de proposer différentes options de plan dans une même offre. Les plans (auparavant appelés « SKU ») peuvent varier selon les clouds disponibles, tels que les clouds mondiaux et les clouds gouvernementaux, et l’image qu’ils référencent. Pour référencer votre offre dans la Place de marché commerciale, vous devez configurer au moins un plan.
 
 Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan** affiche les informations suivantes :
 
 - Noms des plans
 - Modèle de tarification
-- Disponibilité du cloud (mondial ou gouvernemental)
+- Régions Azure (globales ou gouvernementales)
 - État actuel de la publication
 - Toutes les actions disponibles
 
@@ -284,16 +285,14 @@ Cet onglet vous permet de choisir les clouds dans lesquels le plan est disponibl
 
 Tous les plans pour les offres de conteneur Azure sont automatiquement mis à disposition dans **Azure Global**.  Votre plan peut être utilisé par les clients de toutes les régions Azure du monde qui recourent à la Place de marché commerciale. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](../marketplace-geo-availability-currencies.md).
 
-Sélectionnez l’option [**Azure Government**](../../azure-government/documentation-government-welcome.md) pour que votre solution y apparaisse. Il s’agit d’un cloud communautaire gouvernemental avec un accès contrôlé pour les clients des gouvernements fédéraux des États-Unis,](../marketplace-geo-availability-currencies.md)em. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour le cloud de cette communauté. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
-
-Avant d’effectuer une [publication](../../azure-government/documentation-government-manage-marketplace-partners.md) sur Azure Government, testez et vérifiez votre solution dans cette zone, car les résultats peuvent être différents. Pour créer et tester votre solution, demandez un compte d’essai dans la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Sélectionnez l’option [Azure Government](../../azure-government/documentation-government-welcome.md) pour que votre solution y apparaisse. Il s’agit d’un cloud communautaire pour le secteur public, accessible à des clients d’agences gouvernementales fédérales, étatiques, locales ou tribales des États-Unis ainsi qu’à des partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour le cloud de cette communauté. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement). Avant d’effectuer une [publication](../../azure-government/documentation-government-manage-marketplace-partners.md) sur Azure Government, testez et vérifiez votre solution dans cette zone, car les résultats peuvent être différents. Pour créer et tester votre solution, demandez un compte d’essai dans la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Une fois votre plan publié et disponible dans une région spécifique, vous ne pouvez pas supprimer cette région.
 
 #### <a name="azure-government-certifications"></a>Certifications Azure Government
 
-Cette option est visible uniquement si **Azure Government** est sélectionné sous **Disponibilité dans le cloud**.
+Cette option est visible uniquement si **Azure Government** est sélectionné sous **Régions Azure**.
 
 Les services Azure Government gèrent des données soumises à certaines réglementations et exigences gouvernementales. Par exemple, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 et CJIS.
 

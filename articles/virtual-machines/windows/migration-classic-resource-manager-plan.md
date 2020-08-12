@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 10ae2e1a85d5250e4da836c6f57e3619befd9330
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14beaf4fc0f207abe652a9ed62c974f7ab4b8e79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81865925"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449104"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-windows"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager dans Windows
 
 > [!IMPORTANT]
-> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [En savoir plus]( https://aka.ms/classicvmretirement) sur cette dépréciation et [la façon dont elle vous concerne](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [En savoir plus]( https://aka.ms/classicvmretirement) sur cette dépréciation et [la façon dont elle vous concerne](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
 
@@ -197,7 +197,7 @@ Points importants à prendre en compte :
 
 Ciblez les services que vous voulez activer dans Azure Resource Manager.  De nombreux clients trouvent les services ci-dessous incontournables pour leur environnement Azure :
 
-- [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md).
+- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 - [Modèles Azure Resource Manager, pour un déploiement plus facile et mieux contrôlé](../../azure-resource-manager/templates/overview.md).
 - [Tags](../../azure-resource-manager/management/tag-resources.md) (balises).
 - [Contrôle d’activité](../../azure-resource-manager/management/view-activity-logs.md)
@@ -214,8 +214,8 @@ Gardez à l’esprit les raisons pour lesquelles vous avez démarré ce parcours
 * [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
-* [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
+* [Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager](../../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
+* [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md)
 * [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Passer en revue les erreurs courantes de migration](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

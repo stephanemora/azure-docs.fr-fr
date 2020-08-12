@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654775"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496771"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Base de référence de sécurité Azure pour Azure Database pour MySQL
 
 La base de référence de sécurité Azure pour Azure Database pour MySQL contient des recommandations qui vous aideront à améliorer l’état de la sécurité de votre déploiement.
 
-La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils basés sur les bonnes pratiques.
+La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
 Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -68,7 +68,7 @@ Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azur
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Conseils** : Utilisez Advanced Threat Protection pour Azure Database pour MySQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès à vos bases de données ou d’exploitation de vos bases de données inhabituelles et potentiellement dangereuses.
+**Aide** : Utilisez Advanced Threat Protection pour Azure Database pour MySQL. Advanced Threat Protection détecte les activités anormales indiquant des tentatives d’accès à vos bases de données ou d’exploitation de vos bases de données inhabituelles et potentiellement dangereuses.
 
 Activez la protection DDoS standard sur les réseaux virtuels associés à vos instances Azure Database pour MySQL pour vous protéger contre les attaques DDoS. Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
@@ -212,7 +212,7 @@ Comment configurer les paramètres de diagnostic pour le journal d’activité A
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -224,7 +224,7 @@ Comment définir les paramètres de conservation des journaux pour les espaces d
 
 Stockage des journaux des ressources dans un compte de stockage Azure : https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -284,7 +284,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -360,7 +360,7 @@ Utiliser Azure Active Directory pour l’authentification avec Azure Database po
 
 Comment superviser l’identité et l’accès dans Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -400,13 +400,13 @@ Comprendre les détections de risques Azure AD : https://docs.microsoft.com/azu
 
 Comment configurer des emplacements nommés dans Azure : https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
+**Conseils** : Utiliser Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
 Pour la connexion à Azure Database pour MySQL, il est recommandé d’utiliser Azure AD et un jeton Azure AD pour se connecter. Quand vous utilisez un jeton Azure AD, différentes méthodes sont prises en charge comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données. 
 
@@ -484,7 +484,7 @@ Liste des services pris en charge pour Customer Lockbox : https://docs.microsof
 
 Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -547,13 +547,13 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler l’accès au plan de contrôle Azure Database pour MySQL (par exemple, le portail Azure). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur. RBAC n’affecte pas les autorisations utilisateur dans la base de données.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour contrôler l’accès au plan de contrôle Azure Database pour MySQL (par exemple, le portail Azure). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur. RBAC n’affecte pas les autorisations utilisateur dans la base de données.
 
 Configurer le contrôle d’accès en fonction du rôle dans Azure : https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Comment configurer l’accès des utilisateurs avec SQL pour Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/howto-create-users
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -591,7 +591,7 @@ Comment configurer les clés gérées par le client pour Azure Database pour MyS
 
 Comment créer des alertes pour les événements du journal d’activité Azure : https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -605,7 +605,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security Center : https://docs.microsoft.com/azure/security-center/features-paas
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -629,7 +629,7 @@ Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -686,7 +686,7 @@ Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/a
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4 : Tenir un inventaire des ressources Azure approuvées et titres des logiciels
 
-**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -714,13 +714,13 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
-**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -730,13 +730,13 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 - Types de ressources non autorisés
 
@@ -754,7 +754,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -764,7 +764,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -772,7 +772,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -798,7 +798,7 @@ Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/power
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -806,13 +806,13 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Aide** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -826,7 +826,7 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -846,7 +846,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -856,7 +856,7 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -864,7 +864,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -874,7 +874,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -882,7 +882,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -922,7 +922,7 @@ Intégration aux identités managées Azure : https://docs.microsoft.com/azure/
 
 Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -956,7 +956,7 @@ Préanalysez tout contenu chargé sur des ressources Azure non liées au calcul 
 
 Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Azure Database pour MySQL), mais il ne s’exécute pas sur le contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : N/A
 
@@ -987,7 +987,7 @@ Comprendre les sauvegardes pour Azure Database pour MySQL : https://docs.micros
 Comment sauvegarder des clés Key Vault : https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -1051,7 +1051,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities » : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

@@ -1,6 +1,6 @@
 ---
 title: Données sensibles - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: Découvrez l’atténuation des données sensibles dans Threat Modeling Tool. Voir les informations sur l’atténuation et les exemples de code.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8f8b18d36453ac65300a5dd19fa7e07b1449bc28
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502234"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538946"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Atténuation des risques 
 | Produit/Service | Article |
@@ -339,7 +340,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Chiffrement côté client et Azure Key Vault pour Stockage Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutoriel : Chiffrer et déchiffrer des objets blob dans Stockage Microsoft Azure à l’aide d’Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Stockage sécurisé des données dans Stockage Blob Azure avec les extensions de chiffrement Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Informations de référence**              | [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions (Stockage sécurisé des données dans le stockage Blob Azure avec les extensions de chiffrement Azure)](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **Étapes** | <p>La bibliothèque cliente de stockage Azure pour le package NuGet .NET prend en charge le chiffrement des données au sein des applications clientes avant le chargement vers le stockage Azure, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à Azure Key Vault pour la gestion des clés de compte de stockage. Voici une brève description du fonctionnement du chiffrement côté client :</p><ul><li>Le Kit de développement logiciel (SDK) client de stockage Azure génère une clé de chiffrement de contenu (CEK) qui est une clé symétrique à usage unique</li><li>Les données du client sont chiffrées à l’aide de cette clé de chiffrement de contenu</li><li>La clé de chiffrement de contenu est ensuite encapsulée (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans Azure Key Vault. Le client Storage n’a jamais accès à la clé de chiffrement de clés. Il appelle simplement l'algorithme d’encapsulage de clés fourni par Key Vault. Si besoin est, les clients peuvent choisir d’utiliser des fournisseurs personnalisés pour l’encapsulage/le désencapsulage de clés</li><li>Les données chiffrées sont ensuite téléchargées sur le service Azure Storage. Vérifiez les liens dans la section Références pour en savoir plus sur l’implémentation de bas niveau.</li></ul>|
 
 ## <a name="encrypt-sensitive-or-pii-data-written-to-phones-local-storage"></a><a id="pii-phones"></a>Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones

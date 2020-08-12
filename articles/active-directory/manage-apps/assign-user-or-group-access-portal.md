@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763735"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799500"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 
@@ -26,6 +26,9 @@ Cet article explique comment attribuer des utilisateurs ou des groupes à des ap
 Pour un meilleur contrôle, vous pouvez configurer certains types d’applications d’entreprise pour [exiger l’affectation d’utilisateur](#configure-an-application-to-require-user-assignment). 
 
 Pour [attribuer un utilisateur ou un groupe à une application d’entreprise](#assign-users-or-groups-to-an-app-via-the-azure-portal), vous devez vous connecter en tant qu’administrateur global, administrateur d’application, ou administrateur d’application cloud, ou propriétaire attribué de l’application d’entreprise.
+
+> [!IMPORTANT]
+> Lorsque vous affectez un groupe à une application, seuls les utilisateurs du groupe y ont accès. L’affectation n’est pas en cascade vers les groupes imbriqués.
 
 > [!NOTE]
 > L’attribution basée sur le groupe requiert Azure Active Directory Premium édition P1 ou P2. L’attribution basée sur le groupe est uniquement prise en charge pour les groupes de sécurité. Les appartenances aux groupes imbriqués et aux groupes Office 365 ne sont pas prises en charge actuellement. Pour d’autres conditions de gestion des licences relatives aux composants traités dans le présent article, consultez la [page sur la tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 

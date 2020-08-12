@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97da7428090935daf95ae28a54b8ff10bca2e546
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688889"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760904"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -225,7 +225,7 @@ Tout d’abord, ajoutez un nouveau paramètre de profil. Ce paramètre de profil
 
 Pour modifier le profil SAP de l’instance ASCS/SCS :
 
-1. Ajoutez ce paramètre de profil au profil de l’instance SAP ASCS/SCS :
+1. Ajoutez ce paramètre de profil au profil de l’instance SAP ASCS/SCS, si vous utilisez ENSA1.
 
    ```
    enque/encni/set_so_keepalive = true
@@ -237,6 +237,8 @@ Pour modifier le profil SAP de l’instance ASCS/SCS :
    Par exemple, au profil de l’instance SAP SCS et au chemin correspondant :
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   
+   Pour ENSA1 et ENSA2, assurez-vous que les `keepalive`Paramètres de système d’exploitation sont définis comme décrit dans la note SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
 
 2. Pour appliquer les modifications, redémarrez l’instance SAP ASCS/SCS.
 

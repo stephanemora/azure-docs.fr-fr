@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 1063f7189de4bdf1aaca4a6d72c979476433c32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094206"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445778"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Questions fréquentes (FAQ) – Importation de certificat Azure Key Vault
 
@@ -64,6 +64,9 @@ Oui, vous pouvez importer des certificats à partir de n’importe quelle autori
 
 ### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>Si j’importe un certificat d’une autorité de certification partenaire, la fonctionnalité de renouvellement automatique fonctionnera-t-elle toujours ?
 Oui, vous devez vous assurer qu’une fois le téléchargement effectué, vous spécifiez la rotation automatique dans la stratégie d’émission du certificat. En outre, les modifications sont reflétées jusqu’à la version suivante du cycle ou du certificat.
+
+### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Vous ne parvenez pas à voir le certificat App Service Certificate importé dans Key Vault ? 
+Si le certificat a été importé avec succès, vérifiez dans le panneau Secrets.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

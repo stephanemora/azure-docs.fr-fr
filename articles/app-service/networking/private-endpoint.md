@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068298"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilisation de points de terminaison privés pour application web Azure (préversion)
 
@@ -127,7 +127,7 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 - Pour déployer un point de terminaison privé pour votre application web via le portail, consultez [Se connecter en privé à une application web avec le portail][howtoguide1]
 - Pour déployer un point de terminaison privé pour votre application web Azure CLI, consultez [Se connecter en privé à une application web avec Azure CLI][howtoguide2]
 - Pour déployer un point de terminaison privé pour votre application web PowerShell, consultez [Se connecter en privé à une application web avec PowerShell][howtoguide3]
-
+- Pour déployer un point de terminaison privé pour votre application web à l’aide d’un modèle Azure, consultez [Se connecter en privé à une application web avec un modèle Azure][howtoguide4]
 
 
 <!--Links-->
@@ -143,3 +143,4 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
+[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint

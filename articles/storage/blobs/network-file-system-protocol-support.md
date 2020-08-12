@@ -1,24 +1,24 @@
 ---
 title: Prise en charge de Network File System 3.0 dans le stockage d’objets blob Azure (préversion) | Microsoft Docs
-description: Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Linux de monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local.
+description: Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Windows et Linux de monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372890"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760921"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
 
-Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Linux de monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. 
+Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Windows ou Linux de monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. 
 
 > [!NOTE]
 > La prise en charge du protocole NFS 3.0 dans Stockage blob Azure est en préversion publique et disponible dans les régions suivantes : USA Est, USA Centre et Canada Centre.
@@ -41,7 +41,7 @@ Pour monter un conteneur de compte de stockage, vous devez effectuer les opérat
 
 7. Montez le conteneur.
 
-Pour obtenir des instructions pas à pas, consultez [Monter le stockage Blob sur Linux à l’aide du protocole NFS (Network File System) 3.0 (préversion)](network-file-system-protocol-support-how-to.md).
+Pour obtenir des instructions pas à pas, consultez [Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > Il est important d’effectuer ces tâches dans l’ordre. Vous ne pouvez pas monter les conteneurs que vous créez avant d’activer le protocole NFS 3.0 sur votre compte. De plus, une fois que vous avez activé le protocole NFS 3.0 sur votre compte, vous ne pouvez pas le désactiver.

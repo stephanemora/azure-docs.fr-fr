@@ -2,16 +2,16 @@
 title: Actualiser des modèles Azure Analysis Services avec Azure Automation | Microsoft Docs
 description: Cet article explique comment coder l’actualisation du modèle pour Azure Analysis Services avec Azure Automation.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389970"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553901"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
@@ -64,7 +64,10 @@ Le principal du service que vous créez doit disposer d’autorisations d’admi
 
     ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Recherchez le fichier **Refresh-Model.ps1**, fournissez un **nom** et une **description**, puis cliquez sur **Créer**.
+4. Recherchez le fichier [Refresh-Model.ps1](#sample-powershell-runbook), fournissez un **nom** et une **description**, puis cliquez sur **Créer**.
+
+    > [!NOTE]
+    > Utilisez le script de la section [Exemple de runbook PowerShell](#sample-powershell-runbook) au bas de ce document pour créer un fichier appelé Refresh-Model.ps1, et enregistrez-le sur l’ordinateur local pour l’importer dans le runbook.
 
     ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 

@@ -3,12 +3,12 @@ title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259403"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535006"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -69,7 +69,7 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
    - Pour déplacer un abonnement ou groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration et des abonnements dans la hiérarchie](#moving-management-groups-and-subscriptions).
 
-1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez  
+1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles Azure, voir :  
    [Gérer l’accès et les autorisations avec RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Supprimer dans le portail
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Afficher des groupes d’administration
 
-Vous pouvez afficher tous les groupes pour lesquels vous avez un rôle RBAC direct ou hérité.  
+Vous pouvez afficher tous les groupes d’administration pour lesquels vous avez un rôle Azure direct ou hérité.  
 
 ### <a name="view-in-the-portal"></a>Afficher dans le portail
 
@@ -215,7 +215,7 @@ Pour effectuer le déplacement, vous devez avoir :
 
 Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur.
 
-Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
+Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles Azure, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="move-subscriptions"></a>Déplacer des abonnements 
 

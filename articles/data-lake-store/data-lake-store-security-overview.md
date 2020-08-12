@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086570"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529974"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 
@@ -46,7 +46,7 @@ Une fois qu’un utilisateur est authentifié par Azure Active Directory pour ac
 
 Par défaut, quatre rôles de base sont définis pour Data Lake Storage Gen1. Les rôles permettent d’exécuter différentes opérations sur un compte Data Lake Storage Gen1 via le portail Azure, les applets de commande PowerShell et les API REST. Les rôles Propriétaire et Collaborateur peuvent effectuer un large éventail de fonctions d’administration sur le compte. Vous pouvez assigner le rôle Lecteur aux utilisateurs qui voient uniquement les données de gestion des comptes.
 
-![Rôles RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Rôles RBAC")
+![Rôles Azure](./media/data-lake-store-security-overview/rbac-roles.png "Rôles Azure")
 
 Notez que, même si les rôles sont attribués pour la gestion des comptes, certains rôles affectent l’accès aux données. Vous devez utiliser les ACL pour contrôler l’accès aux opérations qu’un utilisateur peut effectuer sur le système de fichiers. Le tableau suivant présente un résumé des droits d’accès aux données et aux droits de gestion pour les rôles par défaut.
 

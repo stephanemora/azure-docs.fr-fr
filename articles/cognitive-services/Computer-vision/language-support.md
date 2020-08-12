@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16bb5fa41389dcf1ddd8ee2e3434e15755bb0d8d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 649f1e6cf79aa17d053cc547debf5232120bb4fe
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290927"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760632"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -25,7 +25,7 @@ Certaines des fonctionnalités de la Vision par ordinateur prennent en charge pl
 
 Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles n’exigent pas de spécifier un code de langue. Pour plus d’informations, consultez [Reconnaissance optique de caractères (OCR)](concept-recognizing-text.md).
 
-|Langage| Code langue | API OCR | Lire v3.0 | Lire v3.1-preview.1 |
+|Langage| Code langue | API OCR | Lire v3.0 | Lire la préversion publique v3.1 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Arabe | `ar`|✔ | | |
 |Chinois (simplifié) | `zh-Hans`|✔ | |✔ |

@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357849"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460607"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
-En utilisant une approche de déploiement intermédiaire, vous pouvez éviter le basculement de l’ensemble de votre domaine.  Cela vous permet de tester de manière sélective des groupes d’utilisateurs avec des fonctionnalités d’authentification cloud, comme Azure Multi-Factor Authentication (MFA), l’accès conditionnel, Identity Protection pour les informations d’identification divulguées, Identity Governance, etc.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
+Le lancement intermédiaire vous permet de tester de manière sélective des groupes d’utilisateurs avec des fonctionnalités d’authentification cloud comme Azure MFA (Multi-Factor Authentication), l’accès conditionnel, Identity Protection pour les informations d’identification divulguées, Identity Governance, etc. avant le basculement de domaines.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
     
 -  Vous utilisez actuellement un serveur Multi-Factor Authentication local. 
 -  Vous utilisez des cartes à puce pour l’authentification. 
@@ -45,11 +45,13 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 
 -   Vous avez configuré toutes les stratégies appropriées d’accès conditionnel et de marque de locataire dont vous avez besoin pour les utilisateurs migrés vers l’authentification cloud.
 
--   Si vous envisagez d’utiliser Azure Multi-Factor Authentication, nous vous recommandons d’utiliser une [inscription convergée pour la réinitialisation de mot de passe en libre-service (SSPR) et l’authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d’inscrire leurs méthodes d’authentification une seule fois.
+-   Si vous envisagez d’utiliser Azure Multi-Factor Authentication, nous vous recommandons d’utiliser une [inscription combinée pour la réinitialisation de mot de passe en libre-service (SSPR) et l’authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d’inscrire leurs méthodes d’authentification une seule fois.
 
 -   Pour utiliser la fonctionnalité de lancement intermédiaire, vous devez être l’administrateur général de votre locataire.
 
 -   Pour activer *l’authentification unique transparente* sur une forêt Active Directory particulière, vous devez être l’administrateur de domaine.
+
+-  Si vous déployez la jonction Azure AD ou Azure AD Hybride, vous devez installer la mise à jour Windows 10 1903.
 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -81,6 +83,8 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
+
+- Quand des utilisateurs sont sélectionnés pour le lancement intermédiaire, la stratégie d’expiration de mot de passe est définie sur 90 jours sans option de personnalisation. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire
@@ -173,6 +177,7 @@ Effectuez les actions suivantes :
 
    >[!NOTE]
    >Les membres d’un groupe sont automatiquement activés pour le lancement intermédiaire. Les groupes dynamiques et imbriqués ne sont pas pris en charge pour le lancement intermédiaire.
+   >Quand vous ajoutez un nouveau groupe, les utilisateurs du groupe (jusqu’à 200 utilisateurs pour un nouveau groupe) sont mis à jour pour utiliser l’authentification managée immédiatement. La prise en compte de la modification d’un groupe (ajout ou suppression d’utilisateurs) peut prendre jusqu’à 24 heures.
 
 ## <a name="auditing"></a>Audit
 

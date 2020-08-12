@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206744"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562376"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
-
-> [!NOTE]
-> À l’heure actuelle, ASP.NET Core ne prend pas en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation.
->
 
 Azure App Service offre une prise en charge intégrée de l’authentification et de l’autorisation, qui vous permet de connecter les utilisateurs et d’accéder aux données sans avoir à écrire beaucoup de code dans votre application web, votre API RESTful et votre back end mobile, ainsi que dans [Azure Functions](../azure-functions/functions-overview.md). Cet article explique comment App Service contribue à simplifier l’authentification et l’autorisation de votre application.
 
@@ -26,12 +22,20 @@ Pour mettre en place un système sécurisé d’authentification et d’autorisa
 > [!IMPORTANT]
 > Il n’est pas obligatoire d’utiliser cette fonctionnalité pour l’authentification et l’autorisation. Vous pouvez utiliser les fonctionnalités de sécurité groupées dans l’infrastructure web de votre choix, ou vous pouvez écrire vos propres utilitaires. Cependant, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que l’authentification à distance personnalisée ou d’autres scénarios qui reposent sur l'envoi de cookies intersites peuvent être interrompus lorsque les navigateurs Chrome des clients sont mis à jour. La solution de contournement est complexe, car elle doit prendre en charge différents comportements SameSite pour différents navigateurs. 
 >
-> Les versions 2.1 (ou ultérieures) d’ASP.NET Core hébergées par App Service sont déjà corrigés pour cette modification avec rupture et gèrent correctement Chrome 80 et les navigateurs plus anciens. En outre, le même correctif pour ASP.NET Framework 4.7.2 est déployé sur les instances d’App Service tout au long du mois de janvier 2020. Pour en savoir plus, et découvrir notamment si votre application a reçu le correctif, consultez [Mise à jour de cookies SameSite Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> Les versions 2.1 (ou ultérieures) d’ASP.NET Core hébergées par App Service sont déjà corrigés pour cette modification avec rupture et gèrent correctement Chrome 80 et les navigateurs plus anciens. En outre, le même correctif pour ASP.NET Framework 4.7.2 a été déployé sur les instances App Service tout au long du mois de janvier 2020. Pour plus d’informations, consultez [Mise à jour de cookies SameSite Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> La fonctionnalité d’authentification/autorisation est également parfois appelée « Authentification simple ».
+
+> [!NOTE]
+> L’activation de cette fonctionnalité entraînera la redirection automatique des **toutes** les requêtes HTTP non sécurisées adressées à votre application vers HTTPS, quel que soit le paramètre de configuration d’App Service pour [appliquer HTTPS](configure-ssl-bindings.md#enforce-https). Si nécessaire, vous pouvez désactiver cela via le paramètre `requireHttps` dans le [fichier de configuration des paramètres d’authentification](app-service-authentication-how-to.md#configuration-file-reference), mais vous devez veiller à ce qu’aucun jeton de sécurité ne soit transmis sur des connexions HTTP non sécurisées.
 
 Pour plus d’informations sur les applications mobiles natives en particulier, consultez la page [Authentification et autorisation des utilisateurs pour les applications mobiles avec Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Fonctionnement
+
+### <a name="on-windows"></a>Sur Windows
 
 Le module d’authentification et d’autorisation s’exécute dans le même bac à sable que le code de l’application. Lorsqu’il est activé, chaque requête HTTP entrante le traverse avant d’être géré par le code de l’application.
 
@@ -46,6 +50,10 @@ Ce module gère plusieurs choses pour votre application :
 
 Le module, configuré à l’aide des paramètres de l’application, s’exécute de façon distincte du code de l’application. Aucun Kit de développement logiciel (SDK), aucun langage spécifique ni aucune modification du code de l’application ne sont nécessaires. 
 
+### <a name="on-containers"></a>Sur conteneurs
+
+Le module d’authentification et d’autorisation s’exécute dans un conteneur distinct, isolé du code de votre application. En utilisant ce que l’on appelle le [Modèle ambassadeur](https://docs.microsoft.com/azure/architecture/patterns/ambassador), il interagit avec le trafic entrant pour effectuer des fonctionnalités similaires à celles de Windows. Comme il ne s’exécute pas in-process, aucune intégration directe avec des infrastructures de langage spécifiques n’est possible. Toutefois, les informations pertinentes dont votre application a besoin sont transmises à l’aide d’en-têtes de demande, comme expliqué ci-dessous.
+
 ### <a name="userapplication-claims"></a>Revendications de l’utilisateur/application
 
 Pour toutes les infrastructures de langage, App Service met les revendications du jeton entrant (qu’elles proviennent d’un utilisateur final authentifié ou d’une application cliente) à la disposition de votre code en les injectant dans les en-têtes de requête. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
@@ -53,6 +61,10 @@ Pour toutes les infrastructures de langage, App Service met les revendications d
 Pour [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` n’est pas rempli pour le code .NET, mais vous pouvez toujours trouver les revendications de l’utilisateur dans les en-têtes de requête ou obtenir l’objet `ClaimsPrincipal` à partir du contexte de la requête, ou même via un paramètre de liaison. Pour plus d’informations, consultez [Utilisation d’identités de clients](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
 Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
+
+> [!NOTE]
+> À l’heure actuelle, ASP.NET Core ne prend pas en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation. Cependant, certains [composants intergiciels open source tiers](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) existent pour vous aider à combler cette lacune.
+>
 
 ### <a name="token-store"></a>Magasin de jetons
 
@@ -134,10 +146,6 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 
 > [!CAUTION]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
-
-> [!NOTE]
-> L’authentification/autorisation était auparavant appelée Authentification simple.
->
 
 ## <a name="more-resources"></a>Plus de ressources
 

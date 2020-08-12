@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372159"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530388"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -117,7 +117,7 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
    }
    ```
 
-2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
+2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**. Attribuez le rôle Azure **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir différents rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).

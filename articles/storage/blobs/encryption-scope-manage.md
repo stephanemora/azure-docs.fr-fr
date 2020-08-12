@@ -1,20 +1,20 @@
 ---
 title: Créer et gérer des étendues de chiffrement (version préliminaire)
-description: ''
+description: Découvrez comment créer une étendue de chiffrement pour isoler des données blob au niveau du conteneur ou du blob.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540551"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564144"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Créer et gérer des étendues de chiffrement (version préliminaire)
 
@@ -24,7 +24,7 @@ Cet article montre comment créer une étendue de chiffrement. Il montre égalem
 
 ## <a name="create-an-encryption-scope"></a>Créer une étendue de chiffrement
 
-Pour créer une étendue de chiffrement, vous devez d’abord créer un coffre de clés Azure et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés doit posséder les propriétés **Suppression réversible** et **Protection de la suppression** activées et doivent se trouver dans la même région que le compte de stockage. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+Vous pouvez créer des étendues de chiffrement avec une clé gérée par Microsoft ou une clé gérée par le client qui est stockée dans Azure Key Vault. Pour créer une étendue de chiffrement avec une clé gérée par le client, vous devez d’abord créer un coffre de clés Azure et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés doit posséder les propriétés **Suppression réversible** et **Protection de la suppression** activées et doivent se trouver dans la même région que le compte de stockage. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
 
 Une étendue de chiffrement est automatiquement activée lorsque vous la créez. Après avoir créé l’étendue de chiffrement, vous pouvez la spécifier lorsque vous créez un objet blob. Vous pouvez également spécifier une étendue de chiffrement par défaut lorsque vous créez un conteneur, qui s’applique automatiquement à tous les objets blob du conteneur.
 

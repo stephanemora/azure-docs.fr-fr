@@ -1,6 +1,6 @@
 ---
 title: Déléguer un sous-réseau à Azure NetApp Files | Microsoft Docs
-description: Décrit la procédure de délégation d’un sous-réseau à Azure NetApp Files.
+description: Apprenez à déléguer un sous-réseau à Azure NetApp Files. Spécifiez le sous-réseau délégué lorsque vous créez un volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483616"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513024"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Déléguer un sous-réseau à Azure NetApp Files 
 
 Vous devez déléguer un sous-réseau à Azure NetApp Files.   Lorsque vous créez un volume, vous devez spécifier le sous-réseau délégué.
 
 ## <a name="considerations"></a>Considérations
-* L’Assistant de création d’un sous-réseau applique par défaut un masque réseau /24, qui fournit 251 adresses IP disponibles. L’utilisation d’un masque réseau /28, qui fournit 16 adresses IP utilisables, est suffisante pour le service.
+* L’Assistant de création d’un sous-réseau applique par défaut un masque réseau /24, qui fournit 251 adresses IP disponibles. L’utilisation d’un masque de réseau /28 fournissant 11 adresses IP utilisables est suffisante pour le service.
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.   
    Azure vous permet de créer plusieurs sous-réseaux délégués dans un réseau virtuel.  Cependant, toute tentative de création d’un nouveau volume échoue si vous utilisez plusieurs sous-réseaux délégués.  
    Vous ne pouvez avoir qu’un seul sous-réseau délégué dans un réseau virtuel. Un compte NetApp peut déployer des volumes dans plusieurs réseaux virtuels, chacun disposant de son propre sous-réseau délégué.  

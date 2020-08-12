@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af82a9d19f8dee9062d15a58e83ee3c2a8c59af6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc38e576f53c3623bacc374a00adcb4cced01517
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995426"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552881"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -65,10 +65,14 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
       * Administrateur de sécurité
       * Administrateur SharePoint
       * Administrateur d’utilisateurs
+   
+      > [!WARNING]
+      > Les stratégies d’accès conditionnel ne prennent pas en charge les utilisateurs affectés à un rôle d’annuaire [étendue à une unité administrative](../users-groups-roles/roles-admin-units-assign-roles.md) ou à des rôles d’annuaire étendus directement à un objet, par exemple via [des rôles personnalisés](../users-groups-roles/roles-create-custom.md).
+
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud** et sélectionnez **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**, puis sélectionnez **Terminé**.
+1. Sous **Conditions** > **Applications clientes (préversion)** > **Sélectionnez les applications clientes auxquelles cette stratégie s’applique**, laissez toutes les valeurs par défaut sélectionnées et sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

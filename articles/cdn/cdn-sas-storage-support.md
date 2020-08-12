@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: 702ea4e76f1fb13a3c7935f131da4ef11d369813
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002996"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432750"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -96,7 +96,7 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
+3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du point de terminaison Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Option 3 : Utilisation de l'authentification de jeton de sécurité de CDN avec une règle de réécriture
 

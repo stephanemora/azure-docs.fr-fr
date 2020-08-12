@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187523"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448529"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologies de réseau pour les migrations SQL Managed Instance l’aide d'Azure Database Migration Service
 
@@ -39,7 +39,7 @@ Utilisez cette topologie si votre instance Azure SQL Managed Instance est connec
 Utilisez cette topologie de réseau si votre environnement requiert un ou plusieurs des scénarios suivants :
 
 - L’instance SQL Managed Instance est isolée de la connectivité locale, mais votre instance Azure Database Migration Service est connectée au réseau local.
-- Si les stratégies RBAC (Role Based Access Control) sont en place et que vous devez limiter l’accès utilisateur au même abonnement que celui qui héberge l’instance SQL Managed Instance.
+- Si les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) sont en place et que vous devez limiter l’accès utilisateur à l’abonnement qui héberge SQL Managed Instance.
 - Les réseaux virtuels utilisés pour SQL Managed Instance et Azure Database Migration Service se trouvent dans des abonnements différents.
 
 ![Topologie de réseau pour l’instance gérée isolée du réseau local](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Utilisez cette topologie si le serveur source SQL Server est hébergé dans une 
 Utilisez cette topologie de réseau si votre environnement requiert un ou plusieurs des scénarios suivants :
 
 - L’instance SQL Managed Instance est configurée dans un réseau virtuel isolé.
-- Si les stratégies RBAC (Role Based Access Control) sont en place et que vous devez limiter l’accès utilisateur au même abonnement que celui qui héberge SQL Managed Instance.
+- Si les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) sont en place et que vous devez limiter l’accès utilisateur à l’abonnement qui héberge SQL Managed Instance.
 - Les réseaux virtuels utilisés pour SQL Managed Instance et Azure Database Migration Service se trouvent dans des abonnements différents.
 
 ![Topologie de réseau pour les migrations de cloud à cloud avec un réseau virtuel isolé](media/resource-network-topologies/cloud-to-cloud-isolated.png)

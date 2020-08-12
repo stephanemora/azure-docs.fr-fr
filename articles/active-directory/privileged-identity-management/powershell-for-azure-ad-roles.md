@@ -16,12 +16,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3791da8f8a990f62de0052e1662fd6037e936b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849290"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421907"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
@@ -140,7 +140,7 @@ Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq
 
 Il existe quatre objets principaux dans le paramètre. Seuls trois de ces objets sont actuellement utilisés par PIM. Les paramètres UserMemberSettings sont des paramètres d’activation, les paramètres AdminEligibleSettings sont des paramètres d’attribution pour les attributions éligibles, et les paramètres AdminmemberSettings sont des paramètres d’attribution pour les attributions actives.
 
-[![](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png "Get and update role settings")](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
+[![Get and update role settings.](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png)](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
 Pour mettre à jour le paramètre de rôle, vous devez obtenir l’objet de paramètre existant pour un rôle particulier et y apporter des modifications :
 

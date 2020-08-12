@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731968"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498223"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Déléguer l’administration dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Croissance des organisations et complexité vont de pair. Une réponse courante 
 
 Dans le portail Azure AD, vous pouvez [voir tous les membres de n’importe quel rôle](directory-manage-roles-portal.md), ce qui peut vous aider à vérifier rapidement le déploiement et à déléguer les autorisations.
 
-Si vous êtes intéressé par la délégation de l’accès aux ressources Azure plutôt que par l’accès administratif dans Azure AD, consultez [Attribuer un rôle RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/role-assignments-portal.md).
+Si vous êtes intéressé par la délégation de l’accès aux ressources Azure plutôt que par l’accès administratif dans Azure AD, consultez [Attribuer un rôle Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Planification de la délégation
 

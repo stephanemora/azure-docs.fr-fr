@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735045"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489671"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Dans Azure AD DS, la forêt ne contient qu’un seul domaine. Les forêts AD DS 
 
 Par défaut, un domaine managé est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine managé, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt d’utilisateurs fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
 
-Dans une forêt Azure AD DS de *ressources*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification. Les forêts de ressources Azure AD DS sont actuellement en préversion.
+Dans une forêt Azure AD DS de *ressources*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification.
 
 Pour plus d’informations sur les types de forêts dans Azure AD DS, consultez [Qu’est-ce que des forêts de ressources ?][concepts-forest] et [Comment faire fonctionner des approbations de forêts dans Azure AD DS ?][concepts-trust]
 
@@ -102,7 +102,7 @@ Plus le niveau de référence SKU augmente, plus la fréquence de ces instantan�
 
 ### <a name="outbound-forest-trusts"></a>Approbations de forêt sortantes
 
-La section précédente a décrit en détail les approbations de forêts sortantes unidirectionnelles d’un domaine managé vers un environnement AD DS local (actuellement en préversion). La référence SKU détermine nombre maximal d’approbations de forêt que vous pouvez créer pour un domaine managé. Examinez les exigences de votre entreprise et de vos applications pour déterminer le nombre d’approbations dont vous avez réellement besoin, puis choisissez la référence SKU Azure AD DS appropriée. Là encore, si les exigences de votre entreprise évoluent et qu'il vous faut créer des approbations de forêts supplémentaires, vous pouvez opter pour une autre référence SKU.
+La section précédente a décrit en détail les approbations de forêts sortantes unidirectionnelles d’un domaine managé vers un environnement AD DS local. La référence SKU détermine nombre maximal d’approbations de forêt que vous pouvez créer pour un domaine managé. Examinez les exigences de votre entreprise et de vos applications pour déterminer le nombre d’approbations dont vous avez réellement besoin, puis choisissez la référence SKU Azure AD DS appropriée. Là encore, si les exigences de votre entreprise évoluent et qu'il vous faut créer des approbations de forêts supplémentaires, vous pouvez opter pour une autre référence SKU.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

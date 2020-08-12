@@ -1,37 +1,37 @@
 ---
-title: Méthodes d’authentification
+title: Authentification avec Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: Dans cet article, vous allez découvrir l’authentification Azure Active Directory et l’authentification par clé partagée. Les deux sont utilisées pour les services Microsoft Azure Maps. Découvrez comment obtenir une clé d’abonnement Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 06/12/2020
+description: Dans cet article, vous allez découvrir l’authentification Azure Active Directory et l’authentification par clé partagée.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987546"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285830"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
-Azure Maps prend en charge deux méthodes pour authentifier les requêtes : Authentification par clé partagée et authentification [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Cet article explique ces méthodes d’authentification pour vous guider dans votre implémentation des services Azure Maps.
+Azure Maps prend en charge deux méthodes pour authentifier les requêtes : Authentification par clé partagée et authentification [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Cet article explique les deux méthodes d’authentification pour vous guider dans votre implémentation des services Azure Maps.
 
 > [!NOTE]
-> Pour sécuriser davantage la communication avec Azure Maps, nous prenons désormais en charge le protocole TLS 1.2 et ne prenons plus en charge les versions 1.0 et 1.1 de ce protocole. Pour éviter toute interruption de service, **mettez à jour vos serveurs et vos applications pour qu’ils utilisent TLS 1.2 avant le 2 avril 2020**.  Si vous utilisez actuellement TLS 1.x, découvrez si vous êtes prêt à passer à TLS 1.2 et créez un plan de migration avec les tests décrits dans [Résoudre les problèmes de dépendances TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Pour sécuriser davantage la communication avec Azure Maps, nous prenons désormais en charge le protocole TLS 1.2 et ne prenons plus en charge les versions 1.0 et 1.1 de ce protocole. Si vous utilisez actuellement TLS 1.x, découvrez si vous êtes prêt à passer à TLS 1.2 et créez un plan de migration avec les tests décrits dans [Résoudre les problèmes de dépendances TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Authentification par clé partagée
 
- Les clés primaires et secondaires sont générées après la création du compte Azure Maps. Nous vous encourageons à utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps à l’aide de l’authentification par clé partagée. L’authentification par clé partagée transmet une clé générée par un compte Azure Maps à un service Azure Maps. Pour chaque requête envoyée aux services Azure Maps, ajoutez la *clé d’abonnement* à l’URL en tant que paramètre. La clé secondaire peut être utilisée dans des scénarios tels que le roulement des changements de clés.  
+ Les clés primaires et secondaires sont générées après la création du compte Azure Maps. Nous vous encourageons à utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps avec l’authentification par clé partagée. L’authentification par clé partagée transmet une clé générée par un compte Azure Maps à un service Azure Maps. Pour chaque requête envoyée aux services Azure Maps, ajoutez la *clé d’abonnement* à l’URL en tant que paramètre. La clé secondaire peut être utilisée dans des scénarios tels que le roulement des changements de clés.  
 
 Pour plus d’informations sur l’affichage de vos clés dans le portail Azure, consultez [Gérer l’authentification](https://aka.ms/amauthdetails).
 
-> [!Tip]
-> Nous vous recommandons de regénérer régulièrement vos clés. Vous disposez de deux clés, ce qui signifie que vous pouvez maintenir les connexions à l’aide d’une clé pendant que vous regénérez l’autre clé. Lorsque vous régénérez vos clés, vous devez mettre à jour toutes les applications qui accèdent à votre compte pour qu’elles utilisent les nouvelles clés.
+> [!TIP]
+> Pour des raisons de sécurité, il est recommandé de permuter vos clés principale et secondaire. Pour permuter les clés, mettez à jour votre application pour utiliser la clé secondaire, déployez, puis appuyez sur le bouton cycle/actualiser en regard de la clé principale pour générer une nouvelle clé principale. L’ancienne clé principale est désactivée. Pour plus d’informations sur la permutation des clés, consultez [Configurer Azure Key Vault avec la permutation des clés et l’audit](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
 ## <a name="azure-ad-authentication"></a>Authentification Azure AD
 
@@ -64,7 +64,7 @@ Une fois que l’application a reçu un jeton d’accès, le SDK et/ou l’appli
 | x-ms-client-id | 30d7cc….9f55        |
 | Autorisation  | Bearer eyJ0e….HNIVN |
 
-> [!Note]
+> [!NOTE]
 > `x-ms-client-id` est le compte Azure Maps basé sur le GUID, qui apparaît dans la page d’authentification Azure Maps.
 
 Voici un exemple de requête de routage Azure Maps qui utilise un jeton du porteur OAuth Azure AD :
@@ -108,7 +108,7 @@ Pour plus d’informations sur la consultation de vos paramètres RBAC, consult
 
 #### <a name="custom-role-definitions"></a>Définitions de rôles personnalisées
 
-L’un des aspects de la sécurité des applications concerne l’application du principe du privilèges minimum. Ce principe implique qu’il ne faut accorder au principal de sécurité que l’accès nécessaire, et aucun accès supplémentaire. La création de définitions de rôles personnalisées peut prendre en charge des cas d’usage qui nécessitent une granularité supplémentaire du contrôle d’accès. Pour créer une définition de rôle personnalisée, vous pouvez sélectionner des actions de données spécifiques à inclure ou exclure pour la définition. 
+L’un des aspects de la sécurité des applications concerne l’application du principe du privilèges minimum. Ce principe implique qu’il ne faut accorder au principal de sécurité que l’accès nécessaire, et aucun accès supplémentaire. La création de définitions de rôles personnalisées peut prendre en charge des cas d’usage qui nécessitent une granularité supplémentaire du contrôle d’accès. Pour créer une définition de rôle personnalisée, vous pouvez sélectionner des actions de données spécifiques à inclure ou exclure pour la définition.
 
 La définition de rôle personnalisée peut ensuite être utilisée dans une attribution de rôle pour n’importe quel principal de sécurité. Pour en savoir plus sur les définitions de rôles personnalisées Azure, consultez [Rôles personnalisés Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
@@ -123,16 +123,22 @@ Voici quelques exemples de scénarios dans lesquels des rôles personnalisés pe
 
 ### <a name="understanding-scope"></a>Présentation de l’étendue
 
-Quand vous créez une attribution de rôle, elle est définie dans la hiérarchie de ressources Azure. En haut de la hiérarchie figure un [groupe d’administration](https://docs.microsoft.com/azure/governance/management-groups/overview), et tout en bas se trouvent les ressources Azure comme les comptes Azure Maps.
+Quand vous créez une attribution de rôle, elle est définie dans la hiérarchie de ressources Azure. En haut de la hiérarchie figure un [groupe d’administration](https://docs.microsoft.com/azure/governance/management-groups/overview), et tout en bas se trouve une ressource Azure, par exemple un compte Azure Maps.
 L’attribution d’une attribution de rôle à un groupe de ressources peut permettre l’accès à plusieurs comptes Azure Maps ou à plusieurs ressources du groupe.
 
-> [!Tip]
+> [!TIP]
 > La recommandation générale de Microsoft consiste à attribuer l’accès à l’étendue de compte Azure Maps, car cela empêche tout **accès involontaire à d’autres comptes Azure Maps** existants dans le même abonnement Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur RBAC, consultez [Vue d’ensemble du contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez :
+> [!div class="nextstepaction"]
+> [Contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* Pour plus d’informations sur l’authentification d’une application avec Azure AD et Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Pour plus d’informations sur l’authentification d’une application avec Azure AD et Azure Maps, consultez :
+> [!div class="nextstepaction"]
+> [Gérer l’authentification dans Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
 
-* Pour plus d’informations sur l’authentification d’Azure Maps, de Map Control et d’Azure AD, consultez [Utiliser Azure AD et Azure Maps Map Control](https://aka.ms/amaadmc).
+Pour plus d’informations sur l’authentification de Map Control d’Azure Maps avec Azure AD, consultez :
+> [!div class="nextstepaction"]
+> [Utiliser la bibliothèque Map Control d’Azure Maps](https://aka.ms/amaadmc)

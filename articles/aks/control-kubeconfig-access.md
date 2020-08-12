@@ -4,12 +4,12 @@ description: Découvrir comment contrôler l’accès au fichier de configuratio
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255266"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501625"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utiliser les contrôles d’accès en fonction du rôle Azure pour définir l’accès au fichier de configuration Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Pour les besoins de cet article, vous devez aussi exécuter Azure CLI version 2
 
 Lorsque vous interagissez avec un cluster AKS par l’intermédiaire de l’outil `kubectl`, un fichier de configuration est utilisé pour définir les informations de connexion au cluster. Ce fichier de configuration est généralement stocké dans *~/.kube/config*. Plusieurs clusters peuvent être définis dans ce fichier *kubeconfig*. Vous basculez entre les clusters à l’aide de la commande [kubectl config use-context][kubectl-config-use-context].
 
-La commande [az aks get-credentials][az-aks-get-credentials] vous permet d’obtenir les informations d’identification de l’accès à un cluster AKS et les fusionne dans le fichier *kubeconfig*. Vous pouvez utiliser les contrôles d’accès en fonction du rôle Azure pour contrôler l’accès à ces informations d’identification. Ces rôles RBAC Azure vous permettent de définir les utilisateurs qui peuvent récupérer le fichier *kubeconfig*, et les autorisations qui en découlent au sein du cluster.
+La commande [az aks get-credentials][az-aks-get-credentials] vous permet d’obtenir les informations d’identification de l’accès à un cluster AKS et les fusionne dans le fichier *kubeconfig*. Vous pouvez utiliser les contrôles d’accès en fonction du rôle Azure pour contrôler l’accès à ces informations d’identification. Ces rôles Azure vous permettent de définir les utilisateurs qui peuvent récupérer le fichier *kubeconfig* et les autorisations qui en découlent au sein du cluster.
 
 Les deux rôles intégrés sont :
 

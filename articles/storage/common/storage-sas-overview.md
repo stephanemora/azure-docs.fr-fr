@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502169"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -58,7 +58,7 @@ Vous pouvez signer une SAP grâce à l’une des deux méthodes suivantes :
 
 - Avec une *clé de délégation d’utilisateur* créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP de délégation d’utilisateur est signée avec la clé de délégation d’utilisateur.
 
-    Pour obtenir la clé de délégation d’utilisateur et créer la SAP, un rôle de contrôle d’accès en fonction du rôle (RBAC) incluant l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** doit être attribué à un principal de sécurité Azure AD. Pour plus d’informations sur les rôles RBAC disposant des autorisations nécessaires pour obtenir la clé de délégation d’utilisateur, consultez [Créer une SAP (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+    Pour obtenir la clé de délégation d’utilisateur et créer la SAS, un principal de sécurité doit se voir attribuer un rôle Azure incluant l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey**. Pour plus d’informations sur les rôles Azure disposant des autorisations nécessaires pour obtenir la clé de délégation d’utilisateur, consultez [Créer une SAS délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Avec la clé du compte de stockage. Une SAP de service et une SAP de compte sont signées avec la clé du compte de stockage. Pour créer une SAP signée avec la clé de compte, une application doit avoir accès à la clé de compte.
 

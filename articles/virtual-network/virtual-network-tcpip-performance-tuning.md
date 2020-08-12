@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068520"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimisation des performances TCP/IP pour les machines virtuelles Azure
 
@@ -125,9 +125,8 @@ Pour Azure, nous vous recommandons de définir la MSS TCP sur 1 350 octets et la
 
 La latence du réseau est régie par la vitesse de la lumière sur un réseau à fibre optique. Le débit réseau TCP est également régi par la durée des bouches (Round-Trip Time ou RTT) entre deux périphériques réseau.
 
-| | | | |
-|-|-|-|-|
-|**Itinéraire**|**Distance**|**Durée (unidirectionnel)**|**RTT**|
+| Routage | Distance | Durée (unidirectionnel) | RTT |
+| ----- | -------- | ------------ | --- |
 |New York à San Francisco|4 148 km|21 ms|42 ms|
 |New York à London|5 585 km|28 ms|56 ms|
 |New York à Sydney|15 993 km|80 ms|160 ms|
@@ -162,9 +161,8 @@ Voici la formule pour calculer le débit maximal d'une connexion TCP unique :
 
 Ce tableau indique le débit maximal en mégaoctets/seconde d'une connexion TCP unique. (Pour une meilleure lisibilité, les mégaoctets sont utilisés comme unité de mesure.)
 
-| | | | |
-|-|-|-|-|
-|**Taille de la fenêtre TCP (octets)**|**Latence RTT (ms)**|**Débit maximal en mégaoctets/seconde**|**Débit maximal en mégabits/seconde**|
+| Taille de la fenêtre TCP (octets) | Latence RTT (ms) | Débit maximal en mégaoctets/seconde | Débit maximal en mégabits/seconde |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|1|65,54|524,29|
 |65 535|30|2.18|17,48|
 |65 535|60|1,09|8,74|
@@ -179,9 +177,8 @@ La mise à l'échelle de la fenêtre TCP est une technique qui augmente dynamiqu
 
 Ce tableau illustre ces relations :
 
-| | | | |
-|-|-|-|-|
-|**Taille de la fenêtre TCP (octets)**|**Latence RTT (ms)**|**Débit maximal en mégaoctets/seconde**|**Débit maximal en mégabits/seconde**|
+| Taille de la fenêtre TCP (octets) | Latence RTT (ms) | Débit maximal en mégaoctets/seconde | Débit maximal en mégabits/seconde |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|30|2.18|17,48|
 |131 070|30|4.37|34,95|
 |262 140|30|8,74|69,91|
@@ -221,9 +218,8 @@ Set-NetTCPSetting
 
 Voici les paramètres TCP effectifs pour `AutoTuningLevel` :
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Facteur de mise à l’échelle**|**Multiplicateur de mise à l'échelle**|**Formule pour<br/> calculer la taille maximale de la fenêtre**|
+| AutoTuningLevel | Facteur de mise à l’échelle | Multiplicateur de mise à l’échelle | Formule pour<br/>calculer la taille maximale de la fenêtre |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Désactivé|None|None|Taille de la fenêtre|
 |Restreint|4|2^4|Taille de la fenêtre * (2^4)|
 |Très restreinte|2|2^2|Taille de la fenêtre * (2^2)|

@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628791"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562444"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -104,6 +104,9 @@ Si vous utilisez la fonctionnalité de cache local avec des environnements de pr
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Je viens de publier de nouvelles modifications, mais mon application ne semble pas les avoir intégrées. Pourquoi ?
 Si votre application utilise le cache local, vous devez redémarrer votre site pour voir les dernières modifications. Si vous ne voulez pas publier les modifications sur un site de production, consultez les options d’emplacement décrites dans la section sur les bonnes pratiques, plus haut dans cet article.
+
+> [!NOTE]
+> L’option de déploiement [exécuter à partir du package](deploy-run-package.md) n’est pas compatible avec un cache local.
 
 ### <a name="where-are-my-logs"></a>Où sont mes journaux d’activité ?
 Avec le cache local, vos dossiers de données et de journaux d’activité se présentent un peu différemment. Toutefois, la structure de vos sous-dossiers reste la même, excepté que les sous-dossiers se trouvent sous un sous-dossier dont le nom est formé d’un identificateur de machine virtuelle unique et d’un horodatage.

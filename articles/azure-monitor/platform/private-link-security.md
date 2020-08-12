@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077187"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -69,6 +69,23 @@ Par exemple, si vos réseaux virtuels internes VNet1 et VNet2 doivent se connect
 ![Schéma de la topologie d’AMPLS A](./media/private-link-security/ampls-topology-a-1.png)
 
 ![Schéma de la topologie d’AMPLS B](./media/private-link-security/ampls-topology-b-1.png)
+
+### <a name="consider-limits"></a>Tenir compte des limites
+
+Il existe un certain nombre de limites à prendre en compte lorsque vous planifiez votre installation Azure Private Link :
+
+* Un réseau virtuel ne peut se connecter qu’à un seul objet AMPLS. Cela signifie que l’objet AMPLS doit fournir l’accès à toutes les ressources Azure Monitor auxquelles le réseau virtuel doit avoir accès.
+* Une ressource Azure Monitor (un espace de travail ou un composant Application Insights) peut être connectée à cinq objets AMPLS au maximum.
+* Un objet AMPLS peut se connecter à 20 ressources Azure Monitor au maximum.
+* Un objet AMPLS peut se connecter à 10 points de terminaison privés au maximum.
+
+Dans la topologie ci-dessous :
+* Chaque réseau virtuel se connecte à un objet AMPLS, de sorte qu’il ne peut pas se connecter à d’autres AMPLS.
+* AMPLS B se connecte à deux réseaux virtuels : il utilise deux de ses dix connexions possibles à des points de terminaison privés.
+* AMPLS A se connecte à 2 espaces de travail et à 1 composant Application Insights : il utilise 3 de ses 20 ressources Azure Monitor possibles.
+* L’espace de travail 2 se connecte à AMPLS A et AMPLS B : il utilise 2 de ses 5 connexions AMPLS possibles.
+
+![Diagramme des limites d’AMPLS](./media/private-link-security/ampls-limits.png)
 
 ## <a name="example-connection"></a>Exemple de connexion
 
@@ -137,13 +154,13 @@ Vous avez maintenant créé un nouveau point de terminaison privé qui est conne
 
 ## <a name="configure-log-analytics"></a>Configurer Log Analytics
 
-Accédez au portail Azure. Dans votre ressource d’espace de travail Log Analytics Azure Monitor se trouve un élément de menu **Isolement réseau** sur le côté gauche. Vous pouvez contrôler deux états différents à partir de ce menu. 
+Accédez au portail Azure. Dans votre ressource d’espace de travail Log Analytics se trouve un élément de menu **Isolement réseau** sur le côté gauche. Vous pouvez contrôler deux états différents à partir de ce menu. 
 
 ![Isolement réseau LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 Tout d’abord, vous pouvez connecter cette ressource Log Analytics à toutes les étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’étendue de liaison privée Azure Monitor.  Cliquez sur **Appliquer** pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre cet espace de travail. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources).  
 
-Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail. Ces données incluent l’accès aux classeurs, aux tableaux de bord, aux expériences client basées sur l’API de requête, aux informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui consomment des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
+Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail. Ces données incluent l’accès aux classeurs, aux tableaux de bord, aux expériences client basées sur l’API de requête, aux informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
 
 Cette restriction d’accès ne s’applique qu’aux données de l’espace de travail. Les modifications de configuration, notamment l’activation ou la désactivation de ces paramètres d’accès, sont gérées par Azure Resource Manager. Limitez l’accès à Resource Manager à l’aide des rôles, autorisations, contrôles réseau et audits appropriés. Pour plus d’informations, consultez [Rôles, autorisations et sécurité Azure Monitor](roles-permissions-security.md).
 
@@ -162,26 +179,26 @@ Ensuite, vous pouvez contrôler la façon dont cette ressource peut être attein
 
 Notez que les expériences de consommation hors portail doivent également être exécutées dans le réseau virtuel connecté par liaison privée qui comprend les charges de travail surveillées. 
 
-Vous devrez ajouter des ressources hébergeant les charges de travail surveillées à la liaison privée. Voici de la [documentation](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) sur la façon de procéder pour les services d’application.
+Vous devrez ajouter des ressources hébergeant les charges de travail surveillées à la liaison privée. Voici de la [documentation](../../app-service/networking/private-endpoint.md) sur la façon de procéder pour les services d’application.
 
 Cette restriction d’accès ne s’applique qu’aux données de la ressource Application Insights. Les modifications de configuration, notamment l’activation ou la désactivation de ces paramètres d’accès, sont gérées par Azure Resource Manager. Au lieu de cela, limitez l’accès à Resource Manager à l’aide des rôles, autorisations, contrôles réseau et audits appropriés. Pour plus d’informations, consultez [Rôles, autorisations et sécurité Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]
 > Pour sécuriser entièrement un espace de travail basé sur Application Insights, vous devez verrouiller à la fois l’accès à la ressource Application Insights et à l’espace de travail Log Analytics sous-jacent.
 >
-> Les diagnostics au niveau du code (profileur/débogueur) nécessitent que vous fournissiez votre propre compte de stockage pour prendre en charge une liaison privée. Voici de la [documentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) sur la manière de procéder.
+> Les diagnostics au niveau du code (profileur/débogueur) nécessitent que vous fournissiez votre propre compte de stockage pour prendre en charge une liaison privée. Voici de la [documentation](../app/profiler-bring-your-own-storage.md) sur la manière de procéder.
 
 ## <a name="use-apis-and-command-line"></a>Utiliser des API et une ligne de commande
 
 Vous pouvez automatiser le processus décrit précédemment en utilisant des modèles Azure Resource Manager et des interfaces de ligne de commande.
 
-Pour créer et gérer des étendues de liaison privée, utilisez [az monitor private-link-scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest). À l’aide de cette commande, vous pouvez créer des étendues, associer des espaces de travail Log Analytics et des composants Application Insights et ajouter/supprimer/approuver des points de terminaison privés.
+Pour créer et gérer des étendues de liaison privée, utilisez [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). À l’aide de cette commande, vous pouvez créer des étendues, associer des espaces de travail Log Analytics et des composants Application Insights et ajouter/supprimer/approuver des points de terminaison privés.
 
-Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou les [composants Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou les [composants Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Collecter des journaux personnalisés sur une liaison privée
 
-Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
 Pour plus d’informations sur l’intégration de votre propre compte de stockage, consultez [Comptes de stockage appartenant au client pour l’ingestion des journaux](private-storage.md).
 
@@ -189,7 +206,7 @@ Pour plus d’informations sur l’intégration de votre propre compte de stocka
 
 ### <a name="agents"></a>Agents
 
-Les versions les plus récentes des agents Windows et Linux doivent être utilisées sur des réseaux privés pour permettre une ingestion sécurisée de la télémétrie vers les espaces de travail Log Analytics. Les versions antérieures ne peuvent pas charger les données d’analyse dans un réseau privé.
+Les versions les plus récentes des agents Windows et Linux doivent être utilisées sur des réseaux privés pour permettre une ingestion sécurisée vers les espaces de travail Log Analytics. Les versions antérieures ne peuvent pas charger les données d’analyse dans un réseau privé.
 
 **Agent Log Analytics pour Windows**
 
@@ -210,7 +227,7 @@ Pour utiliser les expérience du portail Azure Monitor, comme Application Insigh
 
 ### <a name="programmatic-access"></a>Accès par programme
 
-Pour utiliser l’API REST, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) ou PowerShell avec Azure Monitor sur des réseaux privés, ajoutez les [balises de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) **AzureActiveDirectory** et **AzureResourceManager** à votre pare-feu.
+Pour utiliser l’API REST, [CLI](/cli/azure/monitor?view=azure-cli-latest) ou PowerShell avec Azure Monitor sur des réseaux privés, ajoutez les [balises de service](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** et **AzureResourceManager** à votre pare-feu.
 
 L’ajout de ces balises vous permet d’effectuer des actions telles que l’interrogation des données du journal ainsi que la création et la gestion d’espaces de travail Log Analytics et de composants Application Insights.
 

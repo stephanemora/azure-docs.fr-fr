@@ -1,14 +1,14 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
-ms.date: 07/07/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5cace0396c5a1f430ce10ba29ee051b5e432c125
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133454"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448950"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -34,10 +34,11 @@ Une fois que vous avez déterminé les stratégies à déployer, vous pouvez [le
 
 ## <a name="analyze-the-gathered-data"></a>Analyser les données collectées
 
-Une fois que vous avez déployé vos stratégies, les données sont journalisées dans les espaces de travail Log Analytics que vous avez créés dans chaque locataire de client. Pour obtenir des insights sur tous les clients managés, vous pouvez utiliser des outils tels que les [classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) afin de collecter et d’analyser des informations provenant de plusieurs sources de données.
+Une fois que vous avez déployé vos stratégies, les données sont journalisées dans les espaces de travail Log Analytics que vous avez créés dans chaque locataire de client. Pour obtenir des insights sur tous les clients managés, vous pouvez utiliser des outils tels que les [classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) afin de collecter et d’analyser des informations provenant de plusieurs sources de données. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Explorez cet [exemple de classeur créé par MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), qui assure le suivi des rapports de conformité des correctifs en [interrogeant les journaux Update Management](../../automation/update-management/update-mgmt-query-logs.md) dans plusieurs espaces de travail Log Analytics. 
 - Découvrez [Azure Monitor](../../azure-monitor/index.yml).
 - Découvrez les [journaux Azure Monitor](../../azure-monitor/platform/data-platform-logs.md).
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).

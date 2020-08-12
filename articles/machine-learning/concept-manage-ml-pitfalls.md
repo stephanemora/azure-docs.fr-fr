@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012720"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Empêcher le surajustement et les données déséquilibrées avec le Machine Learning automatisé
 
@@ -101,7 +101,7 @@ Les techniques suivantes sont des options supplémentaires pour traiter les donn
 
 - Rééchantillonnage destiné à niveler le déséquilibre des classes, soit en suréchantillonnant les classes les plus petites soit en sous-échantillonnant les classes les plus grandes. Ces méthodes demandent des compétences techniques pour le traitement et l’analyse.
 
-- Examinez les métriques de performances afin d’identifier les données déséquilibrées. Par exemple, le score F1 est une moyenne pondérée de la précision et du rappel. La précision mesure l’exactitude d’un classifieur (une faible précision indique un grand nombre de faux positifs), tandis que le rappel mesure l’exhaustivité d’un classifieur (un faible rappel indique un grand nombre de faux négatifs).
+- Examinez les métriques de performances afin d’identifier les données déséquilibrées. Par exemple, le score F1 est la moyenne harmonique de la précision et du rappel. La précision mesure l’exactitude d’un classifieur, où une précision plus élevée indique moins de faux positifs, tandis que le rappel mesure l’exhaustivité d’un classifieur, où un rappel plus élevé indique moins de faux négatifs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

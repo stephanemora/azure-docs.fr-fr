@@ -2,16 +2,14 @@
 title: Azure Application Insights pour les applications web JavaScript
 description: Obtenir les nombres de sessions et d’affichage de page, les données de client web, les applications monopages (SPA) et les modèles d’utilisation de suivi. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8cd0c7c73ac4f5c531d91d7e458300ab1b0ad1af
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371479"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531317"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -41,7 +39,8 @@ Installez via NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Remarque :* **Les frappes sont incluses dans ce package**. Vous n’avez donc **pas** besoin d’installer un package de types distinct.
+> [!Note]
+> **Les frappes sont incluses dans ce package**. Vous n’avez donc **pas** besoin d’installer un package de types distinct.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -342,7 +341,9 @@ Cela ne signifie pas que nous ne prenons en charge que l’ensemble commun de fo
 
 ## <a name="open-source-sdk"></a>Kit de développement logiciel (SDK) open source
 
-Le kit SDK JavaScript Application Insights est proposé en open source. Pour afficher le code source ou contribuer au projet, visitez le [dépôt GitHub officiel](https://github.com/Microsoft/ApplicationInsights-JS).
+Le kit SDK JavaScript Application Insights est proposé en open source. Pour afficher le code source ou contribuer au projet, visitez le [dépôt GitHub officiel](https://github.com/Microsoft/ApplicationInsights-JS). 
+
+Pour obtenir les mises à jour et correctifs de bogues les plus récents, [consultez les notes de publication](./release-notes.md).
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 * [Suivi de l'utilisation](usage-overview.md)

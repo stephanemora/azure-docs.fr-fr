@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043500"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446328"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas et limites d'Azure Media Services
@@ -28,14 +28,14 @@ Cet article répertorie quelques-unes des limites les plus courantes de Microsof
 
 ## <a name="account-limits"></a>Limites relatives aux comptes
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | [Comptes Media Services](media-services-account-concept.md) dans le cadre d'un même abonnement | 25 (fixe) |
 
 ## <a name="asset-limits"></a>Limites relatives aux ressources
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | [Ressources](assets-concept.md) par compte Media Services | 1 000 000|
 
 ## <a name="storage-limits"></a>Limites de stockage
@@ -86,9 +86,10 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 ## <a name="packaging--delivery-limits"></a>Limites relatives à l’empaquetage et à la remise
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | [Points de terminaison de streaming](streaming-endpoint-concept.md) (arrêtés ou en cours d'exécution) par compte Media Services|2 |
+| Unités de streaming Premium | 10 |
 | [Filtres de manifeste dynamique](filters-dynamic-manifest-overview.md)|100|
 | [Stratégies de diffusion en continu](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localisateurs de streaming](streaming-locators-concept.md) uniques associés à une ressource à un moment donné | 100<sup>(7)</sup> (fixe) |

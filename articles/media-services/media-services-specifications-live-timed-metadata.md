@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060369"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800277"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
@@ -220,7 +220,7 @@ Le schéma correspondant à la charge utile XML EventStream [MPEG-DASH] est déf
 - (b) la transmet pour une remise en fragments CMAF via HLS ou DASH, ou 
 - (c) la convertit en signal de piste partiellement allouée pour une remise via Smooth Streaming [MS-SSTR].
 
-En plus des paquets CMAF ou TS PES au format « emsg » pour HLS, les manifestes pour DASH (MPD) et Smooth Streaming contiennent une référence aux flux d’événements intrabande (également appelée piste partiellement allouée dans Smooth Streaming). 
+En plus des paquets CMAF ou TS PES au format « emsg » pour HLS, les manifestes pour DASH (MPD) et Smooth Streaming contiennent une référence aux flux d’événements intrabande (également appelée piste partiellement allouée dans Smooth Streaming).
 
 Les événements individuels ou leurs charges utiles de données ne sont PAS directement générés dans les manifestes HLS, DASH ou Smooth. 
 
@@ -255,7 +255,7 @@ Consultez l’exemple [3.3.3.1 manifeste DASH avec une période unique et le mod
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exemple de sortie de manifeste HLS lors de l’utilisation du mode simple Adobe RTMP
 
-Consultez l’exemple [3.2.2 manifeste HLS utilisant le mode simple Adobe et la balise EXT-X-CUE](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
+Consultez l’exemple [3.2.2 manifeste HLS utilisant le mode simple Adobe et la balise EXT-X-CUE](#322-apple-hls-with-adobe-primetime-ext-x-cue)
 
 ## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>2.1.4 Signalisation de signal publicitaire RTMP avec « onAdCue » - Mode SCTE-35
 
@@ -276,11 +276,15 @@ Dans ce scénario, la charge utile suivante DOIT être envoyée à partir de l�
 
 ---
 
-#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>Exemple de manifeste MPEG DASH .mpd avec le mode SCTE-35
-Consultez [Section 3.3.3.2 exemple de manifeste DASH avec SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+<!---
+#### Example MPEG DASH .mpd manifest with SCTE-35 mode
+See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+--->
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exemple de manifeste HLS .m3u8 avec signal en mode SCTE-35
-Consultez [Section 3.2.1.1 exemple de manifeste HLS avec SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+Consultez [Section 3.2.1.1 exemple de manifeste HLS avec SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35)
+
+
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 Signalisation de signal publicitaire RTMP avec « onCuePoint » pour Elemental Live
 
@@ -355,6 +359,7 @@ Quand ce mode de marqueur publicitaire est utilisé, la sortie du manifeste TLS 
 </MPD>
 ~~~
 
+
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Exemple de sélection HLS, signaux en mode simple Adobe utilisant la balise EXT-X-CUE (tronquée « ... » par souci de concision)
 
 L’exemple suivant illustre la sortie du packager dynamique Media Services pour un flux de réception RTMP utilisant les signaux en mode « simple » Adobe et la balise héritée [Adobe-Primetime] EXT-X-CUE.  
@@ -409,7 +414,8 @@ Pour les exigences relatives à la réception de flux en direct, voir [MS-SSTR-I
 
 Chaque fragment se compose d’une zone de fragment vidéo (« moof ») et d’une zone de données multimédias (« mdat »), où la zone « mdat » est le message binaire.
 
-Pour permettre l’insertion précise de publicités, l’encodeur DOIT diviser le fragment à l’heure de la présentation, où l’insertion du signal est requise.  Un nouveau fragment DOIT être créé, commençant par une nouvelle image IDR ou des points d’accès de flux (SAP) de type 1 ou 2, comme défini dans l’Annexe I de la norme [ISO-14496-12]. Cela permet à Azure Media Packager de générer correctement un manifeste HLS et un manifeste à plusieurs périodes DASH lorsque la nouvelle période commence au moment précis de la jointure.
+Pour permettre l’insertion précise de publicités, l’encodeur DOIT diviser le fragment à l’heure de la présentation, où l’insertion du signal est requise.  Un nouveau fragment DOIT être créé, commençant par une nouvelle image IDR ou des points d’accès de flux (SAP) de type 1 ou 2, comme défini dans l’Annexe I de la norme [ISO-14496-12]
+<!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
 
 ### <a name="221-live-server-manifest-box"></a>2.2.1 Zone de manifeste du serveur en direct
 
@@ -542,21 +548,182 @@ StreamIndex **DOIT** avoir un sous-type « Data » et CustomAttributes **DOIT*
 
 Azure Media Services prend en charge les balises de manifeste TLS suivantes pour signaler les informations d’usage publicitaire lors d’un événement en direct ou à la demande. 
 
-- EXT-X-DATERANGE tel que défini dans Apple TLS [RFC8216]
-- EXT-X-CUE tel que défini dans [Adobe-Primetime] - ce mode est considéré comme « hérité ». Les clients doivent adopter la balise EXT-X-DATERANGE lorsque cela est possible.
+<!--- EXT-X-DATERANGE as defined in Apple HLS [RFC8216] --->
+- EXT-X-CUE tel que défini dans [Adobe-Primetime]
+<!--- this mode is considered "legacy".  Customers should adopt the EXT-X-DATERANGE tag when possible. --->
 
 La sortie des données pour chaque balise varie selon le mode de signal de réception utilisé. Par exemple, la réception RTMP avec le mode simple de Adobe ne contient pas la charge utile encodée en base64 SCTE-35.
 
-## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1 Apple HLS avec EXT-X-DATERANGE (recommandé)
+<!---
+## 3.2.1 Apple HLS with EXT-X-DATERANGE (recommended)
 
-La spécification HTTP Live Streaming [RFC8216] Apple autorise la signalisation des messages [SCTE-35]. Les messages sont insérés dans la sélection de segments dans une balise EXT-X-DATERANGE d’après la section [RFC8216] intitulée « Mapping SCTE-35 into EXT-X-DATERANGE ».  La couche d’application cliente peut analyser la sélection M3U et traiter les balises M3U, ou recevoir les événements par le biais de l’infrastructure Apple Player.  
+The Apple HTTP Live Streaming [RFC8216] specification allows for signaling of [SCTE-35] messages. The messages are inserted into the segment playlist in an EXT-X-DATERANGE tag per [RFC8216] section titled "Mapping SCTE-35 into EXT-X-DATERANGE".  The client application layer can parse the M3U playlist and process M3U tags, or receive the events through the Apple player framework.  
 
-L’approche **RECOMMANDÉE** dans Azure Media Services (version d’API 3) consiste à suivre [RFC8216] et à utiliser la balise ext-X_DATERANGE pour la décoration de disponibilité publicitaire [SCTE35] dans le manifeste.
+The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follow [RFC8216] and use the EXT-X_DATERANGE tag for [SCTE35] ad avail decoration in the manifest.
+--->
 
-## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 Exemple de manifeste HLS .m3u8 présentant la signalisation EXT-X-DATERANGE de SCTE-35
 
-L’exemple suivant de sortie de manifeste HLS du packager dynamique Media Services montre l’utilisation de la balise EXT-X-DATERANGE de [RFC8216] signalant les événements SCTE-35 dans le flux. En outre, ce flux contient la balise « héritée » EXT-X-CUE pour [Adobe-Primetime].
+## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35"></a>3.2.1.1 Exemple de manifeste HLS .m3u8 présentant la signalisation EXT-X-CUE de SCTE-35
 
+L'exemple suivant de sortie du manifeste HLS du packager dynamique Media Services affiche la balise EXT-X-CUE pour [Adobe-Primetime] en mode SCTE35. 
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:2
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T19:40:50Z
+#EXTINF:1.501500,no-desc
+Fragments(video=22567545,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22702680,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22837815,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22972950,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=23108085,format=m3u8-aapl-v8)
+#EXTINF:1.234567,no-desc
+Fragments(video=23243220,format=m3u8-aapl-v8)
+#EXTINF:0.016689,no-desc
+Fragments(video=23354331,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.000022
+#EXTINF:0.250244,no-desc
+Fragments(video=23355833,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.250267
+#EXTINF:0.850856,no-desc
+Fragments(video=23378355,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.101122
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=0.000000,TIME=260.610344,CUE="/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo="
+#EXTINF:0.650644,no-desc
+Fragments(video=23454932,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.751767
+#EXTINF:0.050044,no-desc
+Fragments(video=23513490,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.801811
+#EXTINF:1.451456,no-desc
+Fragments(video=23517994,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=3.253267
+#EXTINF:1.501500,no-desc
+Fragments(video=23648625,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=4.754767
+#EXTINF:1.501500,no-desc
+Fragments(video=23783760,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=6.256267
+#EXTINF:1.501500,no-desc
+Fragments(video=23918895,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=7.757767
+#EXTINF:1.501500,no-desc
+Fragments(video=24054030,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=9.259267
+#EXTINF:1.501500,no-desc
+Fragments(video=24189165,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=10.760767
+#EXTINF:1.501500,no-desc
+Fragments(video=24324300,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=12.262267
+#EXTINF:1.501500,no-desc
+Fragments(video=24459435,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=13.763767
+#EXTINF:1.501500,no-desc
+Fragments(video=24594570,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=15.265267
+#EXTINF:1.501500,no-desc
+Fragments(video=24729705,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=16.766767
+#EXTINF:1.501500,no-desc
+Fragments(video=24864840,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=18.268267
+#EXTINF:1.501500,no-desc
+Fragments(video=24999975,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=19.769767
+#EXTINF:1.501500,no-desc
+Fragments(video=25135110,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=21.271267
+#EXTINF:1.501500,no-desc
+Fragments(video=25270245,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=22.772767
+#EXTINF:1.501500,no-desc
+Fragments(video=25405380,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=24.274267
+#EXTINF:1.501500,no-desc
+Fragments(video=25540515,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=25.775767
+#EXTINF:1.501500,no-desc
+Fragments(video=25675650,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=27.277267
+#EXTINF:1.501500,no-desc
+Fragments(video=25810785,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=28.778767
+#EXTINF:1.501500,no-desc
+Fragments(video=25945920,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=30.280267
+#EXTINF:1.501500,no-desc
+Fragments(video=26081055,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=31.781767
+#EXTINF:1.501500,no-desc
+Fragments(video=26216190,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=33.283267
+#EXTINF:1.501500,no-desc
+Fragments(video=26351325,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=34.784767
+#EXTINF:1.501500,no-desc
+Fragments(video=26486460,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=36.286267
+#EXTINF:1.501500,no-desc
+Fragments(video=26621595,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=37.787767
+#EXTINF:1.501500,no-desc
+Fragments(video=26756730,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=39.289267
+#EXTINF:1.501500,no-desc
+Fragments(video=26891865,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=40.790767
+#EXTINF:1.501500,no-desc
+Fragments(video=27027000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=42.292267
+#EXTINF:1.501500,no-desc
+Fragments(video=27162135,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=43.793767
+#EXTINF:1.501500,no-desc
+Fragments(video=27297270,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=45.295267
+#EXTINF:1.501500,no-desc
+Fragments(video=27432405,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=46.796767
+#EXTINF:1.501500,no-desc
+Fragments(video=27567540,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=48.298267
+#EXTINF:1.501500,no-desc
+Fragments(video=27702675,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=49.799767
+#EXTINF:1.501500,no-desc
+Fragments(video=27837810,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=51.301267
+#EXTINF:1.501500,no-desc
+Fragments(video=27972945,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=52.802767
+#EXTINF:1.501500,no-desc
+Fragments(video=28108080,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=54.304267
+#EXTINF:1.501500,no-desc
+Fragments(video=28243215,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=55.805767
+#EXTINF:1.501500,no-desc
+Fragments(video=28378350,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=57.307267
+#EXTINF:1.501500,no-desc
+Fragments(video=28513485,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=58.808767
+#EXTINF:1.501500,no-desc
+Fragments(video=28648620,format=m3u8-aapl-v8)
+
+~~~
+
+
+<!---
+THIS VERSION HAS THE HLSv8 DATERANGE Tags in it
 ~~~
 #EXTM3U
 #EXT-X-VERSION:8
@@ -755,10 +922,11 @@ Fragments(video=28648620,format=m3u8-aapl-v8)
 
 ~~~
 
+--->
 
-## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>3.2.2 Apple TLS avec Adobe Primetime EXT-X-CUE (hérité)
+## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue"></a>3.2.2 Apple HLS avec Adobe Primetime EXT-X-CUE
 
-Il existe également une implémentation « héritée » fournie dans Azure Media Services (API version 2 et 3) qui utilise la balise EXT-X-CUE telle que définie dans le « mode SCTE-35 » [Adobe-Primetime]. Dans ce mode, Azure Media Services incorpore le code Base64 [SCTE-35] splice_info_section () dans la balise EXT-X-CUE.  
+Media Services (API version 2 et 3) prend en charge la sortie de la balise EXT-X-CUE telle que définie dans [Adobe-Primetime] « Mode SCTE-35 ». Dans ce mode, Azure Media Services incorpore le code Base64 [SCTE-35] splice_info_section () dans la balise EXT-X-CUE.  
 
 La balise EXT-X-CUE « héritée » est définie comme ci-dessous et peut également faire référence dans la spécification [Adobe-Primetime]. Cette option ne doit être utilisée que pour les signaux SCTE35 hérités, si nécessaire. Sinon, la balise recommandée est définie comme EXT-X-DATERANGE dans [RFC8216]. 
 
@@ -771,12 +939,15 @@ La balise EXT-X-CUE « héritée » est définie comme ci-dessous et peut éga
 | ELAPSED            | Nombre décimal à virgule flottante. | Facultatif, mais requis pour la fenêtre glissante. | Lorsque le signal est répété pour prendre en charge une fenêtre glissante de présentation, ce champ **DOIT** être le temps de présentation qui s’est écoulé depuis le début de l’événement. Les unités sont des fractions de seconde. Cette valeur peut dépasser la durée originale spécifiée de la jointure ou du segment. |
 | TEMPS               | Nombre décimal à virgule flottante. | Obligatoire                                  | Heure de présentation de l’événement. Les unités sont des fractions de seconde.                                                                                                                                                                                                                        |
 
-
 La couche d’application du lecteur HLS utilisera le TYPE pour identifier le format du message, décoder celui-ci, appliquer les conversions de temps nécessaires, et traiter l’événement.  Les événements sont synchronisé dans la sélection de segments de la piste parent, en fonction de leur horodatage.  Ils sont insérés devant le segment le plus proche (balise #EXTINF).
 
-### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 Exemple de manifeste HLS .m3u8 utilisant la balise « héritée » EXT-X-CUE Adobe Primetime
 
-L’exemple suivant montre l’ornement de manifeste HLS à l’aide de la balise EXT-X-CUE Adobe Primetime.  Le paramètre « CUE » contient uniquement les propriétés TYPE et Duration, ce qui signifie qu’il s’agissait d’une source RTMP utilisant la signalisation en mode simple Adobe.  S’il s’agit d’un signal en mode SCTE-35, la balise inclut la charge utile SCTE-35 binaire encodée en base64, comme indiqué dans l’exemple [3.2.1.1](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+### <a name="323-hls-m3u8-manifest-example-using-adobe-primetime-ext-x-cue"></a>3.2.3 Exemple de manifeste HLS .m3u8 utilisant EXT-X-CUE Adobe Primetime
+
+L’exemple suivant montre l’ornement de manifeste HLS à l’aide de la balise EXT-X-CUE Adobe Primetime.  Le paramètre « CUE » contient uniquement les propriétés TYPE et Duration, ce qui signifie qu’il s’agissait d’une source RTMP utilisant la signalisation en mode simple Adobe.  
+<!---If this was a SCTE-35 mode signal, the tag would include the base64 encoded binary SCTE-35 payload as seen in the [3.2.1.1 example](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+--->
+
 
 ~~~
 #EXTM3U
@@ -839,7 +1010,7 @@ Fragments(video=4011702982,format=m3u8-aapl)
 
 ~~~
 
-### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>3.2.4 Gestion des messages HLS pour une balise « héritée » EXT-X-CUE Adobe Primetime
+### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>3.2.4 Gestion des messages HLS pour EXT-X-CUE Adobe Primetime
 
 Les événements sont signalés dans la sélection de segments de chaque piste audio et vidéo. La position de la balise EXT-X-CUE **DOIT** toujours être immédiatement devant le premier segment HLS (pour jointure externe ou début de segment) ou immédiatement derrière les derniers segments HLS (pour jointure interne ou fin du segment) auxquels ses attributs TIME et DURATION se rapportent, comme requis par [Adobe-Primetime].
 
@@ -871,11 +1042,13 @@ Les définitions de référence normative de transport des messages de signal [S
 
 La décoration de manifeste (MPD) sera signalée dans le MPD à l’aide de l’élément EventStream qui apparaît dans l’élément Period. Le schemeId utilisé est « urn:scte:scte35:2014:xml+bin ».
 
+
 > [!NOTE]
 > À des fins de concision, [SCTE-35] autorise l’utilisation de la section codée en Base64 dans l’élément Signal.Binary (plutôt que l’élément Signal.SpliceInfoSection) comme alternative au transport d’un message de signal entièrement analysé.
 > Azure Media Services utilise cette approche « xml+bin » pour signaler dans le manifeste MPD.
 > Il s’agit également de la méthode recommandée utilisée dans la norme [DASH-IF-IOP] - Voir la section intitulée [« flux d’événements d’insertion publicitaire » du guide DASH-IF-IOP](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams)
 > 
+
 
 L’élément EventStream a les attributs suivants :
 
@@ -909,12 +1082,14 @@ L’exemple suivant montre un extrait EventStream du packager dynamique Media Se
     </EventStream>
 ~~~
 
+
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 Exemple de signalement de manifeste MPEG DASH .mpd d’un flux RTMP utilisant le mode SCTE-35 Adobe
 
 L’exemple suivant montre un extrait EventStream du packager dynamique Media Services pour un flux RTMP utilisant la signalisation en mode SCTE-35 Adobe.
 
+Exemple d’élément EventStream utilisant la signalisation de style xml + bin par [SCTE-214-1]
+
 ~~~ xml
-<!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -930,11 +1105,14 @@ L’exemple suivant montre un extrait EventStream du packager dynamique Media Se
       </EventStream>
 ~~~
 
+
+
 > [!IMPORTANT]
 > Notez que presentationTime est l’heure de présentation de l’événement [SCTE-35] traduite pour être relative à l’heure de début de la période, et non à l’heure d’arrivée du message.
 > [MPEGDASH] définit le Event@presentationTime comme « Spécifie le temps de présentation multimédia de l’événement par rapport au début de la période.
 > La valeur de la durée de présentation en secondes est la division de la valeur de cet attribut et la valeur de l’attribut EventStream@timescale.
 > Si elle n’est pas présente, la valeur de l’heure de présentation est 0.
+
 
 #### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>3.3.3.1 Exemple de manifeste MPEG DASH (MPD) avec une période unique, EventStream, utilisant des signaux en mode simple Adobe
 
@@ -992,10 +1170,11 @@ Chaque signal simple est fourni dans un élément d’événement avec les propr
 
 ~~~
 
-#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>3.3.3.2 Exemple de manifeste MPEG DASH (MPD) avec plusieurs périodes, EventStream, utilisant une signalisation en mode SCTE35 Adobe
+<!---
+#### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
 
-L’exemple suivant montre la sortie du packager dynamique Media Services pour un flux RTMP source utilisant la signalisation en mode SCTE35 Adobe.
-Dans ce cas, le manifeste de sortie est un DASH .mpd à plusieurs périodes avec un élément EventStream, la propriété @schemeIdUri définie sur « urn:scte:scte35:2014:xml+bin » et une propriété @value définie sur « scte35 ». Chaque élément d’événement dans le flux EventStream contient le signal SCTE35 binaire complet encodé en base64 
+The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe SCTE35 mode signaling.
+In this case, the output manifest is a multi-period DASH .mpd with an EventStream element, and @schemeIdUri property set to "urn:scte:scte35:2014:xml+bin" and a @value property set to "scte35". Each Event element in the EventStream contains the full base64 encoded binary SCTE35 signal 
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1028,9 +1207,6 @@ Dans ce cas, le manifeste de sortie est un DASH .mpd à plusieurs périodes avec
                 <SegmentTimeline>
                     <S t="7417856" d="133120"/>
                     <S d="132096" r="1"/>
-                    
-                    <!--> ... aduio segments truncated for sample brevity </-->
-
                 </SegmentTimeline>
             </SegmentTemplate>
             <ProducerReferenceTime id="7417856" type="0" wallClockTime="2020-01-07T19:40:50.037Z" presentationTime="7417856"/>
@@ -1122,6 +1298,9 @@ Dans ce cas, le manifeste de sortie est un DASH .mpd à plusieurs périodes avec
 </MPD>
 
 ~~~
+
+--->
+
 ### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>3.3.4 Signalisation de zone de message d’événement dans la bande MPEG DASH
 
 Un flux d’événement dans la bande nécessite que le MPD ait un élément InbandEventStream au niveau défini de l’adaptation.  Cet élément a un attribut schemeIdUri obligatoire et un attribut d’échelle de temps facultatif, qui s’affichent également dans la zone de message d’événement (« emsg »).  Les zones de message d’événement avec des identificateurs de schéma qui ne sont pas définis dans le MPD ne **DOIVENT PAS** être présentes.
@@ -1164,6 +1343,7 @@ La réception de diffusion en continu lisse [MS-SSTR-Ingest] **nécessite** que 
 
 Pour la réception RTMP, l’attribut cue du message AMF est défini sur la valeur **splice_info_section()** codée en base64 définie dans la norme [SCTE-35].  
 
+
 Lorsque les messages ont le format décrit ci-dessus, ils sont envoyés aux clients HLS, Lisse et DASH comme définis ci-dessus.  
 
 Lors du test de votre implémentation avec la plateforme Azure Media Services, commencez par effectuer des tests avec un LiveEvent « pass-through » avant de passer au test sur un LiveEvent d’encodage.
@@ -1174,9 +1354,10 @@ Lors du test de votre implémentation avec la plateforme Azure Media Services, c
 
 | Date     | Modifications                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| 02/07/19  | Révision de la réception RTMP pour prise en charge SCTE35, ajout de RTMP « onCuePoint » pour Elemental Live                                  |
+| 02/07/19  | Révision de la réception RTMP, ajout de RTMP « onCuePoint » pour Elemental Live                                            |
 | 22/08/19 | Mise à jour pour ajouter OnUserDataEvent à RTMP pour les métadonnées personnalisées                                                          |
 | 08/01/20  | Correction de l’erreur de mode RTMP simple et RTMP SCTE35. La valeur « onCuePoint » a été remplacée par « onAdCue ». Tableau en mode simple mis à jour. |
+| 4/08/20  | Suppression de la prise en charge de la balise DATERANGE pour correspondre à l’implémentation dans le service de production.    |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Afficher les parcours d’apprentissage de Media Services.

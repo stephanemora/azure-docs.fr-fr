@@ -1,6 +1,6 @@
 ---
 title: Kits SDK Azure NetApp Files et outils CLI | Microsoft Docs
-description: Liste les kits SDK et les outils en ligne de commande (CLI) pris en charge par Azure NetApp Files.
+description: 'Découvrez les kits de développement logiciel (SDK) pris en charge pour Azure NetApp Files et leurs emplacements publiés dans GitHub, ainsi que les outils en ligne de commande pris en charge : Azure CLI et PowerShell.'
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045465"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513619"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Kits SDK Azure NetApp Files et outils CLI
 

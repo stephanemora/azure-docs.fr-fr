@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280951"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797863"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -86,12 +86,12 @@ Les partenaires intégrateurs de systèmes peuvent envoyer des offres de service
 Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Préparer vos artefacts de publication
-Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible. 
+Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible.
 
 |Configuration pour les nouveaux éditeurs  |
 |---------|
 |ID MPN     |
-|Logos de société (48 x 48, 216 x 216 pixels)     |
+|Logos de la société : 48 x 48 pixels (facultatif), 216 x 216 pixels – 350 x 350 pixels (obligatoire)  |
 |Destination du prospect     |
 ||
 

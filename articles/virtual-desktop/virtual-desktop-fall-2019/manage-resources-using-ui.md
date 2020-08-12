@@ -1,6 +1,6 @@
 ---
 title: Déployer un outil de gestion avec un modèle Azure Resource Manager - Azure
-description: Guide pratique pour installer un outil de gestion avec un modèle Azure Resource Manager pour gérer les ressources de Windows Virtual Desktop.
+description: Comment installer un outil d’interface utilisateur à l’aide d’un modèle Azure Resource Manager pour gérer les ressources de Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514232"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284946"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion avec un modèle Azure Resource Manager
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion Windows Virtual Desktop (classique) à l’aide d’un modèle Azure Resource Manager
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop.
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
 
 Les instructions de cet article vous indiquent comme déployer l’interface utilisateur avec un modèle Azure Resource Manager.
 

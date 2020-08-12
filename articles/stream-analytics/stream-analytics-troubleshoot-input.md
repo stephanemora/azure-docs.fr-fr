@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045074"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448886"
 ---
 # <a name="troubleshoot-input-connections"></a>Résoudre les problèmes liés aux connexions d’entrée
 
@@ -160,6 +160,10 @@ UNION
 SELECT foo FROM DataTwo
 
 ```
+
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Le nombre de lecteurs par partition dépasse la limite IoT Hub
+
+Les travaux Stream Analytics utilisent le [point de terminaison compatible Event Hub](../iot-hub/iot-hub-devguide-messages-read-builtin.md) intégré d’IoT Hub pour se connecter et lire des événements à partir d’IoT Hub. Si votre lecture par partition dépasse les limites d’IoT Hub, vous pouvez utiliser les [solutions pour Event Hub](#readers-per-partition-exceeds-event-hubs-limit) afin de la résoudre. Vous pouvez créer un groupe de consommateurs pour le point de terminaison intégré par l’intermédiaire de la session du point de terminaison du portail IoT Hub ou le biais du [kit SDK IoT Hub](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Obtenir de l’aide
 

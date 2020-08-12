@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985325"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542006"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,16 +95,22 @@ La [récupération de base de données accélérée](../accelerated-database-rec
 
 ## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 
-La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Cependant, nous avons conscience qu’avant de déployer la fonctionnalité en production, vous pouvez souhaiter tester la façon dont les opérations de basculement automatique initiées pendant les événements planifiés ou non planifiés affectent l’application. Vous pouvez appeler une API spéciale pour redémarrer une base de données ou un pool élastique, ce qui aura pour effet de déclencher le basculement. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, seul un appel de basculement est autorisé toutes les 30 minutes pour chaque base de données ou pool élastique.
+La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Toutefois, nous avons conscience que vous souhaitez peut-être tester, avant le déploiement en production, la manière dont les opérations de basculement automatique initiées pendant les événements, planifiés ou non, impacteraient une application. Vous pouvez déclencher manuellement un basculement en appelant une API spéciale pour redémarrer une base de données, un pool élastique ou une instance gérée. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, un seul appel de basculement est autorisé toutes les 30 minutes pour chaque base de données, pool élastique ou instance gérée.
 
-Un basculement peut être initié à l’aide de l’API REST ou de PowerShell. Pour l’API REST, consultez [Basculement des bases de données](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) et [Basculement des pools élastiques](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Pour PowerShell, consultez [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) et [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). Les appels de l’API REST peuvent également être effectués à partir d’Azure CLI à l’aide de la commande [az rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest).
+Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou d’Azure CLI :
+
+|Type de déploiement|PowerShell|API REST| Azure CLI|
+|:---|:---|:---|:---|
+|Base de données|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Pool élastique|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
-> La commande de basculement n’est pas disponible actuellement dans le niveau de service hyperscale et pour Managed Instance.
+> La commande de basculement n’est pas disponible pour les réplicas secondaires accessibles en lecture des bases de données Hyperscale.
 
 ## <a name="conclusion"></a>Conclusion
 
-Azure SQL Database et Azure SQL Managed Instance disposent d'une solution de haute disponibilité intégrée, qui est incorporée en profondeur à la plateforme Azure. Cette solution dépend de Service Fabric pour la détection et la récupération des défaillances, mais aussi du stockage Blob Azure pour la protection des données et des Zones de disponibilité pour une meilleure tolérance aux pannes. Par ailleurs, SQL Database et SQL Managed Instance tirent parti de la technologie de groupe de disponibilité Always On de l'instance SQL Server pour la réplication et le basculement. La combinaison de ces technologies permet aux applications de profiter pleinement des avantages d’un modèle de stockage mixte, et de prendre en charge les contrats de niveau de service les plus exigeants.
+Azure SQL Database et Azure SQL Managed Instance disposent d'une solution de haute disponibilité intégrée, qui est incorporée en profondeur à la plateforme Azure. Cette solution dépend de Service Fabric pour la détection et la récupération des défaillances, mais aussi du stockage Blob Azure pour la protection des données et des zones de disponibilité pour une meilleure tolérance aux pannes (comme mentionné plus haut dans ce document, cela n’est pas encore applicable à Azure SQL Managed Instance). Par ailleurs, SQL Database et SQL Managed Instance tirent parti de la technologie de groupe de disponibilité Always On de l'instance SQL Server pour la réplication et le basculement. La combinaison de ces technologies permet aux applications de profiter pleinement des avantages d’un modèle de stockage mixte, et de prendre en charge les contrats de niveau de service les plus exigeants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

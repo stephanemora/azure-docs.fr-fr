@@ -4,15 +4,15 @@ description: Réponses aux questions fréquemment posées sur la transition des 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231877"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279302"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -30,7 +30,7 @@ Vous pouvez continuer à travailler comme d’habitude dans l’Espace partenair
 | Nouveaux achats et déploiements | Aucun changement. Vos clients peuvent continuer à acheter et à déployer vos offres sans interruption. |
 | Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](partner-center-portal/get-paid.md). |
 | Intégrations d’API avec des [API du portail Cloud Partner existantes](cloud-partner-portal-api-overview.md) | Les API du portail Cloud Partner existantes sont toujours prises en charge et vos intégrations existantes fonctionnent toujours. En savoir plus dans [Les API REST du portail Cloud Partner seront-elles prises en charge ?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
+| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que dans Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Dois-je créer un nouveau compte pour gérer mes offres dans l’Espace partenaires ?
@@ -50,6 +50,19 @@ Voici les liens de l’Espace partenaires pour les pages couramment utilisées d
 | Page Historique | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | La fonctionnalité d’historique n’est pas encore prise en charge dans l’Espace partenaires. |
 | Tableau de bord Insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Rapport de paiements | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## <a name="payout-report-differences"></a>Différences dans le rapport de revenu
+
+Voici les différences dans le rapport de revenu entre l’ancien Portail Cloud Partner et l’actuel Espace partenaires :
+
+| Portail des partenaires cloud | Espace partenaire |
+| --- | --- |
+| **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
+| **Étendue** :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue** :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
+| **Transaction non prête pour le paiement** : Facturation en cours | **Transaction non prête pour le paiement** : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
+| **Statut de paiement** : n/a | **Statut de paiement** :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Qu’en est-il des offres que j’ai publiées dans le portail Cloud Partner ?
@@ -94,19 +107,19 @@ Les offres que vous avez créées dans le portail Cloud Partner sont disponibles
 
     Si vous ne voyez pas le programme Place de marché commerciale dans le volet de navigation à gauche, le compte est peut-être erroné. Suivez la procédure décrite ci-après pour accéder au compte approprié.
 
-    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+    [![Screenshot that shows the Partner Center Overview menu](media/cpp-pc-faq/overview-menu.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
 ### <a name="access-the-right-account-in-partner-center"></a>Accéder au compte approprié dans l’Espace partenaires
 
 Si vous êtes membre de plusieurs comptes, un bouton de sélection de compte marqué par deux flèches s’affiche dans le menu de navigation à gauche de l’Espace partenaires. Sélectionnez le bouton de sélection de compte pour afficher la liste de tous les comptes auxquels vous appartenez. Sélectionnez un compte dans la liste pour y accéder et voir l’ensemble des programmes et des informations sur ce compte. Si le bouton de sélection de compte ne s’affiche pas dans le menu de navigation, cela signifie que vous êtes membre d’un seul compte.
 
-[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+[![Screenshot shows the Partner Center account picker button.](media/cpp-pc-faq/picker-button.png "Affiche le bouton de sélection de compte de l’Espace partenaires")](media/cpp-pc-faq/picker-button.png#lightbox)
 
 ## <a name="how-do-i-create-new-offers"></a>Comment créer de nouvelles offres ?
 
 Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer des offres. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre**.
 
-[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+[![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## <a name="i-cant-sign-in-and-need-to-open-a-support-ticket"></a>Je ne parviens pas à me connecter et je dois ouvrir un ticket de support
 
@@ -114,7 +127,7 @@ Si vous ne pouvez pas vous connecter à votre compte, vous pouvez ouvrir un [tic
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Où se trouvent les instructions d’utilisation de l’Espace partenaires ?
 
-Accédez à la [documentation de la Place de marché commerciale](index.yml), puis développez **Portail de la Place de marché commerciale dans l’Espace partenaires**. Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre**.
+Accédez à la [documentation du marketplace commercial](index.yml), puis développez **Portail du marketplace commercial dans Espace partenaires**. Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Quelles sont les différences en matière de publication et de gestion des offres ?
 
@@ -124,7 +137,7 @@ Voici quelques différences entre le portail Cloud Partner et l’Espace partena
 
 L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre**. Les modifications que vous apportez dans la page Préversion ne sont pas publiées.
 
-[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+[![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Affiche la page Révision et publication de l’Espace partenaires")](media/cpp-pc-faq/review-page.png#lightbox)
 
 Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouillons. Continuez à utiliser la préversion de votre offre afin de la vérifier avant de la rendre accessible au public.
 
@@ -132,24 +145,24 @@ Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouill
 
 L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
 
-[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+[![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Affiche la fonctionnalité de comparaison de l’Espace partenaires")](media/cpp-pc-faq/compare.png#lightbox)
 
 ### <a name="branding-and-navigation-changes"></a>Changements dans la personnalisation et la navigation
 
 Vous remarquerez certaines modifications de personnalisation. Par exemple, les *Références SKU* sont appelées *Plans* dans l’Espace partenaires :
 
-[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+[![Screenshot shows the Partner Center Plans page.](media/cpp-pc-faq/plans.png "Affiche la page Plans de l’Espace partenaires")](media/cpp-pc-faq/plans.png#lightbox)
 
 De plus, les informations que vous fournissiez précédemment dans les pages **Place de marché** ou **Détails de la vitrine** (Service de conseil, application Power BI) du portail Cloud Partner sont maintenant recueillies dans la page **Référencement de l’offre** dans l’Espace partenaires :
 
-[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png "Affiche la page Référencement d’offre de l’Espace partenaires")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Les informations que vous fournissiez précédemment pour les références SKU dans une seule page du portail Cloud Partner peuvent maintenant être recueillies dans plusieurs pages de l’Espace partenaires :
 
 - Page de configuration du plan
 - Page de référencement du plan
 - Page de disponibilité du plan
-- Page Planifier la configuration technique, comme indiqué ici : ![![](media/cpp-pc-faq/technical-configuration.png « Affiche la page de configuration technique de l’Espace partenaires »)](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Page de configuration technique du plan, comme indiqué ici : ![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de l’offre :
 
@@ -159,7 +172,7 @@ Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de
 
 Vous pouvez demander à [arrêter la vente d’une offre](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) sur la Place de marché directement à partir du portail de l’Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
 
-[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Affiche la page de l’Espace partenaires pour arrêter la vente d’une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>Les API REST du portail Cloud Partner sont-elles toujours prises en charge ?

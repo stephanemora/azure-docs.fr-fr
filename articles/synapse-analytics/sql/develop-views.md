@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426653"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500740"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Vues T-SQL avec SQL Synapse
 Cet article fournit des conseils pour l’utilisation de vues T-SQL et le développement de solutions avec SQL Synapse. 
 
-## <a name="why-use-views"></a>Pourquoi utiliser des vues ?
+## <a name="why-use-views"></a>Pourquoi utiliser des vues
 
 Des vues peuvent être utilisées de différentes façons afin d’améliorer la qualité de votre solution.  Cet article met en évidence présente exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
 

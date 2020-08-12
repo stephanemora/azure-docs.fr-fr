@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327886"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489450"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor stocke les données de [journal](data-platform-logs.md) dans un es
 Cet article explique comment gérer l’accès aux journaux et administrer les espaces de travail qui les contiennent, notamment comment accorder l’accès : 
 
 * À l’espace de travail, à l’aide d’autorisations d’espace de travail.
-* Aux utilisateurs ayant besoin d’accéder à des données de journal de ressources spécifiques à l’aide du Contrôle d’accès en fonction du rôle (RBAC) Azure, également appelé [resource-context](design-logs-deployment.md#access-mode).
+* Aux utilisateurs ayant besoin d’accéder à des données de journal de ressources spécifiques à l’aide du Contrôle d’accès en fonction du rôle (RBAC) Azure, également appelé [resource-context](design-logs-deployment.md#access-mode)
 * Aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail, à l’aide de rôles RBAC Azure.
 
 Pour comprendre les concepts des journaux en lien avec le RBAC et les stratégies d’accès, consultez [Conception de votre déploiement de journaux Azure Monitor](design-logs-deployment.md)
@@ -313,4 +313,3 @@ Parfois, les journaux personnalisés proviennent de sources qui ne sont pas dire
 * Consultez [Présentation de l’agent Log Analytics](./log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 
 * Pour configurer la collecte de données à partir de machines virtuelles Azure, voir [Collecter des données sur les machines virtuelles Azure](../learn/quick-collect-azurevm.md).
-

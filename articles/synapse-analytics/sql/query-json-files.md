@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386637"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489722"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Cet article explique comment écrire une requête à l’aide de SQL à la deman
 - Fichiers JSON standard où plusieurs documents JSON sont stockés sous la forme d’un tableau JSON.
 - Fichiers JSON délimités par des lignes où les documents JSON sont séparés par un caractère de nouvelle ligne. Les extensions courantes pour ces types de fichiers sont `jsonl`, `ldjson` et `ndjson`.
 
-## <a name="reading-json-documents"></a>Lecture de documents JSON
+## <a name="read-json-documents"></a>Lire les documents JSON
 
 Le moyen le plus simple d’afficher le contenu de votre fichier JSON consiste à fournir l’URL du fichier à la fonction `OPENROWSET`, à spécifier le `FORMAT` CSV et à définir des valeurs `0x0b` pour `fieldterminator` et `fieldquote`. Si vous devez lire des fichiers JSON délimités par des lignes, cela est suffisant. Si vous avez un fichier JSON classique, vous devez définir des valeurs `0x0b` pour `rowterminator`. La fonction `OPENROWSET` analyse JSON et retourne tous les documents au format suivant :
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Cette requête retourne chaque document JSON sous la forme d’une ligne distincte dans le jeu de résultats. Assurez-vous que vous pouvez accéder à ce fichier. Si votre fichier est protégé par une clé SAS ou une identité personnalisée, vous devez configurer les [informations d’identification au niveau du serveur pour la connexion SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Utilisation d'une source de données
+### <a name="data-source-usage"></a>Utilisation d’une source de données
 
 L’exemple précédent utilise le chemin complet du fichier. Vous pouvez également créer une source de données externe avec l’emplacement qui pointe vers le dossier racine du stockage et utiliser cette source de données et le chemin relatif du fichier dans la fonction `OPENROWSET` :
 

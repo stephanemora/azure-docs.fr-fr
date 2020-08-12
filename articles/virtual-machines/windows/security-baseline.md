@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387011"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445214"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -620,9 +620,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Utilisez la solution Azure Update Management pour gérer les mises à jour et les correctifs de vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-* [Solution Update Management dans Azure](../../automation/automation-update-management.md)
+* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../../automation/automation-tutorial-update-management.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervision Azure Security Center** : Oui
 
@@ -632,9 +632,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Vous pouvez utiliser une solution tierce de gestion des correctifs. Vous pouvez utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-* [Solution Update Management dans Azure](../../automation/automation-update-management.md)
+* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../../automation/automation-tutorial-update-management.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 

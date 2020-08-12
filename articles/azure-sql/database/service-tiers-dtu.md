@@ -4,19 +4,19 @@ description: Découvrez les niveaux de service du modèle d'achat DTU d’Azure 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382693"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541700"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,8 +37,8 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 ||De base|Standard|Premium|
 | :-- | --: |--:| --:|
 |**Charge de travail cible**|Développement et production|Développement et production|Développement et production|
-|**SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
-|**Rétention maximale des sauvegardes**|7 jours|35 jours|35 jours|
+|**Contrat SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
+|**Conservation de sauvegarde maximale**|7 jours|35 jours|35 jours|
 |**UC**|Faible|Faible, moyen, élevé|Faible, élevé|
 |**Débit d’E/S (approximatif)** |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |**Latence d’E/S (approximative)**|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
@@ -61,7 +61,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 ||De base|Standard|Premium|
 | :-- | --: | --: | --: |
 | **Taille de stockage maximale** | 2 Go | 1 To | 4 To  |
-| **Nombre maximal de DTU** | 5 | 3000 | 4000 |
+| **DTU maximales** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
@@ -73,11 +73,11 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 | **Taille de stockage maximale par base de données**  | 2 Go | 1 To | 1 To |
 | **Taille de stockage maximale par pool** | 156 Go | 4 To | 4 To |
 | **Nombre maximal d’eDTU par base de données** | 5 | 3000 | 4000 |
-| **Nombre maximal d’eDTU pool** | 1 600 | 3000 | 4000 |
+| **eDTU maximales par pool** | 1 600 | 3000 | 4000 |
 | **Nombre maximal de bases de données par pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre et Allemagne Nord-Est. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 

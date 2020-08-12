@@ -1,24 +1,24 @@
 ---
 title: Monter du stockage blob Azure à l’aide du protocole NFS 3.0 (préversion) | Microsoft Docs
-description: Découvrez comment monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0.
+description: Découvrez comment monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un client qui s’exécute localement à l’aide du protocole NFS 3.0.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372907"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760790"
 ---
-# <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob sur Linux à l’aide du protocole NFS (Network File System) 3.0 (préversion)
+# <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
-Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
+Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou Windows ou d’un système Linux ou Windows qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > La prise en charge du protocole NFS 3.0 dans Stockage blob Azure est en préversion publique et disponible dans les régions suivantes : USA Est, USA Centre et Canada Centre.
@@ -117,6 +117,10 @@ Créez un conteneur dans votre compte de stockage à l’aide de l’un de ces o
 
 ## <a name="step-7-mount-the-container"></a>Étape 7 : Montez le conteneur
 
+Créez un répertoire sur votre système Windows ou Linux, puis montez un conteneur dans le compte de stockage.
+
+### <a name="linux"></a>[Linux](#tab/linux)
+
 1. Sur un système Linux, créez un répertoire.
 
    ```
@@ -132,6 +136,25 @@ Créez un conteneur dans votre compte de stockage à l’aide de l’un de ces o
    - Remplacez la valeur d’espace réservé `<storage-account-name>` qui s’affiche dans cette commande par le nom de votre compte de stockage.  
 
    - Remplacez l’espace réservé `<container-name>` par le nom de votre conteneur.
+
+
+### <a name="windows"></a>[Windows](#tab/windows)
+
+1. Ouvrez la boîte de dialogue **Fonctionnalités Windows**, puis activez la fonctionnalité **Client pour NFS**. 
+
+   ![Caractéristique du client pour NFS](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Montez un conteneur à l’aide de la commande [monter](https://docs.microsoft.com/windows-server/administration/windows-commands/mount).
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
+   ```
+
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` qui s’affiche dans cette commande par le nom de votre compte de stockage.  
+
+   - Remplacez l’espace réservé `<container-name>` par le nom de votre conteneur.
+
+---
 
 ## <a name="resolve-common-issues"></a>Résoudre les problèmes courants
 

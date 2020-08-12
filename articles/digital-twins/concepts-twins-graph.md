@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062060"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -23,7 +23,7 @@ Dans une solution Azure Digital Twins, les entités de votre environnement sont 
 
 ## <a name="digital-twins"></a>Jumeaux numériques
 
-Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [Concepts : Modèles personnalisés](concepts-models.md).
+Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [*Concepts : Modèles personnalisés*](concepts-models.md).
 
 Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle *Étage*, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type *Étage* appelé *Rez-de-chaussée*, un autre appelé *Étage2*, etc.). 
 
@@ -197,8 +197,8 @@ Voici un exemple de relation sous la forme d’un objet JSON :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voir comment gérer des éléments graphiques avec les API Azure Digital Twins :
-* [Guide pratique pour gérer des jumeaux numériques](how-to-manage-twin.md)
-* [Guide pratique pour gérer le graphe de jumeaux avec des relations](how-to-manage-graph.md)
+* [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md)
+* [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)
 
 Ou découvrez comment interroger le graphe de jumeaux Azure Digital Twins pour obtenir des informations :
-* [Concepts : langage de requête](concepts-query-language.md)
+* [*Concepts : langage de requête*](concepts-query-language.md)

@@ -1,6 +1,5 @@
 ---
-title: Prédire les réponses avec des modèles de régression
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Prédire les réponses avec des modèles de régression – Azure'
 description: Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ac9f4262d614b1e413f4283d3c459e60fc6634e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318740"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
+
+
 ## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
 Découvrez comment créer un modèle de régression simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants 4. Nous allons dessiner un modèle de régression avec des données cibles.
 

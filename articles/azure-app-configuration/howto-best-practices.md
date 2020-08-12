@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367518"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500298"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration – Bonnes pratiques
 
@@ -86,6 +86,10 @@ Un nombre excessif de requêtes envoyées à App Configuration peut entraîner d
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importation des données de configuration dans App Configuration
 
 App Configuration vous offre la possibilité d’[importer](https://aka.ms/azconfig-importexport1) en bloc vos paramètres de configuration à partir de vos fichiers config actuels à l’aide du Portail Azure ou de l’interface CLI. Vous pouvez également utiliser les mêmes options pour exporter des valeurs depuis App Configuration, par exemple entre des magasins associés. Si vous souhaitez configurer une synchronisation continu avec votre référentiel GitHub, vous pouvez utiliser notre [action GitHub](https://aka.ms/azconfig-gha2) afin de pouvoir continuer à utiliser vos pratiques existantes de contrôle de code source tout en bénéficiant des avantages d’App Configuration.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Déploiement multirégional dans App Configuration
+
+App Configuration est service régional. Pour les applications ayant des configurations différentes par région, le stockage de ces configurations dans une seule instance peut créer un point de défaillance unique. Le déploiement multirégional d’App Configuration, à raison d’une instance par région, peut être une meilleure option. Il peut contribuer à la récupération d’urgence, aux performances et au cloisonnement de la sécurité au niveau régional. La configuration par région améliore également la latence et utilise des quotas de limitation distincts, puisque chaque instance a sa propre limitation. Pour appliquer l’atténuation de la récupération d’urgence, vous pouvez utiliser [plusieurs magasins de configuration](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

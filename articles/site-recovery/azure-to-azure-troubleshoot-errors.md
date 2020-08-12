@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083818"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -534,6 +534,44 @@ Ce problème peut se produire si la machine virtuelle a été précédemment pro
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
 Supprimez le disque de réplica identifié dans le message d’erreur, puis retentez la tâche de protection qui a échoué.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>L’activation de la protection a échoué, car le programme d’installation ne parvient pas à trouver le disque racine (code d’erreur 151137)
+
+Cette erreur se produit pour les machines Linux dont le disque du système d’exploitation est chiffré à l’aide d’Azure Disk Encryption (ADE). Il s’agit d’un problème valide uniquement dans la version 9.35 de l’agent.
+
+### <a name="possible-causes"></a>Causes possibles
+
+Le programme d’installation ne parvient pas à trouver le disque racine qui héberge le système de fichiers racine.
+
+### <a name="fix-the-problem"></a>Résoudre le problème
+
+Suivez les étapes ci-dessous pour corriger le problème :
+
+1. Recherchez les bits de l’agent sous le répertoire _/var/lib/waagent_ sur les machines RHEL et CentOS à l’aide de la commande ci-dessous : <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Sortie attendue :
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Créez un répertoire, et remplacez le répertoire actuel par ce nouveau répertoire.
+3. Extrayez le fichier de l’agent trouvé à la première étape à l’aide de la commande ci-dessous :
+
+    `tar -xf <Tar Ball File>`
+
+4. Ouvrez le fichier _prereq_check_installer.json_ et supprimez les lignes suivantes. Enregistrez ensuite le fichier.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Appelez le programme d’installation à l’aide de la commande suivante : <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Si le programme d’installation s’exécute correctement, relancez la tâche d’activation de la réplication.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

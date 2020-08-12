@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999596"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535057"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Partie 4 : Monter un partage de fichiers à partir d’une machine virtuelle jointe à un domaine
 
 Avant de commencer à lire cet article, veillez à parcourir l’article précédent, intitulé [Configurer les autorisations au niveau des répertoires et des fichiers via SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-Le processus décrit dans le présent article vérifie que vos autorisations de partage de fichiers et d’accès ont été configurées correctement, et que vous pouvez accéder à un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine. L’attribution de rôles RBAC au niveau du partage peut prendre un certain temps. 
+Le processus décrit dans le présent article vérifie que vos autorisations de partage de fichiers et d’accès ont été configurées correctement, et que vous pouvez accéder à un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine. L’attribution de rôles Azure au niveau du partage peut prendre un certain temps. 
 
 Connectez-vous au client en utilisant les informations d’identification auxquelles vous avez accordé les autorisations adéquates, comme illustré dans l’image suivante.
 

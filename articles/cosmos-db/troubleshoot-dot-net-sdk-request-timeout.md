@@ -3,19 +3,34 @@ title: Résoudre les problèmes de dépassement de délai de demande ou HTTP 40
 description: Comment diagnostiquer et corriger une exception de dépassement de délai de demande avec le SDK .NET
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293745"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417605"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnostiquer et résoudre les problèmes liés au dépassement de délai de demande avec le SDK .NET
 L’erreur HTTP 408 se produit si le SDK n’a pas pu terminer la demande avant la limite du délai d’attente.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Personnalisation du délai d’expiration sur le Kit de développement logiciel (SDK) .NET Azure Cosmos
+
+Le Kit de développement logiciel (SDK) offre deux alternatives distinctes pour contrôler les délais d’expiration, chacune avec une étendue différente.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+La configuration `CosmosClientOptions.RequestTimeout` (ou `ConnectionPolicy.RequestTimeout` pour le SDK v2) vous permet de définir un délai d’expiration qui concerne chaque requête réseau individuelle.  Une opération lancée par un utilisateur peut couvrir plusieurs requêtes réseau (par exemple, il peut y avoir une limitation), et cette configuration s’applique à chaque requête réseau lors de la nouvelle tentative. Il ne s’agit pas d’un délai d’expiration de demande d’opération de bout en bout.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+Toutes les opérations asynchrones dans le Kit de développement logiciel (SDK) ont un paramètre CancellationToken facultatif. [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) est utilisé tout au long de l’opération, sur toutes les requêtes réseau. Entre les requêtes réseau, CancellationToken peut être vérifié et une opération annulée si le jeton associé a expiré. CancellationToken doit être utilisé pour définir un délai d’expiration approximatif sur l’étendue de l’opération.
+
+> [!NOTE]
+> CancellationToken est un mécanisme par lequel la bibliothèque vérifie l’annulation lorsqu’elle [ne provoque pas d’état non valide](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). L’opération peut ne pas être annulée exactement au moment où le délai défini dans l’annulation est écoulé, mais plutôt, une fois le délai écoulé, elle sera annulée lorsqu’il sera possible de le faire en toute sécurité.
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 La liste suivante répertorie les causes connues et les solutions pour les exceptions de dépassement de délai de demande.

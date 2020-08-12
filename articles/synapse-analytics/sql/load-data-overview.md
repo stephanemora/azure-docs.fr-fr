@@ -1,5 +1,5 @@
 ---
-title: Au lieu d’ETL, concevoir ELT pour un pool SQL Synapse | Microsoft Docs
+title: Concevoir une stratégie de chargement de données PolyBase pour un pool SQL
 description: Au lieu d’ETL, concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données ou un pool SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,24 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965344"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490283"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Conception d’une stratégie de chargement de données PolyBase pour un pool Azure Synapse SQL
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool Azure Synapse SQL
 
-Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L’utilisation d’un processus d’extraction, chargement et transformation (ELT) permet d’exploiter MPP et d’éliminer les ressources nécessaires à la transformation des données avant le chargement.
+Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L’utilisation d’un processus d’extraction, chargement et transformation (ELT, Extract, Load, and Transform) permet d’exploiter MPP et d’éliminer les ressources nécessaires à la transformation des données avant le chargement.
 
 Bien que le pool SQL prenne en charge de nombreuses méthodes de chargement, notamment des options non-Polybase telles que les API BCP et SQL BulkCopy, le moyen le plus rapide et le plus scalable de charger des données consiste à utiliser PolyBase.  PolyBase est une technologie qui accède aux données externes stockées dans Stockage Blob Azure ou Azure Data Lake Store par le biais du langage T-SQL.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>ELT, qu’est-ce que ça veut dire ?
+## <a name="extract-load-and-transform-elt"></a>Extraire, charger et transformer (ELT)
 
-ELT (Extract, Load, and Transform) est un processus visant à extraire des données d’un système source, à les charger dans un entrepôt de données, puis à les transformer.
+ELT (Extract, Load, and Transform - Extraire, charger et transformer) est un processus par lequel des données sont extraites d’un système source, chargées dans un entrepôt de données, puis transformées.
 
 Les étapes de base pour implémenter un processus ELT PolyBase pour un pool SQL sont les suivantes :
 
@@ -50,7 +50,7 @@ L’extraction des données à partir de votre système source dépend de l’em
 
 PolyBase charge les données à partir de fichiers texte encodés avec UTF-8 et UTF-16. En plus des fichiers texte délimités, il charge des données à partir des fichiers aux formats Hadoop, RC, ORC et Parquet. PolyBase peut également charger des données à partir de fichiers compressés Gzip et Snappy. PolyBase ne prend actuellement pas en charge le codage ASCII étendu, le format de largeur fixe et les formats imbriqués tels que WinZip, JSON et XML.
 
-Si vous exportez des données à partir de SQL Server, vous pouvez utiliser l’[outil en ligne de commande bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour exporter les données dans des fichiers texte délimités. Le mappage Parquet au type de données SQL Data Warehouse est le suivant :
+Si vous exportez des données à partir de SQL Server, vous pouvez utiliser l’[outil en ligne de commande bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour exporter les données dans des fichiers texte délimités. Le mappage Parquet au type de données SQL Data Warehouse est le suivant :
 
 | **Type de données Parquet** |                      **Type de données SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |

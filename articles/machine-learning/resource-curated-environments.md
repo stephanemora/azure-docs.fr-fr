@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9d0964fb28451abe0a77276d6f9d605fcaac2514
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 72ccf2a765f50358635e4a803ed0b92e60bd7d19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012210"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Environnements organisés Azure Machine Learning
 
-Cet article liste les environnements organisés dans Azure Machine Learning, ainsi que les packages et les canaux qui y sont préinstallés.
+Cet article liste les environnements organisés dans Azure Machine Learning, ainsi que les packages et les canaux qui y sont préinstallés. Les environnements organisés sont fournis par Azure Machine Learning et sont disponibles dans votre espace de travail par défaut. Ils sont sauvegardés par des images Docker mises en cache, ce qui réduit le coût de préparation de l’exécution et permet un déploiement plus rapide. Utilisez ces environnements pour prendre rapidement en main les différents infrastructures d’apprentissage automatique.
 
 > [!NOTE]
 > Cette liste a été mise à jour en juin 2020. Utilisez le SDK Python pour récupérer la liste la plus à jour. Pour plus d’informations, consultez l’[article sur les environnements](./how-to-use-environments.md#use-a-curated-environment).

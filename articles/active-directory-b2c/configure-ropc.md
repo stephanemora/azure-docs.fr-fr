@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389596"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482853"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -30,13 +30,14 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
 1. Connectez-vous au portail Azure en tant qu’administrateur général de votre locataire Azure AD B2C.
 2. Pour basculer vers votre locataire Azure AD B2C, sélectionnez le répertoire B2C dans le coin supérieur droit du portail.
-3. Cliquez sur **Flux d’utilisateur**, puis sélectionnez **Nouveau flux d’utilisateur**.
-4. Cliquez sur l’onglet **Tous** et sélectionnez **Se connecter à l’aide de ROPC**.
-5. Indiquez un nom pour le flux d’utilisateur, par exemple *ROPC_Auth*.
-6. Sous **Revendications d’application**, cliquez sur **Afficher plus**.
-7. Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme Nom d’affichage, Adresse e-mail et Fournisseur d’identité.
-8. Sélectionnez **OK**, puis **Créer**.
-9. Cliquez sur **Exécuter le flux d’utilisateur**.
+3. Sélectionnez **Flux d’utilisateur**, puis sélectionnez **Nouveau flux d’utilisateur**.
+4. Sélectionnez **Se connecter à l’aide des informations d’identification de mot de passe du propriétaire de la ressource (ROPC)** .
+5. Sous **Version**, assurez-vous que **Préversion** est sélectionné, puis sélectionnez **Créer**.
+7. Indiquez un nom pour le flux d’utilisateur, par exemple *ROPC_Auth*.
+8. Sous **Revendications d’application**, cliquez sur **Afficher plus**.
+9. Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme Nom d’affichage, Adresse e-mail et Fournisseur d’identité.
+10. Sélectionnez **OK**, puis **Créer**.
+11. Cliquez sur **Exécuter le flux d’utilisateur**.
 
    Vous voyez ensuite un point de terminaison comme cet exemple :
 
@@ -131,7 +132,3 @@ Une réponse correcte ressemble à l’exemple suivant :
 L’implémentation d’Azure AD B2C respecte les normes OAuth 2.0 ou les informations d’identification par mot de passe du propriétaire de ressource du client public et elle doit être compatible avec la plupart des kits de développement logiciels (SDK) clients. Nous avons testé ce flux de façon intensive, en production, avec AppAuth pour iOS et AppAuth pour Android. Pour plus d’informations, consultez [Meilleures pratiques récentes d’implémentation du SDK d’application OAuth 2.0 natif et d’OpenID Connect](https://appauth.io/).
 
 Téléchargez des exemples fonctionnels, configurés pour une utilisation avec Azure AD B2C à partir de GitHub, [pour Android](https://aka.ms/aadb2cappauthropc) et [pour iOS](https://aka.ms/aadb2ciosappauthropc).
-
-
-
-

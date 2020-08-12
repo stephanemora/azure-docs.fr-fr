@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 4de585a965cfefa6399b0c0929a8f732d0712617
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76939418"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529192"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
@@ -38,7 +38,7 @@ Oui. Vous pouvez lier une zone DNS privée à des milliers de réseaux virtuels.
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être lié à une zone privée ?
 
-Oui. Vous devez disposer d'une autorisation d'écriture sur les réseaux virtuels ainsi que sur la zone DNS privée. L’autorisation d’accès en écriture peut être accordée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur dans un réseau Classic dispose d’autorisations en écriture sur les réseaux virtuels, et le rôle Contributeur dans des zones DNS privées a les autorisations en écriture sur les zones DNS privées. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Oui. Vous devez disposer d'une autorisation d'écriture sur les réseaux virtuels ainsi que sur la zone DNS privée. L’autorisation d’accès en écriture peut être accordée à plusieurs rôles Azure. Par exemple, le rôle Azure Contributeur dans un réseau Classic dispose d’autorisations en écriture sur les réseaux virtuels, et le rôle Contributeur dans des zones DNS privées a les autorisations en écriture sur les zones DNS privées. Pour plus d’informations sur les rôles Azure, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Les enregistrements DNS de machines virtuelles inscrits automatiquement dans une zone privée sont-ils supprimés automatiquement quand vous supprimez la machine virtuelle ?
 

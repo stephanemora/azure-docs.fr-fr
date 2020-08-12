@@ -1,5 +1,5 @@
 ---
-title: Utiliser le Générateur d’images Azure avec une galerie d’images pour machines virtuelles Linux (préversion)
+title: Utiliser Azure Image Builder et Shared Image Gallery pour les machines virtuelles Linux (préversion)
 description: Créez des images de machines virtuelles Linux avec le Générateur d’images Azure et Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930690"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500910"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Linux et la distribuer à une galerie d’images partagées 
 
-Cet article explique comment utiliser Azure Image Builder et Azure CLI pour créer une version d’une image dans une [galerie d’images partagées](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), puis distribuer l’image dans le monde entier. Vous pouvez également faire cela avec [Azure PowerShell](../windows/image-builder-gallery.md).
+Cet article explique comment utiliser Azure Image Builder et Azure CLI pour créer une version d’une image dans une [galerie d’images partagées](../windows/shared-image-galleries.md), puis distribuer l’image dans le monde entier. Vous pouvez également faire cela avec [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier en question se trouve à l’emplacement [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -92,8 +92,8 @@ Créez le groupe de ressources.
 az group create -n $sigResourceGroup -l $location
 ```
 
-## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Créer une identité attribuée par l’utilisateur et définir des autorisations sur le groupe de ressources
-Image Builder utilise l’[identité de l’utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fournie pour injecter l’image dans Azure Shared Image Gallery (SIG). Dans cet exemple, vous allez créer une définition de rôle Azure qui dispose des actions granulaires pour distribuer l’image à la galerie SIG. La définition de rôle sera ensuite attribuée à l’identité de l’utilisateur.
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Créer une identité affectée par l’utilisateur et définir des autorisations sur le groupe de ressources
+Image Builder utilise l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fournie pour injecter l’image dans Azure Shared Image Gallery (SIG). Dans cet exemple, vous allez créer une définition de rôle Azure qui dispose des actions granulaires pour distribuer l’image à la galerie SIG. La définition de rôle sera ensuite attribuée à l’identité de l’utilisateur.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -106,7 +106,7 @@ imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
-# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+# this command will download an Azure role definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')

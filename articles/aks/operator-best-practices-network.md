@@ -5,12 +5,12 @@ description: Découvrez les meilleures pratiques de l’opérateur pour les ress
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208055"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542702"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,9 @@ L’interface Azure CNI est un protocole indépendant du fournisseur qui permet 
 
 ![Diagramme représentant 2 nœuds avec des ponts les reliant chacun à un réseau virtuel Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Pour la plupart des déploiements de production, une mise en réseau Azure CNI est recommandée. Ce modèle de réseau permet de séparer le contrôle et la gestion des ressources. Du point de vue de la sécurité, il est souvent préférable que différentes équipes gèrent et sécurisent ces ressources. Une mise en réseau Azure CNI vous permet de vous connecter directement à des ressources Azure existantes, à des ressources locales ou à d’autres services avec les adresses IP assignées à chacun des pods.
+Pour les déploiements de production, kubenet et Azure CNI sont tous deux des options valides.
+
+Un des avantages notables de la mise en réseau Azure CNI pour la production est que le modèle réseau permet de séparer le contrôle et la gestion des ressources. Du point de vue de la sécurité, il est souvent préférable que différentes équipes gèrent et sécurisent ces ressources. Une mise en réseau Azure CNI vous permet de vous connecter directement à des ressources Azure existantes, à des ressources locales ou à d’autres services avec les adresses IP assignées à chacun des pods.
 
 Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve dans un groupe de ressources distinct du cluster AKS. Déléguez des permissions au principal de service AKS pour qu’il puisse accéder à ces ressources et les gérer. Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131986"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499753"
 ---
 # <a name="troubleshoot-the-process-server"></a>Dépanner le serveur de traitement
 
@@ -91,7 +91,7 @@ Si le serveur de traitement n’émet aucune pulsation (code d'erreur 806), proc
 
  Les défaillances de réplication initiales et en cours résultent souvent de problèmes de connectivité entre les machines source et le serveur de traitement, ou entre ce dernier et Azure. Ces étapes sont résumées dans le graphique suivant, suivies de procédures pour vous aider à les exécuter.
 
-![Détecter les problèmes de connectivité et de réplication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Organigramme présentant les étapes de la résolution des problèmes liés à la connectivité et à la réplication.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Étape 4 : Vérifier la synchronisation de l'heure sur la machine source
@@ -170,7 +170,7 @@ Vérifiez si le serveur de traitement transmet activement des données à Azure.
   2. Sélectionnez l’onglet **Performances** > **Ouvrir le Moniteur de ressources**.
   3. Dans la page **Moniteur de ressources**, sélectionnez l’onglet **Réseau**. Sous **Processus avec activité réseau**, vérifiez si cbengine.exe envoie activement un volume important de données.
 
-       ![Volumes sous Processus avec activité réseau](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Capture d’écran montrant un grand nombre de volumes sous des processus avec activité réseau.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Si cbengine.exe n’envoie pas un volume important de données, procédez de la manière décrite dans les sections suivantes.
 
@@ -179,7 +179,7 @@ Vérifiez si le serveur de traitement transmet activement des données à Azure.
 1. Dans Moniteur de ressources, sélectionnez **cbengine.exe**.
 2. Sous **Connexions TCP**, vérifiez s’il y a une connectivité du serveur de traitement au Stockage Azure.
 
-  ![Connectivité entre cbengine.exe et l’URL du Stockage Blob Azure](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Capture d’écran montrant la connectivité entre cbengine.exe et l’URL de Stockage Blob Azure.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Vérifier les services
 

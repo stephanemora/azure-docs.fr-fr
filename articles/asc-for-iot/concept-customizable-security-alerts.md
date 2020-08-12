@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f676c4129b79499eb9ed524821a336b3859dbb3c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004849"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Alertes de sécurité Azure Security Center pour IoT
+# <a name="azure-security-center-for-iot-customizable-security-alerts"></a>Alertes de sécurité personnalisables Azure Security Center pour IoT
 
 Azure Security Center pour IoT analyse continuellement votre solution IoT à l’aide d’analyses avancées et d’informations sur les menaces pour vous alerter en cas d’activités malveillantes.
 

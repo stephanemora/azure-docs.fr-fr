@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405243"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798186"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
@@ -133,23 +133,17 @@ Dans cette section, vous pouvez fournir des logos et des images qui seront utili
 >[!NOTE]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
-#### <a name="marketplace-logos"></a>Logos dans la Place de marché
+#### <a name="store-logos"></a>Stocker des logos
 
-Fournissez le logo de votre offre en quatre tailles (en pixels) :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
+
+Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
 - **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (216 x 216)
-- **Large** (255 x 115)
+- **Grand** (entre 216 x 216 et 350 x 350)
 
-Suivez ces instructions pour vos logos:
-
-- Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
-- Les couleurs de thème du portail sont le blanc et le noir. Évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour votre logo. Utilisez une couleur qui donne à votre logo plus de visibilité dans le portail. Nous vous recommandons d’utiliser des couleurs primaires simples.
-- Si vous utilisez un arrière-plan transparent, assurez-vous que le logo et le texte ne sont pas blancs, noirs ou bleus.
-- L'apparence de votre logo doit être « plate » et éviter les dégradés. N'utilisez pas d’arrière-plan dégradé sur le logo.
-- Ne placez pas de texte sur le logo, pas même le nom de votre marque ou de votre entreprise.
-- Assurez-vous que le logo n’est pas étiré.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

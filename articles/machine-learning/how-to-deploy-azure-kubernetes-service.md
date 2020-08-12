@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372108"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87758881"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes 
 
 - Les extraits de code __CLI__ de cet article partent du principe que vous avez créé un document `inferenceconfig.json`. Pour plus d’informations sur la création de ce document, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
 
+- Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le kit SDK, puis attachez-le à l’espace de travail AML.
+
 - Si vous attachez un cluster AKS pour lequel [une plage d’adresses IP autorisées a accès au serveur d’API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), activez les plages d’adresses IP du plan de contrôle AML pour le cluster AKS. Le plan de contrôle AML est déployé sur les régions jumelées et déploie des pods d’inférence sur le cluster AKS. Le déploiement des pods d’inférence n’est pas possible sans accès au serveur d’API. Utilisez les [plages d’adresses IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) des deux [régions jumelées]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) lors de l’activation des plages d’adresses IP dans un cluster AKS.
+
+__Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load Balancer.__
  
  - Le nom de calcul DOIT être unique dans un espace de travail.
    - Le nom est obligatoire et doit comprendre entre 3 et 24 caractères.
@@ -73,7 +77,7 @@ Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes 
    
  - Si vous souhaitez déployer des modèles sur des nœuds GPU ou FPGA (ou sur une référence SKU spécifique), vous devez créer un cluster de la référence SKU en question. Il n’est pas possible de créer un pool de nœuds secondaire dans un cluster existant et de déployer des modèles dans le pool de nœuds secondaire.
  
- - Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le kit SDK, puis attachez-le à l’espace de travail AML. 
+ 
 
 
 
@@ -181,6 +185,9 @@ cluster_name = 'myexistingcluster'
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
+
+# Wait for the attach process to complete
+aks_target.wait_for_completion(show_output = True)
 ```
 
 Pour plus d’informations sur les classes, les méthodes et les paramètres utilisés dans cet exemple, consultez les documents de référence suivants :
@@ -257,6 +264,30 @@ Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer 
 
 > [!IMPORTANT]
 > Le déploiement via VS Code nécessite que le cluster AKS soit créé ou attaché à votre espace de travail à l’avance.
+
+### <a name="understand-the-deployment-processes"></a>Comprendre le processus de déploiement
+
+Le mot « déploiement » est utilisé à la fois dans Kubernetes et Azure Machine Learning. « Déploiement » a des significations très différentes dans ces deux contextes. Dans Kubernetes, une `Deployment` est une entité concrète, spécifiée avec un fichier YAML déclaratif. Une `Deployment` Kubernetes a un cycle de vie défini et des relations concrètes avec d’autres entités Kubernetes, telles que `Pods` et `ReplicaSets`. Vous pouvez en savoir plus sur Kubernetes à partir des documents et des vidéos sur [Qu’est-ce que Kubernetes ?](https://aka.ms/k8slearning).
+
+Dans Azure Machine Learning, le « déploiement » est utilisé dans le sens le plus général pour mettre à disposition et nettoyer vos ressources de projet. Les étapes qu’Azure Machine Learning prend en compte dans le cadre du déploiement sont les suivantes :
+
+1. Compression des fichiers dans votre dossier de projet, en ignorant ceux spécifiés dans .amlignore ou .gitignore
+1. Mise à l’échelle de votre cluster de calcul (en relation avec Kubernetes)
+1. Création ou téléchargement du dockerfile sur le nœud de calcul (en relation avec Kubernetes)
+    1. Le système calcule un code de hachage pour : 
+        - l’image de base ; 
+        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)) ;
+        - la définition Conda YAML (voir [Créer et utiliser des environnements logiciels dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)).
+    1. Le système utilise ce code de hachage comme clé pour rechercher le Dockerfile dans l’espace de travail Azure Container Registry (ACR).
+    1. Si le Dockerfile est introuvable, il recherche une correspondance dans l’ensemble d’ACR.
+    1. Si le Dockerfile est introuvable, le système génère une nouvelle image (qui sera mise en cache et inscrite auprès de l’espace de travail ACR).
+1. Téléchargement de votre Fichier projet compressé vers le stockage temporaire sur le nœud de calcul
+1. Décompression du Fichier projet
+1. Nœud de calcul exécutant `python <entry script> <arguments>`
+1. Enregistrement des journaux, des fichiers de modèle et des autres fichiers écrits dans `./outputs` dans le compte de stockage associé à l’espace de travail
+1. Scale down du calcul, notamment la suppression du stockage temporaire (en relation avec Kubernetes)
+
+Lorsque vous utilisez AKS, le scaling up et down du calcul est contrôlée par Kubernetes, à l’aide de la fichier dockerfile générée ou trouvée comme décrit ci-dessus. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Déployer des modèles sur AKS à l’aide d’un déploiement contrôlé (préversion)
 
@@ -395,15 +426,12 @@ print(token)
 >
 > Pour récupérer un jeton, vous devez utiliser le Kit de développement logiciel (SDK) Azure Machine Learning ou la commande [az ml service obten-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token).
 
-## <a name="update-the-web-service"></a>Mise à jour du service web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md)
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
+* [Mettre à jour un service web](how-to-deploy-update-web-service.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)

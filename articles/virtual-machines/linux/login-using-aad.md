@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291136"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534734"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -113,7 +113,7 @@ Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois q
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurer des attributions de rôle pour la machine virtuelle
 
-La stratégie de contrôle d’accès en fonction du rôle Azure (Azure RBAC) détermine qui peut se connecter à la machine virtuelle. Deux rôles RBAC sont utilisés pour autoriser la connexion aux machines virtuelles :
+La stratégie de contrôle d’accès en fonction du rôle Azure (Azure RBAC) détermine qui peut se connecter à la machine virtuelle. Deux rôles Azure sont utilisés pour autoriser la connexion aux machines virtuelles :
 
 - **Connexion de l’administrateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux.
 - **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
@@ -181,9 +181,9 @@ Avec cette ligne :
 
 ## <a name="troubleshoot-sign-in-issues"></a>Résoudre les problèmes de connexion
 
-Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter via le protocole SSH avec des informations d’identification Azure AD, notamment l’absence de l’attribution de rôles RBAC et des invites répétées à se connecter. Consultez les sections suivantes pour corriger ces problèmes.
+Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter via le protocole SSH avec des informations d’identification Azure AD, notamment l’absence de l’attribution de rôles Azure et des invites répétées à se connecter. Consultez les sections suivantes pour corriger ces problèmes.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Accès refusé : rôle RBAC non attribué
+### <a name="access-denied-azure-role-not-assigned"></a>Accès refusé : rôle Azure non attribué
 
 Si vous voyez l’erreur suivante à l’invite SSH, vérifiez que vous disposez de stratégies RBAC configurées pour la machine virtuelle qui accordent à l’utilisateur le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles* :
 

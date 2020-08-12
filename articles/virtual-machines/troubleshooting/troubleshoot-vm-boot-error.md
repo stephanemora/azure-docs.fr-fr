@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284674"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543280"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Démarrage de la machine virtuelle Linux sur Grub Rescue
 
@@ -35,7 +35,7 @@ Suivez les étapes d’atténuation ci-dessous en fonction de l’erreur qui s�
 * Si vous obtenez l’erreur **Système de fichiers inconnu**, cela peut être dû à la corruption du système de fichiers de la partition de démarrage ou à une configuration incorrecte du noyau.
 
    * En cas de problèmes liés au système de fichiers, suivez les étapes de l’article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * En cas de problèmes liés au noyau, suivez les étapes de l’article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/) ou [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Pour les problèmes de noyau, suivez la procédure indiquée dans l’article [Procédure de récupération d’une machine virtuelle Linux Azure à partir de problèmes de démarrage liés au noyau](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues) ou [Récupération Linux : Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Erreur : File not found (Fichier introuvable)
 

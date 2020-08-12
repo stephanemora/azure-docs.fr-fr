@@ -3,12 +3,12 @@ title: Base de sécurité Azure pour Azure DevTest Labs
 description: Base de sécurité Azure pour Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387827"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761006"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de sécurité Azure pour Azure DevTest Labs
 
@@ -258,6 +258,110 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité :** Customer
 
+## <a name="data-protection"></a>Protection des données
+*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](../security/benchmarks/security-control-data-protection.md).*
+
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Tenir un inventaire des informations sensibles
+**Conseils :** Utilisez des étiquettes pour faciliter le suivi des ressources Azure qui stockent ou traitent des informations sensibles.
+
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/resource-group-using-tags.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
+**Conseils :** Implémentez des abonnements ou des groupes d’administration distincts pour le développement, les tests et la production. Les instances Azure DevTest Labs doivent être séparées par un réseau virtuel/sous-réseau et balisées de manière appropriée. 
+
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../billing/billing-create-subscription.md)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+- [Comment configurer un réseau virtuel pour DevTest Labs](devtest-lab-configure-vnet.md)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/resource-group-using-tags.md)
+- [Comment créer et utiliser des balises pour DevTest Labs](devtest-lab-add-tag.md)
+
+**Surveillance d’Azure Security Center :** actuellement non disponible
+
+**Responsabilité :** Customer
+
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
+**Conseils :** Pas encore disponible. Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure DevTest Labs.
+
+Microsoft gère l’infrastructure sous-jacente d’Azure DevTest Labs et a implémenté des contrôles stricts pour empêcher la perte ou l’exposition de données client.
+
+- [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
+
+**Surveillance d’Azure Security Center :** actuellement non disponible
+
+**Responsabilité :** Partagé
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
+**Conseils :** Azure DevTest Labs nécessite des communications chiffrées avec le protocole TLS par défaut. La version 1.2 TLS est actuellement prise en charge. Si votre outil ou bibliothèque de client ne prend pas en charge TLS, vous pouvez activer des connexions non chiffrées par le biais du portail Azure ou des API de gestion. Dans les cas où il est impossible d’établir des connexions chiffrées, nous vous recommandons de placer votre lab et votre application cliente dans un réseau virtuel.
+
+[Comprendre le scénario de chiffrement en transit pour DevTest Labs](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-devtest-labs-enforcing-tls-1-2-starting-may-01-2020/ba-p/1236279)
+
+**Surveillance d’Azure Security Center :** Oui
+
+**Responsabilité :** Partagé
+
+### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
+**Conseils :** Les fonctionnalités d’identification des données, de classification des données et de protection contre la perte de données ne sont pas encore disponibles pour Azure DevTest Labs. Baliser des instances contenant des informations sensibles en tant que telles, et implémenter une solution tierce à des fins de conformité si nécessaire.
+
+Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
+
+- [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
+
+**Surveillance d’Azure Security Center :** actuellement non disponible
+
+**Responsabilité :** Customer
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
+**Conseils :** Le contrôle d‘accès en fonction du rôle Azure Active Directory (Azure AD) permet de contrôler l‘accès aux labs dans Azure DevTest Labs.
+
+- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comprendre les rôles dans DevTest Labs](devtest-lab-add-devtest-user.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
+**Conseils :** Si nécessaire, à des fins de conformité sur les ressources de calcul créées en tant que partie du DevTest Labs, implémentez un outil tiers par exemple, une solution automatisée de protection contre la perte de données basée sur un hôte pour appliquer des contrôles d’accès aux données même lorsque celles-ci sont copiées à partir d’un système.
+
+Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. Pour garantir la sécurité des données client dans Azure, Microsoft a implémenté et tient à jour une suite de contrôles et de fonctionnalités de protection des données robustes.
+
+- [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Non applicable
+
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
+**Conseils :** Azure DevTest Labs stocke les données client suivantes :
+
+- [Résultats de l’artefact](add-artifact-vm.md) qui incluent le déploiement et les journaux d’extension générés à partir de l’application des artefacts
+- [Documents de formules](devtest-lab-manage-formulas.md) utilisés pour créer des machines virtuelles à partir de formules
+- Disques de système d’exploitation et de données pour les machines virtuelles Lab 
+
+Les résultats d’artefact et les documents de formule sont envoyés à un compte de stockage Azure créé dans le cadre de chaque déploiement de lab. Les données dans Stockage Azure sont chiffrées et déchiffrées en toute transparence à l’aide du chiffrement AES 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Le chiffrement de Stockage Azure ne peut pas être désactivé. Vous pouvez vous reposer sur les clés managées par Microsoft pour le chiffrement de votre compte de stockage, ou vous pouvez gérer le chiffrement avec vos propres clés. Pour plus d’informations, consultez l’article [Chiffrement d’un compte de stockage lab](encrypt-storage.md).
+
+Par défaut, tous les disques de données et de système d’exploitation Lab sont chiffrés avec une clé gérée par la plateforme. L’ensemble des disques managés, des instantanés et des images ainsi que les données écrites sur des disques managés existants sont automatiquement chiffrés au repos avec des clés gérées par les plateformes. En tant que propriétaire de lab, vous pouvez configurer le chiffrement des disques de système d’exploitation lab à l’aide d’une clé gérée par le client. Le chiffrement à l’aide d’une clé gérée par le client pour les disques de données Lab n’est actuellement pas configurable par le biais du lab lui-même. Toutefois, un administrateur d’abonnement peut configurer ce paramètre pour les disques lab dans un abonnement pour le moment. Pour plus d’informations, consultez [Chiffrer des disques de système d’exploitation Lab DevTest Labs à l’aide de clés gérées par le client](encrypt-disks-customer-managed-keys.md).
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Partagé
+
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
+**Conseils :** Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées aux instances DevTest Labs ainsi qu’à d’autres ressources critiques ou connexes.
+
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité DevTest](create-alerts.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+
+
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 *Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](../security/benchmarks/security-control-vulnerability-management.md).*
 
@@ -275,7 +379,7 @@ Microsoft assure la gestion des vulnérabilités sur les ressources sous-jacents
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 **Conseils :** Utilisez Azure Update Management pour vous assurer que les mises à jour de sécurité les plus récentes sont installées sur vos machines virtuelles Windows et Linux hébergées dans DevTest Labs. Pour les machines virtuelles Windows, assurez-vous que Windows Update a été activé et configuré pour être mis à jour automatiquement. Ce paramètre n’est pas disponible actuellement pour la configuration via DevTest Labs. Toutefois, l’administrateur de laboratoire/d’abonnement peut configurer ce paramètre sur les machines virtuelles de calcul sous-jacentes dans leur abonnement. 
 
-- [Configurer Update Management pour des machines virtuelles dans Azure](../automation/automation-update-management.md)
+- [Configurer Update Management pour des machines virtuelles dans Azure](../automation/update-management/update-mgmt-overview.md)
 - [Comprendre les stratégies de sécurité Azure analysées par Security Center](../security-center/security-center-policy-definitions.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
@@ -289,8 +393,8 @@ Apprenez-en davantage sur la [Fabrique d’images DevTest Labs](image-factory-cr
 
 En tant qu’administrateur d’abonnements, vous pouvez également utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour les machines virtuelles DevTest Labs. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-- [Solution Update Management dans Azure](../automation/automation-update-management.md)
-- [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../automation/automation-tutorial-update-management.md)
+- [Solution Update Management dans Azure](../automation/update-management/update-mgmt-overview.md)
+- [Gestion des mises à jour et des correctifs des machines virtuelles](../automation/update-management/update-mgmt-overview.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
 
@@ -464,6 +568,156 @@ Voir les articles suivants :
 
 **Responsabilité :** Customer
 
+## <a name="secure-configuration"></a>Configuration sécurisée
+**Pour plus d’informations, consultez Contrôle de sécurité : Configuration sécurisée.**
+
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
+**Conseils :** Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration de vos ressources Azure créées en tant que partie de DevTest Labs. Vous pouvez aussi utiliser des définitions Azure Policy intégrées.
+
+Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle au format JSON (JavaScript Object Notation), qui doit être examiné pour vérifier que les configurations répondent/dépassent les exigences de sécurité de votre organisation.
+
+Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme base de référence de configuration sécurisée pour vos ressources Azure.
+
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
+- [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](../azure-resource-manager/templates/export-template-portal.md)
+- [Recommandations de sécurité - Guide de référence](../security-center/recommendations-reference.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
+**Conseils :** Utilisez les recommandations d'Azure Security Center pour préserver les configurations de sécurité sur toutes les ressources de calcul sous-jacentes créées en tant que partie de DevTest Labs. En outre, vous pouvez utiliser des images de système d'exploitation personnalisées ou Azure Automation State Configuration pour établir la configuration de sécurité du système d'exploitation requise par votre organisation.
+
+- [Suivi des recommandations d'Azure Security Center](../security-center/security-center-recommendations.md)
+- [Recommandations de sécurité - Guide de référence](../security-center/recommendations-reference.md)
+- [Vue d’ensemble d’Azure Automation State Configuration](../automation/automation-dsc-overview.md)
+- [Charger un disque dur virtuel et l'utiliser pour créer des machines virtuelles Windows dans Azure](../virtual-machines/windows/upload-generalized-managed.md)
+- [Créer une machine virtuelle Linux à partir d'un disque personnalisé avec Azure CLI](../virtual-machines/linux/upload-vhd.md)
+- [Créer et distribuer des images personnalisées à plusieurs laboratoires DevTest](image-factory-save-distribute-custom-images.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Non applicable
+
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
+**Conseils :** Utilisez les commandes Azure Policy **refuser** et **déployer s’il n’existe pas** pour appliquer des paramètres sécurisés à vos ressources Azure créées en tant que partie de DevTest Labs. En outre, vous pouvez utiliser des modèles Azure Resource Manager pour appliquer la configuration de sécurité des ressources Azure requise par votre organisation.
+
+- [Comprendre les effets d'Azure Policy](../governance/policy/concepts/effects.md)
+- [Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
+- [Présentation des modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
+**Conseils :** Suivez les recommandations d’Azure Security Center en matière d'évaluation des vulnérabilités sur vos ressources de calcul Azure sous-jacentes créées en tant que partie d’un lab. En outre, vous pouvez utiliser des modèles Azure Resource Manager, des images de système d'exploitation personnalisées ou Azure Automation State Configuration pour appliquer la configuration de sécurité du système d'exploitation requise par votre organisation. Vous pouvez également utiliser une fabrique d’images, qui est une solution avec une configuration sous forme de code qui crée et distribue régulièrement des images, automatiquement et avec toutes les configurations nécessaires.
+
+Notez également que les images de machines virtuelles de la Place de marché Azure publiées par Microsoft sont gérées et appliquées par Microsoft.
+
+- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Vue d’ensemble d’Azure Automation State Configuration](../automation/automation-dsc-overview.md)
+- [Exemple de script permettant de charger un disque dur virtuel sur Azure et de créer une machine virtuelle](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Comment créer une fabrique d’images dans DevTest Labs](image-factory-create.md)
+
+**Surveillance d’Azure Security Center :** Oui
+
+**Responsabilité :** Partagé
+
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
+**Conseils :** Utilisez Azure DevOps pour stocker et gérer en toute sécurité votre code, comme les stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. Pour accéder aux ressources que vous gérez dans Azure DevOps, vous pouvez accorder ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps.
+
+- [Tutoriel Git Azure Repos](/devops/repos/git/gitworkflow?view=azure-devops)
+- [À propos des autorisations et des groupes](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Intégration du flux de travail d’Azure DevTest Labs et d’Azure DevOps](devtest-lab-dev-ops.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
+**Conseils :** Si vous avez recours à des images personnalisées, utilisez le contrôle d'accès en fonction du rôle (RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images. À l’aide d’une galerie Shared Image Gallery, vous pouvez partager vos images avec des laboratoires spécifiques qui en ont besoin. Pour les images de conteneur, stockez-les dans Azure Container Registry et tirez parti de RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.
+
+- [Contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Configurer une galerie Shared Image Gallery dans DevTest Labs](configure-shared-image-gallery.md)
+- [Comprendre RBAC pour Container Registry](../container-registry/container-registry-roles.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
+**Conseils :** Définissez et implémentez des configurations de sécurité standard pour les ressources Azure à l’aide d’Azure Policy. Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration réseau de vos ressources Azure créées en tant que partie de DevTest Labs. Vous pouvez également utiliser des définitions de stratégie intégrées en lien avec vos ressources spécifiques. Par ailleurs, vous pouvez utiliser Azure Automation pour déployer les changements de configuration.
+
+- [Configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Utiliser des alias](../governance/policy/concepts/definition-structure.md#aliases)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer les outils de gestion de la configuration système pour les systèmes d’exploitation
+**Conseils :** Azure Automation State Configuration est un service de gestion de la configuration pour les nœuds DSC dans n’importe quel cloud ou centre de données local. Vous pouvez facilement intégrer des machines, leur affecter des configurations déclaratives et afficher des rapports montrant la conformité de chaque machine à l’état souhaité que vous avez spécifié. Vous pouvez également écrire un artefact personnalisé qui peut être installé sur chaque machine Lab pour s’assurer qu’il respecte les stratégies organisationnelles. 
+
+- [Intégration des machines pour la gestion avec Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
+- [Créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs](devtest-lab-artifact-author.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
+**Conseils :** Utiliser Azure Security Center pour effectuer des analyses de ligne de base pour vos ressources Azure créées sous DevTest Labs. En outre, utilisez Azure Policy pour alerter et auditer les configurations des ressources Azure.
+
+- [Corriger les recommandations dans Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+ 
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
+**Conseils :** Utilisez Azure Security Center pour effectuer des analyses de base pour les paramètres de système d’exploitation et d’ancrage des conteneurs.
+
+- [Comprendre les recommandations concernant les conteneurs dans Azure Security Center](../security-center/security-center-container-recommendations.md)
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
+### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
+**Conseils :** Utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser la gestion des secrets pour vos applications Cloud.
+
+- [Configurer l’identité managée pour déployer des environnements Azure Resource Manager dans DevTest Labs](use-managed-identities-environments.md)
+- [Configurer l’identité gérée pour déployer des machines virtuelles dans DevTest Labs](enable-managed-identities-lab-vms.md)
+- [Créer un coffre de clés](../key-vault/quick-create-portal.md)
+- [Fournir une authentification Key Vault avec une identité managée](../key-vault/managed-identity.md)
+
+**Surveillance d’Azure Security Center :** Oui
+
+**Responsabilité :** Customer
+
+### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
+**Conseils :** Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure AD. Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Key Vault, sans informations d’identification dans votre code.
+
+- [Configurer l’identité managée pour déployer des environnements Azure Resource Manager dans DevTest Labs](use-managed-identities-environments.md)
+- [Configurer l’identité gérée pour déployer des machines virtuelles dans DevTest Labs](enable-managed-identities-lab-vms.md)
+ 
+**Surveillance d’Azure Security Center :** Oui
+
+**Responsabilité :** Customer
+
+### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
+**Conseils :** Exécuter le moteur d’analyse des informations d’identification pour identifier les informations d’identification dans le code. Le moteur d’analyse des informations d’identification encourage également le déplacement des informations d’identification découvertes vers des emplacements plus sécurisés, tels qu’Azure Key Vault.
+
+- Comment configurer Credential Scanner
+
+**Surveillance d’Azure Security Center :** Non applicable
+
+**Responsabilité :** Customer
+
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 *Pour plus d’informations, consultez Contrôle de sécurité : Défense contre les programmes malveillants.*
@@ -518,7 +772,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 **Conseils :** Actuellement, Azure DevTest Labs ne prend pas en charge les sauvegardes et les captures instantanées de machine virtuelle. Toutefois, vous pouvez créer des captures instantanées de vos machines virtuelles Azure sous-jacentes hébergées dans DevTest Labs, ou des disques managés attachés à ces instances à l’aide de PowerShell ou d’API REST, à condition que vous disposiez de l’accès approprié aux ressources de calcul sous-jacentes. Vous pouvez également sauvegarder toutes les clés gérées par le client dans Azure Key Vault.
 
-Activez le service Sauvegarde Azure sur les machines virtuelles Azure cibles, et définissez la fréquence et les périodes de rétention souhaitées. Cela inclut une sauvegarde complète de l’état du système. Si vous utilisez Azure Disk Encryption, la sauvegarde de machine virtuelle Azure gère automatiquement la sauvegarde des clés gérées par le client.
+Activez le service Sauvegarde Azure sur les machines virtuelles Azure cibles, et définissez la fréquence et les périodes de rétention souhaitées. Cela inclut une sauvegarde complète de l’état du système. Si vous utilisez le chiffrement de disques Azure, la sauvegarde de machine virtuelle Azure gère automatiquement la sauvegarde des clés gérées par le client.
 
 - [Sauvegarde sur des machines virtuelles Azure utilisant le chiffrement](../backup/backup-azure-vms-encryption.md)
 - [Vue d’ensemble de la sauvegarde de machines virtuelles Azure](../backup/backup-azure-vms-introduction.md)
@@ -561,7 +815,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 - [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 - [Anatomie d’un incident dans le centre de réponse aux incidents de sécurité Microsoft](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
-- [Tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Utiliser le guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Surveillance d’Azure Security Center :** Non applicable
 

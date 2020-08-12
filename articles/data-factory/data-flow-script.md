@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
-ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 07/29/2020
+ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298599"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448533"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -195,13 +195,21 @@ Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Nombre de mises à jour, upserts, insertions, suppressions
-Lorsque vous utilisez une transformation de modification de ligne, vous pouvez compter le nombre de mises à jour, d’upserts, d’insertions, de suppressions résultant de vos stratégies de modification de ligne. Ajoutez une transformation d’agrégation après votre modification de ligne et collez ce script de Data Flow dans la définition de l’agrégat pour ces nombres :
+Lorsque vous utilisez une transformation de modification de ligne, vous pouvez compter le nombre de mises à jour, d’upserts, d’insertions, de suppressions résultant de vos stratégies de modification de ligne. Ajoutez une transformation d’agrégation après votre modification de ligne et collez ce script de Data Flow dans la définition de l’agrégat pour ces nombres.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
         inserts = countIf(isInsert(), 1),
         upserts = countIf(isUpsert(), 1),
         deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### <a name="distinct-row-using-all-columns"></a>Ligne distincte utilisant toutes les colonnes
+Cet extrait de code ajoute une nouvelle transformation d’agrégation à votre flux de données, qui prend toutes les colonnes entrantes, génère un hachage utilisé pour le regroupement afin d’éliminer les doublons, puis fournit la première occurrence de chaque doublon comme sortie. Vous n’avez pas besoin de nommer explicitement les colonnes, car elles seront générées automatiquement à partir de votre flux de données entrant.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

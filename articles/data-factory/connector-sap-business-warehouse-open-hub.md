@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224619"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533408"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "86224619"
 Cet article explique comment utiliser l'activité de copie d'Azure Data Factory pour copier des données à partir d'un SAP Business Warehouse (BW) via Open Hub. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée sur chaque connecteur SAP, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -42,6 +42,7 @@ Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charg
 - Copie de données via la table OHD locale qui peut être DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copie de données en utilisant une authentification de base.
 - Connexion à un serveur d’applications SAP ou un serveur de messagerie SAP.
+- Récupération de données via RFC.
 
 ## <a name="sap-bw-open-hub-integration"></a>Intégration de SAP BW Open Hub 
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60f2a1992750950b50995fcf36513e44e377004d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386603"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489688"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics
 
@@ -203,7 +203,7 @@ FROM
 
 La structure `MapOfPersons` est retournée en tant que colonne `VARCHAR` et mise en forme en tant que chaîne JSON.
 
-## <a name="projecting-values-from-repeated-columns"></a>Projection de valeurs à partir de colonnes répétées
+## <a name="project-values-from-repeated-columns"></a>Projeter des valeurs à partir de colonnes répétées
 
 Si vous avez un tableau de valeurs scalaires (par exemple `[1,2,3]`) dans certaines colonnes, vous pouvez facilement les développer et les joindre à la ligne principale à l’aide du script suivant :
 

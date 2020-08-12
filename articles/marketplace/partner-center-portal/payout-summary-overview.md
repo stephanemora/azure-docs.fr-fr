@@ -7,23 +7,23 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325727"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479810"
 ---
 # <a name="payout-summary-overview"></a>Vue d’ensemble de la synthèse des revenus
 
 La [synthèse des revenus](./payout-summary.md) montre en détail l’argent que vous avez gagné avec Microsoft. Elle vous permet également de savoir à quels moments vous recevrez les paiements et quels montants vous percevrez.
 
-Si vous vendez des offres sur la Place de marché Azure, la synthèse des revenus vous présente également des informations sur les paiements qui ont bien été effectués. Pour plus d’informations sur le processus de paiement de la Place de marché Azure, consultez [Politiques concernant la participation à la Place de marché Azure](https://docs.microsoft.com/legal/marketplace/participation-policy) et [Contrat d’éditeur de la Place de marché Microsoft Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Si vous vendez des offres sur la Place de marché Azure, la synthèse des revenus vous présente également des informations sur les paiements qui ont bien été effectués. Pour plus d’informations sur le processus de paiement de la Place de marché Azure, consultez [Politiques concernant la participation à la Place de marché Azure](https://docs.microsoft.com/legal/marketplace/participation-policy) et [Contrat d’éditeur de la Place de marché Microsoft Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Pour être éligible au paiement, votre produit doit atteindre le [seuil de paiement](./payment-thresholds-methods-timeframes.md) de 50 $. Pour obtenir des détails sur le seuil de paiement, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> Pour être éligible au paiement, votre produit doit atteindre le [seuil de paiement](./payment-thresholds-methods-timeframes.md) de 50 $. Pour obtenir des détails sur le seuil de paiement, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
-Tous les rapports et insights associés à l’option de publication Transaction sont disponibles dans la section Analytique de l’Espace partenaires, à laquelle vous accédez par l’intermédiaire de cette icône dans l’angle supérieur droit du portail :
+Pour afficher les détails du paiement, connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/home) et sélectionnez l’icône de paiement dans l’angle supérieur droit de l’écran :
 
 ![Illustre l’icône Revenu dans l’angle supérieur droit du portail Espace partenaires.](./media/payout-overview.png)
 

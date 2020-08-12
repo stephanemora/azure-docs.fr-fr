@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 133de2c6b4fd4f970595a0e46c24167ab10c0aea
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324843"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432123"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Effectuer des analyses avec Azure Machine Learning Studio (classique) à l'aide d'une base de données SQL Server
 
-**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Souvent, les entreprises qui travaillent avec des données locales souhaitent tirer parti de l’échelle et de l’agilité du cloud pour leurs charges de travail d’apprentissage automatique. Mais elles ne souhaitent pas perturber leurs processus métier et leurs flux de travail actuels en déplaçant leurs données locales vers le cloud. Azure Machine Learning Studio (classique) prend désormais en charge la lecture des données dans une base de données SQL Server, puis l'apprentissage et le scoring d'un modèle avec ces données. Vous n’avez plus à copier et à synchroniser manuellement les données entre le cloud et votre serveur local. Au lieu de cela, le module **Importer des données** d'Azure Machine Learning Studio (classique) peut désormais lire directement dans votre base de données SQL Server pour vos travaux d'apprentissage et de scoring.

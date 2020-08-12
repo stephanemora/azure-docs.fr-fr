@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806830"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423318"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionnement dans l'API Cassandra Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Apache Cassandra recommande de limiter à 100 Mo la taille des données qui peu
 
 Dans Azure Cosmos DB, chaque partition physique se compose d'un ensemble de réplicas, également appelés jeux de réplicas, avec au moins 4 réplicas par partition. Cela contraste avec Apache Cassandra, où la définition d'un facteur de réplication de 1 est possible. Toutefois, cela aboutit à une faible disponibilité si le seul nœud qui contient les données tombe en panne. Dans l'API Cassandra, le facteur de réplication est toujours de 4 (quorum de 3). Azure Cosmos DB gère automatiquement les jeux de réplicas, alors que dans Apache Cassandra ceux-ci doivent être gérés à l'aide de divers outils. 
 
-Apache Cassandra présente un concept de jetons, qui correspondent à des hachages de clés de partition. Les jetons sont basés sur un hachage murmur3 de 64 octets, avec des valeurs allant de -2^63 à -2^63 - 1. Cette plage est communément appelée « Token Ring » dans Apache Cassandra. Le « Token Ring » est réparti en plages de jetons, et ces plages sont elles-mêmes réparties entre les nœuds présents dans un cluster Apache Cassandra natif. L'implémentation du partitionnement Azure Cosmos DB est similaire, sauf qu'il utilise un algorithme de hachage différent et possède un plus grand « Token Ring ». 
+Apache Cassandra présente un concept de jetons, qui correspondent à des hachages de clés de partition. Les jetons sont basés sur un hachage murmur3 de 64 octets, avec des valeurs allant de -2^63 à -2^63 - 1. Cette plage est communément appelée « Token Ring » dans Apache Cassandra. Le « Token Ring » est réparti en plages de jetons, et ces plages sont elles-mêmes réparties entre les nœuds présents dans un cluster Apache Cassandra natif. L’implémentation du partitionnement pour Azure Cosmos DB est similaire, si ce n’est qu’elle utilise un algorithme de hachage différent et a un plus grand « Token Ring » interne. Toutefois, en externe, nous exposons la même plage de jetons qu’Apache Cassandra, à savoir de -2^63 à -2^63 - 1.
 
 
 ## <a name="primary-key"></a>Clé primaire

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
-ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/04/2020
+ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921162"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553000"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
@@ -62,7 +62,7 @@ Lorsqu’il traite les données d’apprentissage, l’algorithme k-moyennes com
   
 3.  Pour le **nombre de centroïdes**, entrez le nombre de clusters par lesquels doit commencer l’algorithme.  
   
-     Il n’est pas garanti que le modèle produise exactement ce nombre de clusters. L’algorithme commence par ce nombre de points de données et effectue une itération pour trouver la configuration optimale.  
+     Il n’est pas garanti que le modèle produise exactement ce nombre de clusters. L’algorithme commence par ce nombre de points de données et effectue une itération pour trouver la configuration optimale. Vous pouvez consulter le [code source de sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  La propriété **Initialisation** est utilisé pour spécifier l’algorithme utilisé pour définir la configuration initiale du cluster.  
   

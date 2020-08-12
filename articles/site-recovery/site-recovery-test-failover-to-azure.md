@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699054"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503495"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Exécuter un test de basculement (exercice de récupération d'urgence) sur Azure 
 
@@ -25,7 +25,7 @@ Vous exécutez un test de basculement pour valider votre stratégie de réplicat
 ## <a name="run-a-test-failover"></a>Exécuter un test de basculement
 Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Si vous souhaitez exécuter un test de basculement pour une seule machine virtuelle, suivez les étapes décrites [ici](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm).
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Capture d’écran de la page Test de basculement dans le portail Azure.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Dans Site Recovery dans le portail Azure, cliquez sur **Plans de récupération** > *nom_plan_récupération* > **Test de basculement**.
@@ -48,7 +48,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 8. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations sur le test de basculement.
 
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Capture d’écran de l’onglet Tâches du test de basculement.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Quand vous déclenchez un test de basculement, voici ce qui se produit :
 

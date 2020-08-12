@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: c86612e41dfb6d1460306fba8c89e579b1023581
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324962"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431863"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
-**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio (classique). Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
@@ -51,7 +51,7 @@ Suivez les étapes ci-dessous pour déployer un service web de recyclage :
     Vous allez maintenant déployer l’expérience de formation en tant que service web de recyclage produisant un modèle entraîné et les résultats de son évaluation.
 
 1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**.
-1. Sélectionnez **Déployer le service web [Nouveau]** . Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
+1. Sélectionnez **Déployer le service web [Nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
 1. Tapez le nom de votre service web et choisissez un plan de paiement.
 1. Sélectionnez **Déployer**.
 
@@ -213,4 +213,4 @@ Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGro
 Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
 
 * [Explorer le portail Services web](manage-new-webservice.md)
-* [Gérer des itérations d’expériences](manage-experiment-iterations.md)
+* [Gérer des itérations d'expériences](manage-experiment-iterations.md)

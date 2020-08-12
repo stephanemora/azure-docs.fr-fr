@@ -7,14 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010822"
 ---
-# <a name="benchmarking-a-disk"></a>Benchmarking d’un disque
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Créer un benchmark de votre application sur Stockage sur disque Azure
 
 Le benchmarking consiste à simuler différentes charges de travail sur votre application et à mesurer les performances de l’application pour chaque charge de travail. À l’aide de la procédure décrite dans l’article [Conception pour de hautes performances](premium-storage-performance.md). À présent, vous pouvez utiliser des outils de benchmarking sur les machines virtuelles qui hébergent l’application afin de déterminer les niveaux de performance que votre application peut atteindre avec Premium Storage. Dans cet article, nous allons vous fournir des exemples d’un benchmarking effectué sur une machine virtuelle DS14 Standard configurée avec des disques Azure Stockage Premium.
 

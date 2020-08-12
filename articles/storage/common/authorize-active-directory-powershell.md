@@ -1,7 +1,7 @@
 ---
 title: Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente
 titleSuffix: Azure Storage
-description: PowerShell prend en charge la connexion avec des informations d’identification Azure AD pour exécuter des commandes sur les données d’objet blob et de file d’attente de Stockage Azure. Un jeton d’accès est fourni pour la session et utilisé pour autoriser les opérations d’appel. Les autorisations dépendent du rôle RBAC attribué au principal de sécurité Azure AD.
+description: PowerShell prend en charge la connexion avec des informations d’identification Azure AD pour exécuter des commandes sur les données d’objet blob et de file d’attente de Stockage Azure. Un jeton d’accès est fourni pour la session et utilisé pour autoriser les opérations d’appel. Les autorisations dépendent du rôle Azure attribué au principal de sécurité Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a99b2841441e43ac02688494b1324fa5d630dcd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805771"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534921"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente
 
 Stockage Azure fournit des extensions pour PowerShell qui vous permettent de vous connecter et d’exécuter des commandes de script avec des informations d’identification Azure Active Directory (Azure AD). Lorsque vous vous connectez à PowerShell avec les informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par PowerShell pour autoriser les opérations de données suivantes sur le Stockage Blob ou File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle (RBAC, role-based access control). Pour plus d’informations sur les rôles RBAC dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC](storage-auth-aad-rbac.md).
+Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle (RBAC, role-based access control). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
@@ -68,10 +68,10 @@ L’exemple suivant montre comment créer un conteneur dans un nouveau compte de
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles RBAC, consultez [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](storage-auth-aad-rbac.md).
+1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > La propagation des attributions de rôles RBAC peut prendre plusieurs minutes.
+    > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
 
 1. Créez un conteneur en appelant [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Étant donné que cet appel utilise le contexte créé lors des étapes précédentes, le conteneur est créé à l’aide de vos informations d’identification Azure AD.
 
@@ -82,5 +82,5 @@ L’exemple suivant montre comment créer un conteneur dans un nouveau compte de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser PowerShell pour affecter un rôle RBAC pour l’accès aux données blob et de file d’attente](storage-auth-aad-rbac-powershell.md)
+- [Utiliser PowerShell pour attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](storage-auth-aad-rbac-powershell.md)
 - [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](storage-auth-aad-msi.md)

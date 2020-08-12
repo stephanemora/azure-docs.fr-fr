@@ -3,12 +3,13 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655626"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531878"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -32,10 +33,10 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 --- | ---
 **Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
 **Machines dans un coffre** | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
-**Sources de données** | La taille maximale d'une [source de données](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s'applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
+**Sources de données** | La taille maximale d'une [source de données](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s'applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
 **Sauvegardes dans le coffre** | **Machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/MABS :** Deux fois par jour.<br/><br/> **Machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour.
 **Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région.
-**Déplacer les coffres** | Vous pouvez [déplacer les coffres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
+**Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
 
@@ -56,7 +57,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales�
 
 **Limite** | **Détails**
 --- | ---
-**Disques de données de machine virtuelle Azure** | Consultez la [matrice de prise en charge de la sauvegarde de machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Disques de données de machine virtuelle Azure** | Consultez la [matrice de prise en charge de la sauvegarde de machines virtuelles Azure](./backup-support-matrix-iaas.md#vm-storage-support).
 **Taille de disque de données de machine virtuelle Azure** | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 
 ### <a name="azure-vm-backup-options"></a>Options de sauvegarde d’une machine virtuelle Azure
@@ -105,10 +106,7 @@ Sauvegarde Azure prend en charge le chiffrement des données en transit et au re
 ### <a name="data-security"></a>Sécurité des données
 
 - Les données de sauvegarde sont stockées dans le coffre Recovery Services sous forme chiffrée.
-- Vous êtes le seul à connaître la phrase secrète pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
-
-    > [!WARNING]
-    > Une fois le coffre configuré, vous êtes le seul à avoir accès à la clé de chiffrement. Microsoft ne conserve jamais de copie de la clé de chiffrement et n’y a pas accès. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
+- Quand les données sont sauvegardées à partir de serveurs locaux avec l’agent MARS, les données sont chiffrées avec une phrase secrète avant le chargement vers Sauvegarde Azure et déchiffrées uniquement après avoir été téléchargées à partir de Sauvegarde Azure.
 - Lorsque vous sauvegardez des machines virtuelles Azure, vous devez configurer le chiffrement *dans* la machine virtuelle.
 - La sauvegarde Azure prend en charge Azure Disk Encryption, qui utilise BitLocker sur les machines virtuelles Windows et **dm-crypt** sur les machines virtuelles Linux.
 - Sur le back end, Sauvegarde Azure utilise [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), ce qui protège les données au repos.

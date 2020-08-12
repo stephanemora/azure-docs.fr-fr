@@ -3,12 +3,12 @@ title: Remise d’événement avec une identité de service managé
 description: Cet article explique comment activer une identité de service managé pour une rubrique Azure Event Grid. Utilisez-la pour transférer des événements vers des destinations prises en charge.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371258"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534241"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Remise d’événement avec une identité managée
 Cet article explique comment activer une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour des rubriques ou des domaines Azure Event Grid. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 La commande de mise à jour d’un domaine existant est similaire (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-rbac-roles"></a>Destinations et rôles RBAC pris en charge
-Une fois que vous avez activé l’identité pour votre rubrique ou votre domaine Event Grid, Azure crée automatiquement une identité dans Azure Active Directory. Ajoutez cette identité aux rôles de contrôle d’accès en fonction du rôle (RBAC) appropriés afin que la rubrique ou le domaine puisse transférer les événements vers les destinations prises en charge. Par exemple, ajoutez l’identité au rôle **Expéditeur de données Azure Event Hubs** pour un espace de noms Azure Event Hubs pour que la rubrique Event Grid puisse transférer les événements aux hubs d’événements de cet espace de noms. 
+## <a name="supported-destinations-and-azure-roles"></a>Destinations et rôles Azure pris en charge
+Une fois que vous avez activé l’identité pour votre rubrique ou votre domaine Event Grid, Azure crée automatiquement une identité dans Azure Active Directory. Ajoutez cette identité aux rôles Azure appropriés afin que la rubrique ou le domaine puisse transférer des événements vers les destinations prises en charge. Par exemple, ajoutez l’identité au rôle **Expéditeur de données Azure Event Hubs** pour un espace de noms Azure Event Hubs pour que la rubrique Event Grid puisse transférer les événements aux hubs d’événements de cet espace de noms. 
 
 Actuellement, Azure Event Grid prend en charge les rubriques et les domaines configurés avec une identité managée affectée par le système pour transférer les événements vers les destinations suivantes. Ce tableau indique également les rôles à associer à l’identité pour que la rubrique puisse transférer les événements.
 
-| Destination | Rôle RBAC | 
+| Destination | Rôle Azure | 
 | ----------- | --------- | 
 | Files d’attente et rubriques Service Bus | [Expéditeur de données Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Hubs d'événements Azure | [Expéditeur de données Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Stockage Blob Azure | [Contributeur aux données Blob du stockage](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Stockage File d’attente Azure |[Expéditeur de messages de données en file d’attente du stockage](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Stockage Blob Azure | [Contributeur aux données Blob du stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Stockage File d’attente Azure |[Expéditeur de messages de données en file d’attente du stockage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Ajouter une identité à des rôles RBAC sur des destinations
-Cette section décrit comment ajouter l’identité pour votre rubrique ou domaine à un rôle RBAC. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Ajouter une identité à des rôles Azure sur des destinations
+Cette section décrit comment ajouter l’identité pour votre rubrique ou domaine à un rôle Azure. 
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 Vous pouvez utiliser le Portail Azure pour affecter à l’identité de la rubrique ou du domaine un rôle approprié afin que la rubrique ou le domaine puisse transférer les événements vers la destination. 
@@ -94,7 +94,7 @@ L’exemple suivant ajoute une identité managée pour une rubrique Event Grid n
 Les étapes sont similaires pour l’ajout d’une identité à d’autres rôles mentionnés dans le tableau. 
 
 ### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
-L’exemple présenté dans cette section montre comment utiliser Azure CLI pour ajouter une identité à un rôle RBAC. Les exemples de commandes sont destinés aux rubriques Event Grid. Les commandes pour les domaines Event Grid sont similaires. 
+L’exemple présenté dans cette section montre comment utiliser Azure CLI pour ajouter une identité à un rôle Azure. Les exemples de commandes sont destinés aux rubriques Event Grid. Les commandes pour les domaines Event Grid sont similaires. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtenir l’ID du principal pour l’identité système de la rubrique 
 Tout d’abord, récupérez l’ID du principal de l’identité managée par le système de la rubrique et attribuez l’identité aux rôles appropriés.

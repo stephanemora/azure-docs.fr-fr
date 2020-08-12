@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 75badd5b6c26938c5c6b02be331fe697bebe050d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103787"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809487"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connecter des machines hybrides à Azure à grande échelle
 
@@ -76,7 +76,7 @@ Le rôle **Intégration Azure Connected Machine** contient uniquement les autori
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installer l’agent et le connecter à Azure
 
-Les étapes suivantes installent et configurent l’agent Connected Machine sur vos machines hybrides à l’aide du modèle de script, qui effectue les mêmes étapes que celles décrites dans l’article [Connecter des machines hybrides à Azure à partir du Portail Azure](onboard-portal.md). La différence réside dans la dernière étape où vous établissez la connexion à Azure Arc à l’aide de la commande `azcmagent` et du principal de service. 
+Les étapes suivantes installent et configurent l’agent Connected Machine sur vos machines hybrides à l’aide du modèle de script, qui effectue les mêmes étapes que celles décrites dans l’article [Connecter des machines hybrides à Azure à partir du Portail Azure](onboard-portal.md). La différence réside dans la dernière étape où vous établissez la connexion à Azure Arc à l’aide de la commande `azcmagent` et du principal de service.
 
 Voici les paramètres que vous configurez à l’aide de la commande `azcmagent` utilisée pour le principal du service.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Le script ne prend en charge que l’exécution à partir d’une version 64 bits de Windows PowerShell.
+>
+
 ### <a name="linux-installation-script"></a>Script d’installation Linux
 
 Voici un exemple du script d’installation de l’agent Connected Machine pour Linux qui a été modifié pour utiliser le principal du service afin de prendre en charge une installation entièrement automatisée et non interactive de l’agent.
@@ -131,12 +135,15 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
+
 Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc pour serveurs (préversion), accédez au portail Azure pour vérifier que le serveur a été correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) et bien plus encore.
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
 
 - En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-intro.md).

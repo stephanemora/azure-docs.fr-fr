@@ -1,6 +1,6 @@
 ---
 title: Bien démarrer - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft
-description: Il s’agit d’une vue d’ensemble plus approfondie qui met en évidence l’outil de modélisation des menaces en action.
+description: Découvrez comment commencer à utiliser Threat Modeling Tool. Créez un diagramme, identifiez des menaces, atténuez des menaces et validez chaque atténuation.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728310"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539898"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 

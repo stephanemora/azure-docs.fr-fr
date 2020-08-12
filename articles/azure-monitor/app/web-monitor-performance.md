@@ -4,12 +4,12 @@ description: Prise en main d'Application Insights. Analyze usage, availability a
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985063"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323449"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
@@ -23,10 +23,10 @@ Côté client, Application Insights peut récupérer les données télémétriqu
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configurer la surveillance des performances
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
-* [Applications web ASP.NET](../../azure-monitor/app/asp-net.md)
-  * [Ajout de la surveillance des exceptions](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Ajout de la surveillance des dépendances](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Applications web Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Applications web ASP.NET](./asp-net.md)
+  * [Ajout de la surveillance des exceptions](./asp-net-exceptions.md)
+  * [Ajout de la surveillance des dépendances](./monitor-performance-live-website-now.md)
+* [Applications web Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Exploration des mesures de performances
 Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
@@ -61,15 +61,15 @@ Recherchez les pics inhabituels. En règle générale, il est normal que le temp
 
 Cliquez sur la vignette pour obtenir les temps des URL spécifiées.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Capture d’écran du volet Intégrité de l’application, qui affiche des graphiques linéaires dans le temps relatifs aux moyennes mobiles des demandes et des temps de réponse.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Demandes les plus lentes
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Capture d’écran d’une liste des demandes les plus lentes et de leurs temps de réponse.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Indique les demandes dont les performances doivent probablement être améliorées.
 
 ### <a name="failed-requests"></a>Demandes ayant échoué
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![Capture d’écran d’un graphique linéaire dans le temps relatif au nombre de demandes ayant échoué ; autrement dit, les demandes qui ont levé des exceptions non interceptées.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Décompte des demandes qui ont généré des exceptions non interceptées.
 
@@ -87,7 +87,7 @@ La sélection d’une métrique désactive celles qui ne peuvent pas s’affiche
 ## <a name="set-alerts"></a>Définir des alertes
 Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Capture d’écran de la boîte de dialogue Ajouter une règle d’alerte, ainsi que des captures d’écran reliées par des flèches qui montrent comment accéder à cette boîte de dialogue à partir de Metrics Explorer.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Définissez la ressource avant les autres propriétés. Ne choisissez pas les ressources de test web si vous souhaitez définir des alertes pour les métriques de performances ou d'utilisation.
 
@@ -106,7 +106,7 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Rechercher et corriger les goulots d’étranglement avec une expérience d'analyse des performances
 
-Vous pouvez utiliser l’expérience d’analyse des performances d’Application Insights pour examiner les opérations qui s’exécutent lentement dans votre application web. Vous pouvez sélectionner rapidement une opération lente spécifique et utiliser le [profileur](../../azure-monitor/app/profiler.md) pour analyser les causes profondes du ralentissement jusqu’au niveau du code. À l’aide de la nouvelle distribution de durée indiquée pour l’opération sélectionnée, vous pouvez en un clin d’œil évaluer la gravité du problème pour vos clients. Vous pouvez voir le nombre des interactions utilisateur qui sont concernées pour chaque opération lente. Dans l’exemple suivant, nous avons décidé d’observer de plus près l’environnement pour l’opération GET Customers/Details. Dans la distribution de la durée, nous constatons que trois pics sont visibles. Celui de gauche indique environ 400 ms et correspond à un environnement présentant une bonne réactivité. Le pic du milieu indique environ 1,2 s et représente un environnement médiocre. Enfin, à 3,6 s, une autre petite pointe représente l’environnement au 99e centile, susceptible de causer l’insatisfaction de nos clients. Cet environnement est dix fois plus lent que l’environnement avancé pour la même opération. 
+Vous pouvez utiliser l’expérience d’analyse des performances d’Application Insights pour examiner les opérations qui s’exécutent lentement dans votre application web. Vous pouvez sélectionner rapidement une opération lente spécifique et utiliser le [profileur](./profiler.md) pour analyser les causes profondes du ralentissement jusqu’au niveau du code. À l’aide de la nouvelle distribution de durée indiquée pour l’opération sélectionnée, vous pouvez en un clin d’œil évaluer la gravité du problème pour vos clients. Vous pouvez voir le nombre des interactions utilisateur qui sont concernées pour chaque opération lente. Dans l’exemple suivant, nous avons décidé d’observer de plus près l’environnement pour l’opération GET Customers/Details. Dans la distribution de la durée, nous constatons que trois pics sont visibles. Celui de gauche indique environ 400 ms et correspond à un environnement présentant une bonne réactivité. Le pic du milieu indique environ 1,2 s et représente un environnement médiocre. Enfin, à 3,6 s, une autre petite pointe représente l’environnement au 99e centile, susceptible de causer l’insatisfaction de nos clients. Cet environnement est dix fois plus lent que l’environnement avancé pour la même opération. 
 
 ![Pics de durée de trois GET clients/détails](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,15 +142,13 @@ L’expérience d’analyse des performances montre des informations pertinentes
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
+[qna]: ../faq.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
 

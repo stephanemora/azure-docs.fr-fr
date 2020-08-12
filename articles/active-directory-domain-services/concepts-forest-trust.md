@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040331"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480643"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Fonctionnement des relations d’approbation pour les forêts de ressources dans Azure Active Directory Domain Services
 
@@ -280,7 +280,7 @@ Les administrateurs peuvent utiliser *Domaines et approbations Active Directory*
 
 Pour en savoir plus sur les forêts de ressources, consultez [Fonctionnement des approbations de forêt dans Azure AD DS][concepts-trust]
 
-Pour prendre en main la création d’un domaine managé avec une forêt de ressources, consultez [Créer et configurer un domaine managé Azure AD DS][tutorial-create-advanced]. Vous pouvez ensuite [Créer une approbation de forêt sortante vers un domaine local (préversion)][create-forest-trust].
+Pour prendre en main la création d’un domaine managé avec une forêt de ressources, consultez [Créer et configurer un domaine managé Azure AD DS][tutorial-create-advanced]. Vous pouvez ensuite [créer une approbation de forêt sortante vers un domaine local][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

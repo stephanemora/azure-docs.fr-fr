@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260693"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761159"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -318,7 +319,12 @@ Les détails de la progression de l’index affichent le pourcentage de progress
 
 Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan**, les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
 
-Lorsque vous ajoutez un nouvel index, les requêtes l’utilisent immédiatement. Cela signifie que les requêtes peuvent ne pas retourner tous les résultats de correspondance et qu’elles ne retourneront pas d’erreurs pour les résultats manquants. Une fois la transformation d’index effectuée, les résultats de requête sont cohérents. Vous pouvez [suivre la progression de l’index](#track-index-progress).
+Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout d’un nouvel index. Les requêtes utilisent uniquement les nouveaux index une fois la transformation d’index terminée. Pendant la transformation d’index, le moteur de requête continue d’utiliser les index existants, ce qui vous permet d’observer des performances de lecture similaires pendant la transformation d’indexation à ce que vous aviez observé avant de lancer la modification de l’indexation. Lors de l’ajout de nouveaux index, il n’y a pas non plus de risque de résultats de requête incomplets ou incohérents.
+
+Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes, il y a des filtres sur les index supprimés, les résultats peuvent être incohérents et incomplets jusqu’à la fin de la transformation d’index. Si vous supprimez des index, le moteur de requête ne garantit pas de résultats cohérents ou complets lorsque les requêtes appliquent des filtres sur ces index récemment supprimés. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
+
+> [!NOTE]
+> Vous pouvez [suivre la progression de l’index](#track-index-progress).
 
 ## <a name="migrate-collections-with-indexes"></a>Migrer des collections avec des index
 

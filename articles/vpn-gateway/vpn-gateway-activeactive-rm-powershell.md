@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: d6a28922aca7105d90e6c8662986b68c90804481
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387589"
+ms.locfileid: "87419901"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
-Cet article vous guide dans les étapes de création de connexions intersites en mode actif/actif, et de connexions de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell.
-
-
+Cet article vous guide dans les étapes de création de connexions intersites en mode actif/actif, et de connexions de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell. Vous pouvez également configurer une passerelle active-active dans le portail Azure.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>À propos des connexions intersites hautement disponibles
 Pour obtenir une haute disponibilité des connexions intersites et de réseau virtuel à réseau virtuel, vous devez déployer plusieurs passerelles VPN, et établir plusieurs connexions parallèles entre vos réseaux et Azure. Pour une vue d’ensemble des options de connectivité et de topologie, voir [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](vpn-gateway-highlyavailable.md).
@@ -49,11 +47,19 @@ Les autres propriétés sont les mêmes que celles des passerelles en mode actif
 
 ### <a name="before-you-begin"></a>Avant de commencer
 * Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Vous aurez besoin d’installer les applets de commande PowerShell Azure Resource Manager. Consultez [Présentation d’Azure PowerShell](/powershell/azure/) pour plus d’informations sur l’installation des applets de commande PowerShell.
+* Si vous ne souhaitez pas utiliser CloudShell dans votre navigateur, vous devrez installer les cmdlets PowerShell pour Azure Resource Manager. Consultez [Présentation d’Azure PowerShell](/powershell/azure/) pour plus d’informations sur l’installation des applets de commande PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Étape 1 – Créer et configurer le réseau virtuel VNet1
 #### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
-Dans cet exercice, nous allons commencer par déclarer les variables. L’exemple suivant déclare les variables avec les valeurs de cet exercice. Veillez à les remplacer par vos valeurs lors de la configuration dans un contexte de production. Vous pouvez utiliser ces variables si vous exécutez la procédure pour vous familiariser avec ce type de configuration. Modifiez les variables, puis copiez et collez-les dans la console PowerShell.
+
+Dans cet exercice, nous allons commencer par déclarer les variables. Si vous utilisez le bouton « Essayer » pour ouvrir Cloud Shell, vous vous connecterez automatiquement à votre compte. Si vous utilisez PowerShell localement, utilisez l’exemple suivant pour faciliter votre connexion :
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $Sub1
+```
+
+L’exemple suivant déclare les variables avec les valeurs de cet exercice. Veillez à les remplacer par vos valeurs lors de la configuration dans un contexte de production. Vous pouvez utiliser ces variables si vous exécutez la procédure pour vous familiariser avec ce type de configuration. Modifiez les variables, puis copiez et collez-les dans la console PowerShell.
 
 ```azurepowershell-interactive
 $Sub1 = "Ross"
@@ -80,14 +86,11 @@ $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Se connecter à votre abonnement et créer un groupe de ressources
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+#### <a name="2-create-a-new-resource-group"></a>2. Création d’un groupe de ressources
 
-Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+Utilisez l’exemple ci-dessous pour créer un nouveau groupe de ressources :
 
 ```azurepowershell-interactive
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
@@ -368,11 +371,11 @@ Une fois ces étapes terminées, la connexion s’établit en quelques minutes, 
 
 ## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Mise à jour d’une passerelle VPN existante
 
-La section vous aide à configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement.
+Lorsque vous transformez une passerelle de type actif/passif en passerelle de type actif/actif, vous créez une autre adresse IP publique, puis ajoutez une deuxième configuration IP de la passerelle. Cette section vous aide à configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement, à l’aide de PowerShell. Vous pouvez également modifier une passerelle dans le portail Azure sur la page **Configuration** de votre passerelle de réseau virtuel.
 
 ### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Transformer une passerelle en mode actif/passif en passerelle en mode actif/actif
 
-L’exemple suivant convertit une passerelle en mode actif/passif en passerelle en mode actif/actif. Lorsque vous transformez une passerelle de type actif/passif en passerelle de type actif/actif, vous créez une autre adresse IP publique, puis ajoutez une deuxième configuration IP de la passerelle.
+L’exemple suivant convertit une passerelle en mode actif/passif en passerelle en mode actif/actif. 
 
 #### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419833"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -34,9 +34,11 @@ Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des 
 
 ![Flux de code d’authentification OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Configuration requise pour des applications monopages
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Configuration de l’URI de redirection requise pour les applications monopages
 
-Le flux de code d’autorisation pour des applications monopages requiert une configuration supplémentaire.  Pendant que vous [créez votre application](howto-create-service-principal-portal.md), vous devez marquer l’URI de redirection de votre application en tant qu’URI de redirection `spa`. Ainsi, le serveur de connexion active la fonctionnalité de partage des ressources cross-origin (CORS, Cross Origin Resource Sharing) pour votre application.  Cela est nécessaire pour échanger le code à l’aide de XHR.
+Le flux de code d’autorisation pour des applications monopages requiert une configuration supplémentaire.  Suivez les instructions permettant de [créer votre application monopage](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) pour marquer correctement votre URI de redirection comme étant activé pour CORS. Afin de mettre à jour un URI de redirection existant pour activer CORS, ouvrez l’éditeur de manifeste et définissez le champ `type` de votre URI de redirection sur `spa` dans la section `replyUrlsWithType`. Vous pouvez également cliquer sur l’URI de redirection dans la section « Web » de l’onglet Authentification, puis sélectionner les URI vers lesquels vous souhaitez migrer en utilisant le flux de code d’autorisation.
+
+Le type de redirection `spa` est rétrocompatible avec le flux implicite. Les applications qui utilisent actuellement le flux implicite pour obtenir des jetons peuvent passer au type d’URI de redirection `spa` sans problème et continuer à utiliser le flux implicite.
 
 Si vous tentez d’utiliser le flux de code d’autorisation et voyez le message d’erreur suivant :
 
@@ -159,7 +161,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | Obligatoire   | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | Obligatoire  | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `grant_type` | Obligatoire   | Doit être `authorization_code` pour le flux de code d'autorisation.   |
-| `scope`      | Obligatoire   | Une liste d’étendues séparées par des espaces. Les étendues demandées dans ce tronçon doivent être équivalentes aux étendues demandées dans le premier tronçon, ou correspondre à un sous-ensemble de ces dernières. Les étendues doivent toutes être issues d’une seule ressource, ainsi que les étendues OIDC (`profile`, `openid`, `email`). Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). |
+| `scope`      | facultatif   | Liste d’étendues séparées par des espaces. Les étendues doivent toutes être issues d’une seule ressource, ainsi que les étendues OIDC (`profile`, `openid`, `email`). Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). Il s’agit d’une extension Microsoft au flux de code d’autorisation, conçue pour permettre aux applications de déclarer la ressource pour laquelle elles souhaitent obtenir le jeton pendant l’échange de jetons.|
 | `code`          | Obligatoire  | Le code d’autorisation acquis dans le premier tronçon du flux. |
 | `redirect_uri`  | Obligatoire  | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
 | `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Le secret du client doit être codé en URL avant d’être envoyé. Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
@@ -185,9 +187,9 @@ Une réponse de jeton réussie se présente ainsi :
 | `access_token`  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web.  |
 | `token_type`    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
 | `expires_in`    | La durée de validité (en secondes) du jeton d’accès. |
-| `scope`         | L’étendue de validité du jeton d’accès. |
+| `scope`         | L’étendue de validité du jeton d’accès. Facultatif : il s’agit d’un jeton non standard et, s’il est omis, le jeton sera destiné aux étendues demandées sur la branche initiale du flux. |
 | `refresh_token` | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. Pour plus d’informations sur l’actualisation d’un jeton d’accès, reportez-vous à la [section ci-dessous](#refresh-the-access-token). <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée. |
-| `id_token`      | Un JSON Web Token (JWT). L’application peut décoder les segments de ce jeton, afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur id_tokens, consultez [`id_token reference`](id-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
+| `id_token`      | Un JSON Web Token (JWT). L’application peut décoder les segments de ce jeton, afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, et les clients confidentiels peuvent s’en servir pour obtenir une autorisation. Pour en savoir plus sur id_tokens, consultez [`id_token reference`](id-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
 
 ### <a name="error-response"></a>Réponse d’erreur
 
@@ -225,11 +227,12 @@ Les réponses d’erreur se présentent comme suit :
 | `invalid_client` | Échec d’authentification du client.  | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification.   |
 | `unsupported_grant_type` | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
 | `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  |
-| `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource.  |
-| `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+| `interaction_required` | Non standard, car la spécification OIDC l’appelle uniquement sur le point de terminaison `/authorize`. La requête nécessite une interaction avec l’utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la requête `/authorize` avec les mêmes étendues. |
+| `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête après un petit délai. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+|`consent_required` | La requête nécessite le consentement de l’utilisateur. Cette erreur n’est pas standard, car elle est généralement retournée uniquement sur le point de terminaison `/authorize` conformément aux spécifications OIDC. Retournée lorsqu’un paramètre `scope` a été utilisé sur le flux d’échange de code et que l’application cliente n’a pas l’autorisation d’en faire la demande.  | Le client doit renvoyer l’utilisateur au point de terminaison `/authorize` avec l’étendue correcte afin de déclencher le consentement. |
 
 > [!NOTE]
-> Les applications monopages peuvent recevoir un message d’erreur `invalid_request` indiquant qu’un échange de jetons cross-origin n’est autorisé que pour le type de client « application monopage ».  Cela indique que l’URI de redirection utilisé pour demander le jeton n’a pas été marqué comme URI de redirection de `spa`.  Pour voir comment activer ce flux, examinez les [étapes d’inscription d’application](#setup-required-for-single-page-apps).
+> Les applications monopages peuvent recevoir un message d’erreur `invalid_request` indiquant qu’un échange de jetons cross-origin n’est autorisé que pour le type de client « application monopage ».  Cela indique que l’URI de redirection utilisé pour demander le jeton n’a pas été marqué comme URI de redirection de `spa`.  Pour voir comment activer ce flux, examinez les [étapes d’inscription d’application](#redirect-uri-setup-required-for-single-page-apps).
 
 ## <a name="use-the-access-token"></a>Utiliser le jeton d’accès
 

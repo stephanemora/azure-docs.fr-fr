@@ -1,6 +1,6 @@
 ---
-title: Comment configurer l’authentification unique par mot de passe pour des applications Azure AD | Microsoft Docs
-description: Comment configurer l’authentification unique par mot de passe (SSO) sur vos applications d’entreprise Azure AD dans la plateforme d’identité Microsoft (Azure AD)
+title: Comment configurer l’authentification unique par mot de passe pour des applications Azure AD
+description: Comment configurer l’authentification unique (SSO) par mot de passe sur vos applications Azure AD dans Plateforme d’identités Microsoft (Azure AD)
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,60 +8,56 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/10/2019
+ms.date: 07/29/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763497"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459383"
 ---
-# <a name="configure-password-single-sign-on"></a>Configurer l’authentification unique par mot de passe
+# <a name="configure-password-based-single-sign-on"></a>Configurer l’authentification unique par mot de passe
 
-Lorsque vous [ajoutez une application galerie](add-gallery-app.md) ou une [application web non galerie](add-non-gallery-app.md) à vos applications d'entreprise Azure AD, l'une des options de connexion unique disponibles est [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso). Cette option est disponible pour tout site web doté d’une page de connexion HTML. L'authentification unique basée sur un mot de passe, également appelée  archivage de mot de passe, vous permet de gérer l'accès utilisateur et les mots de passe pour les applications Web qui ne prennent pas en charge la fédération d'identité. Elle est également utile dans les scénarios où plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de médias sociaux de votre organisation. 
+Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Dans le guide de démarrage rapide, vous configurez l’authentification unique SAML. Une autre option est l’authentification unique par mot de passe. Cet article décrit plus en détail l’option d’authentification unique par mot de passe. 
+
+Cette option est disponible pour tout site web doté d’une page de connexion HTML. L’authentification unique par mot de passe est également connue sous le nom d’archivage des mots de passe. L’authentification unique par mot de passe vous permet de gérer l’accès utilisateur et les mots de passe pour les applications web qui ne prennent pas en charge la fédération d’identité. Elle est également utile lorsque plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de réseaux sociaux de votre organisation.
 
 L’authentification unique par mot de passe (SSO) est un excellent moyen pour commencer à intégrer rapidement des applications dans Azure AD et vous permet d’effectuer les opérations suivantes :
 
--   activer **l’authentification unique pour vos utilisateurs** par le stockage et la relecture en toute sécurité des noms d’utilisateur et mots de passe pour l’application que vous avez intégrée à Azure AD ;
+- activer l’authentification unique pour vos utilisateurs par le stockage et la relecture en toute sécurité des noms d’utilisateur et mots de passe ;
 
--   **prendre en charge les applications qui requièrent plusieurs champs de connexion** pour les applications qui requièrent plus que les champs de nom d’utilisateur et de mot de passe pour la connexion ;
+- prendre en charge les applications qui requièrent plusieurs champs de connexion pour les applications qui demandent d’autres champs en plus du nom d’utilisateur et du mot de passe pour la connexion ;
 
--   **personnaliser les étiquettes** des champs d’entrée de nom d’utilisateur et de mot de passe que vos utilisateurs voient dans le [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) lorsqu’ils entrent leurs informations d’identification ;
+- personnaliser les étiquettes des champs de nom d’utilisateur et de mot de passe que vos utilisateurs voient dans le [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) lorsqu’ils entrent leurs informations d’identification ;
 
--   autoriser vos **utilisateurs** à fournir leurs propres noms d’utilisateur et mots de passe de tout compte d’application existant qu’ils saisissent manuellement dans le [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ;
+- autoriser vos utilisateurs à fournir leurs propres noms d’utilisateur et mots de passe de tout compte d’application existant qu’ils saisissent manuellement ;
 
--   autoriser un **membre du groupe d’entreprise** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité [Accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) ;
+- autoriser un membre du groupe d’entreprise à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité [Accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) ;
 
--   Autoriser un **administrateur** à spécifier un nom d'utilisateur et un mot de passe à utiliser par des individus ou des groupes lors de la connexion à l'application à l’aide de la fonctionnalité Mettre à jour les informations d'identification 
+-   autoriser un administrateur à spécifier un nom d’utilisateur et un mot de passe à utiliser par des individus ou des groupes lors de la connexion à l’application à l’aide de la fonctionnalité Mettre à jour les informations d’identification. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application figurant dans la galerie](add-gallery-app.md) ou [Ajouter une application ne figurant pas dans la galerie](add-non-gallery-app.md).
+L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée et que vous devez utiliser l’authentification unique par mot de passe, cet article vous concerne.
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Ouvrir l'application et sélectionner l’authentification unique par mot de passe
+> [!IMPORTANT] 
+> Dans certains cas, l’option **Authentification unique** n’est pas accessible pour une application sous **Applications d’entreprise**. 
+>
+> Si l’application a été inscrite à l’aide d’**Inscriptions d’applications**, la fonctionnalité d’authentification unique est configurée pour utiliser OIDC OAuth par défaut. Dans ce cas, l’option **Authentification unique** ne s’affiche pas dans le volet de navigation sous **Applications d’entreprise**. Quand vous utilisez **inscriptions d’applications** pour ajouter votre application personnalisée, vous configurez les options dans le fichier du manifeste. Pour en savoir plus sur le fichier manifeste, consultez [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Pour en savoir plus sur les standards SSO, consultez [Authentification et autorisation avec la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> D’autres scénarios dans lesquels **l’authentification unique** sera absente de la navigation incluent les cas où une application est hébergée dans un autre locataire ou si votre compte ne dispose pas des autorisations requises (administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service). Les autorisations peuvent également être à l’origine d’un scénario dans lequel vous pouvez ouvrir **l’authentification unique**, mais vous ne pourrez pas l’enregistrer. En savoir plus sur les rôles d’administration d’Azure AD voir (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’application cloud ou administrateur d’application pour votre locataire Azure AD.
 
-2. Accédez à **Azure Active Directory** > **Applications d’entreprise**. Un échantillon aléatoire des applications dans votre locataire Azure AD s’affiche. 
+## <a name="basic-configuration"></a>Configuration de base
 
-3. Dans le menu **Type d’Application**, sélectionnez **Toutes les Applications**, puis sélectionnez **Appliquer**.
+Dans la [série d’articles de démarrage rapide](view-applications-portal.md), vous avez appris à ajouter une application à votre locataire, ce qui permet à Azure AD de savoir qu’il est utilisé comme fournisseur d’identité (IdP) pour l’application. Certaines applications sont déjà préconfigurées et s’affichent dans la galerie d’Azure AD. Les autres applications ne sont pas dans la galerie : vous devez créer une application générique et la configurer manuellement. Selon l’application, l’option d’authentification unique par mot de passe peut ne pas être disponible. Si vous ne voyez pas l’option par mot de passe répertoriée sur la page d’authentification unique de l’application, cela signifie qu’elle n’est pas disponible.
 
-4. Entrez le nom de l’application dans la zone de recherche, puis sélectionnez l’application dans les résultats.
+La page de configuration de l’authentification unique par mot de passe est simple. Elle comprend uniquement l’URL de la page d’authentification utilisée par l’application. Il doit s’agir de la page qui contient le champ d’entrée du nom d’utilisateur.
 
-5. Sous la section **Gérer**, sélectionnez **Authentification unique**. 
-
-6. Sélectionnez **Par mot de passe**.
-
-7. Saisissez l'URL de la page de connexion web de l'application. Il doit s’agir de la page qui contient le champ d’entrée du nom d’utilisateur.
-
-   ![Authentification unique par mot de passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
-
-8. Sélectionnez **Enregistrer**. Azure AD tente d’analyser la page de connexion à la recherche d’entrées de nom d’utilisateur et de mot de passe. Si la tentative réussit, vous avez terminé. 
+Une fois que vous avez entré l’URL, sélectionnez **Enregistrer**. Azure AD analyse le code HTML de la page de connexion pour les champs d’entrée du nom d’utilisateur et du mot de passe. Si la tentative réussit, vous avez terminé.
  
-> [!NOTE]
-> La prochaine étape consiste à [affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md). Après avoir affecté des utilisateurs et des groupes, vous pouvez fournir des informations d'identification à utiliser pour le compte d'un utilisateur lorsqu'il se connecte à l'application. Sélectionnez **Utilisateurs et groupes**, cochez la case de la ligne de l'utilisateur ou du groupe, puis cliquez sur **Mettre à jour les informations d'identification**. Ensuite, entrez le nom d'utilisateur et le mot de passe à utiliser pour le compte de l'utilisateur ou du groupe. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
+La prochaine étape consiste à [affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md). Après avoir affecté des utilisateurs et des groupes, vous pouvez fournir des informations d’identification à utiliser pour un utilisateur lorsqu’il se connecte à l’application. Sélectionnez **Utilisateurs et groupes**, cochez la case pour la ligne de l’utilisateur ou du groupe, puis sélectionnez **Mettre à jour les informations d’identification**. Enfin, entrez le nom d’utilisateur et le mot de passe à utiliser pour l’utilisateur ou le groupe. Si vous ne le faites pas, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
  
 
 ## <a name="manual-configuration"></a>Configuration manuelle
@@ -86,11 +82,6 @@ Si la tentative d'analyse Azure AD échoue, vous pouvez configurer l’authentif
 7. Dans la page Azure AD **Configurer l’authentification**, sélectionnez **J’ai pu me connecter à l’application**.
 
 8. Sélectionnez **OK**.
-
-Après la capture de la page de connexion, vous pouvez affecter des utilisateurs et des groupes, et vous pouvez configurer des stratégies d’informations d’identification comme pour les [applications avec authentification unique par mot de passe](what-is-single-sign-on.md) standard.
-
-> [!NOTE]
-> Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

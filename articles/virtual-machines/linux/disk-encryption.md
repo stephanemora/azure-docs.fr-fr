@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502722"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449144"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -31,7 +31,7 @@ Les sections suivantes décrivent en détail chacune des options de gestion des 
 
 ### <a name="platform-managed-keys"></a>Clés gérées par la plateforme
 
-Par défaut, les disques managés utilisent des clés de chiffrement gérées par la plateforme. À compter du 10 juin 2017, l’ensemble des nouveaux disques managés, des instantanés et des images ainsi que les nouvelles données écrites sur des disques managés existants sont automatiquement chiffrés au repos avec des clés gérées par les plateformes.
+Par défaut, les disques managés utilisent des clés de chiffrement gérées par la plateforme. L’ensemble des nouveaux disques managés, des instantanés et des images ainsi que les données écrites sur des disques managés existants sont automatiquement chiffrés au repos avec des clés gérées par les plateformes.
 
 ### <a name="customer-managed-keys"></a>Clés gérées par le client
 
@@ -80,8 +80,7 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activez de bout en bout qui utilise le chiffrement à l’hôte - CLI](disks-enable-host-based-encryption-cli.md)
-- [Activez le double chiffrement au repos pour les disques managés - CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [Activez les clés gérées par le client pour les disques managés - CLI](disks-enable-customer-managed-keys-cli.md)
-- [Activez les clés gérées par le client pour des disques managés - portail](disks-enable-customer-managed-keys-portal.md)
+- Activez le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [CLI](disks-enable-host-based-encryption-cli.md) ou le [portail Azure](disks-enable-host-based-encryption-portal.md).
+- Activez le double chiffrement au repos pour les disques managés avec [CLI](disks-enable-double-encryption-at-rest-cli.md) ou le [portail Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Activez les clés gérées par le client pour les disques managés avec [CLI](disks-enable-customer-managed-keys-cli.md) ou le [portail Azure](disks-enable-customer-managed-keys-portal.md).
 - [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)

@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484020"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027697"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
-Pour personnaliser l’expérience de l’utilisateur final avec Azure Multi-Factor Authentication (MFA), vous pouvez configurer des options pour les paramètres tels que les seuils de verrouillage de compte, les alertes de fraude et les notifications. Certains paramètres se trouvent dans le portail Azure pour Azure Active Directory (Azure AD), et d’autres dans un portail Azure Multi-Factor Authentication distinct.
+Pour personnaliser l’expérience de l’utilisateur final avec Azure Multi-Factor Authentication (MFA), vous pouvez configurer des options pour les paramètres tels que les seuils de verrouillage de compte, les alertes de fraude et les notifications. Certains paramètres se trouvent dans le portail Azure pour Azure Active Directory (Azure AD), et d’autres dans un portail Azure Multi-Factor Authentication distinct.
 
 Les paramètres d’Azure Multi-Factor Authentication suivants sont disponibles dans le portail Azure :
 

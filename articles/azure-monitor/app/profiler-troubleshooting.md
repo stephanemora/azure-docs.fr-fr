@@ -6,18 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049780"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
-## <a name="active-issues"></a>Problèmes actifs
-
-* Le profilage des applications ASP.NET Core 3.x est désormais pris en charge sur Azure App Service.
+> [!CAUTION]
+> Il existe un bogue qui exécute le profileur pour les applications ASP.NET Core sur Azure App Service. Nous avons un correctif, mais cela prendra quelques semaines pour le déployer à l’échelle mondiale. Vous pouvez contourner le bogue en ajoutant le Kit de développement logiciel (SDK) Application Insights à votre application en suivant les instructions [ici](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Résolution de problèmes générale
 
@@ -76,7 +75,7 @@ Pour que Profiler fonctionne correctement :
 
 
 * La tâche web **ApplicationInsightsProfiler3** doit être en cours d’exécution. Pour vérifier le tâche web :
-   1. Accédez à [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. Accédez à [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret).
    1. Dans le menu **Outils**, sélectionnez **Tableau de bord WebJobs**.  
       Le volet **WebJobs** s’ouvre. 
    
@@ -194,11 +193,3 @@ Si votre application se connecte à Internet via un proxy ou un pare-feu, il se 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-

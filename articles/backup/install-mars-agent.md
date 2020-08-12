@@ -3,12 +3,12 @@ title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855228"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533476"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -42,10 +42,10 @@ Les données qui sont disponibles pour la sauvegarde dépendent de là où est i
 
 ## <a name="modify-storage-replication"></a>Modifier la réplication du stockage
 
-Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md).
 
 * Si le coffre est votre principal mécanisme de sauvegarde, nous vous suggérons d’utiliser l’option GRS.
-* Vous pouvez utiliser le [stockage localement redondant (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour réduire les coûts de stockage Azure.
+* Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) pour réduire les coûts de stockage Azure.
 
 Modifiez le type de réplication de stockage :
 
@@ -95,7 +95,7 @@ Pour utiliser le peering Microsoft, sélectionnez les services, les régions et 
 * Région Azure, en fonction de la localisation de votre coffre Recovery Services
 * Stockage Azure, en fonction de la localisation de votre coffre Recovery Services
 
-Pour plus d’informations, consultez [Exigences du routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Le peering public est déprécié pour les nouveaux circuits.
@@ -155,7 +155,7 @@ Si vous avez déjà installé l’agent sur des machines, veillez à exécuter l
 
     ![Ajouter des informations d’identification de coffre à l’aide de l’Assistant Inscription de serveur](./media/backup-configure-vault/register1.png)
 
-1. Dans la page **Paramètre de chiffrement**, spécifiez une phrase secrète pour chiffrer et déchiffrer les sauvegardes de la machine.
+1. Dans la page **Paramètre de chiffrement**, spécifiez une phrase secrète pour chiffrer et déchiffrer les sauvegardes de la machine. Pour plus d’informations sur les caractères de phrase secrète autorisés, [voyez ici](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase).
 
     * Enregistrez la phrase secrète dans un emplacement sécurisé. Il vous sera nécessaire pour restaurer une sauvegarde.
     * En cas de perte ou d’oubli de la phrase secrète, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde.

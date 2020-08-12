@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 20372d9584becf18c65e13c81b99403ce88d27e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567325"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460131"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Groupes IP dans une stratégie de Pare-feu Azure
 
@@ -66,43 +66,7 @@ Vous pouvez maintenant sélectionner **Groupe IP** comme **Type source** ou **T
 
 ## <a name="ip-address-limits"></a>Limites d'adresses IP
 
-Pour 50 groupes IP ou moins : vous pouvez disposer d'un maximum de maximum 5 000 adresses IP individuelles par instance de pare-feu. Pour 51 à 100 groupes IP, vous pouvez disposer de 500 adresses IP individuelles par instance de pare-feu.
-
-### <a name="examples"></a>Exemples
-
-#### <a name="example-1-supported"></a>Exemple 1 : pris en charge
-
-|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 à 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**Total 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>Exemple 2 : pris en charge
-
-|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**Total 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>Exemple 3 : non pris en charge
-
-|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
-|---------|---------|---------|---------|
-|IPGroup1 |8 192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**Total 8192**|||
-
-#### <a name="example-4-supported"></a>Exemple 4 : pris en charge
-
-|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule2|
-|     |**Total 8192**|         |         |
-
+Vous pouvez avoir un maximum de 100 groupes d’adresses IP par pare-feu avec un maximum de 5 000 adresses IP ou préfixes IP individuels par groupe d’adresses IP.
 
 ## <a name="related-azure-powershell-cmdlets"></a>Cmdlets Azure PowerShell connexes
 

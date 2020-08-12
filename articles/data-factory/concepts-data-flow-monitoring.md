@@ -1,19 +1,19 @@
 ---
-title: Supervision visuelle du flux de données de mappage
-description: Comment superviser visuellement les flux de données d’Azure Data Factory
+title: Supervision des flux de données de mappage
+description: Guide pratique pour superviser visuellement les flux de données de mappage dans Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958892"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475547"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -27,7 +27,7 @@ Lors de l’exécution de votre pipeline, vous pouvez superviser celui-ci ainsi 
 
 À ce niveau, vous voyez également des statistiques, notamment l’état et le temps d’exécution. L’ID d’exécution au niveau d’une activité diffère de celui au niveau du pipeline. L’ID d’exécution au niveau précédent a trait au pipeline. En cliquant sur les lunettes, vous pouvez obtenir des informations détaillées sur l’exécution de votre flux de données.
 
-![Supervision du flux de données](media/data-flow/mon002.png "Supervision du flux de données")
+![Supervision du flux de données](media/data-flow/monitoring-details.png "Supervision du flux de données")
 
 Dans l’affichage de surveillance des nœuds sous forme graphique, vous pouvez voir une version simplifiée en lecture seule de votre graphique de flux de données.
 

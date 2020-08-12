@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023582"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542634"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Le processus de rotation de votre clé principale est simple.
 
 ### <a name="code-sample-to-use-a-master-key"></a>Exemple de code pour utiliser une clé principale
 
-L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Azure Cosmos DB pour instancier un DocumentClient et créer une base de données.
+L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Cosmos DB pour instancier un DocumentClient et créer une base de données :
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -69,6 +69,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Azure Cosmos DB pour instancier un objet `CosmosClient` :
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="resource-tokens"></a>Jetons de ressource <a id="resource-tokens"></a>
 

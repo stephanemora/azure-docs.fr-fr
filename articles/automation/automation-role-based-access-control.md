@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279880"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528666"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -19,7 +19,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès 
 
 ## <a name="roles-in-automation-accounts"></a>Rôles dans les comptes Automation
 
-Dans Azure Automation, l’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans l’étendue de compte Automation. Les rôles intégrés pris en charge par un compte Automation sont présentés ci-après :
+Dans Azure Automation, l’accès est octroyé en attribuant le rôle Azure approprié aux utilisateurs, groupes et applications, dans l’étendue du compte Automation. Les rôles intégrés pris en charge par un compte Automation sont présentés ci-après :
 
 | **Rôle** | **Description** |
 |:--- |:--- |
@@ -319,7 +319,7 @@ Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gèr
 
 Vous pouvez également configurer l’accès en fonction du rôle pour un compte Automation à l’aide des [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) suivantes :
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) répertorie tous les rôles Azure qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) répertorie les attributions de rôle Azure dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
 
 **Exemple :** Utilisez la cmdlet suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
 

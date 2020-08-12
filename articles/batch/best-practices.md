@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497775"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474901"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -56,6 +56,10 @@ Les échecs de répartition de pool peuvent se produire à tout moment pendant l
 Il est possible que les pools Batch rencontrent des événements de temps d’arrêt dans Azure. Gardez cela à l’esprit lors de la planification et du développement de votre scénario ou de votre workflow pour Batch.
 
 En cas de défaillance d’un nœud, Batch tente automatiquement de récupérer ces nœuds de calcul en votre nom. Cela peut déclencher la replanification d’une tâche en cours d’exécution sur le nœud qui est récupéré. Consultez [Conception des nouvelles tentatives](#design-for-retries-and-re-execution) pour en savoir plus sur les tâches interrompues.
+
+### <a name="third-party-images"></a>Images tierces
+
+Les pools peuvent être créés à l’aide d’images tierces publiées sur Place de marché Azure. Avec les comptes Batch en mode d’abonnement utilisateur, vous pouvez voir l’erreur « Échec d’allocation en raison de la vérification de l’éligibilité d’achat sur le marketplace » lors de la création d’un pool avec certaines images tierces. Pour résoudre cette erreur, acceptez les conditions définies par l’éditeur de l’image. Vous pouvez le faire en utilisant [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Dépendance de région Azure
 

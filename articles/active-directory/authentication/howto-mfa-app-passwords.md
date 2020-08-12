@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485482"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489790"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure Multi-Factor Authentication avec des applications héritées à l’aide de mots de passe d’application
 
@@ -88,6 +88,12 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 5. Sur la page **Paramètres du service**, sélectionnez l’option **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur**.
 
     ![Capture d’écran du Portail Azure qui affiche les paramètres de service pour l’authentification multifacteur afin d’autoriser l’utilisateur des mots de passe d’application](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Lorsque vous désactivez la possibilité pour les utilisateurs de créer des mots de passe d’application, les mots de passe d’application existants continuent de fonctionner. Toutefois, les utilisateurs ne peuvent pas gérer ou supprimer ces mots de passe lorsque vous désactivez cette fonctionnalité.
+>
+> Lorsque vous désactivez la possibilité de créer des mots de passe d’application, il est également recommandé de [créer une stratégie d’accès conditionnel pour désactiver l’utilisation de l’authentification héritée](../conditional-access/block-legacy-authentication.md). Cette approche empêche le fonctionnement des mots de passe d’application existants et force l’utilisation de méthodes d’authentification modernes.
 
 ## <a name="create-an-app-password"></a>Créer un mot de passe d’application
 

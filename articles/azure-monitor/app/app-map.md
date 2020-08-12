@@ -3,14 +3,13 @@ title: Mise en correspondance d’applications dans Azure Application Insights |
 description: Surveiller des topologies d’applications complexes avec la mise en correspondance d’applications
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367008"
+ms.locfileid: "87421295"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -82,9 +81,12 @@ Pour visualiser les alertes actives et les règles sous-jacentes qui entraînent
 
 ![Capture d’écran de l’expérience d’analyse](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Définir le nom du rôle cloud
+## <a name="set-or-override-cloud-role-name"></a>Définir ou remplacer le nom du rôle cloud
 
-La cartographie d’application utilise la propriété **nom du rôle cloud** pour identifier les composants sur la carte. Le SDK Application Insights ajoute automatiquement la propriété nom du rôle cloud aux données de télémétrie émises par les composants. Par exemple, le kit de développement logiciel (SDK) ajoute un nom de site web ou un nom de rôle de service à la propriété nom du rôle cloud. Toutefois, vous pouvez être amené à remplacer la valeur par défaut. Pour remplacer nom du rôle cloud et modifier ce qui s’affiche sur la cartographie d’application :
+La cartographie d’application utilise la propriété **nom du rôle cloud** pour identifier les composants sur la carte. Pour définir ou remplacer manuellement le nom du rôle cloud et modifier ce qui s’affiche sur la cartographie d’application :
+
+> [!NOTE]
+> Le Kit de développement logiciel (SDK) ou l’agent Application Insights ajoute automatiquement la propriété du nom du rôle cloud à la télémétrie émise par les composants dans un environnement Azure App Service.
 
 # <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces �
 
 3. Si vous utilisez Azure Functions avec C#, effectuez une mise à niveau vers [Functions V2](../../azure-functions/functions-versions.md).
 
-4. Vérifiez que [nom du rôle cloud](#set-cloud-role-name) est correctement configuré.
+4. Vérifiez que [nom du rôle cloud](#set-or-override-cloud-role-name) est correctement configuré.
 
 5. S’il vous manque une dépendance, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](./auto-collect-dependencies.md). Sinon, vous pouvez toujours la suivre manuellement avec un [suivi d’appel de dépendance](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Pour y remédier, il vous faudra modifier votre instrumentation afin de bien dé
 
 * Le type de dépendance doit représenter le type logique d’une dépendance. Par exemple, HTTP, SQL ou Blob Azure sont des types de dépendances classiques. Il ne doit pas contenir d'ID uniques.
 
-* Le but du nom de rôle cloud est décrit dans la [section ci-dessus](#set-cloud-role-name).
+* Le but du nom de rôle cloud est décrit dans la [section ci-dessus](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commentaires du portail
 

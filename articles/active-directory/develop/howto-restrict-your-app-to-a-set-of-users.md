@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477785"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445471"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD
 
@@ -26,7 +26,7 @@ Les applications inscrites dans un locataire Azure Active Directory (Azure AD) s
 
 De même, avec une application [mutualisée](howto-convert-app-to-be-multi-tenant.md), tous les utilisateurs dans le locataire Azure AD où cette application est approvisionnée sont en mesure d’accéder à cette application après avoir réussi à s’authentifier auprès de leur locataire respectif.
 
-Les développeurs et les administrateurs de locataires ont souvent des exigences impliquant de limiter une application à un certain ensemble d’utilisateurs. Pour ce faire, les développeurs peuvent utiliser des modèles d’autorisation courants comme le contrôle d’accès en fonction du rôle, mais cette approche nécessite une quantité de travail importante.
+Les développeurs et les administrateurs de locataires ont souvent des exigences impliquant de limiter une application à un certain ensemble d’utilisateurs. Pour ce faire, les développeurs peuvent utiliser des modèles d’autorisation courants comme le contrôle d’accès en fonction du rôle Azure (Azure RBAC), mais cette approche nécessite une quantité de travail importante.
 
 Les développeurs et administrateurs de locataires peuvent également limiter une application à un ensemble spécifique d’utilisateurs ou de groupes de sécurité dans le locataire grâce à la fonctionnalité intégrée d’Azure AD.
 

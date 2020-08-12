@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de base de données SAP HANA dans les machines
 description: Cet article explique comment sauvegarder des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503504"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533442"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>À propos de la sauvegarde de base de données SAP HANA dans les machines virtuelles Azure
 
@@ -60,7 +60,7 @@ En plus d’utiliser la sauvegarde SAP HANA dans Azure qui assure une sauvegarde
 
 La [solution de sauvegarde Azure SAP HANA certifiée par Backint](#backup-architecture) peut être utilisée pour la sauvegarde et la récupération de base de données.
 
-La [sauvegarde de machine virtuelle Azure ](backup-azure-vms-introduction.md) peut être utilisée pour sauvegarder les disques de système d’exploitation et d’autres disques qui ne comportent pas de base de données. La sauvegarde de machine virtuelle se produit une fois par jour et porte sur tous les disques (à l’exception des **disques Accélérateur d’écriture (WA)** et des **UltraDisks**). Sachant que la base de données est sauvegardée à l’aide de la solution de sauvegarde Azure SAP HANA, vous pouvez effectuer une sauvegarde cohérente au niveau fichier uniquement pour les disques de système d’exploitation et les disques qui ne comportent pas de base de données en utilisant la fonctionnalité d’exclusion de disque, qui est actuellement en préversion.
+La [sauvegarde de machine virtuelle Azure ](backup-azure-vms-introduction.md) peut être utilisée pour sauvegarder les disques de système d’exploitation et d’autres disques qui ne comportent pas de base de données. La sauvegarde de machine virtuelle se produit une fois par jour et porte sur tous les disques (à l’exception des **disques Accélérateur d’écriture (WA)** et des **disques Ultra**). Sachant que la base de données est sauvegardée à l’aide de la solution de sauvegarde Azure SAP HANA, vous pouvez effectuer une sauvegarde cohérente au niveau fichier uniquement pour les disques de système d’exploitation et les disques qui ne comportent pas de base de données en utilisant la fonctionnalité [Sauvegarde et restauration de disque sélective pour les machines virtuelles Azure](selective-disk-backup-restore.md).
 
 >[!NOTE]
 > L’utilisation de pré-post scripts avec la sauvegarde de machine virtuelle Azure autorise les sauvegardes cohérentes au niveau application des volumes de données de la base de données. Cependant, si la zone de journal réside sur des disques WA, la création d’une capture instantanée de ces disques ne garantit pas nécessairement la cohérence de la zone de journal. C’est précisément pour cette raison que HANA propose une façon explicite de générer des sauvegardes de journaux. Activez cette fonctionnalité dans votre SAP HANA pour pouvoir les sauvegarder à l’aide de la fonctionnalité de sauvegarde Azure SAP HANA.

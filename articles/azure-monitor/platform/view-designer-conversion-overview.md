@@ -5,16 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 234da921b4f0d1243ca8cfdb12ba2d851db2b43f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658691"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759425"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guide de transition : du concepteur de vues Azure Monitor aux classeurs
-Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs qui offrent des fonctionnalités supplémentaires. Cet article fournit une vue d'ensemble du processus de conversion de vos vues existantes en classeurs.
+Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Ils ont migré vers les Classeurs pour fournir un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Cet article vous aide à effectuer la transition du Concepteur de vues vers les Classeurs. 
+
 
 ## <a name="workbooks-overview"></a>Présentation des classeurs
 Les [classeurs](../insights/vminsights-workbooks.md) regroupent du texte, des  [requêtes de journal](../log-query/query-language.md), des métriques et des paramètres sous la forme de rapports interactifs complets. Les membres d'une équipe qui disposent du même accès aux ressources Azure peuvent également modifier des classeurs.

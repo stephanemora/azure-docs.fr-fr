@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011632"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448388"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 par rapport à Media Services v3
 
@@ -83,7 +83,8 @@ Les API v3 présentent les différences de fonctionnalités suivantes par rappor
     * Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
     * Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
 * Les événements en direct avec transcodage ne gèrent actuellement pas l’insertion d’ardoise à mi-parcours ni l’insertion de marqueur publicitaire par le biais d’un appel d’API. 
- 
+* Reportez-vous à l’exemple de code `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` pour connaître les bonnes pratiques et les tendances relatives à l’utilisation de l’API REST V2 sur le kit SDK .NETCore.
+
 ## <a name="asset-specific-changes"></a>Modifications spécifiques aux ressources
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2

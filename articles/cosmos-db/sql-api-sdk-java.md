@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323823"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541666"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -256,23 +256,14 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 * Kit SDK GA
 
 ## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
-
-Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
+Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge. Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
 
 > [!WARNING]
-> Toutes les versions **1.x** du Kit de développement logiciel (SDK) SQL pour Java sont mises hors service depuis le **30 mai 2020**.
-> 
+> Après le 30 mai 2020, Azure Cosmos DB n’apportera plus de correctifs de bogues, n’ajoutera plus de nouvelles fonctionnalités et ne fournira plus de support aux versions 1.x du Kit de développement logiciel (SDK) Java Azure Cosmos DB pour l’API SQL. Si vous préférez ne pas effectuer la mise à niveau, les requêtes envoyées depuis la version 1.x du Kit de développement logiciel (SDK) continueront à être traitées par le service Azure Cosmos DB.
 >
+> Après le 29 février 2016, Azure Cosmos DB n’apportera plus de correctifs de bogues, n’ajoutera plus de nouvelles fonctionnalités et ne fournira plus de support aux versions 0.x du Kit de développement logiciel (SDK) Java Azure Cosmos DB pour l’API SQL. Si vous préférez ne pas effectuer la mise à niveau, les requêtes envoyées depuis la version 0.x du Kit de développement logiciel (SDK) continueront à être traitées par le service Azure Cosmos DB.
 
-> [!WARNING]
-> Toutes les versions du Kit de développement logiciel (SDK) SQL pour Java antérieures à la version **1.0.0** ont été supprimées le **29 février 2016**.
-> 
-> 
-
-<br/>
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |

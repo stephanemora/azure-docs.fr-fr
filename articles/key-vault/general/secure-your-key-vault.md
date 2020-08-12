@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26dba14baa95a91c12e9ccd277731b91207b4a4c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833636"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533255"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -59,13 +59,13 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 
 ## <a name="management-plane-and-rbac"></a>Plan de gestion et RBAC
 
-Dans le plan de gestion, vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure AD. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Dans le plan de gestion, vous utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure AD. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles RBAC appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle RBAC :
+Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles Azure appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle Azure :
 
-- **Abonnement**: un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
-- **Groupe de ressources** : un rôle RBAC attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
-- **Ressource spécifique** : un rôle RBAC attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
+- **Abonnement**: Un rôle Azure attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
+- **Groupe de ressources** : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
+- **Ressource spécifique** : Un rôle Azure attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
 
 Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, consultez [RBAC : pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -82,7 +82,7 @@ Vous accordez l’accès à un utilisateur, un groupe ou une application afin d�
 
 Vous pouvez voir la liste complète des opérations de coffre et de secret et comprendre les opérations autorisées lorsque vous configurez des stratégies d’accès au coffre de clés en consultant la référence suivante. [Référence relative aux opérations de coffre de clés](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> Les stratégies d’accès Key Vault accordent des autorisations distinctement aux clés, secrets et certificats. Vous pouvez uniquement accorder un accès utilisateur à des clés (pas à des secrets). Les autorisations d’accès aux clés, secrets ou certificats sont définies au niveau du coffre. Les stratégies d’accès Key Vault ne prennent pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. Pour définir des stratégies d’accès pour un coffre de clés, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST de gestion Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+<a id="key-vault-access-policies"></a> Les stratégies d’accès Key Vault accordent des autorisations distinctement aux clés, secrets et certificats. Vous pouvez uniquement accorder un accès utilisateur à des clés (pas à des secrets). Les autorisations d’accès aux clés, secrets ou certificats sont définies au niveau du coffre. Les stratégies d’accès Key Vault ne prennent pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. Pour définir des stratégies d’accès pour un coffre de clés, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) ou les [API REST de gestion Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Les stratégies d’accès Key Vault s’appliquent au niveau du coffre. Quand un utilisateur est autorisé à créer et à supprimer des clés, il peut effectuer ces opérations sur toutes les clés de ce coffre de clés.

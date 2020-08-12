@@ -1,14 +1,14 @@
 ---
 title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970941"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131495"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
@@ -20,6 +20,24 @@ Au fil de votre progression dans la gouvernance cloud, vous allez chercher à pa
 Le Policy as Code (« stratégie sous forme de code ») est la combinaison de ces idées. Pour l’essentiel, vous conservez vos définitions de stratégies dans le contrôle de code source, puis testez et validez chaque modification effectuée. Toutefois, l’implication des stratégies avec l’Infrastructure as Code ou le DevOps ne devrait pas s’arrêter là.
 
 L’étape de validation devrait également être un composant d’autres workflows d’intégration continue ou de déploiement continu. Citons notamment le déploiement d’un environnement d’application ou d’une infrastructure virtuelle. En faisant de la validation Azure Policy l’un des premiers composants du processus de build et de déploiement, les équipes chargées des applications et des opérations détectent si leurs modifications ne sont pas conformes bien avant qu’il ne soit trop tard et qu’il faille les déployer en production.
+
+## <a name="definitions-and-foundational-information"></a>Définitions et informations fondamentales
+
+Avant d’entrer dans les détails de la stratégie en tant que workflow de code, examinez les définitions et exemples suivants :
+
+- [Définition de stratégie](./definition-structure.md)
+- [Définition d’initiative](./initiative-definition-structure.md)
+
+Les noms de fichiers s’alignent sur des parties de la définition de la stratégie ou de l’initiative :
+- `policy(set).json` : la définition entière
+- `policy(set).parameters.json` : la partie `properties.parameters` de la définition
+- `policy.rules.json` : la partie `properties.policyRule` de la définition
+- `policyset.definitions.json` : la partie `properties.policyDefinitions` de la définition
+
+Des exemples de ces formats de fichier sont accessibles dans le [référentiel GitHub d’Azure Policy](https://github.com/Azure/azure-policy/) :
+
+- Définition de stratégie : [Ajouter une étiquette aux ressources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Définition d’initiative : [Étiquettes de facturation](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Vue d’ensemble du workflow
 

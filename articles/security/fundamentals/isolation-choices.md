@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084044"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533901"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 
@@ -76,9 +76,9 @@ Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base
 
 - **Lecteur** peut consulter les ressources Azure existantes.
 
-![Contrôle d’accès en fonction du rôle Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de contributeur de machine virtuelle permet à l’utilisateur de créer et gérer des machines virtuelles. Il ne lui donne pas accès au réseau virtuel Azure, ni au sous-réseau auquel la machine virtuelle se connecte.
+Les autres rôles Azure dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de contributeur de machine virtuelle permet à l’utilisateur de créer et gérer des machines virtuelles. Il ne lui donne pas accès au réseau virtuel Azure, ni au sous-réseau auquel la machine virtuelle se connecte.
 
 Les [rôles RBAC intégrés](../../role-based-access-control/built-in-roles.md) répertorient les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs. Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](../../role-based-access-control/custom-roles.md).
 

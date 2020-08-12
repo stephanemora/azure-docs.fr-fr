@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552638"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500978"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -67,14 +67,17 @@ Services de stockage cloud pris en charge dans Azure qui peuvent être enregistr
 
 ## <a name="datasets"></a>Groupes de données
 
-Les jeux de données Azure Machine Learning sont des références qui pointent vers les données de votre service de stockage. Comme il ne s’agit pas de copies de vos données, aucun coût de stockage supplémentaire n’est encouru. Pour interagir avec vos données dans le stockage, [créez un jeu de données](how-to-create-register-datasets.md) afin d’empaqueter vos données dans un objet consommable pour les tâches de machine learning. Inscrivez le jeu de données dans votre espace de travail pour le partager et le réutiliser dans différentes expériences sans avoir à gérer la complexité liée à l’ingestion des données.
+Les jeux de données Azure Machine Learning sont des références qui pointent vers les données de votre service de stockage. Il n’y a pas de copie de vos données. Ainsi, aucun coût de stockage supplémentaire n’est encouru et l’intégrité de vos sources de données n’est pas en péril.
+
+ Pour interagir avec vos données dans le stockage, [créez un jeu de données](how-to-create-register-datasets.md) afin d’empaqueter vos données dans un objet consommable pour les tâches de machine learning. Inscrivez le jeu de données dans votre espace de travail pour le partager et le réutiliser dans différentes expériences sans avoir à gérer la complexité liée à l’ingestion des données.
 
 Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL publiques, d’[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) ou de services de stockage Azure par le biais de magasins de données. Pour créer un jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier parquet), puis créez votre jeu de données à partir de ce fichier.  
 
 Nous prenons en charge 2 types de jeux de données : 
-+ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans un DataFrame Pandas ou Spark afin d’effectuer une manipulation et un nettoyage supplémentaires. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par des FileDatasets sur votre cible de calcul.
++ Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
+
++ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Vous pouvez charger un TabularDataset dans une trame de données Pandas ou Spark afin d’effectuer une autre manipulation et un nettoyage. Pour obtenir la liste complète des formats de données à partir desquels vous pouvez créer des TabularDatasets, consultez la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Vous trouverez des fonctionnalités supplémentaires des jeux de données dans la documentation suivante :
 

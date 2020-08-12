@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461763"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -121,6 +121,9 @@ La jointure Azure AD Hybride fonctionne avec les environnements managés et féd
 Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
+
+> [!NOTE]
+> [L’authentification Cloud à l’aide du déploiement intermédiaire](/hybrid/how-to-connect-staged-rollout) est prise en charge uniquement lors du démarrage de la mise à jour de Windows 10 1903
 
 ### <a name="federated-environment"></a>Environnement fédéré
 

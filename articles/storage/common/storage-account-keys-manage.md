@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370749"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501336"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -65,7 +66,7 @@ az storage account keys list \
 
 Vous pouvez utiliser la clé de votre choix pour accéder au Stockage Azure, mais il est en général conseillé d’utiliser la première et de réserver la deuxième pour le rotation des clés.
 
-Pour visualiser ou lire les clés d’accès d’un compte, l’utilisateur doit être administrateur de service ou titulaire d’un rôle RBAC qui comprend **Microsoft.Storage/storageAccounts/listkeys/action**. Voici quelques rôles AZURE intégrés qui incluent cette action : **Propriétaire**, **Contributeur** et **Rôle de service d’opérateur de clé de compte de stockage**. Pour plus d’informations sur le rôle d’administrateur de service, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Pour plus d’informations sur les rôles intégrés pour Stockage Azure, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Pour visualiser ou lire les clés d’accès d’un compte, l’utilisateur doit être administrateur de service ou titulaire d’un rôle Azure qui comprend **Microsoft.Storage/storageAccounts/listkeys/action**. Voici quelques rôles AZURE intégrés qui incluent cette action : **Propriétaire**, **Contributeur** et **Rôle de service d’opérateur de clé de compte de stockage**. Pour plus d’informations sur le rôle d’administrateur de service, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Pour plus d’informations sur les rôles intégrés pour Stockage Azure, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Utiliser Azure Key Vault pour gérer vos clés d’accès
 
@@ -132,7 +133,7 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage avec A
 > [!NOTE]
 > Microsoft recommande d’utiliser uniquement l’une des clés dans toutes vos applications en même temps. Si vous utilisez parfois la clé 1 et parfois la clé 2, vous ne pouvez effectuer aucune rotation de vos clés sans qu’une application ne perde l’accès.
 
-Pour effectuer la rotation des clés d’accès d’un compte, l’utilisateur doit être administrateur de service ou titulaire d’un rôle RBAC qui comprend **Microsoft.Storage/storageAccounts/regeneratekey/action**. Voici quelques rôles AZURE intégrés qui incluent cette action : **Propriétaire**, **Contributeur** et **Rôle de service d’opérateur de clé de compte de stockage**. Pour plus d’informations sur le rôle d’administrateur de service, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Pour plus d’informations sur les rôles Azure intégrés pour Stockage Azure, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Pour effectuer la rotation des clés d’accès d’un compte, l’utilisateur doit être administrateur de service ou titulaire d’un rôleAzure qui comprend **Microsoft.Storage/storageAccounts/regeneratekey/action**. Voici quelques rôles AZURE intégrés qui incluent cette action : **Propriétaire**, **Contributeur** et **Rôle de service d’opérateur de clé de compte de stockage**. Pour plus d’informations sur le rôle d’administrateur de service, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Pour plus d’informations sur les rôles Azure intégrés pour Stockage Azure, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,14 +3,14 @@ title: Singletons pour l’extension Fonctions durables - Azure
 description: Découvrez comment utiliser des singletons dans l’extension Durable Functions pour Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deb64cf8128fd548cb74c064ab9fd6f169db5300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041921"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrateurs de singleton dans l’extension Fonctions durables (Azure Functions)
 
@@ -112,9 +112,65 @@ module.exports = async function(context, req) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__.py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance != None:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${instance_id}' already exists"
+        }
+
+```
+
 ---
 
-Par défaut, les ID d’instance sont des identificateurs globaux uniques générés de manière aléatoire. Cependant, dans l’exemple précédent, l’ID d’instance est passé dans les données d’itinéraire à partir de l’URL. Le code appelle `GetStatusAsync` (C#) ou `getStatus` (JavaScript) pour vérifier si une instance ayant l’ID spécifié est déjà en cours d’exécution. Si aucune instance de ce type n’est en cours d’exécution, une nouvelle instance est créée avec cet ID.
+Par défaut, les ID d’instance sont des identificateurs globaux uniques générés de manière aléatoire. Cependant, dans l’exemple précédent, l’ID d’instance est passé dans les données d’itinéraire à partir de l’URL. Le code appelle `GetStatusAsync` (C#), `getStatus` (JavaScript) ou `get_status` (Python) pour vérifier si une instance ayant l’ID spécifié est déjà en cours d’exécution. Si aucune instance de ce type n’est en cours d’exécution, une nouvelle instance est créée avec cet ID.
 
 > [!NOTE]
 > Il existe une condition de concurrence potentielle dans cet exemple. Si deux instances de **HttpStartSingle** s’exécutent simultanément, les deux appels de fonction signalent la réussite de l’opération, mais en réalité une seule instance d’orchestration démarre. Selon vos besoins, cela peut avoir des effets secondaires indésirables. Pour cette raison, il est important de s’assurer l’impossibilité que deux demandes puissent exécuter cette fonction de déclencheur simultanément.

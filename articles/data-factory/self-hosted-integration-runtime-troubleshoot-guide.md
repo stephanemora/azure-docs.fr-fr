@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/19/2020
+ms.date: 08/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023824"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800593"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -20,7 +20,7 @@ ms.locfileid: "87023824"
 
 Cet article présente des méthodes couramment employées pour résoudre les problèmes liés au runtime d'intégration auto-hébergé dans Azure Data Factory.
 
-## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Collecter les journaux du runtime d’intégration auto-hébergé auprès d’Azure Data Factory
+## <a name="gather-self-hosted-ir-logs-from-azure-data-factory"></a>Collecter les journaux du runtime d’IR auto-hébergé auprès d’Azure Data Factory
 
 Azure Data Factory prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités qui n’ont pas été exécutées sur l’IR auto-hébergé ou partagé. Vous pouvez suivre les étapes ci-dessous pour obtenir l’ID du rapport d’erreur, puis saisir l’ID du rapport pour localiser les problèmes connexes connus.
 
@@ -46,11 +46,369 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 > Les requêtes de consultation et de chargement des journaux seront exécutées sur toutes les instances de l’IR auto-hébergé en ligne. Assurez-vous que toutes les instances de l’IR auto-hébergé sont en ligne en cas de journal manquant. 
 
 
-## <a name="common-errors-and-resolutions"></a>Problèmes courants et leur résolution
+## <a name="self-hosted-ir-general-failure-or-error"></a>Erreur générale ou échec général de l’IR auto-hébergé
 
-### <a name="error-message"></a>Message d’erreur : 
+### <a name="tlsssl-certificate-issue"></a>Problème certificat TLS/SSL
 
-`Self-hosted integration runtime can't connect to cloud service`
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous tentez d’activer le certificat TLS/SSL (avancé) à partir de **Configuration Manager IR auto-hébergé** -> **Accès à distance à partir de l’intranet**, après avoir sélectionné le certificat TLS/SSL, l’erreur ci-dessous s’affiche :
+
+`Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
+
+Dans le cas ci-dessus, l’utilisateur utilise le certificat avec « microsoft.com » comme dernier élément.
+
+#### <a name="cause"></a>Cause
+
+Il s'agit d'un problème connu dans WCF. La validation TLS/SSL WCF vérifie uniquement les derniers DNSName dans le réseau SAN. 
+
+#### <a name="resolution"></a>Résolution
+
+Le certificat générique est pris en charge dans le runtime d’intégration Azure Data Factory v2 IR auto-hébergé. Ce problème se produit généralement parce que le certificat SSL n’est pas correct. Le dernier DNSName dans le SAN doit être valide. Suivez les étapes ci-dessous pour le vérifier. 
+1.  Ouvrez la console de gestion, vérifiez à la fois le *Sujet* et le *Nom alternatif du sujet* dans les Détails du Certificat. Dans le cas ci-dessus, par exemple, le dernier élément de *Autre nom de l’objet*, qui est « DNS Name = microsoft.com.com », n’est pas légitime.
+2.  Contactez l’entreprise émettrice du certificat pour supprimer le nom DNS incorrect.
+
+### <a name="concurrent-jobs-limit-issue"></a>Problème lié à la limite de tâches simultanées
+
+#### <a name="symptoms"></a>Symptômes
+
+Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour*.
+La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton*Mettre à jour*, dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
+
+![Mise à jour de l'état](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
+
+#### <a name="cause"></a>Cause
+
+Il y a une limitation pour le réglage car la valeur dépend des cœurs logiques et de la mémoire de l'ordinateur, vous pouvez simplement l'ajuster à une valeur plus petite telle que 24 et voir le résultat.
+
+> [!TIP] 
+> - Pour plus d’informations sur le nombre de cœurs logiques et sur la façon de trouver le nombre de cœurs logiques de l’ordinateur, consultez [cet article](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> - Pour plus d’informations sur le calcul du math. log, consultez [cet article](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+
+
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problème de certificat SSL à haute disponibilité IR auto-hébergé
+
+#### <a name="symptoms"></a>Symptômes
+
+Le nœud de travail IR auto-hébergé a signalé l’erreur ci-dessous :
+
+`Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
+
+#### <a name="cause"></a>Cause
+
+Lorsque nous traitons des cas liés à la liaison SSL/TLS, nous pouvons rencontrer certains problèmes liés à la vérification de la chaîne de certificats. 
+
+#### <a name="resolution"></a>Résolution
+
+- Voici un moyen rapide et intuitif de résoudre les échecs de génération de chaîne de certificats X. 509.
+ 
+    1. Exportez le certificat, qui doit être vérifié. Accédez à Gérer le certificat de l’ordinateur et recherchez le certificat que vous souhaitez vérifier, puis cliquez avec le bouton droit sur **Toutes les tâches** -> **Exporter**.
+    
+        ![Exporter des tâches](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
+
+    2. Copiez le certificat exporté sur la machine cliente. 
+    3. Côté client, exécutez la commande ci-dessous dans CMD. Assurez-vous que vous avez bien remplacé *\<certificate path>* et les espaces réservés *\<output txt file path>* ci-dessous par des chemins connexes.
+    
+        ```
+        Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
+        ```
+
+        Par exemple :
+
+        ```
+        Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
+        ```
+    4. Vérifiez s’il existe une erreur dans le fichier txt de sortie. Le résumé des erreurs se trouve à la fin du fichier txt.
+
+        Par exemple : 
+
+        ![Résumé des erreurs](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+
+        Si aucune erreur ne s’affiche à la fin du fichier journal, comme indiqué ci-dessous, vous pouvez considérer que la chaîne de certificats est créée correctement dans la machine cliente.
+        
+        ![Aucune erreur dans le fichier journal](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
+
+- En présence d’AIA, CDP et OCSP sont configurés dans le fichier de certificat. Nous pouvons le vérifier de manière plus intuitive.
+ 
+    1. Vous pouvez obtenir ces informations en vérifiant les détails d’un certificat.
+    
+        ![Détails du certificat](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
+    1. Exécutez la commande ci-dessous : Assurez-vous que vous avez bien remplacé les espaces réservés *\<certificate path>* ci-dessous par le chemin du certificat.
+    
+        ```
+          Certutil   -URL    <certificate path> 
+        ```
+    1. **L’outil de récupération d’URL** s’ouvre alors. Vous pouvez vérifier des certificats depuis AIA, CDP et OCSP en cliquant sur le bouton **Récupérer**.
+
+        ![Bouton de récupération](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
+ 
+        La chaîne de certificats peut être créée correctement si le certificat d’AIA est « vérifié » et que le certificat de CDP ou OCSP est « vérifié ».
+
+        Si vous constatez un échec lors de la récupération d’AIA, CDP, contactez l’équipe réseau pour préparer la machine cliente à se connecter à l’URL cible. Cela sera suffisant si le chemin d’accès http ou le chemin d’accès ldap peut être vérifié.
+
+### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>L’IR auto-hébergé n’a pas pu télécharger le fichier ou l’assembly
+
+#### <a name="symptoms"></a>Symptômes
+
+`Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
+ 
+Par exemple : 
+
+`Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
+
+#### <a name="cause"></a>Cause
+
+Si vous prenez Process Monitor, vous pouvez voir le résultat suivant :
+
+[![Process Monitor](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
+
+> [!TIP] 
+> Vous pouvez définir le filtre comme indiqué dans la capture d’écran ci-dessous.
+> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
+> En fait, cela chargera d’abord la dll à partir du dossier *GAC*, puis du dossier *Partagé* et enfin du dossier de la *Passerelle*. Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
+
+![Configurer des filtres](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
+
+#### <a name="resolution"></a>Résolution
+
+Il peut arriver que**System. ValueTuple. dll** se trouve dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan*. Copiez **System. ValueTuple. dll** dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* pour résoudre le problème.
+
+Vous pouvez utiliser la même méthode pour résoudre d’autres problèmes de fichier ou d’assembly manquant.
+
+#### <a name="more-information"></a>Informations complémentaires
+
+La raison pour laquelle vous voyez le fichier System. ValueTuple. dll sous *%windir%\Microsoft.NET\assembly* et *%windir%\assembly* est qu’il s’agit d’un comportement .NET. 
+
+À partir de l’erreur ci-dessous, vous pouvez voir clairement que l’assembly *System. ValueTuple* n’est pas là. Ce problème se produit lorsque l’application tente de vérifier l’assembly *System. ValueTuple. dll*.
+ 
+`<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
+ 
+Pour plus d'informations sur le GAC, consultez [cet article](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+
+
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Procédure d’audit de la clé IR auto-hébergée manquante
+
+#### <a name="symptoms"></a>Symptômes
+
+Le runtime d’intégration auto-hébergé passe soudainement à hors connexion sans clé, le message d’erreur ci-dessous s’affiche dans le Journal des événements : `Authentication Key is not assigned yet`
+
+![Clé d’authentification manquante](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
+
+#### <a name="cause"></a>Cause
+
+- Le nœud IR auto-hébergé ou le runtime d’intégration logique auto-hébergé dans le portail est supprimé.
+- Une désinstallation correcte est effectuée.
+
+#### <a name="resolution"></a>Résolution
+
+Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier : *%programdata%\Microsoft\Data Transfer\DataManagementGateway*et vérifier si le fichier nommé **Configurations** est bien supprimé. S’il est supprimé, suivez les instructions [ici](https://www.netwrix.com/how_to_detect_who_deleted_file.html) pour auditer qui supprime le fichier.
+
+![Vérifier le fichier de configuration](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
+
+
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Impossible d’utiliser le runtime d’IR auto-hébergé pour relier deux magasins de données locaux
+
+#### <a name="symptoms"></a>Symptômes
+
+Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination* ; *la source n’est pas accessible par l’IR de destination*.
+ 
+#### <a name="cause"></a>Cause
+
+Le runtime d’IR auto-hébergé est conçu comme un nœud central d’une activité de copie, et non un agent client qui doit être installé pour chaque magasin de données.
+ 
+Dans le cas ci-dessus, le service lié pour chaque magasin de données doit être créé avec le même IR et l’IR doit être en mesure d’accéder aux deux banques de données via le réseau. Quel que soit l’emplacement d’installation de l’IR avec le magasin de données source, le magasin de données de destination ou sur une troisième machine, si deux services liés sont créés avec d’autres IR, mais utilisés dans la même activité de copie, l’IR est utilisé, et les pilotes des deux banques de données doivent être installés sur la machine IR de destination.
+
+#### <a name="resolution"></a>Résolution
+
+Installez les pilotes pour la source et la destination sur le runtime d’intégration de destination et assurez-vous qu’il peut accéder au magasin de données source.
+ 
+Si le trafic ne peut pas traverser le réseau entre deux magasins de données (par exemple, s’ils sont configurés en deux réseaux virtuels), vous risquez de ne pas terminer la copie dans une seule activité, même si l’IR est installé. Dans ce cas, vous pouvez créer deux activités de copie avec deux IR, chacune dans un réseau virtuel : Un IR pour copier depuis le magasin de données 1 vers le stockage d’objets BLOB Azure, un autre pour copier à partir du stockage BLOB Azure vers le magasin de données 2. Cela peut simuler la nécessité d’utiliser le runtime d’intégration pour créer un pont qui connecte deux banques de données déconnectées.
+
+
+### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>Un problème de synchronisation des informations d’identification provoque la perte des informations d’identification de haute disponibilité
+
+#### <a name="symptoms"></a>Symptômes
+
+Les informations d'identification de source de données « XXXXXXXXXX » ont été supprimées du nœud Integration Runtime actif avec la charge utile « quand vous avez supprimé le service de lien sur le portail Azure, ou la tâche n'a pas la bonne charge utile. Recréez un service de lien avec vos informations d'identification ».
+
+#### <a name="cause"></a>Cause
+
+Votre IR auto-hébergé est intégré en mode HA avec deux nœuds, mais ils ne sont pas dans l’état de synchronisation des informations d’identification, ce qui signifie que les informations d’identification stockées dans le nœud de répartiteur ne sont pas synchronisées avec d’autres nœuds de travail. Si un basculement se produit à partir du nœud répartiteur vers le nœud Worker, mais que les informations d’identification n’existaient que dans le nœud répartiteur précédent, la tâche échoue lors de la tentative d’accès aux informations d’identification, et vous pouvez atteindre l’erreur ci-dessus.
+
+#### <a name="resolution"></a>Résolution
+
+La seule façon d’éviter ce problème consiste à s’assurer que deux nœuds sont dans l’état de synchronisation des informations d’identification. Dans le cas contraire, vous devez resaisir les informations d’identification pour le nouveau répartiteur.
+
+
+### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>Impossible de choisir le certificat en raison de la clé privée manquante
+
+#### <a name="symptoms"></a>Symptômes
+
+1.  Importez un fichier PFX dans le magasin de certificats.
+2.  Lorsque vous sélectionnez le certificat par le biais de l’interface utilisateur Configuration Manager IR, vous atteignez le message d’erreur suivant :
+
+    ![Clé privée manquante](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
+
+#### <a name="cause"></a>Cause
+
+- Le compte utilisateur dispose d’un privilège faible et ne peut pas accéder à la clé privée.
+- Le certificat a été généré en tant que signature, mais pas en tant qu’échange de clés.
+
+#### <a name="resolution"></a>Résolution
+
+1.  Utilisez un compte privilégié qui peut accéder à la clé privée pour fonctionner avec l’interface utilisateur.
+2.  Exécutez la commande suivante pour importer le certificat :
+    
+    ```
+    certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
+    ```
+
+
+## <a name="self-hosted-ir-setup"></a>Installation du runtime d’intégration IR auto-hébergé
+
+### <a name="the-integration-runtime-registration-error"></a>Erreur d’inscription de Microsoft Integration Runtime 
+
+#### <a name="symptoms"></a>Symptômes
+
+Parfois, nous exécutons le runtime d’intégration IR auto-hébergé dans un autre compte pour les raisons suivantes :
+- La stratégie d’entreprise interdit le compte de service.
+- L’authentification est obligatoire.
+
+Après avoir modifié le compte de service dans le panneau de service, vous constaterez peut-être que Microsoft Integration Runtime cesse de fonctionner.
+
+![Erreur d'inscription de l’IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png)
+
+#### <a name="cause"></a>Cause
+
+De nombreuses ressources sont uniquement accordées au compte de service. Lorsque vous remplacez le compte de service par un autre compte, l’autorisation de toutes les ressources dépendantes reste la même.
+
+#### <a name="resolution"></a>Résolution
+
+Accédez au journal des événements Microsoft Integration Runtime pour vérifier l’erreur.
+
+![Journal des événements](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
+
+Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException*, suivez les instructions ci-dessous :
+
+
+1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
+
+    ![Compte de service d’ouverture de session](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+
+2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation R/W sur le dossier : *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
+
+    - Par défaut, si le compte d’ouverture de session du service n’a pas été modifié, il doit avoir l’autorisation de lecture/écriture.
+
+        ![Autorisation de service](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
+
+    - Si vous avez modifié le compte d’ouverture de session du service, suivez les étapes ci-dessous pour régler le problème :
+        1. Désinstallez correctement le runtime d’intégration IR auto-hébergé actuel.
+        1. Installez le runtime d’intégration IR auto-hébergé bits.
+        1. Suivez les instructions ci-dessous pour modifier le compte de service : 
+            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared*.
+            1. Démarrez une ligne de commande avec des privilèges élevés. Remplacez *\<user>* et *\<password>* par vos propres nom d’utilisateur et mot de passe, puis exécutez la commande suivante :
+                       
+                ```
+                dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"
+                ```
+            1. Si vous souhaitez passer au compte LocalSystem, veillez à utiliser un format correct pour ce compte. Voici un exemple de format correct :
+
+                ```
+                dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""
+                ```         
+                Ne **pas** utiliser le format comme indiqué ci-dessous :
+
+                ```
+                dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""
+                ```              
+            1. À l’inverse, étant donné que le système local dispose de privilèges plus élevés que l’administrateur, vous pouvez également le modifier directement en « Services ».
+            1. Vous pouvez utiliser un utilisateur local/de domaine pour le compte d’ouverture de session du service IR.            
+        1. Inscrire le runtime d’intégration.
+
+Si l’erreur s’affiche comme suit : *Échec du démarrage du service « Integration Runtime Service » (DIAHostService). Vérifiez que vous disposez des droits nécessaires pour démarrer les services système*, suivez les instructions ci-dessous :
+
+1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
+   
+    ![Compte de service d’ouverture de session](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+
+2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation**Ouvrir une session en tant que service** pour démarrer le Service Windows :
+
+    ![Ouvrir une session en tant que service](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+
+#### <a name="more-information"></a>Informations complémentaires
+
+Si aucun des deux modèles ci-dessus ne s’applique dans votre cas, essayez de collecter sous les journaux des événements Windows : 
+- Journaux des applications et des services-> Runtime d’intégration
+- Journaux d’activité Windows -> Application
+
+### <a name="cannot-find-register-button-to-register-a-self-hosted-ir"></a>Impossible de trouver le bouton Inscrire pour inscrire un runtime d’intégration IR auto-hébergé    
+
+#### <a name="symptoms"></a>Symptômes
+
+Impossible de trouver le bouton de **Inscription** dans l’interface utilisateur Configuration Manager lors de l’inscription d’un Runtime d’intégration IR auto-hébergé.
+
+![Aucun bouton Inscription](media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png)
+
+#### <a name="cause"></a>Cause
+
+Depuis la sortie d’*Integration Runtime 3.0*, le bouton **Register** sur un nœud IR existant a été supprimé pour permettre un environnement plus propre et plus sécurisé. Si un nœud a été inscrit sur un IR (qu’il soit en ligne ou non), pour le réinscrire dans un autre IR, vous devez désinstaller le nœud précédent, puis installer et inscrire le nœud.
+
+#### <a name="resolution"></a>Résolution
+
+1. Accédez au panneau de configuration pour désinstaller l’IR existant.
+
+    > [!IMPORTANT] 
+    > Dans le processus ci-dessous, sélectionnez Oui. Ne conservez pas les données pendant le processus de désinstallation.
+
+    ![Suppression de données](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+
+1. Si vous n’avez pas le fichier MSI du programme d’installation du runtime d’intégration, accédez au [Centre de téléchargement](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) pour télécharger les IR les plus récents.
+1. Installer le MSI et inscrire le runtime d'intégration
+
+
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Impossible d’enregistrer le runtime d’intégration IR auto-hébergé en raison du localhost    
+
+#### <a name="symptoms"></a>Symptômes
+
+Impossible d’inscrire le runtime d’intégration IR auto-hébergé sur un nouvel ordinateur avec get_LoopbackIpOrName.
+
+**Débogage :** Une erreur d'exécution s'est produite.
+L’initialiseur de type pour « Microsoft. DataTransfer. DIAgentHost. DataSourceCache » a levé une exception.
+Une erreur non récupérable s’est produite lors d’une recherche de base de données.
+ 
+**Détail de l’exception :** System.TypeInitializationException : L’initialiseur de type pour « Microsoft. DataTransfer. DIAgentHost. DataSourceCache » a levé une exception. ---> System.Net.Sockets.SocketException: Une erreur non récupérable s’est produite lors d’une recherche de base de données sur System net.DNS.GetAddrInfo (String name).
+
+#### <a name="cause"></a>Cause
+
+Le problème se produit généralement lors de la résolution de localhost.
+
+#### <a name="resolution"></a>Résolution
+
+Utilisez Localhost 127.0.0.1 pour héberger le fichier et résoudre ce problème.
+
+
+### <a name="self-hosted-setup-failed"></a>Échec de l’installation auto-hébergée    
+
+#### <a name="symptoms"></a>Symptômes
+
+Impossible de désinstaller un Runtime d’intégration ou d’installer un nouveau Runtime d’intégration existant ou de mettre à niveau un IR existant vers un nouveau Runtime d’intégration.
+
+#### <a name="cause"></a>Cause
+
+L’installation dépend du service Windows Installer. Plusieurs raisons peuvent être à l’origine du problème d’installation :
+- Espace disque insuffisant
+- Permissions manquantes
+- Le service NT est verrouillé pour une raison quelconque
+- Utilisation du processeur trop élevée
+- Le fichier MSI est hébergé dans un emplacement réseau lent
+- Certains registres ou fichiers système ont été touchés par inadvertance
+
+
+## <a name="self-hosted-ir-connectivity-issues"></a>Problème de connexion de l’IR auto-hébergé
+
+### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Le runtime d’intégration auto-hébergé ne peut pas se connecter au service Cloud
+
+#### <a name="symptoms"></a>Symptômes
 
 ![Problème de connexion de l’IR auto-hébergé](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -114,8 +472,7 @@ Voici la réponse attendue :
 > *    Vérifiez si le certificat TLS/SSL « wu2.frontend.clouddatahub.net/ » est approuvé sur le serveur proxy.
 > *    Si vous utilisez l’authentification Active Directory sur le proxy, remplacez le compte de service par le compte d’utilisateur qui peut accéder au proxy en tant que « Service Integration Runtime ».
 
-### <a name="error-message"></a>Message d’erreur : 
-`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Message d’erreur : Le nœud du runtime d’intégration auto-hébergé /le runtime d’intégration auto-hébergé logique présente l’état Inactif/ « En cours d’exécution (limité) »
 
 #### <a name="cause"></a>Cause 
 
@@ -160,12 +517,11 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
     - Placez tous les nœuds dans le même domaine.
     - Ajoutez l’adresse IP au mappage de l’hôte dans tous les fichiers hôtes de la machine virtuelle hébergée.
 
-
-## <a name="troubleshoot-connectivity-issue"></a>Résoudre un problème de connectivité
-
-### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Résoudre un problème de connectivité entre le runtime d’intégration auto-hébergé et Data Factory ou le runtime d’intégration auto-hébergé et la source de données/le récepteur
+### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problème de connectivité entre le runtime d’intégration IR auto-hébergé et Data Factory ou le runtime d’intégration IR auto-hébergé et la source de données/le récepteur
 
 Pour résoudre le problème de connectivité réseau, vous devez savoir comment [collecter la trace réseau](#how-to-collect-netmon-trace), comprendre comment l’utiliser et [analyser la trace netmon](#how-to-analyze-netmon-trace) avant d’appliquer les outils Netmon dans des cas réels à partir du runtime d’intégration auto-hébergé.
+
+#### <a name="symptoms"></a>Symptômes
 
 Parfois, lorsque nous dépannons des problèmes de connectivité comme le suivant entre le runtime d’intégration auto-hébergé et Data Factory : 
 
@@ -173,13 +529,13 @@ Parfois, lorsque nous dépannons des problèmes de connectivité comme le suivan
 
 Ou un problème entre le runtime d’intégration auto-hébergé et la source de données/le récepteur, nous rencontrons les erreurs suivantes :
 
-**Message d’erreur :** 
 `Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
 
-**Message d’erreur :** 
 `One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
 
-**Résolution :** Lorsque vous rencontrez les problèmes ci-dessus, reportez-vous aux instructions de résolution suivantes :
+#### <a name="resolution"></a>Résolution :
+
+Lorsque vous rencontrez les problèmes ci-dessus, reportez-vous aux instructions de résolution suivantes :
 
 Prenez la trace netmon et analysez-la plus en détail.
 - Tout d’abord, vous pouvez définir le filtre pour voir toute réinitialisation à partir du serveur vers le côté client. Dans l’exemple ci-dessous, vous pouvez voir que le côté serveur correspond au serveur Data Factory.
@@ -299,6 +655,19 @@ L’exemple ci-dessous montre à quoi ressemblerait un scénario approprié.
     ![Négociation TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
 
     ![Flux de travail de négociation TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+
+
+## <a name="self-hosted-ir-sharing"></a>Partage du runtime d’intégration auto-hébergé
+
+### <a name="share-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>Le partage du runtime d’intégration IR auto-hébergé à partir d’un autre locataire n’est pas pris en charge 
+
+#### <a name="symptoms"></a>Symptômes
+
+Vous pouvez remarquer d’autres fabriques de données (sur différents locataires) lors de la tentative de partage du runtime d’intégration IR auto-hébergé à partir de l’interface utilisateur Azure Data Factory, mais ne peut pas partager le runtime d’intégration IR auto-hébergé entre les fabriques de données qui se trouvent sur des locataires différents.
+
+#### <a name="cause"></a>Cause
+
+Le runtime d’intégration IR auto-hébergé ne peut pas être partagé entre plusieurs locataires.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

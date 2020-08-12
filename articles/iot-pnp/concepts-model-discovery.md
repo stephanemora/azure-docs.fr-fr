@@ -1,83 +1,48 @@
 ---
-title: Implémenter la découverte de modèles IoT Plug-and-Play (préversion) | Microsoft Docs
-description: Cet article destiné aux générateurs de solutions explique comment implémenter la découverte de modèles IoT Plug-and-Play dans une solution.
-author: prashmo
-ms.author: prashmo
+title: Utiliser les modèles IoT Plug-and-Play dans une solution | Microsoft Docs
+description: Cet article destiné aux générateurs de solutions explique comment utiliser les modèles IoT Plug-and-Play dans une solution IoT.
+author: arunmannengal
+ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 364b85a8ead09858b97d5d7e6ca8c130b9960b2c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337379"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475241"
 ---
-# <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implémenter la découverte de modèles IoT Plug-and-Play (préversion) dans une solution IoT
+# <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
-Cet article destiné aux générateurs de solutions explique comment implémenter la découverte de modèles IoT Plug-and-Play (préversion) dans une solution IoT. La découverte de modèles décrit les opérations suivantes :
+Cet article explique comment, dans une solution IoT, vous pouvez identifier l’ID de modèle d’un appareil IoT Plug-and-Play, puis récupérer sa définition de modèle.
 
-- Les appareils IoT Plug-and-Play inscrivent leur ID de modèle.
-- Une solution IoT récupère les interfaces implémentées par l’appareil.
+Il existe deux grandes catégories de solution IoT :
 
-Il existe deux grandes catégories de solutions IoT :
+- Une *solution spécialisée* fonctionne avec un ensemble connu de modèles pour les appareils IoT Plug-and-Play qui se connecteront à la solution. Vous utilisez ces modèles lorsque vous développez la solution.
 
-- Une *solution IoT spécialisée* fonctionne avec un ensemble connu d’interfaces et de modèles d’appareil IoT Plug-and-Play.
+- Une solution *pilotée par modèle* peut fonctionner avec le modèle de n’importe quel appareil IoT Plug-and-Play. La création d’une solution pilotée par modèle est plus complexe, mais ce type de solution présente l’avantage de fonctionner avec tous les appareils susceptibles d’être ajoutés à l’avenir. Une solution IoT pilotée par modèle récupère un modèle et l’utilise pour déterminer les données de télémétrie, les propriétés et les commandes implémentées par l’appareil.
 
-- Une *solution IoT pilotée par modèle* peut fonctionner avec n’importe quel appareil IoT Plug-and-Play. Si la création d’une solution pilotée par modèle se révèle plus complexe, ce type de solution présente l’avantage de fonctionner avec tous les appareils qui seront ajoutés à l’avenir.
+Pour utiliser un modèle IoT Plug-and-Play, une solution IoT :
 
-    Pour générer une solution IoT basée sur un modèle, vous devez créer une logique s’appuyant sur les primitives de l’interface IoT Plug-and-Play : télémétrie, propriétés et commandes. Pour représenter un appareil, la logique de votre solution combine les capacités de plusieurs données de télémétrie, propriétés et commandes.
+1. Identifie l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play connecté à la solution.
 
-Cet article explique comment implémenter la découverte de modèles dans les deux types de solutions.
+1. Utilise cet ID de modèle pour récupérer la définition de modèle de l’appareil connecté à partir d’un référentiel de modèles ou d’un magasin personnalisé.
 
-## <a name="model-discovery"></a>Découverte de modèles
+## <a name="identify-model-id"></a>Identifier l’ID de modèle
 
-Pour découvrir le modèle implémenté par un appareil, une solution peut récupérer l’ID de modèle à l’aide de la découverte basée sur les événements ou sur les jumeaux :
+Lorsqu’un appareil IoT Plug-and-Play se connecte à IoT Hub, il inscrit l’ID de modèle du modèle qu’il implémente avec IoT Hub.
 
-### <a name="event-based-discovery"></a>Découverte basée sur les événements
+IoT Hub notifie la solution avec l’ID de modèle d’appareil dans le cadre du processus de connexion de l’appareil.
 
-Lorsqu’un appareil IoT Plug-and-Play se connecte à IoT Hub, il inscrit le modèle qu’il implémente. Cette inscription génère une notification [Événement de modification de jumeau numérique](concepts-digital-twin.md#digital-twin-change-events). Pour savoir comment activer l’acheminement des événements des jumeaux numériques, consultez [Envoi de messages appareil-à-cloud à différents points de terminaison à l’aide de l’acheminement des messages IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+Une solution peut obtenir l’ID de modèle de l’appareil IoT Plug-and-Play à l’aide de l’une des trois méthodes suivantes :
 
-La solution peut utiliser l’événement illustré dans l’extrait de code suivant pour en savoir plus sur l’appareil IoT Plug-and-Play qui se connecte et obtenir son ID de modèle :
+### <a name="get-device-twin-api"></a>API Obtenir un jumeau d’appareil
 
-```json
-iothub-connection-device-id:sample-device
-iothub-enqueuedtime:7/22/2020 8:02:27 PM
-iothub-message-source:digitalTwinChangeEvents
-correlation-id:100f322dc2c5
-content-type:application/json-patch+json
-content-encoding:utf-8
-[
-  {
-    "op": "replace",
-    "path": "/$metadata/$model",
-    "value": "dtmi:com:example:TemperatureController;1"
-  }
-]
-```
+La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
 
-Cet événement se déclenche lorsque l’ID de modèle d’appareil est ajouté ou mis à jour.
-
-### <a name="twin-based-discovery"></a>Découverte basée sur les jumeaux
-
-Si la solution a besoin de connaître les fonctionnalités d’un appareil donné, elle peut utiliser l’API [Obtenir le jumeau numérique](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) pour récupérer les informations.
-
-Dans l’extrait de code de jumeau numérique suivant, `$metadata.$model` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
-
-```json
-{
-    "$dtId": "sample-device",
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
-La solution peut également utiliser **Obtenir le jumeau** pour récupérer l’ID de modèle auprès du jumeau d’appareil, comme l’illustre l’extrait de code suivant :
+Dans l’extrait de code suivant de réponse de jumeau d’appareil, `modelId` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
 
 ```json
 {
@@ -101,16 +66,79 @@ La solution peut également utiliser **Obtenir le jumeau** pour récupérer l’
 }
 ```
 
-## <a name="model-resolution"></a>Résolution de modèle
+### <a name="get-digital-twin-api"></a>API Obtenir le jumeau numérique
 
-Les solutions utilisent la résolution de modèle pour obtenir l’accès aux interfaces qui composent un modèle à partir de l’ID de modèle. 
+La solution peut utiliser l’API [Obtenir le jumeau numérique](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) pour récupérer l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play.
 
-- Elles peuvent choisir de stocker ces interfaces sous forme de fichiers dans un dossier local. 
-- Elles peuvent utiliser le [référentiel de modèles](concepts-model-repository.md).
+Dans l’extrait de code suivant de réponse de jumeau numérique, `$metadata.$model` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
+
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
+
+### <a name="digital-twin-change-event-notification"></a>Notification d’événement de changement du jumeau numérique
+
+Une connexion d’appareil génère une notification [Événement de changement du jumeau numérique](concepts-digital-twin.md#digital-twin-change-events). Une solution doit s’abonner à cette notification d’événement. Pour savoir comment activer l’acheminement des événements des jumeaux numériques, consultez [Envoi de messages appareil-à-cloud à différents points de terminaison à l’aide de l’acheminement des messages IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+La solution peut utiliser l’événement illustré dans l’extrait de code suivant pour en savoir plus sur l’appareil IoT Plug-and-Play qui se connecte et obtenir son ID de modèle :
+
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
+
+## <a name="retrieve-a-model-definition"></a>Récupérer une définition de modèle
+
+Une solution utilise l’ID de modèle identifié ci-dessus pour récupérer la définition de modèle correspondante.
+
+Une solution peut obtenir la définition de modèle en utilisant l’une des options suivantes :
+
+### <a name="model-repository"></a>Référentiel de modèles
+
+Les solutions peuvent utiliser le [référentiel de modèles](concepts-model-repository.md) pour récupérer des modèles. Les fabricants d’appareils ou les créateurs de solutions doivent charger à l’avance leurs modèles dans le référentiel pour que la solution puisse les récupérer.
+
+Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion d’appareil, procédez comme suit :
+
+1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du référentiel de modèles. Pour plus d’informations, consultez [Obtenir des modèles](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+
+1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil.
+
+1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service-node.md).
+
+### <a name="custom-store"></a>Magasin personnalisé
+
+Les solutions peuvent stocker ces définitions de modèle dans un système de fichiers local ou un magasin de fichiers public, ou encore utiliser une implémentation personnalisée.
+
+Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion d’appareil, procédez comme suit :
+
+1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du magasin personnalisé.
+
+1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil. 
+
+1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service-node.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous en savez plus sur la découverte de modèles dans une solution IoT, découvrez la [plateforme Azure IoT](overview-iot-plug-and-play.md) pour utiliser d’autres fonctionnalités pour votre solution.
+Maintenant que vous avez appris à intégrer les modèles IoT Plug-and-Play dans une solution IoT, voici quelques étapes ultérieures suggérées :
 
 - [Interaction avec un appareil à partir de la solution](quickstart-service-node.md)
 - [API REST de jumeau numérique IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)

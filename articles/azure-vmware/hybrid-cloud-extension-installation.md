@@ -3,12 +3,12 @@ title: Installer HCX (Hybrid Cloud Extension)
 description: Configurer la solution HCX (Hybrid Cloud Extension) VMware pour votre cloud privé AVS (Azure VMware Solution)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539157"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475445"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installer HCX pour Azure VMware Solution
 
@@ -19,7 +19,7 @@ HCX Advanced, l’installation par défaut, prend en charge jusqu’à trois si
 
 Commencez par passer en revue minutieusement les sections [Avant de commencer](#before-you-begin), [Exigences de la version logicielle](#software-version-requirements) et [Prérequis](#prerequisites). 
 
-Ensuite, nous allons passer en revue toutes les procédures nécessaires pour :
+Ensuite, nous parcourrons pas à pas toutes les procédures nécessaires pour :
 
 > [!div class="checklist"]
 > * Déployer HCX OVA sur site
@@ -31,10 +31,10 @@ Une fois l’installation terminée, vous pouvez appliquer les étapes suivantes
 
 ## <a name="before-you-begin"></a>Avant de commencer
     
-* Passez en revue la [série de tutoriels](tutorial-network-checklist.md) AVS Software Defined Datacenter (SDDC)
-* Consultez et référencez la [documentation VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) y compris le Guide de l’utilisateur HCX
-* Consultez les documents VMware [Migration de machines virtuelles avec VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
-* Consultez éventuellement les [considérations relatives au déploiement de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* Consultez la [série de tutoriels](tutorial-network-checklist.md) AVS Software Defined Datacenter (SDDC).
+* Consultez et référencez la [documentation VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html), notamment le guide de l’utilisateur HCX.
+* Consultez [Migration des machines virtuelles avec VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) dans la documentation de VMware.
+* Consultez éventuellement les [considérations relatives au déploiement de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Consultez éventuellement les ressources VMware associées sur HCX, comme la [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) VMware vSphere sur HCX. 
 * Commandez une activation d’AVS HCX Enterprise via les canaux de support AVS.
 
@@ -47,12 +47,12 @@ Les composants d’infrastructure doivent exécuter la version minimale requise.
 | --- | --- | --- |
 | Serveur vCenter   | 5,1<br/><br/>Si vous utilisez 5.5 U1 ou une version antérieure, utilisez l’interface utilisateur HCX autonome pour les opérations HCX.  | 6.0 U2 et versions ultérieures   |
 | ESXi   | 5.0    | ESXi 6.0 et versions ultérieures   |
-| NSX    | Pour l’extension réseau HCX des commutateurs logiques à la source : NSXv 6.2+ ou NSX-T 2.4+   | NSXv 6.2+ ou NSX-T 2.4+<br/><br/>Pour le routage de proximité HCX : NSXv 6.4+ (routage de proximité non pris en charge avec NSX-T) |
+| NSX    | Pour l’extension réseau HCX des commutateurs logiques à la source : NSXv 6.2+ ou NSX-T 2.4+   | NSXv 6.2+ ou NSX-T 2.4+<br/><br/>Pour le routage de proximité HCX : NSXv 6.4+ (le routage de proximité n’est pas pris en charge avec NSX-T) |
 | vCloud Director   | Non requis. Aucune interopérabilité avec vCloud Director sur le site source | Lorsque l’environnement de destination est intégré à vCloud Director, la version minimale est 9.1.0.2.  |
 
 ## <a name="prerequisites"></a>Prérequis
 
-* La portée globale doit être configurée entre les circuits locaux et AVS SDDC ER.
+* ExpressRoute Global Reach doit être configuré entre les circuits locaux et ExpressRoute AVS SDDC.
 
 * Tous les ports requis doivent être ouverts entre les circuits locaux et AVS SDDC (voir [la documentation VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 

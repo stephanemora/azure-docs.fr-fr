@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289229"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423829"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -97,7 +97,7 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 Pour savoir comment vérifier et attribuer des rôles, voir [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Gardez à l’esprit que la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
+> Gardez à l’esprit que la propagation des affectations de rôles Azure peut prendre cinq minutes.
 
 Vous n’avez pas besoin qu’un de ces rôles soit assigné à votre responsable de la sécurité si votre responsable de la sécurité est ajouté à la liste de contrôle d’accès du conteneur ou du répertoire cible. Dans la liste de contrôle d’accès, votre responsable de la sécurité a besoin de droits d’écriture sur le répertoire cible et d’autorisation d’exécution sur le conteneur et chaque répertoire parent.
 

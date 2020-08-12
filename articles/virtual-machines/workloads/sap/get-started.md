@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2020
+ms.date: 08/04/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525209"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800346"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -104,6 +104,9 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 04/08/2020 : Modification dans [Configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) et [Configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) pour insister sur l’importance de la résolution de noms fiable pour les clusters de Pacemaker
+- 04/08/2020 : Modification de [SAP NW HA sur WFCS avec le partage de fichiers](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW HA sur WFCS avec des](./sap-high-availability-installation-wsfc-shared-disk.md)de disques partagés, [HA pour SAP NW sur des machines virtuelles Azure](./high-availability-guide.md), [HA pour SAP NW sur des machines virtuelles Azure sur SLES](./high-availability-guide-suse.md), [HA pour SAP NW sur des machines virtuelles Azure sur SLES avec et](./high-availability-guide-suse-netapp-files.md), [HA pour SAP NW sur les machines virtuelles Azure sur le guide multisid SLES](./high-availability-guide-suse-multi-sid.md), [haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur RHEL](./high-availability-guide-rhel.md), [HA pour SAP NW sur des machines virtuelles Azure sur RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) et [HA pour SAP NW sur des machines virtuelles Azure sur des machines virtuelles Azure RHEL](./high-availability-guide-rhel-multi-sid.md) Guide pour clarifier l’utilisation du paramètre `enque/encni/set_so_keepalive`
+- 23/07/2020 : Ajout de l’article [Enregistrer sur SAP HANA Grandes instances avec une réservation Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) expliquant ce que vous devez savoir avant d’acheter une réservation SAP HANA Grandes instances et comment effectuer l’achat
 - 16/07/2020 : Description de l’utilisation d’Azure PowerShell afin d’installer une nouvelle extension de machine virtuelle pour SAP dans le [guide de déploiement](deployment-guide.md)
 - 04/07/2020 : Sortie de [Azure Monitor pour solutions SAP (préversion)](./azure-monitor-overview.md)
 - 01/07/2020 : Suggestion d’une configuration de stockage moins coûteuse basée sur la fonctionnalité de stockage en rafale du Stockage Premium Azure dans le document [Configurations de stockage des machines virtuelles Azure SAP HANA](./hana-vm-operations-storage.md) 

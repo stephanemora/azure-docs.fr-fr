@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406739"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534853"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -48,7 +48,7 @@ Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux 
 
 Le stockage Azure présente deux couches d’accès : _gestion_ et _données_. Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
 
-Les rôles RBAC peuvent vous octroyer des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
+Les rôles Azure peuvent vous octroyer des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
 
 À proprement parler, le rôle Lecteur ne fournit aucune autorisation d’accès à la couche de données, et il n’est pas nécessaire pour accéder à la couche de données.
 

@@ -3,12 +3,12 @@ title: Concepts de DevTest Labs | Microsoft Docs
 description: Découvrez les concepts de base de DevTest Labs et comment il peut faciliter la création, la gestion et la surveillance des machines virtuelles Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283841"
 ---
 # <a name="devtest-labs-concepts"></a>Concepts de DevTest Labs
 ## <a name="overview"></a>Vue d’ensemble
@@ -20,7 +20,7 @@ Un laboratoire est l’infrastructure qui comprend un groupe de ressources, tell
 ## <a name="virtual-machine"></a>Machine virtuelle
 Une machine virtuelle Azure est l’un des différents types de [ressources informatiques évolutives et à la demande](/azure/architecture/guide/technology-choices/compute-decision-tree) proposés par Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter le matériel qui exécute la machine virtuelle, ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
 
-L’article [Vue d’ensemble des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
+L’article [Vue d’ensemble des machines virtuelles Windows dans Azure](../virtual-machines/windows/overview.md) vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
 
 ## <a name="claimable-vm"></a>Machine virtuelle revendicable
 Une machine virtuelle Azure revendicable est une machine virtuelle qui peut être utilisée par n’importe quel utilisateur de laboratoire disposant d’autorisations. Un administrateur de laboratoire peut préparer des machines virtuelles avec des images de base et des artefacts spécifiques, et les enregistrer dans un pool partagé. Un utilisateur de laboratoire peut alors exiger une machine virtuelle fonctionnelle à partir du pool lorsqu’il a besoin d’une machine virtuelle avec cette configuration spécifique.
@@ -28,7 +28,7 @@ Une machine virtuelle Azure revendicable est une machine virtuelle qui peut êtr
 Une machine virtuelle revendicable n’est pas initialement affectée à un utilisateur spécifique, mais s’affiche dans la liste de tous les utilisateurs sous « Machines virtuelles revendicables ». Une fois qu’une machine virtuelle est revendiquée par un utilisateur, elle est placée dans la zone « Mes machines virtuelles » et n’est plus exigible par un autre utilisateur.
 
 ## <a name="environment"></a>Environnement
-Dans DevTest Labs, un environnement fait référence à une collection de ressources Azure dans un laboratoire. [Ce billet de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) explique comment créer des environnements à plusieurs machines virtuelles à partir de vos modèles Azure Resource Manager.
+Dans DevTest Labs, un environnement fait référence à une collection de ressources Azure dans un laboratoire. [Ce billet de blog](./devtest-lab-faq.md#blog-post) explique comment créer des environnements à plusieurs machines virtuelles à partir de vos modèles Azure Resource Manager.
 
 ## <a name="base-images"></a>Images de base
 Les images de base sont des images de machine virtuelle dont tous les outils et paramètres sont préinstallés et configurés pour créer rapidement une machine virtuelle. Vous pouvez approvisionner une machine virtuelle en sélectionnant une base existante, puis en ajoutant un artefact pour installer l’agent de test. Vous pouvez ensuite enregistrer la machine virtuelle approvisionnée comme base. Il est donc possible d’utiliser la base sans avoir à réinstaller l’agent de test pour chaque approvisionnement de votre machine virtuelle.
@@ -56,7 +56,7 @@ Les stratégies vous aident à contrôler les coûts dans votre laboratoire. Par
 Les plafonds constituent un mécanisme permettant de réduire le gaspillage dans votre laboratoire. Par exemple, vous pouvez définir un plafond pour limiter le nombre de machines virtuelles qui peuvent être créées par un utilisateur ou dans un laboratoire.
 
 ## <a name="security-levels"></a>Niveaux de sécurité
-L’accès à la sécurité est déterminé par le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Pour comprendre comment l’accès est déterminé, vous devez saisir les différences entre une autorisation, un rôle et une étendue, comme défini par RBAC.
+L’accès à la sécurité est déterminé par le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour comprendre comment l’accès est déterminé, vous devez saisir les différences entre une autorisation, un rôle et une étendue, comme défini par RBAC.
 
 * Autorisation - Une autorisation est un accès défini pour une action spécifique (p. ex. accès en lecture à toutes les machines virtuelles).
 * Rôle - un rôle est un jeu d’autorisations qui peuvent être regroupées et attribuées à un utilisateur. Par exemple, le rôle *propriétaire de l’abonnement* a accès à toutes les ressources au sein d’un abonnement.
@@ -74,7 +74,7 @@ Pour découvrir comment créer des rôles personnalisés dans DevTest Labs, cons
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Tous les concepts abordés dans cet article peuvent être configurés à l’aide de modèles Azure Resource Manager, qui vous permettent de définir l’infrastructure/la configuration de votre solution Windows Azure et de la déployer de façon répétée dans un état cohérent.
 
-[Comprendre la structure et la syntaxe des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) décrit la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
+[Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#template-format) décrit la structure d’un modèle Azure Resource Manager et les propriétés disponibles dans les différentes sections d’un modèle.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

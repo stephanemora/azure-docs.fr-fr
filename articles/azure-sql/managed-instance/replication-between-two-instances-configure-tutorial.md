@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708473"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422910"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutoriel : Configurer la réplication entre deux instances managées
 
@@ -26,7 +26,7 @@ ms.locfileid: "84708473"
 La réplication transactionnelle vous permet de répliquer des données d’une base de données vers une autre hébergée sur SQL Server ou [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (préversion publique). SQL Managed Instance peut être une base de données du serveur de publication, une base de données du serveur de distribution ou un abonné dans la topologie de réplication. Consultez [Configurations de réplication transactionnelle](replication-transactional-overview.md#common-configurations) pour connaître les configurations disponibles.
 
 > [!NOTE]
-> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles.
+> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
 
 Ce tutoriel explique comment configurer une instance managée en tant que base de données du serveur de publication ou base de données du serveur de distribution, puis une deuxième instance managée en tant qu’abonné.  
 

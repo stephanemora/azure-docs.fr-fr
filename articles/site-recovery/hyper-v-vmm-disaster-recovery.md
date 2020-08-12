@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134004"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495967"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -80,7 +80,7 @@ Installez le fournisseur Azure Site Recovery sur les serveurs VMM puis découvre
 4. Téléchargez le fichier d’installation du fournisseur Azure Site Recovery.
 5. Téléchargez la clé d’inscription. Cette clé est nécessaire lorsque vous installez le fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
 
-    ![Configurer la source](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Capture d’écran des options permettant de télécharger le fournisseur et la clé d’inscription.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Installez le fournisseur sur chaque serveur VMM. Vous n’avez besoin de rien installer explicitement sur les hôtes Hyper-V.
 
@@ -94,7 +94,7 @@ Installez le fournisseur Azure Site Recovery sur les serveurs VMM puis découvre
 4. Dans le champ **Installation**, acceptez ou modifiez l’emplacement d’installation par défaut et cliquez sur **Installer**.
 5. Une fois l’installation terminée, cliquez sur **Inscrire** pour inscrire le serveur dans le coffre.
 
-    ![Emplacement d’installation](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Capture d’écran de l’écran d’installation du fournisseur, y compris l’emplacement de l’installation.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré. Cliquez sur **Suivant**.
 7. Sur la page **Connexion proxy**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Azure.
    - Vous pouvez définir la connexion directe, ou via un proxy, du fournisseur à Internet. Spécifiez les paramètres de proxy, si nécessaire.
@@ -115,7 +115,7 @@ Sélectionnez le cloud et le serveur VMM cible :
 1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez le serveur VMM cible.
 2. Les clouds VMM synchronisés avec Site Recovery s’affichent. Sélectionnez le cloud cible.
 
-   ![Cible](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Capture d’écran du serveur VMM cible et des sélections du cloud.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurer une stratégie de réplication
@@ -138,7 +138,7 @@ Avant de commencer, assurez-vous que tous les hôtes qui utilisent la stratégie
 5. Sélectionnez **Supprimer une machine virtuelle de réplica** pour spécifier que la machine virtuelle doit être supprimée si vous désactivez la protection de la machine virtuelle source. Si vous activez ce paramètre et que vous désactivez la protection de la machine virtuelle source, elle est supprimée de la console Site Recovery, les paramètres Site Recovery de VMM sont supprimés de la console VMM et le réplica est supprimé.
 6. Dans **Méthode de réplication initiale**, si vous effectuez une réplication sur le réseau, indiquez si vous souhaitez lancer la réplication initiale ou la planifier. Pour économiser de la bande passante réseau, il peut être intéressant de la planifier en dehors des heures de pointe. Cliquez ensuite sur **OK**.
 
-     ![Stratégie de réplication](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Capture d’écran des options de stratégie de réplication.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. La nouvelle stratégie est automatiquement associée au cloud VMM. Dans **Stratégie de réplication**, cliquez sur **OK**. 
 

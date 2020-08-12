@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283467"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423148"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -55,7 +55,7 @@ Dans le portail d’inscription Azure, vous pouvez vérifier que les information
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organiser les abonnements dans des groupes d’administration
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. [Les groupes d’administration Azure](/azure/governance/management-groups/create) fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en conteneurs appelés groupes d’administration et vous appliquez vos conditions de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées à ce groupe d’administration.
 
-Vous pouvez créer une structure flexible de groupes d’administration et d’abonnements dans un répertoire. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration racine. Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire.
+Vous pouvez créer une structure flexible de groupes d’administration et d’abonnements dans un répertoire. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration racine. Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des attributions de rôles Azure au niveau du répertoire.
 
 Voici quelques meilleures pratiques pour l’utilisation de groupes d’administration :
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066337"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495605"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -24,7 +24,7 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
 ## <a name="foreach-loop"></a>Boucle « Foreach »
 
-Une boucle « Foreach » répète une ou plusieurs actions sur chaque élément du tableau et fonctionne uniquement sur les tableaux. Les itérations dans une boucle « Foreach » s’exécutent en parallèle. Toutefois, vous pouvez exécuter des itérations une à la fois en configurant une [boucle « Foreach » séquentielle](#sequential-foreach-loop). 
+Une boucle « Foreach » répète une ou plusieurs actions sur chaque élément du tableau et fonctionne uniquement sur les tableaux. Voici quelques considérations liées à l’utilisation des boucles « Foreach » :
 
-Voici quelques considérations liées à l’utilisation des boucles « Foreach » :
+* Par défaut, les itérations dans une boucle « Foreach » s’exécutent simultanément, ou parallèlement. Ce comportement diffère de [la boucle **Appliquer à chaque** de Power Automate](/power-automate/apply-to-each) où les itérations s’exécutent l’une après l’autre, ou séquentiellement. Toutefois, vous pouvez [configurer des itérations de boucle « Foreach » séquentielles](#sequential-foreach-loop). Par exemple, si vous souhaitez suspendre l’itération suivante dans une boucle « Foreach » à l’aide de l’[Action Retarder](../connectors/connectors-native-delay.md), vous devez définir la boucle pour qu’elle s’exécute de façon séquentielle.
 
-* Dans les boucles imbriquées, les itérations s’exécutent toujours de manière séquentielle, pas en parallèle. Pour exécuter des opérations en parallèle pour les éléments d’une boucle imbriquée, créez et [appelez une application logique enfant](../logic-apps/logic-apps-http-endpoint.md).
+  L’exception au comportement par défaut est celle de boucles imbriquées où les itérations s’exécutent toujours séquentiellement, non en parallèle. Pour exécuter des opérations en parallèle pour les éléments d’une boucle imbriquée, créez et [appelez une application logique enfant](../logic-apps/logic-apps-http-endpoint.md).
 
 * Pour obtenir des résultats prévisibles à partir d’opérations exécutées sur des variables pendant chaque itération de boucle, exécutez ces boucles de manière séquentielle. Par exemple, quand une boucle exécutée simultanément se termine, les opérations d’incrémentation, de décrémentation et d’ajout aux variables retournent des résultats prévisibles. Toutefois, pendant chaque itération de la boucle s’exécutant simultanément, ces opérations peuvent retourner des résultats imprévisibles. 
 

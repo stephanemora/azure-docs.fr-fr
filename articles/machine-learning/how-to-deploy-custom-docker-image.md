@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 47bf14a8da8357e0114ef3c5d6cf96185306dd16
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3ffc3883fb4a0d0b725239711bc0163f50998713
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325863"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541048"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Ce document est divisé en deux sections :
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Registre [Azure Container Registry](/azure/container-registry) ou autre registre Docker accessible sur Internet.
-* Les étapes de ce document supposent que vous êtes familiarisé avec la création et l’utilisation d’un objet de __configuration de l’inférence__ dans le cadre du déploiement de modèle. Pour plus d’informations, consultez la section « Préparer le déploiement » de [Comment et où déployer des modèles ?](how-to-deploy-and-where.md#prepare-to-deploy).
+* Les étapes de ce document supposent que vous êtes familiarisé avec la création et l’utilisation d’un objet de __configuration de l’inférence__ dans le cadre du déploiement de modèle. Pour plus d’informations, consultez [Où déployer et comment](how-to-deploy-and-where.md).
 
 ## <a name="create-a-custom-base-image"></a>Créer une image de base personnalisée
 

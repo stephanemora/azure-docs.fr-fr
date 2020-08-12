@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201214"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534020"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -70,6 +70,10 @@ Configurez la récupération d’urgence [entre abonnements](https://azure.micro
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>Puis-je répliquer des machines virtuelles Azure épinglées à une zone vers une autre région ?
 
 Oui, vous pouvez [répliquer des machines virtuelles épinglées à une zone](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) vers une autre région.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>Puis-je répliquer des machines virtuelles dans une région comprenant des zones, d’une configuration non zonale à une configuration zonale ?
+
+Non, ce n’est pas pris en charge actuellement. En guise de solution de contournement, vous pouvez répliquer la machine virtuelle à l’aide de ASR vers une configuration zonale dans une autre région, puis désactiver la réplication. Ensuite, réactivez la réplication à partir de cette région vers la région d’origine, puis choisissez une configuration zonale pour le basculement.
 
 ### <a name="can-i-exclude-disks"></a>Puis-je exclure des disques ?
 

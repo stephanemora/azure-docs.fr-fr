@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375096"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498342"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Ligne de base de la sécurité Azure pour Cognitive Services
 
@@ -73,7 +73,7 @@ Notez également que vous devez désactiver l’inspection approfondie des paque
 **Aide** : Lorsque des machines virtuelles sont déployées dans le même réseau virtuel que votre conteneur Azure Cognitive Services, définissez et implémentez des configurations de sécurité standard pour les ressources réseau associées à Azure Policy. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.CognitiveServices » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos instances Azure Cache pour Redis. Vous pouvez également utiliser des définitions de stratégie intégrée, par exemple :
 - DDoS Protection Standard doit être activé
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, le contrôle d'accès en fonction du rôle Azure (RBAC) et les stratégies au sein d'une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
 
 Si vous utilisez Cognitive Services au sein d’un conteneur, vous pouvez augmenter votre déploiement de conteneur avec une solution de pare-feu d’applications web frontale qui filtre le trafic malveillant et prend en charge le chiffrement TLS de bout en bout, en gardant le point de terminaison du conteneur privé et sécurisé.
 
@@ -95,7 +95,7 @@ Si vous utilisez Cognitive Services au sein d’un conteneur, vous pouvez augmen
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -223,7 +223,7 @@ En outre, Azure Cognitive Services envoie des événements de diagnostic qui peu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -245,7 +245,7 @@ En outre, Azure Cognitive Services envoie des événements de diagnostic qui peu
 
 * [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -283,7 +283,7 @@ Configurez les paramètres de diagnostic pour votre conteneur Azure Cognitive Se
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -319,7 +319,7 @@ Il n’est pas recommandé de créer des mots de passe par défaut dans votre ap
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Aide** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
+**Conseils** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration.
 
 En outre, pour vous aider à suivre les comptes d’administration dédiés, vous pouvez utiliser des recommandations d’Azure Security Center ou des stratégies Azure intégrées, telles que les suivantes :
 - Plusieurs propriétaires doivent être affectés à votre abonnement
@@ -390,7 +390,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -432,7 +432,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Procédure d’intégration d’Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -470,7 +470,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -504,7 +504,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Cognitive Services et 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : actuellement non disponible
 
@@ -528,7 +528,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -592,23 +592,23 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -636,7 +636,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -646,7 +646,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -672,7 +672,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -696,7 +696,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -712,13 +712,13 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
@@ -732,9 +732,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -744,7 +744,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 * [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -752,7 +752,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -782,7 +782,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -816,7 +816,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 * [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -824,7 +824,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -840,9 +840,9 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -860,7 +860,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -922,7 +922,7 @@ Le logiciel anti-programme malveillant Microsoft est activé sur l’hôte sous-
 
 Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul, comme App Service, Data Lake Storage, Stockage Blob, Azure Database pour PostgreSQL, etc. Microsoft ne peut pas accéder à vos données dans ces instances.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -966,7 +966,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 * [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
-* [Groupes de ressources : exportation du modèle](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [Groupes de ressources – Exportation du modèle](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
 
 * [Présentation d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
@@ -976,7 +976,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 **Responsabilité** : Customer
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés managées par le client
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
 **Aide** : Assurez-vous de la capacité d’effectuer régulièrement le déploiement des modèles Azure Resource Manager dans un abonnement isolé, si nécessaire. Testez la restauration des clés pré-partagées sauvegardées.
 
@@ -1028,7 +1028,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1060,7 +1060,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1070,7 +1070,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1084,7 +1084,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif dans l’infrastructure, les services et les applications cloud gérés par Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

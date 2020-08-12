@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 2652e3b5be108985557427b99fa7841b88bf28ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e938e7a8595b6d6b5b94dd265cb466b3e8719230
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318604"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432499"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Python est un précieux outil dans le coffre à outils de nombreux scientifiques de données. Il est utilisé à chaque étape des flux de travail d’apprentissage automatique typiques, y compris l'exploration des données, l'extraction des fonctionnalités, la formation, la validation et le déploiement de modèles.

@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513855"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809134"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à :
 > * Exécuter un travail de sauvegarde à la demande
 
 >[!NOTE]
->[Prenez-en main](./tutorial-backup-sap-hana-db.md) la sauvegarde SAP HANA en préversion pour RHEL (7.4, 7.6, 7.7 ou 8.1). Pour d’autres questions, écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Depuis le 1er août 2020, la sauvegarde SAP HANA pour RHEL (7.4, 7.6, 7.7 et 8.1) est en disponibilité générale.
 
 >[!NOTE]
 >**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
@@ -67,7 +67,7 @@ Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de 
 
 1. Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
 
-De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pour Stockage Azure et Azure AD.
+De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pour Stockage Azure et Azure AD. Pour plus d’informations sur les balises de service, consultez [cet article](../virtual-network/service-tags-overview.md).
 
 #### <a name="azure-firewall-tags"></a>Balises Pare-feu Azure
 
@@ -214,4 +214,4 @@ Si vous souhaitez effectuer une sauvegarde locale (à l’aide de HANA Studio) d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](./sap-hana-db-restore.md)
-* Découvrez comment [gérer les bases de données SAP HANA sauvegardées à l’aide de la Sauvegarde Azure](./sap-hana-db-manage.md)
+* Découvrez comment [gérer des bases de données SAP HANA sauvegardées à l’aide de Sauvegarde Azure](./sap-hana-db-manage.md)

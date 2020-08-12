@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351969"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475666"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -25,7 +25,7 @@ Vous décrivez la télémétrie, les propriétés et les commandes qu’un appar
 
 Pour plus d’informations, consultez [Composants IoT Plug-and-Play dans les modèles](concepts-components.md).
 
-## <a name="model-discovery"></a>Découverte de modèles
+## <a name="identify-the-model"></a>identification du modèle
 
 Pour annoncer le modèle qu’il implémente, un appareil IoT Plug-and-Play inclut l’ID de modèle dans le paquet de connexion MQTT en ajoutant `model-id` au champ `USERNAME`.
 
@@ -261,7 +261,7 @@ Sur un appareil, les interfaces avec plusieurs composants utilisent des noms de 
 
 À présent que vous connaissez les conventions IoT Plug-and-Play, voici quelques ressources supplémentaires :
 
-- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK d’appareils C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST IoT](https://docs.microsoft.com/rest/api/iothub/device)
 - [Composants de modèle](./concepts-components.md)

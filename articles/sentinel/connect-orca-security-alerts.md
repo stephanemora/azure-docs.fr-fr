@@ -1,6 +1,6 @@
 ---
-title: Connecter des alertes Orca à Azure Sentinel | Microsoft Docs
-description: Découvrez comment connecter des données d’alerte de sécurité Orca à Azure Sentinel pour consulter des tableaux de bord, créer des alertes personnalisées et améliorer l’investigation.
+title: Connecter des alertes Orca Security à Azure Sentinel | Microsoft Docs
+description: Découvrez comment connecter des données d’alerte Orca Security à Azure Sentinel pour consulter des tableaux de bord, créer des alertes personnalisées et améliorer l’investigation.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076271"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Connecter des alertes Orca à Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Connecter vos alertes Orca Security à Azure Sentinel 
+
+> [!IMPORTANT]
+> Le connecteur d’alertes Orca Security dans Azure Sentinel est actuellement disponible en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le connecteur des alertes de sécurité Orca vous permet de placer facilement vos [alertes de sécurité Orca](https://orca.security/) dans Azure Sentinel, pour pouvoir les consulter dans des classeurs, les utiliser pour créer des alertes personnalisées et les incorporer pour améliorer l’investigation. L’intégration entre les alertes de sécurité Orca et Azure Sentinel utilise l’API REST.
 

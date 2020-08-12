@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466015"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496421"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrer Azure Data Lake Storage de Gen1 vers Gen2
 
@@ -81,7 +81,7 @@ Effectuez la migration des données, des charges de travail et des applications 
    
 6. Recherchez les références URI contenant la chaîne `adl://` dans les fichiers de code, les notebooks Databricks, les fichiers HQL Apache Hive ou tout autre fichier utilisé dans le cadre de vos charges de travail. Remplacez ces références par l’[URI formaté Gen2](data-lake-storage-introduction-abfs-uri.md) de votre nouveau compte de stockage. Par exemple, l’URI Gen1 `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` peut devenir `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
-7. Configurez la sécurité de votre compte, notamment les [rôles RBAC](../common/storage-auth-aad-rbac-portal.md), la [sécurité au niveau des fichiers et des dossiers](data-lake-storage-access-control.md), ainsi que les [pare-feu et les réseaux virtuels du Stockage Azure](../common/storage-network-security.md).
+7. Configurez la sécurité sur votre compte pour inclure les [rôles RBAC Azure](../common/storage-auth-aad-rbac-portal.md), la [sécurité au niveau des fichiers et des dossiers](data-lake-storage-access-control.md), ainsi que les [pare-feu et réseaux virtuels dans Stockage Azure](../common/storage-network-security.md).
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>Étape 4 : Basculer de Gen1 vers Gen2
 
@@ -207,4 +207,3 @@ Il s’agit du modèle le plus simple.
 - Découvrez les différentes étapes de configuration de la sécurité pour un compte de stockage. Voir [Guide de sécurité du Stockage Azure](../common/storage-security-guide.md).
 - Optimisez les performances de votre instance de Data Lake Store. Voir [Optimiser Azure Data Lake Storage Gen2 pour les performances](data-lake-storage-performance-tuning-guidance.md).
 - Découvrez les bonnes pratiques de gestion pour Data Lake Store. Voir [Bonnes pratiques concernant l’utilisation d’Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
-

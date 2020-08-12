@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/29/2020
-ms.openlocfilehash: b628ca7f676c3eab80e11da124f4d6aa7ebd52a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4eaf5ad40b5ef8bee68ef0e56ab8f53db8a8a2
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708788"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533833"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gérer la conservation des sauvegardes à long terme Azure SQL Managed Instance (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Dans Azure SQL Managed Instance, vous pouvez configurer une stratégie de [conse
 
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
 
-## <a name="rbac-roles-to-manage-long-term-retention"></a>Rôles RBAC pour gérer la rétention à long terme
+## <a name="azure-roles-to-manage-long-term-retention"></a>Rôles Azure pour gérer la conservation à long terme
 
 Pour **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** et **Restore-AzSqlInstanceDatabase**, vous devez avoir l’un des rôles suivants :
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202048"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760547"
 ---
 # <a name="what-is-a-keyword"></a>Qu’est-ce qu’un mot clé ?
 
@@ -33,10 +33,30 @@ Avec les fonctionnalités de personnalisation, de performances et d’intégrati
 
 ## <a name="get-started-with-custom-keywords"></a>Bien démarrer avec les mots clés personnalisés
 
-* Tutoriel : [Créer un mot clé personnalisé avec Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Tutoriel : [Activer votre produit par la voix avec le SDK Speech, à l'aide de C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Démarrage rapide : [Reconnaître les mots clés avec le SDK Speech, sur la plateforme Windows universelle à l'aide de C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Démarrage rapide : [Reconnaître les mots clés avec le SDK Speech, sur Android à l'aide de Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Consultez [notions de base sur les mots clés personnalisés](custom-keyword-basics.md) pour les modèles d’utilisation et de conception de base.
+* [Activer votre produit par la voix avec le SDK Speech, à l'aide de C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="choose-an-effective-keyword"></a>Choisir un mot clé efficace
+
+Il est essentiel de créer un mot clé efficace pour que votre appareil réponde bien avec logique et précision. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot clé. Vous devez respecter les consignes suivantes lors du choix d’un mot clé :
+
+> [!div class="checklist"]
+> * Votre mot clé doit être un mot ou une expression en anglais.
+> * Le/la prononcer ne doit pas prendre plus de deux secondes.
+> * Il est préférable d’utiliser un mot de quatre à sept syllabes. Par exemple, « Hey, Computer » est un bon mot clé, ce qui n’est pas le cas du mot « Hey » seul.
+> * Les mots clés doivent suivre les règles courantes de prononciation de la langue anglaise.
+> * Un mot unique ou même inventé qui suit les règles courantes de prononciation de la langue anglaise peut réduire les faux positifs. Par exemple, « computerama » pourrait être un bon mot clé.
+> * Ne choisissez pas un mot courant, comme « eat » et « go » qui sont prononcés très fréquemment dans les conversations. Ces faux déclencheurs activeraient à tort votre appareil.
+> * Évitez d’utiliser un mot clé qui a plusieurs prononciations. Sinon, les utilisateurs devront connaître la « bonne » prononciation pour obtenir une réponse de leur appareil. Par exemple, « 509 » peut se prononcer « five zero nine », « five oh nine » ou « five hundred and nine ». « R.E.I. » peut être prononcé « r-e-i » ou « ray ». « Live » peut être prononcé « /līv/ » ou « /liv/ ».
+> * N’utilisez pas de caractères spéciaux, de symboles ou de chiffres. Par exemple, « Go# » et « 20+ cats » peuvent être des mots clés problématiques. Cependant, « go sharp » ou « twenty plus cats » peuvent fonctionner. Pour rendre évidente la bonne prononciation, vous pouvez utiliser les symboles de votre marque et vous servir du marketing et de la documentation.
+
+> [!NOTE]
+> Si vous choisissez un mot commercial comme mot clé, vous devez être propriétaire de cette marque commerciale ou avoir l’autorisation de son propriétaire pour utiliser le mot. Microsoft n’est pas responsable des problèmes juridiques que pourrait provoquer votre choix de mot clé.
+
+## <a name="see-samples-on-github"></a>Voir des exemples sur GitHub
+
+* [Reconnaître les mots clés avec le SDK Speech, sur la plateforme Windows universelle à l'aide de C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Reconnaître les mots clés avec le SDK Speech, sur Android à l'aide de Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

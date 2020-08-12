@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554880"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529107"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
-Les organisations peuvent désormais utiliser l’authentification Azure Active Directory (AD) pour leurs machines virtuelles Azure exécutées sous **Windows Server 2019 Datacenter Edition** ou **Windows 10 1809** et versions ultérieures. L’utilisation d’Azure AD pour l’authentification sur des machines virtuelles vous offre un moyen de contrôler et d’appliquer des stratégies de manière centralisée. Les outils tels que le contrôle d’accès en fonction du rôle Azure (RBAC) et l’accès conditionnel Azure AD vous permettent de contrôler qui peut accéder à une machine virtuelle. Cet article indique comment créer et configurer une machine virtuelle Windows Server 2019 pour utiliser l’authentification Azure AD.
+Les organisations peuvent désormais utiliser l’authentification Azure Active Directory (AD) pour leurs machines virtuelles Azure exécutées sous **Windows Server 2019 Datacenter Edition** ou **Windows 10 1809** et versions ultérieures. L’utilisation d’Azure AD pour l’authentification sur des machines virtuelles vous offre un moyen de contrôler et d’appliquer des stratégies de manière centralisée. Des outils tels que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’accès conditionnel Azure AD vous permettent de contrôler qui peut accéder à une machine virtuelle. Cet article indique comment créer et configurer une machine virtuelle Windows Server 2019 pour utiliser l’authentification Azure AD.
 
 > [!NOTE]
 > La connexion Azure AD pour machines virtuelles Windows Azure est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -69,7 +69,7 @@ Pour activer l’authentification Azure AD pour vos machines virtuelles Windows 
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Activation de la connexion Azure AD dans pour les machines virtuelles Windows dans Azure
 
-Pour utiliser la connexion Azure AD pour une machine virtuelle Windows dans Azure, vous devez d’abord activer l’option de connexion Azure AD pour votre machine virtuelle Windows, puis vous devez configurer les attributions de rôle RBAC pour les utilisateurs autorisés à se connecter à la machine virtuelle.
+Pour utiliser la connexion Azure AD pour une machine virtuelle Windows dans Azure, vous devez d’abord activer l’option de connexion Azure AD pour votre machine virtuelle Windows, puis vous devez configurer les attributions de rôle Azure pour les utilisateurs autorisés à se connecter à la machine virtuelle.
 Vous pouvez activer la connexion Azure AD pour votre machine virtuelle Windows de plusieurs façons :
 
 - À l’aide de l’expérience Portail Azure lors de la création d’une machine virtuelle Windows
@@ -144,7 +144,7 @@ Le `provisioningState` de `Succeeded` s’affiche, une fois que l’extension es
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurer des attributions de rôle pour la machine virtuelle
 
-Maintenant que vous avez créé la machine virtuelle, vous devez configurer la stratégie RBAC Azure pour déterminer qui peut se connecter à la machine virtuelle. Deux rôles RBAC sont utilisés pour autoriser la connexion aux machines virtuelles :
+Maintenant que vous avez créé la machine virtuelle, vous devez configurer la stratégie RBAC Azure pour déterminer qui peut se connecter à la machine virtuelle. Deux rôles Azure sont utilisés pour autoriser la connexion aux machines virtuelles :
 
 - **Connexion de l’administrateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges Administrateur.
 - **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
@@ -202,10 +202,13 @@ Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une a
 > [!NOTE]
 > Si vous utilisez « Exiger l’authentification multifacteur » comme contrôle pour l’octroi d’accès pour demander l’accès à l’application « Connexion à une machine virtuelle Microsoft Azure », vous devez fournir une revendication d’authentification multifacteur avec le client qui lance la session Bureau à distance (RDP) sur la machine virtuelle Windows cible dans Azure. La seule façon d’y parvenir sur un client Windows 10 est d’utiliser le code PIN Windows Hello Entreprise ou une authentification biométrique avec le client RDP. La prise en charge de l’authentification biométrique a été ajoutée au client RDP dans Windows 10 version 1809. Le Bureau à distance utilisant l’authentification Windows Hello Entreprise est disponible uniquement pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
 
+> [!WARNING]
+> Le service Azure Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.
+
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
 > [!IMPORTANT]
-> La connexion à distance aux machines virtuelles jointes à Azure AD est autorisée uniquement à partir des PC Windows 10 qui sont joints à Azure AD ou hybrides joints à Azure AD au **même** répertoire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification de Azure AD, l’utilisateur doit appartenir à l’un des deux rôles RBAC, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Pour l’instant, Azure Bastion ne peut pas être utilisé pour se connecter à l’aide de l’authentification Azure Active Directory avec l’extension AADLoginForWindows. Seul le protocole RDP direct est pris en charge.
+> La connexion à distance aux machines virtuelles jointes à Azure AD n’est autorisée qu’à partir des PC Windows 10 qui sont soit inscrits sur Azure AD (build minimale 20H1 requise), soit joints à Azure AD ou joints à Azure AD par une jointure hybride Azure AD au **même** annuaire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification Azure AD, l’utilisateur doit appartenir à l’un des deux rôles Azure, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Si vous utilisez un PC Windows 10 inscrit dans Azure AD, vous devez entrer les informations d’identification au format AzureAD\UPN (par exemple, AzureAD\john@contoso.com). À ce stade, vous ne pouvez pas utiliser le service Azure Bastion pour vous connecter à l’aide de l’authentification Azure Active Directory avec l’extension AADLoginForWindows. Seul le protocole RDP direct est pris en charge.
 
 Pour vous connecter à votre machine virtuelle Windows Server 2019 à l’aide d’Azure AD : 
 
@@ -312,13 +315,13 @@ En Préversion publique, l’extension AADLoginForWindows est uniquement destin�
 
 ### <a name="troubleshoot-sign-in-issues"></a>Résoudre les problèmes de connexion
 
-Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter via RDP avec des informations d’identification Azure AD, notamment l’absence de l’attribution de rôles RBAC, un client non autorisé ou la méthode de connexion 2FA requise. Utilisez les informations suivantes pour corriger ces problèmes.
+Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter via RDP avec des informations d’identification Azure AD, notamment l’absence d’attribution de rôles Azure, un client non autorisé ou la méthode de connexion 2FA requise. Utilisez les informations suivantes pour corriger ces problèmes.
 
 L’état de l’appareil et de la SSO peut être affiché en exécutant `dsregcmd /status`. L’objectif est que l’état de l’appareil s’affiche comme `AzureAdJoined : YES` et `SSO State` comme `AzureAdPrt : YES`.
 
 En outre, la connexion RDP à l’aide de comptes Azure AD est capturée dans la visionneuse d’événements sous les journaux d’événements AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>rôle RBAC non attribué
+#### <a name="azure-role-not-assigned"></a>rôle Azure non attribué
 
 Si le message d’erreur suivant s’affiche lorsque vous établissez une connexion Bureau à distance à votre machine virtuelle : 
 
@@ -339,7 +342,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> Windows 10 20H1 ajoutera la prise en charge de PC inscrit à Azure AD pour établir une connexion Bureau à distance à votre machine virtuelle. Participez au programme Windows Insider pour l’essayer et découvrir les nouvelles fonctionnalités de Windows 10.
+> La build 20H1 de Windows 10 a ajouté la prise en charge d’un PC inscrit dans Azure AD pour initier une connexion RDP à votre machine virtuelle. Lorsque vous utilisez un PC inscrit dans Azure AD (pas joint à Azure AD ou joint à Azure AD par une jointure hybride) comme client RDP pour initier des connexions à votre machine virtuelle, vous devez entrer des informations d’identification au format AzureAD\UPn (par exemple, AzureAD\john@contoso.com).
 
 Vérifiez également que l’extension AADLoginForWindows n’a pas été désinstallée une fois la jointure Azure AD terminée.
  

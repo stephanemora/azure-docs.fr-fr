@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337600"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760394"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
 Cet article fournit des exemples et des détails supplémentaires pour l’utilisation du [langage du magasin de requêtes Azure Digital Twins](concepts-query-language.md) dans le but d’interroger les informations du [graphe de jumeaux](concepts-twins-graph.md). Vous exécutez des requêtes sur le graphe à l’aide des [**API de requête**](how-to-use-apis-sdks.md) Azure Digital Twins.
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+Le reste de cet article fournit des exemples d’utilisation de ces opérations.
+
 ## <a name="query-syntax"></a>Syntaxe de requête
 
-Voici quelques exemples de requêtes qui illustrent la structure du langage de requête et exécutent les opérations de requête possibles.
+Cette section contient quelques exemples de requêtes qui illustrent la structure du langage de requête et exécutent les opérations de requête possibles.
 
 Obtenir les [jumeaux numériques](concepts-twins-graph.md) d’après leurs propriétés (y compris l’ID et les métadonnées) :
 ```sql
@@ -31,24 +35,63 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Obtenir les jumeaux numériques d’après le [modèle](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
 
+Vous pouvez également accéder aux jumeaux à l’aide de leurs propriétés de *balise*, comme décrit dans [Ajouter des balises à des jumeaux numériques](how-to-use-tags.md) :
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Sélectionner les meilleurs éléments
+
+Vous pouvez sélectionner les meilleurs éléments dans une requête à l’aide de la clause `Select TOP`.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Requête par modèle
+
+L’opérateur `IS_OF_MODEL` peut être utilisé pour filtrer en fonction du [modèle](concepts-models.md) de jumeau. Il prend en charge l’héritage et comporte plusieurs options de surcharge.
+
+L’utilisation la plus simple de `IS_OF_MODEL` ne prend qu’un paramètre `twinTypeName` : `IS_OF_MODEL(twinTypeName)`.
+Voici un exemple de requête qui transmet une valeur dans ce paramètre :
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Pour spécifier une collection de jumeaux à rechercher lorsqu’il en existe plusieurs (par exemple, lorsqu’un `JOIN` est utilisé), ajoutez le paramètre `twinCollection` : `IS_OF_MODEL(twinCollection, twinTypeName)`.
+Voici un exemple de requête qui transmet une valeur dans ce paramètre :
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Pour effectuer une correspondance exacte, ajoutez le paramètre `exact` : `IS_OF_MODEL(twinTypeName, exact)`.
+Voici un exemple de requête qui transmet une valeur dans ce paramètre :
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+Vous pouvez également passer les trois arguments ensemble : `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
+Voici un exemple de requête spécifiant une valeur pour les trois paramètres :
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
+
 ### <a name="query-based-on-relationships"></a>Requête basée sur des relations
 
-Lorsque vous effectuez une interrogation basée sur les relations des jumeaux numériques, sachez que le langage du magasin de requêtes Azure Digital Twins a une syntaxe spéciale.
+Lorsque vous effectuez une interrogation basée sur les relations des jumeaux numériques, sachez que le langage du magasin de requêtes d’Azure Digital Twins a une syntaxe spéciale.
 
 Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Ce qui le distingue principalement des langages de type SQL « classiques » est que chaque expression de la clause `FROM` n’est pas une table. En effet, la clause `FROM` exprime une traversée de relation entre les entités, et elle est écrite avec une version Azure Digital Twins de `JOIN`. 
 
-Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que le `JOIN` du langage du magasin de requêtes Azure Digital Twins est légèrement différent du `JOIN` SQL général, puisque les relations ne peuvent pas être interrogées de manière indépendante et doivent être liées à un jumeau.
+Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que le `JOIN` du langage d’Azure Digital Twins est légèrement différent du `JOIN` SQL général, puisque les relations ne peuvent pas être interrogées de manière indépendante et doivent être liées à un jumeau.
 Pour incorporer cette différence, le mot clé `RELATED` est utilisé dans la clause `JOIN` afin de référencer l’ensemble de relations d’un jumeau. 
 
 La section suivante fournit plusieurs exemples.
@@ -74,7 +117,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
 
-De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Le langage du magasin de requêtes Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
+De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Le langage d’Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
 
 Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition*. Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
 
@@ -129,7 +172,7 @@ Il peut se passer jusqu’à 10 secondes avant que les modifications de votre i
 Dans la préversion, il existe d’autres limitations concernant l’utilisation de `JOIN`.
 * Aucune sous-requête n’est prise en charge dans l’instruction `FROM`.
 * La sémantique `OUTER JOIN` n’est pas prise en charge, ce qui signifie que si la relation a un rang égal à zéro, la « ligne » entière sera éliminée du jeu de résultats de sortie.
-* Dans la préversion publique, la profondeur de la traversée du graphe est restreinte : seul un `JOIN` est autorisé par requête.
+* Dans la préversion, la profondeur de la traversée du graphe est restreinte à 5 niveaux `JOIN` autorisés par requête.
 * La source des opérations `JOIN` est restreinte : la requête doit déclarer les jumeaux au début.
 
 ## <a name="query-best-practices"></a>Meilleures pratiques relatives aux requêtes

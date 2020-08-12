@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3d63ccc2c47bca9410b5b9105b90aa1f0cf5854a
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223973"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439272"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Prévention des entrées DNS non résolues et de l’acquisition de sous-domaine
 
@@ -120,20 +120,80 @@ Il incombe souvent aux développeurs et aux équipes d’exploitation d’exécu
         - Les ressources existent : interrogez vos zones DNS pour connaître les ressources pointant vers des sous-domaines Azure tels que *.azurewebsites.net ou *.cloudapp.azure.com (voir [cette liste de références](azure-domains.md)).
         - Vous en êtes le propriétaire : vérifiez que vous possédez toutes les ressources que vos sous-domaines DNS ciblent.
 
-    - Gérez un catalogue de services de vos points de terminaison de nom de domaine complet (FQDN) Azure et des propriétaires d’applications. Pour créer votre catalogue de services, exécutez la requête Azure Resource Graph (ARG) suivante avec les paramètres du tableau ci-dessous :
-    
+    - Gérez un catalogue de services de vos points de terminaison de nom de domaine complet (FQDN) Azure et des propriétaires d’applications. Pour créer votre catalogue de services, exécutez le script de requête Azure Resource Graph suivant. Ce script projette les informations des points de terminaison de FQDN des ressources auxquelles vous avez accès et les génère dans un fichier CSV. Si vous avez accès à tous les abonnements de votre locataire, le script les prend tous en compte, comme indiqué dans l’exemple de script suivant. Pour restreindre les résultats à un ensemble spécifique d’abonnements, modifiez le script comme indiqué.
+
         >[!IMPORTANT]
         > **Autorisations** : exécutez la requête en tant qu’utilisateur ayant accès à tous vos abonnements Azure. 
         >
-        > **Limitations** : Azure Resource Graph présente des limitations et des limites de pagination que vous devez prendre en compte si vous disposez d’un environnement Azure volumineux. [En savoir plus](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sur la gestion de gros jeux de données de ressources Azure.  
+        > **Limitations** : Azure Resource Graph présente des limitations et des limites de pagination que vous devez prendre en compte si vous disposez d’un environnement Azure volumineux. [En savoir plus](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sur la gestion de gros jeux de données de ressources Azure. L’exemple de script suivant utilise le traitement d’abonnements par lot pour éviter ces limitations.
 
         ```powershell
-        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
-        project tenantId, subscriptionId, type, resourceGroup, name, 
-        endpoint = <FQDNproperty>"
-        ``` 
+        
+            # Fetch the full array of subscription IDs.
+            $subscriptions = Get-AzSubscription
 
-        Paramètres par service pour la requête ARG :
+            $subscriptionIds = $subscriptions.Id
+                   # Output file path and names
+                   $date = get-date
+                   $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
+                   $fdate #log to console
+                   $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
+                   $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
+                   $fpath = $rpath + $rname
+                   $fpath #This is the output file of FQDN report.
+
+            # query
+            $query = "where type in ('microsoft.network/frontdoors',
+                                    'microsoft.storage/storageaccounts',
+                                    'microsoft.cdn/profiles/endpoints',
+                                    'microsoft.network/publicipaddresses',
+                                    'microsoft.network/trafficmanagerprofiles',
+                                    'microsoft.containerinstance/containergroups',
+                                    'microsoft.apimanagement/service',
+                                    'microsoft.web/sites',
+                                    'microsoft.web/sites/slots')
+                        | extend FQDN = case(
+                            type =~ 'microsoft.network/frontdoors', properties['cName'],
+                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
+                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
+                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
+                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
+                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
+                            type =~ 'microsoft.apimanagement/service', properties['hostnameConfigurations']['hostName'],
+                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
+                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
+                            '')
+                        | project id, ['type'], name, FQDN
+                        | where isnotempty(FQDN)";
+
+            # Paging helper cursor
+            $Skip = 0;
+            $First = 1000;
+
+            # If you have large number of subscriptions, process them in batches of 2,000.
+            $counter = [PSCustomObject] @{ Value = 0 }
+            $batchSize = 2000
+            $response = @()
+
+            # Group the subscriptions into batches.
+            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
+
+            # Run the query for each subscription batch with paging.
+            foreach ($batch in $subscriptionsBatch)
+            { 
+                $Skip = 0; #Reset after each batch.
+
+                $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
+                else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
+                $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
+            }
+
+            # View the completed results of the query on all subscriptions.
+            $response | Export-Csv -Path $fpath -Append 
+
+        ```
+
+        Liste des types et de leurs valeurs `FQDNProperty`, comme spécifié dans la requête Resource Graph précédente :
 
         |Nom de la ressource  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
@@ -146,23 +206,6 @@ Il incombe souvent aux développeurs et aux équipes d’exploitation d’exécu
         |Gestion des API Azure|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
         |Azure App Service|microsoft.web/sites|properties.defaultHostName|
         |Azure App Service – Emplacements|microsoft.web/sites/slots|properties.defaultHostName|
-
-        
-        **Exemple 1** : cette requête retourne les ressources d’Azure App Service : 
-
-        ```powershell
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
-        project tenantId, subscriptionId, type, resourceGroup, name, 
-        endpoint = properties.defaultHostName"
-        ```
-        
-        **Exemple 2** : cette requête combine plusieurs types de ressources pour retourner les ressources d’Azure App Service **et** d’Azure App Service – Emplacements :
-
-        ```powershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
-        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
-        resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
 
 
 - **Créer des procédures de correction :**

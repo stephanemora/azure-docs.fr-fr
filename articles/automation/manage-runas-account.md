@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84f2ef1fc318e53914b1510870d0399cfbfa87e9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185277"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530664"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
@@ -66,7 +66,7 @@ Pour créer ou mettre à jour un compte d’identification, vous devez disposer 
 |Créer une application Azure AD|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Rôle de développeur d’applications<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Accueil > Azure AD > Inscriptions d’applications |
 |Ajoutez les informations d’identification à l’application.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Administrateur d’application ou administrateur général<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Accueil > Azure AD > Inscriptions d’applications|
 |Créer et obtenir un principal du service Azure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Administrateur d’application ou administrateur général<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Accueil > Azure AD > Inscriptions d’applications|
-|Attribuer ou obtenir le rôle RBAC pour le principal spécifié|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrateur ou propriétaire de l’accès utilisateur, ou détenteur des autorisations suivantes :</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Accueil > Abonnements > \<subscription name\> - Contrôle d’accès (IAM)|
+|Attribuer ou obtenir le rôle Azure pour le principal spécifié|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrateur ou propriétaire de l’accès utilisateur, ou détenteur des autorisations suivantes :</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Accueil > Abonnements > \<subscription name\> - Contrôle d’accès (IAM)|
 |Créer ou supprimer un certificat Automation|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Contributeur sur le groupe de ressources         |Groupe de ressources du compte Automation|
 |Créer ou supprimer une connexion Automation|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Contributeur sur le groupe de ressources |Groupe de ressources du compte Automation|
 
@@ -174,7 +174,8 @@ Vous pouvez déterminer si le principal du service utilisé par votre compte d�
 2. Sélectionnez **Compte d'identification Azure**. 
 3. Sélectionnez **Rôle** pour rechercher la définition de rôle en cours d’utilisation.
 
-[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Vérifiez le rôle du compte d’identification." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+
 
 Vous pouvez également déterminer la définition de rôle utilisée par les comptes d’identification pour plusieurs abonnements ou comptes Automation. Pour ce faire, utilisez le script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) dans PowerShell Gallery.
 

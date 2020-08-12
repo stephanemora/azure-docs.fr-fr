@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243288"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475768"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -41,7 +41,7 @@ Les abonnements peuvent être associés à différentes étendues : un produit,
 
 ### <a name="subscriptions-for-a-product"></a>Abonnements pour un produit
 
-Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit. Actuellement, le portail des développeurs affiche uniquement les abonnements avec étendue du produit sous la section Profil utilisateur. 
+Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit. À l’heure actuelle, le portail des développeurs affiche uniquement les abonnements de portée produit dans la section du profil utilisateur. 
 
 ![Abonnements de produit](./media/api-management-subscriptions/product-subscription.png)
 

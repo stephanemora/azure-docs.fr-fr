@@ -5,22 +5,23 @@ services: azure-portal
 keywords: paramètres, délai d’expiration, langue, région
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763956"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461926"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Définir vos préférences relatives au portail Azure
 
 Vous pouvez changer les paramètres par défaut du portail Azure pour appliquer vos propres préférences. Chacun des paramètres listés ci-dessous peut être changer :
 
 * [Délai d’expiration de session inactive](#change-the-idle-duration-for-inactive-sign-out)
+* [Abonnement par défaut](#choose-your-default-subscription)
 * [Vue par défaut](#choose-your-default-view)
 * [Mode de menu pour le portail](#choose-a-portal-menu-mode)
 * [Couleur et thème à contraste élevé](#choose-a-theme)
@@ -55,9 +56,21 @@ Si votre administrateur a activé une stratégie de délai d’inactivité, coch
 > Si vous êtes administrateur et que vous souhaitez appliquer un paramètre de délai d’inactivité pour tous les utilisateurs du portail Azure, consultez [Définir le délai d’inactivité au niveau du répertoire pour les utilisateurs du portail Azure](admin-timeout.md).
 >
 
+### <a name="choose-your-default-subscription"></a>Choisissez votre abonnement par défaut
+
+Vous pouvez modifier l’abonnement qui s’ouvre par défaut lorsque vous vous connectez au portail Azure. Cela est utile si vous avez un abonnement principal avec lequel vous travaillez, mais que vous en utilisez parfois d’autres. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtrez la liste des ressources par abonnement.":::
+
+1. Sélectionnez l’icône Filtre de répertoire et d’abonnement dans la barre de navigation supérieure.
+1. Sélectionnez les abonnements que vous souhaitez en tant qu’abonnements par défaut lorsque vous lancez le portail. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Sélectionnez les abonnements que vous souhaitez en tant qu’abonnements par défaut lorsque vous lancez le portail."::: 
+
+
 ### <a name="choose-your-default-view"></a>Choisir votre vue par défaut 
 
-Vous pouvez changer la page qui s’ouvre par défaut quand vous vous connectez au portail Azure.
+Vous pouvez changer la page qui s’ouvre par défaut lorsque vous vous connectez au portail Azure.
 
    ![Capture d’écran montrant les paramètres du portail Azure avec mise en évidence de la vue par défaut](./media/set-preferences/default-view.png)
 

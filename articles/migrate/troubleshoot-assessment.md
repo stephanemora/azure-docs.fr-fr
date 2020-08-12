@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: cc8a8e8c09fa9a8a34cfc90cb102cefabf227595
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385702"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460981"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -66,6 +66,9 @@ En ce qui concerne les machines virtuelles Hyper-V et VMware, Server Assessment 
 
 Cet écart peut être résolu en activant la [découverte des applications](./how-to-discover-applications.md) sur les machines virtuelles VMware. Server Assessment utilise le système d'exploitation détecté de la machine virtuelle à l’aide des informations d’identification d’invité fournies. Les données du système d'exploitation identifient les informations correctes sur le système d'exploitation pour les machines virtuelles Windows et Linux.
 
+## <a name="operating-system-version-not-available"></a>Version de système d'exploitation non disponible
+
+Pour les serveurs physiques, les informations sur la version mineure du système d’exploitation doivent être disponibles. Dans le cas contraire, contactez le support Microsoft. Pour les ordinateurs VMware, Évaluation de serveur utilise les informations du système d’exploitation spécifiées pour la machine virtuelle dans vCenter Server. Toutefois, vCenter Server ne fournit pas la version mineure pour les systèmes d’exploitation. Pour découvrir la version mineure, vous devez configurer la [découverte d’application](./how-to-discover-applications.md). Pour les machines virtuelles Hyper-V, la détection des versions mineures du système d’exploitation n’est pas prise en charge. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Les références SKU Azure sont plus volumineuses qu’en local dans une évaluation de machine virtuelle Azure
 
@@ -180,6 +183,9 @@ Après la migration des machines avec la visualisation des dépendances activée
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Exportation des dépendances au format CSV affiche « Processus inconnu »
 Dans l’analyse des dépendances sans agent, les noms des processus sont capturés au mieux. Dans certains scénarios, bien que les noms des serveurs source et de destination et le port de destination soient capturés, il est impossible de déterminer les noms des processus aux deux extrémités de la dépendance. Dans ce cas, le processus est marqué comme « Processus inconnu ».
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>Mon espace de travail Log Analytics n’est pas listé lorsque je tente de configurer l’espace de travail dans Évaluation du serveur
+Azure Migrate prend actuellement en charge la création d’un espace de travail OMS dans les régions USA Est, Asie Sud-Est et Europe Ouest. Si l’espace de travail est créé en dehors d’Azure Migrate dans une autre région, actuellement il ne peut pas être associé à un projet Azure Migrate.
 
 
 ## <a name="capture-network-traffic"></a>Capturez le trafic

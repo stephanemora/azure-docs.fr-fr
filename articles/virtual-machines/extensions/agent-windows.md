@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 100e75520d1165d4772579ba9b179cd350d6df18
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010952"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542617"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -111,7 +111,7 @@ Lorsque vous êtes connecté à une machine virtuelle Windows, utilisez le Gesti
 
 
 ## <a name="upgrade-the-vm-agent"></a>Mettre à niveau l’agent de machine virtuelle
-L’agent de machine virtuelle Azure est automatiquement mis à niveau. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent l’agent de machine virtuelle le plus récent au moment de leur provisionnement. Vous devez manuellement mettre à jour les images de machines virtuelles personnalisées pour inclure le nouvel agent de machine virtuelle au moment de la création de l’image.
+L’agent de machine virtuelle Azure pour Windows est automatiquement mis à niveau sur les images déployées à partir du marketplace Azure. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent l’agent de machine virtuelle le plus récent au moment de leur provisionnement. Si vous avez installé l’agent manuellement ou si vous déployez des images de machine virtuelle personnalisées, vous devez effectuer une mise à jour manuelle pour inclure le nouvel agent de machine virtuelle au moment de la création de l’image.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Collecte automatique des journaux de l’agent invité Windows
 L’agent invité Windows dispose d’une fonctionnalité qui permet de collecter automatiquement certains journaux. Cette fonctionnalité est contrôlée par le processus CollectGuestLogs. exe. Elle existe à la fois pour les services cloud PaaS et pour les machines virtuelles IaaS. Sa fonction est de collecter de façon rapide et automatique certains journaux de diagnostic à partir d’une machine virtuelle en vue d’une analyse hors connexion. Parmi les journaux collectés figurent les journaux des événements, les journaux du système d’exploitation, les journaux Azure et certaines clés de Registre. Elle génère un fichier ZIP qui est transféré à l’hôte de la machine virtuelle. Ce fichier ZIP peut ensuite être examiné par les équipes d’ingénieurs et les professionnels du support technique pour étudier les problèmes à la demande du client propriétaire de la machine virtuelle.

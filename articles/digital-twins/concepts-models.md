@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131631"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562427"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -26,7 +26,7 @@ Les modèles sont écrits à l’aide du langage **DTDL (Digital Twin Definition
 
 Les modèles pour Azure Digital Twins sont définis à l’aide du DTDL (Digital Twin Definition Language). Le langage DTDL est basé sur JSON-LD et est indépendant du langage de programmation. Le langage DTDL n’est pas exclusif d’Azure Digital Twins. Il est également utilisé pour représenter des données d’appareil dans d’autres services IoT tels que [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-Azure Digital Twins utilise le langage DTDL *version 2*. Pour plus d’informations sur cette version de DTDL, consultez sa documentation spec dans GitHub : [*DTDL (Digital Twins Definition Language) – version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Azure Digital Twins utilise le **langage DTDL _version 2_**. Pour plus d’informations sur cette version de DTDL, consultez sa documentation spec dans GitHub : [*DTDL (Digital Twins Definition Language) – version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). L’utilisation de DTDL _version 1_ avec Azure Digital Twins est désormais dépréciée.
 
 > [!TIP] 
 > Les services qui utilisent le langage DTDL n’implémentent pas tous exactement les mêmes fonctionnalités de ce langage. Par exemple, la technologie IoT Plug-and-Play n’utilise pas les fonctionnalités DTDL destinées aux graphiques, tandis qu’Azure Digital Twins n’implémente pas actuellement de commandes DTDL. Pour plus d’informations sur les fonctionnalités DTDL spécifiques d’Azure Digital Twins, consultez, plus loin dans cet article, la section concernant les [spécificités de l’implémentation du langage DTDL dans Azure Digital Twins](#azure-digital-twins-dtdl-implementation-specifics).

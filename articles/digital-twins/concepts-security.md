@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373281"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534037"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Sécuriser Azure Digital Twins avec le contrôle d’accès en fonction du rôle
 
@@ -33,7 +33,7 @@ Avec Azure AD, l’accès est un processus en deux étapes. Quand un principal d
 
 L’étape d’authentification nécessite que toute requête d’application contienne un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une application [Azure Functions](../azure-functions/functions-overview.md), elle peut utiliser une **identité managée** pour accéder aux ressources. Vous trouverez plus d'informations sur les identités managées dans la section suivante.
 
-L’étape d’autorisation exige qu’un rôle RBAC soit attribué au principal de sécurité. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Azure Digital Twins fournit des rôles RBAC qui englobent des ensembles d’autorisations pour les ressources Azure Digital Twins. Ces rôles sont décrits plus loin dans cet article.
+L’étape d’autorisation exige qu’un rôle Azure soit attribué au principal de sécurité. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Azure Digital Twins fournit des rôles Azure qui englobent des ensembles d’autorisations pour les ressources Azure Digital Twins. Ces rôles sont décrits plus loin dans cet article.
 
 Pour en savoir plus sur les rôles et les attributions de rôles pris en charge dans Azure, consultez [*Comprendre les différents rôles*](../role-based-access-control/rbac-and-directory-admin-roles.md) dans la documentation RBAC Azure.
 
@@ -41,9 +41,9 @@ Pour en savoir plus sur les rôles et les attributions de rôles pris en charge 
 
 La fonctionnalité [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement où s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès pour accorder des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application.
 
-Avec les identités managées, la plateforme Azure gère cette identité d’exécution. Vous n’avez pas besoin de stocker et de protéger des clés d’accès dans le code ou la configuration de votre application, que ce soit pour l’identité elle-même ou pour les ressources auxquelles vous devez accéder. Une application cliente Azure Digital Twins en cours d’exécution à l’intérieur d’une application Azure App Service n’a pas besoin de gérer des clés et des règles SAS ou d’autres jetons d’accès. L’application cliente a uniquement besoin de l’adresse de point de terminaison de l’espace de noms Azure Digital Twins. Lorsque l’application se connecte, Azure Digital Twins lie le contexte de l’entité managée au client. Une fois associé à une identité managée, votre client Azure Digital Twins peut effectuer toutes les opérations autorisées. L’autorisation sera ensuite accordée en associant une entité gérée à un rôle RBAC Azure Digital Twins (décrit ci-dessous).
+Avec les identités managées, la plateforme Azure gère cette identité d’exécution. Vous n’avez pas besoin de stocker et de protéger des clés d’accès dans le code ou la configuration de votre application, que ce soit pour l’identité elle-même ou pour les ressources auxquelles vous devez accéder. Une application cliente Azure Digital Twins en cours d’exécution à l’intérieur d’une application Azure App Service n’a pas besoin de gérer des clés et des règles SAS ou d’autres jetons d’accès. L’application cliente a uniquement besoin de l’adresse de point de terminaison de l’espace de noms Azure Digital Twins. Lorsque l’application se connecte, Azure Digital Twins lie le contexte de l’entité managée au client. Une fois associé à une identité managée, votre client Azure Digital Twins peut effectuer toutes les opérations autorisées. L’autorisation sera ensuite accordée en associant une entité gérée à un rôle Azure dans Azure Digital Twins (décrit ci-dessous).
 
-### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorisation : Rôles RBAC pour Azure Digital Twins
+### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorisation : Rôles Azure pour Azure Digital Twins
 
 Azure fournit les rôles intégrés Azure ci-dessous pour autoriser l’accès à une ressource Azure Digital Twins :
 * *Propriétaire Azure Digital Twins (préversion)*  : utilisez ce rôle pour accorder un accès total aux ressources Azure Digital Twins.
@@ -62,7 +62,7 @@ Pour plus d’informations sur la procédure à suivre, testez le [*tutoriel Azu
 
 ## <a name="permission-scopes"></a>Étendues d’autorisation
 
-Avant d’attribuer un rôle RBAC à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est préférable d’accorder la plus petite étendue possible.
+Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est préférable d’accorder la plus petite étendue possible.
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Azure Digital Twins.
 * Modèles : Les actions de cette ressource dictent le contrôle de [modèles](concepts-models.md) chargés dans Azure Digital Twins.

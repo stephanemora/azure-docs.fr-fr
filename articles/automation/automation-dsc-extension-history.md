@@ -1,20 +1,17 @@
 ---
 title: Utiliser l’historique des versions de l’extension Azure Desired State Configuration
 description: Cet article explique comment utiliser l’historique des versions de l’extension Desired State Configuration (DSC) dans Azure.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: dsc, powershell, azure, extension
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079755"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Utiliser l’historique des versions de l’extension Azure Desired State Configuration
 
@@ -23,6 +20,29 @@ L’extension de machine virtuelle Configuration d’état souhaité Azure est m
 Cet article fournit des informations sur chaque version de l’extension de machine virtuelle Configuration d’état souhaité Azure et sur les environnements qu’elle prend en charge. Il contient aussi des commentaires et des remarques sur les nouvelles fonctionnalités ou sur les changements.
 
 ## <a name="latest-version"></a>Version la plus récente
+
+### <a name="version-280"></a>Version 2.80
+
+- **Date de publication :**
+  - 26 septembre, Sep-2019 (Azure) | 6 juillet 2020 (Azure China 21Vianet) | 20 juillet 2020 (Azure Government)
+- **Prise en charge du système d’exploitation :**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Windows Client 7/8.1/10
+  - Nano Server
+- **Prise en charge de WMF :**
+  - WMF 5.1
+  - WMF 5.0 RTM
+  - WMF 4.0 Update
+  - WMF 4.0
+- **Environment :**
+  - Azure
+  - Azure Chine Vianet 21
+  - Azure Government
+- **Remarques :** Aucune nouvelle fonctionnalité n’est incluse dans cette version.
 
 ### <a name="version-276"></a>Version 2.76
 

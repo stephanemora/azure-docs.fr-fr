@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302471"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542736"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trouver et supprimer les disques managés et non managés Azure non attachés - Portail Azure
 
@@ -27,7 +27,7 @@ Si vous avez des disques managés non attachés et que vous n’avez plus besoin
 
     Le panneau **Disques** liste tous vos disques. Tout disque contenant « **-**  » dans la colonne **Propriétaire** est un disque non attaché.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Sélectionnez le disque non attaché que vous souhaitez supprimer. Le panneau du disque s’ouvre.
 1. Dans le panneau du disque, vous pouvez vérifier que l’état du disque est non attaché, puis sélectionner **Supprimer**.
@@ -61,4 +61,4 @@ Si vous avez des disques non managés qui ne sont pas attachés à une machine v
 
 Si vous souhaitez une méthode automatisée de recherche et de suppression de comptes de stockage non attachés, consultez nos articles sur l’[interface CLI](linux/find-unattached-disks.md) ou [PowerShell](windows/find-unattached-disks.md).
 
-Pour plus d’informations, consultez [Supprimer un compte de stockage](../storage/common/storage-account-create.md#delete-a-storage-account) et [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/) (Identifier les disques orphelins à l’aide de PowerShell)
+Pour plus d’informations, consultez [Supprimer un compte de stockage](../storage/common/storage-account-create.md#delete-a-storage-account) et [Identify Orphaned Disks Using PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell) (Identifier les disques orphelins à l’aide de PowerShell)

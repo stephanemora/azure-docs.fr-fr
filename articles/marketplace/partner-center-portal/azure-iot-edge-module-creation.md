@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320032"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808709"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -50,10 +50,10 @@ La page **Vue d’ensemble de l’offre** affiche une représentation visuelle d
 
 Cette page contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
-- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer))
-- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval))
-- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication.](update-existing-offer.md#cancel-publishing))
+- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer)
+- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval)
+- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
@@ -199,14 +199,15 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers .png du logo de votre offre dans chacune des quatre tailles de pixel suivantes :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
 
-- **Petit (48 x 48)**
-- **Moyen (90 x 90)**
-- **Grand (216 x 216)**
-- **Large (255 x 115)**
+Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
-Les quatre logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
+- **Petit** (48 x 48)
+- **Moyen** (90 x 90)
+- **Grand** (entre 216 x 216 et 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 

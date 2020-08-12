@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193411"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501914"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Sécuriser votre espace de travail Synapse (préversion)
 
@@ -82,7 +82,7 @@ Dans le portail Azure, créez un espace de travail Synapse :
   - Affectez **WS1\_SparkAdmins** aux administrateurs Spark Synapse.
   - Affectez **WS1\_SQLAdmins** aux administrateurs SQL Synapse.
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>ÉTAPE 4 : Configurer Data Lake Storage Gen2 pour une utilisation par l’espace de travail Synapse
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>ÉTAPE 4 : Configurer Data Lake Storage Gen2 pour une utilisation par l’espace de travail Synapse
 
 L’espace de travail Synapse a besoin d’accéder à STG1 et CNT1 pour pouvoir exécuter des pipelines et effectuer des tâches système.
 
@@ -100,7 +100,7 @@ L’espace de travail Synapse a besoin d’accéder à STG1 et CNT1 pour pouvoir
 - Sous **Paramètres**, cliquez sur **Administrateur Active Directory SQL**.
 - Cliquez sur **Définir l'administrateur**, puis choisissez WS1\_SQLAdmins.
 
-## <a name="step-6-maintaining-access-control"></a>ÉTAPE 6 : Gérer le contrôle d’accès
+## <a name="step-6-maintain-access-control"></a>ÉTAPE 6 : Gérer le contrôle d’accès
 
 La configuration est terminée.
 
@@ -112,7 +112,7 @@ Vous pouvez affecter manuellement des utilisateurs à des rôles Synapse, mais c
 
 Les utilisateurs de chaque rôle doivent suivre les étapes suivantes :
 
-|   | Étape | Administrateurs d'espace de travail | Administrateurs Spark | Administrateurs SQL |
+| Number | Étape | Administrateurs d'espace de travail | Administrateurs Spark | Administrateurs SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Charger un fichier Parquet dans CNT1 | YES | YES | YES |
 | 2 | Lire le fichier parquet à l’aide de SQL à la demande | YES | Non | YES |

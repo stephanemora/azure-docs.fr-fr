@@ -1,5 +1,5 @@
 ---
-title: Définir des rôles RBAC pour l’accès des administrateurs Azure
+title: Définir des rôles Azure pour l’accès d’administration Azure
 titleSuffix: Azure Cognitive Search
 description: Contrôle d’accès en fonction du rôle (RBAC) sur le portail Azure pour le contrôle et la délégation de tâches d’administration dans le cadre de la gestion de Recherche cognitive Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1b2576eb42cbe25919eb77fc30e2720ed812ca4
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84462836"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534428"
 ---
-# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Définir des rôles RBAC pour l’accès des administrateurs à Recherche cognitive Azure
+# <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Définir des rôles Azure pour l’accès d’administration à Recherche cognitive Azure
 
 Azure offre un [modèle d’autorisation par rôle global](../role-based-access-control/role-assignments-portal.md) pour tous les services gérés via le portail ou les API Resource Manager. Les rôles Propriétaire, Contributeur et Lecteur définissent le niveau *d’administration des services* pour les utilisateurs, les groupes et les principaux de sécurité Active Directory assignés à chaque rôle. 
 
@@ -29,7 +29,7 @@ Pour Recherche cognitive Azure, les rôles sont associés à des niveaux d’aut
 | Role | Tâche |
 | --- | --- |
 | Propriétaire |Création ou suppression du service ou de tout objet sur le service, y compris les clés API, les index, les indexeurs, les sources de données d’indexeur et les planifications de l’indexeur.<p>Afficher l’état du service, notamment des compteurs et la taille du stockage.<p>Ajout ou suppression d'appartenance à un rôle (seul un Propriétaire peut gérer l'appartenance à un rôle).<p>Les administrateurs d’abonnement et de service appartiennent automatiquement au rôle Propriétaire. |
-| Contributeur |Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles RBAC. Par exemple, un Contributeur peut créer ou supprimer des objets ou afficher et régénérer des [clés API](search-security-api-keys.md), mais il ne peut pas modifier l’appartenance aux rôles. |
+| Contributeur |Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles Azure. Par exemple, un Contributeur peut créer ou supprimer des objets ou afficher et régénérer des [clés API](search-security-api-keys.md), mais il ne peut pas modifier l’appartenance aux rôles. |
 | [Rôle intégré du Contributeur Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Équivalent au rôle de contributeur. |
 | Lecteur |Affichez les bases et les métriques du service. Les membres de ce rôle ne peuvent pas afficher l’index, l’indexeur, la source de données ni les informations clés.  |
 

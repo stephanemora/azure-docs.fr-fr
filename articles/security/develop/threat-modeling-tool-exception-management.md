@@ -1,6 +1,6 @@
 ---
 title: Gestion des exceptions - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: En savoir plus sur la gestion des exceptions dans l’outil Threat Modeling Tool. Voir les informations sur l’atténuation et les exemples de code.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650090"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539932"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : gestion des exceptions | Atténuation des risques 
 | Produit/Service | Article |

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7d2d3871dd9836e2c68155aa82ce01dced128bf3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7953be25473357f7ed572fa8b76076edc6f75a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038115"
 ---
 # <a name="connect-your-illusive-attack-management-system-to-azure-sentinel"></a>Connecter votre solution Illusive Attack Management System à Azure Sentinel
+
+> [!IMPORTANT]
+> Le connecteur de données Illusive Attack Management System dans Azure Sentinel est actuellement en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique comment connecter votre solution [Illusive Attack Management System](https://www.illusivenetworks.com/technology/platform/attack-detection-system) à Azure Sentinel. Le connecteur Illusive Attack Management System vous permet de partager les données d’analyse de la surface d’attaque et les journaux d’incident Illusive avec Azure Sentinel et de voir ces informations dans des tableaux de bord dédiés qui vous permettent d’obtenir des insights sur le risque de la surface d’attaque de votre organisation (tableau de bord ADS) et d’effectuer le suivi des mouvements latéraux non autorisés dans le réseau de votre organisation (tableau de bord ADS).
 
@@ -34,7 +38,7 @@ Configurez la solution Illusive Attack Management System pour transférer les me
 
 1. Connectez-vous à la console Illusive, puis accédez à Paramètres-> Création de rapports.
 
-1. Rechercher Syslog Serversץ
+1. Recherchez les serveurs Syslog.
 
 1. Fournissez les informations suivantes :
    - Nom d’hôte : Adresse IP de l’agent Linux Syslog ou nom d’hôte sous forme de nom de domaine complet
@@ -44,7 +48,7 @@ Configurez la solution Illusive Attack Management System pour transférer les me
 
 1. Pour ajouter le serveur Syslog, cliquez sur Ajouter.
 
-1. Pour utiliser le schéma approprié dans Log Analytics pour Illusive Attack Management System, recherchez CommonSecurityLog.
+1. Pour utiliser le schéma approprié dans **Journaux** pour Illusive Attack Management System, recherchez **CommonSecurityLog**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183973"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489535"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
 Les packages de mise en page sont régulièrement mis à jour afin d’ajouter des correctifs et des améliorations à leurs éléments de page. Le journal des modifications suivant indique les modifications introduites dans chaque version.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Page autodéclarée (`selfasserted`)
+  - Correctifs de localisation et d’accessibilité.
+- Page SSP unifiée (`unifiedssp`)
+  - Ajout de la prise en charge de plusieurs liens d’inscription.
+  - Ajout de la prise en charge de la validation des entrées utilisateur conformément aux règles de prédicat définies dans la stratégie.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
   - Prise en charge de Chrome Translate
 - Pages unifiées et autodéclarées
   - Les champs de nom d’utilisateur/adresse e-mail et de mot de passe utilisent désormais l’élément HTML `form` pour permettre à Edge et Internet Explorer (IE) d’enregistrer correctement ces informations.
+- Page autodéclarée
+  - Ajout d’un délai de validation d’entrée utilisateur configurable pour une expérience utilisateur améliorée.
 
 ## <a name="110"></a>1.1.0
 

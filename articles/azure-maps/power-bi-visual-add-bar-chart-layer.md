@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288157"
 ---
 # <a name="add-a-bar-chart-layer"></a>Ajouter une couche de graphique à barres
 
-La **couche de graphique à barres** se révèle utile pour visualiser des données d’emplacement sous forme de barres ou de cylindres 3D sur la carte. À l’instar de la couche de bulles, le graphique à barres permet de facilement visualiser deux métriques en même temps à l’aide de la couleur et de la hauteur relative. En termes de hauteur des barres, une mesure doit être ajoutée au compartiment **Taille** du volet **Champs**. Si aucune mesure n’est fournie, les barres sans hauteur apparaissent sous forme carrés ou de cercles plats en fonction de l’option **Forme de la barre**.
+La **couche de graphique à barres** se révèle utile pour visualiser des données d’emplacement sous forme de barres ou de cylindres 3D sur la carte. À l’instar de la couche de bulles, le graphique à barres permet de facilement visualiser deux métriques en même temps à l’aide de la couleur et de la hauteur relative. En termes de hauteur des barres, une mesure doit être ajoutée au compartiment **Taille** du volet **Champs**. Si aucune mesure n’est fournie, des barres sans hauteur apparaissent sous forme de carrés ou de cercles plats en fonction de l’option **Forme de la barre**.
 
 > [!div class="mx-imgBorder"]
 > ![Carte affichant des données de point à l’aide de la couche de graphique à barres](media/power-bi-visual/bar-chart-layer-styled.png)

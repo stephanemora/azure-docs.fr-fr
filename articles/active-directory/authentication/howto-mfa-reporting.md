@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639830"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418234"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utiliser le rapport de connexions pour examiner les événements Azure MFA
 
@@ -44,7 +44,7 @@ Pour afficher le rapport d’activité de connexion dans le [portail Azure](http
 
     Les onglets *Détails d’authentification* ou *Accès conditionnel* de l’événement montrent le code d’état ou la stratégie qui a déclenché l’invite MFA.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Si elle est disponible, l’authentification apparaît. Par exemple : message texte, notification d’application Microsoft Authenticator ou appel téléphonique.
 

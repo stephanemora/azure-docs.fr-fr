@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: 1e3d855d0860d8d9875e4a93091653cab18965f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738530"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542906"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Créer et modifier le peering pour un circuit ExpressRoute
 
@@ -60,11 +60,13 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
    **Circuit : état du fournisseur : Non approvisionné**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Capture d’écran montrant la page de vue d’ensemble du circuit de démonstration d’ExpressRoute avec une zone rouge mettant en évidence l’état du fournisseur défini sur « Non approvisionné ».](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
 
    **Circuit : état du fournisseur : Approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Capture d’écran montrant la page de vue d’ensemble du circuit de démonstration d’ExpressRoute avec une zone rouge mettant en évidence l’état du fournisseur défini sur « Approvisionné ».](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+
 2. Configurez le peering Microsoft pour le circuit. Assurez-vous de disposer des informations suivantes avant de poursuivre.
 
    * Un sous-réseau /30 pour le lien principal. Il doit s’agir d’un préfixe IPv4 public valide vous appartenant et enregistré dans un registre RIR / IRR. À partir de ce sous-réseau, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième adresse IP utilisable pour son routeur.
@@ -125,11 +127,11 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
    **Circuit : état du fournisseur : Non approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![Capture d’écran montrant la page de vue d’ensemble du circuit de démonstration d’ExpressRoute avec une zone rouge mettant en évidence l’état du fournisseur défini sur « Non approvisionné ».](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Circuit : état du fournisseur : Approvisionné**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![Capture d’écran montrant la page de vue d’ensemble du circuit de démonstration d’ExpressRoute avec une zone rouge mettant en évidence l’état du fournisseur défini sur « Approvisionné ».](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Configurez le peering privé Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
 

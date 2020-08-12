@@ -1,20 +1,22 @@
 ---
-title: Insights sur la Place de marché – Place de marché commerciale Microsoft
+title: Insights sur la Place de marché – Place de marché commerciale Microsoft, Microsoft AppSource et Place de marché Azure
 description: Accédez à un résumé du Web Analytics de la Place de marché, qui vous permet de mesurer l’engagement client dans Microsoft AppSource et la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120396"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323279"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Tableau de bord des Insights sur la Place de marché dans l’Espace partenaires
 
-Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé du Web Analytics de la place de marché, qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les vitrines des places de marché : Microsoft AppSource et Place de marché Azure
+Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé de l’analytique web de la place de marché qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les vitrines des places de marché commerciales : Microsoft AppSource et Place de marché Azure
 
 ## <a name="marketplace-insights-dashboard"></a>Tableau de bord des insights de la Place de marché
 
@@ -25,18 +27,20 @@ Vous pouvez afficher une représentation graphique des éléments suivants :
 - [Résumé des insights sur la place de marché](#marketplace-insights-summary)
 - [Visites de pages par zone géographique](#page-visits-by-geography)  
 - [Comparaison des tendances des visites de pages et des visiteurs uniques](#page-visits-versus-unique-visitors-trend)
-- [Rapprochement entre les appels à l’action et les visiteurs uniques avec CTA](#call-to-action-versus-unique-visitors-with-ctas)
+- [Rapprochement entre les appels à l’action (CTA) et les visiteurs uniques avec CTA](#call-to-action-versus-unique-visitors-with-ctas)
 - [Visites de pages et appels à l’action par offre](#page-visits-and-calls-to-action-by-offers)
 - [Tendance du pourcentage d’appels à l’action](#call-to-action-percentage-trend)
 - [Visites de pages et appels à l’action par domaine de referral](#page-visits-and-calls-to-action-by-referral-domains)
 - [Insights sur la place de marché – Tableau des détails](#marketplace-insights-details-table)
+
+La latence maximale entre les utilisateurs visitant des offres sur la Place de marché Azure ou AppSource, et la création de rapports dans l’Espace partenaires est de 48 heures.
 
 >[!NOTE]
 > Pour accéder aux définitions détaillées de la terminologie d’analytique, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Disposition du tableau de bord Insights
 
-Il existe plusieurs façons d’afficher les métriques de la place de marché :
+Affichez les métriques de la place de marché commerciale de plusieurs façons :
 
 - Onglets de la vitrine
 - Filtres de page
@@ -74,7 +78,7 @@ Ce nombre représente le nombre de visiteurs distincts au cours de la plage de d
 
 ### <a name="call-to-action"></a>Invite à l’action
 
-Ce nombre représente le nombre de clics sur des boutons **d’appel à l’action** effectués sur la page de l’offre (fiche produit). Des **appels à l’action** sont comptabilisés lorsque les boutons **Télécharger maintenant**, **Essai gratuit**, **Contactez-moi** et **Version d’évaluation** sont sélectionnés.
+Ce nombre représente le nombre de clics sur des boutons **d’appel à l’action** effectués sur la page de l’offre (fiche produit). Des **appels à l’action** sont comptabilisés lorsque les utilisateurs sélectionnent les boutons **Télécharger maintenant**, **Essai gratuit**, **Contactez-moi** et **Version d’évaluation**.
 
 ![Insights de l’Espace partenaires – Résumé des appels à l’action](./media/insights-summary.png)
 
@@ -128,7 +132,7 @@ Ce tableau affiche en mode Liste les visites de pages et les appels à l’actio
 
 - Les données peuvent être extraites dans un fichier CSV si le nombre d’enregistrements est inférieur à 1 000.
 - En présence d’un nombre d’enregistrements supérieur à 1 000, les données exportées sont placées de manière asynchrone sur une page de téléchargement pour une durée de 30 jours.
-- Vous pouvez appliquer des filtres pour afficher les données qui vous intéressent. Les données peuvent être filtrées par nom d’offre et par nom de campagne.  
+- Filtrez les données par noms d’offre et noms de campagne pour afficher les données qui vous intéressent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

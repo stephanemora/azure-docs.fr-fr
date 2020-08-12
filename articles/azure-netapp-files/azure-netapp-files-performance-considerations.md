@@ -1,6 +1,6 @@
 ---
 title: Considérations sur les performances pour Azure NetApp Files | Microsoft Docs
-description: Détaille les considérations sur les performances pour Azure NetApp Files.
+description: Découvrez les performances d’Azure NetApp Files, notamment la relation de quota et la limite de débit, et la façon d’augmenter ou de diminuer de manière dynamique le quota de volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5f88b4755c7b4c0b20f27065cf9de2351251bc1c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691312"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513874"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considérations sur les performances pour Azure NetApp Files
 

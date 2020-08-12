@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474323"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
 
@@ -42,6 +42,7 @@ En utilisant un caractère générique dans le nom d’hôte, vous pouvez faire 
 
 >[!NOTE]
 >Cette fonctionnalité n’est à l’heure actuelle disponible que par le biais [d’Azure PowerShell](tutorial-multiple-sites-powershell.md) et [d’Azure CLI](tutorial-multiple-sites-cli.md). La prise en charge du Portail sera bientôt disponible.
+> Notez que dans la mesure où la prise en charge du portail n’est pas complètement disponible, si vous n’utilisez que le paramètre HostNames, l’écouteur apparaît comme un écouteur de base dans le portail et la colonne Nom d'hôte du mode liste de l’écouteur n’affiche pas les noms d’hôte configurés. Pour toute modification apportée à un écouteur avec caractères génériques, assurez-vous d’utiliser Azure PowerShell ou CLI jusqu’à ce qu’il soit pris en charge dans le portail.
 
 Dans [Azure PowerShell](tutorial-multiple-sites-powershell.md), vous devez utiliser `-HostNames` au lieu de `-HostName`. Avec -HostNames, vous pouvez spécifier jusqu’à cinq noms d’hôtes sous forme de valeurs séparées par des virgules et utiliser des caractères génériques. Par exemple : `-HostNames "*.contoso.com,*.fabrikam.com"`
 

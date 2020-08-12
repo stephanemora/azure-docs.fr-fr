@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250292"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024960"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -66,6 +66,9 @@ Remplacez `logger-id` par la valeur que vous avez utilisée pour `{loggerId}` da
 Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur pour l’élément `log-to-eventhub` . Dans cet exemple, une chaîne dans le format JSON contenant la date et l’heure, le nom du service, l’ID de la requête, son adresse IP et le nom de l’opération est consignée.
 
 Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie mise à jour. Dès qu’elle est enregistrée, la stratégie est active et les événements sont enregistrés dans l’Event Hub désigné.
+
+> [!NOTE]
+> La taille maximale des messages pris en charge pouvant être envoyée à un Event Hub par cette stratégie Gestion des API est de 200 kilooctets (ko). Si un message envoyé à un Event Hub a une taille supérieure à 200 ko, il est automatiquement tronqué. Le message tronqué est ensuite transféré vers Event Hubs.
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Afficher un aperçu du journal dans Event Hubs à l’aide d’Azure Stream Analytics
 

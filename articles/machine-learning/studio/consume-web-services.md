@@ -1,6 +1,5 @@
 ---
-title: Utiliser un service web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Utiliser des services web – Azure'
 description: Une fois qu’un service de machine learning a été déployé à partir d’Azure Machine Learning Studio (classique), le service web RESTful peut être utilisé soit en tant que service de requête-réponse en temps réel, soit en tant que service d’exécution par lot.
 services: machine-learning
 ms.service: machine-learning
@@ -8,16 +7,19 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, tracking-python, devx-track-javascript
 ms.date: 05/29/2020
-ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d72a811f018bb17a6a7bb7c129d52e6232f7caa
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696624"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432906"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio (classique)
+# <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Guide pratique pour utiliser un service web Machine Learning Studio (classique)
+
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Une fois que vous avez déployé un modèle prédictif Azure Machine Learning Studio (classique) en tant que service web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
 

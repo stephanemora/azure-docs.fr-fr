@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763752"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499498"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -38,6 +38,8 @@ Certaines conditions doivent être réunies pour qu’un utilisateur consente au
 Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
 Cette erreur peut également se produire quand un utilisateur est empêché de donner son consentement à une application parce que Microsoft a détecté que la demande d’autorisation présente un risque. Dans ce cas, un événement d’audit est également journalisé avec la catégorie « ApplicationManagement », le type d’activité « Consent to application » et la raison de l’état « Risky application detected ».
+
+Cette erreur peut également se produire lorsque l’affectation de l’utilisateur est requise pour l’application, mais qu’aucun consentement de l’administrateur n’a été fourni. Dans ce cas, l’administrateur doit d’abord fournir son consentement.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Erreur : stratégie empêchant l’octroi d’autorisations
 * **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.

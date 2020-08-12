@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578fb481ec858e65ede49bdce2d8bc26470aa2ca
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850769"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475632"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Attribuer des rôles dont l’étendue est délimitée à une unité administrative
 
@@ -46,17 +46,19 @@ Dans le portail, accédez à **Azure AD > Unités administratives**. Sélectionn
 
 ![Sélectionner une unité administrative pour modifier l’étendue du rôle](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Sélectionnez le rôle à attribuer, puis choisissez **Ajouter des attributions**. Cela a pour effet d’ouvrir un panneau à droite, dans lequel vous pouvez sélectionner un ou plusieurs utilisateurs à assigner au rôle.
+Sélectionnez le rôle à attribuer, puis choisissez **Ajouter des attributions**. Un panneau s’ouvre à droite. Vous pouvez y sélectionner un ou plusieurs utilisateurs auxquels attribuer le rôle.
 
 ![Sélectionner le rôle dont délimiter l’étendue, puis sélectionner Ajouter des attributions](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$AdminUser = Get-AzureADUser -ObjectId 'janedoe@fabidentity.onmicrosoft.com'
-$uaRoleMemberInfo = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo -Property @{ObjectId = $AdminUser.ObjectId}
-Add-AzureADScopedRoleMembership -RoleObjectId $UserAdminRole.ObjectId -ObjectId $administrative unitObj.ObjectId -RoleMemberInfo  $uaRoleMemberInfo
+$AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
+$Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
+$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
+$RoleMember.ObjectId = $AdminUser.ObjectId
+Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 Il est possible de modifier la section en surbrillance selon les besoins de l’environnement spécifique.
@@ -85,8 +87,8 @@ Toutes les attributions de rôles effectuées avec une étendue d’unité admin
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADScopedRoleMembership -ObjectId $administrative unitObj.ObjectId | fl *
+$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 Il est possible de modifier la section en surbrillance selon les besoins de l’environnement spécifique.
@@ -102,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes d’unités administratives et FAQ](roles-admin-units-faq-troubleshoot.md)
+- [Utiliser des groupes cloud pour gérer les attributions de rôles](roles-groups-concept.md)
+- [Résoudre les problèmes de rôles attribués aux groupes cloud](roles-groups-faq-troubleshooting.md)

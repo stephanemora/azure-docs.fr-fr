@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848362"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501012"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
@@ -31,9 +31,16 @@ L’octroi du consentement administrateur au niveau locataire vous oblige à vou
 
 > [!IMPORTANT]
 > Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
+>
+> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour l’API Microsoft Graph.
+>
+
 
 > [!WARNING]
 > Le fait d’accorder le consentement administrateur au niveau locataire à une application permettra à l’application et à l’éditeur de l'application d’accéder aux données de votre organisation. Examinez attentivement les autorisations demandées par l’application avant d’accorder le consentement.
+>
+> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour l’API Microsoft Graph.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Accorder le consentement administrateur à partir du Portail Azure
 

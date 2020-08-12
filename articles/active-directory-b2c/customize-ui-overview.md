@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388899"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486723"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -187,7 +188,7 @@ Une fois que vous avez configuré la marque de la société, activez-la dans vos
 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** .
-1. Sélectionnez le flux utilisateur pour lequel vous souhaitez activer la marque de la société. La marque de la société n’est **pas prise en charge** pour les types de flux utilisateur *Connexion v1* et *Modification de profil v1*.
+1. Sélectionnez le flux utilisateur pour lequel vous souhaitez activer la marque de la société. La marque de la société n’est **pas prise en charge** pour les types de flux utilisateur *Connexion* et *Modification de profil* standard.
 1. Sous **Personnaliser**, sélectionnez **Mises en page**, puis sélectionnez la mise en page à personnaliser. Par exemple, sélectionnez **Page de connexion ou d’inscription unifiée**.
 1. Pour **Version Mise en page (préversion)** , choisissez la version **1.2.0** ou version ultérieure.
 1. Sélectionnez **Enregistrer**.

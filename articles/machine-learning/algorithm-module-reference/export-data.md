@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337821"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461015"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
@@ -26,8 +26,8 @@ Ce module prend en charge l’exportation de vos données dans les services de d
 
 - Conteneur d’objets blob Azure
 - Partage de fichiers Azure
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
 - Base de données Azure SQL
 
 Avant d’exporter vos données, vous devez d’abord inscrire un magasin de données dans votre espace de travail Azure Machine Learning. Pour plus d'informations, consultez la page [Accéder aux données dans les services de stockage Azure](../how-to-access-data.md).
@@ -43,7 +43,7 @@ Avant d’exporter vos données, vous devez d’abord inscrire un magasin de don
 1. Pour **Magasin de données**, sélectionnez un magasin de données existant dans la liste déroulante. Vous pouvez également créer un magasin de données. Découvrez comment en consultant [Accéder aux données dans les services de stockage Azure](../how-to-access-data.md).
 
     > [!NOTE]
-    > Il n’est pas possible d’exporter des données d’un certain type vers une colonne de base de données SQL spécifiée d’un autre type.
+    > Il n’est pas possible d’exporter des données d’un certain type vers une colonne de base de données SQL spécifiée d’un autre type. La table cible n’a pas besoin d’exister en premier.
 
 1. La case à cocher **Régénérer la sortie** détermine s’il faut exécuter le module pour régénérer la sortie au moment de l’exécution. 
 

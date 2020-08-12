@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027170"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428009"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -436,6 +436,9 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
+> [!NOTE]
+> Quand vous créez une stratégie de mappage de revendications, vous pouvez également émettre une revendication à partir d’un attribut d’extension de schéma d’annuaire dans des jetons. Utilisez *ExtensionID* pour l’attribut d’extension au lieu de *ID* dans l’élément `ClaimsSchema`.  Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire](active-directory-schema-extensions.md).
+
 #### <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
@@ -527,4 +530,5 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
 
 ## <a name="see-also"></a>Voir aussi
 
-Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)
+- Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)
+- Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire dans les revendications](active-directory-schema-extensions.md).

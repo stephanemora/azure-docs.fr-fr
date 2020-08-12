@@ -1,6 +1,6 @@
 ---
-title: Création d’un pool d’hôtes et de locataires Windows Virtual Desktop – Azure
-description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement de locataire Windows Virtual Desktop.
+title: Création d’un pool d’hôtes et d’un locataire Windows Virtual Desktop (classique) – Azure
+description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement client Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269595"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../troubleshoot-set-up-issues.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../troubleshoot-set-up-issues.md).
 
 Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Windows Virtual Desktop et de l’infrastructure associée du pool d’hôtes de la session.
 

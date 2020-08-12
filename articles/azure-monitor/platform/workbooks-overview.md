@@ -6,18 +6,22 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560150"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799563"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
 Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Ils vous permettent d’exploiter plusieurs sources de données à travers l’écosystème Azure et de les combiner dans des expériences interactives unifiées. 
+
+Voici une procédure vidéo expliquant la création de classeurs.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## <a name="data-sources"></a>Sources de données
 
@@ -52,9 +56,9 @@ Les classeurs fournissent un ensemble complet de fonctionnalités pour la visual
 
 Pour explorer l’expérience des classeurs, accédez d’abord au service Azure Monitor. Pour ce faire, vous pouvez saisir **Monitor** dans la zone de recherche du portail Azure.
 
-Sélectionnez ensuite **Classeurs (préversion)** .
+Sélectionnez ensuite **Classeurs**.
 
-![Capture d’écran du bouton Aperçu des classeurs mis en surbrillance dans une zone rouge](./media/workbooks-overview/workbooks-preview.png)
+![Capture d’écran du bouton Classeurs mis en surbrillance dans une zone rouge](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galerie
 

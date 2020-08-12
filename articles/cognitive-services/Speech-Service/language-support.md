@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087144"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554054"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -50,21 +50,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Arabe (Arabie saoudite)             | Non                                                |
 | `ar-SY` | Arabe (Syrie)                    | Modèle de langage                                    |
 | `ca-ES` | Catalan                           | Modèle de langage                                    |
+| `cs-CZ` | Tchèque (République tchèque)            | Modèle de langage                                    | 
 | `da-DK` | Danois (Danemark)                  | Modèle de langage                                    |
 | `de-DE` | Allemand (Allemagne)                  | Modèle acoustique<br>Modèle de langage<br>Prononcer |
 | `en-AU` | Anglais (Australie)               | Modèle acoustique<br>Modèle de langage                  |
 | `en-CA` | Anglais (Canada)                  | Modèle acoustique<br>Modèle de langage                  |
 | `en-GB` | Anglais (Royaume-Uni)          | Modèle acoustique<br>Modèle de langage<br>Prononcer |
+| `en-HK` | Anglais (Hong Kong)               | Modèle de langage                                    | 
+| `en-IE` | Anglais (Irlande)                 | Modèle de langage                                    | 
 | `en-IN` | Anglais (Inde)                   | Modèle acoustique<br>Modèle de langage                  |
 | `en-NZ` | Anglais (Nouvelle-Zélande)             | Modèle acoustique<br>Modèle de langage                  |
+| `en-PH` | Anglais (Philippines)             | Modèle de langage                                    | 
+| `en-SG` | Anglais (Singapour)               | Modèle de langage                                    | 
 | `en-US` | Anglais (États-Unis)           | Modèle acoustique<br>Modèle de langage<br>Prononcer |
+| `en-ZA` | Anglais (Afrique du Sud)            | Modèle de langage                                    | 
+| `es-AR` | Espagnol (Argentine)               | Modèle de langage                                    | 
+| `es-BO` | Espagnol (Bolivie)                 | Modèle de langage                                    | 
+| `es-CL` | Espagnol (Chili)                   | Modèle de langage                                    | 
+| `es-CO` | Espagnol (Colombie)                | Modèle de langage                                    | 
+| `es-CR` | Espagnol (Costa Rica)              | Modèle de langage                                    | 
+| `es-CU` | Espagnol (Cuba)                    | Modèle de langage                                    | 
+| `es-DO` | Espagnol (République dominicaine)      | Modèle de langage                                    | 
+| `es-EC` | Espagnol (Équateur)                 | Modèle de langage                                    | 
 | `es-ES` | Espagnol (Espagne)                   | Modèle acoustique<br>Modèle de langage                  |
+| `es-GT` | Espagnol (Guatemala)               | Modèle de langage                                    | 
+| `es-HN` | Espagnol (Honduras)                | Modèle de langage                                    | 
 | `es-MX` | Espagnol (Mexique)                  | Modèle acoustique<br>Modèle de langage                  |
+| `es-NI` | Espagnol (Nicaragua)               | Modèle de langage                                    | 
+| `es-PA` | Espagnol (Panama)                  | Modèle de langage                                    | 
+| `es-PE` | Espagnol (Pérou)                    | Modèle de langage                                    | 
+| `es-PR` | Espagnol (Porto Rico)             | Modèle de langage                                    | 
+| `es-PY` | Espagnol (Paraguay)                | Modèle de langage                                    | 
+| `es-SV` | Espagnol (Salvador)             | Modèle de langage                                    | 
+| `es-US` | Espagnol (États-Unis)                     | Modèle de langage                                    | 
+| `es-UY` | Espagnol (Uruguay)                 | Modèle de langage                                    | 
+| `es-VE` | Espagnol (Venezuela)               | Modèle de langage                                    | 
 | `fi-FI` | Finnois (Finlande)                 | Modèle de langage                                    |
 | `fr-CA` | Français (Canada)                   | Modèle acoustique<br>Modèle de langage                  |
 | `fr-FR` | Français (France)                   | Modèle acoustique<br>Modèle de langage<br>Prononcer |
 | `gu-IN` | Goudjrati (Inde)                 | Modèle de langage                                    |
 | `hi-IN` | Hindi (Inde)                     | Modèle acoustique<br>Modèle de langage                  |
+| `hu-HU` | Hongrois (Hongrie)               | Modèle de langage                                    | 
 | `it-IT` | Italien (Italie)                   | Modèle acoustique<br>Modèle de langage<br>Prononcer |
 | `ja-JP` | Japonais (Japon)                  | Modèle de langage                                    |
 | `ko-KR` | Coréen (Corée)                    | Modèle de langage                                    |
@@ -334,7 +360,7 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 | Paramètres régionaux | Langage | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
-| fr-FR | Anglais (US) | Oui | Oui | Oui |
+| fr-FR | Anglais (US) | Oui | oui | Oui |
 |zh-CN  |Chinois (mandarin, simplifié)|    n/a|    Oui|    Oui|
 |de-DE  |Allemand (Allemagne)   |n/a    |Oui    |Oui|
 |en-GB  |Anglais (Royaume-Uni)   |n/a    |Oui    |Oui|
@@ -346,7 +372,7 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 |es-ES| Espagnol (Espagne) |n/a    |Oui|   Oui|
 |es-MX  |Espagnol (Mexique)   |n/a|   Oui|    Oui|
 |ja-JP| Japonais    |n/a    |Oui    |Oui|
-|pt-br| Portugais (Brésil)|    n/a|    Oui|    Oui|
+|pt-br| Portugais (Brésil)|    n/a|    Oui|    oui|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

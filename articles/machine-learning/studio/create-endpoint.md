@@ -1,6 +1,5 @@
 ---
-title: Créer des points de terminaison de service web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Créer des points de terminaison de service web – Azure'
 description: Créez des points de terminaison de service web dans Azure Machine Learning Studio (classique). Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: e465d739c485009f68d6d5c5ecbb0850d73a6e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c426ffa85d4eb78a8420d56cce93132b4b7539
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696420"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432848"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Azure Machine Learning Studio (classique) déployés
+
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 > [!NOTE]
 > Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.

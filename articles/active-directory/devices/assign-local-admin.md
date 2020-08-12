@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371173"
+ms.locfileid: "87419816"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -72,9 +72,9 @@ Les administrateurs d’appareil sont affectés à toutes les appareils joints �
 >[!NOTE]
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
-À partir de la mise à jour Windows 10 2004, vous pouvez utiliser les groupes Azure AD pour gérer les privilèges d’administrateur sur les appareils joints à Azure AD avec la stratégie MDM [Groupes restreints] (windows/client-management/mdm/policy-csp-restrictedgroups). Cette stratégie vous permet d’affecter des utilisateurs individuels ou des groupes Azure AD au groupe Administrateurs local sur un appareil joint à Azure AD. Vous disposez ainsi de la précision nécessaire pour configurer des administrateurs distincts en fonction des différents groupes d’appareils. 
+À compter de la mise à jour Windows 10 2004, vous pouvez utiliser des groupes Azure AD pour gérer les privilèges d’administrateur sur les appareils joints à Azure AD à l’aide de la stratégie MDM [Groupes restreints](/windows/client-management/mdm/policy-csp-restrictedgroups). Cette stratégie vous permet d’affecter des utilisateurs individuels ou des groupes Azure AD au groupe Administrateurs local sur un appareil joint à Azure AD. Vous disposez ainsi de la précision nécessaire pour configurer des administrateurs distincts en fonction des différents groupes d’appareils. 
 
-Il n’existe pas d’IU dans Intune pour gérer cette stratégie, qui doit être configurée à l’aide de [paramètres OMA-URI personnalisés] (mem/intune/configuration/custom-settings-windows-10). Considérations relatives à cette stratégie : 
+Il n’existe pas d’IU dans Intune permettant de gérer cette stratégie, qui doit être configurée à l’aide de [paramètres OMA-URI personnalisés](/mem/intune/configuration/custom-settings-windows-10). Considérations relatives à cette stratégie : 
 
 - L’ajout de groupes Azure AD via la stratégie nécessite le SID du groupe, lequel peut être obtenu par l’exécution de l’API Groups. Le SID est défini par la propriété `securityIdentifier` de l’API Groups.
 - Quand la stratégie Groupes restreints est appliquée, tout membre actuel du groupe qui ne figure pas dans la liste Membres est supprimé. Ainsi, l’application de cette stratégie à de nouveaux membres ou groupes entraîne la suppression des administrateurs existants, à savoir l’utilisateur qui a joint l’appareil, le rôle Administrateur et le rôle Administrateur général de l’appareil. Pour éviter de supprimer des membres existants, vous devez les configurer dans le cadre de la liste Membres de la stratégie Groupes restreints. 

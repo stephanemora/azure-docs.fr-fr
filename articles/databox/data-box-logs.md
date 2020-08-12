@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498801"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Suivi et journalisation des événements de vos ordres d’importation Azure Data Box et Azure Data Box Heavy
 
@@ -35,7 +35,7 @@ Cet article décrit en détail les différents mécanismes ou outils disponibles
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur la commande
 
-Vous pouvez contrôler qui peut accéder à votre commande lors de sa création. Configurez des rôles RBAC (contrôle d’accès en fonction du rôle) de diverses étendues pour contrôler l’accès à la commande Data Box. Un rôle RBAC détermine le type d’accès accordé : lecture-écriture, lecture seule, lecture-écriture sur sous-ensemble d’opérations.
+Vous pouvez contrôler qui peut accéder à votre commande lors de sa création. Configurez des rôles Azure d’étendues différentes pour contrôler l’accès à la commande Data Box. Un rôle Azure détermine le type d’accès accordé : lecture-écriture, lecture seule, lecture-écriture sur une partie des opérations.
 
 Les deux rôles qui peuvent être définis pour le service Azure Data Box sont les suivants :
 

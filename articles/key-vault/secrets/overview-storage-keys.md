@@ -9,12 +9,13 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508501"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534972"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
@@ -70,7 +71,7 @@ az login
 
 Utilisez la commande Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) pour permettre à Key Vault d’accéder à votre compte de stockage. Fournissez à la commande les valeurs de paramètre suivantes :
 
-- `--role`: Transmettez le rôle du contrôle d’accès en fonction du rôle (RBAC) « Rôle de service d’opérateur de clé de compte de stockage ». Ce rôle limite l’étendue d’accès à votre compte de stockage. Pour un type de compte classique, transmettez « Rôle de service d’opérateur de clé de compte de stockage classique » à la place.
+- `--role`: Transmettez le rôle Azure « Rôle de service d’opérateur de clé de compte de stockage ». Ce rôle limite l’étendue d’accès à votre compte de stockage. Pour un type de compte classique, transmettez « Rôle de service d’opérateur de clé de compte de stockage classique » à la place.
 - `--assignee`: Transmettez la valeur « https://vault.azure.net  », qui est l’URL de Key Vault dans le cloud public Azure. (Pour le cloud Azure Government, utilisez « --asingee-object-id » à la place, consultez [ID d’application du principal du service](#service-principal-application-id).)
 - `--scope`: Transmettez l’ID de ressource de votre compte de stockage, qui se présente sous la forme `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Pour trouver votre ID d’abonnement, utilisez la commande Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) ; pour trouver le nom de votre compte de stockage et le groupe de ressources du compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).
 
@@ -90,7 +91,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Notez que les autorisations pour les comptes de stockage ne sont pas disponibles sur la page « Stratégies d’accès » du compte de stockage dans le portail Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Créer un compte de stockage managé Key Vault
 
- Créez un compte de stockage managé Key Vault à l’aide de la commande Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add). Définissez une période de régénération de 90 jours. Au bout de 90 jours, Key Vault régénère `key1` et remplace la clé active `key2` par `key1`. `key1` est alors désignée comme la clé active. Fournissez à la commande les valeurs de paramètre suivantes :
+ Créez un compte de stockage managé Key Vault à l’aide de la commande Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add). Définissez une période de régénération de 90 jours. Lorsque le moment est venu d’opérer une rotation, KeyVault régénère la clé qui n’est pas active, puis définit la clé nouvellement créée comme active. Une seule clé à la fois est utilisée pour émettre des jetons SAP, c’est la clé active. Fournissez à la commande les valeurs de paramètre suivantes :
 
 - `--vault-name`: transmettez le nom de votre coffre de clés. Pour trouver le nom de votre coffre de clés, utilisez la commande Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list).
 - `-n`: transmettez le nom de votre compte de stockage Pour trouver le nom de votre compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).

@@ -1,19 +1,19 @@
 ---
 title: Disponibilité générale de Microsoft Threat Modeling Tool version du 12/09/2018
 titleSuffix: Azure
-description: Compilation des notes de publication pour l’outil de modélisation des menaces
+description: Lisez les notes de publication pour Microsoft Threat Modeling Tool éditées le 12/09/2018. Les notes incluent des modifications de fonctionnalités et des correctifs de bogues.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269917"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539813"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Version en disponibilité générale de Threat Modeling Tool v 7.1.50911.2 - 12/09/2018
 
@@ -21,7 +21,7 @@ Nous sommes heureux d’annoncer que Microsoft Threat Modeling Tool est maintena
 
 Avec cette version, nous mettons fin au support de la version Preview 2017 et recommandons à tous les utilisateurs de la préversion de procéder à la mise à jour vers la version en disponibilité générale. À compter du 15 octobre 2018, nous allons définir la version minimale requise de ClickOnce pour Threat Modeling Tool ; tous les clients de la préversion devront se mettre à niveau.
 
-Microsoft Threat Modeling Tool 2016, qui est disponible à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=49168), continue d’être pris en charge jusqu’au 1{3}er{4} octobre 2019 pour les correctifs de sécurité critiques uniquement.
+Microsoft Threat Modeling Tool 2016, qui est disponible à partir du Centre de téléchargement Microsoft, continue d’être pris en charge jusqu’au 1er octobre 2019 pour les correctifs de sécurité critiques uniquement.
 
 ## <a name="feature-changes"></a>Évolution des fonctionnalités
 

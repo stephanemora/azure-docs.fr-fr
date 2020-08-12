@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088085"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -69,13 +69,13 @@ Il existe deux types d’écouteur :
 
 - **De base**. Ce type d’écouteur écoute un seul site de domaine, où il a un seul mappage DNS à l’adresse IP de la passerelle d’application. Cette configuration d’écouteur est obligatoire quand vous hébergez un seul site derrière une passerelle d’application.
 
-- **Multisite**. Cette configuration d’écouteur est obligatoire quand vous configurez plusieurs applications web sur la même instance de passerelle d’application. Elle vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle d’application. Chaque site web peut être dirigé vers son propre pool principal. Par exemple, trois sous-domaines, abc.contoso.com, xyz.contoso.com et pqr.contoso.com, pointent vers l’adresse IP de la passerelle d’application. Vous créez trois écouteurs multisites, et vous configurez les paramètres de port et de protocole de chaque écouteur.
+- **Multisite**. Cette configuration d’écouteur est requise lorsque vous souhaitez configurer le routage en fonction d’un nom d’hôte ou de domaine pour plusieurs applications web sur la même passerelle d’application. Vous pouvez ainsi configurer une topologie plus efficace pour vos déploiements en ajoutant plus de 100 sites web à une même passerelle d’application. Chaque site web peut être dirigé vers son propre pool principal. Par exemple, trois domaines (contoso.com, fabrikam.com et adatum.com) pointent vers l’adresse IP de la passerelle d’application. Vous créez trois [écouteurs multisites](multiple-site-overview.md) et configurez les paramètres de port et de protocole de chaque écouteur. 
 
-    Pour plus d’informations, consultez [Hébergement de plusieurs sites](application-gateway-web-app-overview.md).
+    Vous pouvez également définir des noms d’hôtes avec caractères génériques dans un écouteur multisite et jusqu’à cinq noms d’hôtes par écouteur. Pour plus d’informations, consultez [Noms d’hôtes avec caractères génériques dans l’écouteur (préversion)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-Après avoir créé un écouteur, vous devez l’associer à une règle de routage de requête. Cette règle détermine la manière dont la requête reçue sur l’écouteur doit être routée vers le back-end.
+    Pour plus d’informations sur la configuration d’un écouteur multisite, consultez [Hébergement de plusieurs sites dans Application Gateway à l’aide du portail Azure](create-multiple-sites-portal.md).
 
-Application Gateway traite les écouteurs dans l’[ordre indiqué](configuration-overview.md#order-of-processing-listeners).
+Après avoir créé un écouteur, vous devez l’associer à une règle de routage de requête. Cette règle détermine la manière dont la requête reçue sur l’écouteur doit être routée vers le back-end. La règle d’acheminement des requêtes contient également le pool principal vers lequel les acheminer et le paramètre HTTP dans lequel le port principal, le protocole, etc. sont mentionnés.
 
 ## <a name="request-routing-rules"></a>Règles de routage des requêtes
 
@@ -99,13 +99,13 @@ Vous pouvez choisir si la cible de redirection doit être un autre écouteur (ce
 
 Pour plus d’informations, consultez [Rediriger le trafic vers votre passerelle d’application](redirect-overview.md).
 
-### <a name="rewrite-http-headers"></a>Réécrire les en-têtes HTTP
+### <a name="rewrite-http-headers-and-url"></a>Réécrire les en-têtes et les URL HTTP
 
-À l’aide des règles de routage des requêtes, vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP(S) quand les paquets de requête et de réponse se déplacent entre les pools client et back-end via la passerelle d’application.
+En utilisant des règles de réécriture, vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP(S) ainsi que les paramètres du chemin URL et de la chaîne de requête lorsque les paquets de requête et de réponse se déplacent entre le client et des pools principaux via la passerelle d’application.
 
-Vous pouvez affecter aux en-têtes des valeurs statiques ou d’autres en-têtes et variables de serveur. Cela facilite les cas d’usage importants, tels que l’extraction d’adresses IP des clients, la suppression d’informations sensibles relatives au back-end, le renforcement de la sécurité, etc.
+Vous pouvez régler les en-têtes et les paramètres d’URL sur des valeurs statiques ou d’autres en-têtes et variables de serveur. Cela facilite les cas d’usage importants, tels que l’extraction d’adresses IP des clients, la suppression d’informations sensibles relatives au back-end, le renforcement de la sécurité, etc.
 
-Pour plus d’informations, consultez [Réécrire les en-têtes HTTP sur votre passerelle d’application](rewrite-http-headers.md).
+Pour plus d’informations, consultez [Réécrire les en-têtes et URL HTTP sur votre passerelle d’application](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>Paramètres HTTP
 

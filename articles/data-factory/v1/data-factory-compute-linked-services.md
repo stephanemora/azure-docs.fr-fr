@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537562"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563498"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Environnements Compute pris en charge par Azure Data Factory version 1
 > [!NOTE]
@@ -114,7 +114,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 > [!IMPORTANT]
 > Le cluster HDInsight crée un *conteneur par défaut* dans le stockage d’objets blob Azure que vous spécifiez dans la propriété **linkedServiceName** JSON. De par sa conception, HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Dans un service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche doit être traitée, à moins qu’il n’existe un cluster actif (**timeToLive**). Ce cluster est automatiquement supprimé lorsque le traitement est terminé. 
 >
-> À mesure que le nombre de tranches traitées augmente, les conteneurs se multiplient dans votre stockage d’objets blob. Si vous n’avez pas besoin des conteneurs pour dépanner les travaux, vous pouvez les supprimer afin de réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<your Data Factory name>-<linked service name>-<date and time>`. Vous pouvez utiliser un outil tel que l’[Explorateur de stockage Microsoft](https://storageexplorer.com/) pour supprimer des conteneurs dans le stockage d’objets blob.
+> À mesure que le nombre de tranches traitées augmente, les conteneurs se multiplient dans votre stockage d’objets blob. Si vous n’avez pas besoin des conteneurs pour dépanner les travaux, vous pouvez les supprimer afin de réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<your Data Factory name>-<linked service name>-<date and time>`. Vous pouvez utiliser un outil tel que l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/) pour supprimer des conteneurs du Stockage Blob.
 >
 > 
 

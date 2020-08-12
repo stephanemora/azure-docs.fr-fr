@@ -3,12 +3,12 @@ title: Modèles de mise en réseau pour Azure Service Fabric
 description: Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster avec les fonctionnalités de mise en réseau d’Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421465"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -99,6 +99,8 @@ Dans les exemples de cet article, nous utilisons le modèle Service Fabric templ
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Vous pouvez également commenter le paramètre avec le nom « virtualNetworkName », afin qu’il ne vous invite pas à entrer à deux reprises le nom du réseau virtuel dans le panneau de déploiement de cluster du portail Azure.
 
 2. Mettez en commentaires l’attribut `nicPrefixOverride` de `Microsoft.Compute/virtualMachineScaleSets`, car vous utilisez un sous-réseau existant et que vous avez désactivé cette variable à l’étape 1.
 

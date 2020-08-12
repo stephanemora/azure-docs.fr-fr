@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06c4ecd92368487af3110e84391ec721700a95aa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461168"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
@@ -301,7 +301,7 @@ Accédez aux données des objets blob à l'aide de `context.bindings.<NAME>`, sa
 
 # <a name="python"></a>[Python](#tab/python)
 
-Accédez aux données blob via le paramètre de type [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Reportez-vous à l’[exemple de déclencheur](#example) pour plus d'informations.
+Accédez aux données blob via le paramètre de type [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Reportez-vous à l’[exemple de déclencheur](#example) pour plus d'informations.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -331,7 +331,7 @@ L’exemple suivant déclenche uniquement sur les objets blob du conteneur `inpu
 "path": "input/original-{name}",
 ```
 
-Si le nom de l’objet blob est *original-Blob1.txt*, la valeur de la variable `name` dans le code de la fonction est `Blob1`.
+Si le nom de l’objet blob est *original-Blob1.txt*, la valeur de la variable `name` dans le code de la fonction est `Blob1.txt`.
 
 ### <a name="filter-on-file-type"></a>Filtrer sur le type de fichier
 
@@ -412,7 +412,7 @@ Le déclencheur de blob utilise une file d’attente en interne. Le nombre maxim
 
 [Le plan Consommation](functions-scale.md#how-the-consumption-and-premium-plans-work) limite une application de fonction sur une machine virtuelle à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 * la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 * 24 = 72 appels de fonction.
 
-Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string`, `Byte[]` ou POCO.
+Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string` ou `Byte[]`.
 
 ## <a name="polling"></a>Interrogation
 

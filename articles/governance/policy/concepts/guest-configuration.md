@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072812"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -35,9 +35,8 @@ Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le f
 Pour vérifier les paramètres à l’intérieur d’une machine, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée et la machine doit disposer d’une identité managée par le système. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante. L’identité est utilisée pour authentifier la machine lorsqu’elle lit et écrit dans le service de configuration d’invité. L’extension n’est pas requise pour Arc Connected Machines, car elle est incluse dans l’agent Arc Connected Machines.
 
 > [!IMPORTANT]
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle, attribuez les définitions de stratégie suivantes : 
->  - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> L’extension Guest Configuration et une identité managée sont requises pour l’audit des machines virtuelles Azure. Référez-vous à > L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à l’échelle, assignez l’initiative de stratégie suivante : > déployer l’extension à l’échelle, assigner les définitions de stratégie suivantes : 
+>  - [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limites définies sur l’extension
 
@@ -81,10 +80,11 @@ Pour communiquer avec le fournisseur de ressources de configuration d’invité 
 
 ## <a name="managed-identity-requirements"></a>Exigences relatives à l’identité managée
 
-Les stratégies **DeployIfNotExists** qui ajoutent l’extension à des machines virtuelles activent également une identité managée affectée par le système, s’il n’en existe pas.
+Les stratégies de l’initiative [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) activent une identité managée affectée par le système, s’il n’en n’existe pas. L’initiative comporte deux définitions de stratégie qui gèrent la création d’identités. Les conditions IF dans les définitions de stratégie garantissent un comportement correct en fonction de l’état actuel de la ressource de la machine dans Azure.
 
-> [!WARNING]
-> Évitez d’activer l’identité managée affectée par l’utilisateur à des machines virtuelles situées dans l’étendue pour des stratégies qui autorisent une identité managée affectée par le système. L’identité affectée par l’utilisateur est remplacée et la machine peut alors cesser de répondre.
+Si la machine n’a pas d’identité managée, la stratégie actuelle est la suivante : [\[Préversion\] : Ajouter une identité managée affectée par le système pour activer les attributions Guest Configuration sur les machines virtuelles sans identité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+Si la machine a actuellement une identité système affectée par l’utilisateur, la stratégie actuelle est la suivante : [\[Préversion\] : Ajouter une identité managée affectée par le système pour activer les attributions Guest Configuration sur les machines virtuelles qui ont une identité affectée par l’utilisateur](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 

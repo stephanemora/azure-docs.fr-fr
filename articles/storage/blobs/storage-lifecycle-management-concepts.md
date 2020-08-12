@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6285c25c44b7b8c5b2c1d9c148424fc36912b57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 865263d22d6f92dec74ef2820e80481e1a308804
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528699"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494551"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -30,17 +30,11 @@ Considérez un scénario où des données sont sollicitées fréquemment durant 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="storage-account-support"></a>Prise en charge du compte de stockage
+## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La stratégie de gestion du cycle de vie est disponible avec les comptes Usage général v2 (GPv2), les comptes Stockage Blob et les comptes Stockage d’objet blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
-
-## <a name="pricing"></a>Tarifs
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes d’usage général v2 (GPv2), les comptes de stockage Blob et les comptes de stockage d’objets Blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
 
 La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## <a name="regional-availability"></a>Disponibilité régionale
-
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure.
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie
 
@@ -248,7 +242,8 @@ Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’
 L’exemple de règle suivant filtre le compte pour exécuter les actions sur des objets existant à l’intérieur de `container1` et commençant par `foo`.  
 
 >[!NOTE]
->La gestion du cycle de vie ne prend en charge que le type d’objet blob de blocs.  
+>- La gestion du cycle de vie ne prend en charge que le type d’objet blob de blocs.<br>
+>- La gestion du cycle de vie n’affecte pas les conteneurs système comme $logs et $web.
 
 - Niveau objet blob sur accès froid 30 jours après la dernière modification
 - Niveau objet blob sur accès archive 90 jours après la dernière modification
@@ -296,7 +291,7 @@ Les filtres sont les suivants :
 | blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 
 > [!NOTE]
-> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Actions de règle
 

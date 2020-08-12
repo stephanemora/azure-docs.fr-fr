@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255436"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543365"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -47,6 +47,17 @@ Avec *kubenet*, seuls les nœuds reçoivent une adresse IP dans le sous-réseau
 Azure prend en charge un maximum de 400 routes dans une route UDR. Vous ne pouvez donc pas avoir un cluster AKS comportant plus de 400 nœuds. Les [nœuds virtuels][virtual-nodes] AKS et les stratégies réseau Azure ne sont pas pris en charge avec *kubenet*.  Vous pouvez utiliser des [stratégies réseau Calico][calico-network-policies], car elles sont prises en charge avec kubenet.
 
 Avec *Azure CNI*, chaque pod reçoit une adresse IP dans le sous-réseau IP et peut communiquer directement avec d’autres pods et services. La taille de vos clusters peut être identique à la plage d’adresses IP que vous spécifiez. Toutefois, la plage d’adresses IP doit être planifiée à l’avance, et toutes les adresses IP sont consommées par les nœuds AKS en fonction du nombre maximal de pods qu’ils peuvent prendre en charge. Les scénarios et fonctionnalités réseau avancé comme les [nœuds virtuels][virtual-nodes] ou les stratégies réseau (Azure ou Calico) sont pris en charge avec *Azure CNI*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Limitations et considérations relatives à kubenet
+
+* Un tronçon supplémentaire est nécessaire dans la conception de kubenet, ce qui ajoute une latence mineure à la communication des pods.
+* L’utilisation de kubenet requiert des tables de routage et des itinéraires définis par l’utilisateur, ce qui complique les opérations.
+* Le design de kubenet ne permet pas la prise en charge de l’adressage direct aux pods.
+* Contrairement aux clusters Azure CNI, plusieurs clusters kubenet ne peuvent pas partager un sous-réseau.
+* Les fonctionnalités **non prises en charge sur kubenet** comprennent :
+   * les [stratégies réseau Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mais les stratégies réseau Calico sont prises en charge sur kubenet ;
+   * les [pools de nœuds Windows](windows-node-limitations.md) ;
+   * le [module complémentaire de nœuds virtuels](virtual-nodes-portal.md#known-limitations).
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilité et épuisement des adresses IP
 

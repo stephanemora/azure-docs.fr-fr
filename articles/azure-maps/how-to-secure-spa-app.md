@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285694"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531343"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Guide pratique pour sécuriser une application monopage avec connexion non interactive
 
@@ -102,7 +102,7 @@ Créez une application de service web sécurisée qui est responsable de l’aut
 
 ## <a name="grant-role-based-access"></a>Accorder l’accès en fonction du rôle
 
-Vous accordez le *contrôle d’accès en fonction du rôle* (RBAC) en affectant l’identité affectée par le système à une ou plusieurs définitions de rôles Azure. Pour voir les définitions de rôle RBAC disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*.
+Vous accordez le *contrôle d’accès en fonction du rôle* (RBAC) en affectant l’identité affectée par le système à une ou plusieurs définitions de rôles Azure. Pour afficher les définitions de rôle Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*.
 
 1. Accédez à votre **compte Azure Maps**. Sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôles**.
 

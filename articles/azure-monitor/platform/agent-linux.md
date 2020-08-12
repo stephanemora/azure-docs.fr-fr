@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 965d5dd558d0da7a758db77330c9129ea0e8247c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073660"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543858"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connecter des ordinateurs Linux à Azure Monitor
 
@@ -93,7 +93,7 @@ L’agent Log Analytics pour Linux est fourni dans un groupe de scripts shell à
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple : 
+    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple :  
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -163,7 +163,8 @@ Les éléments suivants sont actuellement pris en charge :
 - FIP
 
 Les éléments suivants sont prévus, mais ne sont pas encore pris en charge :
-- CIS -SELINUX
+- CIS
+- SELINUX
 
 Les autres méthodes de renforcement de la sécurité et de personnalisation ne sont pas prises en charge ni prévues pour l’agent OMS.  
 

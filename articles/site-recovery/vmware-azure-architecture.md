@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632521"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498950"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
@@ -30,10 +30,25 @@ Le tableau et le graphique suivants présentent une vue générale des composant
 **Serveurs VMware** | Les machines virtuelles VMware sont hébergées sur des serveurs vSphere ESXi locaux. Nous recommandons d’utiliser un serveur vCenter pour gérer les hôtes. | Pendant le déploiement de Site Recovery, vous ajoutez des serveurs VMware au coffre Recovery Services.
 **Machines répliquées** | Le service Mobilité est installé sur chaque machine virtuelle VMware que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de processus. Vous pouvez également installer le service manuellement, ou utiliser une méthode de déploiement automatisée, telle que Configuration Manager.
 
-**Architecture VMware vers Azure**
+![Diagramme montrant les relations architecturales de la réplication VMware vers Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
-![Components](./media/vmware-azure-architecture/arch-enhanced.png)
+## <a name="set-up-outbound-network-connectivity"></a>Configurer la connectivité réseau sortante
 
+Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectivité réseau sortante pour permettre au réseau d’effectuer la réplication.
+
+> [!NOTE]
+> Site Recovery ne prend pas en charge l’utilisation d’un proxy d’authentification pour contrôler la connectivité réseau.
+
+### <a name="outbound-connectivity-for-urls"></a>Connectivité sortante pour les URL
+
+Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces URL :
+
+| **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
+| Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |
 
 ## <a name="replication-process"></a>Processus de réplication
 
@@ -54,9 +69,7 @@ Le tableau et le graphique suivants présentent une vue générale des composant
     - Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.
 5. Les données de réplication se trouvent tout d’abord dans un compte de stockage de cache dans Azure. Ces journaux sont traités et les données sont stockées dans un disque managé Azure (appelé disque seed asr). Les points de récupération sont créés sur ce disque.
 
-**Processus de réplication VMware vers Azure**
-
-![Processus de réplication](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagramme montrant le processus de réplication VMware vers Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Processus de resynchronisation
 
@@ -91,9 +104,8 @@ Après avoir configuré la réplication et exécuté une simulation de reprise a
     - Étape 3 : Une fois les charges de travail automatiquement restaurées, vous réactivez la réplication pour les machines virtuelles locales.
     
  
-**Restauration automatique VMware à partir d’Azure**
 
-![Restauration automatique](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagramme montrant la restauration automatique VMware à partir d’Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

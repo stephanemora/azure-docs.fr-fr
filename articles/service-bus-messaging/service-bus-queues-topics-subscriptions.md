@@ -3,12 +3,12 @@ title: Messagerie Azure Service Bus - files d’attente, rubriques et abonneme
 description: Cet article fournit une vue d’ensemble des entités de messagerie Azure Service Bus (file d’attente, rubriques et abonnements).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: deeebf56d6e2f4ccfac37c70170a0d1cb4d272a9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3ee03fe5219736a1b1ca66c652fe6ac410cb40cb
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119171"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799614"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 
@@ -64,145 +64,16 @@ Pour plus d’informations sur les valeurs de filtre possibles, consultez la doc
 
 ## <a name="java-message-service-jms-20-entities-preview"></a>Entités de Java Message Service (JMS) 2.0 (préversion)
 
-Les applications clientes se connectant à Azure Service Bus Premium et utilisant la [bibliothèque JMS Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) peuvent tirer parti des entités ci-dessous.
+Les entités ci-dessous sont accessibles via l’API Java Message Service (JMS) 2,0.
 
-### <a name="queues"></a>Files d’attente
+  * Files d’attente temporaires
+  * Rubriques temporaires
+  * Abonnements durables partagés
+  * Abonnements durables non partagés
+  * Abonnements non durables partagés
+  * Abonnements non durables non partagés
 
-Les files d’attente dans JMS sont sémantiquement comparables aux files d’attente Service Bus traditionnelles présentées plus haut.
-
-Pour créer une file d’attente, utilisez les méthodes ci-dessous dans la classe `JMSContext` –
-
-```java
-Queue createQueue(String queueName)
-```
-
-### <a name="topics"></a>Rubriques
-
-Les rubriques dans JMS sont sémantiquement comparables aux rubriques Service Bus traditionnelles présentées plus haut.
-
-Pour créer une rubrique, utilisez les méthodes ci-dessous dans la classe `JMSContext` –
-
-```java
-Topic createTopic(String topicName)
-```
-
-### <a name="temporary-queues"></a>Files d’attente temporaires
-
-Lorsqu’une application cliente requiert une entité temporaire qui existe pendant la durée de vie de l’application, elle peut utiliser des files d’attente temporaires. Elles sont utilisées dans le modèle de [ réponse à la demande](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
-
-Pour créer une file d’attente temporaire, utilisez les méthodes ci-dessous dans la classe `JMSContext` –
-
-```java
-TemporaryQueue createTemporaryQueue()
-```
-
-### <a name="temporary-topics"></a>Rubriques temporaires
-
-Tout comme les files d’attente temporaires, des rubriques temporaires permettent la publication/l’abonnement via une entité temporaire qui existe pendant la durée de vie de l’application.
-
-Pour créer une rubrique temporaire, utilisez les méthodes ci-dessous dans la classe `JMSContext` –
-
-```java
-TemporaryTopic createTemporaryTopic()
-```
-
-### <a name="java-message-service-jms-subscriptions"></a>JMS (Java Message Service) et abonnements
-
-Bien que qu’elles soient sémantiquement similaires aux abonnements décrits ci-dessus (qui existent sur une rubrique et activent la sémantique de publication/d’abonnement), les spécifications de service de message Java présentent les concepts d’attributs **partagés**, **non partagés**, **Durables** et **Non durables** pour un abonnement donné.
-
-> [!NOTE]
-> Les abonnements ci-dessous sont disponibles dans le niveau Azure Service Bus Premium pour la préversion des applications clientes se connectant à Azure Service Bus à l’aide de la [bibliothèque JMS Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
->
-> Pour la préversion publique, ces abonnements ne peuvent pas être créés à l’aide du portail Azure.
->
-
-#### <a name="shared-durable-subscriptions"></a>Abonnements durables partagés
-
-Un abonnement durable partagé est utilisé lorsque tous les messages publiés sur une rubrique doivent être reçus et traités par une application, que l’application consomme ou non activement l’abonnement à tout moment.
-
-Étant donné qu’il s’agit d’un abonnement partagé, toute application authentifiée pour recevoir des messages de Service Bus peut en recevoir de l’abonnement.
-
-Pour créer un abonnement durable partagé, utilisez les méthodes ci-dessous sur la classe `JMSContext` –
-
-```java
-JMSConsumer createSharedDurableConsumer(Topic topic, String name)
-
-JMSConsumer createSharedDurableConsumer(Topic topic, String name, String messageSelector)
-```
-
-L’abonnement durable partagé continue à exister, sauf s’il est supprimé à l’aide de la méthode `unsubscribe` sur la classe `JMSContext`.
-
-```java
-void unsubscribe(String name)
-```
-
-#### <a name="unshared-durable-subscriptions"></a>Abonnements durables non partagés
-
-Tout comme un abonnement durable partagé, un abonnement durable partagé est utilisé lorsque tous les messages publiés sur une rubrique doivent être reçus et traités par une application, que l’application consomme ou non activement l’abonnement à tout moment.
-
-Toutefois, étant donné qu’il s’agit d’un abonnement non partagé, seule l’application qui a créé l’abonnement peut recevoir des messages de ce dernier.
-
-Pour créer un abonnement durable non partagé, utilisez les méthodes ci-dessous à partir de la classe `JMSContext` – 
-
-```java
-JMSConsumer createDurableConsumer(Topic topic, String name)
-
-JMSConsumer createDurableConsumer(Topic topic, String name, String messageSelector, boolean noLocal)
-```
-
-> [!NOTE]
-> La fonctionnalité `noLocal` n’est actuellement pas prise en charge et est ignorée.
->
-
-L’abonnement durable non partagé continue à exister, sauf s’il est supprimé à l’aide de la méthode `unsubscribe` sur la classe `JMSContext`.
-
-```java
-void unsubscribe(String name)
-```
-
-#### <a name="shared-non-durable-subscriptions"></a>Abonnements non durables partagés
-
-Un abonnement partagé non durable est utilisé lorsque plusieurs applications clientes doivent recevoir et traiter des messages d’un seul abonnement, uniquement jusqu’à ce qu’ils les consomment/les reçoivent activement.
-
-Étant donné que l’abonnement n’est pas durable, il n’est pas persistant. Les messages ne sont pas reçus par cet abonnement lorsqu’il n’y a aucun consommateur actif.
-
-Pour créer un abonnement partagé non durable, créez un `JmsConsumer` comme indiqué dans les méthodes ci-dessous de la classe `JMSContext` –
-
-```java
-JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
-
-JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, String messageSelector)
-```
-
-L’abonnement partagé non durable continue d’exister jusqu’à ce qu’il y ait des consommateurs actifs qui le reçoivent.
-
-#### <a name="unshared-non-durable-subscriptions"></a>Abonnements non durables non partagés
-
-Un abonnement non partagé non durable est utilisé lorsque l’application cliente doit recevoir et traiter des messages d’un seul abonnement, uniquement jusqu’à ce qu’elle les consomme/les reçoive activement. Un seul consommateur peut exister sur cet abonnement, à savoir le client qui a créé l’abonnement.
-
-Étant donné que l’abonnement n’est pas durable, il n’est pas persistant. Les messages ne sont pas reçus par cet abonnement lorsqu’il n’y a aucun consommateur actif.
-
-Pour créer un abonnement non partagé non durable, créez un `JMSConsumer` comme indiqué dans les méthodes ci-dessous de la classe JMSContext – 
-
-```java
-JMSConsumer createConsumer(Destination destination)
-
-JMSConsumer createConsumer(Destination destination, String messageSelector)
-
-JMSConsumer createConsumer(Destination destination, String messageSelector, boolean noLocal)
-```
-
-> [!NOTE]
-> La fonctionnalité `noLocal` n’est actuellement pas prise en charge et est ignorée.
->
-
-L’abonnement non partagé non durable continue d’exister jusqu’à ce qu’il y ait un consommateur actif qui le reçoit.
-
-#### <a name="message-selectors"></a>Sélecteurs de messages
-
-À l’instar des **filtres et actions** qui existent pour les abonnements Service Bus standard, les **sélecteurs de messages** existent pour les abonnements JMS.
-
-Les sélecteurs de messages peuvent être configurés sur chacun des abonnements JMS et exister sous la forme d’une condition de filtre sur les propriétés d’en-tête de message. Seuls les messages avec des propriétés d’en-tête correspondant à l’expression du sélecteur de messages sont remis. La valeur Null ou une chaîne vide indique qu’il n’existe aucun sélecteur de message pour l’abonnement/le consommateur JMS.
+En savoir plus sur le [entités JMS 2.0](java-message-service-20-entities.md) et sur la façon de [les utiliser](how-to-use-java-message-service-20.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

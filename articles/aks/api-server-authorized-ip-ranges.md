@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 4d9030e21c3b8f31c18c26fc54dc76d5b8d84a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c92d4e00da1cc3d372cca0bf4efbe648ae522608
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057468"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -18,7 +18,7 @@ Dans Kubernetes, le serveur d’API reçoit des requêtes pour effectuer des act
 Cet article vous montre comment utiliser des plages d’adresses IP autorisées pour le serveur d’API pour définir quelles adresses IP et CIDR peuvent accéder plan de contrôle.
 
 > [!IMPORTANT]
-> Sur les nouveaux clusters, les plages d’adresses IP autorisées du serveur d’API sont uniquement prises en charge sur l’équilibreur de charge SKUS *Standard*. Les clusters existants avec l’équilibreur de charge SKU *De base* et les plages d’adresses IP autorisées du serveur d’API sont configurés pour continuer à fonctionner normalement, mais ils ne peuvent pas être migrés vers un équilibreur de charge SKU *Standard*. Ces clusters existants continueront de fonctionner si leur version de Kubernetes ou leur plan de contrôle sont mis à niveau.
+> Sur les clusters créés après que les plages d’adresses IP autorisées par le serveur d’API ont été supprimées de la préversion en octobre 2019, les plages d’adresses IP autorisées par le serveur d’API sont uniquement prises en charge sur l’équilibreur de charge du SKU *Standard*. Les clusters existants avec l’équilibreur de charge SKU *De base* et les plages d’adresses IP autorisées du serveur d’API sont configurés pour continuer à fonctionner normalement, mais ils ne peuvent pas être migrés vers un équilibreur de charge SKU *Standard*. Ces clusters existants continueront de fonctionner si leur version de Kubernetes ou leur plan de contrôle sont mis à niveau. Les plages d’adresses IP autorisées par le serveur d’API ne sont pas prises en charge pour les clusters privés.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur le serveur d’API et les autres composants de cl
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Créer un cluster AKS dont les plages d’adresses IP autorisées du serveur d’API sont activées
 
-Les plages d’adresses IP autorisées du serveur API fonctionnent uniquement pour les nouveaux clusters AKS et ne sont pas prises en charge pour les clusters AKS privés. Créez un cluster au moyen de la commande [az aks create][az-aks-create] et spécifiez le paramètre *`--api-server-authorized-ip-ranges`* pour fournir une liste de plages d’adresses IP autorisées. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux ou IP publiques. Lorsque vous spécifiez une plage CIDR, commencez par la première adresse IP dans la plage. Par exemple, *137.117.106.90/29* est une plage valide, mais assurez-vous que vous spécifiez la première adresse IP dans la plage, par exemple *137.117.106.88/29*.
+Créez un cluster au moyen de la commande [az aks create][az-aks-create] et spécifiez le paramètre *`--api-server-authorized-ip-ranges`* pour fournir une liste de plages d’adresses IP autorisées. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux ou IP publiques. Lorsque vous spécifiez une plage CIDR, commencez par la première adresse IP dans la plage. Par exemple, *137.117.106.90/29* est une plage valide, mais assurez-vous que vous spécifiez la première adresse IP dans la plage, par exemple *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > Par défaut, votre cluster utilise l’[équilibreur de charge de la référence SKU Standard][standard-sku-lb], vous pouvez utiliser celui-ci pour configurer la passerelle sortante. Lorsque vous activez des plages d’adresses IP autorisées pour le serveur d’API lors de la création du cluster, l’adresse IP publique de votre cluster est également autorisée par défaut en plus des plages que vous indiquez. Si vous spécifiez *""* ou aucune valeur pour *`--api-server-authorized-ip-ranges`* , les plages d’adresses IP autorisées pour le serveur API seront autorisées. Notez que si vous utilisez PowerShell, utilisez *`--api-server-authorized-ip-ranges=""`* (avec le signe égal) pour éviter tout problème d’analyse.
@@ -59,8 +59,10 @@ az aks create \
 > - Adresse IP publique du pare-feu
 > - Toute plage qui représente les réseaux à partir desquels vous allez administrer le cluster
 > - Si vous utilisez Azure Dev Spaces sur votre cluster AKS, vous devez autoriser des [plages supplémentaires en fonction de votre région][dev-spaces-ranges].
-
-> La limite supérieure du nombre de plages d’adresses IP que vous pouvez spécifier est 3 500. 
+>
+> La limite supérieure du nombre de plages d’adresses IP que vous pouvez spécifier est 200.
+>
+> La propagation des règles peut prendre jusqu’à deux minutes. Veuillez patienter pendant le test de la connexion.
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Spécifier les adresses IP sortantes pour l’équilibreur de charge de la référence SKU Standard
 

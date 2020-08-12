@@ -1,6 +1,6 @@
 ---
 title: Forum aux questions de la documentation de Microsoft Security Code Analysis
-description: Cet article contient les questions les plus fréquentes sur l’extension Microsoft Security Code Analysis
+description: Pour en savoir plus sur l’extension Analyse du code de sécurité Microsoft, consultez le Forum aux questions (FAQ).
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362072"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543042"
 ---
 # <a name="frequently-asked-questions"></a>Forum aux questions
 Vous avez des questions ? Pour plus d’informations, consultez le forum aux questions suivant.
@@ -106,15 +106,17 @@ Vous trouverez ci-dessous les détails des scénarios de suppression les plus co
 
 La clé de hachage du secret provenant du fichier de sortie de CredScan est nécessaire, comme le montre l’exemple suivant.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > La clé de hachage est générée par une partie de la valeur correspondante ou du contenu correspondant du fichier. Toute révision du code source peut modifier la clé de hachage et désactiver la règle de suppression.
@@ -133,19 +135,21 @@ Exemples de règles de suppression valides :
 - \lib\angular.js
 - angular.js - supprime les fichiers portant le même nom
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > Tous les secrets futurs ajoutés au fichier seront également supprimés automatiquement.

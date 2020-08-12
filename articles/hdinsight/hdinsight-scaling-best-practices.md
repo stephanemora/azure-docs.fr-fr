@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006448"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
 HDInsight fournit une élasticité avec des options de scale-up ou scale-down du nombre de nœuds Worker dans vos clusters. Cette élasticité vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 
-Effectuez un scale-up de votre cluster avant le traitement périodique par lots afin que le cluster dispose des ressources appropriées.  Une fois que le traitement est terminé et que l’utilisation est redescendue, effectuez un scale-down du cluster HDInsight de façon à utiliser moins de nœuds Worker.
+Effectuez un scale-up de votre cluster avant le traitement périodique par lots afin que le cluster dispose des ressources appropriées.   Une fois que le traitement est terminé et que l’utilisation est redescendue, effectuez un scale-down du cluster HDInsight de façon à utiliser moins de nœuds Worker.
 
 Vous pouvez mettre à l’échelle un cluster manuellement en appliquant l’une des méthodes décrites ci-dessous. Vous pouvez également utiliser des options de [mise à l’échelle automatique](hdinsight-autoscale-clusters.md) pour effectuer un scale-up ou un scale-down automatiquement en fonction de certaines métriques.
 
@@ -106,6 +106,14 @@ L’impact de la modification du nombre de nœuds de données varie en fonction 
 * Kafka
 
     vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Pour plus d’informations, consultez le document [Haute disponibilité des données avec Apache Kafka sur HDInsight](./kafka/apache-kafka-high-availability.md).
+
+* LLAP d’Apache Hive
+
+    Après la mise à l’échelle vers `N` nœuds Worker, HDInsight définit automatiquement les configurations suivantes et redémarre Hive.
+
+  * Nombre total maximal de requêtes simultanées : `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Nombre de nœuds utilisés par le LLAP de Hive : `num_llap_nodes  = N`
+  * Nombre de nœuds pour l’exécution du démon LLAP Hive : `num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Scale down d’un cluster en toute sécurité
 

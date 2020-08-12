@@ -5,23 +5,23 @@ description: Superviser les services web déployés avec Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: e12c22d56399ce1690bee678623c58288cf0163b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743505"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552201"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez apprendre à collecter des données à partir de points de terminaison de service web et à superviser les modèles déployés sur ces points de terminaison dans Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI) en activant Azure Application Insights via 
+Dans cet article, vous allez apprendre à collecter des données à partir de points de terminaison de service web et à superviser les modèles déployés sur ces points de terminaison dans Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI) en interrogeant les journaux et en activant Azure Application Insights via 
 * [SDK Python Azure Machine Learning](#python)
 * [Azure Machine Learning Studio](#studio) sur https://ml.azure.com
 
@@ -42,6 +42,18 @@ En plus de la collecte des données de sortie et des réponses d’un point de t
 
 * Un modèle de machine learning entraîné à déployer sur Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI). Si vous n’en avez pas, consultez le tutoriel [Effectuer l’apprentissage d’un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
+## <a name="query-logs-for-deployed-models"></a>Interroger les journaux pour les modèles déployés
+
+Pour récupérer les journaux d’activité d’un service web déjà déployé, chargez ce service et utilisez la fonction `get_logs()`. Les journaux d’activité peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Métadonnées de service web et données de réponse
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ En plus de la collecte des données de sortie et des réponses d’un point de t
 Pour enregistrer les informations relatives à une demande au service web, ajoutez des instructions `print` à votre fichier score.py. Chaque instruction `print` génère une entrée dans la table de trace dans Application Insights, sous le message `STDOUT`. Le contenu de l’instruction `print` est contenu sous `customDimensions`, puis `Contents` dans la table de trace. Si vous imprimez une chaîne JSON, elle génère une structure de données hiérarchique dans la sortie de trace sous `Contents`.
 
 Vous pouvez interroger Azure Application Insights directement pour accéder à ces données, ou configurer une [exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) vers un compte de stockage pour une conservation plus longue ou un traitement ultérieur. Les données de modèle peuvent ensuite être utilisées dans le service Azure Machine Learning pour configurer l’étiquetage, le réentraînement, l’explicabilité, l’analyse des données ou toute autre utilisation. 
+
 
 <a name="python"></a>
 
@@ -128,6 +141,8 @@ Si vous voulez journaliser des traces personnalisées, suivez le processus de d�
 
 3. Générez une image et déployez-la sur [AKS ou ACI](how-to-deploy-and-where.md).
 
+Pour plus d’informations sur la journalisation et la collecte de données, consultez [Activer la journalisation dans Azure Machine Learning](how-to-enable-logging.md) et [Collecter des données pour des modèles en production](how-to-enable-data-collection.md).
+
 ### <a name="disable-tracking-in-python"></a>Désactiver le suivi dans Python
 
 Pour désactiver Azure Application Insights, utilisez le code suivant :
@@ -153,15 +168,20 @@ Vous pouvez également effectuer les étapes suivantes pour activer Azure Applic
 1. Sélectionnez **Activer les diagnostics et la collecte de données Application Insights**
 
     ![Activer App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Évaluer les données
+
+## <a name="view-metrics-and-logs"></a>Afficher les métriques et les journaux
+
 Les données de votre service sont stockées dans votre compte Azure Application Insights, dans le même groupe de ressources qu’Azure Machine Learning.
 Pour l’afficher :
 
-1. Accédez à votre espace de travail Azure Machine Learning dans le [portail Azure](https://ms.portal.azure.com/), puis cliquez sur le lien Application Insights
+1. Accédez à votre espace de travail Azure Machine Learning dans le [studio](https://ml.azure.com/).
+1. Sélectionnez **Points de terminaison**.
+1. Sélectionnez votre service déployé.
+1. Faites défiler la liste pour rechercher l’**URL Application Insights** et sélectionnez le lien.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. À partir de la **Vue d’ensemble** ou la section __Surveillance__ dans la liste à gauche, sélectionnez __Journaux__.
+1. Dans Application Insights, à partir de l’onglet **Vue d’ensemble** ou de la section __Surveillance__ dans la liste à gauche, sélectionnez __Journaux__.
 
     [![Onglet Vue d’ensemble de la surveillance](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +206,7 @@ Vous pouvez utiliser l’[exportation continue](https://docs.microsoft.com/azure
 
 Vous pouvez utiliser Azure Data Factory, les pipelines Azure ML ou d’autres outils de traitement de données pour transformer les données en fonction des besoins. Une fois les données transformées, vous pouvez les inscrire auprès de l’espace de travail d’Azure Machine Learning en tant que jeu de données. Pour cela, consultez [How to create and register datasets](how-to-create-register-datasets.md) (Comment créer et inscrire des jeux de données).
 
-   [![Exportation continue](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportation continue":::
 
 
 ## <a name="example-notebook"></a>Exemple de bloc-notes

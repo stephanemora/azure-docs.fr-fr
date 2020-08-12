@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504413"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
 
@@ -46,7 +46,7 @@ Pour limiter un administrateur à la seule gestion de sessions d’utilisateurs,
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Windows Virtual Desktop prend-il en charge les modèles Azure Active Directory fractionnés ?
 
-Lorsqu’un utilisateur est affecté à un groupe d’applications, le service effectue une simple attribution de rôle par contrôle d’accès en fonction du rôle (RBAC) Azure. Par conséquent, le compte Azure Active Directory (AD) de l’utilisateur et l’instance Azure AD du groupe d’applications doivent se trouver au même emplacement. Tous les objets de service, tels que les pools d’hôtes, les groupes d’applications et les espaces de travail, doivent également se trouver dans la même instance Azure AD que le compte de l’utilisateur.
+Lorsqu’un utilisateur est affecté à un groupe d’applications, le service effectue une simple attribution de rôle Azure. Par conséquent, le compte Azure Active Directory (AD) de l’utilisateur et l’instance Azure AD du groupe d’applications doivent se trouver au même emplacement. Tous les objets de service, tels que les pools d’hôtes, les groupes d’applications et les espaces de travail, doivent également se trouver dans la même instance Azure AD que le compte de l’utilisateur.
 
 Vous pouvez créer des machines virtuelles dans un autre compte Azure AD tant que vous synchronisez le service Active Directory avec le compte Azure AD de l’utilisateur dans le même réseau virtuel (VNET).
 

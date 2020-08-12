@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142378"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563923"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
 Les entités de votre environnement sont représentées par des [jumeaux numériques](concepts-twins-graph.md). La gestion de vos jumeaux numériques peut inclure la création, la modification et la suppression. Pour effectuer ces opérations, vous pouvez utiliser les [**API DigitalTwins**](how-to-use-apis-sdks.md), le [SDK .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou la [CLI Azure Digital Twins](how-to-use-cli.md).
 
-Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [Procédure : Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md).
+Cet article se concentre sur la gestion des jumeaux numériques. Pour utiliser des relations et le [graphe des jumeaux](concepts-twins-graph.md) dans leur ensemble, consultez [*Procédure : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md).
 
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
@@ -37,14 +37,14 @@ Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
 
 Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. 
 
-> [!TIP]
-> Seules les propriétés qui ont été définies au moins une fois sont retournées lorsque vous récupérez un jumeau avec GetDigitalTwin.  
-
 Le modèle et les valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes.
+
+> [!TIP]
+> Après la création ou la mise à jour d’un jumeau, il peut y avoir une latence allant jusqu’à 10 secondes avant que les modifications soient reflétées dans les [requêtes](how-to-query-graph.md). L’API `GetDigitalTwin` (décrite [plus loin dans cet article](#get-data-for-a-digital-twin)) ne subit pas ce délai. Utilisez l’appel d’API au lieu d’une interrogation pour voir vos nouveaux jumeaux créés si vous avez besoin d’une réponse instantanée. 
 
 ### <a name="initialize-properties"></a>Initialiser les propriétés
 
-L’API de création de jumeau accepte un objet qui peut être sérialisé dans une description JSON valide des propriétés du jumeau. Voir [Concepts : Jumeaux numériques et le graphe des jumeaux](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau.
+L’API de création de jumeau accepte un objet qui peut être sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau.
 
 Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
@@ -91,7 +91,10 @@ object result = await client.GetDigitalTwin(id);
 
 Cet appel retourne les données du jumeau sous forme de chaîne JSON. 
 
-Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [Procédure : Interroger le graphe des jumeaux](how-to-query-graph.md).
+> [!TIP]
+> Seules les propriétés qui ont été définies au moins une fois sont retournées lorsque vous récupérez un jumeau avec `GetDigitalTwin`.
+
+Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [*Procédure : Interroger le graphique de jumeaux*](how-to-query-graph.md).
 
 Prenez pour exemple le modèle suivant (écrit en [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) qui définit une *Lune* :
 
@@ -168,13 +171,18 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-Pour plus d’informations sur les classes d’assistance de sérialisation, consultez [Procédure : Utiliser les kits SDK et les API Azure Digital Twins](how-to-use-apis-sdks.md).
+Pour plus d’informations sur les classes d’assistance de sérialisation, consultez [*Procédure : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="update-a-digital-twin"></a>Mettre à jour un jumeau numérique
 
 Pour mettre à jour les propriétés d’un jumeau numérique, vous écrivez les informations que vous souhaitez remplacer au format de [correctif JSON](http://jsonpatch.com/). De cette façon, vous pouvez remplacer plusieurs propriétés à la fois. Vous transmettez ensuite le document de correctif JSON dans une méthode `Update` :
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> Après la création ou la mise à jour d’un jumeau, il peut y avoir une latence allant jusqu’à 10 secondes avant que les modifications soient reflétées dans les [requêtes](how-to-query-graph.md). L’API `GetDigitalTwin` (décrite [plus loin dans cet article](#get-data-for-a-digital-twin)) ne subit pas ce délai. Utilisez l’appel d’API au lieu d’une interrogation pour voir vos jumeaux mis à jour si vous avez besoin d’une réponse instantanée. 
 
 Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des propriétés *masse* et *rayon* du jumeau numérique auquel il est appliqué.
 
@@ -337,13 +345,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### <a name="delete-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* fait cela dans une fonction `CommandDeleteAllTwins`.
+Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériques, téléchargez l’exemple d’application utilisé dans le [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* fait cela dans une fonction `CommandDeleteAllTwins`.
 
 ## <a name="manage-twins-with-cli"></a>Gérer des jumeaux avec l’interface CLI
 
-Les jumeaux peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes se trouvent dans [Procédure : Utiliser l’interface CLI Azure Digital Twins](how-to-use-cli.md).
+Les jumeaux peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer et gérer des relations entre vos jumeaux numériques :
-* [Guide pratique pour Gérer le graphe des jumeaux avec des relations](how-to-manage-graph.md)
+* [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)

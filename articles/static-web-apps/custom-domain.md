@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960297"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563345"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurer un domaine personnalisé dans Azure Static Web Apps en préversion
 
@@ -37,7 +37,7 @@ Il existe plusieurs types de configurations DNS disponibles pour une application
 
 ## <a name="map-a-cname-record"></a>Mapper un enregistrement CNAME
 
-Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un enregistrement CNAME pour mapper `www.example.com` au domaine généré automatiquement fourni par Azure Static Web Apps.
+Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un enregistrement CNAME pour mapper `www.example.com`, `blog.example.com` ou un autre sous-domaine généré automatiquement fourni par Azure Static Web Apps.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 

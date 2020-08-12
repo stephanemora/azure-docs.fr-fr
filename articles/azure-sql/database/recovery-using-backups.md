@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075882"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809467"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Par défaut, les sauvegardes Azure SQL Database et SQL Managed Instance sont stockées dans un stockage blob géorépliqué (type de stockage RA-GRS). Les options suivantes sont disponibles pour la récupération des bases de données à l’aide des [sauvegardes de bases de données automatisées](automated-backups-overview.md) : Vous pouvez :
+Les options suivantes sont disponibles pour la récupération des bases de données à l’aide des [sauvegardes de bases de données automatisées](automated-backups-overview.md) : Vous pouvez :
 
 - Créer une nouvelle base de données sur le même serveur, récupérée à un moment donné durant la période de rétention.
 - Créer une base de données sur le même serveur, récupérée à un moment donné de la suppression d’une base de données.
@@ -33,6 +33,11 @@ Si vous avez configuré la [conservation à long terme des sauvegardes](long-ter
 
 > [!IMPORTANT]
 > Vous ne pouvez pas remplacer une base de données existante lors de la restauration.
+
+Par défaut, les sauvegardes Azure SQL Database et SQL Managed Instance sont stockées dans un stockage blob géorépliqué (type de stockage RA-GRS). En outre, SQL Managed Instance prend également en charge le stockage de sauvegarde redondant localement (LRS) et redondant par zone (ZRS). La redondance permet de protéger vos données contre les événements planifiés ou non, notamment les défaillances matérielles temporaires, les pannes de réseau ou de courant et les catastrophes naturelles massives. Le stockage redondant interzone (ZRS) est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> La configuration de la redondance de stockage pour les sauvegardes est disponible uniquement pour l’instance gérée et autorisée pendant la création du processus. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
 
 Quand vous utilisez le niveau de service Standard ou Premium, la restauration de votre base de données peut entraîner un coût de stockage supplémentaire. Le coût supplémentaire s’applique si la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse dans le niveau de service et de performance de la base de données cible. Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en fixant la taille maximale de la base de données sur la quantité incluse.
 
@@ -51,7 +56,7 @@ Pour une base de données volumineuse ou très active, la restauration peut pren
 
 Pour un seul abonnement, le nombre de requêtes de restauration simultanées est limité. Ces limitations s’appliquent à toutes les combinaisons de limites de restauration dans le temps, de géorestaurations et de restaurations issues d’une sauvegarde de conservation à long terme.
 
-|| **Nombre maximum de requêtes simultanées traitées** | **Nombre maximum de requêtes simultanées soumises** |
+| **Option de déploiement** | **Nombre maximum de requêtes simultanées traitées** | **Nombre maximum de requêtes simultanées soumises** |
 | :--- | --: | --: |
 |**Base de données unique (par abonnement)**|10|60|
 |**Pool élastique (par pool)**|4|200|
@@ -136,6 +141,9 @@ Pour obtenir un exemple de script PowerShell montrant comment restaurer une base
 > Pour restaurer par programmation une base de données supprimée, consultez [Exécution par programmation d’une récupération à l’aide des sauvegardes automatisées](recovery-using-backups.md).
 
 ## <a name="geo-restore"></a>La géorestauration
+
+> [!IMPORTANT]
+> La géorestauration est disponible uniquement pour les instances gérées configurées avec le type stockage de sauvegarde géo-redondant (RA-GRS). Les instances gérées configurées avec avec des types de stockage de sauvegarde avec redondance locale ou redondante dans une zone ne prennent pas en charge la géorestauration.
 
 Vous pouvez restaurer une base de données sur n’importe quel serveur SQL Database ou une base de données d’instance sur n’importe quelle instance managée dans toute région Azure à partir des sauvegardes géorépliquées les plus récentes. La géorestauration utilise une sauvegarde géorépliquée comme source. Vous pouvez demander une géorestauration même si la base de données ou le centre de données est inaccessible en raison d’une panne.
 

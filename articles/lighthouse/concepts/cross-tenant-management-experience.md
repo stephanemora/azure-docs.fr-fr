@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371037"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500876"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -33,9 +33,7 @@ Azure Lighthouse offre une plus grande flexibilité pour gérer les ressources d
 
 Vous pouvez effectuer des tâches de gestion sur les ressources déléguées directement sur le portail ou à l’aide d’API et d’outils de gestion (tels que Azure CLI et Azure PowerShell). Toutes les API existantes peuvent être utilisées lorsque vous travaillez avec des ressources déléguées, tant que la fonctionnalité est prise en charge pour la gestion entre inter-locataires et que l’utilisateur dispose des autorisations appropriées.
 
-La [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) Azure PowerShell affiche le `tenantID` de chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient au locataire de votre fournisseur de services ou à un locataire géré par le client.
-
-De même, des commandes Azure CLI comme [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) affichent les attributs **homeTenantId** et **managedByTenants**.
+Les commandes Azure CLI telles que [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) affichent les attributs **homeTenantId** et **managedByTenants** pour chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient au locataire de votre fournisseur de services ou à un locataire géré par le client.
 
 > [!TIP]
 > Si vous ne voyez pas ces valeurs lors de l’utilisation d'Azure CLI, essayez d’effacer votre cache en exécutant `az account clear`, puis `az login --identity`.
@@ -70,7 +68,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Cost Management + Facturation](../../cost-management-billing/index.yml) :
 
-- À partir du locataire de gestion, les fournisseurs de solutions Cloud partenaires peuvent visualiser, gérer et analyser les coûts de consommation hors taxes (hors achats) pour les clients qui relèvent du plan Azure. Le coût est basé sur les tarifs de vente au détail et le contrôle d’accès en fonction du rôle Azure (RBAC) dont dispose le partenaire pour l’abonnement du client.
+- À partir du locataire de gestion, les fournisseurs de solutions Cloud partenaires peuvent visualiser, gérer et analyser les coûts de consommation hors taxes (hors achats) pour les clients qui relèvent du plan Azure. Le coût est basé sur les tarifs de vente au détail et l’accès Azure RBAC (contrôle d’accès en fonction du rôle Azure) dont dispose le partenaire pour l’abonnement du client.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml) :
 

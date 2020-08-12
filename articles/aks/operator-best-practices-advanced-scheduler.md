@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077845"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530059"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -71,8 +71,6 @@ Quand ce pod est déployé, par exemple en utilisant `kubectl apply -f gpu-toler
 
 Quand vous appliquez des teintes, collaborez avec les développeurs et propriétaires d’applications pour leur permettre de définir les tolérances requises dans leurs déploiements.
 
-Pour plus d’informations sur les teintes et les tolérances, consultez [Application de teintes et de tolérances][k8s-taints-tolerations].
-
 Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, voir [Créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportement des teintes et des tolérances dans AKS
@@ -80,6 +78,7 @@ Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, v
 Lorsque vous mettez à niveau un pool de nœuds dans AKS, les teintes et les tolérances suivent un modèle défini lorsqu’elles sont appliquées à de nouveaux nœuds :
 
 - **Clusters par défaut qui utilisent des groupes de machines virtuelles identiques**
+  - Vous pouvez [appliquer une teinte à un pool de nœuds][taint-node-pool] à partir de l’API AKS afin que les nœuds qui viennent d’être mis à l’échelle reçoivent des teintes de nœud spécifiés par l’API.
   - Partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Vous mettez à niveau le pool de nœuds.
   - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et les teintes y sont envoyées.
   - Les *node1* et *node2* originaux sont supprimés.
@@ -198,3 +197,4 @@ Dans cet article, nous avons traité des fonctionnalités avancées du planifica
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

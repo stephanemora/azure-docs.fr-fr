@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127534"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531207"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -95,7 +95,7 @@ Vous pouvez utiliser **l’Assistant Ajout d’un utilisateur** pour configurer 
 
 Comme d’autres services Azure, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler la façon dont les utilisateurs interagissent avec le service.
 
-Les rôles RBAC standard ont les fonctionnalités suivantes :
+Les rôles Azure standard ont les fonctionnalités suivantes :
 * **Propriétaire** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
 * **Collaborateur** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
 * **Lecteur** : peut surveiller les travaux.

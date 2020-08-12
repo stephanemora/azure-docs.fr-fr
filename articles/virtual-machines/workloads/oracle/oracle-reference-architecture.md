@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525515"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448754"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -211,7 +211,7 @@ Lors de la requête initiale, le serveur d'applications se connecte au directeur
 
 Lors du déploiement de vos charges de travail Oracle sur Azure, Microsoft s'occupe de toutes les mises à jour correctives du système d'exploitation hôte. Toute maintenance planifiée du système d'exploitation est communiquée aux clients à l'avance pour leur permettre de s'y préparer. Deux serveurs issus de deux zones de disponibilité différentes ne font jamais l'objet d'une mise à jour corrective simultanée. Pour plus d'informations sur la maintenance et les mises à jour correctives des machines virtuelles, consultez [Gérer la disponibilité des machines virtuelles](../../../virtual-machines/linux/manage-availability.md). 
 
-Les mises à jour correctives du système d'exploitation de vos machines virtuelles peuvent être automatisées à l'aide d'[Azure Automation](../../../automation/automation-tutorial-update-management.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l'aide d'[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou d'[Azure Automation](../../../automation/automation-tutorial-update-management.md) pour minimiser les temps d'arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
+Les mises à jour correctives du système d’exploitation de vos machines virtuelles peuvent être automatisées à l’aide d’[Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l’aide d’[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou d’[Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) afin de minimiser les temps d’arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considérations relatives à l'architecture et à la conception
 

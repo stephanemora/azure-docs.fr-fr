@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081982"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connecter des passerelles VPN à plusieurs périphériques VPN basés sur des stratégies via PowerShell
 
@@ -36,8 +36,8 @@ Les diagrammes suivants illustrent les deux modèles :
 ### <a name="azure-support-for-policy-based-vpn"></a>Prise en charge par Azure des VPN basés sur des stratégies
 Actuellement, Azure prend en charge les deux modes de passerelles VPN : les passerelles VPN basées sur le routage et les passerelles VPN basées sur des stratégies. Les deux modes sont construits sur différentes plateformes internes aux caractéristiques différentes :
 
-|                          | **Passerelle VPN basée sur des stratégies** | **Passerelle VPN basée sur le routage**       |**Passerelle VPN basée sur le routage**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| Category | Passerelle VPN PolicyBased | Passerelle VPN RouteBased | Passerelle VPN RouteBased |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Référence SKU de passerelle Azure**    | De base                       | De base                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Version IKE**          | IKEv1                       | IKEv2                            | IKEv1 et IKEv2                         |
 | **Bande passante Connexions S2S** | **1**                       | 10                               | 30                     |
@@ -205,6 +205,6 @@ La ligne suivante indique si les sélecteurs de trafic basés sur des stratégie
       ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/windows/quick-create-portal.md) pour connaître les différentes étapes.
 
 Pour en savoir plus sur les stratégies IPsec/IKE personnalisées, consultez [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configuration d’une stratégie IPsec/IKE pour les connexions VPN S2S ou entre deux réseaux virtuels).

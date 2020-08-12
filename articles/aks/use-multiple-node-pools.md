@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 128b8d07a3fb18ecd70f6ce5a37f41ad0fdd3db1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250853"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563175"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -489,6 +489,8 @@ Seuls les pods auxquels cette tolérance est appliquée peuvent être planifiés
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds
 
+### <a name="setting-nodepool-taints"></a>Définition de teintes de pool de nœud
+
 Lorsque vous créez un pool de nœuds, vous pouvez lui ajouter des teintes, des intitulés ou des étiquettes. Lorsque vous ajoutez une teinte, un intitulé ou une étiquette, tous les nœuds du pool reçoivent cette teinte, cet intitulé ou cette étiquette.
 
 Pour créer un pool de nœuds à l’aide d’une teinte, utilisez la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *taintnp* et utilisez le paramètre `--node-taints` afin de spécifier *sku=gpu:NoSchedule* pour la teinte.
@@ -502,6 +504,9 @@ az aks nodepool add \
     --node-taints sku=gpu:NoSchedule \
     --no-wait
 ```
+
+> [!NOTE]
+> Une teinte ne peut être définie pour un pool de nœuds que pendant la création de celui-ci.
 
 L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée (*Creating*) des nœuds avec les teintes (*nodeTaints*) spécifiées :
 
@@ -528,6 +533,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
 Les informations concernant la teinte sont visibles dans Kubernetes pour la gestion des règles de planification des nœuds.
+
+### <a name="setting-nodepool-labels"></a>Définition d’étiquettes de pool de nœuds
 
 Vous pouvez également ajouter des intitulés à un pool de nœuds pendant la création de celui-ci. Les intitulés définis au niveau du pool de nœuds sont ajoutés à chaque nœud du pool. Ces [intitulés sont visibles dans Kubernetes][kubernetes-labels] pour la gestion des règles de planification des nœuds.
 
@@ -571,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Définition de balises Azure de pool de nœuds
+
 Vous pouvez appliquer une balise Azure à des pools de nœuds de votre cluster AKS. Les balises appliquées à un pool de nœuds sont appliquées à chaque nœud du pool et sont conservées lors des mises à niveau. Des étiquettes sont également appliquées aux nouveaux nœuds qui sont ajoutés à un pool lors des opérations de scale-out. L'ajout d'une balise peut être utile pour les tâches telles que le suivi des stratégies ou l'estimation des coûts.
+
+Les balises Azure ont des clés qui ne sont respectent pas la casse pour des opérations telles que la récupération d’une balise en recherchant la clé. Dans ce cas, une balise avec la clé donnée est mise à jour ou récupérée, quelle que soit la casse. Les valeurs des étiquettes respectent la casse.
+
+Dans AKS, si plusieurs balises sont définies avec des clés identiques, mais une casse différente, la balise utilisée est la première dans l’ordre alphabétique. Par exemple, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` entraîne la définition de `Key1` et de `val1`.
 
 Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
 
@@ -846,7 +859,7 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [supported-versions]: supported-kubernetes-versions.md
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

@@ -1,6 +1,6 @@
 ---
 title: Créer un volume SMB pour Azure NetApp Files | Microsoft Docs
-description: Décrit comment créer un volume SMB pour Azure NetApp Files.
+description: Cet article explique comment créer un volume SMBv3 dans Azure NetApp Files. Découvrez la configuration requise pour les services de domaine et connexions Active Directory.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483701"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533170"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
-Azure NetApp Files prend en charge les volumes NFS et SMBv3. La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool. Cet article explique comment créer un volume SMBv3. Si vous souhaitez créer un volume NFS, consultez [Créer un volume NFS pour Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+Azure NetApp Files prend en charge la création de volumes avec NFS (NFSv3 et NFSv4.1), SMBv3 ou le double protocole (NFSv3 et SMB). La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool. Cet article explique comment créer un volume SMBv3.
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 Vous devez déjà avoir configuré un pool de capacité.   
@@ -163,8 +163,20 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
      * **Utilisateurs de stratégie de sauvegarde**  
         Vous pouvez inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files.  
 
-        > [!IMPORTANT] 
-        > La liste verte est requise pour utiliser la fonctionnalité utilisateur de stratégie de sauvegarde. Envoyez un e-mail anffeedback@microsoft.com avec votre ID d’abonnement pour demander cette fonctionnalité. 
+        La fonctionnalité **Utilisateurs de stratégie de sauvegarde** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes avant de passer à `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
@@ -185,7 +197,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 2. Cliquez sur **+ Ajouter un volume** pour créer un volume.  
     La fenêtre Créer un volume s’affiche.
 
-3. Dans la fenêtre Créer un volume, cliquez sur **Créer** et renseignez les champs suivants :   
+3. Dans la fenêtre Créer un volume, cliquez sur **Créer** et renseignez les champs suivants sous l’onglet De base :   
     * **Nom du volume**      
         Spécifiez le nom du volume que vous créez.   
 
@@ -215,6 +227,12 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         ![Créer un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
+
+        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies de capture instantanée](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+
+        ![Afficher la sélection avancée](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Cliquez sur **Protocole** et renseignez les informations suivantes :  
     * Sélectionnez **SMB** comme type de protocole pour le volume. 

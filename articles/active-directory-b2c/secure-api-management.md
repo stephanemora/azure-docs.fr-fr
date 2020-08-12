@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385414"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482836"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -60,7 +60,7 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 Procurez-vous ensuite l’URL de configuration connue pour l’un de vos flux d’utilisateurs Azure AD B2C. Vous avez également besoin de l’URI de point de terminaison de l’émetteur de jeton que vous souhaitez prendre en charge dans Gestion des API Azure.
 
 1. Accédez à votre locataire Azure AD B2C dans le [portail Azure](https://portal.azure.com).
-1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** .
+1. Sous **Stratégies**, sélectionnez **Flux utilisateur**.
 1. Sélectionnez une stratégie existante, par exemple *B2C_1_signupsignin1*, puis **Exécuter le flux d’utilisateur**.
 1. Enregistrez l’URL dans le lien hypertexte affiché sous le titre **Exécuter le flux d’utilisateur** près du haut de la page. Cette URL est le point de terminaison de détection OpenID Connect bien connu pour le flux d’utilisateurs et vous l’utilisez dans la section suivante lorsque vous configurez la stratégie de trafic entrant dans Gestion des API Azure.
 
@@ -126,7 +126,7 @@ Pour appeler l’API, vous avez besoin d’un jeton d’accès émis par Azure A
 Vous avez d’abord besoin d’un jeton émis par Azure AD B2C à utiliser dans l’en-tête `Authorization` dans Postman. Vous pouvez en obtenir un à l’aide de la fonctionnalité **Exécuter maintenant** du flux d’utilisateurs d’inscription/de connexion que vous devez avoir créé comme l’un des prérequis.
 
 1. Accédez à votre locataire Azure AD B2C dans le [portail Azure](https://portal.azure.com).
-1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** .
+1. Sous **Stratégies**, sélectionnez **Flux utilisateur**.
 1. Sélectionnez un flux d’utilisateurs d’inscription/de connexion existant, par exemple *B2C_1_signupsignin1*.
 1. Pour **Application**, sélectionnez *webapp1*.
 1. Pour **URL de réponse**, choisissez `https://jwt.ms`.

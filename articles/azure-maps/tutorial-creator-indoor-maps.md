@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075413"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -32,7 +32,7 @@ Ce didacticiel montre comment créer des cartes d’intérieur. Ce tutoriel expl
 
 Pour créer des cartes d’intérieur, vous devez effectuer les opérations suivantes :
 
-1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 3. [Créer une ressource de Créateur](how-to-manage-creator.md)
 4. Téléchargez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -52,7 +52,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 
 2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
 
-3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger le package de dessin dans le service Azure Maps. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `<Azure-Maps-Primary-Subscription-key>` par votre clé d’abonnement principale.
+3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger le package de dessin dans le service Azure Maps. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -67,7 +67,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 6. Pour vérifier l’état de l’appel d’API, créez une requête HTTP **GET** sur `status URL`. Vous devez ajouter votre clé d’abonnement principale à l’URL pour l’authentification. La requête **GET** doit ressembler à l’URL suivante :
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Lorsque la requête HTTP **GET** se termine avec succès, un `resourceLocation`est retourné. Le `resourceLocation` contient également la valeur unique `udid` pour les données chargées. Vous pouvez éventuellement utiliser l’URL `resourceLocation` pour récupérer les métadonnées de cette ressource à l’étape suivante.
@@ -170,7 +170,7 @@ Le jeu de données est une collection de caractéristiques cartographiques, tell
 4. Effectuez une requête **GET** à l’URL `statusURL` pour obtenir la valeur `datasetId`. Ajoutez votre clé d’abonnement principale Azure Maps pour l’authentification. La requête doit ressembler à l’URL suivante :
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Lorsque la requête HTTP **GET** se termine correctement, l’en-tête de réponse contient la valeur `datasetId` pour le jeu de données créé. Copiez la valeur `datasetId`. Vous devez utiliser la valeur `datasetId` pour créer un tileset.
@@ -199,7 +199,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 3. Effectuez une requête **GET** à l’URL `statusURL` pour le tileset. Ajoutez votre clé d’abonnement principale Azure Maps pour l’authentification. La requête doit ressembler à l’URL suivante :
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Lorsque la requête HTTP **GET** se termine correctement, l’en-tête de réponse contient la valeur `tilesetId` pour le tileset créé. Copiez la valeur `tilesetId`.

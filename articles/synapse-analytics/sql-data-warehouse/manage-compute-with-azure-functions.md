@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9d680283250cc323c833f388f6b20d7fe6fa132d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e79ecd4148829c38b237c0e28d60796e84ac01
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211049"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543654"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
@@ -38,9 +38,7 @@ Pour déployer le modèle, vous avez besoin des informations suivantes :
 
 Une fois que vous avez les informations ci-dessus, déployez ce modèle :
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Image affichant le bouton intitulé « Déployer sur Azure ».](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles ressources : un plan Azure App Service gratuit, un plan Function App basé sur la consommation et un compte de stockage qui gère la journalisation et la file d’attente des opérations. Continuez à lire les autres sections pour savoir comment modifier les fonctions déployées pour s’ajuster à vos besoins.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/31/2020
 ms.author: b-juche
-ms.openlocfilehash: 23ec482de740cc1ac8800a5de1c0e3be1f055df7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 19e02012c31246b3b6b4636ef61154fbade347ce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045482"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494619"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -45,6 +45,7 @@ Cette section fournit des références pour les applications Windows et les solu
 ### <a name="file-sharing-and-global-file-caching"></a>Partage de fichiers et mise en cache de fichiers globaux
 
 * [Déploiement de talon/Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
+* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -86,6 +87,7 @@ Cette section fournit des références pour les solutions d’infrastructure de 
 
 * [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Créer un conteneur de profils FSLogix pour un pool d’hôtes à l'aide d’Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+* [Windows Virtual Desktop à l’échelle de l’entreprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>Solutions HPC
 

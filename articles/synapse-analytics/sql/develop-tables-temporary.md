@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020558"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503206"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tables temporaires dans SQL Synapse
 
@@ -23,7 +23,7 @@ Cet article contient des conseils de base pour l’utilisation des tables tempor
 
 Le pool SQL et les ressources SQL à la demande (préversion) peuvent utiliser des tables temporaires. Les limitations liées à SQL à la demande sont présentées à la fin de cet article. 
 
-## <a name="what-are-temporary-tables"></a>Qu’est-ce que les tables temporaires ?
+## <a name="temporary-tables"></a>tables temporaires ;
 
 Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation lorsque les résultats intermédiaires sont temporaires. Dans SQL Synapse, les tables temporaires existent au niveau de la session.  Elles ne sont visibles que dans la session dans laquelle elles ont été créées. Ainsi, elles sont automatiquement supprimées à la fermeture de cette session. 
 
@@ -98,7 +98,7 @@ GROUP BY
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Suppression de tables temporaires
+### <a name="drop-temporary-tables"></a>Déposer des tables temporaires
 Lorsqu’une nouvelle session est créée, aucune table temporaire ne doit exister.  Cela étant, si vous appelez la même procédure stockée qui crée une table temporaire avec le même nom, pour vous assurer de la réussite de vos instructions `CREATE TABLE`, utilisez une simple vérification d’existence préalable avec `DROP` : 
 
 ```sql
@@ -116,7 +116,7 @@ Dans le développement de procédure stockée, il est courant de voir les comman
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Modularisation du code
+### <a name="modularize-code"></a>Modulariser le code
 Les tables temporaires peuvent être utilisées partout dans une session utilisateur. Cette fonctionnalité vous permet ensuite de modulariser votre code d’application.  À titre d'exemple, la procédure stockée suivante génère le langage DDL pour mettre à jour toutes les statistiques dans la base de données par nom de statistique.
 
 ```sql

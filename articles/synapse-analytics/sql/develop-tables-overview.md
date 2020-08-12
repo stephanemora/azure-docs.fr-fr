@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427645"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494823"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Concevoir des tables à l’aide de SQL Synapse
 
@@ -45,7 +45,7 @@ Le tableau suivant répertorie les rubriques pertinentes pour le pool SQL et  SQ
 | [Statistiques](#statistics)                                    | Oui                | Oui                     |
 | [Clé primaire et clé unique](#primary-key-and-unique-key)    | Oui                | Non                      |
 | [Commandes pour la création de tables](#commands-for-creating-tables) | Oui                | Non                      |
-| [Alignement des données sources avec l’entrepôt de données](#aligning-source-data-with-the-data-warehouse) | Oui                | Non                      |
+| [Alignement des données sources avec l’entrepôt de données](#align-source-data-with-the-data-warehouse) | Oui                | Non                      |
 | [Fonctionnalités de tables non prises en charge](#unsupported-table-features)    | Oui                | Non                      |
 | [Requêtes de taille de table](#table-size-queries)                    | Oui                | Non                      |
 
@@ -214,7 +214,7 @@ Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez 
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crée une table et la remplit avec les résultats d’une instruction select. Les colonnes et les types de données de la table sont basés sur les résultats de l’instruction select. Pour importer des données, cette instruction peut sélectionner les données dans une table externe. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crée une table externe en exportant les résultats d’une instruction select vers un emplacement externe.  L’emplacement est Stockage Blob Azure ou Azure Data Lake Store. |
 
-## <a name="aligning-source-data-with-the-data-warehouse"></a>Alignement des données sources avec l’entrepôt de données
+## <a name="align-source-data-with-the-data-warehouse"></a>Aligner les données sources avec l’entrepôt de données
 
 Les tables de l’entrepôt de données sont remplies avec les données chargées à partir d’une autre source de données. Pour accomplir un chargement correct, le nombre et les types de données des colonnes dans les données sources doivent être alignés sur la définition de la table dans l’entrepôt de données.
 

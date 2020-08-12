@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230381"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445321"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -47,6 +47,20 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >Si vous avez activé Azure AD Connect pour la synchronisation, vous commencerez bientôt à recevoir automatiquement des notifications d'intégrité qui vous avertiront des dépréciations à venir lorsque vous exécuterez une version ancienne.
 >
 >Veuillez consulter [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>État de la version
+29/07/2020 : publiée pour téléchargement
+
+### <a name="functional-changes"></a>Modifications fonctionnelles
+Il s’agit d’une version du correctif de bogue. Elle ne fait l’objet d’aucune modification fonctionnelle.
+
+### <a name="fixed-issues"></a>Problèmes résolus
+
+- Résolution d’un problème empêchant l’administrateur d’activer l’« authentification unique transparente » quand le compte d’ordinateur AZUREADSSOACC est déjà présent dans « Active Directory ».
+- Résolution d’un problème qui provoquait une erreur de mise en lots pendant l’importation différentielle de l’API V2 quand un objet en conflit était réparé dans le portail Health.
+- Résolution d’un problème de configuration d’importation/exportation provoquant l’importation d’une règle personnalisée désactivée comme activée.
 
 ## <a name="15420"></a>1.5.42.0
 

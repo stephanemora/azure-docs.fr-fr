@@ -8,15 +8,15 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
-ms.custom: akjosh
-ms.openlocfilehash: 5b86335ab8bcc3af75dbd8af39e3d913f2461e58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: akjosh, devx-track-azurecli
+ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83119839"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501676"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataires Azure
+# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Partager des images de machine virtuelle entre des tenants dans Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 

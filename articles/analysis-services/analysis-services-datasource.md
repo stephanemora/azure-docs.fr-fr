@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077437"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503597"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -80,7 +80,7 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 <a name="tab1400b">6</a> – Modèles tabulaires 1400 ou supérieurs uniquement.  
 <a name="sqlim">7</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, spécifiez MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé), SQL Server Native Client 11.0 ou le Fournisseur de données .NET Framework pour SQL Server.  
 <a name="instgw">8</a> – Si vous spécifiez MSOLEDBSQL comme fournisseur de données, il peut être nécessaire de télécharger et installer [Microsoft OLE DB Driver pour SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) sur le même ordinateur que la passerelle de données locale.  
-<a name="oracle">9</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Oracle Data Provider for .NET.  
+<a name="oracle">9</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Oracle Data Provider for .NET. S’il est spécifié comme source de données structurées, assurez-vous d’[activer le fournisseur managé Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> – Les fichiers contenus dans SharePoint en local ne sont pas pris en charge.
 
@@ -123,6 +123,43 @@ Pour les sources de données cloud :
 Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure Synapse (précédemment nommé SQL Data Warehouse), Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
 
 Le mode de requête directe n’est pas compatible avec les informations d’identification OAuth.
+
+## <a name="enable-oracle-managed-provider"></a>Activer le fournisseur managé Oracle
+
+Dans certains cas, les requêtes DAX vers une source de données Oracle peuvent retourner des résultats inattendus. Cela peut être dû au fournisseur utilisé pour la connexion de la source de données.
+
+Comme décrit dans la section [Compréhension des fournisseurs](#understanding-providers), les modèles tabulaires se connectent aux sources de données en tant que source de données *structurées* ou source de données *fournisseur*. Pour les modèles disposant d’une source de données Oracle spécifiée comme source de données fournisseur, assurez-vous que le fournisseur spécifié est le fournisseur de données Oracle pour .NET (Oracle.DataAccess.Client). 
+
+Si la source de données Oracle est spécifiée comme source de données structurées, activez la propriété de serveur **MDataEngine\UseManagedOracleProvider**. Définir cette propriété assure la connexion de votre modèle à la source de données Oracle à l’aide du fournisseur de données Oracle recommandé comme fournisseur managé .NET.
+ 
+Pour activer le fournisseur managé Oracle :
+
+1. Dans SQL Server Management Studio, connectez-vous à votre serveur.
+2. Créez une requête XMLA avec le script suivant. Remplacez **ServerName** par le nom complet du serveur, puis exécutez la requête.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Redémarrez le serveur.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

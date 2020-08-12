@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128095"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439211"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -168,7 +168,9 @@ La capacité de débit initiale de Pare-feu Azure est de 2,5 à 3 Gbits/s et mo
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Combien de temps le scale-out du Pare-feu Azure prend-il ?
 
-Le Pare-feu Azure s'adapte progressivement lorsque le débit moyen ou la consommation du processeur atteint 60 %. Cette opération prend de cinq à sept minutes. Lors des tests de performances, veillez à tester pendant au moins 10 à 15 minutes et à initier de nouvelles connexions pour profiter des nœuds de pare-feu nouvellement créés.
+Le Pare-feu Azure s'adapte progressivement lorsque le débit moyen ou la consommation du processeur atteint 60 %. Un débit maximal de déploiement par défaut est d’environ 2,5 à 3 Gbits/s et son scale-out commence lorsqu’il atteint 60 % de cette valeur. Cette opération prend de cinq à sept minutes. 
+
+Lors des tests de performances, veillez à tester pendant au moins 10 à 15 minutes et à initier de nouvelles connexions pour profiter des nœuds de pare-feu nouvellement créés.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Le Pare-feu Azure autorise-t-il l’accès à Active Directory par défaut ?
 

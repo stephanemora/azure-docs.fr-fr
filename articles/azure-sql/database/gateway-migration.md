@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373485"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759697"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,17 +29,20 @@ Les clients seront informés très tôt de toute modification apportée aux pass
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Septembre 2020
 
-De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le 10 septembre 2020.
+
+- USA Centre-Ouest : 13.78.248.43 
+- Afrique du Sud Nord 102.133.120.2  
+
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le 1er septembre 2020.
 
 - Europe Nord : 13.74.104.113 
 - USA Ouest 2 : 40.78.248.10 
 - Europe Ouest : 52.236.184.163 
 - USA Centre Sud : 20.45.121.1, 20.49.88.1 
 
-Les passerelles SQL existantes commenceront à accepter le trafic dans les régions suivantes :
+Les passerelles SQL existantes commenceront à accepter le trafic dans les régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le 1er septembre 2020. :
 - Japon Est : 40.79.184.8, 40.79.192.5
-
-Ces passerelles SQL devraient commencer à accepter le trafic client le 1er septembre 2020. 
 
 ### <a name="august-2020"></a>Août 2020
 
@@ -82,7 +85,7 @@ Vous risquez d’être impacté si :
 - Vous utilisez la [configuration de zone redondante](high-availability-sla.md#zone-redundant-configuration) pour votre base de données
 
 Vous n’êtes pas impacté dans les cas suivants :
-
+ 
 - Vous utilisez la redirection comme stratégie de connexion.
 - Vous avez des connexions à SQL Database à partir d’Azure et vous utilisez des balises de service.
 - Il en va de même pour les connexions effectuées à l’aide des versions prises en charge de Microsoft JDBC Driver pour SQL Server. Pour les versions prises en charge du pilote JDBC, voir [Télécharger Microsoft JDBC Driver pour SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

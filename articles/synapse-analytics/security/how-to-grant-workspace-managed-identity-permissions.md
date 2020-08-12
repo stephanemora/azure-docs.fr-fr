@@ -1,5 +1,5 @@
 ---
-title: Octroyer des autorisations pour l’identité managée dans l’espace de travail Azure Synapse
+title: Accorder des autorisations à l’identité managée dans l’espace de travail Synapse
 description: Cet article explique comment octroyer des autorisations pour l'identité managée dans l’espace de travail Azure Synapse.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e33bd127fca9ddce7b15d144fd287ec4a6bf0e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193462"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535040"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Octroyer des autorisations pour l'identité managée dans l'espace de travail (préversion)
 
@@ -22,7 +22,7 @@ Cet article vous explique comment octroyer des autorisations pour l’identité 
 >[!NOTE]
 >Cette identité managée de l’espace de travail sera appelée « identité managée » dans le reste de ce document.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Octroyer des autorisations pour l'identité managée au pool SQL
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Accorder des autorisations d’identité managée au pool SQL
 
 L’identité managée octroie des autorisations aux pools SQL de l’espace de travail. Une fois les autorisations octroyées, vous pouvez orchestrer des pipelines qui effectuent des activités en lien avec les pools SQL. Lorsque vous créez un espace de travail Azure Synapse à l’aide du portail Azure, vous pouvez accorder les autorisations CONTROL d'identité managée sur les pools SQL.
 
@@ -84,11 +84,11 @@ Sélectionnez **Ajouter**.
 
 ![Ajouter une attribution de rôle](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### <a name="step-5-select-the-rbac-role"></a>Étape 5 : Sélectionner le rôle RBAC
+#### <a name="step-5-select-the-azure-role"></a>Étape 5 : Sélectionner le rôle Azure
 
 Sélectionnez le rôle **Contributeur aux données Blob du stockage**.
 
-![Sélectionner le rôle RBAC](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Sélectionner le rôle Azure](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>Étape 6 : Sélectionner le principal de sécurité Azure AD
 

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372295"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534938"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -26,17 +26,17 @@ Vous pouvez utiliser le fournisseur de ressources Stockage Azure pour effectuer 
 
 Microsoft fournit deux API REST pour l’utilisation des ressources Stockage Azure. Ces API constituent la base de toutes les actions que vous pouvez effectuer sur Stockage Azure. L’API REST de Stockage Azure vous permet d’utiliser les données de votre compte de stockage, y compris les données des objets blob, des files d’attente, des fichiers et des tables. L’API REST du fournisseur de ressources Stockage Azure vous permet d’utiliser le compte de stockage et les ressources associées.
 
-Une demande qui lit ou écrit des données d’objet blob nécessite des autorisations différentes d’une demande qui effectue une opération de gestion. RBAC fournit un contrôle précis sur les autorisations pour les deux types de ressources. Quand vous affectez un rôle RBAC à un principal de sécurité, veillez à bien comprendre les autorisations qui seront accordées à ce principal. Pour des informations de référence détaillées décrivant les actions associées à chaque rôle Azure intégré, consultez [Rôles Azure intégrés](../../role-based-access-control/built-in-roles.md).
+Une demande qui lit ou écrit des données d’objet blob nécessite des autorisations différentes d’une demande qui effectue une opération de gestion. RBAC fournit un contrôle précis sur les autorisations pour les deux types de ressources. Quand vous affectez un rôle Azure à un principal de sécurité, veillez à bien comprendre les autorisations qui seront accordées à ce principal. Pour des informations de référence détaillées décrivant les actions associées à chaque rôle Azure intégré, consultez [Rôles Azure intégrés](../../role-based-access-control/built-in-roles.md).
 
-Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les demandes sur Stockage Blob et Stockage File d’attente. Pour plus d’informations sur les rôles RBAC pour les opérations sur des données d’objet blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory](storage-auth-aad.md).
+Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les demandes sur Stockage Blob et Stockage File d’attente. Pour plus d’informations sur les rôles Azure pour les opérations sur des données d’objet blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory](storage-auth-aad.md).
 
 ## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Attribuer des autorisations avec le contrôle d’accès en fonction du rôle (RBAC)
 
 Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui gère les utilisateurs, les groupes et les applications. Un utilisateur, un groupe ou une application est également appelé « principal de sécurité » dans le contexte de la [Plateforme d’identité Microsoft](/azure/active-directory/develop/). Vous pouvez accorder l’accès aux ressources d’un abonnement à un principal de sécurité défini dans l’annuaire Active Directory en utilisant le contrôle d’accès en fonction du rôle (RBAC).
 
-Quand vous attribuez un rôle RBAC à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle RBAC à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
+Quand vous attribuez un rôle Azure à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle Azure à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
 
-Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md) et [Rôles Administrateur d’abonnement classique, rôles Azure et rôles Administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Rôles intégrés pour les opérations de gestion
 
@@ -44,7 +44,7 @@ Azure fournit des rôles intégrés qui accordent des autorisations pour appeler
 
 Les rôles intégrés qui accordent des autorisations pour appeler des opérations de gestion du stockage incluent les rôles décrits dans le tableau suivant :
 
-|    Rôle RBAC    |    Description    |    Inclut l’accès aux clés de compte ?    |
+|    Rôle Azure    |    Description    |    Inclut l’accès aux clés de compte ?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Propriétaire** | Peut gérer toutes les ressources de stockage et accéder aux ressources.  | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
 | **Contributeur**  | Peut gérer toutes les ressources de stockage, mais ne peut pas gérer l’attribution aux ressources. | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |

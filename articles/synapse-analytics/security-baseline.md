@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370272"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501948"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Base de référence de la sécurité Azure pour Synapse Analytics
 
@@ -40,7 +40,7 @@ Si vous vous connectez à votre pool Synapse SQL, vous pouvez également limiter
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -144,7 +144,7 @@ Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande éch
 
 * [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -158,7 +158,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -170,7 +170,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -284,7 +284,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. Pour les ressources associées à votre pool Synapse SQL, la solution anti-programme malveillant est gérée par Microsoft sur la plateforme sous-jacente.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -292,7 +292,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. Aucun journal DNS n’est généré par les ressources associées à votre pool Synapse SQL.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -300,7 +300,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Aide** : Non applicable. L’audit de ligne de commande ne s’applique pas à Azure Synapse SQL.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -396,7 +396,7 @@ Pour identifier les comptes administrateur d’une base de données, ouvrez le p
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -418,7 +418,7 @@ L’audit SQL Server vous permet de créer des audits de serveur, qui peuvent co
 
 * [Présentation de l’audit SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -428,7 +428,7 @@ L’audit SQL Server vous permet de créer des audits de serveur, qui peuvent co
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -454,7 +454,7 @@ Lorsque vous utilisez l’authentification SQL, créez des utilisateurs de base 
 
 * [Présentation des connexions et des comptes d’utilisateur dans Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -552,7 +552,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -710,7 +710,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 * [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -758,7 +758,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -798,7 +798,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -814,7 +814,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Aide** : Utilisez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
-* [Comment configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -836,7 +836,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -900,7 +900,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -934,7 +934,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -994,7 +994,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 * [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1014,7 +1014,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 **Aide** : Des instantanés de votre pool Synapse SQL sont automatiquement pris pendant la journée, créant des points de restauration qui sont disponibles pendant sept jours. Cette période de conservation ne peut pas être modifiée. Le pool SQL prend en charge un objectif de point de récupération (RPO) de huit heures. Vous pouvez restaurer votre entrepôt de données dans la région primaire à partir de n’importe quelle capture instantanée prise au cours des sept derniers jours. Notez que vous pouvez également déclencher manuellement des instantanés si nécessaire.
 
-* [Sauvegarde et restauration dans un pool Azure Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Sauvegarde et restauration dans un pool Azure Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1116,7 +1116,7 @@ Par défaut, les données d’un compte de stockage sont chiffrées à l’aide 
 
 * [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

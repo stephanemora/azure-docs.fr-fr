@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/23/2020
+ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187691"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172090"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocage des connexions créées par les connecteurs dans Azure Logic Apps
 
@@ -31,12 +31,12 @@ Cette rubrique montre comment configurer une stratégie qui bloque certaines con
 
 Si vous disposez déjà d’une application logique avec la connexion que vous souhaitez bloquer, suivez la [procédure pour le Portail Azure](#connector-ID-portal). Dans le cas contraire, procédez ainsi :
 
-1. Consultez la [Liste des connecteurs Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
+1. Consultez la [Liste des connecteurs Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 1. Recherchez la page de référence du connecteur à bloquer.
 
-   Par exemple, si vous souhaitez bloquer le connecteur Instagram, accédez à cette page : 
-   
+   Par exemple, si vous souhaitez bloquer le connecteur Instagram, qui est déprécié, accédez à cette page :
+
    `https://docs.microsoft.com/connectors/instagram/`
 
 1. À partir de l’URL de la page, copiez et enregistrez l’ID de référence du connecteur à la fin sans la barre oblique (`/`), par exemple, `instagram`.
@@ -364,7 +364,7 @@ Pour tester votre stratégie, commencez à créer une connexion à l’aide du c
 Le message comporte les informations suivantes :
 
 | Description | Contenu |
-|---|---|
+|-------------|---------|
 | Raison de l’échec | `"Resource 'instagram' was disallowed by policy."` |
 | Nom de l’attribution | `"Block Instagram connections"` |
 | ID de l’affectation | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |

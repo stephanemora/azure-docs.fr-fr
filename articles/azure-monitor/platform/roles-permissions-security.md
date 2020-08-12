@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325557"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533272"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs DevOps) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
+De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs DevOps) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer rapidement un rôle Azure d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
 
 ## <a name="built-in-monitoring-roles"></a>Rôles de surveillance intégrés
 Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter l’accès aux ressources dans un abonnement tout en permettant au responsable de l’infrastructure d’analyse d’obtenir et de configurer les données nécessaires. Azure Monitor propose deux rôles prêts à l’emploi : un lecteur d’analyse et un contributeur d’analyse.

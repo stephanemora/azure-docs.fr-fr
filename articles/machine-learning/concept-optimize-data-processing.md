@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez les meilleures pratiques pour l’optimisation des vitesses de traitement de données et les intégrations prises en charge par Azure Machine Learning pour le traitement de données à grande échelle.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481882"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500961"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimiser le traitement des données avec Azure Machine Learning
 
@@ -65,7 +65,6 @@ Si les suggestions précédentes ne suffisent pas et que vous n’arrivez pas à
 
 * Effectuez un scale-out sur un cluster en utilisant une architecture distribuée. Dans cette option, les charges de traitement de données sont divisées et traitées sur plusieurs UC qui travaillent en parallèle, le résultat final étant collecté à la fin.
 
-
 ### <a name="recommended-distributed-frameworks"></a>Architectures distribuées recommandées
 
 Le tableau suivant recommande des architectures distribuées intégrées à Azure Machine Learning en fonction de votre préférence de code ou de la taille des données.
@@ -82,4 +81,4 @@ Vous pouvez créer des clusters `Dask` sur un cluster de calcul Azure ML à l’
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Options d’ingestion des données avec Azure Machine Learning](concept-data-ingestion.md).
-* [Ingestion des données avec Azure Data Factory](how-to-data-ingest-adf.md).
+* [Créer et inscrire des jeux de données](how-to-create-register-datasets.md).

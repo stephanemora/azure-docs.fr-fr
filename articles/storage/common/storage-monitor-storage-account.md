@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684680"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474357"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -141,7 +141,7 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
     ![Configurez la journalisation dans le portail Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](https://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
+Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, tel que l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com), ou de façon programmatique à l’aide d’une bibliothèque de client de stockage ou PowerShell.
 
 Pour plus d’informations sur l’accès au conteneur $logs, consultez la page [Journalisation Storage Analytics](storage-analytics-logging.md).
 

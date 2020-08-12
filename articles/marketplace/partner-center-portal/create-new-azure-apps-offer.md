@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326668"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797886"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -247,14 +247,15 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers PNG du logo de votre offre dans les quatre tailles en pixels suivantes :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
+
+Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
 - **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (216 x 216)
-- **Large** (255 x 115)
+- **Grand** (entre 216 x 216 et 350 x 350)
 
-Les trois logos sont requis et utilisés à différents endroits de la description.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

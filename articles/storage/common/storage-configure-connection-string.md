@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087252"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
 Une chaîne de connexion inclut les informations d’authentification nécessaires pour que l’application accède aux données dans un compte de stockage Azure, à l’aide de l’autorisation Clé partagée pendant l’exécution. Vous pouvez configurer les chaînes de connexion pour effectuer les opérations suivantes :
 
-* Connexion à l’émulateur de stockage Azure
+* Connectez-vous à l’émulateur de stockage Azure.
 * Accès à un compte de stockage dans Azure
 * Accès aux ressources spécifiées dans Azure via une signature d’accès partagé (SAS).
 
@@ -37,15 +37,15 @@ Votre application doit accéder à la chaîne de connexion pendant l’exécutio
 * Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config**. Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
 * Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
 
-Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l’émulateur de stockage et un compte de stockage Azure dans le cloud. Il vous suffit de modifier la chaîne de connexion pour la faire pointer vers votre environnement cible.
+Le stockage de votre chaîne de connexion dans un fichier config facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l’[émulateur de stockage Azure](../common/storage-use-azurite.md) et un compte de stockage Azure dans le cloud. Il vous suffit de modifier la chaîne de connexion pour la faire pointer vers votre environnement cible.
 
 Vous pouvez utiliser [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) pour accéder à votre chaîne de connexion lors de l’exécution, quel que soit l’environnement d’exécution de votre application.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurer une chaîne de connexion pour l’émulateur de stockage
+## <a name="configure-a-connection-string-for-azurite"></a>Configurer une chaîne de connexion pour Azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Pour plus d’informations sur l’émulateur de stockage, consultez [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md).
+Pour plus d’informations sur Azurite, consultez [Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configurer une chaîne de connexion pour un compte de stockage Azure
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md)
+* [Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure](../common/storage-use-azurite.md)
 * [Explorateurs du stockage Azure](storage-explorers.md)
 * [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md)

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/08/2019
-ms.openlocfilehash: b5e26ef72d4be38c021cbedbcaf1fa919d7276d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: eb533ef93f012e99d135c49725ef8add77b6f7ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511974"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484196"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -21,9 +21,50 @@ ms.locfileid: "86511974"
 
 Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure.
 
-## <a name="release-date-06112020"></a>Date de publication : 06/11/2020
+## <a name="release-date-07132020"></a>Date de publication : 13/07/2020
 
 Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours que la version soit active dans votre région.
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Support pour Customer Lockbox pour Microsoft Azure
+Azure HDInsight prend maintenant en charge Azure Customer Lockbox. Il offre une interface permettant aux clients de passer en revue et d'approuver ou de rejeter les demandes d'accès aux données des clients. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support. Pour plus d’informations, consultez [Customer Lockbox pour Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+
+#### <a name="service-endpoint-policies-for-storage"></a>Stratégies de points de terminaison de service pour le stockage
+Les clients peuvent maintenant utiliser des stratégies de point de terminaison de service sur le sous-réseau de cluster HDInsight. En savoir plus sur la [stratégie de point de terminaison de service Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+### <a name="deprecation"></a>Dépréciation
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Dépréciation de Spark 2.1 et 2.2 dans le cluster Spark HDInsight 3.6
+À compter du 1er juillet 2020, les clients ne peuvent pas créer des clusters Spark avec Spark 2.1 et 2.2 sur HDInsight 3.6. Les clusters existants s’exécuteront tels quels sans le support de Microsoft. Envisagez de migrer vers Spark 2.3 sur HDInsight 3.6 d’ici le 30 juin 2020 pour éviter une éventuelle interruption du système ou du support.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Dépréciation de Spark 2.3 dans le cluster Spark HDInsight 4.0
+À compter du 1er juillet 2020, les clients ne peuvent pas créer des clusters Spark avec Spark 2.3 sur HDInsight 4.0. Les clusters existants s’exécuteront tels quels sans le support de Microsoft. Envisagez de migrer vers Spark 2.4 sur HDInsight 4.0 d’ici le 30 juin 2020 pour éviter une éventuelle interruption du système ou du support.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Désapprobation de Kafka 1.1 dans le cluster Kafka HDInsight 4.0
+À compter du 1er juillet 2020, les clients ne seront pas en mesure de créer de nouveaux clusters Kafka avec Kafka 1.1 sur HDInsight 4.0. Les clusters existants s’exécuteront tels quels sans le support de Microsoft. Envisagez de migrer vers Kafka 2.1 sur HDInsight 4.0 d’ici le 30 juin 2020 pour éviter une éventuelle interruption du système ou du support.
+
+### <a name="behavior-changes"></a>Changements de comportement
+Aucun changement de comportement auquel vous devez être attentif.
+
+### <a name="upcoming-changes"></a>Changements à venir
+Les changements suivants se produiront dans les prochaines versions. 
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Possibilité de sélectionner différentes références SKU Zookeeper pour les services Spark, Hadoop et ML
+HDInsight ne prend actuellement pas en charge la modification de la référence SKU Zookeeper pour les types de cluster des services Spark, Hadoop et ML. Il utilise la référence SKU A2_v2/A2 pour les nœuds Zookeeper et ceux-ci ne sont pas facturés aux clients. Dans la prochaine version, les clients pourront modifier la référence SKU Zookeeper pour les services Spark, Hadoop et ML en fonction des besoins. Les nœuds Zookeeper avec une référence différente de A2_v2/A2 sont facturés. La référence SKU par défaut sera toujours A2_v2/A2 et gratuite.
+
+### <a name="bug-fixes"></a>Résolution des bogues
+HDInsight continue à améliorer la fiabilité et les performances des clusters. 
+#### <a name="fixed-hive-warehouse-connector-issue"></a>Résolution du problème lié à Hive Warehouse Connector
+Un problème de convivialité du connecteur Hive Warehouse se posait dans la version précédente. Ce problème est à présent résolu. 
+
+#### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Résolution du problème de zéros non significatifs tronqués par le notebook Zeppelin
+Zeppelin tronquait de manière incorrecte les zéros non significatifs dans la sortie de tableau pour le format de chaîne. Nou savons résolu ce problème dans cette version.
+
+### <a name="component-version-change"></a>Changement de la version des composants
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## <a name="release-date-06112020"></a>Date de publication : 06/11/2020
+
+Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours pour que la version release soit active dans votre région.
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
@@ -145,7 +186,7 @@ Cette version s’applique à la fois à HDInsight 3.6 et 4.0.
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
 #### <a name="service-tags"></a>Balises de service
-Les balises de service simplifient la sécurité des machines virtuelles Azure et des réseaux virtuels Azure en vous permettant de limiter facilement l’accès réseau aux services Azure. Vous pouvez utiliser des balises de service dans vos règles de groupe de sécurité réseau pour autoriser ou refuser le trafic vers un service Azure spécifique à l’échelle mondiale ou par région Azure. Azure fournit la maintenance des adresses IP sous-tendant chaque balise. Les balises de service HDInsight pour les groupes de sécurité réseau sont des groupes d’adresses IP pour les services d’intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les clients HDInsight peuvent activer la balise de service via le portail Azure, PowerShell et l’API REST. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+Les balises de service simplifient la sécurité des machines virtuelles Azure et des réseaux virtuels Azure en vous permettant de limiter facilement l’accès réseau aux services Azure. Vous pouvez utiliser des balises de service dans vos règles de groupe de sécurité réseau pour autoriser ou refuser le trafic vers un service Azure spécifique à l’échelle mondiale ou par région Azure. Azure fournit la maintenance des adresses IP sous-tendant chaque balise. Les balises de service HDInsight pour les groupes de sécurité réseau sont des groupes d’adresses IP pour les services d’intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les clients HDInsight peuvent activer l’étiquette de service via le portail Azure, PowerShell et l’API REST. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
 HDInsight vous permet à présent d’utiliser votre propre base de données SQL pour Apache Ambari. Vous pouvez configurer cette instance Ambari DB personnalisée à partir du portail Azure ou par le biais du modèle Resource Manager.  Cette fonctionnalité vous permet de choisir la base de données SQL adaptée à vos besoins en matière de traitement et de capacité. Vous pouvez également effectuer une mise à niveau facilement pour répondre aux besoins de croissance de l’entreprise. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](hdinsight-custom-ambari-db.md).
@@ -1160,7 +1201,7 @@ Cette version fournit Zeppelin 0.7.3 sans aucun correctif Apache supplémentaire
 
 Cette version fournit ZooKeeper 3.4.6 et les correctifs Apache suivants :
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256) : ClientPortBindTest échoue sur Mac OS X.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256) : ClientPortBindTest échoue sur macOS X.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901) : \[JDK8\] Tri des enfants pour la comparaison dans les tests AsyncOps.
 
@@ -1240,7 +1281,7 @@ Cette section couvre toutes les failles et menaces courantes (CVE, Common Vulner
 | **Fournisseur :** Hortonworks |
 | **Versions affectées :** toutes les versions HDP 2.3/2.4/2.5, notamment Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
 | **Utilisateurs affectés :** tous les utilisateurs de l’outil d’administration de stratégie Ranger. |
-| **Impact :** Apache Ranger est vulnérable aux scripts intersites stockés lors de la saisie des conditions de stratégie personnalisée. Les utilisateurs administrateurs peuvent stocker du code javascript arbitraire à exécuter quand des utilisateurs réguliers se connectent et accèdent aux stratégies. |
+| **Impact :** Apache Ranger est vulnérable aux scripts intersites stockés lors de la saisie des conditions de stratégie personnalisée. Les utilisateurs administrateurs peuvent stocker du code JavaScript arbitraire à exécuter quand des utilisateurs normaux se connectent et accèdent aux stratégies. |
 | **Détail de la correction :** logique ajoutée pour nettoyer l’entrée utilisateur.  |
 | **Action recommandée :** les utilisateurs doivent effectuer la mise à niveau vers HDP 2.5.4+ (avec Apache Ranger 0.6.3+) ou HDP 2.6+ (avec Apache Ranger 0.7.0+)  |
 

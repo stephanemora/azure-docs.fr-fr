@@ -3,12 +3,12 @@ title: Configurer des analyses d’application web pour ASP.NET avec Azure Appli
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324214"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475530"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -112,7 +112,10 @@ La ressource Azure qui reçoit les données de télémétrie de votre applicatio
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Mettre à niveau vers les versions ultérieures du Kit de développement logiciel (SDK)
-Pour passer à la [nouvelle version du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), ouvrez le **gestionnaire de package NuGet** et filtrez les packages qui ont été installés. Sélectionnez **Microsoft.ApplicationInsights.Web** et choisissez **Mettre à niveau**.
+
+* [Notes de publication](./release-notes.md)
+
+Pour passer à la nouvelle version du SDK, ouvrez le **gestionnaire de package NuGet** et filtrez les packages qui ont été installés. Sélectionnez **Microsoft.ApplicationInsights.Web** et choisissez **Mettre à niveau**.
 
 Si vous avez apporté des personnalisations à ApplicationInsights.config, conservez-en une copie avant d’effectuer la mise à niveau. Fusionnez ensuite vos modifications dans la nouvelle version.
 

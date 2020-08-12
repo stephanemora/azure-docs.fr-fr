@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 0d11e320db5e037f855c01738de592a2d21d60e8
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/05/2020
+ms.openlocfilehash: 2df9324c87f13bf757abb314690eb1afa602ee5e
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171480"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800311"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -368,7 +368,7 @@ Pour copier des données vers Azure SQL Database, les propriétés suivantes son
 |:--- |:--- |:--- |
 | type | La propriété de **type** du récepteur d’activité de copie doit être définie sur **AzureSqlSink**. Le type « SqlSink » est toujours pris en charge à des fins de compatibilité descendante. | Oui |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n'est appelée qu'une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non |
-| tableOption | Spécifie si [la table du récepteur doit être créée automatiquement](copy-activity-overview.md#auto-create-sink-tables) si elle n’existe pas en fonction du schéma source. <br>La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée ou quand une copie intermédiaire est configurée dans l’activité de copie. <br>Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. | Non |
+| tableOption | Spécifie si [la table du récepteur doit être créée automatiquement](copy-activity-overview.md#auto-create-sink-tables) si elle n’existe pas en fonction du schéma source. <br>La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée. <br>Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. | Non |
 | sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot*. Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`.<br>Voir l’exemple dans la section [Appel d’une procédure stockée à partir d’un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Non |
 | storedProcedureTableTypeParameterName |Nom du paramètre du type de table spécifié dans la procédure stockée.  |Non |
 | sqlWriterTableType |Nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non |
@@ -641,7 +641,7 @@ Quand des données sont copiées vers ou à partir d’Azure SQL Database, les m
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| Xml |String |
 
 >[!NOTE]
 > Pour les types de données mappés avec le type intermédiaire Decimal,l’activité de copie prend actuellement en charge une précision maximale de 28. Si les données ont une précision supérieure à 28, envisagez de les convertir en chaîne dans la requête SQL.

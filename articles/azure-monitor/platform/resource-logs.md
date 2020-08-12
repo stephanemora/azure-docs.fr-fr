@@ -4,20 +4,20 @@ description: Découvrez comment diffuser en continu les journaux de diagnostic A
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946918"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800498"
 ---
 # <a name="azure-resource-logs"></a>Journaux de ressources Azure
 Les journaux de ressources Azure sont des [journaux de plateforme](platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
 
-Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](diagnostic-settings.md) pour plus d’informations sur la création d’un paramètre de diagnostic et [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](deploy-scale.md) pour plus d’informations sur l’utilisation d’Azure Policy pour créer automatiquement un paramètre de diagnostic pour chaque ressource Azure que vous créez.
+Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](diagnostic-settings.md) pour plus d’informations sur la création d’un paramètre de diagnostic et [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md) pour plus d’informations sur l’utilisation d’Azure Policy pour créer automatiquement un paramètre de diagnostic pour chaque ressource Azure que vous créez.
 
 ## <a name="send-to-log-analytics-workspace"></a>Envoyer à l’espace de travail Log Analytics
  Envoyez des journaux de ressources à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux Azure Monitor](data-platform-logs.md), qui permettent notamment de :
@@ -85,17 +85,15 @@ L’exemple ci-dessus se traduirait par la création de trois tables :
 
 
 ### <a name="select-the-collection-mode"></a>Sélectionner le mode de collecte
-La plupart des ressources Azure écrivent des données dans l’espace de travail dans **Diagnostics Azure** ou le **mode Spécifique à la ressource**, sans vous laisser le choix. Pour plus d’informations sur le mode utilisé, consultez la [documentation propre à chaque service](diagnostic-logs-schema.md). À terme, tous les services Azure utiliseront le mode Spécifique à la ressource. Dans le cadre de cette transition, certaines ressources vous permettront de sélectionner un mode dans le paramètre de diagnostic. Spécifiez le mode Spécifique à la ressource pour les nouveaux paramètres de diagnostic, car cela facilite la gestion des données et vous évitera peut-être des migrations complexes par la suite.
+La plupart des ressources Azure écrivent des données dans l’espace de travail dans **Diagnostics Azure** ou le **mode Spécifique à la ressource**, sans vous laisser le choix. Pour plus d’informations sur le mode utilisé, consultez la [documentation propre à chaque service](./resource-logs-schema.md). À terme, tous les services Azure utiliseront le mode Spécifique à la ressource. Dans le cadre de cette transition, certaines ressources vous permettront de sélectionner un mode dans le paramètre de diagnostic. Spécifiez le mode Spécifique à la ressource pour les nouveaux paramètres de diagnostic, car cela facilite la gestion des données et vous évitera peut-être des migrations complexes par la suite.
   
    ![Sélecteur du mode Paramètres de diagnostic](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Actuellement, **Diagnostics Azure** et le mode **Spécifique à la ressource** peuvent uniquement être sélectionnés lors de la configuration du paramètre de diagnostic dans le portail Azure. Si vous configurez le paramètre à l’aide de l’interface CLI, de PowerShell ou de l’API REST, la valeur par défaut est **Diagnostics Azure**.
+> Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault) pour un exemple de paramétrage de diagnostic avec un modèle Resource Manager.
 
-Vous pouvez modifier un paramètre de diagnostic existant sur le mode Spécifique à la ressource. Dans ce cas, les données déjà collectées sont conservées dans la table _AzureDiagnostics_ jusqu’à leur suppression conformément au paramètre de conservation pour l'espace de travail. Les nouvelles données sont collectées dans la table dédiée. Utilisez l’opérateur [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) pour interroger les données dans les deux tables.
+
+Vous pouvez modifier un paramètre de diagnostic existant sur le mode Spécifique à la ressource. Dans ce cas, les données déjà collectées sont conservées dans la table _AzureDiagnostics_ jusqu’à leur suppression conformément au paramètre de conservation pour l'espace de travail. Les nouvelles données sont collectées dans la table dédiée. Utilisez l’opérateur [union](/azure/kusto/query/unionoperator) pour interroger les données dans les deux tables.
 
 Consultez régulièrement le blog [Mises à jour Azure](https://azure.microsoft.com/updates/) pour vous tenir informé des annonces relatives aux services Azure prenant en charge le mode Spécifique à la ressource.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Chaque objet blob PT1H.json contient un objet blob d’événements JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h=12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m=00) est toujours 00, car les événements du journal de ressource sont divisés en objets blob par heure.
 
-Dans le fichier PT1H.json, chaque événement est stocké au format suivant. Il utilise un schéma de niveau supérieur courant mais est unique pour chaque service Azure comme décrit dans [Schéma des journaux de ressource](diagnostic-logs-schema.md).
+Dans le fichier PT1H.json, chaque événement est stocké au format suivant. Il utilise un schéma de niveau supérieur courant mais est unique pour chaque service Azure comme décrit dans [Schéma des journaux de ressource](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

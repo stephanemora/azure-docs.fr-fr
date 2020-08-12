@@ -4,19 +4,19 @@ description: Comment créer et utiliser une paire de clés publique et privée S
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: df02378e638e9883d802318eba86dbfb066cd6cb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527287"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513687"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure
 
-Avec une paire de clés SSH (secure shell), vous pouvez créer des machines virtuelles sur Azure qui utilisent par défaut des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Cet article décrit comment générer et utiliser rapidement une paire de clés publique et privée SSH pour des machines virtuelles Linux. Vous pouvez effectuer ces étapes avec Azure Cloud Shell, un hôte Linux ou macOS, le sous-système Windows pour Linux ou d’autres outils qui prennent en charge OpenSSH. 
+Avec une paire de clés SSH (Secure Shell), vous pouvez créer des machines virtuelles dans Azure qui utilisent des clés SSH pour l’authentification. Cet article décrit comment générer et utiliser rapidement une paire de clés publique et privée SSH pour des machines virtuelles Linux. Vous pouvez effectuer ces étapes avec Azure Cloud Shell, un hôte Linux ou macOS. 
 
 > [!NOTE]
 > Les machines virtuelles créées à l’aide de clés SSH sont par défaut configurées avec les mots de passe désactivés, ce qui accroît grandement la difficulté des attaques par force brute visant à deviner les mots de passe. 
@@ -37,10 +37,10 @@ La commande suivante crée une paire de clés SSH à l’aide du chiffrement RSA
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Si vous utilisez [Azure CLI](/cli/azure) pour créer votre machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create), vous pouvez éventuellement générer des fichiers de clés SSH publiques et privées à l’aide de l’option `--generate-ssh-keys`. Les fichiers de clés sont stockés dans le répertoire ~/.ssh, sauf indication contraire avec l’option `--ssh-dest-key-path`. L’option `--generate-ssh-keys` ne remplace pas les fichiers de clés existants, mais retourne une erreur à la place. Dans la commande suivante, remplacez *VMname* et *RGname* par vos propres valeurs :
+Si vous utilisez [Azure CLI](/cli/azure) pour créer votre machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create), vous pouvez éventuellement générer des fichiers de clés SSH publiques et privées à l’aide de l’option `--generate-ssh-keys`. Les fichiers de clés sont stockés dans le répertoire ~/.ssh, sauf indication contraire avec l’option `--ssh-dest-key-path`. Si une paire de clés SSH existe déjà et que l’option `--generate-ssh-keys` est utilisée, une nouvelle paire de clés n’est pas générée, et la paire de clés existante est utilisée. Dans la commande suivante, remplacez *VMname* et *RGname* par vos propres valeurs :
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
 ```
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fournir une clé publique SSH lors du déploiement d’une machine virtuelle

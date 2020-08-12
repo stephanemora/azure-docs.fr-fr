@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83655742"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500791"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL Single Server
 
 La base de référence de sécurité Azure pour Azure Database pour PostgreSQL Single Server contient des recommandations qui vous aident à améliorer la posture de sécurité de votre déploiement.
 
-La base de référence pour ces services est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
+La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
 Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -98,7 +98,7 @@ Comment activer et utiliser Traffic Analytics : https://docs.microsoft.com/azur
 
 Comment configurer Advanced Threat Protection pour Azure Database pour PostgreSQL : https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -138,7 +138,7 @@ Exemples Azure Policy pour le réseau : https://docs.microsoft.com/azure/govern
 
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -214,7 +214,7 @@ Comment configurer les paramètres de diagnostic pour le journal d’activité A
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -260,7 +260,7 @@ Comment configurer les paramètres de diagnostic pour le journal d’activité A
 
 Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -268,7 +268,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 **Aide** : Non applicable. Azure Database pour PostgreSQL ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -284,7 +284,7 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -407,7 +407,7 @@ Comment configurer des emplacements nommés dans Azure : https://docs.microsoft
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
+**Conseils** : Utiliser Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
 Pour la connexion à Azure Database pour PostgreSQL, il est recommandé d’utiliser Azure AD et un jeton Azure AD pour se connecter. Quand vous utilisez un jeton de Azure AD, différentes méthodes sont prises en charge, comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données.
 
@@ -549,7 +549,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler l’accès au plan de contrôle de base de données Azure Database pour PostgreSQL (par exemple le portail Azure). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur. RBAC n’affecte pas les autorisations utilisateur dans la base de données.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès au plan de contrôle de base de données Azure Database pour PostgreSQL (par exemple, le portail Azure). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur. RBAC n’affecte pas les autorisations utilisateur dans la base de données.
 
 Configurer le contrôle d’accès en fonction du rôle dans Azure : https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -584,7 +584,7 @@ Comprendre le chiffrement au repos pour Azure Database pour PostgreSQL : https:
 Comprendre le chiffrement au repos pour Azure Database pour PostgreSQL avec des clés gérées par le client : https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -616,7 +616,7 @@ Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -624,15 +624,15 @@ Couverture des fonctionnalités pour les services Azure PaaS dans Azure Security
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -716,7 +716,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -732,7 +732,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -756,7 +756,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -766,7 +766,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -774,7 +774,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -802,7 +802,7 @@ Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/power
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -810,13 +810,13 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Conseils** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -830,7 +830,7 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -850,17 +850,17 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7 : Déployer les outils de gestion de configuration système
 
-**Conseils** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
+**Aide** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. En outre, développez un processus et un pipeline pour la gestion des exceptions de stratégie.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -868,17 +868,17 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Conseils** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Database pour PostgreSQL et les ressources associées.
+**Aide** : Utiliser des alias Azure Policy dans l’espace de noms « Microsoft.DBforPostgreSQL » pour créer des stratégies personnalisées afin d’alerter, d’auditer et d’appliquer des configurations système. Utilisez les stratégies Azure Policy [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Database pour PostgreSQL et les ressources associées.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -886,7 +886,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -926,7 +926,7 @@ Intégration aux identités managées Azure : https://docs.microsoft.com/azure/
 
 Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -951,7 +951,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul, comme App Service, Data Lake Storage, Stockage Blob, Azure Database pour PostgreSQL, etc. Microsoft ne peut pas accéder à vos données dans ces instances.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -961,7 +961,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple Azure Database pour PostgreSQL), mais il ne s’exécute pas sur du contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -1015,7 +1015,7 @@ Comment sauvegarder un serveur dans Azure Database pour PostgreSQL : https://do
 
 Comprendre la sauvegarde et la restauration dans Azure Database pour PostgreSQL : https://docs.microsoft.com/azure/postgresql/concepts-backup
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1055,7 +1055,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities » : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1087,7 +1087,7 @@ Comment diffuser en continu des alertes dans Azure Sentinel : https://docs.micr
 
 Comment configurer l’automatisation des workflows et Logic Apps : https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

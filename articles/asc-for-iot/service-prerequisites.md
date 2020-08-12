@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
-ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ce903271accd3f63df7634dc5045932655ac2a7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193211"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531147"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Prérequis d’Azure Security Center pour l’IoT
 
@@ -30,7 +30,7 @@ Cet article fournit des explications sur les différents composants du service A
 ## <a name="minimum-requirements"></a>Configuration minimale requise
 
 - IoT Hub niveau Standard
-  - Privilèges du niveau du rôle RBAC **Propriétaire**
+  - Privilèges du niveau du rôle Azure **Propriétaire**
 - [Espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (recommandé)
   - Il est recommandé, mais non obligatoire, d’utiliser Azure Security Center. Sans Azure Security Center, vous ne pourriez pas afficher vos autres ressources Azure dans le IoT Hub.

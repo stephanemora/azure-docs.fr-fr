@@ -1,6 +1,5 @@
 ---
-title: Gérer les services web à l'aide de la Gestion des API
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Gérer les services web à l’aide de Gestion des API – Azure'
 description: Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API Gérez vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: c397c52b39cd8056122424a5bcf6736edcfdbaa5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 08fcf3540b2f8677f3fbfff49f21f99062d0ca40
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086820"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433256"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio (classique) à l’aide de Gestion des API
+
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit la prise en main rapide de la gestion de vos services web Azure Machine Learning Studio (classique) grâce à Gestion des API.

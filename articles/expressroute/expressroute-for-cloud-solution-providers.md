@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99b51610e41aaf8358e7e3069d38dfd8c68ae422
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281699"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446775"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -60,7 +60,7 @@ Ce scénario de connectivité nécessite que le client se connecte directement v
 
 Le choix de l’une de ces deux options dépend des besoins de vos clients et de vos besoins actuels pour fournir les services Azure. Ces modèles et les modèles associés de conception d’identité, de mise en réseau et de contrôle d’accès basé sur les rôles sont présentés en détail aux liens suivants :
 
-* **Contrôle d’accès basé sur les rôles (RBAC)** : RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../role-based-access-control/role-assignments-portal.md).
+* **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)** – RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../role-based-access-control/role-assignments-portal.md).
 * **Mise en réseau** : couvre les différentes rubriques de mise en réseau dans Microsoft Azure.
 * **Azure Active Directory (Azure AD)** : Azure AD assure la gestion des identités pour Microsoft Azure et les applications SaaS tierces. Pour plus d’informations sur Azure AD, cliquez [ici](https://azure.microsoft.com/documentation/services/active-directory/).  
 

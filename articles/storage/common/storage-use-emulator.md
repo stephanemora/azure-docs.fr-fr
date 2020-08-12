@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070563"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447146"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -210,7 +210,7 @@ Les différences suivantes s’appliquent au stockage d’objets blob dans l’�
 * La copie incrémentielle permet de copier des instantanés à partir d’objets blob remplacés, ce qui renvoie une erreur sur le service.
 * L’opération Get Page Ranges Diff ne fonctionne pas entre des instantanés copiés à l’aide de la copie incrémentielle d’objets blob.
 * Une opération Put Blob peut réussir sur un objet blob qui existe dans l’émulateur de stockage avec un bail actif, même si l’ID du bail n’a pas été spécifié dans la demande.
-* L’émulateur ne prend pas en charge les opérations des objets blob d’ajout. Toute tentative d’exécution d’une opération sur un objet blob d’ajout renvoie une erreur FeatureNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte).
+* L’émulateur ne prend pas en charge les opérations d’ajout de blob. Toute tentative d’exécution d’une opération sur un objet blob d’ajout renvoie une erreur FeatureNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte).
 
 ### <a name="differences-for-table-storage"></a>Différences pour le stockage de tables
 
@@ -304,7 +304,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-41"></a>Version 4.1
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Il ne prend pas en charge les nouvelles fonctionnalités d’ajout d’objets blob.
+* L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Il ne prend pas en charge les nouvelles fonctionnalités d’ajout de blob.
 * L’émulateur retourne à présent un message d’erreur significatif pour les versions non prises en charge des services de stockage. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous obtenez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - demande incorrecte), téléchargez la dernière version de l’émulateur.
 * Correction d’un bogue dans lequel une condition de course a généré des données d’entité de table incorrectes lors d’opérations de fusion simultanées.
 

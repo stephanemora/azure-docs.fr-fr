@@ -1,31 +1,31 @@
 ---
-title: Se connecter à Windows Virtual Desktop, automne 2019, Windows 10 ou 7 – Azure
-description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client Windows Desktop.
+title: Se connecter à Windows Virtual Desktop (classique) – Windows 10 ou 7 – Azure
+description: Comment se connecter à Windows Virtual Desktop (classique) à l’aide du client Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c400ffc6a84696a82c219294f133b729754259
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270326"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Se connecter avec le client Windows Desktop (classique)
 
 > S’applique à : Windows 7, Windows 10 et Windows 10 IoT Entreprise
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../connect-windows-7-10.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-windows-7-10.md).
 
-Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7, Windows 10 ou Windows 10 IoT Entreprise à l’aide du client Bureau Windows.
+Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7, Windows 10 ou Windows 10 IoT Entreprise à l’aide du client Bureau Windows. Le client ne prend pas en charge Windows 8 ni Windows 8.1.
 
 >[!NOTE]
->Le client Windows passe automatiquement par défaut à la version Automne 2019 de Windows Virtual Desktop. Toutefois, si le client détecte que l’utilisateur a également des ressources Azure Resource Manager, il ajoute automatiquement les ressources ou avertit l’utilisateur qu’elles sont disponibles.
+>Le client Windows passe automatiquement par défaut à Windows Virtual Desktop (classique). Toutefois, si le client détecte que l’utilisateur a également des ressources Azure Resource Manager, il ajoute automatiquement les ressources ou avertit l’utilisateur qu’elles sont disponibles.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
@@ -63,8 +63,8 @@ Il y deux manières de vous abonner à un espace de travail. Le client peut essa
 1. Dans la page principale du client, sélectionnez **S’abonner avec une URL**.
 2. Entrez l’URL de l’espace de travail ou votre adresse e-mail :
    - Si vous utilisez une **URL d’espace de travail**, utilisez celle que votre administrateur vous a donnée. Si vous accédez à des ressources à partir de Windows Virtual Desktop, vous pouvez utiliser l’une des URL suivantes :
-     - Windows Virtual Desktop, automne 2019 : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop, printemps 2020 : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (classique) : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Si vous utilisez le champ **E-mail** à la place, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré la [détection d’e-mails](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Sélectionnez **Suivant**.
 4. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.

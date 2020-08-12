@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505191"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461729"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -64,7 +64,7 @@ La méthode de suppression réversible peut ne pas convenir dans certains cas, p
 > [!IMPORTANT]
 > Utilisez l’opération de suppression définitive d’espace de travail avec précaution, car elle est irréversible et vous ne pourrez récupérer ni votre espace de travail ni ses données.
 
-Ajoutez la balise « -forceDelete » pour supprimer définitivement votre espace de travail :
+Ajoutez la balise « -ForceDelete » pour supprimer définitivement votre espace de travail. L’option « -ForceDelete » est actuellement disponible avec Az.OperationalInsights 2.3.0 ou une version ultérieure. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete

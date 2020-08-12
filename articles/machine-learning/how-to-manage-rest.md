@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 8aebcfc2a46de3922dbc41942e63e71844de6e83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560174"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319743"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Créer, exécuter et supprimer des ressources Azure ML à l’aide de REST
 
@@ -48,7 +48,7 @@ Les requêtes REST administratives sont authentifiées à l’aide d’un flux i
 - Votre ID client (qui sera associé au jeton créé)
 - Votre clé secrète client (que vous devez protéger)
 
-Vous devez obtenir ces valeurs à partir de la réponse à la création de votre principal de service, comme indiqué dans [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Si vous utilisez l’abonnement de votre entreprise, vous n’êtes peut-être pas autorisé à créer un principal de service. Dans ce cas, vous devez utiliser une [abonnement personnel gratuit ou payant](https://aka.ms/AMLFree).
+Vous devez avoir obtenu ces valeurs dans la réponse à la création de votre principal de service. L’obtention de ces valeurs est documentée dans [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Si vous utilisez l’abonnement de votre entreprise, vous n’êtes peut-être pas autorisé à créer un principal de service. Dans ce cas, vous devez utiliser une [abonnement personnel gratuit ou payant](https://aka.ms/AMLFree).
 
 Pour récupérer un jeton :
 
@@ -200,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Notez que pour répertorier les expériences, le chemin d’accès commence par `history/v1.0`, tandis que pour répertorier les modèles, le chemin d’accès commence par `modelmanagement/v1.0`. L’API REST est divisée en plusieurs groupes opérationnels, chacun doté d’un chemin d’accès distinct. Les documents de référence sur les API accessibles à l’aide des liens ci-dessous répertorient les opérations, les paramètres et les codes de réponse pour les différentes opérations.
+Notez que pour répertorier les expériences, le chemin d’accès commence par `history/v1.0`, tandis que pour répertorier les modèles, le chemin d’accès commence par `modelmanagement/v1.0`. L’API REST est divisée en plusieurs groupes opérationnels, chacun doté d’un chemin d’accès distinct. 
 
-|Domaine|Path|Informations de référence|
-|-|-|-|
-|Artefacts|artifact/v2.0/|[Référence d’API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Magasins de données|datastore/v1.0/|[Référence d’API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Optimisation des hyperparamètres|hyperdrive/v1.0/|[Référence d’API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modèles|modelmanagement/v1.0/|[Référence d’API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Historique d’exécution|execution/v1.0/ et history/v1.0/|[Référence d’API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Domaine|Path|
+|-|-|
+|Artefacts|/rest/api/azureml|
+|Magasins de données|/azure/machine-learning/how-to-access-data|
+|Optimisation des hyperparamètres|hyperdrive/v1.0/|
+|Modèles|modelmanagement/v1.0/|
+|Historique d’exécution|execution/v1.0/ et history/v1.0/|
 
 Vous pouvez explorer l’API REST à l’aide du modèle général de :
 

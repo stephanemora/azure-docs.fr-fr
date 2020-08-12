@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b7bebfb227de3f9f1c51024845054d2d7a02f923
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285643"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551895"
 ---
 # <a name="create-a-map"></a>Créer une carte
 
@@ -127,6 +127,47 @@ Dans le code suivant, le premier bloc de code crée une carte et définit les st
 
 <iframe height='500' scrolling='no' title='Animer la vue cartographique' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animer la vue cartographique</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## <a name="request-transforms"></a>Demander des transformations
+
+Il est parfois utile de pouvoir modifier les requêtes HTTP effectuées par le contrôle de carte. Par exemple :
+
+- Ajouter des en-têtes supplémentaires aux requêtes de vignette. C’est souvent le cas pour les services protégés par mot de passe.
+- Modifier les URL pour exécuter les requêtes via un service proxy.
+
+Les [options de service](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) de la carte ont un paramètre `transformRequest` qui peut être utilisé pour modifier toutes les requêtes de la carte avant qu’elles ne soient effectuées. L’option `transformRequest` est une fonction qui accepte deux paramètres : une URL de chaîne et une chaîne de type de ressource qui indique à quoi sert la requête. Cette fonction doit retourner un résultat [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters).
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+L’exemple suivant montre comment l’utiliser pour modifier toutes les requêtes en taille `https://example.com` en ajoutant un nom d’utilisateur et un mot de passe comme en-têtes à la requête.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
 
 ## <a name="try-out-the-code"></a>Essayer le code
 

@@ -2,14 +2,14 @@
 title: Conserver les données de sortie dans Stockage Azure avec l’API de service Batch
 description: Découvrez comment utiliser l’API de service Batch pour conserver les données de sortie d’un travail et d’une tâche Batch dans le Stockage Azure.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143518"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475615"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -19,6 +19,9 @@ L’API de service Batch prend en charge la conservation des données de sortie 
 
 L’un des avantages de l’utilisation de l’API de service Batch pour conserver le résultat de la tâche est que vous n’avez pas besoin de modifier l’application exécutée par la tâche. Au lieu de cela, il vous suffit de modifier légèrement votre application cliente pour conserver la sortie de la tâche dans le code qui crée la tâche.
 
+> [!IMPORTANT]
+> La conservation des données de tâche dans Stockage Azure avec l’API de service Batch ne fonctionne pas avec les pools créés avant le [1er février 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quand utiliser l’API de service Batch pour conserver le résultat de la tâche ?
 
 Azure Batch offre plusieurs manières de conserver les sorties de tâche. L’utilisation de l’API de service Batch est une approche pratique qui convient particulièrement aux scénarios suivants :
@@ -26,9 +29,9 @@ Azure Batch offre plusieurs manières de conserver les sorties de tâche. L’ut
 - Vous souhaitez écrire du code pour conserver le résultat de la tâche à partir de votre application cliente, sans modifier l’application exécutée par votre tâche.
 - Vous souhaitez conserver le résultat des tâches Batch et des tâches du Gestionnaire de travaux dans des pools créés avec la configuration de machine virtuelle.
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure avec un nom arbitraire.
-- Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche terminées dans Azure Storage](batch-task-output.md).
+Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche dans Stockage Azure](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Créer un conteneur dans le stockage Azure
 
@@ -89,6 +92,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 }
 ```
 
+> [!NOTE]
+> Si vous utilisez cet exemple avec Linux, veillez à remplacer les barres obliques inverses par des barres obliques.
+
 ### <a name="specify-a-file-pattern-for-matching"></a>Spécifier un modèle de fichier pour la correspondance
 
 Quand vous spécifiez un fichier de sortie, vous pouvez utiliser la propriété [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) pour spécifier un modèle de fichier pour la correspondance. Le modèle de fichier peut faire correspondre zéro fichier, un seul fichier ou un ensemble de fichiers créés par la tâche.
@@ -147,7 +153,7 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-À chaque chargement de fichier, Batch écrit deux fichiers journaux dans le nœud de calcul, `fileuploadout.txt` et `fileuploaderr.txt`. Vous pouvez examiner ces fichiers journaux pour en savoir plus sur un échec spécifique. Dans le cas où le chargement de fichier n’a jamais été tenté, par exemple car la tâche proprement dite n’a pas pu être exécutée, ces fichiers journaux n’existent pas.
+À chaque chargement de fichier, Batch écrit deux fichiers journaux dans le nœud de calcul, `fileuploadout.txt` et `fileuploaderr.txt`. Vous pouvez examiner ces fichiers journaux pour en savoir plus sur un échec spécifique. Si le chargement de fichier n’a jamais été tenté, par exemple, parce que la tâche proprement dite n’a pas pu être exécutée, ces fichiers journaux n’existent pas.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnostiquer les performances de chargement de fichier
 
@@ -169,7 +175,7 @@ Si vous développez dans un langage autre que C#, vous devez implémenter la nor
 
 ## <a name="code-sample"></a>Exemple de code
 
-L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver le résultat de la tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
+L’exemple de projet [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) est l’un des [exemples de code Azure Batch](https://github.com/Azure/azure-batch-samples) disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver le résultat de la tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
 
 1. Ouvrez le projet dans **Visual Studio 2019**.
 2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.
@@ -181,8 +187,5 @@ L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque File Conventions pour .NET, consultez [Conserver les données des travaux et des tâches dans Stockage Azure avec la bibliothèque File Conventions Batch pour .NET](batch-task-output-file-conventions.md).
-- Pour plus d’informations sur d’autres approches de persistance des données de sortie dans Azure Batch, consultez [Conserver les résultats de travaux et tâches terminés dans le stockage Azure](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
+- Pour en savoir plus sur la conservation de la sortie des tâches avec la bibliothèque File Conventions pour .NET, consultez [Conserver les données des travaux et des tâches dans Stockage Azure avec la bibliothèque File Conventions Batch pour .NET](batch-task-output-file-conventions.md).
+- Pour en savoir plus sur d’autres approches de conservation des données de sortie dans Azure Batch, consultez [Conserver la sortie d’un travail et d’une tâche dans le stockage Azure](batch-task-output.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080871"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534904"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article explique comment gérer la position de sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité à tous les abonnements Azure liés à votre locataire Azure Active Directory.
@@ -26,7 +26,7 @@ Cet article explique comment gérer la position de sécurité de votre organisat
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Groupes d’administration
-Avec les groupes d’administration Azure, vous avez la possibilité de gérer efficacement non seulement l’accès, les stratégies et les rapports de groupes d’abonnements, mais aussi l’intégralité du domaine Azure en intervenant sur le groupe d’administration racine. Chaque locataire Azure AD reçoit un seul groupe d’administration de niveau supérieur appelé groupe d’administration racine. Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des attributions de rôles RBAC au niveau de l’annuaire. 
+Avec les groupes d’administration Azure, vous avez la possibilité de gérer efficacement non seulement l’accès, les stratégies et les rapports de groupes d’abonnements, mais aussi l’intégralité du domaine Azure en intervenant sur le groupe d’administration racine. Chaque locataire Azure AD reçoit un seul groupe d’administration de niveau supérieur appelé groupe d’administration racine. Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des attributions de rôles Azure au niveau du répertoire. 
 
 Le groupe d’administration racine est créé automatiquement quand vous effectuez l’une des actions suivantes : 
 1. Choisir d’utiliser des groupes d’administration Azure en accédant à **Groupes d’administration** dans le [portail Azure](https://portal.azure.com).
@@ -60,10 +60,10 @@ Vous pouvez organiser les abonnements en groupes d’administration et y appliqu
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Donner une visibilité au niveau locataire et affecter des stratégies
 
-Pour avoir une visibilité de la sécurité de tous les abonnements inscrits dans le locataire Azure AD, un rôle RBAC avec des autorisations de lecture suffisantes doit être attribué au groupe d’administration racine.
+Pour avoir une visibilité de la sécurité de tous les abonnements inscrits dans le locataire Azure AD, un rôle Azure doté des autorisations de lecture suffisantes doit être attribué au groupe d’administration racine.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Élever l’accès d’un administrateur général dans Azure Active Directory
-Les administrateurs de locataires Azure Active Directory n’ont pas d’accès direct aux abonnements Azure. Toutefois, en tant qu’administrateur d’annuaire, ils ont le droit de s’élever à un rôle qui bénéficie d’un accès. Un administrateur de locataires Azure AD doit s’élever à la fonction d’administrateur des accès utilisateur au niveau du groupe d’administration racine pour pouvoir attribuer des rôles RBAC. Pour des instructions sur PowerShell et d’autres informations, consultez [Élever l’accès d’un administrateur général dans Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+Les administrateurs de locataires Azure Active Directory n’ont pas d’accès direct aux abonnements Azure. Toutefois, en tant qu’administrateur d’annuaire, ils ont le droit de s’élever à un rôle qui bénéficie d’un accès. Un administrateur client Azure AD doit s’élever à la fonction d’administrateur des accès utilisateur au niveau du groupe d’administration racine pour pouvoir attribuer des rôles Azure. Pour des instructions sur PowerShell et d’autres informations, consultez [Élever l’accès d’un administrateur général dans Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com).
@@ -87,11 +87,11 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 5. Effectuez les tâches que vous devez accomplir via un accès avec élévation de privilèges. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
 
 
-### <a name="assign-rbac-roles-to-users"></a>Attribuer des rôles RBAC aux utilisateurs
-Pour faire gagner en visibilité à tous les abonnements, les administrateurs de locataires doivent affecter le rôle RBAC approprié à tous les utilisateurs à qui ils désirent accorder la visibilité de niveau locataire, y compris eux-mêmes, au niveau du groupe d’administration racine. Les rôles recommandés à affecter sont **Administrateur de sécurité** ou **Lecteur Sécurité**. En règle générale, le rôle Administrateur de sécurité est nécessaire pour appliquer des stratégies au niveau racine, tandis que Lecteur de Sécurité est suffisant pour fournir une visibilité au niveau locataire. Pour plus d’informations sur les autorisations accordées par ces rôles, consultez la [description du rôle intégré Administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) ou la [description du rôle intégré de Lecteur Sécurité](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="assign-azure-roles-to-users"></a>Attribuer des rôles Azure aux utilisateurs
+Pour gagner en visibilité sur tous les abonnements, les administrateurs clients doivent attribuer le rôle Azure approprié à tous les utilisateurs à qui ils souhaitent accorder une visibilité sur l’ensemble du locataire, y compris eux-mêmes, au niveau du groupe d’administration racine. Les rôles recommandés à affecter sont **Administrateur de sécurité** ou **Lecteur Sécurité**. En règle générale, le rôle Administrateur de sécurité est nécessaire pour appliquer des stratégies au niveau racine, tandis que Lecteur de Sécurité est suffisant pour fournir une visibilité au niveau locataire. Pour plus d’informations sur les autorisations accordées par ces rôles, consultez la [description du rôle intégré Administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) ou la [description du rôle intégré de Lecteur Sécurité](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Attribuer des rôles RBAC aux utilisateurs via le portail Azure : 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Attribuer des rôles Azure aux utilisateurs via le portail Azure : 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure puis sélectionnez **Groupes d'administration**.
@@ -108,7 +108,7 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
    ![Capture d’écran de l’ajout du rôle Lecteur Sécurité](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Attribuer des rôles RBAC aux utilisateurs avec PowerShell : 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Attribuer des rôles Azure aux utilisateurs à l’aide de PowerShell : 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Sec
     ![Capture d’écran de la liste des abonnements couverts](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé 
-Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administrateur de locataires doit se supprimer du rôle d’administrateur des accès utilisateur.
+Une fois que les rôles Azure ont été attribués aux utilisateurs, l’administrateur client doit se supprimer du rôle d’administrateur des accès utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com).
 
@@ -183,7 +183,7 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 4. Répétez les étapes 1 à 3 pour tous les abonnements concernés.
 
    > [!NOTE]
-   > Les groupes d’administration peuvent contenir à la fois des abonnements et des groupes d’administration enfants. Lorsque vous attribuez un rôle RBAC à un utilisateur dans le groupe d’administration parent, l’accès est hérité par les abonnements du groupe d’administration enfant. Les stratégies définies au niveau du groupe d’administration parent sont aussi héritées par les enfants. 
+   > Les groupes d’administration peuvent contenir à la fois des abonnements et des groupes d’administration enfants. Lorsque vous attribuez un rôle Azure à un utilisateur dans le groupe d’administration parent, l’accès est hérité par les abonnements du groupe d’administration enfant. Les stratégies définies au niveau du groupe d’administration parent sont aussi héritées par les enfants. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à gagner en visibilité au niveau locataire dans Azure Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
@@ -193,4 +193,3 @@ Dans cet article, vous avez appris à gagner en visibilité au niveau locataire 
 
 > [!div class="nextstepaction"]
 > [Gérer et répondre aux alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md)
-

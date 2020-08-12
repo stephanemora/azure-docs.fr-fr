@@ -3,13 +3,13 @@ title: Bien démarrer avec Azure CLI pour Batch
 description: Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch.
 ms.topic: how-to
 ms.date: 07/24/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b07045bc0a756c5565356bb0a674188cf84c8785
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960858"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531675"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -79,7 +79,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
     
     Lorsque vous vous connectez à Azure de manière interactive, comme décrit dans la section précédente, vos informations d’identification sont mises en cache, afin qu’Azure CLI puisse vous connecter à votre compte Batch à l’aide de ces mêmes informations d’identification. Si vous vous connectez à Azure à l’aide d’un principal de service, ces informations d’identification sont également utilisées pour vous connecter à votre compte Batch.
 
-    L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles RBAC et permettre à Azure AD de gérer l’accès et l’authentification.  
+    L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles Azure et permettre à Azure AD de gérer l’accès et l’authentification.  
 
      Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](/cli/azure/batch/account#az-batch-account-login) : 
 

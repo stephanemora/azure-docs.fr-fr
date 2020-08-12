@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126769"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531369"
 ---
 # <a name="secure-a-daemon-application"></a>Sécuriser une application démon
 
@@ -109,7 +109,7 @@ En cas d’exécution sur un environnement autre qu’Azure, les identités mana
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Accordez l’accès en fonction du rôle pour l’application démon à Azure Maps
 
-Pour accorder le *contrôle d’accès en fonction du rôle* (RBAC), vous devez assigner l’identité managée créée ou le principal du service à une ou plusieurs définitions de rôle de contrôle d’accès Azure Maps. Pour voir les définitions de rôle RBAC disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*. Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
+Pour accorder le *contrôle d’accès en fonction du rôle* (RBAC), vous devez assigner l’identité managée créée ou le principal du service à une ou plusieurs définitions de rôle de contrôle d’accès Azure Maps. Pour afficher les définitions de rôle Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*. Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
 
 > [!div class="mx-imgBorder"]
 > ![Afficher les rôles disponibles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

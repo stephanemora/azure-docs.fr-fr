@@ -5,16 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281019"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429259"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenir des données météorologiques auprès de partenaires météo
 
-Azure FarmBeats vous permet d’importer des données météorologiques à partir de vos fournisseurs de données météorologiques à l’aide d’un framework de connecteur basé sur Docker. À l’aide de ce framework, les fournisseurs de données météorologiques implémentent un Docker qui peut être intégré à FarmBeats. Actuellement, seul le fournisseur de données météorologiques [DTN](https://www.dtn.com/dtn-content-integration/) est pris en charge.
+Azure FarmBeats vous permet d’importer des données météorologiques à partir de vos fournisseurs de données météorologiques à l’aide d’un framework de connecteur basé sur Docker. À l’aide de ce framework, les fournisseurs de données météorologiques implémentent un Docker qui peut être intégré à FarmBeats. Actuellement, le fournisseur de données météorologiques suivant est pris en charge.
+
+  ![Partenaires de FarmBeats](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Les données météorologiques peuvent être utilisées pour générer des insights actionnables et créer des modèles IA/ML sur FarmBeats.
 

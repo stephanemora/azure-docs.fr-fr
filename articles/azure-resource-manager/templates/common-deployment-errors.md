@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373995"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446596"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -27,7 +27,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | AccountPropertyCannotBeSet | Vérifiez les propriétés disponibles du compte de stockage. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Le cluster ou la région n’a pas de ressources disponibles ou ne prend pas en charge la taille de machine virtuelle demandée. Renouvelez la demande plus tard ou demandez une taille de machine virtuelle différente. | [Problèmes d’approvisionnement et d’allocation pour Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problèmes d’approvisionnement et d’allocation pour Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) et [Résoudre des échecs d’allocation](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendez que l’opération simultanée soit terminée. | |
-| AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement.<br><br>Cette erreur peut s’afficher quand un fournisseur de ressources requis n’est pas inscrit. | [Contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
+| AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement.<br><br>Cette erreur peut s’afficher quand un fournisseur de ressources requis n’est pas inscrit. | [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-location.md) |
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
 | DeploymentActiveAndUneditable | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |

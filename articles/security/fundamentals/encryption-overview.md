@@ -1,26 +1,20 @@
 ---
 title: Vue d’ensemble du chiffrement Azure | Documents Microsoft
-description: En savoir plus sur les différentes options de chiffrement dans Azure
+description: Découvrez les options de chiffrement dans Azure. Consultez les informations sur le chiffrement au repos, le chiffrement en déplacement et la gestion des clés avec Azure Key Vault.
 services: security
-documentationcenter: na
-author: Barclayn
-manager: barbkess
-editor: TomShinder
+author: msmbaldwin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4990d696986336e52fec3e87f4c3ea0c7517d3f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496381"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542957"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -119,7 +113,7 @@ Azure offre plusieurs mécanismes pour protéger la confidentialité des donnée
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Chiffrement de la couche de liaison de données dans Azure
 
-Chaque fois que le trafic du client Azure s'effectue entre différents centres de données - en dehors des limites physiques non contrôlées par Microsoft (ou pour le compte de Microsoft) - une méthode de chiffrement de la couche de liaison de données utilisant les [normes de sécurité MAC IEEE 802.1AE](https://1.ieee802.org/security/802-1ae/) (également appelées MACsec) est appliquée de point à point sur le matériel réseau sous-jacent.  Les paquets sont chiffrés et déchiffrés sur les appareils avant d'être envoyés, ce qui permet d'éviter les attaques physiques de l'intercepteur ou les attaques par snooping/écoutes téléphoniques.  Étant donné que cette technologie est intégrée au matériel réseau, elle fournit un chiffrement de débit de ligne sur le matériel réseau sans augmentation mesurable de la latence de la liaison.  Ce chiffrement MACsec est activé par défaut pour tout le trafic Azure au sein d'une région ou entre des régions, et aucune intervention des clients n'est requise pour l'activer. 
+Chaque fois que le trafic du client Azure s'effectue entre différents centres de données - en dehors des limites physiques non contrôlées par Microsoft (ou pour le compte de Microsoft) - une méthode de chiffrement de la couche de liaison de données utilisant les [normes de sécurité MAC IEEE 802.1AE](https://1.ieee802.org/security/802-1ae/) (également appelées MACsec) est appliquée de point à point sur le matériel réseau sous-jacent. Les paquets sont chiffrés et déchiffrés sur les appareils avant d'être envoyés, ce qui permet d'éviter les attaques physiques de l'intercepteur ou les attaques par snooping/écoutes téléphoniques. Étant donné que cette technologie est intégrée au matériel réseau, elle fournit un chiffrement de débit de ligne sur le matériel réseau sans augmentation mesurable de la latence de la liaison. Ce chiffrement MACsec est activé par défaut pour tout le trafic Azure au sein d’une région ou entre des régions, et aucune intervention des clients n’est nécessaire pour l’activer. 
 
 ### <a name="tls-encryption-in-azure"></a>Chiffrement TLS dans Azure
 

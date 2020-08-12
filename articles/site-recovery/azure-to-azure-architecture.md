@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135862"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498614"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -34,7 +34,7 @@ Les composants impliqués dans la reprise d’activité des machines virtuelles 
 **Compte de stockage de cache** | Vous avez besoin d’un compte de stockage de cache dans le réseau source. Lors de la réplication, les modifications apportées aux machines virtuelles sont stockées dans le cache avant d’être envoyées vers le stockage cible.  Les comptes de stockage de cache doivent être Standard.<br/><br/> L’utilisation d’un cache garantit un impact minimal sur les applications de production qui sont exécutées sur une machine virtuelle.<br/><br/> [En savoir plus](azure-to-azure-support-matrix.md#cache-storage) sur les exigences de stockage de cache 
 **Ressources cibles** | Les ressources cibles sont utilisées pendant la réplication et lors d’un basculement. Site Recovery peut configurer une ressource cible par défaut. Vous pouvez également en créer ou en personnaliser une.<br/><br/> Dans la région cible, vérifiez que vous pouvez créer des machines virtuelles, et que votre abonnement dispose de suffisamment de ressources pour prendre en charge les machines virtuelles qui seront nécessaires dans la région cible. 
 
-![Réplication source et cible](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Schéma illustrant la réplication source et cible.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Ressources cibles
 
@@ -116,7 +116,7 @@ Lorsque vous activez la réplication pour une machine virtuelle Azure, il se pro
 4. Site Recovery traite les données dans le cache, puis les envoie au compte de stockage cible ou aux disques managés de réplica.
 5. Une fois les données traitées, des points de récupération de cohérence en cas d’incident sont générés toutes les cinq minutes. Les points de récupération de cohérence des applications sont générés en fonction du paramètre spécifié dans la stratégie de réplication.
 
-![Activer le processus de réplication, étape 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Schéma illustrant le processus de réplication, étape 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processus de réplication**
 
@@ -128,14 +128,14 @@ Lorsque vous activez la réplication pour une machine virtuelle Azure, il se pro
 
 Si un accès sortant aux machines virtuelles est contrôlé à l’aide d’URL, vous devez autoriser ces URL.
 
-| **URL** | **Détails** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
-| login.microsoftonline.com | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
-| *.hypervrecoverymanager.windowsazure.com | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
-| *.servicebus.windows.net | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |
-| *.vault.azure.net | Autorise l’accès à la réplication pour les machines virtuelles compatibles avec ADE via le portail
-| *.automation.ext.azure.com | Autorise l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail
+| **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
+| Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Autorise l’accès à la réplication pour les machines virtuelles compatibles avec ADE via le portail |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Autorise l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
@@ -191,7 +191,7 @@ Si vous activez la cohérence multimachine virtuelle, les machines du groupe de 
 
 Quand vous démarrez un basculement, les machines virtuelles sont créées dans le groupe de ressources cible, le réseau virtuel cible, le sous-réseau cible et dans le groupe à haute disponibilité cible. Lors d’un basculement, vous pouvez utiliser n’importe quel point de récupération.
 
-![Processus de basculement](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Schéma illustrant le processus de basculement avec les environnements source et cible.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/14/2020
-ms.openlocfilehash: f3589fb9ae176e04f727f516cca7c18c87dad9e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 2bc129fc37347bd108ad62409490c5ce31b7728f
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317499"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538929"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle
 
@@ -31,17 +31,15 @@ Lors de la génération d’URI SAS pour vos disques durs virtuels, tenez compte
 
 Deux outils sont couramment utilisés pour créer une adresse (URL) de SAS :
 
-* **Explorateur Stockage Microsoft Azure** : outil graphique disponible pour Windows, macOS et Linux
+* **Explorateur Stockage Microsoft Azure** : outil graphique disponible dans le portail Azure.
 * **Microsoft Azure CLI** : outil recommandé pour les systèmes d’exploitation autres que Windows et les environnements d’intégration automatisée ou continue
 
-### <a name="use-microsoft-storage-explorer"></a>Utiliser l’Explorateur Stockage Microsoft Azure
+### <a name="use-microsoft-azure-storage-explorer"></a>Utiliser l’Explorateur Stockage Microsoft Azure
 
-1. Téléchargez et installez [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
-2. Ouvrez l’explorateur et, dans le menu de gauche, sélectionnez **Ajouter un compte**. La boîte de dialogue **Connexion au stockage Azure** s’affiche.
-3. Sélectionnez **Ajouter un compte Azure**, puis **Connexion**. Effectuez les étapes requises pour vous connecter à votre compte Azure.
-4. Dans le volet gauche de l’**Explorateur**, accédez à vos **Comptes de stockage** et développez ce nœud.
-5. Cliquez avec le bouton droit sur votre disque dur virtuel, puis sélectionnez **Obtenir la signature d’accès partagé**.
-6. La boîte de dialogue **Signature d’accès partagé** s’affiche. Renseignez les champs suivants :
+1. Accédez à votre compte de Stockage dans le portail Azure.
+2. Dans le volet de l’Explorateur, à gauche, ouvrez l’outil **Explorateur Stockage** (préversion).
+3. Cliquez avec le bouton droit sur votre disque dur virtuel, puis sélectionnez **Obtenir la signature d’accès partagé**.
+4. La boîte de dialogue **Signature d’accès partagé** s’affiche. Renseignez les champs suivants :
 
     * **Heure de début** : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour.
     * **Heure d’expiration** : date de fin de l’autorisation d’accès au disque dur virtuel. Indiquez une date postérieure d’au moins trois semaines à la date actuelle.
@@ -50,20 +48,11 @@ Deux outils sont couramment utilisés pour créer une adresse (URL) de SAS :
 
         :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="Illustre la boîte de dialogue Signature d’accès partagé":::
 
-7. Pour créer l’URI de SAS associé à ce disque dur virtuel, sélectionnez **Créer**. La boîte de dialogue s’actualise et affiche des détails sur cette opération.
-8. Copiez l’**URI** et enregistrez-le dans un fichier texte à un emplacement sécurisé.
+5. Pour créer l’URI de SAS associé à ce disque dur virtuel, sélectionnez **Créer**. La boîte de dialogue s’actualise et affiche des détails sur cette opération.
+6. Copiez l’**URI** et enregistrez-le dans un fichier texte à un emplacement sécurisé.
 
     :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="Illustre la fenêtre de détails de la signature d’accès partagé":::
-
-    Cet URI de SAS généré concerne l’accès au niveau du conteneur. Pour le rendre spécifique, modifiez le fichier texte afin d’ajouter le nom du disque dur virtuel (étape suivante).
-
-9. Insérez le nom de votre disque dur virtuel après la chaîne vhds dans l’URI de SAS (incluez une barre oblique). L’URI de SAS final doit ressembler à ceci :
-
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>` Par exemple, si le nom du disque dur virtuel est `TestRGVM2.vhd`, l’URI de SAS obtenue est :
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-10. Répétez ces étapes pour chaque disque dur virtuel dans les plans que vous allez publier.
+7. Répétez ces étapes pour chaque disque dur virtuel dans les plans que vous allez publier.
 
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 

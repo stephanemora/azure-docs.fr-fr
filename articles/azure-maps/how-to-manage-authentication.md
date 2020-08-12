@@ -2,19 +2,19 @@
 title: Gérer l’authentification
 titleSuffix: Azure Maps
 description: Utilisez le portail Azure pour gérer l’authentification dans Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981713"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531726"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -56,7 +56,7 @@ Les liens du tableau vous conduisent à des informations détaillées sur la con
 
 ## <a name="view-role-definitions"></a>Afficher les définitions de rôles
 
-Pour voir les rôles RBAC disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*. Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
+Pour voir les rôles Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*. Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

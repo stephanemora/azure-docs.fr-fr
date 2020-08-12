@@ -1,6 +1,6 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Découvrez les journaux Microsoft Azure Monitor, ses services et son fonctionnement.
+description: Initiez-vous aux journaux de Microsoft Azure Monitor, à ses services et à son fonctionnement en lisant cette vue d’ensemble.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749955"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543331"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -108,7 +108,7 @@ Les [solutions de gestion](../../monitoring/monitoring-solutions.md) constituent
 
 ![Solutions de gestion](./media/operational-security/azure-operational-security-fig4.png)
 
-La [solution Gestion des mises à jour](../../automation/automation-update-management.md) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise les journaux [Azure Monitor](../../log-analytics/log-analytics-queries.md) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel des journaux Azure Monitor qui vous permet de les analyser à l’aide du tableau de bord inclus.
+La [solution Gestion des mises à jour](../../automation/update-management/update-mgmt-overview.md) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise les journaux [Azure Monitor](../../log-analytics/log-analytics-queries.md) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel des journaux Azure Monitor qui vous permet de les analyser à l’aide du tableau de bord inclus.
 
 Lorsque vous créez un déploiement, le système utilise les runbooks d’[Azure Automation](../../automation/automation-intro.md) pour installer les mises à jour requises. Vous gérez la totalité de ce processus dans le portail et n’avez pas à vous soucier des détails sous-jacents.
 

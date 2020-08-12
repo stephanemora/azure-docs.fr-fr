@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165326"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479844"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -36,7 +36,7 @@ Traffic Analytics nécessite les prérequis suivants :
 
 Votre compte doit répondre à l’une des descriptions suivantes pour activer l’analytique du trafic :
 
-- Votre compte doit avoir l’un des rôles RBAC (contrôle d’accès en fonction du rôle) suivants au niveau de l’étendue de l’abonnement : propriétaire, contributeur, lecteur ou contributeur réseau.
+- Votre compte doit avoir l’un des rôles Azure suivants au niveau de l’étendue de l’abonnement : propriétaire, contributeur, lecteur ou contributeur réseau.
 - Si votre compte n’a pas l’un des rôles précédemment répertoriés, il doit avoir un rôle personnalisé auquel sont affectées les actions suivantes au niveau de l’abonnement.
             
     - Microsoft.Network/applicationGateways/read
@@ -401,4 +401,3 @@ La page de la topologie des sous-réseaux virtuels contient deux sections princi
 - Pour passer à d’autres nœuds en surbrillance dans la vue de la topologie, utilisez la touche `Shift+Right arrow` pour vous déplacer vers l’avant. 
 - Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte**, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
 - Si vous sélectionnez l’un de ces nœuds, vous pouvez appuyer sur la touche `Shift+Left arrow` pour visiter chacune de ses connexions. Le focus passe à la **boîte à outils Informations** de cette connexion. Vous pouvez à tout moment réappuyer sur `Shift+Right arrow` pour faire revenir le focus sur le nœud.    
-

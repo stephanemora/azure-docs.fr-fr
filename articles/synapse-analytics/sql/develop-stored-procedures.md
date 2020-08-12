@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494993"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Utiliser des procédures stockées dans un pool SQL
 
@@ -27,7 +27,7 @@ Le pool SQL prend en charge plusieurs fonctionnalités T-SQL utilisées dans S
 
 Toutefois, pour assurer la mise à l’échelle et les performances du pool SQL, il existe divers mécanismes et fonctions dont le comportement présente des différences, ainsi que d’autres qui ne sont pas pris en charge.
 
-## <a name="introducing-stored-procedures"></a>Présentation des procédures stockées
+## <a name="stored-procedures-in-sql-pool"></a>Procédures stockées dans un pool SQL
 
 Une procédure stockée est un excellent moyen d’encapsuler votre code SQL, en le stockant à un emplacement proche de vos données au sein de l’entrepôt de données. Les procédures stockées aident les développeurs à modulariser leurs solutions en encapsulant le code sous la forme d’unités pouvant être facilement gérées, afin d’optimiser la réutilisation du code. Chaque procédure stockée peut également accepter des paramètres, ce qui les rend encore plus flexibles.
 

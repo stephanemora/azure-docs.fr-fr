@@ -4,14 +4,14 @@ description: Découvrez les opérateurs SQL, tels que les opérateurs d’égali
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063575"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498835"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Opérateurs dans Azure Cosmos DB
 
@@ -34,6 +34,14 @@ Le tableau suivant répertorie les résultats des comparaisons d'égalité dans 
 Pour les opérateurs de comparaison tels que `>`, `>=`, `!=`, `<` et `<=`, la comparaison entre types ou entre deux objets ou tableaux génère `Undefined`.  
 
 Si le résultat de l’expression scalaire est `Undefined`, l’élément n’est pas inclus dans le résultat, car `Undefined` n’est pas égal à `true`.
+
+Par exemple, la comparaison de la requête suivante entre un nombre et une valeur de chaîne génère `Undefined`. Par conséquent, le filtre n’inclut pas de résultats.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>Opérateurs logiques (AND, OR et NOT)
 

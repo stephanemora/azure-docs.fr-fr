@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 277bdc19635231628cea8c308b30c57b129dc364
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250700"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543705"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -68,6 +68,7 @@ Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de foncti
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exécution dans ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
 * Les nœuds virtuels prennent en charge la planification des pods Linux. Vous pouvez installer manuellement le fournisseur d’[ACI Virtual Kubelet](https://github.com/virtual-kubelet/azure-aci) open source pour planifier des conteneurs Windows Server sur ACI.
+* Les nœuds virtuels nécessitent des clusters AKS avec réseau Azure CNI
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

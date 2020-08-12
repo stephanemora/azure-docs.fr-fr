@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503782"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287387"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 | Modifications | Détails |
 | --- | --- |
 | **Nom de réseau distribué (DNN)** | SQL Server 2019 sur Windows Server 2016+ propose en préversion la prise en charge de l’acheminement du trafic vers votre instance de cluster de basculement (FCI) en utilisant un [nom de réseau distribué](hadr-distributed-network-name-dnn-configure.md) au lieu d’utiliser Azure Load Balancer. Cette prise en charge simplifie et rationalise la connexion à votre solution de haute disponibilité dans Azure. | 
-| **FCI avec des disques partagés Azure** | Vous pouvez désormais déployer votre [instance de cluster de basculement (FCI)](failover-cluster-instance-overview.md) à l’aide de [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) avec SQL Server 2019 sur une machine virtuelle Windows Server 2016+. |
+| **FCI avec des disques partagés Azure** | Vous pouvez désormais déployer votre [instance de cluster de basculement (FCI)](failover-cluster-instance-overview.md) à l’aide de [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
 | **Documents FCI réorganisés** | La documentation relative aux [instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md) a été réécrite et réorganisée pour plus de clarté. Nous avons séparé une partie du contenu de configuration, comme les [meilleures pratiques en matière de configuration de cluster](hadr-cluster-best-practices.md), la façon de préparer une [machine virtuelle pour une FCI SQL Server](failover-cluster-instance-prepare-vm.md) et la manière de configurer [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 

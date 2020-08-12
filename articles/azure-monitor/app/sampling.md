@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326577"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460353"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -78,7 +78,7 @@ Dans [`ApplicationInsights.config`](./configuration-with-applicationinsights-con
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    Taux cible que l’algorithme adaptatif tente d’atteindre **sur chaque hôte du serveur**. Si votre application web s’exécute sur plusieurs hôtes, réduisez cette valeur afin de ne pas dépasser votre débit de trafic cible sur le portail Application Insights.
+    Taux cible d’[opérations logiques](./correlation.md#data-model-for-telemetry-correlation) que l’algorithme adaptatif vise à collecter **sur chaque serveur hôte**. Si votre application web s’exécute sur plusieurs hôtes, réduisez cette valeur afin de ne pas dépasser votre débit de trafic cible sur le portail Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

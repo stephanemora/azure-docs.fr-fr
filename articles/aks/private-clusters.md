@@ -3,19 +3,26 @@ title: Créer un cluster Azure Kubernetes Service privé
 description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS) privé
 services: container-service
 ms.topic: article
-ms.date: 6/18/2020
-ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/17/2020
+ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015647"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
-Dans un cluster privé, le plan de contrôle ou le serveur d’API a des adresses IP internes qui sont définies dans le document [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) (RFC1918 - Allocation d’adresses pour les réseaux Internet privés). En utilisant un cluster privé, vous pouvez garantir que le trafic réseau entre votre serveur d’API et vos pools de nœuds reste uniquement sur le réseau privé.
+Dans un cluster privé, le plan de contrôle ou le serveur d’API a des adresses IP internes qui sont définies dans le document [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) (RFC1918 - Allocation d’adresses pour les réseaux Internet privés). En utilisant un cluster privé, vous pouvez vous assurer que le trafic réseau entre votre serveur d’API et vos pools de nœuds reste sur le réseau privé uniquement.
 
 Le plan de contrôle ou le serveur d’API se trouve dans un abonnement Azure géré par Azure Kubernetes Service (AKS). Le cluster ou le pool de nœuds d’un client se trouve dans l’abonnement du client. Le serveur et le cluster ou le pool de nœuds peuvent communiquer entre eux par le biais du [service Azure Private Link][private-link-service] dans le réseau virtuel du serveur d’API et d’un point de terminaison privé exposé dans le sous-réseau du cluster AKS du client.
+
+## <a name="region-availability"></a>Disponibilité des régions
+
+Les clusters privés sont disponibles dans les régions publiques où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure China 21Vianet n’est pas pris en charge.
+* US Gov Texas n’est pas actuellement pris en charge en raison de l’absence de prise en charge d’Azure Private Link.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,13 +76,13 @@ La création d’une machine virtuelle dans le même réseau virtuel que le clus
 
 ## <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
-Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Pour utiliser l'appairage VNet, vous devez configurer un lien entre le réseau virtuel et la zone DNS privée.
+Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à votre cluster privé. Pour utiliser l’appairage de réseaux virtuels, vous devez configurer une liaison entre le réseau virtuel et la zone DNS privée.
     
 1. Accédez au groupe de ressources du nœud dans le portail Azure.  
 2. Sélectionnez la zone DNS privée.   
 3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel**.  
 4. Créez un lien permettant d’ajouter le réseau virtuel de la machine virtuelle à la zone DNS privée. Il faut quelques minutes pour que le lien de zone DNS soit disponible.  
-5. Dans le portail Azure, accédez au groupe de ressources contenant le VNET de votre cluster.  
+5. Dans le portail Azure, accédez au groupe de ressources contenant le réseau virtuel de votre cluster.  
 6. Dans le volet de droite, sélectionnez le réseau virtuel. Le nom du réseau virtuel se présente au format *aks-vnet-\** .  
 7. Dans le volet de gauche, sélectionnez **Appairages**.  
 8. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
@@ -89,7 +96,7 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 
 1. Par défaut, lorsqu’un cluster privé est approvisionné, un point de terminaison privé (1) et une zone DNS privée (2) sont créés dans le groupe de ressources managées par le cluster. Le cluster utilise un enregistrement A dans la zone privée pour résoudre l’adresse IP du point de terminaison privé pour la communication avec le serveur d’API.
 
-2. La zone DNS privée est liée uniquement au réseau virtuel auquel les nœuds de cluster sont attachés (3). Cela signifie que le point de terminaison privé peut uniquement être résolu par les hôtes de ce réseau virtuel lié. Dans les scénarios où aucun DNS personnalisé n’est configuré sur le réseau virtuel (par défaut), cela fonctionne sans problème étant donné que les hôtes pointent vers l’adresse 168.63.129.16 pour le DNS, qui peut résoudre les enregistrements dans la zone DNS privée en raison du lien.
+2. La zone DNS privée est liée uniquement au réseau virtuel auquel les nœuds de cluster sont attachés (3). Cela signifie que le point de terminaison privé peut uniquement être résolu par les hôtes de ce réseau virtuel lié. Dans les scénarios où aucun DNS personnalisé n’est configuré sur le réseau virtuel (par défaut), cela fonctionne sans problème, car les hôtes pointent vers l’adresse 168.63.129.16 pour le DNS qui peut résoudre les enregistrements dans la zone DNS privée en raison de la liaison.
 
 3. Dans les scénarios où le réseau virtuel contenant votre cluster présente des paramètres DNS personnalisés (4), le déploiement du cluster échoue, sauf si la zone DNS privée est liée au réseau virtuel qui contient les programmes de résolution DNS personnalisés (5). Ce lien peut être créé manuellement après la création de la zone privée lors de l’approvisionnement du cluster ou via l’automatisation lors de la détection de la création de la zone à l’aide de mécanismes de déploiement basés sur les événements (par exemple, Azure Event Grid et Azure Functions).
 
@@ -99,7 +106,7 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 * Pour utiliser un serveur DNS personnalisé, ajoutez l’IP Azure DNS 168.63.129.16 en tant que serveur DNS en amont dans le serveur DNS personnalisé.
 
 ## <a name="limitations"></a>Limites 
-* Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public
+* Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public.
 * Les [zones de disponibilité][availability-zones] sont actuellement prises en charge pour certaines régions. 
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
 * Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés][devops-agents]. 

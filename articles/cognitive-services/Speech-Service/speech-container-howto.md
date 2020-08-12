@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974651"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808658"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -354,7 +354,7 @@ ApiKey={API_KEY}
 Cette commande :
 
 * Exécute un conteneur *Synthèse vocale* à partir de l’image conteneur.
-* Alloue 2 cœurs de processeur et un gigaoctet (Go) de mémoire.
+* Alloue 1 cœur de processeur et 2 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
@@ -394,7 +394,7 @@ ApiKey={API_KEY}
 Cette commande :
 
 * Exécute un conteneur *Synthèse vocale personnalisée* à partir de l’image conteneur.
-* Alloue 2 cœurs de processeur et un gigaoctet (Go) de mémoire.
+* Alloue 1 cœur de processeur et 2 gigaoctets (Go) de mémoire.
 * Charge le modèle *Synthèse vocale personnalisée* à partir du montage d’entrée de volume, par exemple *C:\CustomVoice*.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Télécharge le modèle selon `ModelId` (s’il est introuvable sur le montage de volume).

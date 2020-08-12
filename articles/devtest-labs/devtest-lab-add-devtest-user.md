@@ -3,19 +3,19 @@ title: Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs | 
 description: Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs à l’aide du portail Azure ou de PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d5e7a166f9b79e2ff46f5874d53a40ed16750100
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855693"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533323"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-L’accès à Azure DevTest Labs est contrôlé par le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe en *rôles* dans lesquels vous accordez aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Trois de ces rôles RBAC sont *Propriétaire*, *Utilisateur de DevTest Labs* et *Collaborateur*. Dans cet article, vous allez découvrir quelles actions peuvent être effectuées dans chacun des trois rôles RBAC principaux. À partir de là, vous allez apprendre à ajouter des utilisateurs à un laboratoire, à la fois via le portail et via un script PowerShell, et à ajouter des utilisateurs au niveau de l’abonnement.
+L’accès à Azure DevTest Labs est contrôlé par le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md). Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe en *rôles* dans lesquels vous accordez aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Trois de ces rôles Azure sont *Propriétaire*, *Utilisateur de DevTest Labs* et *Contributeur*. Dans cet article, vous allez découvrir quelles actions peuvent être effectuées dans chacun des trois rôles Azure principaux. À partir de là, vous allez apprendre à ajouter des utilisateurs à un laboratoire, à la fois via le portail et via un script PowerShell, et à ajouter des utilisateurs au niveau de l’abonnement.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Actions qui peuvent être effectuées dans chaque rôle
 Il existe trois rôles principaux que vous pouvez attribuer à un utilisateur :
@@ -127,4 +127,3 @@ Pour ajouter un propriétaire à un abonnement Azure, procédez comme suit :
 11. Lorsque vous revenez sur le panneau **Utilisateurs** , l’utilisateur a été ajouté en tant que propriétaire. Cet utilisateur est désormais propriétaire de tous les laboratoires créés sous cet abonnement, et peut par conséquent effectuer des tâches de propriétaire. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

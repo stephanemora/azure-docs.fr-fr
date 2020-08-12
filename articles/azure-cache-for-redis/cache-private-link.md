@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337260"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421652"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure Cache pour Redis avec Azure Private Link (préversion)
 Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à Azure Cache pour Redis optimisé par Azure Private Link. 
 
 Cet article explique comment créer un cache Azure, un réseau virtuel Azure et un point de terminaison privé à l’aide du portail Azure.  
 
+> [!IMPORTANT]
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> 
+
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure -  [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
-  >
-
+> Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
+>
 
 ## <a name="create-a-cache"></a>Création d'un cache
 1. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Créer une ressource**. 

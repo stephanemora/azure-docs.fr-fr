@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85fb188028e0e61378b1e47c1fb7b88eaaa4d7a0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558819"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541921"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -213,7 +213,7 @@ Remarques :
 
 `WithPrompt()` permet de contrôler l’interactivité avec l’utilisateur en spécifiant une invite.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Image montrant les champs de la structure de l’invite. Ces valeurs de constantes contrôlent l’interactivité avec l’utilisateur en définissant le type d’invite affiché par la méthode WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 La classe définit les constantes suivantes :
 

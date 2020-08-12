@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: fd4b94f6a99241ffddd7ae359059c3a4a918934a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 52dfc285deaa84792e37d0f012abd7702d856113
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026940"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544079"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,13 +43,17 @@ D’autres didacticiels seront publiés. Ils vous permettront d’explorer un é
 
 Déployez l’application pour les trois clients fournis :
 
-1. Cliquez sur chaque bouton bleu **Déployer sur Azure** pour ouvrir le modèle de déploiement dans le [portail Azure](https://portal.azure.com). Chaque modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application. L’étape suivante fournit des détails sur la définition de ces valeurs.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Salle de concert Contoso**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dojo Dogwood**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Club de jazz Fabrikam**
+1. Cliquez sur chaque bouton bleu **Déployer sur Azure** pour ouvrir le modèle de déploiement dans le [portail Azure](https://portal.azure.com). Chaque modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application. L’étape suivante fournit des détails sur la définition de ces valeurs.
 
+   **Salle de concert Contoso**   
+   [![Image showing a button labeled "Deploy to Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-contoso)
+
+   **Dojo Dogwood**   
+   [![Image showing a button labeled "Deploy to Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-dogwood)
+
+   **Club de jazz Fabrikam**   
+   [![Image showing a button labeled "Deploy to Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-fabrikam)
+ 
 2. Entrez les valeurs de paramètre requises pour chaque déploiement.
 
     > [!IMPORTANT]

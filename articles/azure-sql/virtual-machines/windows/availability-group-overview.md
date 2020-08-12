@@ -3,7 +3,7 @@ title: Vue d’ensemble des groupes de disponibilité Always On SQL Server
 description: Cet article présente les groupes de disponibilité Always On de SQL Server sur les machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
-ms.author: mikeray
-ms.custom: seo-lt-2019
-ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: mathoma
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669271"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480286"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure
 
@@ -41,10 +41,9 @@ Pour accroître la redondance et la haute disponibilité, les machines virtuelle
 
 |  | Version de Windows Server | Version de SQL Server | Édition SQL Server | Configuration de Quorum WSFC | Récupération d'urgence avec plusieurs régions | Prise en charge de plusieurs sous-réseaux | Prise en charge d'un domaine d'application existant | Récupération d'urgence dans plusieurs zones de la même région | Prise en charge Dist-AG sans domaine AD | Prise en charge Dist-AG sans cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [Interface CLI des machines virtuelles SQL](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
-| [Modèles de démarrage rapide](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
-| [Manuel](availability-group-manually-configure-prerequisites-tutorial.md) | Tous | Tous | Tous | Tous | Oui | Oui | Oui | Oui | Oui | Oui |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+| **[Interface CLI des machines virtuelles SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
+| **[Modèles de démarrage rapide](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
+| **[Manuelle](availability-group-manually-configure-prerequisites-tutorial.md)** | Tous | Tous | Tous | Tous | Oui | Oui | Oui | Oui | Oui | Oui |
 
 Le modèle **Cluster AlwaysOn SQL Server (préversion)** a été supprimé de la Place de marché Azure et n’est plus disponible. 
 

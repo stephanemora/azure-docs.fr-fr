@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031480"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543756"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importer ou exporter une instance Azure SQL Database sans autoriser les services Azure à accéder au serveur
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,7 @@ Créez une machine virtuelle Azure en sélectionnant le bouton **Déployer sur A
 Ce modèle vous permet de déployer une machine virtuelle Windows simple à partir de différentes options de version de Windows intégrant les derniers correctifs. La machine virtuelle ainsi déployée présente une taille A2 à l’emplacement du groupe de ressources et le nom de domaine complet de la machine virtuelle est retourné.
 <br><br>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Image affichant le bouton intitulé « Déployer sur Azure ».](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Pour plus d’informations, consultez [Very simple deployment of Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 

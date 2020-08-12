@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b97edeb34e5d245d3bcf9018399f18b096b56f4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019061"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420496"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -76,9 +76,9 @@ La limite de sécurité de l’identité est la ressource à laquelle elle est j
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Les identités managées sont-elles recréées automatiquement si je déplace un abonnement vers un autre répertoire ?
 
-Non. Si vous déplacez un abonnement vers un autre répertoire, vous devez les recréer manuellement et accorder à nouveau les attributions de rôle runbook automation d’Azure.
+Non. Si vous déplacez un abonnement vers un autre répertoire, vous devez les recréer manuellement et accorder à nouveau les attributions de rôle Azure.
 - Pour les identités managées affectées par le système : désactivez et réactivez-les. 
-- Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
+- Pour les identités managées affectées par l’utilisateur : supprimez, recréez et joignez-les à nouveau aux ressources nécessaires (par exemple, des machines virtuelles)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Puis-je utiliser une identité managée pour accéder à une ressource dans un autre répertoire/abonné ?
 

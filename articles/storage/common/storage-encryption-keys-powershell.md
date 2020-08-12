@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036826"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide de PowerShell
 
@@ -39,15 +39,16 @@ Pour plus d’informations sur la configuration d’identités managées affect�
 
 ## <a name="create-a-new-key-vault"></a>Créer un coffre de clés
 
-Pour créer un coffre de clés via PowerShell, appelez la commande [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Le coffre de clés que vous utilisez pour stocker des clés gérées par le client pour le chiffrement du stockage Azure doit disposer de deux paramètres de protection de clés, **Suppression réversible** et **Ne pas vider**.
+Pour créer un coffre de clés à l’aide de PowerShell, installez la version 2.0.0 ou ultérieure du module PowerShell [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0). Appelez ensuite [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) pour créer un coffre de clés.
 
-N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
+Le coffre de clés que vous utilisez pour stocker des clés gérées par le client pour le chiffrement du stockage Azure doit disposer de deux paramètres de protection de clés, **Suppression réversible** et **Ne pas vider**. Dans les versions 2.0.0 et ultérieures du module Az.KeyVault, la suppression réversible est activée par défaut lorsque vous créez un coffre de clés.
+
+L’exemple suivant crée un coffre de clés avec les propriétés **Suppression réversible** et **Ne pas vider** activées. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ Le chiffrement du stockage Azure prend en charge les clés RSA et RSA-HSM dans l
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurer le chiffrement avec les clés gérées par le client
 
-Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. Dans cette étape, configurez votre compte de stockage Azure pour utiliser les clés gérées par le client et spécifiez la clé à lui associer.
+Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. Dans cette étape, configurez votre compte de stockage Azure pour utiliser des clés gérées par le client à l’aide d’Azure Key Vault, puis spécifiez la clé à lui associer.
 
-Appelez la cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme illustré dans l’exemple suivant. Incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+Lorsque vous configurez le chiffrement avec des clés gérées par le client, vous pouvez choisir de faire pivoter automatiquement la clé utilisée pour le chiffrement lorsque la version change dans le coffre de clés associé. Vous pouvez également spécifier explicitement une version de clé à utiliser pour le chiffrement jusqu’à ce que la version de clé soit mise à jour manuellement.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurer le chiffrement pour la rotation automatique des clés gérées par le client
+
+Afin de configurer le chiffrement avec permutation automatique des clés gérées par le client, installez le module [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), version 2.0.0 ou ultérieure.
+
+Pour faire pivoter automatiquement les clés gérées par le client, omettez la version de clé lorsque vous configurez des clés gérées par le client pour le compte de stockage. Appelez [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme indiqué dans l’exemple suivant, et incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configurer le chiffrement pour la rotation manuelle des versions de clé
+
+Pour spécifier explicitement une version de clé à utiliser pour le chiffrement, fournissez la version de clé lorsque vous configurez le chiffrement avec les clés gérées par le client pour le compte de stockage. Appelez [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme indiqué dans l’exemple suivant, et incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Mettre à jour la version de la clé
-
-Lors de la création d’une nouvelle version d’une clé, vous devez mettre à jour le compte de stockage afin qu’il utilise cette nouvelle version. Tout d’abord, appelez la commande [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) pour obtenir la dernière version de la clé. Appelez ensuite la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage pour utiliser la nouvelle version de la clé, comme indiqué dans la section précédente.
+Lorsque vous faites pivoter manuellement la version de clé, vous devez mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version. Tout d’abord, appelez la commande [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) pour obtenir la dernière version de la clé. Appelez ensuite la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans l’exemple précédent.
 
 ## <a name="use-a-different-key"></a>Utiliser une autre clé
 
@@ -101,7 +118,7 @@ Pour modifier la clé utilisée pour le chiffrement de Stockage Azure, appelez l
 
 ## <a name="revoke-customer-managed-keys"></a>Révoquer des clés gérées par le client
 
-Si vous pensez qu’une clé a peut-être été compromise, vous pouvez révoquer les clés gérées par le client en supprimant la stratégie d’accès au coffre de clés. Pour révoquer une clé gérée par le client, appelez la commande [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+Vous pouvez révoquer des clés gérées par le client en supprimant la stratégie d’accès du coffre de clés. Pour révoquer une clé gérée par le client, appelez la commande [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

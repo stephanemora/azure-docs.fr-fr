@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 4a20a223932f82c80ad5831ef3a02bad803e26e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483650"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533198"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer une stratégie d’exportation pour un volume NFS
 
-Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. La stratégie d’exportation d’Azure NetApp Files prend en charge les volumes NFS uniquement.  Les systèmes NFSv3 et NFSv4 sont pris en charge. 
+Vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. La stratégie d’exportation d’Azure NetApp Files prend en charge les volumes qui utilisent le protocole NFS (NFSv3 et NFSv4.1) et le protocole double (NFSv3 et SMB). 
+
+Vous pouvez créer jusqu’à cinq règles de stratégie d’exportation.
 
 ## <a name="steps"></a>Étapes 
 
-1.  Cliquez sur **Exporter la stratégie** dans le volet de navigation d’Azure NetApp Files. 
+1.  Dans la page Volumes, sélectionnez le volume pour lequel vous souhaitez configurer la stratégie d’exportation, puis cliquez sur **Stratégie d’exportation**. 
+
+    Vous pouvez également configurer la stratégie d’exportation lors de la création du volume.
 
 2.  Renseignez les champs suivants pour créer une règle de stratégie d’exportation :   
     *  **Index**   
@@ -39,10 +43,18 @@ Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour
         * Lecture et écriture
         * Lecture seule
 
-    ![Exporter la stratégie](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **Lecture seule** et **Lecture/écriture**  
+        Si vous utilisez le chiffrement Kerberos avec NFSv4.1, suivez les instructions de la section [Configurer le chiffrement Kerberos NFSv4.1](configure-kerberos-encryption.md).  Pour connaitre l’impact de Kerberos sur le niveau de performance, consultez [Impact de Kerberos sur les performances de NFSv4.1](configure-kerberos-encryption.md#kerberos_performance). 
+
+        ![Options de sécurité Kerberos](../media/azure-netapp-files/kerberos-security-options.png) 
+
+    * **Accès racine**  
+        Spécifiez si le compte `root` peut accéder au volume.  Par défaut, l’accès racine est défini sur **Activé**et le compte `root` a accès au volume.
+
+![Exporter la stratégie](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-* [Gérer les volumes](azure-netapp-files-manage-volumes.md)
 * [Monter ou démonter un volume pour les machines virtuelles](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gérer les instantanés](azure-netapp-files-manage-snapshots.md)

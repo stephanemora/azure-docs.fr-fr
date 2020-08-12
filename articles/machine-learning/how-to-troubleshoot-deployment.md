@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, tracking-python
-ms.openlocfilehash: dcb2a50a91bec70dfe5d9adda7518f3510a8c973
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4741c6348c2a4077776d2d79bee56de26f62e2d1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373196"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540935"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Résolution des problèmes de déploiement Docker des modèles avec Azure Kubernetes Service et Azure Container Instances 
 
@@ -153,7 +153,7 @@ Pour plus d’informations sur la personnalisation de votre environnement Python
 Pendant le test local, vous devrez peut-être mettre à jour le fichier `score.py` pour ajouter la journalisation ou tenter de résoudre les problèmes détectés. Pour recharger les modifications apportées au fichier `score.py`, utilisez `reload()`. Par exemple, le code suivant recharge le script pour le service et lui envoie des données. Les données sont calculées à l’aide du fichier `score.py` mis à jour :
 
 > [!IMPORTANT]
-> La méthode `reload` est disponible uniquement pour les déploiements locaux. Pour plus d’informations sur la mise à jour d’un déploiement vers une autre cible de calcul, consultez la section mise à jour de [Déployer des modèles](how-to-deploy-and-where.md#update).
+> La méthode `reload` est disponible uniquement pour les déploiements locaux. Pour en savoir plus sur la mise à jour d’un déploiement vers une autre cible de calcul, consultez la [procédure de mise à jour de vos services web](how-to-deploy-update-web-service.md).
 
 ```python
 service.reload()

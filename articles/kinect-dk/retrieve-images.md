@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, récupérer, capteur, caméra, kit de développement logiciel (sdk), profondeur, rvb, images, couleur, capture, résolution, tampon
-ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276457"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538912"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Récupérer des données d’image Azure Kinect
 
-Cette page fournit des informations détaillées sur la façon de récupérer des images à partir de l’appareil Azure Kinect. L’article montre comment capturer et afficher des images coordonnées entre les caméras couleur et de profondeur de l’appareil. Pour accéder aux images, vous devez commencer par ouvrir et configurer l’appareil. Vous pouvez ensuite capturer des images.
+Cette page fournit des informations détaillées sur la façon de récupérer des images à partir de l’appareil Azure Kinect. L’article montre comment capturer des images coordonnées et y accéder entre la couleur et la profondeur de l’appareil. Pour accéder aux images, vous devez commencer par ouvrir et configurer l’appareil. Vous pouvez ensuite capturer des images.
 Avant de configurer et de capturer une image, vous devez [Rechercher et ouvrir un appareil](find-then-open-device.md).
 
 Vous pouvez également consulter l’[exemple de diffusion en continu du Kit de développement logiciel (SDK)](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) qui montre comment utiliser les fonctions abordées dans cet article.

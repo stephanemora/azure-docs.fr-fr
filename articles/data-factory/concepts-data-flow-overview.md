@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635121"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475564"
 ---
 # <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 
@@ -93,41 +93,9 @@ Le premier onglet du volet de configuration de chaque transformation contient le
 
 #### <a name="optimize"></a>Optimiser
 
-L’onglet **Optimiser** contient des paramètres pour configurer des schémas de partitionnement.
+L’onglet **Optimiser** contient des paramètres pour configurer des schémas de partitionnement. Pour en savoir plus sur l’optimisation de vos flux de données, consultez le [Guide des performances de flux de données de mappage](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize1.png "Optimiser")
-
-Le paramètre par défaut, **Utiliser le partitionnement actuel**, indique à Azure Data Factory d’utiliser le schéma de partitionnement natif pour les flux de données s’exécutant sur Spark. Dans la plupart des scénarios, nous vous recommandons d’utiliser ce paramètre.
-
-Il existe des instances pour lesquelles vous souhaitez ajuster le partitionnement. Par exemple, si vous voulez générer vos transformations dans un seul fichier dans le lac, sélectionnez **Partition unique** dans une transformation de récepteur.
-
-L’optimisation des performances est un autre cas où vous pouvez souhaiter contrôler les schémas de partitionnement. L’ajustement du partitionnement permet de contrôler la répartition de vos données entre les nœuds de calcul et les optimisations de la localisation des données qui peuvent avoir des effets tant positifs que négatifs sur les performances globales de vos flux de données. Pour plus d’informations, consultez le [Guide des performances des flux de données](concepts-data-flow-performance.md).
-
-Pour changer le partitionnement de n’importe quelle transformation, sélectionnez l’onglet **Optimiser**, puis la case d’option **Définir le partitionnement**. Une série d'options de partitionnement vous est présentée. La méthode de partitionnement qui convient varie en fonction des volumes de données, des clés candidates, des valeurs null et de la cardinalité. 
-
-Il est conseillé de commencer avec le partitionnement par défaut, puis d’essayer différentes options de partitionnement. Vous pouvez effectuer des tests à l’aide d’exécutions de débogage de pipeline, puis voir la durée d’exécution et l’utilisation des partitions dans chaque regroupement de transformations à partir de la vue de supervision. Pour plus d’informations, consultez [Supervision des flux de données](concepts-data-flow-monitoring.md).
-
-Les options de partitionnement suivantes sont disponibles.
-
-##### <a name="round-robin"></a>Tourniquet 
-
-Un tourniquet (round robin) est une partition simple qui distribue automatiquement les données de façon uniforme sur les partitions. Utilisez un tourniquet (round robin) lorsque vous ne disposez pas des clés candidates adéquates pour implémenter une stratégie de partitionnement solide et intelligente. Vous pouvez définir le nombre de partitions physiques.
-
-##### <a name="hash"></a>Hachage
-
-Azure Data Factory produit un hachage de colonnes pour obtenir des partitions uniformes, de sorte que des lignes contenant des valeurs similaires tombent dans la même partition. Lorsque vous utilisez l’option Hachage, effectuez un test pour détecter une éventuelle inclinaison de partition. Vous pouvez définir le nombre de partitions physiques.
-
-##### <a name="dynamic-range"></a>Plage dynamique
-
-La plage dynamique utilise des plages dynamiques Spark basées sur les colonnes ou expressions que vous fournissez. Vous pouvez définir le nombre de partitions physiques. 
-
-##### <a name="fixed-range"></a>Plage fixe
-
-Créez une expression qui fournit une plage fixe pour les valeurs figurant dans vos colonnes de données partitionnées. Pour éviter une inclinaison de partition, vous devez avoir une bonne compréhension de vos données avant d’utiliser cette option. Les valeurs que vous entrez pour l'expression sont utilisées dans le cadre d'une fonction de partition. Vous pouvez définir le nombre de partitions physiques.
-
-##### <a name="key"></a>Clé
-
-Si vous avez une bonne compréhension de la cardinalité de vos données, une clé de partitionnement peut être une bonne stratégie. La clé de partitionnement crée des partitions pour chaque valeur unique de votre colonne. Vous ne pouvez pas définir le nombre de partitions car celui-ci dépend des valeurs uniques figurant dans les données.
+![Optimize](media/data-flow/optimize.png "Optimiser")
 
 #### <a name="inspect"></a>Inspecter
 

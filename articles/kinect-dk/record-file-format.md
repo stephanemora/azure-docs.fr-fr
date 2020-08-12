@@ -7,17 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, capteur, kit de développement logiciel (sdk), profondeur, rvb, enregistrement, lecture, matroska, mkv
-ms.openlocfilehash: d0f7653afe3cc92e059b2615ebef18312faa716b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276484"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501778"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Utiliser le Kit de développement logiciel (SDK) de capteur Azure Kinect pour enregistrer un format de fichier
 
-Pour enregistrer des données de capteur, le format de conteneur Matroska (.mkv) est utilisé, ce qui permet de stocker plusieurs pistes.
-utilisation d’un vaste éventail de codecs. Le fichier d’enregistrement contient des pistes pour le stockage des images en couleurs, de profondeur et IR, ainsi que des IMU.
+Pour enregistrer des données de capteur, le format de conteneur Matroska (.mkv) est utilisé, ce qui permet de stocker plusieurs pistes à l’aide de toute une série de codecs. Le fichier d’enregistrement contient des pistes pour le stockage des images en couleurs, de profondeur et IR, ainsi que des IMU.
 
 Les détails de bas niveau du format de conteneur .mkv sont disponibles sur le [site Web Matroska](https://www.matroska.org/index.html).
 

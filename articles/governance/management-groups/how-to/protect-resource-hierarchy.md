@@ -3,12 +3,12 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366770"
+ms.locfileid: "87422825"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -29,7 +29,7 @@ Ces opérations permettent uniquement à un utilisateur de lire et mettre à jou
 
 Par défaut, un nouvel abonnement ajouté au sein d’un locataire est ajouté en tant que membre du groupe d’administration racine. Si les affectations de stratégie, le contrôle d’accès en fonction du rôle (RBAC) et d’autres concepts de gouvernance sont affectés au groupe d’administration racine, ils ont un effet immédiat sur ces nouveaux abonnements. C’est pour cette raison que de nombreuses organisations n’appliquent pas ces concepts au niveau du groupe d’administration racine, même s’il s’agit de leur emplacement d’affectation idéal. Dans d’autres cas, un ensemble de contrôles plus restrictif est souhaité pour les nouveaux abonnements, mais il n’est pas recommandé de les affecter à tous les abonnements. Ce paramètre prend en charge les deux cas d’usage.
 
-En permettant la définition du groupe d’administration par défaut des nouveaux abonnements, les concepts de gouvernance à l’échelle de l’organisation peuvent être appliqués au niveau du groupe d’administration racine, et il est possible de définir un groupe d’administration distinct avec des affectations de stratégie ou des affectations RBAC plus adaptées à un nouvel abonnement.
+En permettant la définition du groupe d’administration par défaut des nouveaux abonnements, les concepts de gouvernance à l’échelle de l’organisation peuvent être appliqués au niveau du groupe d’administration racine, et il est possible de définir un groupe d’administration distinct avec des affectations de stratégie ou des attributions de rôle Azure plus adaptées à un nouvel abonnement.
 
 Pour configurer ce paramètre, le point de terminaison de l’API REST [Paramètres de hiérarchie ](/rest/api/resources/hierarchysettings) est appelé. Pour ce faire, utilisez le format de corps et d’URI d’API REST suivant. Remplacez `{rootMgID}` par l’ID de votre groupe d’administration racine et `{defaultGroupID}` par l’ID du groupe d’administration qui doit devenir le groupe d’administration par défaut :
 

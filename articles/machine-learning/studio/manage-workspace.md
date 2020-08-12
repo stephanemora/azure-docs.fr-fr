@@ -1,6 +1,5 @@
 ---
-title: Gestion des espaces de travail
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Gérer les espaces de travail – Azure'
 description: Gérer l’accès aux espaces de travail Azure Machine Learning Studio (classique), et déployer et gérer les services web de l’API Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d12b5fbfb934106f7c18edb2996b51e8f6a57f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f3661956c61eb20f4c336f8644f85eb7e1b4100
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705132"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433128"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gérer un espace de travail Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 > [!NOTE]
 > Pour plus d’informations sur la gestion des services web dans le portail des services web Azure Machine Learning, voir [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
@@ -33,7 +35,7 @@ Vous pouvez gérer les espaces de travail Machine Learning Studio (classique) à
 Pour gérer un espace de travail Studio (classique) dans le Portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur d’abonnements Azure.
-2. Dans la zone de recherche située en haut de la page, entrez « espaces de travail Machine Learning Studio (classique) », puis sélectionnez **Espaces de travail Machine Learning Studio (classique)** .
+2. Dans la zone de recherche située en haut de la page, entrez « espaces de travail Machine Learning Studio (classique) », puis sélectionnez **Espaces de travail Machine Learning Studio (classique)**.
 3. Cliquez sur l’espace de travail que vous souhaitez gérer.
 
 Outre les options et les informations de gestion des ressources standard disponibles, vous pouvez :

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323262"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Intégrer votre liste de la Place de marché commerciale avec Azure Active Directory
 
@@ -40,10 +40,11 @@ Aux différents [types d’offre et options de référencement](determine-your-l
 | Containers  | N/A | N/A | N/A | Non |
 | Services de conseil  | Non | N/A | N/A | N/A |
 
-Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](marketplace-saas-applications-technical-publishing-guide.md).
+Pour plus d’informations sur les exigences techniques relatives à la capacité SaaS, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans le marketplace commercial](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Intégration Azure AD
 
+- Pour plus d’informations sur l’intégration d’Azure AD pour vos offres SaaS (Software as a Service) pouvant faire l’objet d’une transaction, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans le marketplace commercial](./azure-ad-saas.md).
 - Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs](../active-directory/develop/index.yml).
 - Pour obtenir des détails sur l’authentification unique Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

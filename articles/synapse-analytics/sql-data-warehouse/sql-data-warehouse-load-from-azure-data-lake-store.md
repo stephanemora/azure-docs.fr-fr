@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213293"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533935"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Charger des données à partir d’Azure Data Lake Storage pour Synapse SQL
 
@@ -39,7 +39,7 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un pool SQL. Consultez [Créer un pool SQL et interroger des données](create-data-warehouse-portal.md).
-* Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Pour ce compte de stockage, vous devez configurer ou spécifier l’une des informations d’identification suivantes pour le chargement : Une clé de compte de stockage, une clé de signature d'accès partagé (SAS), un utilisateur d’application Azure Directory ou un utilisateur AAD qui a le rôle RBAC approprié pour le compte de stockage.
+* Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Pour ce compte de stockage, vous devez configurer ou spécifier l’une des informations d’identification suivantes pour le chargement : une clé de compte de stockage, une clé de signature d’accès partagé (SAS), un utilisateur d’application Azure Directory ou un utilisateur AAD qui a le rôle Azure approprié pour le compte de stockage.
 
 ## <a name="create-the-target-table"></a>Créer la table cible
 

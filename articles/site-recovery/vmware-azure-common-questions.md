@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086147"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -181,6 +181,10 @@ Non. Une modification du vCenter VMware ou de la migration aura une incidence su
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Puis-je répliquer vers un compte de stockage de cache ou cible dans lequel un réseau virtuel (avec des pare-feux Azure) est configuré ?
 
 Non, Site Recovery ne prend pas en charge la réplication vers un Stockage Azure sur des réseaux virtuels.
+
+### <a name="what-is-the-frequency-of-generation-of-crash-consistent-recovery-points"></a>Quelle est la fréquence de génération de points de récupération cohérents en cas d’incident ?
+
+Site Recovery génère des points de récupération cohérents en cas d’incident toutes les cinq minutes.
 
 ## <a name="component-upgrade"></a>Mise à niveau de composant
 

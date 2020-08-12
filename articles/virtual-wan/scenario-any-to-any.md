@@ -6,22 +6,43 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecc2b3cf236cb2a78fd595189649e7f6b176d709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567313"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553425"
 ---
 # <a name="scenario-any-to-any"></a>Scénario : Any-to-any
 
-Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. 
+Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
-Dans ce scénario, les connexions VPN, ExpressRoute et VPN utilisateur sont associées à la même table de routage. Toutes les connexions VPN, ExpressRoute et VPN utilisateur propagent des itinéraires dans le même ensemble de tables de routage. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+## <a name="design"></a><a name="design"></a>Conception
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Architecture du scénario
+Pour déterminer le nombre de tables de routage nécessaires dans un scénario de Virtual WAN, vous pouvez créer une matrice de connectivité, où chaque cellule indique si une source (ligne) peut communiquer avec une destination (colonne). La matrice de connectivité dans ce scénario est simple, mais nous l’avons incluse par souci de cohérence avec d’autres scénarios.
+
+| À partir |   À |  *Réseaux virtuels* | *Branches* |
+| -------------- | -------- | ---------- | ---|
+| Réseaux virtuels     | &#8594;|      X     |     X    |
+| Branches   | &#8594;|    X     |     X    |
+
+Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique.
+
+Étant donné que toutes les connexions à partir de réseaux virtuels et de branches (VPN, ExpressRoute et VPN utilisateur) ont les mêmes exigences de connectivité, une seule table de routage est requise. Par conséquent, toutes les connexions sont associées et propagées à la même table de routage, la table de routage par défaut :
+
+* Réseaux virtuels :
+  * Table de routage associée : **Par défaut**
+  * Propagation aux tables de routage : **Par défaut**
+* Branches :
+  * Table de routage associée : **Par défaut**
+  * Propagation aux tables de routage : **Par défaut**
+
+Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Architecture
 
 Dans la **Figure 1**, tous les réseaux virtuels et les branches (VPN, ExpressRoute, P2S) peuvent se connecter les uns aux autres. Dans un hub virtuel, les connexions fonctionnent comme suit :
 
@@ -35,7 +56,7 @@ Ces connexions (par défaut au moment de la création) sont associées à la tab
 
 :::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="figure 1":::
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Workflow du scénario
+## <a name="workflow"></a><a name="workflow"></a>Flux de travail
 
 Ce scénario est activé par défaut pour le Virtual WAN standard. Si le paramètre branche à branche est désactivé dans la configuration WAN, cela empêchera la connectivité entre les spokes de branche. VPN/ExpressRoute/utilisateur VPN sont considérés comme des spokes de branche dans Virtual WAN
 

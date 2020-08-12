@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503759"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432870"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -21,7 +21,7 @@ Cet article vous aidera à comprendre le processus de création de points de ter
 - Les points de terminaison privés ne peuvent être créés que pour les nouveaux coffres Recovery Services (qui ne contiennent pas d’éléments). Les points de terminaison privés doivent donc être créés avant que vous ne tentiez de protéger vos éléments en les plaçant dans un coffre.
 - Un réseau virtuel peut contenir des points de terminaison privés pour plusieurs coffres Recovery Services. De son côté, un coffre Recovery Services peut être associé à plusieurs points de terminaison privés dans plusieurs réseaux virtuels. Toutefois, vous ne pouvez pas associer 1 coffre à plus de 12 points de terminaison privés.
 - Lorsque vous associez un point de terminaison privé à un coffre, ce dernier est verrouillé. Cela veut dire qu’un coffre sera uniquement accessible (pour les sauvegardes et restaurations) sur les réseaux qui contiennent un point de terminaison privé associé à ce coffre. Si tous les points de terminaison privés associés au coffre sont supprimés, le coffre redevient accessible sur tous les réseaux.
-- Une connexion de point de terminaison privée pour la sauvegarde utilise un total de 11 adresses IP privées dans votre sous-réseau. Ce nombre peut être plus élevé (jusqu’à 15) pour certaines régions Azure. Nous vous suggérons donc d’avoir suffisamment d’adresses IP privées disponibles lorsque vous tentez de créer des points de terminaison privés pour la sauvegarde.
+- Une connexion de point de terminaison privée pour la sauvegarde utilise un total de 11 adresses IP privées dans votre sous-réseau. Ce nombre peut être plus élevé (jusqu’à 25) pour certaines régions Azure. Nous vous suggérons donc d’avoir suffisamment d’adresses IP privées disponibles lorsque vous tentez de créer des points de terminaison privés pour la sauvegarde.
 - Les coffres Recovery Services sont compatibles avec les services Sauvegarde Azure et Azure Site Recovery. Cependant, cet article traite uniquement de l’utilisation des points de terminaison privés pour le service Sauvegarde Azure.
 - Azure Active Directory ne prend pas en charge les points de terminaison privés pour le moment. Par conséquent, les adresses IP et les noms de domaine complets requis pour le bon fonctionnement du service Azure Active Directory dans une région doivent bénéficier d’une autorisation d’accès sortant sur le réseau sécurisé lors de la sauvegarde de bases de données dans des machines virtuelles Azure et de la sauvegarde à l’aide de l’agent MARS. Vous pouvez aussi utiliser des balises de groupe de sécurité réseau (NSG) et des balises du service Pare-feu Azure pour autoriser l’accès à Azure AD, le cas échéant.
 - Les réseaux virtuels avec des stratégies réseau ne sont pas compatibles avec les points de terminaison privés. Vous devez donc désactiver les stratégies réseau avant de continuer.

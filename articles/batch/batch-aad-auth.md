@@ -4,12 +4,12 @@ description: Batch prend en charge Azure AD pour l’authentification auprès du
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533510"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -130,9 +130,9 @@ Pour l’authentification auprès d’un principal de service, vous devez attrib
 1. Dans la liste déroulante **Rôle**, choisissez le rôle *Collaborateur* ou *Lecteur* pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 1. Dans le champ **Sélectionner**, entrez le nom de votre application. Sélectionnez votre application dans la liste, puis sélectionnez **Enregistrer**.
 
-Votre application doit maintenant apparaître dans vos paramètres de contrôle d’accès avec un rôle RBAC qui lui est attribué.
+Votre application doit maintenant apparaître dans vos paramètres de contrôle d’accès avec un rôle Azure qui lui est attribué.
 
-![Attribuer un rôle RBAC à votre application](./media/batch-aad-auth/app-rbac-role.png)
+![Attribuer un rôle Azure à votre application](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>Attribuer un rôle personnalisé
 
@@ -193,7 +193,7 @@ Voici un exemple de définition de rôle personnalisé :
 }
 ```
 
-Pour des informations plus générales concernant la création d’un rôle personnalisé, consultez [Rôles personnalisés pour les ressources Azure](../role-based-access-control/custom-roles.md).
+Pour des informations plus générales concernant la création d’un rôle personnalisé, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obtenir l’ID client pour votre Azure Active Directory
 

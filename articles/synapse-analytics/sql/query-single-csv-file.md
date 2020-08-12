@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383883"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489705"
 ---
 # <a name="query-csv-files"></a>Interroger des fichiers CSV
 
@@ -31,7 +31,7 @@ Toutes les variantes ci-dessus sont abordées ci-dessous.
 
 La fonction `OPENROWSET` vous permet de lire le contenu d’un fichier CSV en fournissant l’URL de votre fichier.
 
-### <a name="reading-csv-file"></a>Lecture d’un fichier CSV
+### <a name="read-a-csv-file"></a>Lire un fichier .csv
 
 Le moyen le plus simple d’afficher le contenu de votre fichier `CSV` consiste à fournir l’URL du fichier à la fonction `OPENROWSET` ainsi qu’à spécifier le `FORMAT` CSV et la `PARSER_VERSION` 2.0. Si le fichier est disponible publiquement ou si votre identité Azure AD peut y accéder, vous devriez pouvoir voir le contenu du fichier à l’aide d’une requête comme celle montrée dans l’exemple suivant :
 
@@ -46,7 +46,7 @@ from openrowset(
 
 L’option `firstrow` est utilisée pour ignorer la première ligne du fichier CSV qui est l’en-tête dans ce cas. Assurez-vous que vous pouvez accéder à ce fichier. Si votre fichier est protégé par une clé SAS ou une identité personnalisée, vous devez configurer les [informations d’identification au niveau du serveur pour la connexion SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Utilisation d'une source de données
+### <a name="data-source-usage"></a>Utilisation d’une source de données
 
 L’exemple précédent utilise le chemin complet du fichier. Vous pouvez également créer une source de données externe avec l’emplacement qui pointe vers le dossier racine du stockage :
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Cette requête retourne les mêmes résultats si vous omettez le paramètre FIELDQUOTE, car la valeur par défaut de FIELDQUOTE est un guillemet double.
 
-## <a name="escaping-characters"></a>Caractères d’échappement
+## <a name="escape-characters"></a>Caractères d'échappement
 
 La requête suivante montre comment lire un fichier avec une ligne d’en-tête, une nouvelle ligne de style Unix, des colonnes délimitées par des virgules et un caractère d’échappement utilisé pour le délimiteur de champ (virgule) à l’intérieur des valeurs. Notez l’emplacement différent du fichier par rapport aux autres exemples.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Cette requête échouerait si ESCAPECHAR n’était pas spécifié, car la virgule dans « Slov,enia » serait traitée comme un délimiteur de champ plutôt que comme une partie du nom de pays/région. « Slov, enia » serait alors traité comme deux colonnes. Par conséquent, cette ligne aurait une colonne plus que les autres lignes et que ce que vous avez défini dans la clause WITH.
 
-### <a name="escaping-quoting-characters"></a>Échappement des caractères de délimitation
+### <a name="escape-quoting-characters"></a>Caractères de délimitation d’échappement
 
 La requête suivante montre comment lire un fichier avec une ligne d’en-tête, avec une nouvelle ligne de style UNIX, des colonnes délimitées par des virgules et un guillemet double placé dans une séquence d’échappement dans les valeurs. Notez l’emplacement différent du fichier par rapport aux autres exemples.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Retour d’un sous-ensemble de colonnes
+## <a name="return-a-subset-of-columns"></a>Retourner un sous-ensemble de colonnes
 
 Jusqu’à présent, vous avez spécifié le schéma de fichier CSV en utilisant la clause WITH et en répertoriant toutes les colonnes. Vous pouvez spécifier uniquement les colonnes dont vous avez réellement besoin dans votre requête en utilisant un nombre ordinal pour chaque colonne nécessaire. Vous allez également omettre les colonnes qui ne vous intéressent pas.
 

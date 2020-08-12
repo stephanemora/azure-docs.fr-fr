@@ -4,12 +4,12 @@ description: Le contrôle d’accès en fonction du rôle permet de gérer l’a
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371700"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533459"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 
@@ -28,9 +28,9 @@ Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, d
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mappage des rôles de sauvegarde intégrés pour les actions de gestion des sauvegardes
 
-Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle RBAC minimum nécessaire correspondant pour effectuer cette opération.
+Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle Azure minimum nécessaire correspondant pour effectuer cette opération.
 
-| Opération de gestion | Rôle RBAC minimum nécessaire | Étendue requise |
+| Opération de gestion | Rôle Azure minimum nécessaire | Étendue requise |
 | --- | --- | --- |
 | Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |
@@ -77,7 +77,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

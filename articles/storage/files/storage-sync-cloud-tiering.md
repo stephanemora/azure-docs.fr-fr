@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460080"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -40,14 +40,17 @@ La hiérarchisation cloud ne dépend pas de la fonctionnalité NTFS pour le suiv
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Quelle est la taille minimale d’un fichier à hiérarchiser ?
 
-Pour les agents de version 9 et ultérieures, la taille minimale d’un fichier à hiérarchiser basée sur la taille de cluster du système. La table suivante illustre les tailles minimales des fichiers qui peuvent être hiérarchisés, sur la base de la taille du volume de cluster :
+Pour les agents de version 9 et ultérieures, la taille minimale d’un fichier à hiérarchiser basée sur la taille de cluster du système. La taille de fichier minimale éligible pour la hiérarchisation cloud est calculée en multipliant par 2 la taille du cluster et utilise au minimum 8 ko. La table suivante illustre les tailles minimales des fichiers qui peuvent être hiérarchisés, sur la base de la taille du volume de cluster :
 
 |Taille de volume de cluster (en octets) |Les fichiers de cette taille ou plus peuvent être hiérarchisés  |
 |----------------------------|---------|
-|4 Ko (4096)                 | 8 Ko    |
+|4 ko ou moins (4096)      | 8 Ko    |
 |8 Ko (8192)                 | 16 Ko   |
 |16 Ko (16384)               | 32 Ko   |
-|32 Ko (32768) et plus    | 64 Ko   |
+|32 ko (32 768)               | 64 Ko   |
+|64 ko (65 536)               | 128 Ko  |
+
+Avec Windows Server 2019 et l’agent Azure File Sync version 12 et ultérieures, les tailles de cluster allant jusqu’à 2 Mo sont également prises en charge et la hiérarchisation sur ces tailles de cluster plus volumineuses fonctionne de la même façon. Les versions antérieures du système d’exploitation ou de l’agent prennent en charge des tailles de cluster allant jusqu’à 64 ko.
 
 Tous les systèmes de fichiers utilisés par Windows organisent votre disque dur en fonction de la taille du cluster (également appelée taille d’unité d’allocation). La taille du cluster représente la plus petite quantité d’espace disque qui peut être utilisée pour contenir un fichier. Lorsque les tailles de fichiers ne correspondent pas à un multiple de la taille du cluster, plus d’espace est nécessaire pour conserver le fichier (jusqu’au multiple supérieur de la taille du cluster).
 
@@ -62,7 +65,9 @@ Azure File Sync est pris en charge sur les volumes NTFS avec Windows Server 201
 |128 To – 256 To | 64 Ko         |
 |> 256 To       | Non pris en charge |
 
-Lors de la création du volume, il est possible que vous ayez mis en forme manuellement le volume avec une taille de cluster (unité d’allocation) différente. Si votre volume provient d’une version antérieure de Windows, les tailles de cluster par défaut peuvent également être différentes. [Cet article contient des informations supplémentaires sur les tailles de cluster par défaut.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+Lors de la création du volume, il est possible que vous ayez mis en forme manuellement le volume avec une taille de cluster différente. Si votre volume provient d’une version antérieure de Windows, les tailles de cluster par défaut peuvent également être différentes. [Cet article contient des informations supplémentaires sur les tailles de cluster par défaut.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Même si vous choisissez une taille de cluster inférieure à 4 ko, la limite de 8 ko comme plus petite taille de fichier pouvant être hiérarchisée s’applique toujours. (Même si, techniquement, le double de la taille du cluster équivaut à moins de 8 ko.)
+
+Ce minimum absolu est dû à la manière dont NTFS stocke les fichiers très petits, de 1 ko à 4 ko. En fonction d’autres paramètres du volume, il est possible que les petits fichiers ne soient pas du tout stockés dans un cluster sur le disque. Il est peut-être plus efficace de stocker ces fichiers directement dans la table de fichiers maîtres ou l’« enregistrement de la table MFT » du volume. Le point d’analyse de la hiérarchisation cloud est toujours stocké sur le disque et occupe exactement un cluster. Hiérarchiser de si petits fichiers pourrait ne pas représenter un gain de place. Les cas extrêmes peuvent même finir par utiliser plus d’espace lorsque la hiérarchisation cloud est activée. Pour éviter cela, la plus petite taille d’un fichier que la hiérarchisation cloud organisera est de 8 ko sur une taille de cluster de 4 ko ou moins.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Comment fonctionne la stratégie de hiérarchisation de l’espace libre du volume ?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 N’oubliez pas que la stratégie d’espace disponible sur le volume est toujours prioritaire, et, lorsqu’il n’y a pas suffisamment d’espace libre sur le volume pour conserver les fichiers autant de jours que défini par la stratégie de date, Azure File Sync poursuivra la hiérarchisation des fichiers les plus froids jusqu’à ce que le pourcentage d’espace libre sur le volume requis soit atteint.
 
-Par exemple, si vous avez une stratégie de hiérarchisation par date de 60 jours et une stratégie d’espace disponible sur le volume de 20 % : après avoir appliqué la stratégie de date, il reste moins de 20 % d’espace disponible sur le volume. La stratégie d’espace disponible sur le volume s’active et remplace la stratégie de date. Cela augmentera la hiérarchisation des fichiers, de telle sorte que la durée de conservation des données sur le serveur peut passer de 60 à 45 jours. Inversement, cette stratégie force la hiérarchisation des fichiers qui se situent en dehors de l’intervalle de temps, même si vous n’avez pas atteint votre seuil d’espace libre : un fichier est hiérarchisé au bout de 61 jours, même si votre volume est vide.
+Par exemple, si vous avez une stratégie de hiérarchisation par date de 60 jours et une stratégie d’espace disponible sur le volume de 20 % : Si, après avoir appliqué la stratégie de date, il reste moins de 20 % d’espace disponible sur le volume, la stratégie d’espace disponible sur le volume s’active et remplace la stratégie de date. Cela augmentera la hiérarchisation des fichiers, de telle sorte que la durée de conservation des données sur le serveur peut passer de 60 à 45 jours. Inversement, cette stratégie force la hiérarchisation des fichiers qui se situent en dehors de l’intervalle de temps, même si vous n’avez pas atteint votre seuil d’espace libre : un fichier est hiérarchisé au bout de 61 jours, même si votre volume est vide.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Comment faire pour déterminer la quantité d’espace libre du volume appropriée ?

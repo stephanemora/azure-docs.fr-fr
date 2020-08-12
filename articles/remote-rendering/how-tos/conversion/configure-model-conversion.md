@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147939"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432013"
 ---
 # <a name="configure-the-model-conversion"></a>Configurer la conversion de modèle
 
@@ -18,7 +18,8 @@ Ce chapitre décrit les options de conversion de modèle.
 
 ## <a name="settings-file"></a>Fichier de paramètres
 
-Si un fichier appelé `ConversionSettings.json` se trouve dans le conteneur d’entrée en regard du modèle d’entrée, il est utilisé pour fournir une configuration supplémentaire pour le processus de conversion de modèle.
+Si un fichier appelé `<modelName>.ConversionSettings.json` se trouve dans le conteneur d’entrée en regard du modèle d’entrée `<modelName>.<ext>`, il sera utilisé pour fournir une configuration supplémentaire au processus de conversion de modèle.
+Par exemple, `box.ConversionSettings.json` pourrait être utilisé lors de la conversion de `box.gltf`.
 
 Le contenu du fichier doit respecter le schéma JSON suivant :
 
@@ -54,7 +55,7 @@ Le contenu du fichier doit respecter le schéma JSON suivant :
 }
 ```
 
-Voici un exemple de fichier `ConversionSettings.json` :
+Voici un exemple de fichier `box.ConversionSettings.json` :
 
 ```json
 {
@@ -66,15 +67,18 @@ Voici un exemple de fichier `ConversionSettings.json` :
 
 ### <a name="geometry-parameters"></a>Paramètres Geometry
 
-* `scaling` : ce paramètre met à l’échelle un modèle uniformément. La mise à l’échelle peut être utilisée pour augmenter ou réduire un modèle, par exemple pour afficher un modèle de construction sur une table. Étant donné que le moteur de rendu attend la spécification de longueurs en mètres, une autre utilisation importante de ce paramètre se produit lorsqu’un modèle est défini dans des unités différentes. Par exemple, si un modèle est défini en centimètres, l’application d’une échelle de 0,01 doit afficher le modèle à la taille correcte.
+* `scaling` : ce paramètre met à l’échelle un modèle uniformément. La mise à l’échelle peut être utilisée pour augmenter ou réduire un modèle, par exemple pour afficher un modèle de construction sur une table.
+La mise à l’échelle est également importante quand un modèle est défini dans des unités différentes du mètre, car le moteur de rendu attend des mètres.
+Par exemple, si un modèle est défini en centimètres, l’application d’une échelle de 0,01 doit afficher le modèle à la taille correcte.
 Certains formats de données sources (par exemple .fbx) fournissent un indicateur de mise à l’échelle des unités, auquel cas la conversion met à l’échelle implicitement le modèle en mètres. La mise à l’échelle implicite fournie par le format source est appliquée en plus du paramètre de mise à l’échelle.
 Le facteur de mise à l’échelle final est appliqué aux vertex géométriques et aux transformations locales des nœuds de graphique de scène. La mise à l’échelle de la transformation de l’entité racine reste inchangée.
 
 * `recenterToOrigin` : indique qu’un modèle doit être converti pour que son cadre englobant soit centré à l’origine.
-Le centrage est important si le modèle source est éloigné de l’origine, car dans ce cas, les problèmes de précision à virgule flottante peuvent entraîner des artefacts de rendu.
+Si un modèle source est éloigné de l’origine, les problèmes de précision à virgule flottante peuvent entraîner des artefacts de rendu.
+Le centrage du modèle peut aider dans cette situation.
 
 * `opaqueMaterialDefaultSidedness` : le moteur de rendu part du principe que les matériaux opaques sont recto verso.
-Si ce n’est pas le comportement prévu, ce paramètre doit être défini sur « SingleSided ». Pour plus d’informations, consultez [Rendu :::no-loc text="single sided":::](../../overview/features/single-sided-rendering.md).
+Si cette hypothèse ne s’applique pas pour un modèle particulier, le paramètre doit être défini sur « SingleSided ». Pour plus d’informations, consultez [Rendu :::no-loc text="single sided":::](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Remplacements de matériaux
 
@@ -99,10 +103,10 @@ Si un modèle est défini à l’aide de l’espace gamma, ces options doivent �
 
 * `sceneGraphMode` : définit la manière dont le graphique de scène dans le fichier source est converti :
   * `dynamic` (par défaut) : Tous les objets du fichier sont exposés en tant [qu’entités](../../concepts/entities.md) dans l’API et peuvent être transformés indépendamment. La hiérarchie de nœuds au moment de l’exécution est identique à la structure dans le fichier source.
-  * `static`: Tous les objets sont exposés dans l’API, mais ne peuvent pas être transformés indépendamment.
+  * `static`: Tous les objets sont exposés dans l’API, mais ils ne peuvent pas être transformés indépendamment.
   * `none`: Le graphique de scène est réduit en un seul objet.
 
-Chaque mode a des performances d’exécution différentes. En mode `dynamic`, le coût des performances est mis à l’échelle de manière linéaire avec le nombre [d’entités](../../concepts/entities.md) dans le graphique, même si aucune partie n’est déplacée. Vous devez l’utiliser uniquement lorsque vous déplacez des parties individuellement pour l’application, par exemple pour une animation « vue en éclaté ».
+Chaque mode a des performances d’exécution différentes. En mode `dynamic`, le coût des performances est mis à l’échelle de manière linéaire avec le nombre [d’entités](../../concepts/entities.md) dans le graphique, même si aucune partie n’est déplacée. Utilisez le mode `dynamic` uniquement lorsqu’il est nécessaire de déplacer des parties individuellement, par exemple pour une animation « vue en éclaté ».
 
 Le mode `static` exporte le graphique complet de la scène, mais les parties à l’intérieur de ce graphique ont une transformation constante par rapport à la partie racine. Toutefois, le nœud racine de l’objet peut toujours être déplacé, pivoté ou mis à l’échelle sans coût de performance significatif. En outre, les [requêtes spatiales](../../overview/features/spatial-queries.md) retournent des parties individuelles et chaque composant peut être modifié par le biais de [remplacements d’état](../../overview/features/override-hierarchical-state.md). Avec ce mode, la charge d’exécution par objet est négligeable. Il est idéal pour les grandes scènes où vous avez toujours besoin d’une inspection par objet, mais sans transformation par objet.
 
@@ -278,6 +282,11 @@ Dans de tels cas d’utilisation, les modèles présentent souvent des détails 
 * Les pièces individuelles doivent être sélectionnables et mobiles, et l’indicateur `sceneGraphMode` doit donc être laissé sur `dynamic`.
 * Les raycastings font généralement partie intégrante de l’application. Les maillages de collision doivent donc être générés.
 * Les plans de coupe présentent un meilleur aspect avec l’indicateur `opaqueMaterialDefaultSidedness` activé.
+
+## <a name="deprecated-features"></a>Fonctionnalités dépréciées
+
+La possibilité de fournir des paramètres à l’aide du nom de fichier non spécifique au modèle `conversionSettings.json` est toujours prise en charge, mais elle est dépréciée.
+Utilisez plutôt le nom de fichier propre au modèle `<modelName>.ConversionSettings.json`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519283"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534632"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
 Pour vous assurer que les bonnes personnes au sein de votre organisation sont informées des alertes de sécurité dans votre environnement, entrez leurs adresses e-mail dans la page des paramètres **Notifications par e-mail**.
 
-Lors de la configuration de vos notifications, vous pouvez configurer les e-mails à envoyer à des personnes spécifiques ou à toute personne disposant d’un rôle RBAC spécifique pour un abonnement. 
+Lors de la configuration de vos notifications, vous pouvez configurer les e-mails à envoyer à des personnes spécifiques ou à toute personne disposant d’un rôle Azure spécifique pour un abonnement. 
 
 Pour éviter la fatigue liée aux alertes, Security Center limite le volume des e-mails sortants. Pour chaque abonnement, Security Center envoie :
 
@@ -41,7 +41,7 @@ Pour éviter la fatigue liée aux alertes, Security Center limite le volume des 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurer des notifications par e-mail pour les alertes <a name="email"></a>
 
-Vous pouvez envoyer des notifications par e-mail à des individus ou à tous les utilisateurs ayant des rôles RBAC spécifiques.
+Vous pouvez envoyer des notifications par e-mail à des individus ou à tous les utilisateurs ayant des rôles Azure spécifiques.
 
 1. Dans la zone **Tarification et paramètres** de Security Center, sélectionnez l’abonnement approprié, puis **Notifications par e-mail**.
 

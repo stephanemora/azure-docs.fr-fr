@@ -1,6 +1,5 @@
 ---
-title: Déployer un service web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Déployer un service web – Azure'
 description: Comment convertir une expérience d’entraînement en expérience prédictive, la préparer au déploiement, puis la déployer en tant que service web Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8195d310de708e48b27b5a2d81023d02792be1d3
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696386"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429468"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Déployer un service web Azure Machine Learning Studio (classique)
+
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Azure Machine Learning Studio (classique) vous permet de générer et de tester une solution d’analytique prédictive. Vous pouvez ensuite déployer la solution comme un service web.
 
@@ -32,9 +34,9 @@ La saisie pour BES ressemble à la saisie de données utilisée par RRS. La prin
 
 D'un point de vue très général, vous déployez votre modèle en trois étapes :
 
-* **[Créez une expérience d'apprentissage]**  : dans Studio (classique), vous pouvez entraîner et tester un modèle d’analytique prédictive à l’aide de données d’entraînement que vous fournissez, en utilisant un grand ensemble d’algorithmes Machine Learning intégrés.
-* **[Convertissez-la en une expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
-* **Déployez** en tant que **[Nouveau service web]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
+* **[Créez une expérience d’entraînement]**  : dans Studio (classique), vous pouvez entraîner et tester un modèle d’analytique prédictive à l’aide de données d’entraînement que vous fournissez, en utilisant un grand ensemble d’algorithmes Machine Learning intégrés.
+* **[Convertissez-la en une expérience prédictive]**: lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
+* **Déployez** en tant que **[nouveau service web ]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
 
 ## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
 

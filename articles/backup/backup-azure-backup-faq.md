@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970482"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553085"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -111,7 +111,7 @@ Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go
 Windows Server 2008, Windows Server 2008 R2 | 1 700 Go
-Azure VM | Consultez la [matrice de prise en charge de la sauvegarde de machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Azure VM | Consultez la [matrice de prise en charge de la sauvegarde de machines virtuelles Azure](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Comment la taille de la source de données est-elle déterminée ?
 
@@ -127,7 +127,7 @@ Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>La quantité de données sauvegardées dans un coffre Recovery Services est-elle limitée ?
 
-Il n’existe aucune limite pour la quantité totale de données que vous pouvez sauvegarder dans un coffre Recovery Services. Les sources de données individuelles (autres que les machines virtuelles Azure) peuvent avoir une taille maximale de 54 400 Go. Pour plus d’informations sur les limites, consultez la [section relative aux limites du coffre dans la matrice de prise en charge](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Il n’existe aucune limite pour la quantité totale de données que vous pouvez sauvegarder dans un coffre Recovery Services. Les sources de données individuelles (autres que les machines virtuelles Azure) peuvent avoir une taille maximale de 54 400 Go. Pour plus d’informations sur les limites, consultez la [section relative aux limites du coffre dans la matrice de prise en charge](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Pourquoi la taille des données transférées dans le coffre Recovery Services est-elle plus réduite que celle des données sélectionnées pour la sauvegarde ?
 
@@ -197,6 +197,10 @@ Lorsqu’une nouvelle stratégie est appliquée, le planning et la rétention de
 - Si la rétention est étendue, les points de récupération existants sont marqués comme étant à conserver, selon la nouvelle stratégie.
 - Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et sont ensuite supprimés.
 
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>Pendant combien de temps les données sont-elles conservées lors de l’arrêt des sauvegardes, avec l’option de conservation des données de sauvegarde sélectionnée ?
+
+Quand des sauvegardes sont arrêtées et les données conservées, les règles de stratégie existantes pour le nettoyage cessent de s’appliquer et les données sont conservées indéfiniment jusqu’à ce que l’administrateur initialise leur suppression.
+
 ## <a name="encryption"></a>Chiffrement
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Les données envoyées à Azure sont-elles chiffrées ?
@@ -214,7 +218,7 @@ Microsoft ne déchiffre les données de sauvegarde à aucun moment.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?
 
-La clé de chiffrement doit comporter au moins 16 caractères lorsque vous utilisez l’agent de sauvegarde Azure. Pour les machines virtuelles Azure, il n’existe aucune limite à la longueur des clés utilisées par Azure KeyVault.
+La clé de chiffrement utilisée par l’agent Microsoft Azure Recovery Services (MARS) est dérivée d’une phrase secrète qui doit comporter au moins 16 caractères. Pour les machines virtuelles Azure, il n’existe aucune limite à la longueur des clés qu’Azure Key Vault utilise.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer les données ? Microsoft peut-il récupérer les données ?
 

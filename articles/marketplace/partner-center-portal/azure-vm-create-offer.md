@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386433"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798067"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 
@@ -245,16 +245,17 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 >[!NOTE]
 >Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
-#### <a name="azure-marketplace-logos"></a>Logos de la Place de marché Azure
+#### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers PNG du logo de votre offre avec les quatre dimensions d’image suivantes :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
 
-- **Petite** (48 &times; 48 pixels)
-- **Moyenne** (90 &times; 90 pixels)
-- **Grande** (216 &times; 216 pixels)
-- **Large** (255 &times; 115 pixels)
+Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
-Les quatre logos sont obligatoires. Ils sont affichés dans différentes listes de la Place de marché Azure.
+- **Petit** (48 x 48)
+- **Moyen** (90 x 90)
+- **Grand** (entre 216 x 216 et 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
+ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbc0f607af31d0e3b3715e73ddbde19143bd1599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384139"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481673"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versions de mise en page et JavaScript dans Azure Active Directory B2C
 
@@ -40,7 +41,7 @@ Dans le flux d'utilisateurs **Propriétés**, vous pouvez activer JavaScript. L'
 
 ## <a name="select-a-page-layout-version"></a>Sélectionner une version de mise en page
 
-Que vous activiez ou non JavaScript dans les propriétés de votre flux d’utilisateur, vous pouvez spécifier une version de mise en page pour vos pages de flux d’utilisateur. Ouvrez le flux d’utilisateur et sélectionnez **Mises en page**. Sous **NOM DE LA MISE EN PAGE**, sélectionnez une page de flux d’utilisateur et choisissez **Version de mise en page**.
+Que vous activiez ou non JavaScript dans les propriétés de votre flux d’utilisateur, vous pouvez spécifier une version de mise en page pour vos pages de flux d’utilisateur. Ouvrez le flux d’utilisateur et sélectionnez **Mises en page**. Sous **Nom de la disposition**, sélectionnez une page de flux utilisateur et choisissez **Version Mise en page (préversion)** .
 
 Pour plus d'informations sur les différentes versions de mise en page, consultez le [Journal des modifications des versions de mise en page](page-layout.md).
 

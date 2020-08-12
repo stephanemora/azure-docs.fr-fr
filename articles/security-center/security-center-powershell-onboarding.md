@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080746"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
 
@@ -29,7 +29,7 @@ L’intégration d’Azure Security Center à l’aide de PowerShell vous permet
 
 Cet article fournit un exemple de script PowerShell que vous pouvez modifier et utiliser dans votre environnement pour déployer Azure Security Center vers vos abonnements. 
 
-Dans cet exemple, nous allons activer Azure Security Center sur un abonnement dont l’ID est d07c0080-170c-4c24-861d-9c817742786c, puis appliquer les paramètres recommandés qui fournissent un niveau élevé de protection, en implémentant le niveau Standard d’Azure Security Center qui fournit des fonctionnalités avancées de détection des menaces et de protection contre celles-ci :
+Dans cet exemple, nous allons activer Azure Security Center sur un abonnement dont l’ID est d07c0080-170c-4c24-861d-9c817742786c, puis appliquer les paramètres recommandés qui fournissent un niveau élevé de protection, en implémentant le niveau standard d’Azure Security Center qui fournit des fonctionnalités avancées de détection des menaces et de protection contre celles-ci :
 
 1. Définissez le [niveau de protection Security Center standard](https://azure.microsoft.com/pricing/details/security-center/). 
  

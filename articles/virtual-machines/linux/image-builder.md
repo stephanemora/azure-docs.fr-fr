@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: b0df0fc43fcd125c6fc96fd2abbe3857d0d23afa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4715bd8b7a13a5ab53d254ac853ac324440b403
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84141974"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502611"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Linux et la distribuer à une galerie d’images partagées 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Aperçu : Créer une image Linux et la distribuer à une galerie d’images partagées à l’aide d’Azure CLI
 
-Cet article explique comment utiliser Azure Image Builder et Azure CLI pour créer une version d’une image dans une [galerie d’images partagées](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), puis distribuer l’image dans le monde entier. Vous pouvez également faire cela avec [Azure PowerShell](../windows/image-builder-gallery.md).
+Cet article explique comment utiliser Azure Image Builder et Azure CLI pour créer une version d’une image dans une [galerie d’images partagées](../windows/shared-image-galleries.md), puis distribuer l’image dans le monde entier. Vous pouvez également faire cela avec [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier en question se trouve à l’emplacement [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -93,7 +93,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Créer une identité affectée par l’utilisateur et définir des autorisations sur le groupe de ressources
-Image Builder utilise l’[identité de l’utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fourni pour injecter l’image dans la Shared Image Gallery (SIG). Dans cet exemple, vous allez créer une définition de rôle Azure qui dispose des actions granulaires pour distribuer l’image à la SIG. La définition de rôle sera ensuite affectée à l’identité de l’utilisateur.
+Image Builder utilise l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fournie pour injecter l’image dans Azure Shared Image Gallery (SIG). Dans cet exemple, vous allez créer une définition de rôle Azure qui dispose des actions granulaires pour distribuer l’image à la galerie SIG. La définition de rôle sera ensuite attribuée à l’identité de l’utilisateur.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -106,7 +106,7 @@ imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName | grep 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
-# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+# this command will download an Azure role definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016312"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -169,7 +169,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Limitations du connecteur
+## <a name="troubleshooting-tips"></a>Conseils de dépannage
 
 * Quand vous configurez l’attribut **displayName** de Slack, tenez compte des comportements suivants :
 
@@ -179,11 +179,15 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
   
   * Les signes de ponctuation autorisés sont notamment les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )** ) et séparateurs (par exemple, **, / ;** ).
   
+  * La propriété displayName ne peut pas comporter de caractère « @ ». Si un « @ » est inclus, il se peut que vous trouviez un événement ignoré dans les journaux d’approvisionnement avec la description « AttributeValidationFailed ».
+
   * La mise à jour n’est effectuée que si ces deux paramètres sont configurés dans l’espace de travail/organisation de Slack : **Profile syncing is enabled** (La synchronisation des profils est activée) et **Users cannot change their display name** (Les utilisateurs ne peuvent pas changer leur nom d’affichage).
-  
+
 * L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
 
 * Slack n’autorise que la correspondance avec les attributs **userName** et **email**.  
+  
+* Les codes d’erreur courants sont documentés dans la documentation officielle de Slack : https://api.slack.com/scim#errors.
 
 ## <a name="change-log"></a>Journal des modifications
 

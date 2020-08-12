@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 0956a38349ef7bc7571dfac2f3722dd9fea425a3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201642"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495078"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connectivité SSL/TLS dans Azure Database pour MySQL
 
 La base de données Azure pour MySQL prend en charge la connexion de votre serveur de base de données aux applications clientes via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
 
 > [!NOTE]
-> La mise à jour de la valeur du paramètre de serveur `require_secure_transport` n’affecte pas le comportement du service MySQL. Utilisez les fonctionnalités d’application SSL et TLS décrites dans cet article pour sécuriser les connexions.
+> La mise à jour de la valeur du paramètre de serveur `require_secure_transport` n’affecte pas le comportement du service MySQL. Utilisez les fonctionnalités d’application SSL et TLS décrites dans cet article pour sécuriser les connexions à votre base de données.
 
 ## <a name="ssl-default-settings"></a>Paramètres SSL par défaut
 
@@ -28,9 +28,9 @@ Lorsque vous approvisionnez un nouveau serveur de base de données Azure pour My
 
 Les chaînes de connexion pour les différents langages de programmation sont affichées dans le portail Azure. Ces chaînes de connexion incluent les paramètres SSL requis pour se connecter à votre base de données. Dans le portail Azure, sélectionnez votre serveur. Sous l’en-tête **Paramètres**, sélectionnez les **Chaînes de connexion**. Le paramètre SSL varie en fonction du connecteur, par exemple « ssl=true », « sslmode=require » ou « sslmode=require » et d’autres variations.
 
-Dans certains cas, les applications nécessitent un fichier de certificat local généré à partir du fichier de certificat d’une autorité de certification (AC) approuvée pour se connecter en toute sécurité. Vous trouverez le certificat permettant la connexion à un serveur Azure Database pour MySQL ici : https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. 
+Dans certains cas, les applications nécessitent un fichier de certificat local généré à partir du fichier de certificat d’une autorité de certification (AC) approuvée pour se connecter en toute sécurité. Actuellement, les clients peuvent **uniquement utiliser** le certificat prédéfini pour se connecter à un serveur Azure Database pour MySQL, situé sur https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. 
 
-Consultez les liens suivants afin d’obtenir des certificats pour les serveurs de clouds souverains : [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chine](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et [Azure Allemagne](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+De même, les liens suivants pointent vers les certificats pour les serveurs des clouds souverains : [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chine](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et [Azure Allemagne](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 Pour découvrir comment activer ou désactiver la connexion SSL pour le développement d’applications, consultez la page [Guide pratique : configurer SSL](howto-configure-ssl.md).
 

@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070655"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534105"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -120,7 +120,7 @@ Vous pouvez configurer des comptes de stockage pour autoriser l’accès uniquem
 
 Activez un [point de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview) pour le stockage Azure dans le réseau virtuel. Le point de terminaison de service achemine le trafic à partir du réseau virtuel via un chemin d’accès optimal vers le service Stockage Azure. Les identités du sous-réseau et du réseau virtuel sont également transmises avec chaque demande. Les administrateurs peuvent ensuite configurer des règles de réseau pour le compte de stockage qui autorisent la réception des demandes à partir de sous-réseaux spécifiques d’un réseau virtuel. Les clients qui obtiennent un accès par le biais de ces règles de réseau doivent continuer à respecter les exigences d’autorisation du compte de stockage pour accéder aux données.
 
-Chaque compte de stockage prend en charge jusqu’à 100 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
+Chaque compte de stockage prend en charge jusqu’à 200 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Régions de réseau virtuel disponibles
 
@@ -365,7 +365,7 @@ Les règles de réseau vous aident à créer un environnement sécurisé pour le
 Certains services Microsoft fonctionnent à partir de réseaux qui ne peuvent pas être inclus dans vos règles de réseau. Vous pouvez accorder à une partie de ces services Microsoft approuvés l’accès au compte de stockage, mais conserver des règles de réseau pour d’autres applications. Ces services approuvés se connectent ensuite à votre compte de stockage de manière sécurisée à l’aide de l’authentification renforcée. Nous autorisons deux modes d’accès approuvés pour les services Microsoft.
 
 - Les ressources de certains services, **quand ils sont inscrits dans votre abonnement**, peuvent accéder à votre compte de stockage **dans le même abonnement** pour des opérations spécifiques, comme la journalisation ou la sauvegarde.
-- Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en **attribuant un rôle RBAC** à son identité managée attribuée par le système.
+- Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en **attribuant un rôle Azure** à son identité managée attribuée par le système.
 
 
 Quand vous activez le paramètre **Autoriser les services Microsoft approuvés...** , les ressources des services suivants qui sont inscrites dans le même abonnement que votre compte de stockage bénéficient d’un accès pour un ensemble limité d’opérations, comme décrit ci-dessous :
@@ -384,7 +384,7 @@ Quand vous activez le paramètre **Autoriser les services Microsoft approuvés..
 | Mise en réseau Azure         | Microsoft.Network          | Stockez et analysez les journaux du trafic réseau, notamment celui qui transite par les services Network Watcher et Traffic Analytics. [Plus d’informations](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Activez la réplication pour la reprise d’activité des machines virtuelles Azure IaaS lors de l’utilisation de comptes de stockage de cache avec pare-feu activé, de stockage source ou de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
-Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous [attribuez explicitement un rôle RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle RBAC affecté à l’identité managée.
+Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous [attribuez explicitement un rôle Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 
 | Service                        | Nom du fournisseur de ressources                 | Objectif            |
 | :----------------------------- | :------------------------------------- | :----------------- |

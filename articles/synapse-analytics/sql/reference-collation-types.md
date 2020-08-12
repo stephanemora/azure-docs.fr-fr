@@ -1,5 +1,5 @@
 ---
-title: Classement
+title: Prise en charge du classement
 description: Types de classements pris en charge dans Azure Synapse SQL.
 author: filippopovic
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e9d8048c88a5ef37df2fde1ab282a834b07228a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206340"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496200"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Prise en charge des classements de base de données pour SQL Synapse
 
@@ -23,7 +23,7 @@ Vous pouvez modifier le classement par défaut de base de données du portail Az
 
 Vous pouvez spécifier le classement par défaut de la base de données SQL Synapse à la demande au moment de sa création à l’aide de l’instruction CREATE DATABASE.
 
-## <a name="changing-collation"></a>Modification du classement
+## <a name="change-collation"></a>Modifier le classement
 Pour modifier le classement par défaut de la base de données de pool SQL, vous devez simplement mettre à jour le champ Classement dans l’expérience de provisionnement. Par exemple, si vous souhaitez modifier le classement par défaut en respectant la casse, vous devez simplement renommer le classement SQL_Latin1_General_CP1_CI_AS en SQL_Latin1_General_CP1_CS_AS. 
 
 Pour modifier le classement par défaut de la base de données SQL à la demande, vous pouvez utiliser l’instruction ALTER DATABASE.
@@ -104,7 +104,7 @@ En outre, le pool SQL ne prend pas en charge les types de classements suivants 
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Vérification du classement actuel
+## <a name="check-the-current-collation"></a>Vérifier le classement actuel
 Pour vérifier le classement actuel de la base de données, vous pouvez exécuter l’extrait de code T-SQL suivant :
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

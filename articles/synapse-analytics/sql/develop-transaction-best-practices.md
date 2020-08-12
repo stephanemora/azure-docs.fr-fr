@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075717"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503189"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Optimisation des transactions dans le pool SQL
+# <a name="optimize-transactions-in-sql-pool"></a>Optimiser les transactions pour le pool SQL
 
 Découvrez comment optimiser les performances de votre code transactionnel dans le pool SQL tout en minimisant les risques de restaurations de longue durée.
 
@@ -82,7 +82,7 @@ Il est important de noter que toute opération d’écriture effectuée dans le 
 
 Le chargement de données dans une table non vide avec un index cluster comporte bien souvent une combinaison de lignes ayant fait l’objet d’une journalisation minimale et complète. Un index cluster est un arbre équilibré (arbre b) de pages. Si la page cible de l’écriture comporte déjà des lignes d’une autre transaction, ces opérations d’écriture feront l’objet d’une journalisation complète. Toutefois, si la page est vide, l’opération d’écriture fera l’objet d’une journalisation minimale.
 
-## <a name="optimizing-deletes"></a>Optimisation des suppressions
+## <a name="optimize-deletes"></a>Optimiser les suppressions
 
 DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour permuter l’ancienne table et la table nouvellement créée.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optimisation des mises à jour
+## <a name="optimize-updates"></a>Optimiser les mises à jour
 
 UPDATE est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > Les fonctionnalités de gestion de la charge de travail du pool SQL peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="optimizing-with-partition-switching"></a>Optimisation avec basculement de partitions
+## <a name="optimize-with-partition-switching"></a>Optimisation avec basculement de partitions
 
 Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089700"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
@@ -44,7 +44,7 @@ L’intégration de Defender ATP à Azure Security Center vous permet également
 
 ## <a name="platform-support"></a>Plateforme prise en charge
 
-Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau standard, et pour les machines virtuelles non Azure, vous avez besoin seulement du niveau standard au niveau de l’espace de travail.
+Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau Standard, et pour les machines virtuelles non-Azure, vous avez besoin seulement du niveau Standard au niveau de l’espace de travail.
 
 La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC.
 
@@ -59,8 +59,9 @@ Une fois qu’il est configuré, vous ne pouvez pas changer l’emplacement de s
 
 Pour intégrer des serveurs à Security Center, cliquez sur **Accéder à Azure Security Center pour intégrer des serveurs** dans la page d’intégration de serveur Microsoft Defender ATP.
 
-1. Dans la zone **Intégration**, sélectionnez ou créez un espace de travail dans lequel stocker les données. <br>
-2. Si vous ne voyez pas tous vos espaces de travail, cela peut être dû à un manque d’autorisations. Vérifiez que votre espace de travail est défini sur le niveau Standard d’Azure Security Center. Pour plus d’informations, consultez [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
+1. Dans la zone **Intégration**, sélectionnez ou créez un espace de travail dans lequel stocker les données.
+
+2. Si vous ne voyez pas tous vos espaces de travail, cela peut être dû à un manque d’autorisations. Vérifiez que votre espace de travail est défini sur le niveau tarifaire Standard d’Azure Security Center. Pour plus d’informations, consultez [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
     
 3. Sélectionnez **Ajouter des serveurs** pour afficher des instructions sur la façon d’installer l’agent Log Analytics. 
 

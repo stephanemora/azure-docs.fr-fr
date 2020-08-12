@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463448"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446849"
 ---
 # <a name="copy-a-blob-with-net"></a>Copier un objet blob avec .NET
 
@@ -23,7 +23,7 @@ Cet article explique comment copier un objet blob avec un compte de stockage Azu
 
 Lorsque vous copiez un objet blob dans le même compte de stockage, il s’agit d’une opération synchrone. Lorsque vous effectuez la copie d’un compte à un autre, il s’agit d’une opération asynchrone. Les méthodes [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) et [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) retournent une valeur d’ID de copie utilisée pour vérifier l’état ou abandonner l’opération de copie.
 
-L’objet blob source d’une opération de copie peut être un objet blob de blocs, un objet blob d’ajout, un objet blob de pages ou un instantané. Si l’objet blob de destination existe déjà, il doit être du même type d’objet blob que l’objet blob source. Tout objet blob de destination existant sera remplacé. 
+L’objet blob source d’une opération de copie peut être un objet blob de blocs, un objet blob d’ajout, un objet blob de pages ou un instantané. Si l’objet blob de destination existe déjà, il doit être du même type d’objet blob que l’objet blob source. Tout objet blob de destination existant sera remplacé.
 
 L’objet blob de destination ne peut pas être modifié pendant une opération de copie. Un objet blob de destination ne peut avoir qu’une seule opération de copie d’objet blob en attente. En d’autres termes, un objet blob ne peut pas être la destination de plusieurs opérations de copie en attente.
 
@@ -35,18 +35,18 @@ Pour tous les types d’objet blob, vous pouvez vérifier la propriété [CopySt
 
 Une opération de copie peut prendre l’une des formes suivantes :
 
-  - Vous pouvez copier un objet blob source vers un objet blob de destination avec un nom différent. L’objet blob de destination peut être un objet blob existant du même type d’objet blob (bloc, ajout ou page), ou il peut s’agir d’un nouvel objet blob créé par l’opération de copie.
-  - Vous pouvez copier un objet blob source vers un objet blob de destination portant le même nom, ce qui a pour effet de remplacer l’objet blob de destination. Cette opération supprime tous les blocs non validés et remplace les métadonnées de l’objet blob de destination.
-  - Vous pouvez copier un fichier source figurant dans le service Azure File vers un objet blob de destination. L’objet blob de destination peut être un objet blob existant ou un nouvel objet blob de blocs créé par l’opération de copie. La copie de fichiers vers des objets blob de pages ou d’ajout n’est pas prise en charge.
-  - Vous pouvez copier un instantané sur son objet blob de base. En plaçant un instantané à la place d'un objet blob de base, vous pouvez restaurer une version antérieure de l’objet blob.
-  - Vous pouvez copier un instantané sur un objet blob de destination avec un nom différent. L’objet blob de destination obtenu est un objet blob modifiable et non pas un instantané.
+- Vous pouvez copier un objet blob source vers un objet blob de destination avec un nom différent. L’objet blob de destination peut être un objet blob existant du même type d’objet blob (bloc, ajout ou page), ou il peut s’agir d’un nouvel objet blob créé par l’opération de copie.
+- Vous pouvez copier un objet blob source vers un objet blob de destination portant le même nom, ce qui a pour effet de remplacer l’objet blob de destination. Cette opération supprime tous les blocs non validés et remplace les métadonnées de l’objet blob de destination.
+- Vous pouvez copier un fichier source figurant dans le service Azure File vers un objet blob de destination. L’objet blob de destination peut être un objet blob existant ou un nouvel objet blob de blocs créé par l’opération de copie. La copie de fichiers vers des objets blob de pages ou d’ajout n’est pas prise en charge.
+- Vous pouvez copier un instantané sur son objet blob de base. En plaçant un instantané à la place d'un objet blob de base, vous pouvez restaurer une version antérieure de l’objet blob.
+- Vous pouvez copier un instantané sur un objet blob de destination avec un nom différent. L’objet blob de destination obtenu est un objet blob modifiable et non pas un instantané.
 
 ## <a name="copy-a-blob"></a>Copier un objet blob
 
 Pour copier un objet blob, appelez l’une des méthodes suivantes :
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 L’exemple de code suivant obtient une référence à un objet blob créé précédemment et copie ce dernier dans un nouvel objet blob dans le même conteneur :
 

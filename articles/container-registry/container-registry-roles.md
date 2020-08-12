@@ -1,14 +1,14 @@
 ---
-title: Rôles et les autorisations RBAC
-description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la gestion des identités et des accès (IAM) d’Azure pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
+title: Autorisations et rôles Azure
+description: Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et la gestion des identités et des accès (IAM) pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74893482"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533306"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -85,7 +85,7 @@ Pour définir un rôle personnalisé, consultez [Procédure de création d’un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez-en davantage sur l’attribution de rôles RBAC à une identité Azure à l’aide du [portail Azure](../role-based-access-control/role-assignments-portal.md), l’[interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) ou d’autres outils Azure.
+* Apprenez-en davantage sur l’attribution de rôles Azure à une identité Azure à l’aide du [portail Azure](../role-based-access-control/role-assignments-portal.md), de l’[interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) ou d’autres outils Azure.
 
 * Apprenez-en davantage sur les [options d’authentification](container-registry-authentication.md) pour Azure Container Registry.
 

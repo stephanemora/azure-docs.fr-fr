@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 6ad6ca72f0861324a10e93a1eadbdc11c6104574
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320967"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541122"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,14 +96,12 @@ Consultez la section[Déployer vos modèles avec VS Code](tutorial-train-deploy
 > [!IMPORTANT]
 > Vous n’avez pas besoin de créer un conteneur ACI à tester à l’avance. Les conteneurs ACI sont créés en fonction des besoins.
 
-## <a name="update-the-web-service"></a>Mise à jour du service web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
+* [Mettre à jour le service web](how-to-deploy-update-web-service.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)

@@ -3,16 +3,16 @@ title: Échanger des messages avec Azure Service Bus
 description: Créer des tâches et des flux de travail automatisés pour envoyer et recevoir des messages en utilisant Azure Service Bus dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461598"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Un espace de noms et une entité de messagerie Service Bus, telle une file d’attente. Ces éléments et votre application logique doivent utiliser le même abonnement Azure. Si vous ne disposez pas de ces éléments, découvrez comment [créer votre espace de noms Service Bus et une file d’attente](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -45,7 +45,7 @@ Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service
 
 Vérifiez que votre application logique dispose des autorisations pour accéder à l’espace de noms Service Bus.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sur le [portail Azure](https://portal.azure.com) connectez-vous avec votre compte Azure.
 
 1. Accédez à votre *espace de noms* Service Bus. Dans la page de l’espace de noms, sous **Paramètres**, sélectionnez **Stratégies d’accès partagé**. Sous **Revendications**, vérifiez que vous disposez des autorisations **Gérer** pour cet espace de noms.
 
@@ -54,7 +54,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 1. Récupérez la chaîne de connexion pour votre espace de noms Service Bus. Vous avez besoin de cette chaîne au moment où vous fournissez les informations de connexion dans votre application logique.
 
    1. Dans le volet **Stratégies d’accès partagé**, sélectionnez **RootManageSharedAccessKey**.
-   
+
    1. En regard de votre chaîne de connexion principale, sélectionnez le bouton de copie. Enregistrez la chaîne de connexion en vue d’une utilisation ultérieure.
 
       ![Copier la chaîne de connexion de l’espace de noms Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -156,7 +156,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 ## <a name="send-correlated-messages-in-order"></a>Envoyer des messages corrélés dans l'ordre
 
-Lorsque vous devez envoyer des messages connexes dans un ordre précis, vous pouvez utiliser le modèle de [*convoi séquentiel*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) à l'aide du [connecteur Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Les messages corrélés possèdent une propriété qui définit la relation entre ces messages, comme l'ID de la [session](../service-bus-messaging/message-sessions.md) dans Service Bus.
+Lorsque vous devez envoyer des messages connexes dans un ordre précis, vous pouvez utiliser le modèle de [*convoi séquentiel*](/azure/architecture/patterns/sequential-convoy) à l'aide du [connecteur Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Les messages corrélés possèdent une propriété qui définit la relation entre ces messages, comme l'ID de la [session](../service-bus-messaging/message-sessions.md) dans Service Bus.
 
 Lorsque vous créez une application logique, vous pouvez sélectionner le modèle **Livraison corrélée dans l'ordre à l'aide de sessions Service Bus**, qui implémente le modèle de convoi séquentiel. Pour plus d'informations, consultez [Envoyer des messages connexes dans l'ordre](../logic-apps/send-related-messages-sequential-convoy.md).
 

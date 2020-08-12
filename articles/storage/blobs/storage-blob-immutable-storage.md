@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561044"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448332"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -78,7 +78,7 @@ Les limites suivantes s’appliquent aux stratégies de rétention :
 
 Les objets blob d’ajout sont constitués de blocs de données et sont optimisés pour les opérations d’ajout de données nécessaires dans les scénarios d’audit et de journalisation. Du fait de la conception des objets blob d’ajout, les nouveaux blocs ne peuvent être ajoutés qu’à la fin des objets blob. Indépendamment de l’immuabilité, la modification ou la suppression de blocs existants dans un objet blob d’ajout ne sont absolument pas autorisées. Pour en savoir plus sur les objets blob d’ajout, consultez [À propos des objets blob d’ajout](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Seules les stratégies de rétention limitées dans le temps ont un paramètre `allowProtectedAppendWrites` qui autorise l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. S’il est activé, vous êtes autorisé à créer un objet blob d’ajout directement dans le conteneur protégé par une stratégie et à continuer à ajouter de nouveaux blocs de données à la fin des objets blob d’ajout existants à l’aide de l’API *AppendBlock*. Seuls de nouveaux blocs peuvent être ajoutés et les blocs existants ne peuvent pas être modifiés ou supprimés. La protection de l’immuabilité de la durée de rétention continue de s’appliquer, ce qui empêche la suppression de l’objet blob d’ajout tant que la période de rétention effective n’est pas passée. L’activation de ce paramètre n’affecte pas le comportement d’immuabilité des objets blob de blocs ou de pages.
+Seules les stratégies de rétention limitées dans le temps ont un paramètre `allowProtectedAppendWrites` qui autorise l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. Si ce paramètre est activé, vous êtes autorisé à créer un objet blob d’ajout directement dans le conteneur protégé par une stratégie et à continuer à ajouter de nouveaux blocs de données à la fin des objets blob d’ajout existants à l’aide de l’API *AppendBlock*. Seuls de nouveaux blocs peuvent être ajoutés et les blocs existants ne peuvent pas être modifiés ou supprimés. La protection de l’immuabilité de la durée de rétention continue de s’appliquer, ce qui empêche la suppression de l’objet blob d’ajout tant que la période de rétention effective n’est pas passée. L’activation de ce paramètre n’affecte pas le comportement d’immuabilité des objets blob de blocs ou de pages.
 
 Sachant que ce paramètre fait partie d’une stratégie de rétention limitée dans le temps, les objets blob d’ajout restent toujours à l’état immuable pendant la période de rétention *effective*. Comme il est possible d’ajouter de nouvelles données au-delà de la création initiale de l’objet blob d’ajout, il existe une légère différence quant à la façon dont la durée de rétention est déterminée. La rétention effective est égale à la différence entre le moment où l’objet blob d’ajout est **modifié pour la dernier fois** et l’intervalle de rétention spécifié par l’utilisateur. De la même manière, quand l’intervalle de rétention est allongé, le stockage immuable utilise la valeur la plus récente de l’intervalle de rétention spécifié par l’utilisateur pour calculer la durée de conservation effective.
 

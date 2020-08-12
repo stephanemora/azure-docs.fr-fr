@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275477"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -85,7 +85,7 @@ Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vou
 
 1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
 1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
-1. **Ajouter des filtres** > **Application cliente** > sélectionnez tous les protocoles d’authentification hérités, puis cliquez sur **Appliquer**.
+1. **Ajouter des filtres** > **Application cliente** > sélectionnez tous les protocoles d’authentification hérités. Sélectionnez en dehors de la boîte de dialogue de filtrage pour appliquer vos sélections, puis fermez la boîte de dialogue.
 
 Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
 

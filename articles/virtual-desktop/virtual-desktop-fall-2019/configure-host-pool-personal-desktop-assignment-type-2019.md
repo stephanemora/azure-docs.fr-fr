@@ -1,6 +1,6 @@
 ---
-title: Type d’affectation de bureau personnel Windows Virtual Desktop – Azure
-description: Guide pratique pour configurer le type d’affectation pour un pool hôte de bureau personnel Windows Virtual Desktop.
+title: Type d’affectation de bureau personnel Windows Virtual Desktop (classique) – Azure
+description: Guide pratique pour configurer le type d’affectation d’un pool d’hôtes de bureau personnel Windows Virtual Desktop (classique).
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259800"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271040"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurer le type d’affectation d’un pool hôte de bureau personnel
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Configurer le type d’affectation d’un pool d’hôtes de bureau personnel pour Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../configure-host-pool-personal-desktop-assignment-type.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../configure-host-pool-personal-desktop-assignment-type.md).
 
 Vous pouvez configurer le type d’affectation de votre pool hôte de bureau personnel pour adapter votre environnement Windows Virtual Desktop à vos besoins. Cette rubrique explique comment configurer l’affectation automatique ou directe pour les utilisateurs.
 

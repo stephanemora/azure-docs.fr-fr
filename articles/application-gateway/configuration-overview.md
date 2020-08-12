@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 8a9373893b1381e9a2f54bb83717e6001efac295
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386331"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438910"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -55,7 +55,7 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
   - De ne pas supprimer les règles de trafic sortant par défaut.
   - De ne pas créer d’autres règles de trafic sortant qui refusent toute connectivité sortante.
 
-- Le trafic en provenance de la balise **AzureLoadBalancer** doit être autorisé.
+- Le trafic à partir de la balise **AzureLoadBalancer** avec le sous-réseau de destination comme **Tout** doit être autorisé.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Autoriser l’accès d’Application Gateway à quelques adresses IP sources
 
@@ -122,7 +122,15 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
 ## <a name="front-end-ip"></a>Adresse IP front-end
 
-Vous pouvez configurer la passerelle d’application pour qu’elle ait une adresse IP publique, une adresse IP privée ou les deux. Une adresse IP publique est nécessaire quand vous hébergez un back-end auquel les clients doivent accéder par Internet par le biais d’une adresse IP virtuelle Internet. 
+Vous pouvez configurer la passerelle d’application pour qu’elle ait une adresse IP publique, une adresse IP privée ou les deux. Une adresse IP publique est nécessaire quand vous hébergez un back-end auquel les clients doivent accéder par Internet par le biais d’une adresse IP virtuelle Internet.
+
+> [!NOTE]
+> Application Gateway v2 ne prend actuellement pas en charge le mode IP privé. Elle prend en charge les combinaisons suivantes :
+>* adresse IP privée et adresse IP publique
+>* adresse IP publique uniquement
+>
+> Pour plus d'informations, consultez [Forum Aux Questions sur le App Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+
 
 Une adresse IP publique n’est pas nécessaire pour un point de terminaison interne non exposé à Internet. Ce dernier est appelé point de terminaison d’*équilibreur de charge interne* ou adresse IP front-end privée. L’équilibreur de charge interne de la passerelle d’application s’avère utile pour les applications métier internes non exposées à Internet. Il s’avère également utile pour les services et niveaux inclus dans une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui a besoin d’une distribution de charge par tourniquet, de l’adhérence de session ou de la terminaison TLS.
 

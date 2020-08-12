@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077859"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446840"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du stockage Azure
 
@@ -104,7 +104,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 
 | Nom de la dimension | Description |
 | ------------------- | ----------------- |
-| **BlobType** | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob**, **PageBlob**, et **Azure Data Lake Storage**. Append Blob est inclus dans BlockBlob. |
+| **BlobType** | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob**, **PageBlob**, et **Azure Data Lake Storage**. Les blobs d’ajout sont inclus dans **BlockBlob**. |
 | **BlobTier** | Le Stockage Azure propose différents niveaux d’accès qui vous permettent de stocker vos objets blob de la manière la plus économique. Pour en savoir plus, consultez [Niveau du stockage Azure d’objets blob](../blobs/storage-blob-storage-tiers.md). Les valeurs prises en charge incluent : <br/> <li>**Hot** : Niveau de stockage chaud</li> <li>**Cool** : Niveau de stockage froid</li> <li>**Archivage** : Niveau de stockage archive</li> <li>**Premium** : Niveau Premium pour les objets blob de blocs</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Types de niveau pour les objets blob de pages premium</li> <li>**Standard** : Type de niveau pour les objets blob de pages standard</li> <li>**Untiered** : Type de niveau pour un compte de stockage à usage général v1</li> |
 | **GeoType** | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent **Principal** et **Secondaire**. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
 | **ResponseType** | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>**ServerOtherError**: toutes les autres erreurs côté serveur sauf celles décrites </li> <li>**ServerBusyError**: requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li>**ServerTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li>**AuthorizationError**: requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li>**NetworkError**: requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li><li>**ClientAccountBandwidthThrottlingError** : Une limitation de la bande passante est appliquée à la requête pour dépassement des [limites de scalabilité du compte de stockage](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError** : Une limitation du taux de requêtes est appliquée à la requête pour dépassement des [limites de scalabilité du compte de stockage](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Autre erreur de limitation côté client. ClientAccountBandwidthThrottlingError et ClientAccountRequestThrottlingError sont exclus.</li> <li>**ClientTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li>**ClientOtherError**: toutes les autres erreurs côté client sauf celles décrites. </li> <li>**Réussite** : requête réussie</li> <li> **SuccessWithThrottling** : Demande réussie lorsqu’un client SMB est ralenti lors des premières tentatives, mais qu’il réussit lors des suivantes.</li> |

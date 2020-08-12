@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537712"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541649"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformation de suppression de tableau croisé dynamique Azure Data Factory
 
@@ -46,7 +46,7 @@ Pour finir, choisissez l’agrégation que vous souhaitez utiliser pour les vale
 
 Par exemple, l’ajout d’un tableau croisé dynamique « Ventes » par « Région » vous donnera simplement de nouvelles valeurs de colonne à partir de chaque valeur des ventes. Par exemple : "25", "50", "1000", ... Toutefois, si vous définissez une valeur de préfixe « Ventes », « Ventes » précédera les valeurs.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Image représentant les colonnes PO, Vendor et Fruit avant et après une transformation UnPivot utilisant la colonne Fruit comme clé de suppression du tableau croisé dynamique.](media/data-flow/unpivot3.png)
 
 La disposition des colonnes sur « Normal » regroupera toutes les colonnes du tableau croisé dynamique ajouté avec leurs valeurs agrégées. La disposition des colonnes sur « Latéral » alternera entre colonne et valeur.
 

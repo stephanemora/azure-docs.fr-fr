@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0344247ba4dfffee275782bc2db83142d34cff3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372567"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800243"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
 
@@ -42,16 +42,17 @@ Cette interface permet aux instances compatibles RDMA de communiquer sur un rés
 > RDMA over IB est pris en charge pour toutes les machines virtuelles compatibles RDMA.
 > IP over IB est uniquement pris en charge sur les machines virtuelles compatibles SR-IOV.
 
-- **Système d’exploitation** : Linux est très bien pris en charge pour les machines virtuelles HPC ; des distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Système d’exploitation** : Linux est très bien pris en charge pour les machines virtuelles HPC ; des distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Pour obtenir la liste des images de machines virtuelles prises en charge sur la place de marché et savoir comment les configurer de manière appropriée, consultez [Images de machine virtuelle](./workloads/hpc/configure.md).
 
-- **Pilotes InfiniBand et RDMA** : sur les machines virtuelles prenant en charge InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA. Sur Linux, les images de machine virtuelle CentOS-HPC de la Place de marché sont préconfigurées avec les pilotes appropriés. Les images de machine virtuelle Ubuntu peuvent être configurées avec les bons pilotes suivant ces [instructions](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Sur les machines virtuelles des séries H et N prenant en charge SR-IOV, [l’extension de machine virtuelle InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) peut être utilisée pour installer les pilotes OFED Mellanox et activer InfiniBand. Pour savoir comment activer InfiniBand sur une machine virtuelle compatible RDMA, consultez [Charges de travail HPC](./workloads/hpc/overview.md).
+- **Pilotes InfiniBand et RDMA** : sur les machines virtuelles prenant en charge InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA. Sur Linux, les machines virtuelles SR-IOV et non-SR-IOV, les images de machines virtuelles CentOS-HPC de la Place de marché sont préconfigurées avec les pilotes appropriés. Les images de machine virtuelle Ubuntu peuvent être configurées avec les bons pilotes suivant ces [instructions](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consultez [Configurer et optimiser des machines virtuelles pour le système d’exploitation Linux](./workloads/hpc/configure.md) pour plus d’informations sur les images de système d’exploitation Linux prêtes à l’emploi.
 
-Sur Windows, [l’extension de machine virtuelle InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA. Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour.
+   Sur Linux, pour les machines virtuelles des séries H et N prenant en charge SR-IOV, [l’extension de machine virtuelle InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) peut être utilisée pour installer les pilotes OFED Mellanox et activer InfiniBand. Pour savoir comment activer InfiniBand sur une machine virtuelle compatible RDMA, consultez [Charges de travail HPC](./workloads/hpc/enable-infiniband.md).
 
-Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/). Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](./extensions/overview.md). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+   Sur Windows, [l’extension de machine virtuelle InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA. Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour.
 
-- **MPI** : les tailles des machines virtuelles compatibles SR-IOV sur Azure (HBv2, HB, HC, NCv3 et NDv2) permettent d’utiliser presque toutes les saveurs de MPI avec Mellanox OFED.
-Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les machines virtuelles. Par conséquent, seules les versions Microsoft MPI (MS-MPI) 2012 R2 ou ultérieures et Intel MPI 5.x sont supportées. Les versions ultérieures (2017, 2018) de la bibliothèque runtime MPI Intel peuvent ne pas être compatibles avec les pilotes Azure RDMA.
+   Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/). Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](./extensions/overview.md). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+
+- **MPI** : les tailles des machines virtuelles compatibles SR-IOV sur Azure (HBv2, HB, HC, NCv3 et NDv2) permettent d’utiliser presque toutes les saveurs de MPI avec Mellanox OFED. Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les machines virtuelles. Par conséquent, seules les versions Microsoft MPI (MS-MPI) 2012 R2 ou ultérieures et Intel MPI 5.x sont supportées. Les versions ultérieures (2017, 2018) de la bibliothèque runtime MPI Intel peuvent ne pas être compatibles avec les pilotes Azure RDMA. Pour plus d’informations sur la configuration de l’interface de passage de messages sur des machines virtuelles HPC sur Azure, consultez [Configurer MPI pour HPC](./workloads/hpc/setup-mpi.md).
 
 - **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous exécutez des applications MPI sur des instances déployées dans un réseau virtuel Azure, assurez-vous que l’espace d’adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
@@ -98,6 +99,6 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](./workloads/hpc/overview.md). 
-
-- Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
+- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](./workloads/hpc/overview.md).
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [Blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

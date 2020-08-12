@@ -4,19 +4,19 @@ description: Cette page décrit certaines des limites de ressources DTU courante
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: references_regions
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 04/17/2020
-ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: f3c7420e1f33a7c25e7d3bfdffff14019d0b606a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325115"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542668"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,9 +38,11 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle un pool élastique](elastic-pool-scale.md).
 
+Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools. Elles dépendent du nombre de DTU et du niveau de service. Par exemple, le nombre maximal d’ouvriers simultanés dans une base de données S2 est de 120. Par conséquent, le nombre maximal d’ouvriers simultanés d’une base de données dans un pool Standard est également de 120 si le nombre maximal de DTU par base de données dans le pool est de 50 (soit l’équivalent de S2).
+ 
+Pour le même nombre de DTU, les ressources fournies à un pool élastique peuvent dépasser les ressources fournies à une base de données unique en dehors d’un pool élastique. Cela signifie qu’il est possible que l’utilisation d’eDTU d’un pool élastique soit inférieure à la somme de l’utilisation de DTU dans les bases de données du pool, en fonction des modèles de charge de travail. Par exemple, dans un cas extrême avec une seule base de données dans un pool élastique où l’utilisation de DTU de base de données est de 100 %, il est possible que l’utilisation d’eDTU de pool soit de 50 % pour certains modèles de charge de travail. Cela peut se produire, même si le nombre maximal de DTU par base de données reste à la valeur maximale prise en charge pour la taille de pool donnée.
+
 > [!NOTE]
-> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools. Elles dépendent du nombre de DTU et du niveau de service. Par exemple, le nombre maximal d’ouvriers simultanés dans une base de données S2 est de 120. Par conséquent, le nombre maximal d’ouvriers simultanés d’une base de données dans un pool Standard est également de 120 si le nombre maximal de DTU par base de données dans le pool est de 50 (soit l’équivalent de S2).
->
 > La limite de ressources de stockage par pool dans chacune des tables suivantes n’inclut pas tempdb et le stockage de journaux.
 
 ### <a name="basic-elastic-pool-limits"></a>Limites du pool élastique de base
@@ -53,8 +55,8 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 | Nombre maximal de bases de données par pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal de workers (demandes) simultanés par pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
 | Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Choix du nombre minimal d’eDTU par base de données | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Choix du nombre maximal d’eDTU par base de données | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Nombre min. de DTU par base de données | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Nombre max. de DTU par base de données | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Espace de stockage maximal par base de données (Go) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -72,8 +74,8 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 | Nombre maximal de bases de données par pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Nombre maximal de workers (demandes) simultanés par pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1 600 |
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Choix du nombre minimal d’eDTU par base de données | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Choix du nombre maximal d’eDTU par base de données | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Nombre min. de DTU par base de données | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Nombre max. de DTU par base de données | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Espace de stockage maximal par base de données (Go) | 500 | 750 | 1 024 | 1 024 | 1 024 | 1 024 |
 ||||||||
 
@@ -93,8 +95,8 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 | Nombre maximal de bases de données par pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal de workers (demandes) simultanés par pool <sup>3</sup> | 2 400 | 3200 | 4000 | 5 000 | 6000 |
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Choix du nombre minimal d’eDTU par base de données | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Choix du nombre maximal d’eDTU par base de données | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Nombre min. de DTU par base de données | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Nombre max. de DTU par base de données | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
 
@@ -135,8 +137,8 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 | Nombre maximal de bases de données par pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Nombre maximal de workers (demandes) simultanés par pool <sup>3</sup> | 3200 | 4000 | 4 800 | 5600 | 6 400 |
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Choix du nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Choix du nombre maximal d’eDTU par base de données | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Nombre min. de DTU par base de données | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Nombre max. de DTU par base de données | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
 
@@ -147,7 +149,7 @@ Pour les pools élastiques Azure SQL Database, les tableaux suivants indiquent l
 <sup>3</sup> Pour connaître le nombre maximal de Workers simultanés (requêtes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](resource-limits-vcore-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 > [!IMPORTANT]
-> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre et Allemagne Nord-Est. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 
 Si toutes les DTU d’un pool élastique sont utilisées, chaque base de données du pool reçoit une quantité égale de ressources pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de DTU par base de données est défini sur une valeur différente de zéro.
 

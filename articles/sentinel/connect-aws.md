@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564583"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563056"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Connecter Azure Sentinel à AWS CloudTrail
 
@@ -33,7 +33,7 @@ Utilisez le connecteur AWS pour diffuser tous vos événements AWS CloudTrail ve
 Vous devez disposer de l’autorisation d’écriture sur l’espace de travail Azure Sentinel.
 
 > [!NOTE]
-> Azure Sentinel collecte les événements CloudTrail de toutes les régions. Il vous est conseillé de ne pas diffuser les événements d’une région à une autre.
+> Azure Sentinel collecte les événements de gestion CloudTrail de toutes les régions. Il vous est conseillé de ne pas diffuser les événements d’une région à une autre.
 
 ## <a name="connect-aws"></a>Connecter AWS 
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170103"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489467"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Intégrer Trusona à Azure Active Directory B2C
 
@@ -125,25 +125,26 @@ Dans ce scénario, Trusona joue le rôle de fournisseur d’identité pour Azure
 
 ### <a name="create-a-user-flow-policy"></a>Créer une stratégie de flux utilisateur
 
-1. Vous devez maintenant voir Trusona listé comme **nouveau fournisseur d’identité OpenID Connect** parmi vos fournisseurs d’identité B2C.
+Vous devez maintenant voir Trusona listé comme **nouveau fournisseur d’identité OpenID Connect** parmi vos fournisseurs d’identité B2C.
 
-2. Sélectionnez **Flux utilisateur (stratégies)** dans le panneau de navigation de gauche.
+1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
 
-3. Sélectionnez **Ajouter** > **Nouveau flux d’utilisateur** > **Inscription et connexion**.
+1. Sélectionnez **Nouveau flux d’utilisateurs**.
 
-### <a name="configure-the-policy"></a>Configurer la stratégie
+1. Sélectionnez successivement **Inscription et connexion**, une version, puis **Créer**.
 
-1. Nommez votre stratégie.
+1. Sous **Nom**, spécifiez un nom pour votre stratégie.
 
-2. Sélectionnez le **fournisseur d’identité Trusona** que vous venez de créer.
+1. Dans la section **Fournisseurs d’identité**, sélectionnez le **fournisseur d’identité Trusona** que vous venez de créer.
 
-3. Étant donné que Trusona est intrinsèquement multifacteur, il est préférable de conserver l’authentification multifacteur désactivée.
+   > [!NOTE]
+   > Étant donné que Trusona est intrinsèquement multifacteur, il est préférable de conserver l’authentification multifacteur désactivée.
 
-4. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Create** (Créer).
 
-5. Sous **Attributs utilisateur et revendications**, choisissez **Afficher plus**. Dans le formulaire, sélectionnez au moins un attribut que vous avez spécifié lors de la configuration de votre fournisseur d’identité dans la section précédente.
+1. Sous **Attributs utilisateur et revendications**, choisissez **Afficher plus**. Dans le formulaire, sélectionnez au moins un attribut que vous avez spécifié lors de la configuration de votre fournisseur d’identité dans la section précédente.
 
-6. Sélectionnez **OK**.  
+1. Sélectionnez **OK**.  
 
 ### <a name="test-the-policy"></a>Tester la stratégie
 

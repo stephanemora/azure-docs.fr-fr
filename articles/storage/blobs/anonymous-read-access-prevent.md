@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518722"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534268"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
 L’accès en lecture public anonyme aux conteneurs et aux blobs dans le stockage Azure est un moyen pratique de partager des données, mais peut également présenter un risque pour la sécurité. Il est important de gérer judicieusement l’accès anonyme et de comprendre la manière d’évaluer l’accès anonyme à vos données. La complexité opérationnelle, une erreur humaine ou une attaque malveillante contre les données accessibles publiquement peuvent entraîner des violations de données coûteuses. Microsoft vous recommande d’activer l’accès anonyme uniquement quand cela est nécessaire pour votre scénario d’application.
 
-Par défaut, un utilisateur disposant des autorisations appropriées peut configurer un accès public aux conteneurs et aux blobs. Vous pouvez empêcher tout accès public au niveau du compte de stockage. Lorsque vous interdisez l’accès public aux blobs pour le compte de stockage, les conteneurs du compte ne peuvent pas être configurés pour un accès public. Les conteneurs qui ont déjà été configurés pour un accès public n’acceptent plus les requêtes anonymes. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md) (Configurer l’accès en lecture publique anonyme pour les conteneurs et les objets blob).
+Par défaut, l’accès public à vos données de blob est toujours interdit. Toutefois, la configuration par défaut d’un compte de stockage permet à un utilisateur disposant des autorisations appropriées de configurer un accès public aux conteneurs et aux blobs d’un compte de stockage. Pour renforcer la sécurité, vous pouvez interdire tout accès public au compte de stockage, quel que soit le paramètre d’accès public pour un conteneur individuel. Interdire l’accès public au compte de stockage empêche un utilisateur d’autoriser l’accès public pour un conteneur du compte. Microsoft vous recommande d’interdire l’accès public à un compte de stockage, sauf si votre scénario l’exige. L’interdiction de l’accès public permet d’éviter les violations de données causées par un accès anonyme indésirable.
 
-Cet article explique comment analyser les demandes anonymes sur un compte de stockage et comment empêcher l’accès anonyme pour l’ensemble du compte de stockage ou pour un conteneur spécifique.
+Lorsque vous interdisez l’accès public aux blobs pour le compte de stockage, Stockage Azure rejette toutes les requêtes anonymes envoyées à ce compte. Une fois que l’accès public est interdit pour un compte, les conteneurs de ce compte ne peuvent plus être configurés pour l’accès public. Les conteneurs qui ont déjà été configurés pour un accès public n’acceptent plus les requêtes anonymes. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md) (Configurer l’accès en lecture publique anonyme pour les conteneurs et les objets blob).
+
+Cet article explique comment utiliser une infrastructure DRAG (détection, correction, audit, gouvernance) pour gérer en continu l’accès public pour vos comptes de stockage.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Détecter les demandes anonymes des applications clientes
 
-Quand vous interdisez l’accès en lecture public pour un compte de stockage, vous risquez de rejeter les requêtes à destination des conteneurs et des blobs qui sont configurés pour l’accès public. L’interdiction de l’accès public pour un compte de stockage remplace les paramètres d’accès public pour tous les conteneurs appartenant à ce compte de stockage. Quand l’accès public est interdit pour le compte de stockage, toute requête anonyme ultérieure adressée à ce compte échoue.
+Quand vous interdisez l’accès en lecture public pour un compte de stockage, vous risquez de rejeter les requêtes à destination des conteneurs et des blobs qui sont configurés pour l’accès public. L’interdiction de l’accès public pour un compte de stockage prévaut sur les paramètres d’accès public pour les conteneurs individuels de ce compte de stockage. Quand l’accès public est interdit pour le compte de stockage, toute requête anonyme ultérieure adressée à ce compte échoue.
 
 Pour que vous compreniez dans quelle mesure l’interdiction de l’accès public peut influer sur les applications clientes, Microsoft vous recommande d’activer la journalisation et les métriques pour ce compte et d’analyser les modèles de requêtes anonymes sur un intervalle de temps. Utilisez des métriques pour déterminer le nombre de demandes anonymes adressées au compte de stockage et utilisez les journaux pour déterminer les conteneurs qui sont accessibles de façon anonyme.
 
@@ -155,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Vérifier le paramètre d’accès public pour plusieurs comptes
+
+Pour vérifier le paramètre d’accès public d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+
+L’exécution de la requête suivante dans l’Explorateur Resource Graph retourne une liste de comptes de stockage et affiche le paramètre d’accès public pour chaque compte :
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Utiliser Azure Policy pour auditer la conformité
+
+Si vous avez un grand nombre de comptes de stockage, il se peut que vous deviez effectuer un audit pour vous assurer que ces comptes sont configurés de manière à empêcher l’accès public. Pour auditer la conformité d’un ensemble de comptes de stockage, utilisez Azure Policy. Azure Policy est un service que vous pouvez utiliser pour créer, attribuer et gérer des stratégies qui appliquent des règles à des ressources Azure. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Policy](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Créer une stratégie avec un effet d’audit
+
+Azure Policy prend en charge les effets qui déterminent ce qui se produit quand une règle de stratégie est évaluée par rapport à une ressource. L’effet d’audit crée un avertissement quand une ressource n’est pas conforme, mais n’arrête pas la requête. Pour plus d’informations, consultez [Comprendre les effets d’Azure Policy](../../governance/policy/concepts/effects.md).
+
+Pour créer une stratégie avec un effet d’audit pour le paramètre d’accès public d’un compte de stockage avec le portail Azure, procédez comme suit :
+
+1. Dans le portail Azure, accédez au service Azure Policy.
+1. Dans la section **Création**, sélectionnez **Définitions**.
+1. Sélectionnez **Ajouter une définition de stratégie** pour créer une nouvelle définition de stratégie.
+1. Pour le champ **Emplacement de la définition**, sélectionnez le bouton **Autres** pour spécifier l’emplacement de la ressource de stratégie d’audit.
+1. Spécifiez un nom pour la stratégie. Vous pouvez éventuellement spécifier une description et une catégorie.
+1. Sous **Règle de stratégie**, ajoutez la définition de stratégie suivante à la section **policyRule**.
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Enregistrez la stratégie.
+
+### <a name="assign-the-policy"></a>Affecter la stratégie
+
+Ensuite, attribuez la stratégie à une ressource. L’étendue de la stratégie correspond à cette ressource et à toute ressource sous-jacente. Pour plus d’informations sur l’attribution de stratégie, consultez [Structure d’attribution d’Azure Policy](../../governance/policy/concepts/assignment-structure.md).
+
+Pour attribuer la stratégie avec le portail Azure, procédez comme suit :
+
+1. Dans le portail Azure, accédez au service Azure Policy.
+1. Dans la section **Création**, sélectionnez **Attributions**.
+1. Sélectionnez **Attribuer une stratégie** pour créer une attribution de stratégie.
+1. Pour le champ **Étendue**, sélectionnez l’étendue de l’attribution de stratégie.
+1. Pour le champ **Définition de stratégie**, sélectionnez le bouton **Autres**, puis la stratégie que vous avez définie dans la section précédente à partir de la liste.
+1. Entrez un nom pour l’attribution de stratégie. La description est facultative.
+1. Laissez l’option **Application de stratégie** définie sur *Activée*. Ce paramètre n’a aucun effet sur la stratégie d’audit.
+1. Sélectionnez **Vérifier + créer** pour créer l’attribution.
+
+### <a name="view-compliance-report"></a>Afficher le rapport de conformité
+
+Une fois que vous avez attribué la stratégie, vous pouvez afficher le rapport de conformité. Le rapport de conformité d’une stratégie d’audit fournit des informations sur les comptes de stockage qui ne sont pas conformes à la stratégie. Pour plus d’informations, consultez [Obtenir les données de conformité de la stratégie](../../governance/policy/how-to/get-compliance-data.md).
+
+La disponibilité du rapport de conformité peut prendre plusieurs minutes après la création de l’attribution de stratégie.
+
+Pour afficher le rapport de conformité dans le portail Azure, procédez comme suit :
+
+1. Dans le portail Azure, accédez au service Azure Policy.
+1. Sélectionnez **Conformité**.
+1. Filtrez les résultats sur le nom de l’attribution de stratégie que vous avez créée à l’étape précédente. Le rapport indique le nombre de ressources qui ne sont pas conformes à la stratégie.
+1. Vous pouvez explorer le rapport pour obtenir des détails supplémentaires, notamment une liste des comptes de stockage qui ne sont pas conformes.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Capture d’écran montrant le rapport de conformité de la stratégie d’audit pour l’accès public aux blobs":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Utiliser Azure Policy pour appliquer l’accès autorisé
+
+Azure Policy prend en charge la gouvernance cloud en s’assurant que les ressources Azure respectent les exigences et les normes. Pour vous assurer que les comptes de stockage de votre organisation autorisent uniquement les requêtes autorisées, vous pouvez créer une stratégie qui empêche la création d’un nouveau compte de stockage dont le paramètre d’accès public autorise les requêtes anonymes. Cette stratégie empêchera également toutes les modifications de configuration apportées à un compte existant si le paramètre d’accès public pour ce compte n’est pas conforme à la stratégie.
+
+La stratégie d’application utilise l’effet de refus pour empêcher une requête de créer ou de modifier un compte de stockage pour autoriser l’accès public. Pour plus d’informations, consultez [Comprendre les effets d’Azure Policy](../../governance/policy/concepts/effects.md).
+
+Pour créer une stratégie avec un effet de refus pour un paramètre d’accès public qui autorise les requêtes anonymes, suivez les mêmes étapes décrites dans [Utiliser Azure Policy pour auditer la conformité](#use-azure-policy-to-audit-for-compliance), mais fournissez le fichier JSON suivant dans la section **policyRule** de la définition de stratégie :
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez attribuée à une étendue, un utilisateur ne peut plus créer de compte de stockage qui autorise l’accès public. Un utilisateur ne peut pas non plus apporter des changements de configuration à un compte de stockage existant qui autorise actuellement l’accès public. Toute tentative en ce sens entraîne une erreur. Le paramètre d’accès public pour le compte de stockage doit être défini sur **false** pour poursuivre la création ou la configuration du compte.
+
+L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage qui autorise l’accès public (valeur par défaut pour un nouveau compte) lorsqu’une stratégie avec effet de refus exige que l’accès public soit interdit.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

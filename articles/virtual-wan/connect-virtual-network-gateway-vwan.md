@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7e26b00a78d2ce533aa4d16e88649e7e73e3af91
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387198"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431283"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -39,11 +39,13 @@ Créez une **passerelle de réseau virtuel VPN** pour votre réseau virtuel en m
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuration du mode actif/actif
 
+Sur la page **Configuration** de la passerelle de réseau virtuel, activez le mode actif/actif.
+
 ![actif/actif](./media/connect-virtual-network-gateway-vwan/active.png "actif / actif")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Paramètre BGP
 
-L’ASN BGP ne peut pas être 65515. 66515 sera utilisé par Azure Virtual WAN.
+Sur la page **Configuration** de la passerelle de réseau virtuel, vous pouvez configurer l’**ASN BGP**. Modifiez l’ASN BGP. L’ASN BGP ne peut pas être 65515. 66515 sera utilisé par Azure Virtual WAN.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -60,16 +62,16 @@ Pour créer des sites VPN Virtual WAN, accédez à votre réseau étendu virtuel
 1. Sélectionnez **+Créer un site**.
 2. Sur la page **Créer des sites VPN**, entrez les valeurs suivantes :
 
-   * **Région** : (La même région que la passerelle de réseau virtuel de la passerelle VPN Azure)
-   * **Fournisseur de l’appareil** : entrez le fournisseur de l’appareil (n’importe quel nom)
-   * **Espace d’adressage privé** – (Entrez une valeur ou laissez vide lorsque le protocole BGP est activé)
-   * **Border Gateway Protocol** : (Défini sur **Activer** si BGP est activé sur la passerelle de réseau virtuel de la passerelle VPN Azure)
-   * **Se connecter aux hubs** (Sélectionnez le hub que vous avez créé dans les conditions préalables de la liste déroulante)
+   * **Région** : même région que la passerelle de réseau virtuel de la passerelle VPN Azure.
+   * **Fournisseur de l’appareil** : entrez le fournisseur de l’appareil (n’importe quel nom).
+   * **Espace d’adressage privé** : entrez une valeur ou laissez vide lorsque le protocole BGP est activé.
+   * **Border Gateway Protocol** : définissez sur **Activer** si BGP est activé sur la passerelle de réseau virtuel de la passerelle VPN Azure.
+   * **Se connecter aux hubs** : sélectionnez le hub que vous avez créé dans les conditions préalables de la liste déroulante. Si vous ne voyez aucun hub, vérifiez que vous avez créé une passerelle VPN site à site pour votre hub.
 3. Sous **Liens**, entrez les valeurs suivantes :
 
-   * **Nom du fournisseur** : entrez un nom de lien et un nom de fournisseur (n’importe quel nom)
-   * **Vitesse** : vitesse (n’importe quel nombre)
-   * **Adresse IP** : entrez l’adresse IP (identique à la première adresse IP publique indiquée sous les propriétés de la passerelle de réseau virtuel (de la passerelle VPN))
+   * **Nom du fournisseur** : entrez un nom de lien et un nom de fournisseur (n’importe quel nom).
+   * **Vitesse** : vitesse (n’importe quel nombre).
+   * **Adresse IP** : entrez l’adresse IP (identique à la première IP publique indiquée sous les propriétés de la passerelle de réseau virtuel [de la passerelle VPN]).
    * **Adresse BGP** et **ASN** : adresse BGP et ASN. Ces derniers doivent être identiques à l’une des adresses IP homologues BGP et à l’ASN de la passerelle de réseau virtuel de la passerelle VPN que vous avez configurée à l’[étape 1](#vnetgw).
 4. Vérifiez et sélectionnez **Confirmer** pour créer le site.
 5. Répétez les étapes précédentes pour créer le deuxième site correspondant à la deuxième instance de la passerelle de réseau virtuel de la passerelle VPN. Vous conservez les mêmes paramètres, à l’exception de la deuxième adresse IP publique et de la deuxième adresse IP homologue BGP de la configuration de la passerelle VPN.
@@ -114,12 +116,12 @@ Dans cette section, vous créez une connexion entre les passerelles de réseau l
    * **Passerelle de réseau local :** Cette connexion connectera la passerelle de réseau virtuel à la passerelle de réseau local. Choisissez l’une des passerelles de réseau local que vous avez créées précédemment.
    * **Clé partagée :** Créez une clé partagée.
    * **Protocole IKE :** Choisissez le protocole IKE.
-   * **BGP :** Choisissez **Activer BGP** si la connexion est sur BGP.
 3. Cliquez sur **OK** pour créer votre connexion.
 4. Vous pouvez afficher la connexion dans la page **Connexions** de la passerelle de réseau virtuel.
 
    ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Répétez la procédure précédente pour créer une seconde connexion. Pour la deuxième connexion, sélectionnez l’autre passerelle de réseau local que vous avez créée.
+6. Si les connexions se font via BGP, une fois vos connexions créées, accédez à une connexion et sélectionnez **Configuration**. Dans la page **Configuration**, sélectionnez **Activé** pour **BGP**. Ensuite, cliquez sur **Enregistrer**. Répétez cette opération pour la deuxième connexion.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. Tester les connexions
 

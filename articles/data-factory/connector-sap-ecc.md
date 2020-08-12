@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987010"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529600"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84987010"
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de SAP ECC (SAP Enterprise Central Component). Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée sur chaque connecteur SAP, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -52,13 +52,11 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 
 ## <a name="prerequisites"></a>Prérequis
 
-En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
+Pour utiliser ce connecteur SAP ECC, vous devez exposer les entités SAP ECC par le biais des services OData via une passerelle SAP. Plus précisément :
 
 - **Configurer la passerelle SAP**. Sur les serveurs avec une version de SAP NetWeaver supérieure à la version 7.4, la passerelle SAP est déjà installée. Pour les versions antérieures, vous devez installer la passerelle SAP incorporée ou le système hub de passerelle SAP avant d’exposer les données SAP ECC par le biais des services OData. Pour configurer la passerelle SAP, consultez le [guide d’installation](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
 - **Activer et configurer le service SAP OData**. Vous pouvez activer le service OData par le biais de TCODE SICF en quelques secondes. Vous pouvez également configurer les objets qui doivent être exposés. Pour plus d’informations, consultez la page [guide pas à pas](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
-
-## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -148,6 +146,7 @@ Les propriétés prises en charge dans la section `source` de l’activité de c
 |:--- |:--- |:--- |
 | `type` | La propriété `SapEccSource` de la section `type` d’activité de copie doit être définie sur `source`. | Oui |
 | `query` | Les options de requête OData pour filtrer les données. Par exemple :<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée :<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
+| `sapDataColumnDelimiter` | Caractère unique utilisé comme délimiteur passé à SAP RFC pour fractionner les données de sortie. | Non |
 | `httpRequestTimeout` | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. Si elle n’est pas spécifiée, la valeur par défaut est **00:30:00** (30 minutes). | Non |
 
 ### <a name="example"></a>Exemple

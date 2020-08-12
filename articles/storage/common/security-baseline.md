@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751633"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534054"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Base de référence de sécurité Azure pour Stockage Azure
 
@@ -62,7 +62,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 **Aide** : Non applicable. La recommandation concerne les applications web s’exécutant sur Azure App Service ou les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -200,7 +200,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées assoc
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -270,7 +270,7 @@ En outre, activez Advanced Threat Protection pour votre compte Stockage Azure. L
 
 **Aide** : Non applicable. Le benchmark a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -292,7 +292,7 @@ En outre, activez Advanced Threat Protection pour votre compte Stockage Azure. L
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Changer les mots de passe par défaut quand cela est possible
 
-**Conseils** : Ni les comptes de stockage Azure ni Azure Active Directory ne suivent le concept de mots de passe vierges ou par défaut. Stockage Azure implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure, ainsi que les clés partagées et les signatures d’accès partagé (SAP). Une caractéristique de cette authentification SAP et par clé partagée est qu’aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée. 
+**Conseils** : Ni les comptes de stockage Azure ni Azure Active Directory ne suivent le concept de mots de passe vierges ou par défaut. Stockage Azure implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (Azure RBAC), ainsi que les clés partagées et les signatures d’accès partagé (SAP). Une caractéristique de cette authentification SAP et par clé partagée est qu’aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée. 
 
 - [Autorisation de l’accès aux données dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -374,13 +374,13 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 - [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Conseils** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
+**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
 
 - [Création et configuration d’une instance Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -418,7 +418,7 @@ Une façon efficace de réduire le risque d’un accès insoupçonné à un comp
 
 - [Gestion des clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -534,9 +534,9 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle (RBAC). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
+**Conseils** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle (RBAC). Stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
 
-- [Attribution des rôles RBAC pour un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Attribution des rôles Azure pour un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Utilisation du fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
@@ -546,7 +546,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 - [Autorisation de l’accès aux données dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -554,7 +554,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -578,7 +578,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 - [Configuration des alertes de mesures pour les comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -600,7 +600,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -608,7 +608,7 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -698,7 +698,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -706,7 +706,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -724,7 +724,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -747,7 +747,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -757,7 +757,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Configuration de l’accès conditionnel pour bloquer l’accès à ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -765,7 +765,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -796,7 +796,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 - [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -804,7 +804,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -816,7 +816,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 - [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -824,7 +824,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -844,7 +844,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -862,7 +862,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -880,7 +880,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -894,7 +894,7 @@ En outre, faites pivoter les clés de compte de stockage régulièrement pour li
 
 - [Gestion des clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -966,7 +966,7 @@ Vous pouvez également activer Azure Automation pour prendre régulièrement des
 
 - [Vue d’ensemble d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1019,7 +1019,7 @@ Remarque : Si vous voulez copier des données depuis et vers le service de stoc
 
 - [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1061,7 +1061,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1083,7 +1083,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 - [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

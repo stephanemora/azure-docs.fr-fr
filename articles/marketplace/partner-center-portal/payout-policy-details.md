@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: d72a80298be96d32547737a98e5279da0c5d8ef0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 801d3ca383ebde75d6590558638df6820e538249
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324826"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529941"
 ---
 # <a name="payout-policy-details"></a>Détails de la politique de paiement
 
@@ -20,7 +20,7 @@ Cet article décrit le processus de paiement de Microsoft, le calendrier des pai
 
 ## <a name="where-to-find-upcoming-payouts"></a>Où trouver les paiements à venir
 
-Dans l’Espace partenaires, sélectionnez **Revenu** en haut à droite du portail :
+Dans l’Espace partenaires, sélectionnez **Paiement** dans l’angle supérieur droit de l’écran :
 
 ![Illustre l’icône Revenu en haut à droite du portail Espace partenaires.](./media/payout-overview.png)
 
@@ -40,24 +40,24 @@ Les sections suivantes décrivent notre processus de paiement.
 > [!NOTE]
 > Pour connaître les mesures que nous prenons en cas de défaut de paiement d’un client si nous vous avons déjà adressé le paiement, consultez [Processus en cas de défaut de paiement d’un client](#process-for-customer-non-payment) ci-dessous.
 
-| Événement  | Date  | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\* |
+| Événement  | Date (UTC) | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\* |
 | --- | --- | --- | --- |
 | Transaction ou mois d’utilisation | 01/08/2020 – 31/08/2020 | N/A | **Rapport d’utilisation** : indication de la nouvelle consommation (actualisée toutes les quatre heures)<br>**Rapport sur les commandes** : N/A |
 | Échéance (mois) | 31/08/2020 | N/A | **Rapport d’utilisation** : indication de la consommation à la fin du mois<br>**Rapport sur les commandes** : N/A |
 | Commande générée | 03/09/2020 – 07/09/2020 | N/A | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Calculer le montant de revenu versé | 04/09/2020 – 10/09/2020 | Marqué **Non traité** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Paiement mensuel | 05/10/2020 | Marqué **À venir** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
-| Date de paiement | 15/10/2020 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
+| Date de paiement\** | 15/10/2020 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Facture client recueillie | 01/12/2020 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF  |
 |  |  |  |  |
 
-\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.
+\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.</br>\** La date de paiement est exprimée en Heure standard du Pacifique (PST).
 
 ### <a name="customers-who-pay-using-credit-card-or-invoice"></a>Clients qui paient par carte de crédit ou sur facture
 
 Tous les achats effectués par carte de crédit ou avec facture mensuelle sont assortis d’une période d’attente de 30 jours pour vérifier que les fonds sont encaissés et qu’il n’y a pas de rétrofacturation ou de fraude présumée.
 
-| Événement  | Date  | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\*  |
+| Événement  | Date (UTC) | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\*  |
 | --- | --- | --- | --- |
 | Transaction ou mois d’utilisation | 01/08/2019 – 31/08/2019 | N/A | **Rapport d’utilisation** : indication de la nouvelle consommation (actualisée toutes les quatre heures)<br>**Rapport sur les commandes** : N/A |
 | Échéance (mois) | 31/08/2019 | N/A | **Rapport d’utilisation** : indication de la consommation à la fin du mois<br>**Rapport sur les commandes** : N/A |
@@ -65,16 +65,16 @@ Tous les achats effectués par carte de crédit ou avec facture mensuelle sont a
 | Facture client recueillie | 07/09/2019 – 10/09/2019 | N/A | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Calculer le paiement | 08/09/2019 – 12/09/2019 | Marqué **Non traité** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Paiement mensuel | 05/11/2019\* | Marqué **À venir** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
-| Date de paiement | 15/11/2019 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
+| Date de paiement\** | 15/11/2019 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 |  |  |  |  |
 
-\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.
+\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.</br>\** La date de paiement est exprimée en Heure standard du Pacifique (PST).
 
 ### <a name="enterprise-agreement-transactions-prior-to-may-1-2020"></a>Transactions Contrat Entreprise antérieures au 1er mai 2020
 
 Tous les achats effectués avant cette date sont traités et payés selon le calendrier ci-dessous une fois que Microsoft a encaissé le paiement des clients et traité les frais de la Place de marché.
 
-| Événement  | Date  | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\*  |
+| Événement  | Date (UTC)  | Visibilité du partenaire : rapport de revenu de l’Espace partenaires  |  Visibilité du partenaire : analytique de l’Espace partenaires\*  |
 | --- | --- | --- | --- |
 | Transaction ou mois d’utilisation | 01/08/2019 – 31/08/2019 | N/A | **Rapport d’utilisation** : indication de la nouvelle consommation (actualisée toutes les quatre heures)<br>**Rapport sur les commandes** : N/A |
 | Échéance (mois) | 31/08/2019 | N/A | **Rapport d’utilisation** : indication de la consommation à la fin du mois<br>**Rapport sur les commandes** : N/A |
@@ -82,10 +82,10 @@ Tous les achats effectués avant cette date sont traités et payés selon le cal
 | Facture client recueillie | 01/12/2019 | N/A | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Calculer le paiement | 05/12/2019 – 07/12/2019 | Marqué **Non traité** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 | Paiement mensuel | 05/01/2019 | Marqué **À venir** dans l’Historique des transactions du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
-| Date de paiement | 15/01/2019 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
+| Date de paiement\** | 15/01/2019 | Marqué **Envoyé** dans l’Historique des transactions et dans la section Paiements du tableau de bord Revenu | **Rapport d’utilisation** : indication de la consommation avec OrderID/OrderLineItemID<br>**Rapport sur les commandes** : commandes client présentant l’état ACTIF |
 |  |  |  |  |
 
-\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.
+\* Le rapport d’utilisation et le rapport sur les commandes sont accessibles dans la section Analyser de l’Espace partenaires.</br>\** La date de paiement est exprimée en Heure standard du Pacifique (PST).
 
 ## <a name="process-for-customer-non-payment"></a>Processus en cas de défaut de paiement d’un client
 
@@ -109,6 +109,19 @@ Voici un exemple de calendrier :
 | Le paiement est déduit | 1/3/2021 | Une transaction négative figurera dans le Relevé des revenus de l’Espace partenaires de l’éditeur |
 | Le paiement est retenu | 15/3/2021 | Les futurs paiements seront indiqués dans le Relevé des revenus de l’Espace partenaires. L’éditeur ne recevra pas de paiement tant que le solde sera négatif.  |
 |||
+
+## <a name="number-of-days-for-payments-to-reach-a-payout-account"></a>Nombre de jours pour que les paiements atteignent un compte de paiement
+
+En général, nous envoyons tout paiement dû pour un mois donné le 15 de ce mois, mais il faut plus de temps pour que le paiement parvienne à votre compte. Le nombre de jours dépend du mode de paiement que nous utilisons pour votre compte, comme décrit ci-dessous.
+
+> [!NOTE]
+> Les jours indiqués ci-dessous sont approximatifs. Tout paiement peut prendre plus ou moins de temps pour atteindre votre compte.
+
+| Mode de paiement     | Nombre de jours du délai de transfert au compte de paiement     |
+|--------------------|--------------------------------------------|
+| PayPal             | 1 jour ouvrable                             |
+| ACH/SEPA           | 2 à 3 jours ouvrables                          |
+| Virement bancaire      | 7 à 10 jours ouvrables                         |
 
 ## <a name="next-step"></a>étape suivante
 

@@ -3,26 +3,26 @@ title: Résoudre les problèmes d’authentification et d’autorisation - Azure
 description: Cet article fournit des informations sur la résolution des problèmes d’authentification et d’autorisation avec Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322412"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533884"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Résoudre les problèmes d’authentification et d’autorisation - Azure Event Hubs
 L’article [Résoudre les problèmes de connectivité](troubleshooting-guide.md) fournit des conseils pour résoudre les problèmes de connectivité avec Azure Event Hubs. Cet article fournit des conseils et des suggestions sur la résolution des problèmes d’authentification et d’autorisation avec Azure Event Hubs. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Si vous utilisez Azure Active Directory
-Si vous utilisez Azure Active Directory (Azure AD) pour vous authentifier et autoriser avec Azure Event Hubs, vérifiez que l’identité qui accède à Event Hub est un membre du **rôle de contrôle d’accès en fonction du rôle (RBAC)** approprié selon **l’étendue de ressources** appropriée (groupe de consommateurs, Event Hub, espace de noms, groupe de ressources ou abonnement).
+Si vous utilisez Azure Active Directory (Azure AD) pour vous authentifier et autoriser avec Azure Event Hubs, vérifiez que l’identité qui accède à Event Hub est un membre du **rôle Azure** avec l’**étendue de ressources appropriée** (groupe de consommateurs, Event Hub, espace de noms, groupe de ressources ou abonnement).
 
-### <a name="rbac-roles"></a>Rôles RBAC
+### <a name="azure-roles"></a>Rôles Azure
 - [Le propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) pour un accès complet aux ressources Event Hubs.
 - [Expéditeur des données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) pour l’accès d’envoi.
 - [Récepteur des données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) pour l’accès de réception.
 
 ### <a name="resource-scopes"></a>Étendues de ressources
-- **Groupe de consommateurs** : Dans cette étendue, l’attribution de rôle s’applique uniquement à cette entité. Actuellement, le portail Azure ne prend pas en charge l’attribution d’un rôle RBAC à un principal de sécurité de ce niveau. 
+- **Groupe de consommateurs** : Dans cette étendue, l’attribution de rôle s’applique uniquement à cette entité. Actuellement, le portail Azure ne prend pas en charge l’attribution d’un rôle Azure à un principal de sécurité de ce niveau. 
 - **Hub d'événements** : L’attribution de rôle s’applique à l’entité Event Hub et au groupe de consommateurs sous-jacent.
 - **Espace de noms** : L’attribution de rôle s’étend à toute la topologie d'Event Hubs sous l’espace de noms et au groupe de consommateurs qui lui est associé.
 - **Groupe de ressources** : L’attribution de rôle s’applique à toutes les ressources Event Hubs sous le groupe de ressources.

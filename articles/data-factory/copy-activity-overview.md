@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187681"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534343"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -186,7 +186,7 @@ Pour plus d’informations sur la façon dont l’activité de copie met en corr
 En plus de copier des données d’une banque de données source vers un récepteur, vous pouvez également configurer l’ajout de colonnes de données supplémentaires à copier dans le récepteur. Par exemple :
 
 - Lors de la copie à partir d’une source basée sur un fichier, enregistrez le chemin d’accès relatif du fichier dans une colonne supplémentaire pour savoir de quel fichier proviennent les données.
-- Ajoutez une colonne avec l’expression ADF pour joindre des variables système ADF telles que le nom ou l’ID du pipeline ou stocker une autre valeur dynamique provenant de la sortie de l’activité en amont.
+- Ajoutez une colonne avec l’expression ADF, pour joindre des variables système ADF telles que le nom ou l’ID du pipeline, ou stocker une autre valeur dynamique provenant de la sortie de l’activité en amont.
 - Ajoutez une colonne avec une valeur statique pour répondre à votre besoin de consommation en aval.
 
 Vous pouvez trouver la configuration suivante dans l’onglet source de l’activité de copie : 
@@ -240,6 +240,19 @@ Pour le configurer par programmation, ajoutez la propriété `additionalColumns`
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>Créer automatiquement des tables de récepteur
+
+Lors de la copie de données dans SQL Database/Azure Synapse Analytics, si la table de destination n’existe pas, l’activité de copie prend en charge sa création automatique en fonction des données sources. Elle vise à vous aider à commencer rapidement à charger les données et à évaluer SQL Database/Azure Synapse Analytics. Après l’ingestion des données, vous pouvez examiner et ajuster le schéma de la table de récepteur en fonction de vos besoins.
+
+Cette fonctionnalité est prise en charge lors de la copie de données à partir de n’importe quelle source vers les magasins de données récepteurs suivants. Vous pouvez trouver l’option sur l’*interface utilisateur de création ADF* –> *Récepteur d’activité de copie* –> *Option de table* –> *Créer automatiquement une table*, ou via la propriété `tableOption` dans la charge utile de récepteur d’activité de copie.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) ](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Créer des tables de récepteur](media/copy-activity-overview/create-sink-table.png)
 
 ## <a name="fault-tolerance"></a>Tolérance de panne
 

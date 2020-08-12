@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d16fabbf08b95d16cf54926d7d0373596e7bcf13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326220"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430115"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio (classique) utilisant les modules d’importation et d’exportation des données
 
-**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Lorsque vous créez une expérience prédictive, vous ajoutez généralement une entrée et une sortie de service web. Lorsque vous déployez l’expérience, les consommateurs peuvent envoyer et recevoir des données à partir du service web via les entrées et sorties. Pour certaines applications, les données d’un consommateur peuvent être disponibles à partir d’un flux de données ou figurer déjà dans une source de données externe tels que le stockage d’objets blob Azure. Dans ces cas, elles n’ont pas besoin de lire ni d’écrire les données en utilisant des entrées et sorties de service web. Au lieu de cela, elles peuvent utiliser le Service d’exécution de lots (BES, Batch Execution Service) pour lire les données à partir de la source de données à l’aide d’un module Importer des données et écrire les résultats de la notation dans un autre emplacement de données à l’aide d’un module d’exporter de données.

@@ -3,8 +3,8 @@ title: 'Tutoriel : Migrer MySQL en ligne vers Azure Database pour MySQL'
 titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer la migration en ligne d’une instance locale de MySQL vers Azure Database pour MySQL, à l’aide d’Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087745"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -139,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Exécutez la clé étrangère Drop (qui est la deuxième colonne) dans le résultat de la requête pour supprimer la clé étrangère.
+
+> [!NOTE]
+> Azure DMS ne prend pas en charge l’action référentielle CASCADE, qui permet de supprimer ou de mettre à jour automatiquement une ligne correspondante dans la table enfant lorsqu’une ligne est supprimée ou mise à jour dans la table parente. Pour plus d’informations, dans la documentation MySQL, consultez la section Actions référentielles de l’article [Contraintes FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> Azure DMS requiert la suppression des contraintes de clé étrangère sur le serveur de base de données cible pendant le chargement initial des données, et vous ne pouvez pas utiliser les actions référentielles. Si votre charge de travail dépend de la mise à jour d’une table enfant associée par le biais de cette action référentielle, nous vous recommandons d’effectuer [un fichier de sauvegarde et une restauration](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) à la place. 
+
 
 > [!IMPORTANT]
 > Si vous importez des données à l’aide d’une sauvegarde, supprimez les commandes CREATE DEFINER manuellement ou à l’aide de la commande --skip-definer lors de l’exécution d’une tâche mysqldump. DEFINER requiert des privilèges de superutilisateur pour créer et est limité dans Azure Database pour MySQL.

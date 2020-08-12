@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85979996"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073317"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Fonctionnalités multimodèles d'Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -95,9 +95,6 @@ Vous pouvez utiliser des modèles de document au lieu de modèles relationnels d
 ## <a name="spatial-features"></a>Fonctionnalités spatiales
 
 Données spatiales représentent des informations sur l’emplacement physique et la forme d’objets géométriques. Ces objets peuvent être des emplacements de points ou des objets plus complexes, tels que des pays/régions, des routes ou des lacs.
-
-La famille de produits Azure SQL vous permet d'analyser et d'interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/), et d'exporter vos données relationnelles sous forme de texte JSON.
-
 
  Les deux types de données spatiales pris en charge sont les suivants : 
 

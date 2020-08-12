@@ -3,8 +3,8 @@ title: 'Problèmes connus : Migrations en ligne vers Azure Database pour MySQL'
 titleSuffix: Azure Database Migration Service
 description: Découvrez les problèmes connus et les limitations de migration avec les migrations en ligne vers Azure Database pour MySQL à l’aide d’Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090703"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitations et problèmes de migration en ligne vers Azure Database pour MySQL avec Azure Database Migration Service
 
@@ -135,6 +135,8 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS MySQL v
     ```
 
 - Dans Azure Database Migration Service, le nombre de bases de données pouvant migrer dans le cadre d’une activité de migration unique est limité à quatre.
+
+- Azure DMS ne prend pas en charge l’action référentielle CASCADE, qui permet de supprimer ou de mettre à jour automatiquement une ligne correspondante dans la table enfant lorsqu’une ligne est supprimée ou mise à jour dans la table parente. Pour plus d’informations, dans la documentation MySQL, consultez la section Actions référentielles de l’article [Contraintes FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requiert la suppression des contraintes de clé étrangère sur le serveur de base de données cible pendant le chargement initial des données, et vous ne pouvez pas utiliser les actions référentielles. Si votre charge de travail dépend de la mise à jour d’une table enfant associée par le biais de cette action référentielle, nous vous recommandons d’effectuer [un fichier de sauvegarde et une restauration](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) à la place. 
 
 - **Erreur :** Taille de ligne trop grande (> 8126). La modification de certaines colonnes en TEXTE ou en objet BLOB peut être utile. Dans le format de ligne actuel, le préfixe BLOB de 0 octet est stocké inline.
 

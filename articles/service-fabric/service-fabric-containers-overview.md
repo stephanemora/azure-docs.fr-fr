@@ -2,13 +2,13 @@
 title: Vue d’ensemble de Service Fabric et des conteneurs
 description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
 ms.topic: conceptual
-ms.date: 8/8/2018
-ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/9/2020
+ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091655"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
@@ -53,7 +53,7 @@ Pour suivre un tutoriel Linux, voir [Créer votre première application conteneu
 
 #### <a name="windows-server-containers"></a>Conteneurs Windows Server
 
-Windows Server 2016 fournit deux types de conteneurs, qui proposent des niveaux d’isolation différents. Les conteneurs Windows Server sont similaires aux conteneurs Docker, en ce sens qu’ils offrent tous l’isolation des systèmes de fichiers et des espaces de noms, alors qu’ils partagent le noyau avec l’hôte sur lequel ils s’exécutent. Sur Linux, cette isolation est généralement fournie via des espaces de noms et cgroups. Les conteneurs Windows Server se comportent de la même manière.
+Windows Server 2016 et versions ultérieures fournissent deux types de conteneurs qui proposent des niveaux d’isolation différents. Les conteneurs Windows Server sont similaires aux conteneurs Docker, en ce sens qu’ils offrent tous l’isolation des systèmes de fichiers et des espaces de noms, alors qu’ils partagent le noyau avec l’hôte sur lequel ils s’exécutent. Sur Linux, cette isolation est généralement fournie via des espaces de noms et cgroups. Les conteneurs Windows Server se comportent de la même manière.
 
 Les conteneurs Windows avec la prise en charge Hyper-V présentent un niveau d’isolation et de sécurité plus élevé, car aucun d’entre eux ne partage le noyau du système d’exploitation avec les autres conteneurs, ou avec l’hôte. Avec ce niveau élevé d’isolation en matière de sécurité, les conteneurs compatibles Hyper-V sont destinés à des scénarios multilocataires, potentiellement hostiles.
 Pour suivre un tutoriel Windows, voir [Créer votre première application conteneur Service Fabric sur Windows](service-fabric-get-started-containers.md).
@@ -73,7 +73,10 @@ Voici des exemples pour lesquels le conteneur est un bon choix :
 
 ## <a name="service-fabric-support-for-containers"></a>Prise en charge des conteneurs par Service Fabric
 
-Service Fabric prend en charge le déploiement de conteneurs Docker sur Linux, et celui de conteneurs Windows Server sur Windows Server 2016 avec une prise en charge du mode d’isolation Hyper-V. 
+Service Fabric prend en charge le déploiement de conteneurs Docker sur Linux, et celui de conteneurs Windows Server sur Windows Server 2016 et versions ultérieures avec une prise en charge du mode d’isolation Hyper-V.
+
+> [!NOTE]
+> Les conteneurs ne sont pas pris en charge sur les clusters Service Fabric locaux à nœud unique (ni les clusters Linux sur OneBox, ni les clusters Windows sur les installations Service Fabric locales).
 
 Service Fabric fournit un [modèle d’application](service-fabric-application-model.md) dans lequel un conteneur représente un hôte d’application sur lequel sont placés plusieurs réplicas de service. Service Fabric prend également en charge un [scénario d’exécutables invités](service-fabric-guest-executables-introduction.md), dans lequel vous n’utilisez pas les modèles de programmation Service Fabric intégrés, mais empaquetez plutôt une application existante, écrite à l’aide de n’importe quel langage ou framework, à l’intérieur d’un conteneur. Ce scénario est le cas d’utilisation courant pour les conteneurs.
 

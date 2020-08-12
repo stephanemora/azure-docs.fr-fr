@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c89bc434d9d67144a95b5c2f23e7664078fe7825
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063822"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474306"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.TextBox
 
@@ -29,6 +29,7 @@ Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -60,6 +61,7 @@ Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
 - La propriété `isValid` contient une expression qui prend la valeur true ou false. Dans l’expression, vous définissez la condition qui détermine si la zone de texte est valide.
 - La propriété `message` est une chaîne à afficher en cas d’échec de la validation de la valeur de la zone de texte.
 - Il est possible de spécifier une valeur pour `regex` lorsque `required` est défini sur **false**. Dans ce scénario, aucune valeur n’est requise dans la zone de texte pour que la validation réussisse. Si elle est spécifiée, celle-ci doit correspondre au modèle d’expression régulière.
+- La propriété `placeholder` est un texte d’aide qui disparaît lorsque l’utilisateur commence à modifier. Si les `placeholder` et `defaultValue` sont définis, le `defaultValue` est prioritaire et est affiché.
 
 ## <a name="example"></a>Exemple
 

@@ -1,5 +1,5 @@
 ---
-title: Passer de Public De base vers Public Standard - Azure Load Balancer
+title: Passer du niveau tarifaire Interne De base à Public Standard – Azure Load Balancer
 description: Cet article explique comment passer d’Azure Basic Internal Load Balancer à Standard Public Load Balancer.
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078752"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Mise à niveau d’Azure Internal Load Balancer avec connexion sortante nécessaire
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/skus#skus). Comme Standard Internal Load Balancer ne fournit pas de connexion sortante, nous proposons à la place une solution permettant de créer un équilibreur de charge Standard Public Load Balancer.

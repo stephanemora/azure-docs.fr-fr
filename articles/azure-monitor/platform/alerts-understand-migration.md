@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073616"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564093"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendre le fonctionnement de l’outil de migration
 
@@ -104,7 +104,7 @@ Les alertes sur les mesures de requêtes Mongo ayant échoué doivent être frac
 
 ### <a name="classic-compute-metrics"></a>Calcul classique de mesures
 
-Les alertes sur les mesures de calcul classiques ne seront pas migrées à l’aide de l’outil de migration, car les ressources de calcul classiques ne sont pas encore prises en charge avec les nouvelles alertes. La prise en charge des nouvelles alertes sur ces types de ressources sera ajoutée à l’avenir. Une fois disponible, les clients doivent recréer de nouvelles règles d’alerte équivalentes en fonction de leurs règles d’alerte classiques avant juin 2020.
+Les alertes sur les mesures de calcul classiques ne seront pas migrées à l’aide de l’outil de migration, car les ressources de calcul classiques ne sont pas encore prises en charge avec les nouvelles alertes. La prise en charge des nouvelles alertes sur ces types de ressources est actuellement disponible en version préliminaire publique, et les clients peuvent recréer de nouvelles règles d’alerte équivalentes basées sur leurs règles d’alerte classiques.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Règles d’alerte classiques sur des métriques déconseillées
 

@@ -4,15 +4,15 @@ description: Découvrez comment installer et configurer une passerelle de donné
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062147"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438971"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 
@@ -44,11 +44,11 @@ Pour en savoir plus sur le fonctionnement d’Azure Analysis Services avec la pa
 * Connectez-vous à Azure avec le compte Azure AD du même [locataire](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) que l’abonnement dans lequel vous inscrivez la passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription d’une passerelle.
 * Si les sources de données se trouvent sur un réseau virtuel (VNet) Azure, vous devez configurer la propriété de serveur [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 
-## <a name="download"></a><a name="download"></a>Télécharger
+## <a name="download"></a>Téléchargement
 
  [Télécharger la passerelle](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>Installer
+## <a name="install"></a>Installer
 
 1. Exécutez le programme d’installation.
 
@@ -67,7 +67,7 @@ Pour en savoir plus sur le fonctionnement d’Azure Analysis Services avec la pa
    > [!NOTE]
    > Si vous vous connectez avec un compte de domaine, ce compte sera mappé à votre compte professionnel dans Azure AD. Votre compte professionnel sert de compte d’administrateur de passerelle.
 
-## <a name="register"></a><a name="register"></a>S’inscrire
+## <a name="register"></a>Inscrire
 
 Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’instance locale que vous avez installée auprès du service cloud de passerelle. 
 
@@ -83,7 +83,7 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
    ![Inscrire](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Créer une ressource de passerelle Azure
+## <a name="create-an-azure-gateway-resource"></a>Créer une ressource de passerelle Azure
 
 Une fois que vous avez installé et inscrit votre passerelle, vous devez créer une ressource de passerelle dans Azure. Connectez-vous à Azure avec le même compte que celui utilisé lors de l’inscription de la passerelle.
 
@@ -107,7 +107,12 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
      Une fois ces opérations effectuées, cliquez sur **Créer**.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>Connecter les serveurs à la ressource de passerelle
+## <a name="connect-gateway-resource-to-server"></a>Connecter la ressource de passerelle au serveur
+
+> [!NOTE]
+> La connexion à une ressource de passerelle dans un abonnement différent de celui de votre serveur n’est pas prise en charge dans le portail. Cependant, elle est prise en charge par PowerShell.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans la vue d’ensemble du serveur Azure Analysis Services, cliquez sur **Passerelle de données locale**.
 
@@ -124,6 +129,27 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 
     ![Réussite de la connexion du serveur à la ressource de passerelle](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Utilisez [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) pour récupérer la valeur ResourceID de la passerelle. Ensuite, connectez la ressource de passerelle à un serveur existant ou nouveau en spécifiant **-GatewayResourceID** dans [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) ou [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+Pour récupérer l’ID de ressource de la passerelle :
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+Pour configurer un serveur existant :
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
 
 Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations de dépannage, veillez à consulter la page [Passerelle de données locale](analysis-services-gateway.md).
 

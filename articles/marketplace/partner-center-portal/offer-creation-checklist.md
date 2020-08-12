@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327393"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799920"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Liste de vérification de la création d’offre SaaS dans l’Espace partenaires
 
@@ -79,9 +79,9 @@ La page de propriétés est l’emplacement où vous définissez les catégories
 La page de référencement vous permet de fournir le texte et les images que les clients voient quand ils affichent le référencement de votre offre sur la place de marché. 
 
 | **Nom du champ**    | **Remarques**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Nom  | Obligatoire, maximum 50 caractères. |
-| Résumé  | Obligatoire, maximum 100 caractères. | 
+| Résumé  | Obligatoire, maximum 100 caractères. |
 | Description  | Obligatoire, maximum 3 000 caractères. |
 | Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
 | Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
@@ -91,7 +91,7 @@ La page de référencement vous permet de fournir le texte et les images que les
 | Titre + URL de liens utiles  | facultatif. |
 | Titre + Fichier de documents associés  | Obligatoire, min. 1 et max. 3. Doit être au format de fichier PDF. |
 | Captures d’écran.  | Obligatoire, min. 1 et max. 5 captures d’écran ; min. quatre recommandées. Doit être au format PNG 1280 X 720. |
-| Logos du Store (Petit, Moyen, Grand, Large)  | Petit (48 X 48) et Grand (216 X 216) obligatoires. Les autres tailles sont facultatives mais recommandées : Moyen (90 x 90), Large (255 x 115). Le logo doit être au format .PNG. |
+| Logos du Store (Petit, Moyen, Grand)  | Le grand logo (216 x 216) est requis. L’Espace partenaires l’utilisera pour créer un logo de Petite taille (48 x 48 pixels) et de taille Moyenne (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images. Le logo doit être au format PNG. |
 | Nom + URL + miniature des vidéos  | Facultatif, recommandé, max. 4 vidéos. La miniature doit être au format PNG 1280 x 720. La vidéo doit être hébergée sur YouTube ou Vimeo. |
 | Contacts (Programme Fournisseur de solutions Microsoft Cloud (CSP), Ingénierie, Support)  | Contacts Ingénierie et Support obligatoires (nom, e-mail et le numéro de téléphone) ; Contact Programme CSP facultatif mais recommandé. |
 | URL du support technique  | Obligatoire. |
@@ -100,11 +100,11 @@ La page de référencement vous permet de fournir le texte et les images que les
 
 La page de préversion vous permet de spécifier le public ayant accès à la préversion de votre offre afin de vérifier que celle-ci répond à toutes vos exigences avant sa mise en ligne. 
 
-| **Nom du champ**    | **Remarques**   | 
-| :---------------- | :-----------| 
+| **Nom du champ**    | **Remarques**   |
+| :---------------- | :-----------|
 | E-mail + description AAD/MSA | Obligatoire, min. 1 et max. 10 en cas d’entrée manuelle, ou jusqu’à 20 e cas de chargement de fichier CSV. |
 
-## <a name="technical-configuration-page"></a>Page de configuration technique 
+## <a name="technical-configuration-page"></a>Page de configuration technique
 
 La page de configuration technique est celle où vous spécifiez les détails techniques utilisés par Microsoft pour se connecter à votre offre. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
 

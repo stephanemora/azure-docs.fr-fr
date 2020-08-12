@@ -2,17 +2,17 @@
 title: Résoudre les problèmes liés à Azure Data Share
 description: Découvrez comment résoudre les problèmes avec les invitations et les erreurs rencontrées lors de la création ou réception de partages de données dans Azure Data Share.
 services: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/10/2019
-ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322036"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534445"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -34,7 +34,7 @@ Cela peut être dû aux raisons suivantes :
     1. Recherchez **Microsoft.DataShare**
     1. Cliquez sur **S’inscrire** 
 
-    Vous devez disposer du [rôle RBAC de contributeur Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) pour effectuer ces étapes. 
+    Vous devez disposer du [rôle Azure Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) pour effectuer ces étapes. 
 
 * **L’invitation est envoyée à votre alias de messagerie au lieu de votre e-mail de connexion Azure.** Si vous avez enregistré le service Azure Data Share ou si vous avez déjà créé une ressource Data Share dans le locataire Azure, mais que vous ne voyez toujours pas l’invitation, cela peut être dû au fait que le fournisseur a entré votre alias de messagerie en tant que destinataire au lieu de votre adresse e-mail de connexion Azure. Contactez votre fournisseur de données et assurez-vous qu’il a bien envoyée l’invitation à votre adresse e-mail de connexion Azure et non à votre alias de messagerie.
 

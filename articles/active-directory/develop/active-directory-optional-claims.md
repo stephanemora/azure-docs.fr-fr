@@ -1,32 +1,32 @@
 ---
 title: Fournir des revendications facultatives aux applications Azure AD
 titleSuffix: Microsoft identity platform
-description: Guide pratique pour ajouter de revendications personnalisées ou supplémentaires aux jetons JSON Web Token (JWT) et SAML 2.0 émis par Azure Active Directory.
+description: Guide pratique pour ajouter des revendications personnalisées ou supplémentaires aux jetons JSON Web Token (JWT) et SAML 2.0 émis par Plateforme d’identités Microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/11/2020
+ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478329"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552864"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procédure : Fournir des revendications facultatives à votre application Azure AD
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
 Les développeurs d’applications peuvent utiliser des revendications facultatives dans leurs applications Azure AD pour spécifier les revendications souhaitées dans les jetons envoyés à leur application.
 
 Vous pouvez utiliser des revendications facultatives pour :
 
 - Sélectionner des revendications supplémentaires à inclure dans les jetons pour votre application.
-- Modifier le comportement de certaines revendications retournées par Azure AD dans les jetons.
+- Modifier le comportement de certaines revendications retournées par Plateforme d’identités Microsoft dans les jetons.
 - Ajouter et accéder à des revendications personnalisées pour votre application.
 
 Pour obtenir la liste de revendications standard, voir les documents sur les revendications [jeton d’accès](access-tokens.md) et [id_token](id-tokens.md).
@@ -53,12 +53,10 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
-| `home_oid`                 | Pour les utilisateurs invités, il s’agit de l’ID d’objet de l’utilisateur dans le locataire de base de l’utilisateur.| JWT        |           | |
 | `sid`                      | ID de session utilisé pour la déconnexion de l’utilisateur après chaque session. | JWT        |  Comptes personnels et Azure AD.   |         |
 | `platf`                    | Plateforme d’appareil.    | JWT        |           | Limité aux appareils gérés qui peuvent vérifier le type d’appareil.|
 | `verified_primary_email`   | Obtenu à partir du PrimaryAuthoritativeEmail de l’utilisateur      | JWT        |           |         |
 | `verified_secondary_email` | Obtenu à partir du SecondaryAuthoritativeEmail de l’utilisateur   | JWT        |           |        |
-| `enfpolids`                | ID des stratégies appliquées. Liste des ID des stratégies qui ont été évaluées pour l’utilisateur actuel. | JWT |  |  |
 | `vnet`                     | Informations sur le spécificateur de réseau virtuel. | JWT        |           |      |
 | `fwd`                      | Adresse IP.| JWT    |   | Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel). |
 | `ctry`                     | Pays/Région de l’utilisateur | JWT |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur de la revendication est un code de pays/région à deux lettres standard, tel que FR, JP, SZ, etc. |
@@ -68,8 +66,8 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `xms_tpl`                  | Langue par défaut du locataire| JWT | | Langue par défaut du locataire de la ressource, si celle-ci est définie. Au format langue (« fr »). |
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, Azure AD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|
-| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé conjointement avec le paramètre GroupMembershipClaims dans le [manifeste d’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`                | Statut du compte utilisateur dans le locataire | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
+| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé conjointement avec le paramètre GroupMembershipClaims dans le [manifeste d’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 | `idtyp`                    | Type de jeton   | Jetons d’accès JWT | Spécial : uniquement dans les jetons d’accès à l’application uniquement |  La valeur est `app` lorsque le jeton est un jeton uniquement de l’application. Il s’agit de la façon la plus précise pour une API de déterminer si un jeton est un jeton d’application ou un jeton d’application + un jeton d’utilisateur.|
 

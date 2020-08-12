@@ -5,14 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: jushiman
-ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/01/2020
+ms.author: amverma
+ms.reviewer: jushiman
+ms.openlocfilehash: 797a036b9cf2e77dfbcdf8dc7596179c4673e6a6
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268949"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513738"
 ---
 # <a name="h-series"></a>Série H
 
@@ -98,4 +99,7 @@ La Place de marché Azure présente de nombreuses distributions Linux qui prenne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
+- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](./workloads/hpc/overview.md).
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).
+- Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981371"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533357"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,6 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 
 | Fonctionnalité | Détails |
 | ---| --- |
-| Nouvelles générations de matériel de série Fsv2 et de série M| Pour plus d’informations, consultez [Générations de matériel](service-tiers-vcore.md#hardware-generations).|
 | Récupération de base de données accélérée à l’aide de bases de données uniques et de pools élastiques | Pour plus d’informations, consultez [Récupération de base de données accélérée](../accelerated-database-recovery.md).|
 | Découverte et classification des données  |Pour plus d’informations, consultez [Découverte et classification des données pour Azure SQL Database et Azure Synapse Analytics](data-discovery-and-classification-overview.md).|
 | Tâches de base de données élastiques | Pour plus d’informations, consultez [Créer, configurer et gérer des travaux élastiques](elastic-jobs-overview.md). |
@@ -98,8 +97,8 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 |Problème  |Date de la détection  |Statut  |Date de la résolution  |
 |---------|---------|---------|---------|
-|[La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer](#restoring-manual-backup-without-checksum-might-fail)|Mai 2020|Solution de contournement| |
-|[L’agent ne répond plus lors de la modification, la désactivation ou l’activation de travaux existants](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mai 2020|Atténuation automatique| |
+|[La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer](#restoring-manual-backup-without-checksum-might-fail)|Mai 2020|Résolu|Juin 2020|
+|[L’agent ne répond plus lors de la modification, la désactivation ou l’activation de travaux existants](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mai 2020|Résolu|Juin 2020|
 |[Autorisations sur le groupe de ressources non appliquées à SQL Managed Instance](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Février 2020|Solution de contournement||
 |[Limitation du basculement manuel via le portail pour les groupes de basculement](#limitation-of-manual-failover-via-portal-for-failover-groups)|janvier 2020|Solution de contournement||
 |[Les rôles SQL Agent requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Décembre 2019|Solution de contournement||
@@ -138,7 +137,7 @@ Dans certaines circonstances, la modification d’un travail existant, sa désac
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Autorisations sur le groupe de ressources non appliquées à SQL Managed Instance
 
-Si le rôle RBAC Contributeur SQL Managed Instance est appliqué à un groupe de ressources, il n’est pas appliqué à SQL Managed Instance et n’a aucun effet.
+Si le rôle Azure Contributeur SQL Managed Instance est appliqué à un groupe de ressources, il n’est pas appliqué à SQL Managed Instance et n’a aucun effet.
 
 **Solution de contournement** : Configurez le rôle Contributeur SQL Managed Instance pour les utilisateurs au niveau de l’abonnement.
 

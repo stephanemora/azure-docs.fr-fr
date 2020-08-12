@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056665"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412947"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Utiliser le Pare-feu Azure pour protéger des déploiements d’Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,9 @@ Le Pare-feu Azure fournit une balise de nom de domaine complet AKS pour simplifi
       Pour plus de détails, voir * *.hcp.<location>.azmk8s.io* et les adresses dans le tableau suivant.
    - Port UDP 123 pour la synchronisation temporelle NTP (Network Time Protocol) (nœuds Linux).
    - Le port UDP 53 pour DNS est également requis si vous avez des pods qui accèdent directement au serveur d’API.
-- Configurez les étiquettes de service AzureMonitor et Storage. Azure Monitor reçoit les données Log Analytics. 
+
+   Pour plus d’informations, consultez [Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+- Configurez les étiquettes de service AzureMonitor et Storage. Azure Monitor reçoit les données Log Analytics.
 
    Vous pouvez également autoriser l’URL de votre espace de travail individuellement : `<worksapceguid>.ods.opinsights.azure.com`et `<worksapceguid>.oms.opinsights.azure.com`. Vous pouvez résoudre cette situation de l’une des manières suivantes :
 

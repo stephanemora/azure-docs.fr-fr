@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513633"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070696"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Cloner à partir d’une sauvegarde de votre instance StorSimple Virtual Array
 
@@ -127,7 +127,7 @@ Chaque partage comporte un dossier *.backups* contenant les sauvegardes les plus
    * **Sauvegardes planifiées** nommées &lt;Nom de l’appareil&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
    * **Sauvegardes manuelles** nommées Ad-hoc-YYYYMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Capture d’écran de l’Explorateur de fichiers qui présente le dossier .backups. À l’intérieur de ce dossier, le dossier Sauvegardes manuelles est sélectionné.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Identifiez la sauvegarde contenant la version la plus récente du fichier supprimé. Bien que le nom du dossier contienne un horodatage UTC dans chacun des cas précédents, l'heure de création du dossier correspond à l’heure réelle de démarrage de la sauvegarde sur l’appareil. Utilisez l'horodatage du dossier pour localiser et identifier les sauvegardes.
 

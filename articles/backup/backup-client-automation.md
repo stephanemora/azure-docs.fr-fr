@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Dans cet article, découvrez comment utiliser PowerShell pour configurer Sauvegarde Azure sur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 116bdd6b5f48a9d5abc0f9f0d9ce61f857196fd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513725"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564025"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 Sur le serveur Windows Server ou l’ordinateur client Windows, exécutez l’applet de commande [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) pour inscrire l’ordinateur auprès du coffre.
-Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que le Mars AgentInstaller a ajouté dans le cadre du processus d’installation.
+Cette cmdlet, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que l’AgentInstaller MARS a ajouté dans le cadre du processus d’installation.
 
 Le programme d’installation de l’agent ne met pas à jour la variable $Env:PSModulePath. Cela signifie que le chargement automatique du module échoue. Pour résoudre ce problème, vous pouvez effectuer les étapes suivantes :
 

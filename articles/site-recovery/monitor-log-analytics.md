@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529027"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495061"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -44,14 +44,14 @@ Avant de commencer, il est recommandé de consulter les [questions courantes con
 
 1. Dans le coffre, cliquez sur **Paramètres de diagnostic** > **Ajouter un paramètre de diagnostic**.
 
-    ![Sélectionner la journalisation de ressources](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Capture d’écran montrant l’option Ajouter un paramètre de diagnostic.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. Dans **Paramètres de diagnostic**, spécifiez un nom, puis cochez la case **Envoyer à Log Analytics**.
 3. Sélectionnez l’abonnement Journaux Azure Monitor et l’espace de travail Log Analytics.
 4. Sélectionnez **Diagnostics Azure** dans le bouton bascule.
 5. Dans la liste des journaux, sélectionnez tous les journaux ayant le préfixe **AzureSiteRecovery**. Cliquez ensuite sur **OK**.
 
-    ![Sélectionner un espace de travail](./media/monitoring-log-analytics/select-workspace.png)
+    ![Capture de l’écran Paramètres des diagnostics.](./media/monitoring-log-analytics/select-workspace.png)
 
 Les journaux Site Recovery commencent à être alimentés dans une table (**AzureDiagnostics**) de l’espace de travail sélectionné.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![Interroger les RPO](./media/monitoring-log-analytics/example1.png)
+![Capture d’écran montrant un graphique à barres des machines virtuelles Azure répliquées avec Site Recovery.](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Interroger les travaux Azure Site Recovery
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![Interroger les RPO des machines](./media/monitoring-log-analytics/example2.png)
+![Capture d’écran d’un graphique de tendance qui suit le RPO d’une machine virtuelle Azure spécifique.](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Taux de modification des données de requête (évolution) et vitesse de téléchargement pour une machine virtuelle Azure
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Interroger le changement des données](./media/monitoring-log-analytics/example3.png)
+![Capture d’écran d’un graphique de tendance pour une machine virtuelle Azure spécifique.](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Taux de modification des données de requête (évolution) et vitesse de téléchargement pour une machine virtuelle VMware ou une machine physique
 

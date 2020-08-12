@@ -5,21 +5,22 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/10/2020
-ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118727"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497050"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB
 
-Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données. 
+Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données.
 
 ## <a name="azure-portal"></a>Portail Azure
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Créer une base de données ou un conteneur avec mise à l’échelle automatique
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou à l’ [explorateur Azure Cosmos DB.](https://cosmos.azure.com/)
 
 1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
@@ -51,12 +52,14 @@ Pour configurer la mise à l’échelle automatique sur une base de données à 
 > Lorsque vous activez la mise à l’échelle automatique sur une base de données ou un conteneur existant, la valeur de départ pour le nombre maximum de RU/s est déterminée par le système, en fonction de vos paramètres de débit approvisionné manuellement et de votre stockage. Une fois l’opération terminée, vous pouvez modifier le nombre maximal de RU/s si nécessaire. [En savoir plus.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB v3 pour l’API SQL
+
 Utilisez la [version 3.9 ou ultérieure](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) du Kit de développement logiciel (SDK) .NET Azure Cosmos DB pour l’API SQL pour gérer les ressources avec mise à l’échelle automatique. 
 
 > [!IMPORTANT]
 > Vous pouvez utiliser le Kit de développement logiciel (SDK) .NET pour créer des ressources avec mise à l’échelle automatique. Le Kit de développement logiciel (SDK) ne prend pas en charge la migration entre le débit en mode de mise à l’échelle automatique et le débit standard (manuel). Actuellement, le scénario de migration est pris en charge uniquement dans le portail Azure. 
 
 ### <a name="create-database-with-shared-throughput"></a>Créer une base de données avec débit partagé
+
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -69,6 +72,7 @@ database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProper
 ```
 
 ### <a name="create-container-with-dedicated-throughput"></a>Créer un conteneur avec débit dédié
+
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -82,6 +86,7 @@ container = await database.CreateContainerAsync(autoscaleContainerProperties, au
 ```
 
 ### <a name="read-the-current-throughput-rus"></a>Lire le débit actuel (RU/s)
+
 ```csharp
 // Get a reference to the resource
 Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
@@ -97,16 +102,18 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Modifier le débit maximal avec mise à l’échelle automatique (RU/s)
+
 ```csharp
 // Change the autoscale max throughput (RU/s)
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
 ## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour l’API SQL
-Vous pouvez utiliser la [version 4.0 ou ultérieure](https://mvnrepository.com/artifact/com.azure/azure-cosmos) du Kit de développement logiciel (SDK) Java Azure Cosmos DB pour l’API SQL pour gérer les ressources avec mise à l’échelle automatique. 
+
+Vous pouvez utiliser la [version 4.0 ou ultérieure](https://mvnrepository.com/artifact/com.azure/azure-cosmos) du Kit de développement logiciel (SDK) Java Azure Cosmos DB pour l’API SQL pour gérer les ressources avec mise à l’échelle automatique.
 
 > [!IMPORTANT]
-> Vous pouvez utiliser le Kit de développement logiciel (SDK) Java pour créer des ressources avec mise à l’échelle automatique. Le Kit de développement logiciel (SDK) ne prend pas en charge la migration entre le débit en mode de mise à l’échelle automatique et le débit standard (manuel). Actuellement, le scénario de migration est pris en charge uniquement dans le portail Azure. 
+> Vous pouvez utiliser le Kit de développement logiciel (SDK) Java pour créer des ressources avec mise à l’échelle automatique. Le Kit de développement logiciel (SDK) ne prend pas en charge la migration entre le débit en mode de mise à l’échelle automatique et le débit standard (manuel). Actuellement, le scénario de migration est pris en charge uniquement dans le portail Azure.
 
 ### <a name="create-database-with-shared-throughput"></a>Créer une base de données avec débit partagé
 
@@ -233,18 +240,30 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput));
 ```
 
---- 
+---
 
-## <a name="cassandra-api"></a>API Cassandra 
-Pour activer la mise à l’échelle automatique, consultez cet article sur [l’utilisation de commandes CQL](manage-scale-cassandra.md#use-autoscale).
+## <a name="cassandra-api"></a>API Cassandra
 
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB pour MongoDB 
-Pour activer la mise à l’échelle automatique, consultez cet article sur [l’utilisation des commandes de l’extension MongoDB](mongodb-custom-commands.md).
+Des comptes Azure Cosmos DB pour l’API Cassandra peuvent être provisionnés pour la mise à l’échelle automatique à l’aide des [commandes CQL](manage-scale-cassandra.md#use-autoscale), de l’interface [Azure CLI](cli-samples.md), d’[Azure PowerShell](powershell-samples.md) ou des [modèles Azure Resource Manager](resource-manager-samples.md).
+
+## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB pour MongoDB
+
+Des comptes Azure Cosmos DB pour l’API MongoDB peuvent être provisionnés pour la mise à l’échelle automatique à l’aide des [commandes d’extension MongoDB](mongodb-custom-commands.md), de l’interface [Azure CLI](cli-samples.md), d’[Azure PowerShell](powershell-samples.md) ou des [modèles Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Vous pouvez utiliser un modèle Resource Manager pour approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur pour n’importe quelle API. Pour obtenir un exemple, consultez cet [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
+
+Les modèles Azure Resource Manager peuvent être utilisés pour provisionner le débit de mise à l’échelle automatique sur des ressources de base de données ou de niveau conteneur pour toutes les API Azure Cosmos DB. Consultez [Modèles Azure Resource Manager pour Azure Cosmos DB](resource-manager-samples.md) afin de voir des exemples.
+
+## <a name="azure-cli"></a>Azure CLI
+
+L’interface Azure CLI peut être utilisée pour provisionner le débit de mise à l’échelle automatique sur des ressources de base de données ou de niveau conteneur pour toutes les API Azure Cosmos DB. Pour voir des exemples, consultez [Exemples Azure CLI pour Azure Cosmos DB](cli-samples.md).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell peut être utilisé pour provisionner le débit de mise à l’échelle automatique sur des ressources de base de données ou de niveau conteneur pour toutes les API Azure Cosmos DB. Pour obtenir des exemples, consultez [Exemples Azure PowerShell pour Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * En savoir plus sur les [avantages du débit approvisionné avec la mise à l’échelle automatique](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Découvrez comment [choisir entre le débit manuel et le débit avec mise à l’échelle automatique](how-to-choose-offer.md).
 * Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.md).

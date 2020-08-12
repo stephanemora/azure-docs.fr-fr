@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955061"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495690"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -40,7 +40,7 @@ La plupart des exigences applicables à une vue standard s’appliquent aussi à
 |Stockage supplémentaire                   | Non                                           | Oui
 |Syntaxe                          | CREATE VIEW                                  | CREATE MATERIALIZED VIEW AS SELECT
 
-## <a name="benefits-of-using-materialized-views"></a>Avantages de l’utilisation des vues matérialisées
+## <a name="benefits-of-materialized-views"></a>Avantages des vues matérialisées
 
 Une vue matérialisée correctement conçue offre les avantages suivants :
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416827"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171263"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -76,6 +76,8 @@ Le service lié Oracle prend en charge les propriétés suivantes :
 
 >[!TIP]
 >En cas d’erreur, « ORA-01025 : UPI parameter out of range » et que votre version d’Oracle est 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
+
+Si vous avez plusieurs instances Oracle pour le scénario de basculement, vous pouvez créer un service lié à Oracle et renseigner l’hôte principal, le port, le nom d’utilisateur, le mot de passe, etc., et ajouter une nouvelle propriété « **Propriétés de connexion supplémentaires** » avec le nom `AlternateServers` et la valeur `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)`. N’oubliez pas les crochets et faites attention aux signes deux-points (`:`) utilisés comme séparateur. À titre d’exemple, la valeur suivante de serveurs secondaires définit deux serveurs de base de données de remplacement pour le basculement de connexion : `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)`.
 
 Autres propriétés de connexion que vous pouvez définir dans la chaîne de connexion selon votre cas :
 

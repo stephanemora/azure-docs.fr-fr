@@ -7,13 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
-ms.openlocfilehash: c0a397ac71c7c466145357093b6c22f78e627d1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/29/2020
+ms.custom: generated
+ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511583"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448902"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -180,6 +181,7 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Contributeur Cost Management](#cost-management-contributor) | Peut afficher les coûts et gérer la configuration des coûts (par exemple, budgets, exportations) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Lecteur Cost Management](#cost-management-reader) | Peut afficher les données et la configuration des coûts (par exemple, budgets, exportations) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Administration des paramètres de hiérarchie](#hierarchy-settings-administrator) | Permet aux utilisateurs de modifier et de supprimer des paramètres de hiérarchie | 350f8d15-c687-4448-8ae1-157740a3936d |
+> | [Cluster Kubernetes – Intégration Azure Arc](#kubernetes-cluster---azure-arc-onboarding) | Définition de rôle pour autoriser tout utilisateur/service à créer une ressource connectedClusters | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | [Rôle Contributeur d'application managée](#managed-application-contributor-role) | Permet de créer des ressources d’application managées. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rôle opérateur d’application managée](#managed-application-operator-role) | Permet de lire les ressources d’application managée et d’effectuer des actions sur ces ressources. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Lecteur Applications managées](#managed-applications-reader) | Vous permet de lire les ressources dans une application managée et de demander un accès JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -3097,7 +3099,7 @@ Répertorie les actions relatives aux informations d’identification de l’uti
 
 ### <a name="azure-kubernetes-service-contributor-role"></a>Rôle Contributeur Azure Kubernetes Service
 
-Octroie l’accès en lecture et en écriture aux clusters Azure Kubernetes Service
+Octroie l’accès en lecture et en écriture aux clusters Azure Kubernetes Service. [En savoir plus](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3140,7 +3142,7 @@ Octroie l’accès en lecture et en écriture aux clusters Azure Kubernetes Serv
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>Azure Kubernetes Service RBAC Admin
 
-Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. [En savoir plus](../aks/concepts-identity.md)
+Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. [En savoir plus](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3203,7 +3205,7 @@ Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Azure Kubernetes Service RBAC Cluster Admin
 
-Gérez toutes les ressources du cluster. [En savoir plus](../aks/concepts-identity.md)
+Gérez toutes les ressources du cluster. [En savoir plus](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3258,7 +3260,7 @@ Gérez toutes les ressources du cluster. [En savoir plus](../aks/concepts-identi
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>Azure Kubernetes Service RBAC Reader
 
-Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. [En savoir plus](../aks/concepts-identity.md)
+Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. [En savoir plus](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3319,7 +3321,7 @@ Affichez toutes les ressources dans le cluster/l’espace de noms, à l’except
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>Azure Kubernetes Service RBAC Writer
 
-Mettez à jour tous les éléments du cluster/de l’espace de noms, à l’exception des quotas de ressources, des espaces de noms, des stratégies de sécurité pod, des demandes de signature de certificats, des rôles (de cluster) et des liaisons de rôles (de cluster). [En savoir plus](../aks/concepts-identity.md)
+Mettez à jour tous les éléments du cluster/de l’espace de noms, à l’exception des quotas de ressources, des espaces de noms, des stratégies de sécurité pod, des demandes de signature de certificats, des rôles (de cluster) et des liaisons de rôles (de cluster). [En savoir plus](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6486,12 +6488,12 @@ Autorisations d’affichage pour Security Center. Peut afficher les recommandati
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Lire une alerte de métrique classique |
 > | [Microsoft.operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | Afficher les données Log Analytics |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Créer et gérer un déploiement |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Lire des stratégies et des composants de sécurité |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Créer et mettre à jour un ticket de support |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -6512,12 +6514,12 @@ Autorisations d’affichage pour Security Center. Peut afficher les recommandati
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.operationalInsights/workspaces/*/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
-        "Microsoft.Support/*",
+        "Microsoft.Support/*/read",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -7641,6 +7643,61 @@ Permet aux utilisateurs de modifier et de supprimer des paramètres de hiérarch
     }
   ],
   "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="kubernetes-cluster---azure-arc-onboarding"></a>Cluster Kubernetes – Intégration Azure Arc
+
+Définition de rôle pour autoriser tout utilisateur/service à créer une ressource connectedClusters. [En savoir plus](../azure-arc/kubernetes/connect-cluster.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | Crée ou met à jour un déploiement. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Obtient la liste des abonnements. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Écrit la ressource connectedClusters |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Lit la ressource connectedClusters |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Créer et mettre à jour un ticket de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role definition to authorize any user/service to create connectedClusters resource",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "name": "34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

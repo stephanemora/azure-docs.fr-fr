@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321715"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Créer une tâche Azure Stream Analytics dans Azure SQL Edge (préversion) 
 
@@ -43,7 +43,6 @@ Actuellement, Azure SQL Edge prend uniquement en charge les sources de données 
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | O | O | Source de données pour lire et écrire des données de streaming dans un hub Azure IoT Edge. Pour plus d’informations, consultez l’article [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | O | Connexion à la source de données pour écrire les données de streaming dans SQL Database. La base de données peut être une base de données locale dans Azure SQL Edge, ou une base de données distante dans SQL Server ou Azure SQL Database.|
-| Stockage Blob Azure | N | O | Source de données pour écrire des données dans un objet blob de compte de stockage Azure. |
 | Kafka | O | N | Source de données pour lire les données de streaming à partir d’une rubrique Kafka. Cet adaptateur n’est actuellement disponible que pour les versions Intel ou AMD d’Azure SQL Edge. Il n’est pas disponible pour la version ARM64 d’Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemple : Créer un objet d’entrée/de sortie de flux externe pour le hub Azure IoT Edge
@@ -54,7 +53,8 @@ L’exemple suivant crée un objet de flux externe pour Azure IoT Edge Hub. Pour
 
     ```sql
     Create External file format InputFileFormat
-    WITH (  
+    WITH 
+    (  
        format_type = JSON,
     )
     go
@@ -63,8 +63,10 @@ L’exemple suivant crée un objet de flux externe pour Azure IoT Edge Hub. Pour
 2. Créez une source de données externe pour le hub Azure IoT Edge. Le script T-SQL suivant crée une connexion de source de données à un hub IoT Edge qui s’exécute sur le même hôte Docker qu’Azure SQL Edge.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
-    LOCATION = 'edgehub://'
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput 
+    WITH 
+    (
+        LOCATION = 'edgehub://'
     )
     go
     ```
@@ -72,13 +74,15 @@ L’exemple suivant crée un objet de flux externe pour Azure IoT Edge Hub. Pour
 3. Créez l’objet de flux externe pour le hub Azure IoT Edge. Le script T-SQL suivant crée un objet de flux pour le hub IoT Edge. Dans le cas d’un objet de flux de hub IoT Edge, le paramètre LOCATION correspond au nom de la rubrique/du canal de hub IoT Edge en cours de lecture ou d’écriture.
 
     ```sql
-    CREATE EXTERNAL STREAM MyTempSensors WITH (
-    DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat,
-    LOCATION = N'TemperatureSensors',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
-    )
+    CREATE EXTERNAL STREAM MyTempSensors 
+    WITH 
+    (
+        DATA_SOURCE = EdgeHubInput,
+        FILE_FORMAT = InputFileFormat,
+        LOCATION = N'TemperatureSensors',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
     go
     ```
 
@@ -107,9 +111,11 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
     * Elle utilise les informations d’identification créées précédemment.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
-    LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential
+    CREATE EXTERNAL DATA SOURCE LocalSQLOutput 
+    WITH 
+    (
+        LOCATION = 'sqlserver://tcp:.,1433',
+        CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -117,12 +123,52 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
 4. Créez l’objet de flux externe. L’exemple suivant crée un objet de flux externe pointant vers une table *dbo.TemperatureMeasurements* dans la base de données *MySQLDatabase*.
 
     ```sql
-    CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
-    DATA_SOURCE = LocalSQLOutput,
-    LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
+    CREATE EXTERNAL STREAM TemperatureMeasurements 
+    WITH 
+    (
+        DATA_SOURCE = LocalSQLOutput,
+        LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
+    ```
+
+### <a name="example-create-an-external-stream-object-for-kafka"></a>Exemple : Créer un objet de flux externe pour Kafka
+
+L’exemple suivant crée un objet de flux externe dans la base de données locale dans Azure SQL Edge. Cet exemple suppose que le serveur Kafka est configuré pour l’accès anonyme. 
+
+1. Créez une source de données externe avec CREATE EXTERNAL DATA SOURCE. L’exemple suivant :
+
+    ```sql
+    Create EXTERNAL DATA SOURCE [KafkaInput] 
+    With
+    (
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
     )
+    GO
+    ```
+2. Créer un format de fichier externe pour l’entrée Kafka. Dans l’exemple suivant, un format de fichier JSON a été créé avec la compression GZipped. 
+
+   ```sql
+   CREATE EXTERNAL FILE FORMAT JsonGzipped  
+    WITH 
+    (  
+        FORMAT_TYPE = JSON , 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+    )
+   ```
+    
+3. Créez l’objet de flux externe. L’exemple suivant crée un objet de flux externe pointant vers la rubrique Kafka `*TemperatureMeasurement*`.
+
+    ```sql
+    CREATE EXTERNAL STREAM TemperatureMeasurement 
+    WITH 
+    (  
+        DATA_SOURCE = KafkaInput, 
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',     
+        INPUT_OPTIONS = 'PARTITIONS: 10' 
+    ); 
     ```
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>Créer la tâche et les requêtes de streaming

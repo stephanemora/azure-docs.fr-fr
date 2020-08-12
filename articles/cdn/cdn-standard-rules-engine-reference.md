@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559301"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760088"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
@@ -59,15 +59,7 @@ Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par e
 
 ### <a name="wildcard-values"></a>Valeurs de caractère générique
 
-Le texte interprété comme une valeur de caractère générique attribue une signification supplémentaire aux caractères spéciaux. Le tableau suivant décrit la façon dont les caractères spéciaux spécifiques sont interprétés dans le moteur de règles standard :
-
-Caractère | Description
-----------|------------
-\ | Une barre oblique inverse est utilisée pour échapper les caractères spécifiés dans ce tableau. Une barre oblique inverse doit être spécifiée juste avant le caractère spécial à échapper. Par exemple, la syntaxe suivante échappe un astérisque : `\*`
-% | Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par exemple, `%20`).
-\* | Un astérisque est un caractère générique représentant un ou plusieurs caractères.
-espace | Un caractère d’espace indique qu’une condition de correspondance peut être remplie par les valeurs ou les modèles spécifiés.
-guillemets simples | Un guillemet simple n’a pas de signification particulière. Toutefois, un jeu de guillemets simples indique qu’une valeur doit être traitée comme une valeur littérale. Les guillemets simples peuvent être utilisés des manières suivantes :<ul><li>Permettre de remplir une condition de correspondance lorsque la valeur spécifiée correspond à une partie de la valeur de comparaison.  Par exemple, `'ma'` peut correspondre à l’une des chaînes suivantes : <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>Permettre de spécifier un caractère spécial en tant que caractère littéral. Par exemple, vous pouvez spécifier un caractère d’espace littéral en plaçant un caractère d’espace dans un jeu de guillemets simples (`' '` ou `'<sample value>'`).</li><li>Permettre de spécifier une valeur vide. Spécifiez une valeur vide en entrant un jeu de guillemets simples ( **''** ).</li></ul>**Important !**<br /><ul><li>Si la valeur spécifiée ne contient pas de caractère générique, elle est automatiquement considérée comme une valeur littérale. Vous n’avez pas besoin de spécifier un jeu de guillemets simples pour une valeur littérale.</li><li>Si une barre oblique inverse n’est pas utiliser pour échapper à un autre caractère dans ce tableau, elle est ignorée lorsqu’elle est placée dans un jeu de guillemets simples.</li><li>Une autre manière de spécifier un caractère spécial en tant que caractère littéral consiste à l’échapper à l’aide d’une barre oblique inverse (`\`).</li></ul>
+Actuellement, nous prenons en charge le caractère générique dans la **condition de correspondance UrlPath** dans le moteur de règles standard. Le caractère \* est un astérisque représentant un ou plusieurs caractères. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

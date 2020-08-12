@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009116"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -30,10 +30,11 @@ Cet article présente trois scénarios permettant de configurer des stratégies 
 
 Dans l’accès conditionnel, on dit que ces applications clientes sont protégées par une stratégie de protection d’application. Pour obtenir plus d’informations sur les stratégies de protection d’application, consultez l’article [Présentation des stratégies de protection d’application](/intune/apps/app-protection-policy)
 
-Pour obtenir la liste des applications clientes éligibles, consultez [Présence obligatoire d’une stratégie de protection d’application](concept-conditional-access-grant.md).
+> [!WARNING]
+> Toutes les applications ne sont pas prises en charge comme des applications approuvées ni ne prennent en charge les stratégies de protection d’application. Pour obtenir la liste des applications clientes éligibles, consultez [Présence obligatoire d’une stratégie de protection d’application](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    La clause OR est utilisée dans la stratégie pour permettre aux utilisateurs d’utiliser les applications prenant en charge les contrôles d'octroi **Exiger une stratégie de protection des applications** ou **Demander une application cliente approuvée**. Pour plus d’informations sur les applications prenant en charge le contrôle d'octroi **Exiger une stratégie de protection des applications**, consultez [Présence obligatoire d’une stratégie de protection des applications](concept-conditional-access-grant.md).
+> Le contrôle « Demander un des contrôles sélectionnés » sous les contrôles d’octroi est semblable à une clause OR. Il est utilisé dans la stratégie pour permettre aux utilisateurs d’utiliser les applications prenant en charge les contrôles d’octroi **Exiger une stratégie de protection des applications** ou **Demander une application cliente approuvée**. **Exiger une stratégie de protection des applications** est appliqué si une application est prise en charge dans les deux stratégies. Pour plus d’informations sur les applications prenant en charge le contrôle d'octroi **Exiger une stratégie de protection des applications**, consultez [Présence obligatoire d’une stratégie de protection des applications](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 1 : Les applications Office 365 demandent des applications approuvées avec des stratégies de protection d’application
 

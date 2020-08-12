@@ -14,12 +14,12 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d632d078db55696dad7bb05e72368b13610b5978
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091417"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ Pour activer le chiffrement transparent des données pour une base de données A
 
 1. Ouvrez la base de données dans le [portail Azure](https://portal.azure.com)
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
-3. Sélectionnez l’option **Chiffrement transparent des données**![][1]
-4. Sélectionnez le paramètre **Activé**, puis **Enregistrer**
-   ![][2]
+3. Sélectionnez l’option **Transparent Data Encryption** ![Screenshot of the Azure portal, with the Settings blade visible. In the General section, Transparent data encryption is highlighted.][1]
+4. Sélectionnez le paramètre **Activé**, puis sélectionnez **Enregistrer**
+   ![Screenshot of the Azure portal, with the Transparent data encryption blade visible. Data encryption is turned on, and the Save button is highlighted.][2]
 
 ## <a name="disabling-encryption"></a>Désactivation du chiffrement
 Pour désactiver le chiffrement transparent des données pour une base de données Azure qui stocke les données migrées à partir d’une base de données SQL Server compatible avec Stretch, procédez comme suit :

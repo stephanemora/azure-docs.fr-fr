@@ -2,7 +2,7 @@
 title: Assigner ou supprimer des licences – Azure Active Directory | Microsoft Docs
 description: Ces instructions expliquent comment assigner des licences Azure Active Directory à vos utilisateurs ou groupes et les supprimer.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603891"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797081"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
@@ -35,7 +35,7 @@ Plusieurs plans de licence sont disponibles pour le service Azure AD, notamment
 
 - Azure AD Premium P2
 
-Pour obtenir des informations spécifiques sur chaque plan de licence et sur les licences associées, consultez [De quelle licence ai-je besoin ?](https://azure.microsoft.com/pricing/details/active-directory/).
+Pour obtenir des informations spécifiques sur chaque plan de licence et sur les licences associées, consultez [De quelle licence ai-je besoin ?](https://azure.microsoft.com/pricing/details/active-directory/). Pour vous inscrire aux plans de licence Premium Azure AD des plans, voir [ici](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un groupe, vous devez spécifier l’**Emplacement d’utilisation** pour tous les membres. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’organisation Azure AD.
 

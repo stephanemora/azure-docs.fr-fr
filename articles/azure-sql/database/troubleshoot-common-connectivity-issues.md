@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b28fa788e7b35e94482104d807c228db21f49b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003914"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Résoudre les erreurs de connexion temporaires dans SQL Database et SQL Managed Instance
 
@@ -148,8 +148,8 @@ Par exemple, si le nombre est égal à 3 et que l’intervalle s’élève à 10
 
 Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à votre objet **SqlConnection** de recommencer l’opération de connexion sans notification à votre programme ou renvoi du contrôle à celui-ci. Les nouvelles tentatives peuvent se produire dans les situations suivantes :
 
-- Appel de méthode mySqlConnection.Open
-- Appel de méthode mySqlConnection.Execute
+- Appel de la méthode SqlConnection.Open
+- Appel de la méthode SqlConnection.Execute
 
 Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécution de votre *requête*, votre objet **SqlConnection** ne retente pas l’opération de connexion. Il ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/30/2020
+ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220301"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529498"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copier des données depuis et vers Snowflake à l’aide d’Azure Data Factory
 
@@ -49,7 +49,7 @@ Les propriétés prises en charge pour un service lié Snowflake sont les suivan
 | Propriété         | Description                                                  | Obligatoire |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | La propriété type doit être définie sur **Snowflake**.              | Oui      |
-| connectionString | Configurez le [nom complet du compte](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (y compris les segments supplémentaires qui identifient la région et la plateforme Cloud), le nom d’utilisateur, le mot de passe, la base de données et l’entrepôt. Spécifiez la chaîne de connexion JDBC pour la connexion à l’instance Snowflake. Vous pouvez également placer un mot de passe dans Azure Key Vault. Pour plus d'informations, reportez-vous aux exemples sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md).| Oui      |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance de Snowflake. Vous pouvez choisir de placer le mot de passe ou la chaîne de connexion entière dans Azure Key Vault. Pour plus d'informations, reportez-vous aux exemples sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>Paramètres standard :<br>- **Nom du compte :** [nom de compte complet](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) de votre compte Snowflake (incluant des segments supplémentaires identifiant la région et la plateforme cloud), par exemple, xy12345.east-us-2.azure.<br/>- **Nom d’utilisateur :** ID de connexion de l’utilisateur pour la connexion.<br>- **Mot de passe :** Mot de passe de l’utilisateur.<br>- **Base de données :** base de données par défaut à utiliser une fois connecté. Il doit s’agir d’une base de données existante pour laquelle le rôle spécifié dispose de privilèges.<br>- **Entrepôt :** entrepôt virtuel à utiliser une fois connecté. Il doit s’agir d’un entrepôt existant pour lequel le rôle spécifié dispose de privilèges.<br>- **Rôle :** rôle de contrôle d’accès par défaut à utiliser dans la session Snowflake. Le rôle spécifié doit être un rôle existant qui a déjà été affecté à l’utilisateur spécifié. Le rôle par défaut est PUBLIC. | Oui      |
 | connectVia       | Le [runtime d’intégration](concepts-integration-runtime.md) utilisé pour la connexion à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non       |
 
 **Exemple :**
@@ -60,7 +60,7 @@ Les propriétés prises en charge pour un service lié Snowflake sont les suivan
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ Les propriétés prises en charge pour un service lié Snowflake sont les suivan
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 

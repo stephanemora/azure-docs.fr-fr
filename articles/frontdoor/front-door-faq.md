@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809479"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760411"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -159,9 +159,12 @@ Concernant l’option de certificat managé Front Door, Front Door assure la rot
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quelles sont les suites de chiffrement actuellement prises en charge par Azure Front Door ?
 
-Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge :
+Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge : 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 Quand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les suites de chiffrement suivantes sont prises en charge :
 

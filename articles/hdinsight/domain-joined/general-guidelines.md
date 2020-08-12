@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887897"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530263"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informations et recommandations générales sur la sécurité d’entreprise dans Azure HDInsight
 
@@ -62,7 +62,7 @@ Lors du déploiement d’un cluster HDInsight sécurisé, certaines bonnes prati
 Quand l’espace de noms hiérarchique n’est pas activé :
 
 * Il n’y a pas d’autorisations héritées.
-* La seule autorisation de système de fichiers qui fonctionne est le rôle RBAC **Données de stockage XXXX**, à attribuer à l’utilisateur directement dans le portail Azure.
+* La seule autorisation de système de fichiers qui fonctionne est le rôle Azure **Données de stockage XXXX**, à attribuer à l’utilisateur directement dans le portail Azure.
 
 ### <a name="default-hdfs-permissions"></a>Autorisations HDFS par défaut
 

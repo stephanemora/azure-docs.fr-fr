@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386212"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531164"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -38,16 +38,37 @@ Pour plus d’informations sur les identités managées pour les ressources Azur
 
 Avant d’utiliser des clés, des secrets ou des certificats dans votre coffre de clés, créez et gérez votre coffre de clés via CLI, PowerShell, des modèles du Gestionnaire des ressources ou REST, comme décrit dans les articles suivants :
 
-- [Créer et gérer les coffres de clés avec l’interface de ligne de commande](../secrets/quick-create-cli.md)
-- [Créer et gérer les coffres de clés avec PowerShell](../secrets/quick-create-powershell.md)
-- [Créer et gérer les coffres de clés avec le portail Azure](../secrets/quick-create-portal.md)
-- [Créer et gérer les coffres de clés avec Python](../secrets/quick-create-python.md)
-- [Créer et gérer les coffres de clés avec Java](../secrets/quick-create-java.md)
-- [Créer et gérer les coffres de clés avec Node.js](../secrets/quick-create-node.md)
-- [Créer et gérer les coffres de clés avec .NET (v4 SDK)](../secrets/quick-create-net.md)
-- [Créer un coffre de clés et ajouter un secret via un modèle Azure Resource Manager](../secrets/quick-create-template.md)
-- [Créer et gérer les coffres de clés avec REST](/rest/api/keyvault/)
+- [Créer et gérer les coffres de clés avec l’interface de ligne de commande](quick-create-cli.md)
+- [Créer et gérer les coffres de clés avec PowerShell](quick-create-powershell.md)
+- [Créer et gérer les coffres de clés avec le portail Azure](quick-create-portal.md)
+- [Créer et gérer les coffres de clés avec REST](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>Définir et récupérer des secrets
+
+- [Définir et récupérer un secret avec une interface CLI](../secrets/quick-create-cli.md)
+- [Définir et récupérer un secret avec PowerShell](../secrets/quick-create-powershell.md)
+- [Définir et récupérer un secret avec le Portail Azure](../secrets/quick-create-portal.md)
+- [Opérations secrètes avec les API REST](/rest/api/keyvault/#secret-operations)
+- [Définir et récupérer un secret avec Python](../secrets/quick-create-python.md)
+- [Définir et récupérer un secret avec Java](../secrets/quick-create-java.md)
+- [Définir et récupérer un secret avec Node.js](../secrets/quick-create-node.md)
+- [Définir et récupérer un secret avec .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Créer un coffre de clés et ajouter un secret via un modèle Azure Resource Manager](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>Définir et récupérer des clés
+
+- [Définir et récupérer une clé avec une interface CLI](../keys/quick-create-cli.md)
+- [Définir et récupérer une clé avec PowerShell](../keys/quick-create-powershell.md)
+- [Définir et récupérer une clé avec le Portail Azure](../keys/quick-create-portal.md)
+- [Opérations sur clés avec les API REST](/rest/api/keyvault/#key-operations)
+- [Définir et récupérer une clé avec Python](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>Définir et récupérer des certificats
+- [Définir et récupérer un certificat avec l’interface CLI](../certificates/quick-create-cli.md)
+- [Définir et récupérer un certificat avec PowerShell](../certificates/quick-create-powershell.md)
+- [Définir et récupérer une clé avec le Portail Azure](../certificates/quick-create-portal.md)
+- [Opérations sur clés avec les API REST](/rest/api/keyvault/#certificate-operations)
+- [Définir et récupérer un certificat avec Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codage avec coffre de clés
 
@@ -64,8 +85,6 @@ Toutes vos ressources Key Vault sont accessibles par le biais de l’interface R
 #### <a name="net"></a>.NET
 
 [Informations de référence sur l’API .NET pour Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-Pour plus d’informations sur la version 2.x du kit SDK .NET, consultez les [Notes de publication](dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ Dans Node.js, l’API de gestion Key Vault et l’API des objets Key Vault sont 
 Pour obtenir des exemples complets d’utilisation de Key Vault avec vos applications, voir :
 
 - [Exemples de code Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) : exemples de code pour Azure Key Vault. 
-- [Utiliser Azure Key Vault à partir d’une application web](../secrets/quick-create-net.md) : tutoriel destiné à vous apprendre à utiliser Azure Key Vault à partir d’une application web dans Azure. 
 
 ## <a name="how-tos"></a>Procédures
 
@@ -124,7 +142,6 @@ Ces articles concernent d’autres scénarios et services qui utilisent ou intè
 
 - [Comportement de suppression réversible de Key Vault](soft-delete-overview.md) : décrit une fonctionnalité qui permet la récupération des objets supprimés, que la suppression soit accidentelle ou intentionnelle.
 - [Limitation du client Key Vault](overview-throttling.md) : vous oriente vers les concepts de base de la limitation et propose une approche pour votre application.
-- [Vue d’ensemble des clés de compte de stockage Key Vault](../secrets/overview-storage-keys.md) : décrit les clés de comptes de stockage Azure d’intégration Key Vault.
 - [Mondes de sécurité Key Vault](overview-security-worlds.md) : décrit les relations entre les régions et les zones de sécurité.
 
 ## <a name="social"></a>Réseaux sociaux

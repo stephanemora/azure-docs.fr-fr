@@ -1,14 +1,14 @@
 ---
 title: Instructions pour les requêtes limitées
 description: Apprenez à regrouper, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682063"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541836"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -29,6 +29,8 @@ Dans chaque réponse de requête, Azure Resource Graph ajoute deux en-têtes de 
 
 - `x-ms-user-quota-remaining` (int) : quota de ressources restant pour l'utilisateur. Cette valeur correspond au nombre de requêtes.
 - `x-ms-user-quota-resets-after` (hh:mm:ss) : délai à attendre avant la réinitialisation de la consommation du quota d’un utilisateur.
+
+Quand un principal de sécurité a accès à plus de 5 000 abonnements au sein du client ou du groupe d’administration [étendue de la requête](./query-language.md#query-scope), la réponse est limitée aux 5 000 premiers abonnements et l’en-tête `x-ms-tenant-subscription-limit-hit` est retourné en tant que `true`.
 
 Pour illustrer le fonctionnement des en-têtes, jetons un œil à une réponse de requête qui a les en-têtes et valeurs `x-ms-user-quota-remaining: 10` et `x-ms-user-quota-resets-after: 00:00:03`.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281546"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533289"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -47,8 +47,24 @@ Vous pouvez créer des captures instantanées de volume à la demande.
 
 Vous pouvez planifier la prise automatique de captures instantanées de volume à l’aide de stratégies de capture instantanée. Vous pouvez également modifier une stratégie de capture instantanée si nécessaire, ou supprimer en une dont vous n’avez plus besoin.  
 
-> [!IMPORTANT] 
-> L’utilisation de la fonctionnalité de stratégie de capture instantanée requiert une mise en liste verte. Envoyez un e-mail anffeedback@microsoft.com avec votre ID d’abonnement pour demander cette fonctionnalité.
+### <a name="register-the-feature"></a>Inscrire la fonctionnalité
+
+La fonctionnalité **stratégie d’instantané** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez commencer par l’inscrire. 
+
+1. Inscrivez la fonctionnalité : 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Vérifiez l’état d’inscription de la fonctionnalité : 
+
+    > [!NOTE]
+    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Créer une stratégie de capture instantanée 
 

@@ -1,6 +1,6 @@
 ---
 title: Chiffrement - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: En savoir plus sur l’atténuation des menaces exposées dans l’outil Threat Modeling Tool, possible grâce au chiffrement. Voir les informations sur l’atténuation et les exemples de code.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728185"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539949"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757617"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482581"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Les propriétés suivantes sont utilisées pour [gérer la compatibilité des je
 
 ## <a name="pass-through"></a>Requête directe
 
-Au début de l’expérience utilisateur, Azure AD B2C reçoit un jeton d’accès d’un fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous [activez une revendication dans votre flux utilisateur](idp-pass-through-user-flow.md) ou [définissez une revendication dans votre stratégie personnalisée](idp-pass-through-custom.md) pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C. Votre application doit utiliser un [flux utilisateur v2](user-flow-versions.md) pour tirer parti de la transmission du jeton en tant que revendication.
+Au début de l’expérience utilisateur, Azure AD B2C reçoit un jeton d’accès d’un fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous [activez une revendication dans votre flux utilisateur](idp-pass-through-user-flow.md) ou [définissez une revendication dans votre stratégie personnalisée](idp-pass-through-custom.md) pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C. Votre application doit utiliser un [flux utilisateur recommandé](user-flow-versions.md) pour tirer parti de la transmission du jeton en tant que revendication.
 
 Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès de fournisseurs d’identité OAuth 2.0 (dont font partie Facebook et Google). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 

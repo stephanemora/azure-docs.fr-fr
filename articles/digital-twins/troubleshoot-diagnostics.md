@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1a349883c8144aaff4aed70ba46ad0eaab04fe69
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 402eda92d5cc8e5c2566345d31c9ae625b82695c
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388307"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809394"
 ---
-# <a name="troubleshooting-azure-digital-twins-with-diagnostics-logging"></a>Résolution des problèmes liés à Azure Digital Twins avec la journalisation des diagnostics
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
-Azure Digital Twins collecte des [métriques](how-to-view-metrics.md) pour votre instance de service qui fournissent des informations sur l’état de vos ressources. Vous pouvez utiliser ces métriques pour évaluer l’intégrité globale du service Azure Digital Twins et des ressources qui y sont connectées. Ces statistiques accessibles à l’utilisateur vous permettent d’effectuer le suivi de votre Azure Digital Twins et d’analyser les causes des problèmes sans avoir à contacter le support Azure.
+Azure Digital Twins collecte des [métriques](troubleshoot-metrics.md) pour votre instance de service qui fournissent des informations sur l’état de vos ressources. Vous pouvez utiliser ces métriques pour évaluer l’intégrité globale du service Azure Digital Twins et des ressources qui y sont connectées. Ces statistiques accessibles à l’utilisateur vous permettent d’effectuer le suivi de votre Azure Digital Twins et d’analyser les causes des problèmes sans avoir à contacter le support Azure.
 
 Cet article explique comment activer la **journalisation des diagnostics** pour vos données de métriques à partir de votre instance Azure Digital Twins. Vous pouvez utiliser ces journaux pour vous aider à résoudre les problèmes de service.
 
@@ -26,7 +26,7 @@ Cet article explique comment activer la **journalisation des diagnostics** pour 
 
 2. Sélectionnez **Paramètres de diagnostic** dans le menu, puis **Ajouter un paramètre de diagnostic**.
 
-    :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
+    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
 
 3. Dans la page qui suit, renseignez les valeurs suivantes :
      * **Nom du paramètre de diagnostic** : Nommez les paramètres de diagnostic.
@@ -52,4 +52,4 @@ Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après ce
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la configuration des diagnostics, consultez [*Collecter et utiliser des données de journaux à partir de vos ressources Azure*](../azure-monitor/platform/platform-logs-overview.md).
-* Pour plus d’informations sur les métriques d’Azure Digital Twins, consultez [*Guide pratique : Afficher les métriques avec Azure Monitor*](how-to-view-metrics.md).
+* Pour plus d’informations sur les métriques d’Azure Digital Twins, consultez [*Dépannage : Afficher les métriques avec Azure Monitor*](troubleshoot-metrics.md).

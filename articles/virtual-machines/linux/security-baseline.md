@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385481"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446558"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../../firewall/threat-intel.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -152,7 +152,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour créer un blueprint Azure](../../governance/blueprints/create-blueprint-portal.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -402,7 +402,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision Azure Security Center** : Non disponible
+**Supervision d’Azure Security Center** : Non disponible
 
 **Responsabilité** : Customer
 
@@ -450,7 +450,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -628,11 +628,11 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Utilisez la solution Azure Update Management pour gérer les mises à jour et les correctifs de vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes pris en charge.
 
-* [Solution Update Management dans Azure](../../automation/automation-update-management.md)
+* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../../automation/automation-tutorial-update-management.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -640,9 +640,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Vous pouvez utiliser une solution tierce de gestion des correctifs. Vous pouvez utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes pris en charge.
 
-* [Solution Update Management dans Azure](../../automation/automation-update-management.md)
+* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Gestion des mises à jour et des correctifs des machines virtuelles Azure](../../automation/automation-tutorial-update-management.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -652,7 +652,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Conseils** : Exportez les résultats de l’analyse à intervalles réguliers et comparez les résultats pour vérifier que les vulnérabilités ont été corrigées. Lorsqu’ils utilisent les recommandations de gestion des vulnérabilités suggérées par Azure Security Center, les clients peuvent basculer vers le portail de la solution sélectionnée pour afficher les données d’analyse historiques.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -680,7 +680,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Présentation d’Azure RBAC](../../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -704,7 +704,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Guide pratique pour créer et utiliser des étiquettes](../../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -716,7 +716,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Guide pratique pour activer les contrôles d’application adaptatifs](../../security-center/security-center-adaptive-application.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -750,7 +750,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Présentation des contrôles d’application adaptatifs](../../security-center/security-center-adaptive-application.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -796,7 +796,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../../security-center/security-center-adaptive-application.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -914,7 +914,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -946,7 +946,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](../../automation/automation-dsc-onboarding.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125806"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448202"
 ---
 # <a name="use-an-app-service-environment"></a>Utiliser un environnement App Service
 
@@ -126,15 +126,15 @@ Lorsque vous utilisez un environnement ASE externe, les applications effectuées
 
 Pour configurer DNS sur votre propre serveur DNS avec votre ASE ILB :
 
-1. créez une zone pour <ASE name>.appserviceenvironment.net
+1. créez une zone pour &lt;nom ASE&gt;.appserviceenvironment.net
 1. créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB
 1. créez un enregistrement A dans cette zone qui pointe @ vers l’adresse IP ILB
-1. créez une zone dans le scm nommé <ASE name>.appserviceenvironment.net
+1. créez une zone dans le scm nommé &lt;nom ASE&gt;.appserviceenvironment.net
 1. créez un enregistrement A dans la zone scm qui pointe * vers l’adresse IP ILB
 
 Pour configurer DNS dans les zones privées Azure DNS :
 
-1. créez une zone privée Azure DNS nommée <ASE name>.appserviceenvironment.net
+1. créez une zone privée Azure DNS nommée &lt;nom ASE&gt;.appserviceenvironment.net
 1. créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB
 1. créez un enregistrement A dans cette zone qui pointe @ vers l’adresse IP ILB
 1. créez un enregistrement A dans cette zone qui pointe *.scm vers l’adresse IP ILB
@@ -251,6 +251,30 @@ Pour supprimer un environnement ASE :
     ![Suppression de ASE][3]
 
 1. Sélectionnez **OK**.
+
+## <a name="ase-cli"></a>Interface CLI avec ASE
+
+Il existe des fonctionnalités de ligne de commande permettant d’administrer un environnement ASE.  Les commandes CLI az sont indiquées ci-dessous.
+
+```azurecli
+C:\>az appservice ase --help
+
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
+
+For more specific examples, use: az find "az appservice ase"
+```
+
+
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

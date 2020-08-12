@@ -1,7 +1,7 @@
 ---
 title: Sécurité des communications pour Microsoft Threat Modeling Tool
 titleSuffix: Azure
-description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: Découvrez l’atténuation des menaces de sécurité de communication exposées dans Microsoft Threat Modeling Tool. Découvrez les informations sur l’atténuation et les exemples de code.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203741"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543943"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
 | Produit/Service | Article |
@@ -117,7 +117,7 @@ ms.locfileid: "82203741"
 | **Informations de référence**              | [Appliquer le protocole HTTPS sur Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Étapes** | <p>Bien qu’Azure active déjà le protocole HTTPS pour les services d’application Azure grâce à un certificat générique pour le domaine *.azurewebsites.net, le domaine n’applique pas le protocole HTTPS. Les visiteurs peuvent toujours accéder à l’application à l’aide du protocole HTTP, ce qui peut compromettre la sécurité de l’application. Par conséquent, le protocole HTTPS doit être appliqué de manière explicite. Les applications ASP.NET MVC doivent utiliser le [filtre RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) qui force une demande HTTP non sécurisée à être renvoyée sur HTTPS.</p><p>Sinon, vous pouvez utiliser le module de réécriture d’URL, qui est inclus avec Azure App Service, pour appliquer le protocole HTTPS. Le module de réécriture d’URL permet aux développeurs de définir des règles qui sont appliquées aux demandes entrantes avant qu’elles ne soient transmises à votre application. Les règles de réécriture d’URL sont définies dans un fichier web.config stocké à la racine de l’application.</p>|
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 L’exemple suivant contient une règle de réécriture d’URL basique qui force tout le trafic entrant à utiliser le protocole HTTPS.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -216,7 +216,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | **Informations de référence**              | [Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) (Épinglage de clé publique et de certificat) |
 | **Étapes** | <p>L’épinglage de certificat assure une protection contre les interceptions. L’épinglage consiste à associer un hôte à sa clé publique ou à son certificat X509 attendu. Une fois qu’un certificat ou une clé publique est connu ou vu par un hôte, le certificat ou la clé publique est associé ou « épinglé » à l’hôte. </p><p>Par conséquent, lorsqu’un pirate tente une interception de TLS, lors de la liaison TLS, la clé du serveur du pirate sera différente de la clé du certificat épinglé et la demande sera rejetée, empêchant ainsi l’interception. L’épinglage de certificat peut être obtenu en implémentant le délégué `ServerCertificateValidationCallback` de ServicePointManager.</p>|
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 ```csharp
 using System;
 using System.Net;
@@ -304,7 +304,7 @@ namespace CertificatePinningExample
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **Étapes** | <ul><li>**EXPLICATION :** Quand le niveau de protection est défini sur « aucun », la protection des messages est désactivée. La confidentialité et l’intégrité sont obtenues grâce à un niveau approprié de paramétrage.</li><li>**RECOMMANDATIONS :**<ul><li>Quand `Mode=None`, la protection des messages est désactivée.</li><li>Quand `Mode=Sign`, les messages sont signés mais pas chiffrés. Cette valeur doit être utilisée lorsque l’intégrité du message est primordiale.</li><li>Quand `Mode=EncryptAndSign`, les messages sont signés et chiffrés.</li></ul></li></ul><p>Pensez à désactiver le chiffrement et signez uniquement votre message lorsque vous avez simplement besoin de valider l’intégrité des informations, sans vous soucier de la confidentialité. Cela peut être utile pour les opérations ou les contrats de service pour lesquels vous avez besoin de valider l’expéditeur d’origine, mais qu’aucune donnée sensible n’est transmise. Lorsque vous réduisez le niveau de protection, veillez à ce que le message ne contienne pas de données à caractère personnel.</p>|
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 La configuration du service et de l’opération permettant de signer uniquement le message est indiquée dans les exemples suivants. Exemple de contrat de service de `ProtectionLevel.Sign` : vous trouverez ci-dessous un exemple d’utilisation de ProtectionLevel.Sign au niveau du contrat de service : 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
@@ -314,7 +314,7 @@ public interface IService
   } 
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 Exemple de contrat d’opération de `ProtectionLevel.Sign` (pour un contrôle granulaire) : Voici un exemple d’utilisation de `ProtectionLevel.Sign` au niveau du contrat d’opération :
 
 ```
@@ -344,7 +344,7 @@ string GetData(int value);
 | **Informations de référence**              | [Enforcing SSL in a Web API Controller](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) (Application de SSL dans un contrôleur d’API Web) |
 | **Étapes** | Si une application a une liaison HTTP et une liaison HTTPS, les clients peuvent toujours utiliser HTTP pour accéder au site. Pour éviter cela, utilisez un filtre d’action afin de vous assurer que les demandes envoyées aux API protégées sont toujours sur HTTPS.|
 
-### <a name="example"></a> Exemple 
+### <a name="example"></a>Exemple 
 Le code suivant montre un filtre d’authentification d’API web qui recherche TLS : 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute

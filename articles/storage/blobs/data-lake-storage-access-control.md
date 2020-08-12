@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091349"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543297"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure et les listes de contrôle d’accès (ACL) POSIX. Cet article présente les notions de base du modèle de contrôle d’accès pour Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle Azure (RBAC Azure) et les listes de contrôle d’accès (ACL) POSIX. Cet article présente les notions de base du modèle de contrôle d’accès pour Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac"></a>
 
@@ -34,9 +34,9 @@ Pour savoir comment affecter des rôles aux entités de sécurité dans l’éte
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L’impact des affectations de rôle sur les listes de contrôle d’accès au niveau fichier et répertoire
 
-Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère la fonction RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
+Même si l’affectation de rôle Azure est un puissant dispositif qui permet de contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère la fonction RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
 
-Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Sinon, si le principal de sécurité n’a pas d’attribution RBAC ou si l’opération de la demande ne correspond pas à l’autorisation affectée, les vérifications de liste de contrôle d’accès sont effectuées pour déterminer si le principal de sécurité est autorisé à effectuer l’opération demandée.
+Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les affectations de rôle Azure du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification de liste de contrôle d’accès supplémentaire n’est effectuée. Sinon, si le principal de sécurité n’a pas d’affectation de rôle Azure, ou si l’opération de la demande ne correspond pas à l’autorisation affectée, les vérifications de liste de contrôle d’accès sont effectuées pour déterminer si le principal de sécurité est autorisé à effectuer l’opération demandée.
 
 > [!NOTE]
 > Si l’attribution de rôle intégré Propriétaire des données de Stockage Blob est affectée au principal de sécurité, le principal de sécurité est considéré comme un *super utilisateur* et il bénéficie d’un accès complet à toutes les opérations de mutation, notamment la définition du propriétaire d’un répertoire ou d’un fichier ainsi que des ACL pour les répertoires et fichiers dont ils ne sont pas propriétaires. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
@@ -210,13 +210,12 @@ for entry in entries:
 member_count = 0
 perms = 0
 entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+mask = get_mask( path )
 for entry in entries:
 if (user_is_member_of_group(user, entry.identity)) :
-    member_count += 1
-    perms | =  entry.permissions
-if (member_count>0) :
-return ((desired_perms & perms & mask ) == desired_perms)
-
+    if ((desired_perms & entry.permissions & mask) == desired_perms)
+        return True 
+        
 # Handle other
 perms = get_perms_for_other(path)
 mask = get_mask( path )
@@ -333,7 +332,7 @@ Si vous avez le bon OID pour le principal du service, accédez à la page **Gér
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 
-Les affectations RBAC Azure peuvent être héritées. Les affectations passent de l’abonnement, du groupe de ressources et des ressources du compte de stockage à la ressource du conteneur.
+Les affectations de rôle Azure peuvent être héritées. Les affectations passent de l’abonnement, du groupe de ressources et des ressources du compte de stockage à la ressource du conteneur.
 
 Les ACL ne peuvent pas être héritées. Cependant, les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. 
 

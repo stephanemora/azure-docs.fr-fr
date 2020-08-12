@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147045"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431915"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -92,9 +92,31 @@ Les pipelines de machine learning peuvent utiliser les méthodes d’entraîneme
 * [Exemples : pipeline avec machine learning automatisé](https://aka.ms/pl-automl)
 * [Exemples : pipeline avec estimateurs](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Fonctionnement d’un travail de formation
+
+Le cycle de vie de formation Azure est constitué des éléments suivants :
+
+1. Compression des fichiers dans votre dossier de projet, en ignorant ceux spécifiés dans _.amlignore_ ou _.gitignore_
+1. Scale up de votre cluster de calcul 
+1. Création ou téléchargement du Dockerfile sur le nœud de calcul 
+    1. Le système calcule un code de hachage pour : 
+        - l’image de base ; 
+        - les étapes Docker personnalisées (voir [Déployer un modèle à l’aide d’une image de base Docker personnalisée](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)) ;
+        - la définition Conda YAML (voir [Créer et utiliser des environnements logiciels dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)).
+    1. Le système utilise ce code de hachage comme clé pour rechercher le Dockerfile dans l’espace de travail Azure Container Registry (ACR).
+    1. Si le Dockerfile est introuvable, il recherche une correspondance dans l’ensemble d’ACR.
+    1. Si le Dockerfile est introuvable, le système génère une nouvelle image (qui sera mise en cache et inscrite auprès de l’espace de travail ACR).
+1. Téléchargement de votre Fichier projet compressé vers le stockage temporaire sur le nœud de calcul
+1. Décompression du Fichier projet
+1. Nœud de calcul exécutant `python <entry script> <arguments>`
+1. Enregistrement des journaux, des fichiers de modèle et des autres fichiers écrits dans `./outputs` dans le compte de stockage associé à l’espace de travail
+1. Scale down du calcul, notamment la suppression du stockage temporaire 
+
+Si vous choisissez d’effectuer l’apprentissage sur votre ordinateur local (« Configurer en tant qu’exécution locale »), vous n’avez pas besoin d’utiliser Docker. Vous pouvez utiliser Docker localement si vous le souhaitez (voir la section [Configurer un pipeline de ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) pour obtenir un exemple).
+
 ## <a name="r-sdk"></a>SDK R
 
-Le SDK R vous permet d’utiliser le langage R avec Azure Machine Learning. Le SDK utilise le package reticulate pour établir une liaison avec le SDK Python d’Azure Machine Learning. Cela vous permet d’accéder aux objets et méthodes principaux implémentés dans le SDK Python à partir de tout environnement R.
+Le SDK R vous permet d’utiliser le langage R avec Azure Machine Learning. Le SDK utilise le package reticulate pour établir une liaison avec le SDK Python d’Azure Machine Learning. Cela vous permet d’accéder aux méthodes et objets principaux implémentés dans le Kit de développement logiciel (SDK) Python à partir de tout environnement R.
 
 Pour plus d’informations, consultez les articles suivants :
 
@@ -103,7 +125,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
 
-Le concepteur vous permet d’entraîner des modèles via une interface de glisser-déplacer dans votre navigateur web.
+Le concepteur vous permet d’effectuer l’apprentissage de modèles via une interface de glisser-déplacer dans votre navigateur web.
 
 + [Qu’est-ce que le concepteur ?](concept-designer.md)
 + [Tutoriel : Prédire le prix de voitures](tutorial-designer-automobile-price-train-score.md)

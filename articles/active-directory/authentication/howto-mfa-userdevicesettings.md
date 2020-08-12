@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418217"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication
 
@@ -47,7 +47,7 @@ Pour supprimer les mots de passe d’application d’un utilisateur, effectuez l
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
-1. Sélectionnez **Multi-Factor Authentication**. Il se peut que vous deviez faire défiler vers la droite pour afficher cette option de menu. Sélectionnez l’exemple de capture d’écran ci-dessous pour afficher entièrement la fenêtre du portail Azure et l’emplacement du menu : [![](media/howto-mfa-userstates/selectmfa-cropped.png "Sélectionnez Authentification multifacteur dans la fenêtre Utilisateurs d’Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Sélectionnez **Multi-Factor Authentication**. Il se peut que vous deviez faire défiler vers la droite pour afficher cette option de menu. Sélectionnez l’exemple de capture d’écran ci-dessous pour afficher entièrement la fenêtre du portail Azure et l’emplacement du menu : [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Cochez la case en regard du ou des utilisateurs que vous souhaitez gérer. Une liste d’options rapides s’affiche à droite.
 1. Sélectionnez **Gérer les paramètres utilisateur**, puis cochez la case **Supprimer tous les mots de passe d’application existants qui ont été générés par les utilisateurs sélectionnés**, comme illustré dans l’exemple suivant : ![Supprimer tous les mots de passe d’application existants](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Sélectionnez **Enregistrer**, puis **Fermer**.

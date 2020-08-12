@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309254"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530369"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -117,6 +117,9 @@ Vous pouvez utiliser les étapes décrites dans la section [Copier SQL Database 
 > [!NOTE]
 > Le [Portail Azure](https://portal.azure.com), PowerShell et l’interface de ligne de commande Azure ne prennent pas en charge la copie de la base de données sur un autre abonnement.
 
+> [!TIP]
+> La copie de base de données à l’aide de T-SQL prend en charge la copie d’une base de données d’un abonnement dans un locataire Azure différent.
+
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 
 Contrôlez le processus de copie en interrogeant les vues [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) et [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Pendant que la copie est en cours, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **COPYING**.
@@ -130,7 +133,7 @@ Contrôlez le processus de copie en interrogeant les vues [sys.databases](https:
 > [!IMPORTANT]
 > Si vous devez créer une copie avec un objectif de service beaucoup plus petit que la source, la base de données cible peut ne pas disposer de ressources suffisantes pour terminer le processus d’amorçage et peut entraîner l’échec de l’opération de copie. Dans ce scénario, utilisez une requête de géorestauration pour créer une copie sur un autre serveur et/ou dans une autre région. Consultez [Récupérer Azure SQL Database à l’aide de sauvegardes de bases de connées](recovery-using-backups.md#geo-restore) pour en savoir plus.
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Rôles RBAC pour gérer la copie de la base de données
+## <a name="azure-roles-to-manage-database-copy"></a>Rôles Azure pour gérer la copie de la base de données
 
 Pour créer une copie de base de données, vous devez disposer des rôles suivants :
 
@@ -152,7 +155,7 @@ Pour gérer la copie de bases de données à l’aide du Portail Azure, vous dev
 
    Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Si vous voulez voir les opérations sous « deployments » dans le groupe de ressources sur le portail (opérations entre plusieurs fournisseurs de ressources, dont les opérations SQL), vous devez disposer des rôles RBAC supplémentaires suivants :
+Si vous voulez voir les opérations en cours de déploiement dans le groupe de ressources sur le portail et les opérations sur plusieurs fournisseurs de ressources, dont les opérations SQL, vous devez disposer des rôles Azure supplémentaires suivants :
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 

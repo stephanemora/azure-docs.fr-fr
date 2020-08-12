@@ -4,14 +4,14 @@ description: Utilisez l'interface Azure CLI pour gérer votre compte, votre base
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262393"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432833"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gérer les ressources Azure Cosmos à l’aide d’Azure CLI
 
@@ -19,7 +19,7 @@ Le guide suivant décrit les commandes courantes permettant d’automatiser la g
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cette rubrique vous demande d’exécuter Azure CLI version 2.6.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cette rubrique vous demande d’exécuter Azure CLI version 2.9.1 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Comptes Azure Cosmos
 
@@ -274,7 +274,7 @@ az cosmosdb sql database throughput update \
 
 ### <a name="manage-lock-on-a-database"></a>Gérer les verrous sur une base de données
 
-Placez un verrou de suppression sur une base de données. Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Prévention des modifications à partir des SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Placez un verrou de suppression sur une base de données. Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Prévention des modifications à partir des SDK](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 Les sections suivantes montrent comment gérer le conteneur Azure Cosmos DB, et notamment de :
 
 * [Créer un conteneur](#create-a-container)
+* [Créer un conteneur avec mise à l’échelle automatique](#create-a-container-with-autoscale)
 * [Créer un conteneur avec durée de vie (TTL) activée](#create-a-container-with-ttl)
 * [Créer un conteneur avec stratégie d’index personnalisée](#create-a-container-with-a-custom-index-policy)
 * [Modifier le débit d’un conteneur](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Créer un conteneur avec mise à l’échelle automatique
+
+Créez un conteneur Cosmos avec la stratégie d’index, la clé de partition et le débit avec mise à l’échelle automatique de 4000 RU/s par défaut.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Créer un conteneur avec durée de vie (TTL)
@@ -433,7 +453,7 @@ az cosmosdb sql container throughput update \
 
 ### <a name="manage-lock-on-a-container"></a>Gérer les verrous sur un conteneur
 
-Placez un verrou de suppression sur un conteneur. Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Prévention des modifications à partir des SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Placez un verrou de suppression sur un conteneur. Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Prévention des modifications à partir des SDK](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

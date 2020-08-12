@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 11f4091489a8ef8c980ece0589945c8e1c7dc8b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317771"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798220"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
@@ -207,12 +207,14 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez les fichiers .png du logo de votre offre dans chacune des tailles en pixels suivantes :
+Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) * taille de logo. Vous pouvez éventuellement la remplacer par une autre image.
 
-- **Petit (48 x 48)**
-- **Grand (216 x 216)**
+Ces deux tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
 
-Tous les logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
+- **Petit** (48 x 48)
+- **Grand** (entre 216 x 216 et 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 

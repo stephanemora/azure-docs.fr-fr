@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221261"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448692"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Afficher et assigner des rôles d’administrateur dans Azure Active Directory
 
@@ -56,6 +56,12 @@ Si vous êtes un administrateur global ou un administrateur de rôle privilégi�
 Lorsque vous affichez les membres d’un rôle, sélectionnez **Description** pour afficher la liste complète des autorisations accordées par l’attribution de rôle. Cette page inclut des liens vers la documentation correspondante pour vous guider tout au long de la gestion des rôles d’annuaire.
 
 ![liste des autorisations pour un rôle d’administrateur](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="download-role-assignments"></a>Télécharger les attributions de rôle
+
+Pour télécharger toutes les attributions d’un rôle spécifique, dans la page **Rôles et administrateurs**, sélectionnez un rôle, puis sélectionnez **Télécharger les attributions de rôle**. Un fichier CSV qui liste les attributions sur toutes les étendues pour ce rôle est téléchargé.
+
+![Télécharger toutes les attributions d’un rôle](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 

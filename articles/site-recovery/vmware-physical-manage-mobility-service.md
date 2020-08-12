@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228849"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460097"
 ---
 # <a name="manage-the-mobility-agent"></a>Gérer l’agent du service Mobilité 
 
 Quand vous utilisez Azure Site Recovery pour la récupération d'urgence de machines virtuelles VMware et de serveurs physiques sur Azure, vous devez configurer l’agent de mobilité sur votre serveur. L’agent de mobilité coordonne la communication entre votre ordinateur protégé, le serveur de configuration/serveur de traitement scale-out et gère la réplication des données. Cet article récapitule les tâches courantes de gestion de l’agent de mobilité après son déploiement.
 
+>[!TIP]
+>Pour télécharger le programme d’installation d’une distribution de Linux ou d’un système d’exploitation spécifique, reportez-vous au guide [ici](vmware-physical-mobility-service-overview.md#locate-installer-files). Pour effectuer une mise à jour automatique à partir du portail, vous n’avez pas besoin de télécharger le programme d’installation. [ASR récupère automatiquement le programme d’installation à partir du serveur de configuration, et met à jour l’agent](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Quand vous utilisez Azure Site Recovery pour la récupération d'urgence de mach
 
      ![Éléments répliqués - Liste des machines virtuelles](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées.
+5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées. L’agent de mobilité est mis à jour avec la version du serveur de configuration. Par exemple, si le serveur de configuration est sur la version 9.33, l’agent de mobilité sur une machine virtuelle protégée est également mis à jour vers la version 9.33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour le service de mobilité via le script powershell sur le serveur Windows
 

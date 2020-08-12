@@ -4,15 +4,15 @@ description: Pour créer des applications hautement disponibles et résilientes 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e13d7a1cb35d2b0c9544a8be36f834efc6970501
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206199"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759646"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Régions prenant en charge les Zones de disponibilité dans Azure
 
@@ -58,12 +58,11 @@ Pour voir les services disponibles dans chaque région, ainsi que la feuille de 
 Azure offre également une prise en charge Zones de disponibilité dans les régions suivantes :
 
 - Gouvernement américain - Virginie
-- Australie Est
 - Afrique du Sud Nord
 - États-Unis - partie centrale méridionale
 - Centre du Canada
 
-Pour en savoir plus sur la prise en charge de Zones de disponibilité dans ces cinq régions, contactez votre représentant commercial ou client Microsoft.
+Pour en savoir plus sur la prise en charge de Zones de disponibilité dans ces quatre régions, contactez votre représentant commercial ou client Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

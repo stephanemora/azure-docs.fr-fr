@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 10bcbcba6163908be1725d66576c41c06c7cc2a2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405158"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438939"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -32,11 +32,11 @@ Cette page est mise à jour régulièrement. Nous vous invitons donc à la consu
 ## <a name="july-2020"></a>Juillet 2020
 
 Les mises à jour du mois de juillet incluent :
-- [L’évaluation des vulnérabilités des machines virtuelles est désormais disponible pour les images non-Place de marché](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
+- [L’évaluation des vulnérabilités des machines virtuelles est désormais disponible pour les images autres que celles du marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Protection contre les menaces pour Stockage Azure étendue pour inclure Azure Files et Azure Data Lake Storage Gen2 (préversion)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Huit nouvelles recommandations pour activer les fonctionnalités de protection contre les menaces](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Améliorations de la sécurité des conteneurs – Analyse du registre plus rapide et documentation actualisée](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Nouvelle recommandation pour mettre à jour les règles de vos contrôles d’application adaptatifs](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Mise à jour des contrôles d’application adaptatifs avec une nouvelle recommandation et la prise en charge des caractères génériques dans les règles de chemin d’accès](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Dépréciation de six stratégies pour la sécurité avancée des données SQL](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Pour en savoir plus sur la sécurité des conteneurs qu’offre Security Center,
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nouvelle recommandation pour mettre à jour les règles de vos contrôles d’application adaptatifs
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Mise à jour des contrôles d’application adaptatifs avec une nouvelle recommandation et la prise en charge des caractères génériques dans les règles de chemin d’accès
 
-La fonctionnalité des contrôles d’application adaptatifs surveille en permanence l’activité des machines dans des groupes configurés. À partir de cette mise à jour, vous serez averti des comportements potentiellement légitimes mais non autorisés explicitement qui pourraient entraîner de fausses alertes positives.
+La fonctionnalité de contrôles d’application adaptatifs a fait l’objet de deux mises à jour importantes :
 
-La nouvelle recommandation, intitulée **Les règles de liste verte dans votre stratégie de contrôle d’application adaptatif doivent être mises à jour**, vous invite à ajouter de nouvelles règles à la stratégie existante afin de réduire le nombre de faux positifs dans les alertes de violation des contrôles d’application adaptatifs.
+- Une nouvelle recommandation identifie les comportements potentiellement légitimes qui n’étaient pas autorisés auparavant. La nouvelle recommandation, intitulée **Les règles de liste verte dans votre stratégie de contrôle d’application adaptatif doivent être mises à jour**, vous invite à ajouter de nouvelles règles à la stratégie existante afin de réduire le nombre de faux positifs dans les alertes de violation des contrôles d’application adaptatifs.
+
+- Les règles de chemin d’accès prennent désormais en charge les caractères génériques. À compter de cette mise à jour, vous pouvez configurer des règles de chemin d’accès autorisé avec des caractères génériques. Il existe deux scénarios pris en charge :
+
+    - Utilisation d’un caractère générique à la fin d’un chemin d’accès pour autoriser tous les exécutables dans ce dossier et ses sous-dossiers
+    - Utilisation d’un caractère générique au milieu d’un chemin d’accès pour activer un nom d’exécutable connu avec un nom de dossier variable (par exemple, des dossiers utilisateur personnels avec un exécutable connu, des noms de dossiers générés automatiquement, etc.). 
 
 [Apprenez-en davantage sur les contrôles d’application adaptatifs](security-center-adaptive-application.md).
 
@@ -335,7 +340,7 @@ Les contrôles de sécurité, et cette option, font partie de la nouvelle expér
 
 Pour en savoir plus sur les contrôles de sécurité, consultez [Version améliorée du degré de sécurisation (préversion) dans Azure Security Center](secure-score-security-controls.md).
 
-![Activer/désactiver « Regrouper par contrôles » pour les recommandations](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+![Activer/désactiver « Regrouper par contrôles » pour les recommandations](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Extension du contrôle de sécurité « Implémenter les bonnes pratiques de sécurité » 
 

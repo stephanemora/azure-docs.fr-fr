@@ -1,5 +1,5 @@
 ---
-title: Scorer un modèle d’image
+title: Utiliser le module Générateur de recommandations Train Wide and Deep
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Générateur de recommandations Train Wide and Deep pour la formation d’un modèle de recommandation.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739790"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420887"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
 Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans Azure Machine Learning Designer (préversion) afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
@@ -105,7 +105,7 @@ Par exemple, un jeu de caractéristiques d’éléments typique peut se présent
 
     Cet hyperparamètre détermine la taille de pas à chaque étape de la formation tout en évoluant vers une perte de fonction minimale. Un taux d’apprentissage trop important peut entraîner un dépassement des minima, tandis qu’un taux d’apprentissage trop faible peut entraîner un problème de convergence.
 
-7.  **Dimension de caractéristique croisée** : entrez la dimension des ID d’utilisateur et des ID d’élément croisés. 
+7.  **Dimension de caractéristique croisée** : saisissez la dimension en entrant les caractéristiques des ID d’utilisateur et des ID d’élément souhaitées. 
 
     Le générateur de recommandations Wide & Deep effectue une transformation entre produits sur les caractéristiques d’ID d’utilisateur et d’ID d’élément par défaut. Le résultat croisé sera haché en fonction de ce nombre pour garantir la dimension.
 

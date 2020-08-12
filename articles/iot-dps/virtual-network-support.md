@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527955"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534598"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Prise en charge des réseaux virtuels dans le service Azure IoT Hub Device Provisioning (DPS)
 
@@ -59,7 +59,7 @@ Notez les limitations actuelles suivantes pour DPS lors de l’utilisation de po
 
 * Les points de terminaison privé ne fonctionnent pas avec DPS lorsque la ressource DPS et hub lié se situent dans des clouds différents. Par exemple, [Azure Government et Azure international](../azure-government/documentation-government-welcome.md).
 
-* À l’heure actuelle, les [stratégies d’allocation personnalisées avec Azure Functions](how-to-use-custom-allocation-policies.md) pour DPS ne fonctionnent pas avec un réseau virtuel et des points de terminaison privés. 
+* À l’heure actuelle, les [stratégies d’allocation personnalisées avec Azure Functions](how-to-use-custom-allocation-policies.md) pour Data Protection Manager ne fonctionnent pas lorsque la fonction Azure est bloquée dans un réseau virtuel et des points de terminaison privés. 
 
 * La prise en charge actuelle du réseau virtuel DPS concerne l’entrée de données dans DPS uniquement. La sortie de données, qui est le trafic de DPS vers IoT Hub, utilise un mécanisme de service à service interne plutôt qu’un réseau virtuel dédié. La prise en charge d’un verrouillage de sortie basé sur un réseau virtuel complet entre DPS et IoT Hub n’est pas disponible actuellement.
 

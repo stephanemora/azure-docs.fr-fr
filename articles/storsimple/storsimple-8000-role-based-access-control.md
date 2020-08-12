@@ -1,6 +1,6 @@
 ---
 title: Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour StorSimple | Microsoft Docs
-description: Décrit comment utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure dans le contexte de StorSimple.
+description: Décrit comment utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) dans le contexte de StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514638"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535108"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle pour StorSimple
 
-Cet article fournit une brève description de l’utilisation du contrôle d’accès en fonction du rôle pour votre appareil StorSimple. RBAC offre une gestion fine des accès pour Azure. Utilisez RBAC pour accorder seulement les accès strictement nécessaires aux utilisateurs StorSimple pour effectuer leurs tâches, au lieu de donner à tout le monde un accès illimité. Pour plus d’informations sur les concepts de base de la gestion des accès dans Azure, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
+Cet article fournit une brève description de l’utilisation du contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour votre appareil StorSimple. RBAC offre une gestion fine des accès pour Azure. Utilisez RBAC pour accorder seulement les accès strictement nécessaires aux utilisateurs StorSimple pour effectuer leurs tâches, au lieu de donner à tout le monde un accès illimité. Pour plus d’informations sur les concepts de base de la gestion des accès dans Azure, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
 Cet article s’applique aux appareils de la série StorSimple 8000 exécutant Update 3.0 ou ultérieur dans le portail Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>Rôles RBAC pour StorSimple
+## <a name="azure-roles-for-storsimple"></a>Rôles Azure pour StorSimple
 
 RBAC peut être affecté en fonction des rôles. Les rôles garantissent certains niveaux d’autorisation en fonction des ressources disponibles dans l’environnement. Les utilisateurs StorSimple peuvent choisir entre deux types de rôles : intégrés ou personnalisés.
 
 * **Rôles intégrés** : les rôles intégrés sont propriétaire, contributeur, lecteur ou administrateur des accès utilisateurs. Pour plus d’informations, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md).
 
-* **Rôles personnalisés** : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles RBAC personnalisés pour StorSimple. Pour créer un rôle RBAC personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../role-based-access-control/custom-roles.md).
+* **Rôles personnalisés** : si les rôles intégrés ne répondent pas à vos besoins, vous pouvez créer des rôles Azure personnalisés pour StorSimple. Pour créer un rôle Azure personnalisé, commencez avec un rôle intégré, modifiez-le, puis réimportez-le dans l’environnement. Le téléchargement et le chargement du rôle sont gérés avec PowerShell ou Azure CLI. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle](../role-based-access-control/custom-roles.md).
 
 Pour voir les différents rôles disponibles pour un utilisateur d’un appareil StorSimple dans le portail Azure, accédez à votre service StorSimple Device Manager, puis à **Contrôle d’accès (IAM) > Rôles**.
 
@@ -58,7 +58,7 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Ouvrez le fichier JSON dans Visual Studio. Vous voyez qu’un rôle RBAC classique comprend trois sections principales : **Actions**, **NotActions** et **AssignableScopes**.
+4. Ouvrez le fichier JSON dans Visual Studio. Vous voyez qu’un rôle Azure classique comprend trois sections principales : **Actions**, **NotActions** et **AssignableScopes**.
 
     Dans la section **Action**, toutes les opérations autorisées pour ce rôle sont répertoriées. Chaque action est affectée à partir d’un fournisseur de ressources. Pour un administrateur d’infrastructure StorSimple, utilisez le fournisseur de ressources `Microsoft.StorSimple`.
 
@@ -68,9 +68,9 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
 
     Vous pouvez aussi utiliser des applets de commande PowerShell pour gérer les fournisseurs de ressources.
 
-    Dans la section **NotActions**, toutes les actions restreintes pour un rôle RBAC particulier sont répertoriées. Dans cet exemple, aucune action n’est restreinte.
+    Dans la section **NotActions**, toutes les actions restreintes pour un rôle Azure particulier sont répertoriées. Dans cet exemple, aucune action n’est restreinte.
     
-    Dans la section **AssignableScopes**, les ID d’abonnement sont répertoriés. Vérifiez que le rôle RBAC contient l’ID d’abonnement explicite où il est utilisé. Si l’ID de l’abonnement approprié n’est pas spécifié, vous n’êtes pas autorisé à importer le rôle dans votre abonnement.
+    Dans la section **AssignableScopes**, les ID d’abonnement sont répertoriés. Vérifiez que le rôle Azure contient l’ID d’abonnement explicite où il est utilisé. Si l’ID de l’abonnement approprié n’est pas spécifié, vous n’êtes pas autorisé à importer le rôle dans votre abonnement.
 
     Prenez en compte ces considérations quand vous modifiez le fichier.
 
@@ -102,14 +102,14 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
     }
     ```
 
-6. Réimportez le rôle RBAC personnalisé dans l’environnement.
+6. Réimportez le rôle Azure personnalisé dans l’environnement.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 Ce rôle doit maintenant apparaître dans la liste des rôles dans le panneau **Contrôle d’accès**.
 
-![Afficher les rôles RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Afficher les rôles Azure](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 Pour plus d’informations, accédez à [Rôles personnalisés](../role-based-access-control/custom-roles.md).
 
@@ -167,7 +167,7 @@ Vous accordez l’accès à partir de la ressource, du groupe de ressources ou d
 
 1. Accédez à **Contrôle d’accès (IAM)** . Cliquez sur **+ Ajouter** dans le panneau Contrôle d’accès.
 
-    ![Ajouter un accès au rôle RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Ajouter l’accès au rôle Azure](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Sélectionnez le rôle que vous souhaitez attribuer : dans ce cas, il s’agit de **Administrateur d’infrastructure StorSimple**.
 
@@ -175,7 +175,7 @@ Vous accordez l’accès à partir de la ressource, du groupe de ressources ou d
 
 4. Sélectionnez **Enregistrer** pour créer l’attribution.
 
-    ![Ajouter des autorisations au rôle RBAC](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Ajouter des autorisations au rôle Azure](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 Une notification **Ajout d’utilisateur** suit la progression. Une fois que l’utilisateur a été ajouté, la liste des utilisateurs dans Contrôle d’accès est mise à jour.
 

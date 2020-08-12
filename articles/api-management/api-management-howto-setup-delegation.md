@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243203"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460998"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -49,8 +49,6 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 1. Recevoir une demande au format suivant :
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
-   > 
-   > 
    
     Paramètres de requête pour cette connexion/inscription :
    
@@ -84,6 +82,7 @@ En plus de l’opération **SignIn**, vous pouvez également effectuer la gestio
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 Vous devez transmettre les paramètres de requête suivants pour les opérations de gestion de compte.
 
@@ -93,6 +92,7 @@ Vous devez transmettre les paramètres de requête suivants pour les opérations
 * **sig**: code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Délégation de l’abonnement aux produits
+
 La délégation de l’abonnement aux produits fonctionne de la même manière que la délégation de la connexion/inscription d’un utilisateur. Le processus final se présente comme suit :
 
 1. Le développeur sélectionne un produit dans le portail des développeurs Gestion des API, puis clique sur le bouton d’abonnement.
@@ -114,9 +114,9 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
      * « Subscribe » : une demande d’abonnement de l’utilisateur à un produit donné avec l’identifiant fourni (voir ci-dessous).
      * « Unsubscribe » : une demande de désabonnement de l’utilisateur pour un produit.
      * « Renew » : une demande de renouvellement d’abonnement (par exemple, susceptible d’expirer).
-   * **productId**: l’ID du produit auquel l’utilisateur demande l’abonnement
+   * **productId** : avec l’opération *Subscribe*, l’ID du produit auquel l’utilisateur demande l’abonnement
    * **subscriptionId** : ID de l’abonnement au produit sur *Unsubscribe* et *Renew*
-   * **userId** : ID de l’utilisateur pour qui la demande est envoyée
+   * **userId** : avec l’opération *Subscribe*, l’ID de l’utilisateur pour qui la demande est envoyée
    * **salt**: chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
    * **sig**: code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
@@ -129,7 +129,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
      > 
    * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 3. Traitez l’abonnement au produit en fonction du type d’opération demandé dans **operation** (par exemple, facturation, autres questions, etc.).
-4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appeler l’API REST pour les abonnements].
+4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appelant l’API REST pour les abonnements].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a> Exemple de code
 

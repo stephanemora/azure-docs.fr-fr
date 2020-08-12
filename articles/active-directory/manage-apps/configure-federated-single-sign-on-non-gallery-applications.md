@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763548"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497237"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
-Si vous voulez configurer l’authentification unique pour une application non issue de la galerie *sans écrire de code*, vous devez disposer d’un abonnement ou d’Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
-Vous trouverez ci-après une vue d’ensemble de la procédure à suivre pour configurer l’authentification unique fédérée avec SAML 2.0 pour une application non issue de la galerie (telle qu’une application personnalisée).
+Cet article fournit une vue d’ensemble de la procédure à suivre pour configurer l’authentification unique fédérée avec SAML 2.0 pour une application non issue de la galerie (par exemple, une application personnalisée).
 
 -   Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
 
@@ -67,7 +64,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
     1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
-    2. **Facultatif** : pour configurer l’application comme une application à authentification unique initiée par le fournisseur de services, l’URL de connexion est obligatoire.
+    2. **Facultatif :** Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
 
 12. Dans **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 
@@ -170,7 +167,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif :** si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cliquez sur la case à cocher pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif :** Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019537"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -153,6 +153,9 @@ Pour ce faire, suivez les étapes suivantes :
 4.  Configurez les paramètres de proxy requis. 
 
 Ces paramètres font en sorte que le connecteur utilise le même proxy de transfert pour la communication avec Azure et avec l’application principale. Si le connecteur pour la communication avec Azure ne requiert pas de proxy de transfert ou requiert un proxy de transfert différent, vous pouvez le configurer en modifiant le fichier ApplicationProxyConnectorService.exe.config, comme décrit dans les sections Proxys sortants de contournement et Utiliser le serveur proxy sortant.
+
+> [!NOTE]
+> Il existe plusieurs façons de configurer le proxy Internet dans le système d’exploitation. Les paramètres de proxy configurés via NETSH WINHTTP (exécutez `NETSH WINHTTP SHOW PROXY` pour vérifier) remplacent les paramètres de proxy que vous avez configurés à l’étape 2. 
 
 Le service de mise à jour du connecteur utilisera également le proxy de la machine. Ce comportement peut être modifié en modifiant le fichier ApplicationProxyConnectorUpdaterService.exe.config.
 

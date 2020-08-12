@@ -5,24 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046619"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Azure Time Series Insights Gen1 à l’aide du portail Azure
 
 Cet article décrit comment ajouter un jeu de données de référence à votre environnement Azure Time Series Insights. Les données de référence sont utiles, joignez-les à votre source de données pour augmenter les valeurs.
 
-Un jeu de données de référence est une collection d’éléments qui augmente les événements issus de votre source d’événements. Le moteur d’entrée Time Series Insights associe chaque événement de votre source d’événements à la ligne de données correspondante dans votre jeu de données de référence. Cet événement ajouté est ensuite disponible pour la requête. Cette jointure repose sur les colonnes de clé privée définies dans votre jeu de données de référence.
+Un jeu de données de référence est une collection d’éléments qui augmente les événements issus de votre source d’événements. Le moteur d’entrée Azure Time Series Insights associe chaque événement de votre source d’événements à la ligne de données correspondante dans votre jeu de données de référence. Cet événement ajouté est ensuite disponible pour la requête. Cette jointure repose sur les colonnes de clé privée définies dans votre jeu de données de référence.
 
 Les données de référence ne sont pas jointes rétroactivement. Cela signifie que seules les données d’entrée actuelles et futures sont mises en correspondance et jointes à l’ensemble de données de référence, après configuration et téléchargement.
 
@@ -36,15 +36,15 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Recherchez votre environnement Azure Time Series Insights existant. Sélectionnez **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez votre environnement Time Series Insights.
+1. Recherchez votre environnement Azure Time Series Insights existant. Sélectionnez **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez votre environnement Azure Time Series Insights.
 
-1. Sélectionnez la page **Vue d’ensemble**. Développez la section **Essentials** près du haut de la page pour localiser l’**URL de l’Explorateur Time Series Insights** et ouvrir le lien.  
+1. Sélectionnez la page **Vue d’ensemble**. Développez la section **Éléments principaux** près du haut de la page pour localiser l’**URL de l’Explorateur Azure Time Series Insights** et ouvrir le lien.  
 
    [![Développez la section Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Affichez l’explorateur pour votre environnement Time Series Insights.
+   Affichez l’Explorateur pour votre environnement Azure Time Series Insights.
 
-1. Développez le sélecteur d’environnement dans l’explorateur Time Series Insights. Choisissez l’environnement actif. Sur la page de l’explorateur, sélectionnez l’icône des données de référence en haut à droite.
+1. Développez le sélecteur d’environnement dans l’Explorateur Azure Time Series Insights. Choisissez l’environnement actif. Sur la page de l’Explorateur, sélectionnez l’icône des données de référence en haut à droite.
 
    [![Ajouter des données de référence](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 

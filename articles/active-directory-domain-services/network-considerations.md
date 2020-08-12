@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040025"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488650"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -113,6 +113,8 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Synchronisation avec votre locataire Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
+
+Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement. Ne supprimez pas ce groupe de sécurité réseau. L’équilibreur de charge ne fonctionnera pas correctement sans ce groupe.
 
 > [!WARNING]
 > Ne modifiez pas manuellement ces configurations et ressources réseau. Lorsque vous associez un groupe de sécurité réseau mal configuré ou une table d’itinéraire définie par l’utilisateur au sous-réseau dans lequel le domaine managé est déployé, vous risquez de perturber la capacité de Microsoft à traiter et à gérer le domaine. La synchronisation entre votre locataire Azure AD et votre domaine managé est également interrompue.

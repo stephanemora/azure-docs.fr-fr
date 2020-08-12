@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: f73910c528ff65a8c537e779a028860d64561d05
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386722"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799817"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Chiffrement des données pour Azure Database pour MySQL avec Azure CLI
 
@@ -93,6 +94,25 @@ Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le 
 * [Créer un serveur réplica en lecture](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Une fois le serveur restauré, revalidez le chiffrement des données sur le serveur restauré
+
+*   Attribuer une identité pour le serveur réplica
+```azurecli-interactive
+az mysql server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*   Obtenir la clé existante à utiliser pour le serveur de restauration/réplica
+
+```azurecli-interactive
+az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*   Définir la stratégie pour la nouvelle identité du serveur de restauration/réplica
+  
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Revalider le serveur de restauration/réplica avec la clé de chiffrement
 
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>

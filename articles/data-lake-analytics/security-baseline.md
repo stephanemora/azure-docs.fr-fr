@@ -1,20 +1,20 @@
 ---
-title: Base de référence de sécurité Data Lake Analytics pour Azure Security Benchmark
+title: Base de référence de la sécurité Azure pour Data Lake Analytics
 description: La base de référence de sécurité Data Lake Analytics fournit des instructions et des ressources procédurales pour l’implémentation des recommandations de sécurité spécifiées dans Azure Security Benchmark.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075076"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Data Lake Analytics pour Azure Security Benchmark
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de référence de la sécurité Azure pour Data Lake Analytics
 
 La base de référence de sécurité Azure pour Data Lake Analytics contient des recommandations qui vous aideront à améliorer la posture de sécurité de votre déploiement.
 
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 * [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -94,7 +94,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Non applicable. Data Lake Analytics ne s’exécute pas à l’intérieur des réseaux virtuels client et ne peut pas utiliser des groupes de sécurité réseau (NSG).
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -102,7 +102,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Non applicable. Data Lake Analytics ne s’exécute pas à l’intérieur des réseaux virtuels client et ne peut pas utiliser des groupes de sécurité réseau (NSG).
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -118,7 +118,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Non applicable. Data Lake Analytics ne s’exécute pas à l’intérieur des réseaux virtuels client et ne peut pas utiliser des groupes de sécurité réseau (NSG).
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -170,7 +170,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -318,7 +318,7 @@ Vous pouvez également activer l’accès juste-à-temps en utilisant Azure AD P
 
 * [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -452,7 +452,7 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -470,7 +470,7 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -514,7 +514,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -522,7 +522,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Conseils** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -530,7 +530,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -620,7 +620,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -628,7 +628,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -636,7 +636,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -658,7 +658,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -676,7 +676,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -684,7 +684,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -709,7 +709,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -729,7 +729,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -749,7 +749,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -757,7 +757,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -765,7 +765,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -783,7 +783,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -839,7 +839,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Aide** : Non applicable. Ce contrôle concerne les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -921,7 +921,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

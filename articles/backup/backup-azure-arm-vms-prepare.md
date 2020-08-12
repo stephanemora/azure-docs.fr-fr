@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373944"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533595"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -51,7 +51,8 @@ Modifiez le type de réplication de stockage comme suit :
 1. Dans le nouveau coffre, sélectionnez **Propriétés** dans la section **Paramètres**.
 2. Dans **Propriétés**, sous **Configuration de la sauvegarde**, sélectionnez **Mettre à jour**.
 3. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
-s ![Définir la configuration de stockage du nouveau coffre](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![Définir la configuration de stockage du nouveau coffre](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > Vous ne pouvez pas modifier le type de réplication de stockage une fois que le coffre est configuré et qu’il contient des éléments de sauvegarde. Pour ce faire, vous devez recréer le coffre.
@@ -88,7 +89,7 @@ Configurez une stratégie de sauvegarde pour le coffre.
      ![Volet Sélectionner les machines virtuelles](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Toutes les machines virtuelles situées dans la même région et le même abonnement que le coffre sont disponibles pour configurer la sauvegarde. Au moment de configurer la sauvegarde, vous pouvez accéder au nom de la machine virtuelle et à son groupe de ressources, même si vous n’avez pas l’autorisation nécessaire sur ces machines virtuelles.  
+    > Toutes les machines virtuelles situées dans la même région et le même abonnement que le coffre sont disponibles pour configurer la sauvegarde. Au moment de configurer la sauvegarde, vous pouvez accéder au nom de la machine virtuelle et à son groupe de ressources, même si vous n’avez pas l’autorisation nécessaire sur ces machines virtuelles. Si votre machine virtuelle est dans un état de suppression réversible, elle ne sera pas visible dans cette liste. Si vous avez besoin de protéger à nouveau la machine virtuelle, vous devez attendre la fin de la période de suppression réversible ou annuler la suppression de la machine virtuelle de la liste des suppressions réversibles. Pour plus d’informations, consultez l’[article sur la suppression réversible des machines virtuelles](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. Dans **Sauvegarde**, sélectionnez **Activer la sauvegarde**. Cette action permet de déployer la stratégie dans le coffre et sur les machines virtuelles, puis d’installer l’extension de sauvegarde sur l’agent de machine virtuelle en cours d’exécution sur la machine virtuelle Azure.
 
@@ -166,13 +167,6 @@ Sauvegarde Azure sauvegarde les machines virtuelles Azure en installant une exte
 --- | ---
 **Windows** | 1. [Téléchargez et installez](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) le fichier MSI de l’agent.<br/><br/> 2. Installez-le avec les autorisations d’administrateur pour l’ordinateur.<br/><br/> 3. Vérifiez l’installation. Dans *C:\WindowsAzure\Packages* sur la machine virtuelle, cliquez avec le bouton droit sur **WaAppAgent.exe** > **Propriétés**. Sous l’onglet **Détails**, la **version du produit** doit être 2.6.1198.718 ou une version ultérieure.<br/><br/> Si vous mettez à jour l’agent, veillez à ce qu’aucune opération de sauvegarde ne soit en cours d’exécution et [réinstallez l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Effectuez l’installation à l’aide d’un package RPM ou DEB à partir du dépôt de packages de votre distribution. Il s’agit de la méthode recommandée pour installer et mettre à niveau l’agent Linux Azure. Tous les [fournisseurs de distribution approuvés](../virtual-machines/linux/endorsed-distros.md) intègrent l’agent Azure Linux dans leurs images et référentiels. L’agent est disponible sur [GitHub](https://github.com/Azure/WALinuxAgent), mais nous ne recommandons pas d’effectuer une installation depuis ce site.<br/><br/> Si vous mettez à jour l’agent, veillez à ce qu’aucune opération de sauvegarde ne soit en cours d’exécution et mettez à jour les fichiers binaires.
-
->[!NOTE]
-> **Sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l'aide de la solution de sauvegarde de machine virtuelle Azure.**
->
->Aujourd’hui, Azure Backup prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
->
->Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Étapes suivantes
 

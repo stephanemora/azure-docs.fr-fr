@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aa11d17aaba28819c4c5ecfb259eea2d8d12ce7d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324945"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431877"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
-**S’APPLIQUE À :** ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique) 
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio (classique) classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio (classique), [consultez cet article pratique.](retrain-machine-learning-model.md)
@@ -125,7 +125,7 @@ La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de res
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu de gauche, cliquez sur **Machine Learning**.
 1. Sous Nom, cliquez sur votre espace de travail, puis sur **Services web**.
-1. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]** .
+1. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]**.
 1. Cliquez sur le nouveau point de terminaison que vous avez ajouté.
 1. Dans le tableau de bord du point de terminaison, cliquez sur **Mettre à jour les ressources**.
 1. Dans la page Documentation de l’API Mettre à jour la ressource du service web, vous trouverez le **Nom de la ressource** sous **Ressources actualisables**.
@@ -139,4 +139,4 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
 
 * [Explorer le portail Services web](manage-new-webservice.md)
-* [Gérer des itérations d’expériences](manage-experiment-iterations.md)
+* [Gérer des itérations d'expériences](manage-experiment-iterations.md)

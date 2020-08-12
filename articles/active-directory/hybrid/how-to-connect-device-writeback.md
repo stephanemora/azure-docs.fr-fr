@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360127"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447099"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de la réécriture d’appareil
 > [!NOTE]
@@ -61,7 +61,7 @@ Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express.
 
     a. **Fournir des informations d’identification d’administrateur d’entreprise** : Si les informations d’identification d’administrateur d’entreprise sont fournies pour la forêt dans laquelle les appareils doivent être réécrits, Azure AD Connect prépare automatiquement la forêt lors de la configuration de la réécriture d’appareil.
 
-    b. **Télécharger un script PowerShell** : Azure AD Connect génère automatiquement un script PowerShell qui peut préparer Active Directory à la réécriture d’appareil. Si les informations d’identification de l’administrateur d’entreprise ne peuvent pas être fournies dans Azure AD Connect, il est recommandé de télécharger le script PowerShell. Fournissez le script PowerShell téléchargé **CreateDeviceContainer.psq** à l’administrateur d’entreprise de la forêt dans laquelle les appareils seront réécrits.
+    b. **Télécharger un script PowerShell** : Azure AD Connect génère automatiquement un script PowerShell qui peut préparer Active Directory à la réécriture d’appareil. Si les informations d’identification de l’administrateur d’entreprise ne peuvent pas être fournies dans Azure AD Connect, il est recommandé de télécharger le script PowerShell. Fournissez le script PowerShell téléchargé **CreateDeviceContainer.ps1** à l’administrateur d’entreprise de la forêt dans laquelle les appareils seront réécrits.
     ![Préparer la forêt Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Les opérations effectuées dans le cadre de la préparation de la forêt Active Directory sont les suivantes :

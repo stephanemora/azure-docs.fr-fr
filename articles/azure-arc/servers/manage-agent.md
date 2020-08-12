@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 73ece3f1bc8d5e88d4c1c37e1040f2494230e4ee
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103906"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809593"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -143,6 +143,9 @@ L’outil Azcmagent (Azcmagent.exe) sert à configurer l’agent Azure Connected
 
 Vous pouvez effectuer une opération **Connect**, **Disconnect** ou **Reconnect** manuellement quand vous êtes connecté de manière interactive, l’automatiser en utilisant le principal de service utilisé pour intégrer plusieurs agents, ou avec un [jeton d’accès](../../active-directory/develop/access-tokens.md) de plateforme d’identité Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès d’Azure Arc pour serveurs (préversion), consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
 
+>[!NOTE]
+>Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
+
 ### <a name="connect"></a>Se connecter
 
 Ce paramètre spécifie une ressource dans Azure Resource Manager représentant la machine créée dans Azure. La ressource se trouve dans l’abonnement et le groupe de ressources spécifiés, et les données relatives à la machine sont stockées dans la région Azure spécifiée par le paramètre `--location`. Le nom de ressource par défaut est le nom d’hôte de cette machine s’il n’est pas spécifié.
@@ -178,6 +181,9 @@ Pour vous déconnecter à l’aide de vos informations d’identification d’ou
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Reconnexion
+
+> [!WARNING]
+> La commande `reconnect` est obsolète et ne doit pas être utilisée. La commande sera supprimée dans une prochaine version de l’agent et les agents existants ne pourront pas terminer la demande de reconnexion. Au lieu de cela, [déconnectez](#disconnect) votre machine, puis [connectez-la](#connect) à nouveau.
 
 Ce paramètre reconnecte la machine déjà inscrite ou connectée avec Azure Arc pour serveurs (préversion). Cela peut s’avérer nécessaire si la machine a été mise hors tension au moins 45 jours avant que son certificat expire. Cette commande utilise les options d’authentification fournies pour récupérer de nouvelles informations d’identification correspondant à la ressource Azure Resource Manager représentant cet machine.
 
@@ -314,6 +320,6 @@ sudo azcmagent_proxy remove
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) et bien plus encore.
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
 
 - En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de fonctionnalités comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-intro.md).

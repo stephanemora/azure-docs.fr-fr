@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d68fc7b01e6204cb9ad00ea60e413c73856d758e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247062"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542444"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 
@@ -301,10 +301,8 @@ La version 4.0.0b1 est la première préversion de nos efforts visant à créer
 
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge. Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
-Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) mis hors service est rejetée par le service.
-
 > [!WARNING]
-> Toutes les versions du Kit SDK Python pour l’API SQL antérieures à la version **1.0.0** ont été supprimées le **29 février 2016**. Toutes les versions 1.x et 2.x du Kit de développement logiciel (SDK) Python pour l’API SQL seront mises hors service le **30 août 2020**.
+> Après le 31 août 2022, Azure Cosmos DB n’apportera plus de correctifs de bogues, n'ajoutera plus de nouvelles fonctionnalités et ne fournira plus de support aux versions 1.x ou 2.x du Kit de développement logiciel (SDK) Python Azure Cosmos DB pour l’API SQL. Si vous préférez ne pas effectuer la mise à niveau, les requêtes envoyées depuis la version 1.x et 2.x du Kit de développement logiciel (SDK) continueront à être traitées par le service Azure Cosmos DB.
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |

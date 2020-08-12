@@ -1,6 +1,6 @@
 ---
 title: Configurer l’extension NPS pour Azure MFA - Azure Active Directory
-description: Après avoir installé l’extension de serveur NPS, procédez comme suit pour la configuration avancée (liste verte des adresses IP approuvées ou encore remplacement de l’UPN).
+description: Après avoir installé l’extension NPS, procédez comme suit pour la configuration avancée (par exemple, liste des adresses IP approuvées et remplacement de l’UPN).
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beaed8a3e23cba90b2afe476b1e993ed1f99dae7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653783"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445518"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 

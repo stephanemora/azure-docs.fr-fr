@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 08/03/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387624"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528597"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph
 
@@ -116,7 +117,7 @@ Dans les scénarios de migration d’utilisateurs, si les comptes que vous voule
 
 Toutes les applications orientées client ont des exigences uniques concernant les informations à recueillir. Votre locataire Azure AD B2C est fourni avec un ensemble intégré d’informations stockées dans des propriétés, comme le prénom, le nom, la localité et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble de propriétés stockées dans chaque compte client. Pour plus d’informations sur la définition d’attributs personnalisés, consultez [Attributs personnalisés (flux utilisateur)](user-flow-custom-attributes.md) et [Attributs personnalisés (stratégies personnalisées)](custom-policy-custom-attributes.md).
 
-L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Dans l’API Graph, les attributs d’extension sont nommés à l’aide de la convention `extension_ApplicationObjectID_attributename`. Par exemple :
+L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Les attributs d’extension dans l’API Graph sont nommés d’après la convention `extension_ApplicationClientID_attributename`, où `ApplicationClientID` est l’**ID d’application (client)** de l’application `b2c-extensions-app` (accessible dans **Inscriptions d’applications** > **Toutes les applications** dans le portail Azure). Notez que l’**ID d’application (client)** tel qu’il est représenté dans le nom de l’attribut d’extension ne comprend aucun trait d’union. Par exemple :
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

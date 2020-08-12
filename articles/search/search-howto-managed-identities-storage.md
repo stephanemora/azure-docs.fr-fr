@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084073"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée (préversion)
 
@@ -53,17 +53,19 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-storage.png "Ajouter une attribution de rôle")
 
 4. Sélectionnez les rôles appropriés en fonction du type de compte de stockage que vous souhaitez indexer :
-    1. Stockage Blob Azure nécessite que vous ajoutiez votre service de recherche aux rôles **Lecteur et accès aux données** et **Lecteur des données blob du stockage**.
-    1. Azure Data Lake Storage Gen2 nécessite que vous ajoutiez votre service de recherche aux rôles **Lecteur et accès aux données** et **Lecteur des données blob du stockage**.
-    1. Stockage Table Azure nécessite que vous ajoutiez votre service de recherche uniquement au rôle **Lecteur et accès aux données**.
+    1. Stockage Blob Azure nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
+    1. Azure Data Lake Storage Gen2 nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
+    1. Stockage Table Azure nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur et accès aux données**.
 5.  Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
 6.  Recherchez votre service de recherche, sélectionnez-le, puis sélectionnez **Enregistrer**.
 
+    Exemple pour Stockage Blob Azure et Azure Data Lake Storage Gen2 :
+
+    ![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Ajouter une attribution de rôle Lecteur des données blob du stockage")
+
+    Exemple pour Stockage Table Azure :
+
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Ajouter une attribution de rôle Lecteur et accès aux données")
-
-Notez que, lors de la connexion à Stockage Blob Azure et Azure Data Lake Storage Gen2, vous devez également ajouter l’attribution de rôle **Lecteur des données blob du stockage**.
-
-![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Ajouter une attribution de rôle Lecteur des données blob du stockage")
 
 ### <a name="3---create-the-data-source"></a>3 – Créer la source de données
 

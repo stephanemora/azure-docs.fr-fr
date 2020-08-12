@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037506"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800367"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -161,6 +161,21 @@ Non.
 * Nous vous recommandons d’utiliser des bibliothèques Pivotal Spring officielles et stables. Les versions non officielles, bêta ou dupliquées (forked) des bibliothèques Pivotal Spring ne bénéficient pas de prise en charge des contrats SLA.
 
 Après la migration, supervisez les métriques de processeur/mémoire et le trafic réseau pour vérifier que les instances d’application sont mises à l’échelle de façon appropriée.
+
+## <a name="trouble-shooting"></a>Résolution des problèmes
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Quels sont les impacts du registre de service rarement indisponibles ?
+
+Dans certains scénarios rarement survenus, vous pouvez constater des erreurs telles que 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+à partir de vos journaux d’applications. Ce problème a été introduit par Spring Framework avec un taux très faible en raison d’une instabilité du réseau ou d’autres problèmes réseau. 
+
+Il ne doit y avoir aucun impact sur l’expérience utilisateur, le client Eureka a à la fois une stratégie de pulsation et de nouvelle tentative pour s’en occuper. Vous pouvez le considérer comme une erreur temporaire et l’ignorer en toute sécurité.
+
+Nous allons améliorer cette partie et éviter cette erreur des applications des utilisateurs en un peu plus tard.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

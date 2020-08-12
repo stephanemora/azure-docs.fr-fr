@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b3f9b0a4bec76f1f5f9b1f42ec33fdf5e2678bf
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284249"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760156"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -123,7 +123,7 @@ Pour l’instant, l’opération Lire prend en charge l’extraction de texte ma
 
 ### <a name="printed-text-in-supported-languages"></a>Texte imprimé dans les langues prises en charge
 
-L’API Lire 3.0 gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais. [La préversion publique de l’API Lire 3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) ajoute la prise en charge du chinois simplifié. Si votre scénario réclame la prise en charge d’autres langues, référez-vous à la vue d’ensemble de l’API OCR dans ce document. Consultez la liste de toutes les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+L’API Lire 3.0 gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais. [La préversion publique de l’API Lire 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) ajoute la prise en charge du chinois simplifié. Si votre scénario réclame la prise en charge d’autres langues, référez-vous à la vue d’ensemble de l’API OCR dans ce document. Consultez la liste de toutes les [langues prises en charge par OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Rotation d’une image en vue de la lecture et de la délimitation de son texte](./Images/supported-languages-example.png)
 
@@ -149,5 +149,5 @@ Lire est également disponible sous la forme d’un conteneur Docker (préversio
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez [l’API REST Lire 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Découvrez [l’API REST Lire 3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) avec ajout de la prise en charge du chinois simplifié.
+- Découvrez [l’API REST Lire 3.1-en version préliminaire publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) avec ajout de la prise en charge du chinois simplifié.
 - Suivez le guide de démarrage rapide [Extraction de texte](./QuickStarts/CSharp-hand-text.md) pour mettre en œuvre la reconnaissance optique de caractères en C# , en Java, en JavaScript ou en Python avec l’API REST.

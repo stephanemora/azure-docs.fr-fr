@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: ec5776791f55a406b8015868dce83243b3f8efbd
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202608"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552388"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -214,26 +214,26 @@ Lorsque vous configurez vos expériences dans votre objet `AutoMLConfig`, vous p
 La tâche `forecasting` de prévision de séries chronologiques nécessite des paramètres supplémentaires dans l’objet de configuration :
 
 1. `time_column_name`: paramètre obligatoire qui définit le nom de la colonne dans vos données d’entraînement contenant une série chronologique valide.
-1. `max_horizon`: définit la durée pendant laquelle vous souhaitez prédire sur la base de la périodicité des données d’entraînement. Par exemple si vous avez des données de formation avec des fragments de temps quotidiens, vous définissez jusqu’à quand vous souhaitez que le modèle soit formé.
-1. `grain_column_names`: Définit le nom des colonnes qui contiennent des données de séries chronologiques individuelles dans vos données d’entraînement. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme fragments de colonnes. Des séries chronologiques et des prévisions distinctes sont créées pour chaque grain/regroupement. 
+1. `forecast_horizon`: définit le nombre de périodes à venir que vous souhaitez prévoir. L’horizon des entiers est exprimé en unités de fréquence de série chronologique. Par exemple si vous avez des données d’entraînement avec une fréquence quotidienne, vous définissez jusqu’à quand (en jours) vous souhaitez que le modèle soit entraîné.
+1. `time_series_id_column_names`: définit les colonnes qui identifient de manière unique la série chronologique dans des données qui ont plusieurs lignes avec le même horodatage. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme identificateurs de série chronologique. Des prévisions distinctes sont créées pour chaque regroupement. Si les identificateurs de série chronologique ne sont pas définis, le jeu de données est supposé être une série chronologique.
 
 Pour obtenir des exemples des paramètres utilisés ci-dessous, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',
@@ -344,7 +344,7 @@ Vous pouvez définir quelques options pour terminer votre expérience.
 
 ### <a name="explore-model-metrics"></a>Explorer les métriques du modèle
 
-Vous pouvez consulter vos résultats de formation dans un widget ou en ligne si vous êtes dans un notebook. Pour plus d’informations, consultez [Suivre et évaluer des modèles](how-to-track-experiments.md#view-run-details).
+Vous pouvez consulter vos résultats de formation dans un widget ou en ligne si vous êtes dans un notebook. Pour plus d’informations, consultez [Suivre et évaluer des modèles](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs).
 
 Pour plus d’informations sur le téléchargement ou l’inscription d’un modèle de déploiement sur un service Web, consultez [Comment et où déployer un modèle](how-to-deploy-and-where.md).
 

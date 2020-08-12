@@ -3,12 +3,12 @@ title: Vue d’ensemble d’AMQP 1.0 dans Azure Service Bus
 description: Découvrez comment Azure Service Bus prend en charge Advance Message Queueing Protocol (AMQP), un protocole standard ouvert.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083869"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Prise en charge d’AMQP 1.0 dans Service Bus
 Le service cloud Azure Service Bus et le [Service Bus pour Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local prennent en charge le protocole AMQP (Advanced Message Queueing Protocol) 1.0. Le protocole AMQP vous permet de développer des applications hybrides interplateforme à l’aide d’un protocole open standard. Vous pouvez générer des applications à l’aide de composants créés avec plusieurs langages et infrastructures, exécutées sur différents systèmes d’exploitation. Tous ces composants peuvent se connecter à Service Bus et échanger efficacement et sans difficulté des messages professionnels d’une fidélité optimale.
@@ -54,9 +54,9 @@ Grâce à la prise en charge d’AMQP 1.0 dans à Azure Service Bus, vous pouve
 
 La figure ci-dessous montre un exemple de déploiement dans lequel des clients Java exécutés sous Linux, écrits à l’aide de l’API standard JMS (Java Message Service) et des clients .NET exécutés sous Windows, échangent des messages via Service Bus à l’aide d’AMQP 1.0.
 
-![][0]
+![Diagramme montrant une instance Service Bus échanger des messages avec deux environnements Linux et deux environnements Windows.][0]
 
-**Figure 1 : exemple de scénario de déploiement illustrant la messagerie interplateforme avec Service Bus et AMQP 1.0**
+**Figure 1 : exemple de scénario de déploiement illustrant la messagerie interplateforme avec Service Bus et AMQP 1.0**
 
 Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus :
 
@@ -68,7 +68,7 @@ Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus
 | Python |Apache Qpid Proton-Python |
 | C# |AMQP .NET Lite |
 
-**Figure 2 : table des bibliothèques clientes d’AMQP 1.0**
+**Figure 2 : table des bibliothèques clientes d’AMQP 1.0**
 
 ## <a name="summary"></a>Résumé
 * AMQP 1.0 est un protocole de messagerie efficace et ouvert qui peut être utilisé pour créer des applications hybrides interplateforme. AMQP 1.0 est une norme OASIS.

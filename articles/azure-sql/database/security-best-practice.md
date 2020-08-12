@@ -1,7 +1,7 @@
 ---
 title: Playbook pour répondre aux exigences de sécurité courantes
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Cet article fournit des exigences de sécurité courantes et des bonnes pratiques dans Azure SQL Database et Azure SQL Managed Instance
+description: Cet article présente les exigences de sécurité courantes et les bonnes pratiques dans Azure SQL Database et Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371785"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541717"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ La séparation des tâches, également appelée répartition des tâches, décri
 - Identifiez une hiérarchie complète d’utilisateurs (et de processus automatisés) qui accèdent au système.
 
 - Créez des rôles en fonction des groupes d’utilisateurs nécessaires et attribuez des autorisations aux rôles.
-  - Pour les tâches de niveau gestion dans le portail Azure ou via une automatisation PowerShell, utilisez des rôles RBAC. Vous pouvez soit trouver un rôle intégré correspondant à la spécification, soit créer un rôle personnalisé Azure utilisant des autorisations disponibles.
+  - Pour les tâches au niveau gestion dans le portail Azure ou via l’automatisation PowerShell, utilisez des rôles Azure. Vous pouvez soit trouver un rôle intégré correspondant à la spécification, soit créer un rôle personnalisé Azure utilisant des autorisations disponibles.
   - Créez des rôles de serveur pour les tâches à l’échelle du serveur (création de nouvelles connexions, bases de données) dans une instance gérée.
   - Créez des rôles de base de données pour les tâches de niveau base de données.
 
@@ -318,7 +318,7 @@ La séparation des tâches, également appelée répartition des tâches, décri
 
 - Créez et utilisez des rôles définis par l’utilisateur quand les rôles intégrés accordent trop ou pas assez d’autorisations.
 
-- Les attributions de rôles peuvent également être effectuées temporairement. On appelle également cela la séparation dynamique des tâches (DSD), soit dans des étapes de travail de l’agent SQL dans T-SQL, ou en utilisant Azure PIM pour les rôles RBAC.
+- Les attributions de rôles peuvent également être effectuées temporairement. Cela s’appelle également la séparation dynamique des tâches (DSD) dans des étapes de travail de l’agent SQL dans T-SQL ou en utilisant Azure PIM pour les rôles Azure.
 
 - Assurez-vous que les administrateurs de base de données n’ont pas accès aux clés de chiffrement ou aux magasins de clés, et que les administrateurs de sécurité ayant accès aux clés n’ont pas accès à la base de données. L’utilisation de la [gestion de clés extensible (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) peut faciliter cette séparation. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) peut être utilisé pour implémenter la gestion de clés extensible (EKM).
 

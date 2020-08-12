@@ -1,6 +1,6 @@
 ---
 title: S’inscrire à Azure NetApp Files | Microsoft Docs
-description: Décrit comment s’inscrire pour utiliser Azure NetApp Files.
+description: Découvrez comment s’inscrire à Azure NetApp Files en soumettant une demande de mise en liste d’attente et en inscrivant le fournisseur de ressources Azure pour Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956302"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512922"
 ---
 # <a name="register-for-azure-netapp-files"></a>S’inscrire à Azure NetApp Files
 

@@ -1,7 +1,7 @@
 ---
 title: Gestion des configurations pour Microsoft Threat Modeling Tool
 titleSuffix: Azure
-description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: En savoir plus sur la gestion de la configuration pour Threat Modeling Tool. Voir les informations sur l’atténuation et les exemples de code.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f34a98ccbe069a5cb9e2c26a88e486b27f016fe1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322622"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540017"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
 | Produit/Service | Article |

@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207275"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423794"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation (préversion)
 
@@ -132,15 +132,15 @@ Si le contrôle serveur consommateur du service a des autorisations RBAC sur la
 
 ## <a name="set-public-network-access-flags"></a>Définir des indicateurs d’accès au réseau public
 
-Cet article explique comment configurer un compte Automation pour refuser toutes les configurations publiques et n’autoriser que les connexions établies par le biais de points de terminaison privés afin d’améliorer la sécurité réseau. Si vous souhaitez limiter l’accès au compte Automation uniquement dans le réseau virtuel et ne pas autoriser l’accès à partir d’Internet public, vous pouvez définir le propriété `publicNetworkAccess` sur `$true`.
+Cet article explique comment configurer un compte Automation pour refuser toutes les configurations publiques et n’autoriser que les connexions établies par le biais de points de terminaison privés afin d’améliorer la sécurité réseau. Si vous souhaitez limiter l’accès au compte Automation uniquement dans le réseau virtuel et ne pas autoriser l’accès à partir d’Internet public, vous pouvez définir le propriété `publicNetworkAccess` sur `$false`.
 
-Quand le paramètre **Refuser l’accès au réseau public** est défini sur `true`, seules les connexions via des points de terminaison privés sont autorisées et toutes les connexions via des points de terminaison publics sont refusées avec un message d’erreur.
+Lorsque la configuration de l’**Accès au réseau public** est définie sur `$false`, seules les connexions via des points de terminaison privés sont autorisées et toutes les connexions via les points de terminaison publics sont refusées avec un message d’erreur Non autorisé et un code d’état HTTP 401. 
 
 Le script PowerShell suivant montre comment `Get` et `Set` la propriété **Accès au réseau public** au niveau du compte Automation :
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

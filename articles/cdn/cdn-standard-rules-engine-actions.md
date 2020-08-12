@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259950"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760122"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Actions du moteur de règles Standard pour Azure CDN
 
@@ -33,8 +33,8 @@ Utilisez cette action pour remplacer la valeur de durée de vie (TTL) du point d
 Comportement du cache |  Description              
 ---------------|----------------
 Ignorer le cache | Lorsque cette option est sélectionnée et que la règle correspond, le contenu n’est pas mis en cache.
-Écraser | Lorsque cette option est sélectionnée et que la règle correspond, la valeur TTL retournée par votre origine est remplacée par la valeur spécifiée dans l’action.
-Définir en cas d’absence | Lorsque cette option est sélectionnée et que la règle correspond, s’il n’y a aucune valeur TTL retournée par votre origine, la règle définit la TTL sur la valeur spécifiée dans l’action.
+Écraser | Lorsque cette option est sélectionnée et que la règle correspond, la valeur TTL retournée par votre origine est remplacée par la valeur spécifiée dans l’action. Ce comportement est appliqué uniquement si la réponse est mise en cache. Pour l’en-tête de réponse de contrôle du cache avec les valeurs « no-cache », « private », « no-store », l’action n’est pas applicable.
+Définir en cas d’absence | Lorsque cette option est sélectionnée et que la règle correspond, s’il n’y a aucune valeur TTL retournée par votre origine, la règle définit la TTL sur la valeur spécifiée dans l’action. Ce comportement est appliqué uniquement si la réponse est mise en cache. Pour l’en-tête de réponse de contrôle du cache avec les valeurs « no-cache », « private », « no-store », l’action n’est pas applicable.
 
 #### <a name="additional-fields"></a>Champs supplémentaires
 

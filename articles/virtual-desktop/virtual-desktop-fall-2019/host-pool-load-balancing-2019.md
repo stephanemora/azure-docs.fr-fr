@@ -1,5 +1,5 @@
 ---
-title: Équilibrage de charge du pool d’hôtes Windows Virtual Desktop – Azure
+title: Équilibrage de charge du pool d’hôtes Windows Virtual Desktop (classique) - Azure
 description: Méthodes d’équilibrage de charge de pool d’hôtes pour un environnement Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3854471b2e74bd7c3315ae622a36588af0270d8c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284997"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
+# <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Méthodes d’équilibrage de charge de pool d’hôtes dans Windows Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../host-pool-load-balancing.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../host-pool-load-balancing.md).
 
 Windows Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
 

@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050688"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -137,7 +137,7 @@ Même si les clients peuvent se connecter aux nœuds Worker et les modifier, ces
 
 ## <a name="network-ports-access-and-nsgs"></a>Ports réseau, accès et groupes de sécurité réseau
 
-En tant que service géré, AKS a des exigences spécifiques en termes de mise en réseau et de connectivité. Ces exigences sont moins souples que celles des composants IaaS standard. Dans AKS, les opérations telles que la personnalisation de règles de groupe de sécurité réseau, le blocage d’un port spécifique (par exemple, à l’aide de règles de pare-feu qui bloquent le port sortant 443) et la mise sur liste verte d’URL peuvent affecter le support de votre cluster.
+En tant que service géré, AKS a des exigences spécifiques en termes de mise en réseau et de connectivité. Ces exigences sont moins souples que celles des composants IaaS standard. Dans AKS, les opérations telles que la personnalisation de règles de groupe de sécurité réseau, le blocage d’un port spécifique (par exemple, à l’aide de règles de pare-feu qui bloquent le port de sortie 443) et la mise sur liste verte d’URL peuvent supprimer la prise en charge de votre cluster.
 
 > [!NOTE]
 > Actuellement, AKS ne vous permet pas de verrouiller intégralement le trafic de sortie depuis votre cluster. Pour contrôler la liste des URL et des ports que votre cluster peut utiliser pour le trafic sortant, consultez la section [Limiter le trafic de sortie](limit-egress-traffic.md).

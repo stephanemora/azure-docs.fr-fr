@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367567"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498087"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Qu’est-ce qu’un serveur SQL logique dans Azure SQL Database et Azure Synapse ?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Un serveur dans SQL Database et Azure Synapse :
 - Est la ressource parente pour les bases de données, les pools élastiques et les entrepôts de données
 - Fournit un espace de noms pour les bases de données, les pools élastiques et la base de données de l’entrepôt de données
 - Est un conteneur logique qui possède une forte sémantique de durée de vie : si vous supprimez un serveur, il supprime ses bases de données, ses pools élastiques et ses pools SQK
-- Fait partie d’un [contrôle d’accès en fonction du rôle Azure (RBAC)](/azure/role-based-access-control/overview) : les bases de données, les pools élastiques et la base de données de l’entrepôt de données d’un serveur héritent des droits d’accès du serveur
+- Fait partie d’un [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](/azure/role-based-access-control/overview) : les bases de données, les pools élastiques et la base de données de l’entrepôt de données d’un serveur héritent des droits d’accès du serveur
 - Est un élément de poids dans l’identité des bases de données, des pools élastiques et de la base de données de l’entrepôt de données à des fins de gestion des ressources Azure (voir le schéma d’URL pour les bases de données et les pools)
 - Colocalise les ressources d’une région
 - Fournit un point de terminaison de connexion pour l’accès aux bases de données (`<serverName>`. database.windows.net)
