@@ -1,16 +1,18 @@
 ---
-title: Tableau de bord Utilisation de l’analytique de la Place de marché commerciale
+title: Tableau de bord d’utilisation dans l’analytique de la place de marché commerciale Microsoft, la Place de marché Azure et Microsoft AppSource
 description: Découvrez comment consulter toutes les métriques d’utilisation des offres de machines virtuelles et de leur facturation à l’usage. Accédez au tableau de bord Utilisation de l’Espace partenaires sous la Place de marché commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120668"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319913"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Tableau de bord Utilisation de l’analytique de la Place de marché commerciale Microsoft
 
@@ -30,14 +32,13 @@ L’onglet Utilisation de machine virtuelle comporte des représentations graphi
 - [Résumé de l’utilisation](#usage-summary)
 - [Utilisation par zone géographique](#usage-by-geography)
 - [Utilisation par offres](#usage-by-offers)
-- [Tendance d’utilisation par offres et références SKU](#usage-trend-by-offers-and-skus)
+- [Tendance d’utilisation par offres et plans](#usage-trend-by-offers-and-plans)
 - [Utilisation par type d’offre](#usage-by-offer-type)
 - [Utilisation par taille de machine virtuelle](#usage-by-vm-size)
 - [Utilisation par canal de vente](#usage-by-sales-channel)
 - [Données d’utilisation détaillées](#detailed-usage-data)
 
-> [!NOTE]
-> Les rapports d’analytique se présentent différemment dans le Portail Cloud Partner (CPP) et l’Espace partenaires. Dans le Portail Cloud Partner, la page **Insights Vendeurs** comporte un onglet « Commandes et utilisation » qui affiche les données de toutes les offres (celles facturées à l’usage et les autres). Dans l’Espace partenaires, les métriques d’utilisation sont affichées dans une page distincte.
+Dans l’Espace partenaires, la latence maximale entre la génération d’événements d’utilisation et la création des rapports est de 48 heures.
 
 ### <a name="usage-summary"></a>Récapitulatif de l’utilisation
 
@@ -60,9 +61,9 @@ La carte thermique de l’**utilisation normalisée par zone géographique** aff
 - Le graphique à barres représente la tendance de croissance mois par mois pour la plage de dates sélectionnée. Les colonnes de mois représentent les heures d’utilisation des offres les plus utilisées (en nombre d’heures) durant le mois respectif. Le graphique en courbes illustre la tendance du pourcentage de croissance tracée sur l’axe Y secondaire.
 - Utilisez le curseur en haut du graphique pour faire défiler de droite à gauche le long de l’axe X et/ou vous concentrer sur des points de données spécifiques.
 
-### <a name="usage-trend-by-offers-and-skus"></a>Tendance d’utilisation par offres et références SKU
+### <a name="usage-trend-by-offers-and-plans"></a>Tendance d’utilisation par offres et plans
 
-Ce graphique montre la tendance de l’utilisation normalisée des références SKU sélectionnées d’une offre. Le leaderboard des offres affiche les 50 offres enregistrant la plus forte utilisation, classées par heures d’utilisation. Le leaderboard des références SKU liste les 50 références SKU les plus utilisées pour l’offre sélectionnée.
+Ce graphique montre la tendance de l’utilisation normalisée des plans (auparavant appelés références SKU) sélectionnés d’une offre. Le leaderboard des offres affiche les 50 offres enregistrant la plus forte utilisation, classées par heures d’utilisation. Le leaderboard des plans liste les 50 plans les plus utilisés pour l’offre sélectionnée.
 
 ### <a name="usage-by-offer-type"></a>Utilisation par type d’offre
 
@@ -72,7 +73,7 @@ Ce graphique montre la tendance de l’utilisation normalisée des références 
 
 ### <a name="usage-by-vm-size"></a>Utilisation par taille de machine virtuelle
 
-Ce graphique représente la tendance d’utilisation des tailles de machines virtuelles sélectionnées (cinq au maximum) pour toutes vos offres/références SKU. L’histogramme est empilé avec les heures d’utilisation des tailles de machines virtuelles sélectionnées.
+Ce graphique représente la tendance d’utilisation des tailles de machines virtuelles sélectionnées (cinq au maximum) pour l’ensemble de vos offres/plans. L’histogramme est empilé avec les heures d’utilisation des tailles de machines virtuelles sélectionnées.
 
 Le leaderboard liste les 50 premières tailles de machines virtuelles enregistrant la plus forte utilisation, classées en fonction du nombre d’heures d’utilisation.
 
@@ -90,7 +91,7 @@ Le **tableau des détails de l’utilisation** affiche une liste numérotée des
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier CSV si le nombre d’enregistrements est inférieur à 1 000.
 - Si le nombre d’enregistrements dépasse 1 000, les données sont exportées de manière asynchrone dans une page de téléchargements qui restera disponible pendant une période de 30 jours.
-- Vous pouvez appliquer des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays/région, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
+- Appliquez des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Données filtrées par pays/région, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
 
 > [!NOTE]
 > Sélectionnez le **type d’utilisation** dans le filtre de page pour afficher les graphiques en « vue normalisée » ou en « vue brute ». La « vue normalisée » est la vue utilisée par défaut pour ces graphiques.
@@ -107,7 +108,7 @@ Les **filtres de la page Utilisation** sont appliqués au niveau de la page. Vou
 L’onglet **Utilisation de la facturation mesurée** contient des informations sur l’utilisation des types d’offres dont l’utilisation est mesurée par une dimension de compteur. La surutilisation du type d’offre SaaS y est affichée. L’onglet fournit des représentations graphiques des tendances de surutilisation pour la facturation à l’usage de SaaS :
 
 - **Tendance de dépassement par dimension de compteur** : affiche la tendance de dépassement par mois de la dimension de compteur sélectionnée pour une offre. L’axe X représente le mois et l’axe Y représente la quantité d’utilisation. L’unité de mesure du compteur personnalisé est également indiquée sur l’axe Y.
-- **Tendance de surutilisation par référence SKU** : représente la tendance de la quantité d’utilisation de la dimension de compteur sélectionnée par références SKU. Les références SKU affichées constituent les cinq références SKU enregistrant la plus grande quantité d’utilisation de l’offre sélectionnée.
+- **Tendance de surutilisation par plan** : représente la tendance de la quantité d’utilisation de la dimension de compteur sélectionnée par plan. Les plans affichés constituent les cinq plans enregistrant la plus grande quantité d’utilisation de l’offre sélectionnée.
 - **Tendance de surutilisation des 50 clients principaux** : les 50 premières offres enregistrant le plus grand nombre d’heures d’utilisation sont affichées sur un ***leaderboard*** et sont classées en fonction de l’utilisation la plus élevée du compteur personnalisé. Sélectionnez un client dans le leaderboard pour voir la tendance d’utilisation d’une dimension de compteur sélectionnée.
 - **Tendance de surutilisation des clients principaux** : présente les centiles des clients principaux qui contribuent au pourcentage de l’utilisation globale. Les centiles des clients principaux sont indiqués le long de l’axe X et dépendent de la quantité d’utilisation par les clients. L’axe Y indique la quantité d’utilisation. Vous pouvez afficher les détails en déplaçant le curseur sur les points le long du graphique en courbes.
 

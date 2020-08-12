@@ -3,12 +3,12 @@ title: Créer des alertes d’intégrité de ressources avec le portail Azure
 description: Créez des alertes via le portail Azure qui vous informent de l’indisponibilité de vos ressources Azure.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091570"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurer des alertes d’intégrité de ressources avec le portail Azure
 
@@ -45,7 +45,7 @@ Alerte d’intégrité de ressources avec le portail Azure
 1. Dans le [portail](https://portal.azure.com/) Azure, sélectionnez **Intégrité du service**.
 
     ![Sélection d’intégrité du service](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. Dans la section **Resource Health**, sélectionnez **Intégrité des ressources**.
+2. Dans la section **Resource Health**, sélectionnez **Service Health**.
 3. Sélectionnez **Ajouter une alerte d’intégrité des ressources** et renseignez les champs.
 4. Sous cible de l’alerte, sélectionnez l’**abonnement**, les **types de ressources**, les **groupes de ressources** et les **ressources** pour lesquelles vous souhaitez être alerté.
 

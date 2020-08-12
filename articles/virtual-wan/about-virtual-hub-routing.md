@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259178"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513721"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
-Les fonctionnalités de routage d’un hub virtuel sont fournies par un routeur qui gère tout le routage entre les passerelles à l’aide du protocole BGP (Border Gateway Protocol). Un hub virtuel peut contenir plusieurs passerelles, comme une passerelle VPN site à site, une passerelle ExpressRoute, une passerelle point à site ou un pare-feu Azure. Ce routeur fournit également une connectivité de transit entre les réseaux virtuels qui se connectent à un hub virtuel et peut prendre en charge un débit agrégé de 50 Gbits/s. Ces fonctionnalités de routage s’appliquent aux clients de réseau virtuel Standard.
+Les fonctionnalités de routage d’un hub virtuel sont fournies par un routeur qui gère tout le routage entre les passerelles à l’aide du protocole BGP (Border Gateway Protocol). Un hub virtuel peut contenir plusieurs passerelles, comme une passerelle VPN site à site, une passerelle ExpressRoute, une passerelle point à site ou un pare-feu Azure. Ce routeur fournit également une connectivité de transit entre les réseaux virtuels qui se connectent à un hub virtuel et peut prendre en charge un débit agrégé de 50 Gbits/s. Ces fonctionnalités de routage s’appliquent aux clients de réseau virtuel Standard. 
 
 Pour configurer le routage, consultez le [guide pratique pour configurer le routage de hub virtuel](how-to-virtual-hub-routing.md).
 
@@ -26,7 +27,7 @@ Pour configurer le routage, consultez le [guide pratique pour configurer le rout
 Les sections suivantes décrivent les concepts clés du routage de hub virtuel.
 
 > [!NOTE]
-> Certains nouveaux concepts relatifs à la table de routage, à l’association, à la propagation et aux itinéraires statiques de hub dans une connexion de réseau virtuel peuvent toujours être en cours de déploiement et censés se terminer la semaine du 3 août.
+> Certains de ces nouveaux concepts concernant la table de routage, l’association, la propagation et les itinéraires statiques de hub dans une connexion de réseau virtuel sont peut-être encore en cours de déploiement. Celui-ci devrait prendre fin la semaine du 17 août.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Table de routes du hub
@@ -60,6 +61,9 @@ Une **table de routage None** est également disponible pour chaque hub virtuel.
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagation":::
 
+### <a name="labels"></a><a name="static"></a>Étiquettes
+Les étiquettes fournissent un mécanisme permettant de regrouper logiquement des tables de routage. Cela est particulièrement utile lors de la propagation d’itinéraires à partir de connexions vers plusieurs tables de routage. Par exemple, la table de routage par défaut a une étiquette intégrée appelée « Par défaut ». Quand des utilisateurs propagent des itinéraires de connexion à l’étiquette « Par défaut », ceux-ci s’appliquent automatiquement à toutes les tables de routage par défaut sur chaque hub du Virtual WAN. 
+
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configuration de routes statiques dans une connexion de réseau virtuel
 
 La configuration de routes statiques fournit un mécanisme pour diriger le trafic par le biais d’une adresse IP de tronçon suivant, qui peut être celle d’une appliance virtuelle réseau provisionnée dans un réseau virtuel spoke attaché à un hub virtuel. La route statique se compose d’un nom de route, d’une liste de préfixes de destination et d’une adresse IP de tronçon suivant.
@@ -73,9 +77,18 @@ Les tables de routage disposent désormais de fonctionnalités d’association e
 
 * **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** :
 
-Pour utiliser les nouvelles fonctionnalités de table de route, veuillez patienter jusqu’à la semaine du 3 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
+Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
 
-* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de route, veuillez patienter jusqu’à la semaine du 3 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considérations sur le routage de Virtual WAN
+
+Lors de la configuration du routage de Virtual WAN, tenez compte de ce qui suit :
+
+* Toutes les connexions de branche (point à site, site à site et ExpressRoute) doivent être associées à la table de routage par défaut. Ainsi, toutes les branches apprennent les mêmes préfixes.
+* Toutes les connexions de branche doivent propager leurs itinéraires vers le même jeu de tables de routage. Par exemple, si vous décidez que les branches doivent propager vers la table de routage par défaut, cette configuration doit être cohérente dans toutes les branches. Par conséquent, toutes les connexions associées à la table de routage par défaut seront en mesure d’atteindre toutes les branches.
+* La propagation de branche à branche via le Pare-feu Azure n’est actuellement pas pris en charge.
+* Lorsque vous utilisez le Pare-feu Azure dans plusieurs régions, tous les réseaux virtuels en étoile doivent être associés à la même table de routage. Par exemple, il n’est pas possible d’avoir un sous-ensemble de réseaux virtuels transitant par le Pare-feu Azure, tandis que d’autres réseaux virtuels contournent celui-ci dans le même hub virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

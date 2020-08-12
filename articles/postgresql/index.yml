@@ -8,12 +8,12 @@ metadata:
   ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 432dfe4e7907d8599dd9655a3e3eb67987ea6f39
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73932243"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88078017"
 landingContent:
 - title: À propos d’Azure Database pour PostgreSQL
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
     links:
     - text: Niveaux de tarification
       url: concepts-pricing-tiers.md
-    - text: limites
+    - text: Limites
       url: concepts-limits.md
     - text: Versions de PostgreSQL
       url: concepts-supported-versions.md
@@ -54,7 +54,7 @@ landingContent:
     - text: Concevoir une base de données avec Azure CLI
       url: tutorial-design-database-using-azure-cli.md
     - text: Créer une application web avec Python et l’interface CLI
-      url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
+      url: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
     - text: Superviser et optimiser le service
       url: tutorial-monitor-and-tune.md
 - title: Créer un cluster Hyperscale (Citus)

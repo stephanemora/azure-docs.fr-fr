@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090295"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test de code de science des données dans Azure avec Team Data Science Process et Azure DevOps Services
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -142,7 +142,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Bouton Save & queue (Enregistrer et mettre en file d’attente)](./media/code-test/save_and_queue_build_definition.PNG)
 
-Désormais, à chaque fois qu’une nouvelle validation sera transmise au référentiel du code, le processus de génération démarrera automatiquement. (Nous utilisons ici le référentiel de référence, mais vous pouvez définir n’importe quelle branche.) Le processus exécute le fichier **test1.py** sur l’ordinateur agent, l’objectif étant de s’assurer que tous les éléments définis dans le code s’exécutent correctement. 
+Désormais, à chaque fois qu’une nouvelle validation sera transmise au référentiel du code, le processus de génération démarrera automatiquement. Vous pouvez définir n’importe quelle branche. Le processus exécute le fichier **test1.py** sur l’ordinateur agent, l’objectif étant de s’assurer que tous les éléments définis dans le code s’exécutent correctement. 
 
 Si les alertes sont correctement définies, vous serez averti par courrier électronique une fois la build terminée. Vous pouvez également vérifier l’état de la build dans Azure DevOps. En cas d’échec, vous pouvez vérifier les détails de la build et déterminer quelle partie est défaillante.
 

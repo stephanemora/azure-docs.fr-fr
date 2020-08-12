@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601630"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428019"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -45,7 +45,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe par téléphone
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un **compte administrateur général**.
 1. Recherchez et sélectionnez *Azure Active Directory*. Sélectionner **Sécurité** > **Méthodes authentification** > **Stratégie des méthodes authentification (Préversion)**
 1. Sous **Authentification sans mot de passe par téléphone**, choisissez les options suivantes
    1. **Activer** - Oui ou Non

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864247"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416313"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -98,14 +98,14 @@ Par exemple, les requêtes suivantes produisent exactement le même résultat, m
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Utilisez des commandes d’agrégation et des dimensions efficaces dans la synthèse et la jointure
@@ -157,7 +157,7 @@ Heartbeat
 > Cet indicateur présente uniquement le processeur du cluster immédiat. Dans une requête multirégion, il ne représente qu’une seule des régions. Dans les requêtes à plusieurs espaces de travail, il n’inclut probablement pas tous les espaces de travail.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Évitez l’analyse XML et JSON complète lorsque l’analyse de chaîne fonctionne
-L’analyse complète d’un objet XML ou JSON peut consommer des ressources de processeur et de mémoire élevées. Dans de nombreux cas, lorsqu’un seul ou deux paramètres sont nécessaires et que les objets XML ou JSON sont simples, il est plus facile de les analyser en tant que chaînes à l’aide de [l’opérateur parse](/azure/kusto/query/parseoperator) ou d’autres [techniques d’analyse de texte](/azure/azure-monitor/log-query/parse-text). L’amélioration des performances sera plus importante à mesure que le nombre d’enregistrements dans l’objet XML ou JSON augmente. Cela est essentiel lorsque le nombre d’enregistrements atteint des dizaines de millions.
+L’analyse complète d’un objet XML ou JSON peut consommer des ressources de processeur et de mémoire élevées. Dans de nombreux cas, lorsqu’un seul ou deux paramètres sont nécessaires et que les objets XML ou JSON sont simples, il est plus facile de les analyser en tant que chaînes à l’aide de [l’opérateur parse](/azure/kusto/query/parseoperator) ou d’autres [techniques d’analyse de texte](./parse-text.md). L’amélioration des performances sera plus importante à mesure que le nombre d’enregistrements dans l’objet XML ou JSON augmente. Cela est essentiel lorsque le nombre d’enregistrements atteint des dizaines de millions.
 
 Par exemple, la requête suivante renverra exactement les mêmes résultats que les requêtes ci-dessus sans effectuer d’analyse XML complète. Notez qu’elle fait des hypothèses sur la structure du fichier XML, par exemple le fait que l’élément FilePath vient après FileHash et qu’aucun d’entre eux n’a d’attributs. 
 
@@ -219,6 +219,64 @@ SecurityEvent
 | where EventID == 4624 //Logon GUID is relevant only for logon event
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
+
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>Évitez les analyses multiples des mêmes données sources à l’aide des fonctions d’agrégation conditionnelles et de la fonction materialize
+Lorsqu’une requête comporte plusieurs sous-requêtes fusionnées à l’aide d’opérateurs de jointure ou d’union, chaque sous-requête analyse l’intégralité de la source séparément, puis fusionne les résultats. Il s’agit du nombre de fois où les données sont analysées ; un facteur critique dans les jeux de données très volumineux.
+
+Pour éviter cela, vous pouvez utiliser les fonctions d’agrégation conditionnelles. La plupart des [fonctions d’agrégation](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) utilisées dans l’opérateur summary ont une version conditionnée qui vous permet d’utiliser un seul opérateur de synthèse avec plusieurs conditions. 
+
+Par exemple, les requêtes suivantes affichent le nombre d’événements de connexion et le nombre d’événements d’exécution de processus pour chaque compte. Elles retournent les mêmes résultats, mais la première analyse les données deux fois, la deuxième une seule fois :
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Un autre cas où les sous-requêtes ne sont pas nécessaires est le préfiltrage pour [l’opérateur parse](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) pour s’assurer qu’il traite uniquement les enregistrements qui correspondent à un modèle spécifique. Cela n’est pas nécessaire, car l’opérateur parse et d’autres opérateurs similaires retournent des résultats vides lorsque le modèle ne correspond pas. Voici deux requêtes qui retournent exactement les mêmes résultats, tandis que la deuxième requête analyse les données une seule fois. Dans la deuxième requête, chaque commande parse est pertinente uniquement pour ses événements. L’opérateur Extend montre ensuite comment faire référence à une situation de données vides.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+Lorsque l’option ci-dessus n’autorise pas l’utilisation de sous-requêtes, une autre technique consiste à indiquer au moteur de requête qu’une seule source de données est utilisée dans chacune d’elles à l’aide de la fonction [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Cela est utile lorsque les données sources proviennent d’une fonction qui est utilisée plusieurs fois dans la requête.
+
+
 
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Réduisez le nombre de colonnes récupérées
 
@@ -375,7 +433,7 @@ Les comportements de requête qui peuvent réduire le parallélisme sont les sui
 - Utilisation de fonctions de sérialisation et de fenêtre, telles que les fonctions [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) et [row](/azure/kusto/query/rowcumsumfunction) ainsi que l’[opérateur serialize](/azure/kusto/query/serializeoperator). Les fonctions de série chronologique et d’analytique utilisateur peuvent être utilisées dans certains de ces cas. Une sérialisation inefficace peut également se produire si les opérateurs suivants ne sont pas utilisés à la fin de la requête : [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    L’utilisation de la fonction d’agrégation [dcount()](/azure/kusto/query/dcount-aggfunction) force le système à avoir une copie centrale des différentes valeurs. Quand l’échelle de données est élevée, envisagez d’utiliser les paramètres facultatifs de la fonction dcount pour réduire la précision.
 -    Dans de nombreux cas, l’opérateur [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) diminue le parallélisme global. Envisagez une jointure aléatoire comme alternative quand les performances sont problématiques.
--    Dans les requêtes dont l’étendue est limitée à des ressources, les vérifications RBAC en préexécution peuvent traîner en longueur en présence d’un très grand nombre d’affectations RBAC. Cela peut entraîner des contrôles plus longs susceptibles de réduire le parallélisme. Par exemple, une requête est exécutée sur un abonnement qui comprend des milliers de ressources, et de nombreuses attributions de rôle sont définies au niveau de chaque ressource, et non sur l’abonnement ou sur le groupe de ressources.
+-    Dans les requêtes dont l’étendue est limitée à des ressources, les vérifications RBAC en préexécution peuvent traîner en longueur en présence d’un très grand nombre d’attributions de rôle Azure. Cela peut entraîner des contrôles plus longs susceptibles de réduire le parallélisme. Par exemple, une requête est exécutée sur un abonnement qui comprend des milliers de ressources, et de nombreuses attributions de rôle sont définies au niveau de chaque ressource, et non sur l’abonnement ou sur le groupe de ressources.
 -    Si une requête traite de petits blocs de données, son parallélisme est faible, car le système ne la répartit pas sur de nombreux nœuds de calcul.
 
 

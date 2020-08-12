@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273371"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -58,7 +58,7 @@ Pour ouvrir Application Insights à partir d’une application de fonction dans 
 
 ![Ouvrir Application Insights à partir de la page Vue d'ensemble de l'application de fonction](media/functions-monitoring/ai-link.png)
 
-Pour plus d’informations sur l’utilisation d’Application Insights, consultez la [documentation d’Application Insights](https://docs.microsoft.com/azure/application-insights/). Cette section présente des exemples montrant comment afficher les données dans Application Insights. Si vous êtes déjà familiarisé avec Application Insights, vous pouvez passer directement aux [sections sur la configuration et la personnalisation des données de télémétrie](#configure-categories-and-log-levels).
+Pour plus d’informations sur l’utilisation d’Application Insights, consultez la [documentation d’Application Insights](/azure/application-insights/). Cette section présente des exemples montrant comment afficher les données dans Application Insights. Si vous êtes déjà familiarisé avec Application Insights, vous pouvez passer directement aux [sections sur la configuration et la personnalisation des données de télémétrie](#configure-categories-and-log-levels).
 
 ![Onglet Vue d'ensemble d’Application Insights](media/functions-monitoring/metrics-explorer.png)
 
@@ -68,12 +68,12 @@ Les domaines d’Application Insights suivants peuvent s'avérer utiles lors de 
 | ---- | ----------- |
 | **[Échecs](../azure-monitor/app/asp-net-exceptions.md)** |  Créez des graphiques et des alertes basés sur les échecs de fonction et les exceptions de serveur. Le **Nom de l’opération** est le nom de la fonction. Les échecs de dépendances ne sont pas affichés, sauf si vous implémentez des données de télémétrie personnalisées pour les dépendances. |
 | **[Niveau de performance](../azure-monitor/app/performance-counters.md)** | Analysez les problèmes de performances en consultant l’utilisation des ressources et le débit par **instances de rôle cloud**. Ces données peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. |
-| **[Métriques](../azure-monitor/app/metrics-explorer.md)** | Créez des graphiques et des alertes basés sur des métriques. Les métriques incluent le nombre d’appels de fonction, le délai d’exécution ainsi que les taux de réussite. |
+| **[Métriques](../azure-monitor/platform/metrics-charts.md)** | Créez des graphiques et des alertes basés sur des métriques. Les métriques incluent le nombre d’appels de fonction, le délai d’exécution ainsi que les taux de réussite. |
 | **[Métriques temps réel    ](../azure-monitor/app/live-stream.md)** | Visualisez les données des métriques au fil de leur création en quasi temps réel. |
 
 ## <a name="query-telemetry-data"></a>Interroger les données de télémétrie
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md) vous donne accès à toutes les données de télémétrie sous forme de tables de base de données. Analytics fournit un langage de requête pour l’extraction, la manipulation et la visualisation des données. 
+[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) vous donne accès à toutes les données de télémétrie sous forme de tables de base de données. Analytics fournit un langage de requête pour l’extraction, la manipulation et la visualisation des données. 
 
 Choisissez **Journaux** pour explorer ou rechercher les événements journalisés.
 
@@ -153,7 +153,7 @@ Le fichier [host.json] configure la quantité de journalisation qu’une applica
 
 ### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
-La version 2.x et les versions ultérieures du runtime Functions utilisent la [hiérarchie du filtre de journalisation de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+La version 2.x et les versions ultérieures du runtime Functions utilisent la [hiérarchie du filtre de journalisation de .NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -246,7 +246,7 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights présente une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie portant sur les exécutions terminées aux heures de forte activité. Lorsque le taux d'exécutions entrantes dépasse un seuil spécifié, Application Insights commence à ignorer de manière aléatoire certaines exécutions entrantes. Par défaut, le nombre maximal d’exécutions par seconde est fixé à 20 (cinq dans la version 1.x). Vous pouvez configurer l’échantillonnage dans [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Voici un exemple :
+Application Insights présente une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie portant sur les exécutions terminées aux heures de forte activité. Lorsque le taux d'exécutions entrantes dépasse un seuil spécifié, Application Insights commence à ignorer de manière aléatoire certaines exécutions entrantes. Par défaut, le nombre maximal d’exécutions par seconde est fixé à 20 (cinq dans la version 1.x). Vous pouvez configurer l’échantillonnage dans [host.json](./functions-host-json.md#applicationinsights).  Voici un exemple :
 
 ### <a name="version-2x-and-later"></a>Version 2.x et ultérieure
 
@@ -285,9 +285,9 @@ Vous pouvez écrire des journaux d’activité dans votre code de fonction qui a
 
 ### <a name="ilogger"></a>ILogger
 
-Utilisez un paramètre [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) dans vos fonctions au lieu d’un paramètre `TraceWriter`. Les journaux d’activité créés à l’aide de `TraceWriter` sont destinés à Application Insights, mais `ILogger` vous permet d’effectuer une [journalisation structurée](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Utilisez un paramètre [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) dans vos fonctions au lieu d’un paramètre `TraceWriter`. Les journaux d’activité créés à l’aide de `TraceWriter` sont destinés à Application Insights, mais `ILogger` vous permet d’effectuer une [journalisation structurée](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Avec un objet `ILogger`, vous appelez des [méthodes d’extension `Log<level>` sur ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) pour créer des journaux. Le code suivant écrit des journaux `Information` avec la catégorie « Function.<NOM_DE_VOTRE_FONCTION>.User ».
+Avec un objet `ILogger`, vous appelez des [méthodes d’extension `Log<level>` sur ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) pour créer des journaux. Le code suivant écrit des journaux `Information` avec la catégorie « Function.<NOM_DE_VOTRE_FONCTION>.User ».
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -553,7 +553,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -577,7 +577,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -596,6 +596,9 @@ Functions v2 collecte automatiquement les dépendances pour les requêtes HTTP, 
 Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour plus d'informations, consultez l'exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#log-custom-telemetry-in-c-functions). L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui se présente comme suit :
 
 ![Mise en correspondance d’applications](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Les dépendances sont écrites au niveau des informations. Si vous filtrez sur le niveau Avertissement ou supérieur, vous ne pouvez pas visualiser ces données. En outre, la collecte automatique des dépendances se produit en dehors de l’étendue utilisateur. Par conséquent, assurez-vous que le niveau est défini sur au moins **Informations** en dehors de l’étendue utilisateur dans votre fichier host.json (autrement dit, en dehors de la clé Function.<NOM_DE_VOTRE_FONCTION>.User) si vous souhaitez que ces dépendances soient capturées.
 
 ## <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
 
@@ -679,14 +682,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure PowerShell](/powershell/azure/overview). Dans PowerShell, utilisez les commandes suivantes pour ajouter votre compte Azure, choisir votre abonnement et diffuser en continu les fichiers journaux :
+Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure PowerShell](/powershell/azure/). Pour PowerShell, utilisez la commande [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) pour activer la journalisation sur l’application de fonction, comme illustré dans l’extrait de code suivant : 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
-```
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
+
+Pour plus d’informations, consultez [l’exemple de code complet](../app-service/scripts/powershell-monitor.md#sample-script). 
 
 ## <a name="scale-controller-logs-preview"></a>Mettre à l’échelle les journaux du contrôleur (préversion)
 

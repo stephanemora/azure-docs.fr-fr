@@ -5,14 +5,14 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: aa77ac3652d8646a3354cb137ba7cf4240e58e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69129ad0ecda6b5893a5f758b8cac9a30dd0b093
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282107"
 ---
 # <a name="about-azure-networking-msp-partners"></a>À propos des partenaires de mise en réseau de fournisseur de services gérés Azure
 
@@ -20,7 +20,7 @@ Le [programme de partenariat des fournisseurs de services managés réseau Azure
 
 Les fournisseurs de services gérés de mise en réseau d’Azure sont un ensemble spécialisé de fournisseurs qui répondent aux besoins et aux défis du cloud en entreprise dans tous les aspects du cloud et des réseaux hybrides. Les services réseau géré comprennent un ou plusieurs des services suivants : architecture, planification, déploiement, opérations, maintenance et optimisation du réseau.
 
-![Fournisseur de services gérés][0]
+:::image type="content" source="./media/networking-partners-msp/msp.jpg" alt-text="partenaires":::
 
 Les clients peuvent acheter des offres de services gérés par leur fournisseur par le biais de la Place de marché Azure ou directement depuis le fournisseur de services gérés. Les fournisseurs de service managés peuvent déployer et gérer des ressources réseau Azure dans les abonnements et les groupes de ressources des clients en utilisant [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -32,6 +32,7 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 | ---| ---| ---| ---| ---|
 |[ANS Group UK](https://www.ans.co.uk/)|[Service Azure Managed + ANS Glass - Implémentation de 10 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|[ExpressRoute et connectivité : évaluation de 2 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_er)|[Azure Virtual WAN + Fortinet : évaluation de 2 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_vw)|||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[WAN virtuel Azure Aryaka](https://azuremarketplace.microsoft.com/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview) | | |
+|[AXESDN](https://www.axesdn.com/en/azure-msp.html)||[Azure ExpressRoute managé par AXESDN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_expressroute?tab=Overview)|[Azure Virtual WAN managé par AXESDN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_virtualwan?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consulting sur la transformation de réseau : Évaluation de 1 heure](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting) ; [BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[CenturyLink](https://www.centurylink.com/business.html)||[ExpressRoute Consulting Svcs : implémentation de 8 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/centurylink2362604-2362604.centurylink_consultingservicesforexpressroute)||||
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[SD-WAN Virtual Edge VMware géré](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
@@ -39,6 +40,7 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 |[Données NTT](https://us.nttdata.com/en/digital/cloud-transformation)|[Services managés : implémentation de 10 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
 |[Equinix](https://www.equinix.com/)|[Atelier WAN optimisé pour le cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Atelier Stratégie de connectivité ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview)||||
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[Implémentation d’ExpressRoute : réunion d’information de 1 heure](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute : implémentation de 2 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
+|[Federated Wireless](https://www.federatedwireless.com/caas/)||||[Connectivité sans fil fédérée en tant que service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integrate+ pour Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Évaluation de la mise en réseau Azure - 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Préparation au cloud - Évaluation de 2 heures](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
@@ -53,7 +55,7 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Contrôle d’intégrité Azure : évaluation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute : implémentation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute managé Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN propulsé par Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) ; [Vandis Managed VWAN propulsé par Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Les offres de la Place de marché Azure incluent les nouveaux services de sécurité managés et les services MEC managés des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federated Wireless](https://www.federatedwireless.com/caas/)
+Les offres de la Place de marché Azure incluent ExpressRoute managé, les services de sécurité Virtual WAN et les services de zones périphériques privées des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/) ;  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406) ; [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/) ; [InterCloud](https://intercloud.com/partners/microsoft-azure/) ; [KINX](https://www.kinx.net/service/cloud/?lang=en) ; [OmniClouds](https://omniclouds.com/) ; [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms) ;
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Partenaires d’ExpressRoute
 
@@ -62,6 +64,3 @@ Consultez [Partenaires et emplacements d’ExpressRoute ](../expressroute/expres
 ## <a name="virtual-wan-partners"></a><a name="vwan"></a>Partenaires Virtual WAN
 
 Consultez [Partenaires et fournisseurs de Virtual WAN](../virtual-wan/virtual-wan-locations-partners.md) pour plus d’informations.
-
-<!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "Description du programme de fournisseur de services gérés"

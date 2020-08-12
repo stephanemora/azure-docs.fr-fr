@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088663"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Résoudre les problèmes liés à l’erreur de Gestionnaire de démarrage Windows : 0xC0000225 « État introuvable »
  
@@ -27,7 +27,7 @@ Cet article fournit des étapes pour résoudre les problèmes où le code d’er
 
 ## <a name="symptoms"></a>Symptômes
 
-Quand vous utilisez les [diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir que cette capture affiche l’erreur « Windows n’a pas pu démarrer » avec le code d’état *0xC0000225*.
+Quand vous utilisez les [diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir que cette capture affiche l’erreur « Windows n’a pas pu démarrer » avec le code d’état *0xC0000225*.
 
 Le fichier associé à ce code d’erreur vous indiquera les étapes à suivre pour résoudre le problème. Recherchez le texte de la section **File:** pour déterminer la marche à suivre.
 
@@ -90,7 +90,7 @@ Un endommagement de la ruche du Registre peut être due aux causes suivantes :
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="select-a-solution"></a>Sélectionner une solution
@@ -178,7 +178,7 @@ Si cette collection d’informations génère une erreur alors qu’il n’y a p
          sel disk <DISK #>
          ```
 
-         L’illustration suivante montre les résultats de l’énumération et de la sélection d’un disque. Disk 0 (127 Go | En ligne), Disk 1 (32 Go | En ligne) et Disk 2 (127 Go | En ligne) sont répertoriés, avec Disk 2 sélectionné à l’aide de la commande `sel disk 2`.
+         L’illustration suivante montre les résultats de l’énumération et de la sélection d’un disque. Disk 0 (127 Go / En ligne), Disk 1 (32 Go / En ligne) et Disk 2 (127 Go / En ligne) sont répertoriés, avec Disk 2 sélectionné à l’aide de la commande `sel disk 2`.
 
          ![Résultats de l’énumération et de la sélection d’un disque. Disk 0 (127 Go | En ligne), Disk 1 (32 Go | En ligne) et Disk 2 (127 Go | En ligne) sont répertoriés, avec Disk 2 sélectionné.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -189,7 +189,7 @@ Si cette collection d’informations génère une erreur alors qu’il n’y a p
          sel partition <PARTITION #>
          ```
 
-         L’illustration suivante montre les résultats de l’énumération et de la sélection d’une partition. Partition 1 (Réservée | 16 Mo), Partition 2 (Système | 100 Mo) et Partition 3 (Principale | 126 Go) sont répertoriées, Partition 2 étant sélectionnée à l’aide de la commande `sel part 2`.
+         L’illustration suivante montre les résultats de l’énumération et de la sélection d’une partition. Partition 1 (Réservée / 16 Mo), Partition 2 (Système / 100 Mo) et Partition 3 (Principale / 126 Go) sont répertoriées, Partition 2 étant sélectionnée à l’aide de la commande `sel part 2`.
 
          ![Résultats de l’énumération et de la sélection d’une partition. Partition 1 (Réservée | 16 Mo), Partition 2 (Système | 100 Mo) et Partition 3 (Principale | 126 Go) sont répertoriées, Partition 2 étant sélectionnée.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -303,4 +303,4 @@ L’erreur **Fichier du Registre** a une solution, mais vous devrez [créer un d
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

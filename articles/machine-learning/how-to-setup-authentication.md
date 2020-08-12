@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref
-ms.openlocfilehash: 653ca578e9fafd245c22bcfd7db038d5c23da016
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326951"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489875"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ La plupart des exemples de la documentation et des exemples utilisent l’authen
 
 ## <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
-Pour utiliser l’authentification du principal de service, vous devez d’abord créer le principal de service et lui accorder l’accès à votre espace de travail. Comme mentionné précédemment, le contrôle d’accès en fonction du rôle (RBAC) permet de contrôler l’accès. Vous devez donc également décider de l’accès accordé au principal du service.
+Pour utiliser l’authentification du principal de service, vous devez d’abord créer le principal de service et lui accorder l’accès à votre espace de travail. Comme mentionné précédemment, le contrôle d’accès en fonction du rôle (Azure RBAC) permet de contrôler l’accès. Vous devez donc également décider de l’accès accordé au principal du service.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez un principal de service, accordez-lui l’__accès minimal requis pour la tâche__ pour laquelle il est utilisé. Par exemple, vous ne pouvez pas accorder l’accès propriétaire ou contributeur au principal de service s’il est utilisé uniquement pour la lecture du jeton d’accès pour un déploiement web.

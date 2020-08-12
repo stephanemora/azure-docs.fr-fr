@@ -11,21 +11,21 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 8788bd5c5da4d2f5622a633109e2fa8b6d2a5f03
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405141"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461185"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurer l’authentification unique SAML
 
-Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Cet article décrit plus en détail l’option SAML pour l’authentification unique. 
+Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Cet article décrit plus en détail l’option basée sur SAML pour l’authentification unique. 
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’utilisation d’Azure AD comme fournisseur d’identité et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée pour l’authentification unique SAML, cet article vous concerne.
+L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée pour l’authentification unique SAML, cet article vous concerne.
 
 La [série de guides de démarrage rapide](view-applications-portal.md) inclut un article sur la configuration de l’authentification unique. Il vous explique comment accéder à la page de configuration SAML pour une application. La page de configuration SAML comprend cinq sections, qui sont traitées en détail dans cet article.
 

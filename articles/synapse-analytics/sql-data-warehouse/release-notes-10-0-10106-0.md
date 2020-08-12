@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075838"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -28,7 +28,6 @@ Cet article résume les nouvelles fonctionnalités et améliorations des version
 Au fur et à mesure que de nouvelles fonctionnalités sont déployées dans toutes les régions, vérifiez la version déployée dans votre instance et les dernières notes de publication pour connaître la disponibilité des fonctionnalités. Pour vérifier la version, connectez-vous à votre pool SQL via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION;` pour retourner la version actuelle. Utilisez cette version pour confirmer quelle mise en production a été appliquée à votre pool SQL. La date dans la sortie identifie le mois de la mise en production appliquée à votre pool SQL. Cela s’applique uniquement aux améliorations au niveau du service. 
 
 Pour améliorer les outils, assurez-vous d’avoir installé la version spécifiée dans la note de publication. 
-
 
 > [!NOTE]
 > Le nom du produit retourné par SELECT @@VERSION passera de Microsoft Azure SQL Data Warehouse à Microsoft Azure Synapse Analytics. Nous vous enverrons une notification avant la modification. Ce changement s’applique aux clients qui analysent le nom du produit à partir du résultat de SELECT @@VERSION dans leur code d’application. Pour éviter les modifications du code d’application dues à la repersonnalisation du produit, utilisez ces commandes pour demander à SERVERPROPERTY le nom et la version du produit de base de données : Pour retourner le numéro de version XX.X.XXXXX.X (sans nom de produit), exécutez cette commande :
@@ -42,11 +41,13 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 > ```
 
 ## <a name="july-2020"></a>Juillet 2020
+
 | Améliorations du service | Détails |
 | --- | --- |
 |**Chiffrement au niveau des colonnes (Préversion publique)**|Protégez les informations sensibles dans votre entrepôt de données Synapse SQL en appliquant un chiffrement symétrique à une colonne de données à l’aide de Transact-SQL. Le chiffrement au niveau des colonnes offre des fonctions intégrées que vous pouvez utiliser pour chiffrer les données à l’aide de clés symétriques qui sont en outre protégées par un certificat, un mot de passe, une clé symétrique ou une clé asymétrique. Pour plus d’informations, consultez [Chiffrer une colonne de données](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Prise en charge du niveau de compatibilité (GA)**|Avec cette version, les utilisateurs peuvent désormais définir le niveau de compatibilité d'une base de données pour obtenir le langage Transact-SQL et les comportements de traitement des requêtes d'une version spécifique du moteur Synapse SQL. Pour plus d’informations, consultez [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et [Modifier la configuration délimitée à la base de données](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sécurité au niveau des lignes**|Cette version comprend une amélioration des opérations de mise à jour et de suppression sur les lignes sur lesquelles SNL est appliquée. Avec cette version, les opérations de mise à jour et de suppression avec des fonctions intrinsèques telles que « is_rolemember » réussissent si l’intrinsèque ne fait référence à aucune colonne de la table cible DML. Avant cette amélioration, ces opérations échouaient en raison d’une limitation des opérations DML sous-jacentes.|
+|**DBCC SHRINKDATABASE (GA)**|Vous pouvez maintenant réduire la taille des fichiers de données et journaux dans la base de données spécifiée. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
 
 ## <a name="may-2020"></a>Mai 2020
 

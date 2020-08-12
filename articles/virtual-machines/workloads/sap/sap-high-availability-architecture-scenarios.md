@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 045c73e3efefb29aac6bb25a8661fd510e351926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021124"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288259"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
 
@@ -95,7 +95,7 @@ ms.locfileid: "84021124"
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
-[azure-virtual-machines-manage-availability]:https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
+[azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
 [azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
 [azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 
@@ -226,7 +226,7 @@ ms.locfileid: "84021124"
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../manage-availability.md
 
 
 ## <a name="terminology-definitions"></a>Définitions de terminologie
@@ -289,12 +289,12 @@ Un groupe à haute disponibilité est utilisé pour la haute disponibilité des 
 
 
 ### <a name="azure-availability-zones"></a>Zones de disponibilité Azure
-Azure est en train de déployer un concept de [zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) sur différentes [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Les régions Azure où sont proposées les zones de disponibilité ont plusieurs centres de données, chacun avec sa source d’alimentation, son système de refroidissement et son réseau. Nous offrons différentes zones au sein d’une même région Azure pour vous permettre de déployer des applications sur deux ou trois zones de disponibilité proposées. En imaginant que les problèmes d’alimentation et/ou de réseau n’affectent qu’une seule infrastructure de zone de disponibilité, le déploiement de votre application au sein d’une région Azure devrait toujours entièrement opérationnel. Avec peut-être quelques diminutions des fonctionnalités, car certaines machines virtuelles d’une zone pourraient être perdues. Mais celles des deux autres zones seraient toujours opérationnelles. Les régions Azure qui offrent des zones sont listées dans [Zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Azure est en train de déployer un concept de [zones de disponibilité Azure](../../../availability-zones/az-overview.md) sur différentes [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Les régions Azure où sont proposées les zones de disponibilité ont plusieurs centres de données, chacun avec sa source d’alimentation, son système de refroidissement et son réseau. Nous offrons différentes zones au sein d’une même région Azure pour vous permettre de déployer des applications sur deux ou trois zones de disponibilité proposées. En imaginant que les problèmes d’alimentation et/ou de réseau n’affectent qu’une seule infrastructure de zone de disponibilité, le déploiement de votre application au sein d’une région Azure devrait toujours entièrement opérationnel. Avec peut-être quelques diminutions des fonctionnalités, car certaines machines virtuelles d’une zone pourraient être perdues. Mais celles des deux autres zones seraient toujours opérationnelles. Les régions Azure qui offrent des zones sont listées dans [Zones de disponibilité Azure](../../../availability-zones/az-overview.md).
 
 Vous devez tenir compte de certains éléments quand vous utilisez des zones de disponibilité. Notamment :
 
 - Vous ne pouvez pas déployer de groupes à haute disponibilité Azure dans une zone de disponibilité. Vous devez choisir une zone de disponibilité ou un groupe à haute disponibilité comme cadre de déploiement pour une machine virtuelle.
-- Vous ne pouvez pas utiliser l’[équilibreur de charge de base](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) pour créer des solutions de cluster de basculement basées sur les services de cluster de basculement Windows ou Linux Pacemaker. À la place, vous devez utiliser la [référence SKU Standard Load Balancer d’Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Vous ne pouvez pas utiliser l’[équilibreur de charge de base](../../../load-balancer/load-balancer-overview.md) pour créer des solutions de cluster de basculement basées sur les services de cluster de basculement Windows ou Linux Pacemaker. À la place, vous devez utiliser la [référence SKU Standard Load Balancer d’Azure](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - Les zones de disponibilité Azure ne donnent aucune garantie d’une certaine distance entre les différentes zones dans une région
 - La latence du réseau entre les différentes zones de disponibilité Azure dans les différentes régions Azure peut varier selon la région. Il est tout à fait possible que vous, en tant que client, puissiez raisonnablement exécuter la couche Application SAP déployée sur différentes zones parce que la latence du réseau d’une zone vers la machine virtuelle SGBD active est encore acceptable du point de vue de l’impact sur les processus métier. En revanche, il est possible aussi que la latence entre la machine virtuelle SGBD active dans une zone et une instance d’application SAP sur une machine virtuelle dans une autre zone soit trop intrusive et inacceptable pour les processus métier SAP. Par conséquent, les architectures de déploiement doivent être différentes avec une architecture active/active pour l’application ou une architecture active/passive si la latence est trop forte.
 - L’utilisation de [disques managés Azure](https://azure.microsoft.com/services/managed-disks/) est obligatoire pour le déploiement dans les zones de disponibilité Azure 
@@ -355,12 +355,12 @@ _**Figure 1 :** Serveur d’applications SAP à haute disponibilité_
 
 Vous devez placer toutes les machines virtuelles qui hébergent des instances de serveur d’applications SAP dans le même groupe à haute disponibilité Azure. Un groupe à haute disponibilité Azure garantit que :
 
-* Toutes les machines virtuelles font partie du même domaine de mise à jour.  
+* Toutes les machines virtuelles ne font pas partie du même domaine de mise à jour.  
     Un domaine de mise à jour permet de s’assurer que les machines virtuelles ne soient pas mises à jour en même temps lors d’un temps d’arrêt de maintenance planifiée.
 
     La fonctionnalité de base, qui repose sur des domaines de mise à jour et d’erreur différents au sein d’une unité d’échelle Azure a déjà été présentée dans la section [Domaines de mise à jour][planning-guide-3.2.2].
 
-* Toutes les machines virtuelles font partie du même domaine d’erreur.  
+* Toutes les machines virtuelles ne font pas partie du même domaine domaine d'erreur.  
     Un domaine d’erreur permet de s’assurer que les machines virtuelles soient déployées de sorte qu’aucun point de défaillance unique n’affecte la disponibilité de l’ensemble des machines virtuelles.
 
 Le nombre de domaines de mise à jour et d’erreur pouvant être utilisé par un groupe à haute disponibilité Azure au sein d’une unité d’échelle Azure est limité. Si vous continuez d’ajouter des machines virtuelles à un groupe à haute disponibilité, deux machines virtuelles ou plus pourront se retrouver dans le même domaine d’erreur ou de mise à jour.
@@ -391,7 +391,7 @@ Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS.
 
 * **Clustering de l’instance SAP ASCS/SCS à l’aide d’un partage de fichiers** : Pour plus d’informations sur cette architecture, consultez [Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers][sap-high-availability-guide-wsfc-file-share].
 
-* **Clustering de l’instance SAP ASCS/SCS à l’aide d’un partage ANF SMB** : Pour plus d’informations sur cette architecture, consultez [Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers ANF SMB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Clustering de l’instance SAP ASCS/SCS à l’aide d’un partage ANF SMB** : Pour plus d’informations sur cette architecture, consultez [Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers ANF SMB](./high-availability-guide-windows-netapp-files-smb.md).
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architecture de haute disponibilité pour une instance SAP ASCS/SCS sur Linux
 
@@ -399,7 +399,7 @@ Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS.
 > 
 > Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha]. Pour connaître une autre architecture HA sur SLES ne nécessitant pas de système NFS à haute disponibilité, consultez le [Guide de haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP][sap-suse-ascs-ha-anf].
 
-Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide du framework de cluster Red Hat, consultez [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide du framework de cluster Red Hat, consultez [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuration multi-SID de SAP NetWeaver pour une instance SAP ASCS/SCS en cluster
@@ -419,8 +419,8 @@ Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l�
 > Le clustering multi-SID est pris en charge sur les clusters Linux Pacemaker pour SAP ASCS/ERS, limité à **cinq** SID SAP sur le même cluster.
 > Pour plus d’informations sur l’architecture de haute disponibilité multi-SID sur Linux, consultez :
 
-* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur SLES pour les applications SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur RHEL pour les applications SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur SLES pour les applications SAP multi-SID](./high-availability-guide-suse-multi-sid.md)
+* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur RHEL pour les applications SAP multi-SID](./high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="high-availability-dbms-instance"></a>Instance de SGBD à haute disponibilité
 

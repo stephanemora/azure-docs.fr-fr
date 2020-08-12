@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015406"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -44,7 +44,7 @@ Vous pouvez configurer des administrateurs du serveur à l’aide de SQL Server 
 
 ## <a name="using-a-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 
-Vous pouvez également configurer des administrateurs du serveur en déployant le serveur Analysis Services à l’aide d’un modèle Azure Resource Manager. L’identité qui exécute le déploiement doit appartenir au rôle **Contributeur** pour la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md).
+Vous pouvez également configurer des administrateurs du serveur en déployant le serveur Analysis Services à l’aide d’un modèle Azure Resource Manager. L’identité qui exécute le déploiement doit appartenir au rôle **Contributeur** pour la ressource dans le [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > Le principal du service doit être ajouté au format `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
@@ -119,5 +119,3 @@ Ensuite, vous utilisez cet ID client conjointement avec l’ID de locataire pour
 
 * [Télécharger le module SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Télécharger SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

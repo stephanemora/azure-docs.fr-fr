@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223038"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419595"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
@@ -75,7 +75,7 @@ Pour accéder au modèle de classeur pour le rapport de vue d’ensemble de la s
 
 1. La partie inférieure du rapport Vue d’ensemble de la sécurité figure sous le graphique décompose ensuite le type d’activité sélectionné. Sur le côté droit, vous pouvez filtrer par nom d’utilisateur impliqué, comme indiqué dans l’exemple de rapport suivant :
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Détails des verrouillages de compte dans les classeurs Azure Monitor.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Utiliser le classeur du rapport d’activité de compte
 
@@ -93,7 +93,7 @@ Pour accéder au modèle de classeur pour le rapport d’activité du compte, pr
 
     Vous pouvez filtrer par **Nom d’utilisateur du compte**, par exemple *felix*, comme indiqué dans l’exemple de rapport suivant :
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Rapport d’activité de compte dans les classeurs Azure Monitor.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     La zone située sous le graphique affiche les événements de connexion individuels, ainsi que des informations telles que le résultat de l’activité et la station de travail source. Ces informations peuvent aider à identifier les sources répétées d’événements de connexion qui peuvent provoquer le verrouillage de compte ou indiquer une attaque potentielle.
 

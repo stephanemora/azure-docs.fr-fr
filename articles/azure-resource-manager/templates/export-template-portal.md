@@ -2,13 +2,13 @@
 title: Exporter le modèle dans le Portail Azure
 description: Utilisez le portail Azure pour exporter un modèle Azure Resource Manager à partir de ressources de votre abonnement.
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/29/2020
+ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057702"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423233"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
@@ -52,6 +52,8 @@ Lors de l’exportation à partir d’un groupe de ressources ou d’une ressour
 La fonctionnalité d’exportation de modèle ne prend pas en charge l’exportation des ressources Azure Data Factory. Pour en savoir plus sur la façon dont vous pouvez exporter des ressources Data Factory, consultez [Copier ou cloner une fabrique de données dans Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
 Pour exporter des ressources créées par le biais du modèle de déploiement classique, vous devez [les migrer vers le modèle de déploiement de Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
+
+Si vous recevez un avertissement lors de l’exportation d’un modèle qui indique qu’un type de ressource n’a pas été exporté, vous pouvez toujours découvrir les propriétés pour cette ressource. Pour en savoir plus sur les différentes options d’affichage des propriétés des ressources, consultez [Découvrir les propriétés des ressources](view-resources.md). Vous pouvez également consulter l’[API REST Azure](/rest/api/azure/) pour le type de ressource.
 
 ## <a name="export-template-from-a-resource-group"></a>Exportation du modèle à partir d’un groupe de ressources
 

@@ -1,22 +1,22 @@
 ---
 title: Utiliser l’émulateur azurite pour le développement de stockage Azure local
-description: L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Azure.
+description: L’émulateur open source Azurite fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089411"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utiliser l’émulateur Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utiliser l’émulateur azurite pour le développement de stockage Azure local
 
-L’émulateur open source Azurite version 3.2 (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage de file d'attente et Blob Azure. Une fois que vous êtes satisfait de la manière dont votre application fonctionne localement, passez à l’utilisation d’un compte de stockage Azure dans le cloud. L’émulateur offre une prise en charge multiplateforme, qui inclut Windows, Linux et macOS. Azurite v3 prend en charge les API implémentées par le service Blob Azure.
+L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Blob et de file d'attente Azure. Une fois que vous êtes satisfait de la manière dont votre application fonctionne localement, passez à l’utilisation d’un compte de stockage Azure dans le cloud. L’émulateur offre une prise en charge multiplateforme, qui inclut Windows, Linux et macOS.
 
 Azurite est la future plateforme d’émulateur de stockage. Azurite remplace l’[Émulateur de stockage Azure](storage-use-emulator.md). Azurite continuera d’être mis à jour pour prendre en charge les dernières versions des API de stockage Azure.
 
@@ -34,8 +34,6 @@ Dans Visual Studio Code, sélectionnez le volet **EXTENSIONS**, puis recherchez 
 ![Place de marché des extensions Visual Studio Code](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 Vous pouvez également accéder au marché des extensions pour [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) dans votre navigateur. Sélectionnez le bouton **Installer** pour ouvrir Visual Studio Code et accéder directement à la page de l’extension Azurite.
-
-Vous pouvez démarrer ou fermer rapidement Azurite dans la barre d’État Visual Studio Code. Cliquez sur **[Azurite Blob Service]** (Service Blob Azurite) ou **[Azurite Queue Service]** (Service File d’attente Azurite).
 
 L’extension prend en charge les commandes Visual Studio Code suivantes : Dans Visual Studio Code, appuyez sur F1 pour ouvrir la palette de commandes. 
 
@@ -67,6 +65,7 @@ Les paramètres suivants sont pris en charge :
    - **Azurite : Hôte de file d'attente** - Point de terminaison d’écoute du service de file d'attente. Le paramètre par défaut est 127.0.0.1.
    - **Azurite : Port de la file d’attente** - Le port d’écoute du service de file d’attente. Le port par défaut est 10001.
    - **Azurite : Silent** (Sans assistance) - Ce mode entraîne la désactivation du journal des accès. La valeur par défaut est **false**.
+   - **Azurite : Ignorer la vérification de la version de l’API** : ignorer la vérification de la version de l’API de requête. La valeur par défaut est **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installer et exécuter Azurite à l’aide de NPM
 
@@ -310,6 +309,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > OAuth requiert un point de terminaison HTTPS. Assurez-vous que le protocole HTTPS est activé en fournissant un commutateur `--cert` avec le commutateur `--oauth`.
 
 Azurite prend en charge l’authentification de base en spécifiant le paramètre `basic` au commutateur `--oauth`. Azurite effectue l’authentification de base, par exemple la validation du jeton de porteur entrant, la vérification de l’émetteur, de l’audience et de l’expiration. Azurite ne vérifie pas la signature du jeton ou les autorisations.
+
+### <a name="skip-api-version-check"></a>Ignorer la vérification de la version de l’API
+
+**Facultatif** : au démarrage, Azurite vérifie que la version de l’API demandée est valide. La commande suivante ignore la vérification de la version de l’API :
+
+```console
+azurite --skipApiVersionCheck
+```
+
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorisation pour les outils et les kits SDK
 

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248711"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423301"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
-Azure Logic Apps s’appuie sur le [Stockage Azure](https://docs.microsoft.com/azure/storage/) pour stocker et [chiffrer automatiquement les données au repos](../security/fundamentals/encryption-atrest.md). Ce chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Par défaut, Stockage Azure utilise des clés managées par Microsoft pour chiffrer vos données. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
+Azure Logic Apps s’appuie sur le [Stockage Azure](../storage/index.yml) pour stocker et [chiffrer automatiquement les données au repos](../security/fundamentals/encryption-atrest.md). Ce chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Par défaut, Stockage Azure utilise des clés managées par Microsoft pour chiffrer vos données. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 Pour contrôler l’accès aux données sensibles et les protéger dans Azure Logic Apps, vous pouvez configurer des paramètres de sécurité supplémentaires dans les domaines suivants :
 
@@ -51,7 +51,7 @@ Voici quelques méthodes qui peuvent vous aider à sécuriser l’accès à ce t
 
 ### <a name="generate-shared-access-signatures-sas"></a>Générer des signatures d’accès partagé (SAP)
 
-Dans une application logique, l’URL de chaque point de terminaison de requête comprend une [signature d’accès partagé](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) (SAP). L’URL est au format suivant :
+Dans une application logique, l’URL de chaque point de terminaison de requête comprend une [signature d’accès partagé](/rest/api/storageservices/constructing-a-service-sas) (SAP). L’URL est au format suivant :
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -86,7 +86,7 @@ Pour générer une nouvelle clé d’accès de sécurité à tout moment, utilis
 
 #### <a name="create-expiring-callback-urls"></a>Créer des URL de rappel qui expirent
 
-Si vous décidez de partager l’URL d’un point de terminaison pour un déclencheur basé sur des requêtes, vous pouvez générer des URL de rappel qui utilisent des clés et pour lesquelles des dates d’expiration ont été configurées. De cette façon, vous pouvez facilement restaurer les clés ou restreindre l’accès au déclenchement de votre application logique selon une période donnée. Si vous souhaitez spécifier une date d’expiration pour une URL, utilisez l’[API REST Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers), par exemple :
+Si vous décidez de partager l’URL d’un point de terminaison pour un déclencheur basé sur des requêtes, vous pouvez générer des URL de rappel qui utilisent des clés et pour lesquelles des dates d’expiration ont été configurées. De cette façon, vous pouvez facilement restaurer les clés ou restreindre l’accès au déclenchement de votre application logique selon une période donnée. Si vous souhaitez spécifier une date d’expiration pour une URL, utilisez l’[API REST Logic Apps](/rest/api/logic/workflowtriggers), par exemple :
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -98,7 +98,7 @@ Dans le corps, ajoutez la propriété `NotAfter` en utilisant une chaîne de dat
 
 #### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Créer des URL avec une clé de secret principale ou secondaire
 
-Lorsque vous générez ou listez des URL de rappel pour des déclencheurs basés sur une requête, vous pouvez également spécifier la clé à utiliser pour signer l’URL. Pour générer une URL signée par une clé spécifique, utilisez l’[API REST Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers), par exemple :
+Lorsque vous générez ou listez des URL de rappel pour des déclencheurs basés sur une requête, vous pouvez également spécifier la clé à utiliser pour signer l’URL. Pour générer une URL signée par une clé spécifique, utilisez l’[API REST Logic Apps](/rest/api/logic/workflowtriggers), par exemple :
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -110,7 +110,7 @@ Dans le corps, incluez la propriété `KeyType` en tant que `Primary` ou `Second
 
 ### <a name="enable-azure-active-directory-oauth"></a>Activer Azure Active Directory OAuth
 
-Si votre application logique démarre avec un [Déclencheur de demande](/azure/active-directory/develop/), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en créant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de demande. Avant d’activer cette authentification, passez en revue les considérations suivantes :
+Si votre application logique démarre avec un [Déclencheur de demande](../active-directory/develop/index.yml), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en créant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de demande. Avant d’activer cette authentification, passez en revue les considérations suivantes :
 
 * Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
 
@@ -212,7 +212,7 @@ En plus de la signature d’accès partagé (SAP), vous pouvez aussi restreindre
 Si vous souhaitez que votre application logique se déclenche uniquement comme une application logique imbriquée, dans la liste **Adresses IP entrantes autorisées**, sélectionnez **Uniquement les autres Logic Apps**. Cette option crée un tableau vide dans votre ressource d’application logique. De cette façon, seuls les appels émanant du service Logic Apps (applications logiques parentes) peuvent déclencher l’application logique imbriquée.
 
 > [!NOTE]
-> Indépendamment de l’adresse IP, vous pouvez toujours exécuter une application logique comportant un déclencheur en fonction de la demande en utilisant la demande [API REST Logic Apps : Déclencheurs de workflow – Exécuter](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) ou la Gestion des API. Cependant, ce scénario nécessite encore une [authentification](../active-directory/develop/authentication-scenarios.md) auprès de l’API REST Azure. Tous les événements s’affichent dans le journal d’audit Azure. Veillez à définir les stratégies de contrôle d’accès en conséquence.
+> Indépendamment de l’adresse IP, vous pouvez toujours exécuter une application logique comportant un déclencheur en fonction de la demande en utilisant la demande [API REST Logic Apps : Déclencheurs de workflow – Exécuter](/rest/api/logic/workflowtriggers/run) ou la Gestion des API. Cependant, ce scénario nécessite encore une [authentification](../active-directory/develop/authentication-vs-authorization.md) auprès de l’API REST Azure. Tous les événements s’affichent dans le journal d’audit Azure. Veillez à définir les stratégies de contrôle d’accès en conséquence.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager
 
@@ -248,7 +248,7 @@ Si vous [automatisez le déploiement des applications logiques à l’aide de mo
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -263,13 +263,13 @@ Si vous [automatisez le déploiement des applications logiques à l’aide de mo
 
 ### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Ajouter Azure Active Directory Open Authentication ou une autre sécurité
 
-Pour ajouter des protocoles d’[authentification](../active-directory/develop/authentication-scenarios.md) supplémentaires à votre application logique, pensez à utiliser le service [Gestion des API Azure](../api-management/api-management-key-concepts.md). Ce service vous permet d’exposer votre application logique sous la forme d’une API. En outre, il fournit des fonctionnalités avancées de supervision, de sécurité et d’application des stratégies, ainsi qu’une documentation riche sur tous les points de terminaison. Le service Gestion des API peut exposer un point de terminaison public ou privé pour votre application logique. Pour autoriser l’accès à ce point de terminaison, vous pouvez utiliser [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), un [certificat client](#client-certificate-authentication) ou d’autres normes de sécurité. Lorsque Gestion des API reçoit une requête, le service envoie celle-ci à votre application logique, en effectuant également toutes les transformations ou restrictions nécessaires tout au long du processus. Pour que seule la fonctionnalité Gestion des API déclenche votre application logique, vous pouvez utiliser les paramètres de plage d’adresses IP entrantes de votre application logique.
+Pour ajouter des protocoles d’[authentification](../active-directory/develop/authentication-vs-authorization.md) supplémentaires à votre application logique, pensez à utiliser le service [Gestion des API Azure](../api-management/api-management-key-concepts.md). Ce service vous permet d’exposer votre application logique sous la forme d’une API. En outre, il fournit des fonctionnalités avancées de supervision, de sécurité et d’application des stratégies, ainsi qu’une documentation riche sur tous les points de terminaison. Le service Gestion des API peut exposer un point de terminaison public ou privé pour votre application logique. Pour autoriser l’accès à ce point de terminaison, vous pouvez utiliser [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), un [certificat client](#client-certificate-authentication) ou d’autres normes de sécurité. Lorsque Gestion des API reçoit une requête, le service envoie celle-ci à votre application logique, en effectuant également toutes les transformations ou restrictions nécessaires tout au long du processus. Pour que seule la fonctionnalité Gestion des API déclenche votre application logique, vous pouvez utiliser les paramètres de plage d’adresses IP entrantes de votre application logique.
 
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Accès aux opérations d’une application logique
 
-Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/role-assignments-portal.md) afin d’attribuer des rôles personnalisés ou intégrés aux membres de votre abonnement Azure :
+Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le [Contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) afin d’attribuer des rôles personnalisés ou intégrés aux membres de votre abonnement Azure :
 
 * [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) : Permet de gérer des applications logiques, mais pas d’en modifier l’accès.
 
@@ -427,7 +427,7 @@ Voici certains [aspects à prendre en considération](#obfuscation-consideration
 
 * Quand vous rendez secrètes les entrées ou les sorties d’un déclencheur ou d’une action, Logic Apps n’envoie pas les données sécurisées à Azure Log Analytics. De plus, vous ne pouvez pas ajouter de [propriétés suivies](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) à ce déclencheur ou à cette action à des fins de supervision.
 
-* L’[API Logic Apps qui permet de gérer l’historique des workflows](https://docs.microsoft.com/rest/api/logic/) ne retourne pas de sorties sécurisées.
+* L’[API Logic Apps qui permet de gérer l’historique des workflows](/rest/api/logic/) ne retourne pas de sorties sécurisées.
 
 * Pour sécuriser les sorties d’une action qui rend les entrées secrètes ou qui rend explicitement les sorties secrètes, activez manuellement **Sorties sécurisées** dans cette action.
 
@@ -613,7 +613,7 @@ Cet exemple de modèle avec plusieurs définitions de paramètres sécurisés qu
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -816,7 +816,7 @@ Pour plus d’informations sur la sécurisation des services à l’aide de l’
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) pour authentifier les appels entrants après avoir [configuré des stratégies d’autorisation Azure AD](#enable-oauth) pour votre application logique. Pour tous les autres déclencheurs et actions qui proposent la sélection du type d’authentification **Active Directory OAuth**, spécifiez ces valeurs de propriété :
+Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) pour authentifier les appels entrants après avoir [configuré des stratégies d’autorisation Azure AD](#enable-oauth) pour votre application logique. Pour tous les autres déclencheurs et actions qui proposent la sélection du type d’authentification **Active Directory OAuth**, spécifiez ces valeurs de propriété :
 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -953,7 +953,7 @@ Vous pouvez utiliser Azure Logic Apps dans [Azure Government](../azure-governmen
   * [Plans Azure App Service](../app-service/overview-hosting-plans.md)
   * [Options de mise en réseau d’Azure Functions](../azure-functions/functions-networking-options.md)
   * [Azure Dedicated Host pour les machines virtuelles](../virtual-machines/windows/dedicated-hosts.md)
-  * [Isolation des machines virtuelles dans Azure](../virtual-machines/windows/isolation.md)
+  * [Isolation des machines virtuelles dans Azure](../virtual-machines/isolation.md)
   * [Déploiement de services Azure dédiés dans des réseaux virtuels](../virtual-network/virtual-network-for-azure-services.md)
 
 * Pour créer des applications logiques qui s’exécutent sur des ressources dédiées et peuvent accéder à des ressources protégées par un réseau virtuel Azure, vous pouvez créer un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
@@ -965,7 +965,7 @@ Vous pouvez utiliser Azure Logic Apps dans [Azure Government](../azure-governmen
 Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Isolation dans le cloud public Azure](../security/fundamentals/isolation-choices.md)
-* [Sécurité des applications IaaS hautement sensibles dans Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+* [Sécurité des applications IaaS hautement sensibles dans Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

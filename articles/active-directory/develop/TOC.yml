@@ -468,13 +468,13 @@
     - name: Provisionnement automatique des utilisateurs (SCIM)
       items:
         - name: "Qu’est-ce que le provisionnement utilisateur automatique\_?"
-          href: /azure/active-directory/app-provisioning/user-provisioning
+          href: ../app-provisioning/user-provisioning.md
         - name: Développer et intégrer un point de terminaison SCIM
-          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
         - name: Scénarios courants de provisionnement
-          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+          href: ../app-provisioning/scim-graph-scenarios.md
         - name: Automatiser la configuration avec MS Graph
-          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+          href: ../app-provisioning/application-provisioning-configure-api.md
     - name: Articles d’aide sur le portail Azure
       items:
         - name: Valeurs par défaut de la durée de vie des jetons pour une application personnalisée
@@ -630,7 +630,7 @@
         - name: Publier sur la galerie Azure AD App
           href: v2-howto-app-gallery-listing.md
         - name: "Publier sur le tableau de bord vendeur Office\_365"
-          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Informations de référence
   items:
     - name: Manifeste d’application
@@ -642,7 +642,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: API d’identité et d’accès dans Microsoft Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
+      href: /graph/api/resources/azure-ad-overview
     - name: Codes d’erreur d’authentification et d’autorisation
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -663,7 +663,7 @@
     - name: Essayez Se connecter avec Microsoft
       href: 'https://azure.microsoft.com/develop/identity/signin/'
     - name: Identités gérées pour les ressources Azure
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md
     - name: Obtenir de l’aide
       displayName: 'support, help options'
       href: developer-support-help-options.md

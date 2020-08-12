@@ -1,6 +1,6 @@
 ---
-title: Déployer un outil de gestion pour Windows Virtual Desktop en utilisant le principal de service - Azure
-description: Guide pratique pour l’outil de gestion pour Windows Virtual Desktop avec PowerShell.
+title: Déployer un outil de gestion pour Windows Virtual Desktop (classique) en utilisant le principal de service - Azure
+description: Guide pratique pour l’outil de gestion pour Windows Virtual Desktop (classique) avec PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513402"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284963"
 ---
-# <a name="deploy-a-management-tool-with-powershell"></a>Déployer un outil de gestion avec PowerShell
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Déployer un outil de gestion de Windows Virtual Desktop (classique) avec PowerShell
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop.
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
 
 Cet article vous indique comment déployer l’outil de gestion avec PowerShell.
 

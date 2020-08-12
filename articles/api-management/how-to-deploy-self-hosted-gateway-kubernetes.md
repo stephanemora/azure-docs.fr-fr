@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056381"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
@@ -35,7 +35,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 3. Sélectionnez **Déploiement**.
 4. Un jeton d’accès dans la zone de texte **Token** (Jeton) a été généré automatiquement pour vous, sur la base des valeurs par défaut pour l’expiration (**Expiry**) et la clé secrète (**Secret key**). Si nécessaire, choisissez les valeurs souhaitées dans l’un des contrôles ou dans les deux pour générer un jeton.
 5. Sélectionnez l’onglet **Kubernetes** sous **Deployment scripts** (Scripts de déploiement).
-6. Sélectionnez le lien du fichier **<nom de la passerelle>.yml**, puis téléchargez le fichier YAML.
+6. Sélectionnez le lien du fichier **\<gateway-name\>.yml**, puis téléchargez le fichier YAML.
 7. Sélectionnez l’icône **Copier** en bas à droite de la zone de texte **Deploy** (Déployer) pour enregistrer les commandes `kubectl` dans le Presse-papiers.
 8. Collez les commandes dans la fenêtre du terminal. La première commande crée un secret Kubernetes contenant le jeton d’accès généré à l’étape 4. La deuxième commande applique le fichier de configuration téléchargé à l’étape 6 au cluster Kubernetes, et s’attend à ce que le fichier figure dans le répertoire actif.
 9. Exécutez les commandes pour créer les objets Kubernetes nécessaires dans l’[espace de noms par défaut](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) et démarrez le ou les pods de la passerelle auto-hébergée à partir d’une [image conteneur](https://aka.ms/apim/sputnik/dhub) téléchargée à partir de Microsoft Container Registry.
@@ -106,6 +106,12 @@ La résolution de noms DNS joue un rôle essentiel dans la capacité d’une pa
 Le fichier YAML fourni dans le Portail Azure applique la stratégie [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) par défaut. Cette stratégie entraîne le transfert des requêtes de résolution de noms non résolues par le DNS du cluster au serveur DNS en amont hérité du nœud.
 
 Pour en savoir plus sur la résolution de noms dans Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Envisagez de personnaliser la [stratégie DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) ou la [configuration DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) en fonction de votre configuration.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Noms de domaine personnalisés et certificats SSL
+
+Si vous utilisez des noms de domaine personnalisés pour les points de terminaison de gestion des API, en particulier si vous utilisez un nom de domaine personnalisé pour le point de terminaison de gestion, vous devrez peut-être mettre à jour la valeur de `config.service.endpoint` dans le fichier **\<gateway-name\>.yaml** pour remplacer le nom de domaine par défaut par le nom de domaine personnalisé. Assurez-vous que le point de terminaison de gestion est accessible à partir du pod de la passerelle auto-hébergée dans le cluster Kubernetes.
+
+Dans ce scénario, si le certificat SSL utilisé par le point de terminaison de gestion n’est pas signé par un certificat d’autorité de certification connu, vous devez vous assurer que le certificat de l’autorité de certification est approuvé par le pod de la passerelle auto-hébergée.
 
 ### <a name="configuration-backup"></a>Sauvegarde de la configuration
 Pour en savoir plus sur le comportement de la passerelle auto-hébergée en cas de panne de connectivité temporaire à Azure, consultez [Vue d’ensemble de la passerelle auto-hébergée](self-hosted-gateway-overview.md#connectivity-to-azure).

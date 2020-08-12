@@ -1,6 +1,6 @@
 ---
-title: 'Connecter un client web Windows Virtual Desktop : Azure'
-description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client web.
+title: Connecter un client web Windows Virtual Desktop (classique) - Azure
+description: Explique comment se connecter à Windows Virtual Desktop (classique) à l’aide du client web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e95498498fd15d7a6e73630e218f9bdd1b892f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efe97c86ebfac8e130489b3105a97302866d6822
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270377"
 ---
-# <a name="connect-with-the-web-client"></a>Se connecter avec le client web
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Se connecter à Windows Virtual Desktop (classique) avec le client web
 
 >[!IMPORTANT]
->Ce contenu s’applique à la version Automne 2019 qui ne prend pas en charge les objets Azure Resource Manager Windows Virtual Desktop. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la mise à jour Printemps 2020, consultez [cet article](../connect-web.md).
+>Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-web.md).
 
 Le client web vous permet d’accéder à vos ressources Windows Virtual Desktop à partir d’un navigateur web sans processus d’installation fastidieux.
 
@@ -42,7 +42,7 @@ Tous les navigateurs HTML5 doivent fonctionner, et nous prenons officiellement e
 Dans un navigateur, accédez au client web de Windows Virtual Desktop à l’adresse <https://rdweb.wvd.microsoft.com/webclient> et connectez-vous avec votre compte d’utilisateur.
 
 >[!NOTE]
->Si vous utilisez la version Printemps 2020 de Windows Virtual Desktop Spring avec l’intégration d’Azure Resource Manager, connectez-vous à vos ressources à l’adresse <https://rdweb.wvd.microsoft.com/arm/webclient> à la place.
+>Si vous utilisez Windows Virtual Desktop avec l’intégration dans Azure Resource Manager, connectez-vous à vos ressources à l’adresse <https://rdweb.wvd.microsoft.com/arm/webclient> à la place.
 
 >[!NOTE]
 >Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.

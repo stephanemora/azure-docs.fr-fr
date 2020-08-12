@@ -1,6 +1,5 @@
 ---
-title: Réseaux neuronaux personnalisés Net#
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classique) : Réseaux neuronaux personnalisés - Azure'
 description: Guide de la syntaxe du langage de spécification des réseaux neuronaux Net#. Découvrez comment créer des modèles de réseau neuronal personnalisés dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4441c58838c3c44b01e57642e4433b12b2d1bc1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85129515"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432924"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio (classique)
+# <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Machine Learning Studio (classique)
+
+**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 
@@ -108,7 +109,7 @@ output Result[2] from Hidden all;
 ```
 
 + Le produit des dimensions est le nombre de nœuds de la couche. Dans cet exemple, il y a deux dimensions [5,20], ce qui signifie qu’il y a 100 nœuds dans la couche.
-+ Les couches peuvent être déclarées dans n'importe quel ordre, à une exception près : si plusieurs couches d'entrée sont définies, l'ordre dans lequel elles sont déclarées doit être le même que celui des fonctions dans les données d'entrée.
++ Les couches peuvent être déclarés dans n'importe quel ordre, à une exception près : si plusieurs couches d'entrée sont définies, l'ordre dans lequel elles sont déclarées doit être le même que celui des fonctions dans les données d'entrée.
 
 Pour spécifier que le nombre de nœuds d’une couche doit être déterminé automatiquement, utilisez le mot clé `auto`. Le mot clé `auto` peut avoir différents effets selon le type de couche :
 

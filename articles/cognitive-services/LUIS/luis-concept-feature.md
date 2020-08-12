@@ -1,14 +1,14 @@
 ---
-title: Fonctionnalités – LUIS
+title: Fonctionnalités de Machine Learning avec LUIS
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075173"
 ---
 # <a name="machine-learning-features"></a>Caractéristiques issues de l’apprentissage automatique
 

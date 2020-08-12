@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200404"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483827"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -68,7 +68,7 @@ Le service Data Box est protégé par les fonctionnalités suivantes.
 
 - L’accès au service Data Box requiert que votre organisation dispose d’un abonnement Azure incluant Data Box. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure.
 - Étant donné que le service Data Box est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de confidentialité Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- L’accès à la commande Data Box peut être contrôlé par le biais de l’utilisation des rôles de contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations, consultez [Configurer le contrôle d’accès pour la commande Data Box](data-box-logs.md#set-up-access-control-on-the-order)
+- L’accès à la commande Data Box peut être contrôlé par le biais de l’utilisation des rôles Azure. Pour plus d’informations, consultez [Configurer le contrôle d’accès pour la commande Data Box](data-box-logs.md#set-up-access-control-on-the-order)
 - Le service Data Box stocke le mot de passe de déverrouillage utilisé pour déverrouiller l’appareil dans le service.
 - Le service Data Box stocke les détails de la commande et l’état dans le service. Ces informations sont supprimées en même temps que la commande.
 

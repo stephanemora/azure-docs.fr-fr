@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090210"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -29,7 +29,7 @@ Pour connecter un élément de travail à une nouvelle branche, sélectionnez le
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Dans la boîte de dialogue **Créer une branche**, spécifiez le nom de la nouvelle branche, et le dépôt et la branche Git d’Azure Repos. Le dépôt de base doit se trouver dans le même projet Azure DevOps que l’élément de travail. La branche de base peut être la branche master ou une autre branche existante. Sélectionnez **Créer une branche**. 
+Dans la boîte de dialogue **Créer une branche**, spécifiez le nom de la nouvelle branche, et le dépôt et la branche Git d’Azure Repos. Le dépôt de base doit se trouver dans le même projet Azure DevOps que l’élément de travail. La branche de base peut être n’importe quelle branche existante. Sélectionnez **Créer une branche**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -51,7 +51,7 @@ Une fois que vous avez basculé vers la branche de travail, vous pouvez commence
 
 Une bonne pratique est de créer une branche Git pour chaque élément de travail Récit utilisateur. Ensuite, pour chaque élément de travail Tâche, vous pouvez créer une branche basée sur la branche Récit utilisateur. Organisez les branches dans une hiérarchie qui correspond à la relation Récit utilisateur-Tâche quand plusieurs personnes travaillent sur des récits utilisateur différents pour le même projet, ou sur des tâches différentes pour le même récit utilisateur. Vous pouvez réduire les conflits en faisant en sorte que chaque membre de l’équipe travaille sur une branche différente, sur du code différent ou sur d’autres artefacts lors du partage d’une branche. 
 
-Le diagramme suivant montre la stratégie de création de branches recommandée pour TDSP. Vous n’aurez peut-être pas besoin d’autant de branches, en particulier si seulement une ou deux personnes travaillent sur un projet, ou si une seule personne est chargée de l’ensemble des tâches d’un récit utilisateur. La séparation de la branche de développement de la branche master est néanmoins toujours une bonne pratique, qui peut aider à empêcher que la branche de mise en production soit interrompue par des activités de développement. Pour obtenir une description plus complète du modèle des branches Git, consultez [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
+Le diagramme suivant montre la stratégie de création de branches recommandée pour TDSP. Vous n’aurez peut-être pas besoin d’autant de branches, en particulier si seulement une ou deux personnes travaillent sur un projet, ou si une seule personne est chargée de l’ensemble des tâches d’un récit utilisateur. La séparation de la branche de développement de la branche principale est néanmoins toujours une bonne pratique, qui peut aider à empêcher que la branche de mise en production soit interrompue par des activités de développement. Pour obtenir une description plus complète du modèle des branches Git, consultez [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -98,7 +98,7 @@ Vérifiez que la demande est marquée comme **TERMINÉE**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Quand vous revenez aux **Dépôts** dans le volet de navigation de gauche, vous pouvez voir que vous êtes passé à la branche master, car la branche `script` a été supprimée.
+Quand vous revenez aux **Dépôts** dans le volet de navigation de gauche, vous pouvez voir que vous êtes passé à la branche principale, car la branche `script` a été supprimée.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

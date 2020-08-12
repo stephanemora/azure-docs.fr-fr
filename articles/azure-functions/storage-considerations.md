@@ -2,13 +2,13 @@
 title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/27/2020
+ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318179"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -18,12 +18,12 @@ Azure Functions nécessite un compte Stockage Azure lorsque vous créez une inst
 |Service de stockage  | Utilisation de Functions  |
 |---------|---------|
 | [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md)     | Conserve l’état des liaisons et les touches de fonction.  <br/>Également utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Azure Files](../storage/files/storage-files-introduction.md)  | Partage de fichiers utilisé pour stocker et exécuter le code de votre application de fonction dans un [plan de consommation](functions-scale.md#consumption-plan). |
+| [Azure Files](../storage/files/storage-files-introduction.md)  | Partage de fichiers utilisé pour stocker et exécuter le code de votre application de fonction dans un [plan de consommation](functions-scale.md#consumption-plan) et un [plan Premium](functions-scale.md#premium-plan). |
 | [Stockage File d’attente Azure](../storage/queues/storage-queues-introduction.md)     | Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Stockage Table Azure](../storage/tables/table-storage-overview.md)  |  Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> Lorsque vous utilisez le plan d’hébergement de la consommation, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
+> Lorsque vous utilisez le plan d’hébergement de consommation/Premium, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
 
 ## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
 
@@ -41,7 +41,7 @@ Chaque application de fonction nécessite un compte de stockage afin de fonction
 
 La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-La chaîne de connexion du compte de stockage doit être mise à jour lorsque vous régénérez des clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+La chaîne de connexion du compte de stockage doit être mise à jour lorsque vous régénérez des clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](../storage/common/storage-account-create.md).
 
 ### <a name="shared-storage-accounts"></a>Comptes de stockage partagés
 
@@ -80,5 +80,3 @@ En savoir plus sur les options d’hébergement d’Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Échelle et hébergement dans Azure Functions](functions-scale.md)
-
-

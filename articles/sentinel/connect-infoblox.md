@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: ed4f2d769dbda3dec7b353fddfd1e5e0f3d00f9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089649"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Connexion de votre système d’exploitation des identités réseau Infoblox à Azure Sentinel
+
+> [!IMPORTANT]
+> Le connecteur de données Infoblox NIOS dans Azure Sentinel est actuellement en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique comment connecter votre appliance [du système d’exploitation des identités réseau Infoblox](https://www.infoblox.com/glossary/network-identity-operating-system-nios/) à Azure Sentinel. Le connecteur de données du système d’exploitation des identités réseau Infoblox vous permet de connecter facilement vos journaux Infoblox, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L'intégration entre le système d’exploitation des identités réseau Infoblox et Azure Sentinel utilise Syslog.
 

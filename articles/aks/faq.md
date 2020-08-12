@@ -2,13 +2,13 @@
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/31/2020
+ms.openlocfilehash: 6d30bc1faa6a896233d09f9247fe8c56f82371fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275714"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87485624"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas q
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources de nœud ?
 
-Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources de nœud, vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et modifier des balises personnalisées créées par des utilisateurs finaux. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. Pour ce faire, créez des stratégies Azure avec une étendue sur le groupe de ressources managé.
+Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources de nœud, vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et de modifier des balises personnalisées créées par les utilisateurs finaux. Vous pouvez ajouter ces balises lors de la [création d’un pool de nœuds](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. Vous pouvez également des stratégies Azure avec une étendue sur le groupe de ressources managé.
 
 Toutefois, la modification de **balises créées par Azure** sur des ressources sous le groupe de ressources du nœud dans le cluster AKS est une action non prise en charge qui rompt l’objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS offre-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ Les nœuds d’agent AKS sont facturés en tant que machines virtuelles Azure st
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Puis-je déplacer/migrer mon cluster entre des locataires Azure ?
 
-Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](./update-credentials.md), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Le déplacement de votre cluster AKS entre locataires n’est actuellement pas pris en charge.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Puis-je déplacer/migrer mon cluster entre des abonnements ?
 
@@ -190,6 +190,10 @@ Bien qu'AKS dispose de mécanismes de résilience capable de gérer une telle co
 ## <a name="can-i-use-custom-vm-extensions"></a>Puis-je utiliser des extensions de machine virtuelle personnalisées ?
 
 Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas prise en charge. Pour installer des composants personnalisés, etc. utilisez les API et les mécanismes Kubernetes. Par exemple, utilisez DaemonSets pour installer les composants nécessaires.
+
+## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS stocke-t-il des données client en dehors de la région du cluster ?
+
+Non. Toutes les données créées dans un cluster AKS sont conservées dans la région du cluster.
 
 <!-- LINKS - internal -->
 

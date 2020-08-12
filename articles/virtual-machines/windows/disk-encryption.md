@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259816"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448932"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
 Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. 
 
-Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal)
 
 Le chiffrement côté serveur n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. 
 
@@ -34,7 +34,7 @@ Les sections suivantes décrivent en détail chacune des options de gestion des 
 
 ### <a name="platform-managed-keys"></a>Clés gérées par la plateforme
 
-Par défaut, les disques managés utilisent des clés de chiffrement gérées par la plateforme. À compter du 10 juin 2017, l’ensemble des nouveaux disques managés, des instantanés et des images ainsi que les nouvelles données écrites sur des disques managés existants sont automatiquement chiffrés au repos avec des clés gérées par les plateformes.
+Par défaut, les disques managés utilisent des clés de chiffrement gérées par la plateforme. L’ensemble des nouveaux disques managés, des instantanés et des images ainsi que les données écrites sur des disques managés existants sont automatiquement chiffrés au repos avec des clés gérées par les plateformes.
 
 ### <a name="customer-managed-keys"></a>Clés gérées par le client
 
@@ -50,9 +50,9 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Chiffrement à l’hôte : chiffrement de bout en bout pour vos données de machine virtuelle
 
-Le chiffrement de bout en bout démarre à partir de l’hôte de la machine virtuelle, le serveur Azure auquel votre machine virtuelle est allouée. Les données de votre disque temporaire et des caches du système d’exploitation/du disque de données sont stockées sur cet hôte de la machine virtuelle. Lors de l’activation du chiffrement de bout en bout, toutes ces données sont chiffrées au repos et les flux sont chiffrés dans le service de stockage, où elles sont conservées. Le chiffrement de bout en bout n’utilise pas le processeur de votre machine virtuelle et n’a pas d’impact sur ses performances. 
+Le chiffrement de bout en bout démarre à partir de l’hôte de la machine virtuelle, le serveur Azure auquel votre machine virtuelle est allouée. Les données de vos disques temporaires, disques de système d’exploitation éphémères et caches du système d’exploitation/du disque de données persistants sont stockées sur cet hôte de la machine virtuelle. Lors de l’activation du chiffrement de bout en bout, toutes ces données sont chiffrées au repos et les flux sont chiffrés dans le service de stockage, où elles sont conservées. Le chiffrement de bout en bout n’utilise pas le processeur de votre machine virtuelle et n’a pas d’impact sur ses performances. 
 
-Les disques temporaires sont chiffrés au repos avec des clés gérées par la plateforme lorsque vous activez le chiffrement de bout en bout. Les caches du système d’exploitation et du disque de données sont chiffrés au repos avec des clés gérées par le client ou par la plateforme, selon le type de chiffrement. Par exemple, si un disque est chiffré avec des clés gérées par le client, le cache du disque est chiffré avec les clés gérées par le client et, si un disque est chiffré à l’aide de clés gérées par la plateforme, le cache du disque est chiffré avec les clés gérées par la plateforme.
+Les disques temporaires et disques de système d’exploitation éphémères sont chiffrés au repos avec des clés gérées par la plateforme lorsque vous activez le chiffrement de bout en bout. Les caches du système d’exploitation et du disque de données sont chiffrés au repos avec des clés gérées par le client ou par la plateforme, selon le type de chiffrement. Par exemple, si un disque est chiffré avec des clés gérées par le client, le cache du disque est chiffré avec les clés gérées par le client et, si un disque est chiffré à l’aide de clés gérées par la plateforme, le cache du disque est chiffré avec les clés gérées par la plateforme.
 
 ### <a name="restrictions"></a>Restrictions
 
@@ -68,7 +68,7 @@ Les disques temporaires sont chiffrés au repos avec des clés gérées par la p
 
 ## <a name="double-encryption-at-rest"></a>Double chiffrement des données au repos
 
-Les clients sensibles haute sécurité qui sont concernés par les risques associés à un algorithme de chiffrement particulier, une implémentation ou une clé compromise, peuvent désormais choisir une couche supplémentaire de chiffrement à l’aide d’un algorithme/mode de chiffrement différent au niveau de la couche d’infrastructure à l’aide de clés de chiffrement gérées par la plateforme. Cette nouvelle couche peut être appliquée à des disques, à des captures instantanées et à des images, qui seront toutes chiffrées au repos avec un double chiffrement.
+Les clients sensibles haute sécurité qui sont concernés par les risques associés à un algorithme de chiffrement particulier, une implémentation ou une clé compromise, peuvent désormais choisir une couche supplémentaire de chiffrement à l’aide d’un algorithme/mode de chiffrement différent au niveau de la couche d’infrastructure à l’aide de clés de chiffrement gérées par la plateforme. Cette nouvelle couche peut être appliquée systèmes d’exploitation et disques de données persistants, à des captures instantanées et à des images, qui seront toutes chiffrées au repos avec un double chiffrement.
 
 ### <a name="supported-regions"></a>Régions prises en charge
 
@@ -76,7 +76,7 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Chiffrement côté serveur et chiffrement de disque Azure
 
-[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la fonctionnalité [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows pour chiffrer des disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée.  Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
+[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la fonctionnalité [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows pour chiffrer des disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée. Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques gérés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -84,9 +84,8 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activez le chiffrement de bout en bout qui utilise le chiffrement à l’hôte - PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Activez le double chiffrement au repos pour vos disques managés - PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Activez les clés gérées par le client pour vos disques managés - PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Activez les clés gérées par le client pour vos disques managés - portail](disks-enable-customer-managed-keys-portal.md)
+- Activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [PowerShell](disks-enable-host-based-encryption-powershell.md) ou le [portail Azure](disks-enable-host-based-encryption-portal.md).
+- Activez le double chiffrement au repos pour les disques managés avec [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou le [portail Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Activez les clés gérées par le client pour les disques managés avec [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou le [portail Azure](disks-enable-customer-managed-keys-portal.md).
 - [Découvrez les modèles Azure Resource Manager permettant de créer des disques chiffrés avec des clés gérées par le client](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)

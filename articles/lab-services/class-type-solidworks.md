@@ -1,28 +1,28 @@
 ---
 title: Configurer un laboratoire SolidWorks pour l’ingénierie avec Azure Lab Services | Microsoft Docs
-description: Découvrez comment configurer un laboratoire pour les cours d’ingénierie à l’aide de SolidWorks.
+description: Découvrez comment configurer un laboratoire pour les cours d’ingénierie à l’aide de SOLIDWORKS.
 author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: fa1b93bd71c1319bf8705c8c84cdb3e6f9da19e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443806"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290727"
 ---
-# <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurer un laboratoire pour les cours d’ingénierie à l’aide de SolidWorks
+# <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurer un laboratoire pour les cours d’ingénierie à l’aide de SOLIDWORKS
 
-[SolidWorks](https://www.solidworks.com/) fournit un environnement de conception assistée par ordinateur (CAO) 3D pour la modélisation d’objets solides et est utilisé dans divers domaines d’ingénierie.  Avec SolidWorks, les ingénieurs peuvent facilement créer, visualiser, simuler et documenter leurs conceptions.
+[SOLIDWORKS](https://www.solidworks.com/) fournit un environnement de conception assistée par ordinateur (CAO) 3D pour la modélisation d’objets solides et est utilisé dans différents domaines d’ingénierie.  Avec SOLIDWORKS, les ingénieurs peuvent facilement créer, visualiser, simuler et documenter leurs conceptions.
 
-La licence réseau de SolidWorks est couramment utilisée par les universités.   Avec cette option, les utilisateurs partagent un pool de licences qui sont gérées par un serveur de licences.  Ce type de licence est parfois appelé « licence flottante », car vous n’avez besoin que du nombre de licences correspondant au nombre d’utilisateurs simultanés.  Quand un utilisateur a fini d’utiliser SolidWorks, sa licence revient dans le pool de licences géré de manière centralisée afin d’être réutilisée par un autre utilisateur.
+La licence réseau de SOLIDWORKS est couramment utilisée par les universités.   Avec cette option, les utilisateurs partagent un pool de licences qui sont gérées par un serveur de licences.  Ce type de licence est parfois appelé « licence flottante », car vous n’avez besoin que du nombre de licences correspondant au nombre d’utilisateurs simultanés.  Quand un utilisateur a fini d’utiliser SOLIDWORKS, sa licence revient dans le pool de licences géré de manière centralisée afin d’être réutilisée par un autre utilisateur.
 
-Dans cet article, nous allons vous montrer comment configurer une classe qui utilise SolidWorks 2019 et la licence réseau.
+Dans cet article, nous allons vous montrer comment configurer une classe qui utilise SOLIDWORKS 2019 et la licence réseau.
 
 ## <a name="license-server"></a>Serveur de licences
 
-Le gestionnaire de licences réseau SolidWorks nécessite l’installation et l’activation du gestionnaire de licences SolidNetWork sur votre serveur de licences.  Ce serveur de licences se trouve généralement sur votre réseau local ou sur un réseau privé au sein d’Azure.  Pour plus d’informations sur la configuration du gestionnaire de licences SolidNetWork sur votre serveur, consultez [Installer et activer un gestionnaire de licences](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) dans le Guide d’installation de SolidWorks.  Quand vous configurez cette option, souvenez-vous du **numéro de port** et du [**numéro de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) utilisés, car ils seront nécessaires pour les étapes ultérieures.
+Le gestionnaire de licences réseau SOLIDWORKS nécessite l’installation et l’activation du gestionnaire de licences SolidNetWork sur votre serveur de licences.  Ce serveur de licences se trouve généralement sur votre réseau local ou sur un réseau privé au sein d’Azure.  Pour plus d’informations sur la configuration du gestionnaire de licences SolidNetWork sur votre serveur, consultez [Installer et activer un gestionnaire de licences](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) dans le Guide d’installation de SOLIDWORKS.  Quand vous configurez cette option, souvenez-vous du **numéro de port** et du [**numéro de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) utilisés, car ils seront nécessaires pour les étapes ultérieures.
 
 Une fois que votre serveur de licences est configuré, vous devez procéder au peering du [réseau virtuel (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) à votre [compte de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  Le peering de réseau doit être effectué avant de créer le laboratoire afin que les machines virtuelles du laboratoire puissent accéder au serveur de licences et inversement.
 
@@ -42,7 +42,7 @@ Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. 
 |Image de la Place de marché| Activez l’image Windows 10 Pro pour l’utiliser dans votre compte lab.|
 
 > [!NOTE]
-> En plus de Windows 10, SolidWorks prend aussi en charge d’autres versions de Windows.  Consultez [Configuration système requise pour SolidWorks](https://www.solidworks.com/sw/support/SystemRequirements.html) pour plus d’informations.
+> En plus de Windows 10, SOLIDWORKS prend aussi en charge d’autres versions de Windows.  Consultez [Configuration système requise pour SOLIDWORKS](https://www.solidworks.com/sw/support/SystemRequirements.html) pour plus d’informations.
 
 ### <a name="lab-settings"></a>Paramètres du labo
 
@@ -61,17 +61,17 @@ Utilisez les paramètres du tableau ci-dessous lors de la configuration d’un l
 
 ## <a name="template-virtual-machine-configuration"></a>Configuration de la machine virtuelle de modèle
 
-Les étapes de cette section montrent comment configurer votre machine virtuelle de modèle en téléchargeant les fichiers d’installation de SolidWorks et en installant le logiciel client :
+Les étapes de cette section montrent comment configurer votre machine virtuelle de modèle en téléchargeant les fichiers d’installation de SOLIDWORKS et en installant le logiciel client :
 
 1. Démarrez la machine virtuelle de modèle et connectez-vous à l’ordinateur à l’aide du protocole RDP.
 
-1. Téléchargez les fichiers d’installation du logiciel client SolidWorks. Vous disposez de deux options pour le téléchargement :
-   - Téléchargez à partir du [portail client SolidWorks](https://login.solidworks.com/nidp/idff/sso?id=cpenglish&sid=1&option=credential&sid=1&target=https%3A%2F%2Fcustomerportal.solidworks.com%2F).
+1. Téléchargez les fichiers d’installation du logiciel client SOLIDWORKS. Vous disposez de deux options pour le téléchargement :
+   - Téléchargez à partir du [portail client SOLIDWORKS](https://login.solidworks.com/nidp/idff/sso?id=cpenglish&sid=1&option=credential&sid=1&target=https%3A%2F%2Fcustomerportal.solidworks.com%2F).
    - Télécharger à partir d’un répertoire sur un serveur.  Si vous avez utilisé cette option, vous devez vous assurer que le serveur est accessible à partir de la machine virtuelle de modèle.  Par exemple, ce serveur peut se trouver dans le même réseau virtuel que celui qui est en peering avec votre compte de labo.
   
-    Pour plus d’informations, consultez [Installation sur des ordinateurs individuels dans le SolidWorks](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) dans le guide d’installation de SolidWorks.
+    Pour plus d’informations, consultez [Installation sur des ordinateurs individuels dans le SOLIDWORKS](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) dans le guide d’installation de SolidWorks.
 
-1. Une fois les fichiers d’installation téléchargés, installez le logiciel client à l’aide du gestionnaire d’installation de SolidWorks. Pour plus d’informations, consultez [Insaller une licence client](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) dans le guide d’installation SolidWorks.
+1. Une fois les fichiers d’installation téléchargés, installez le logiciel client à l’aide du gestionnaire d’installation de SOLIDWORKS. Pour plus d’informations, consultez [Insaller une licence client](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) dans le guide d’installation SOLIDWORKS.
 
     > [!NOTE]
     > Dans la boîte de dialogue **Ajouter un serveur**, vous êtes invité à indiquer le **numéro de port** utilisé pour votre serveur de licences, ainsi que le nom ou l’adresse IP du serveur de licences.

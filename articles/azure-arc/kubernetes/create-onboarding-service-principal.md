@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Créer un principal de service d’intégration compatible avec Azure Arc '
 keywords: Kubernetes, Arc, Azure, conteneurs
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725599"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050079"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Créer un principal de service d’intégration compatible avec Azure Arc (préversion)
 
@@ -45,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Affecter des autorisations
 
-Après avoir créé le principal du service, affectez le rôle « Azure Arc for Kubernetes Onboarding» (Azure Arc pour l’intégration Kubernetes) au principal nouvellement créé. Il s’agit d’un rôle Azure intégré doté d’autorisations limitées, qui permet uniquement au principal d’enregistrer des clusters dans Azure. Le principal ne peut pas mettre à jour, supprimer ou modifier les autres clusters ou ressources au sein de l’abonnement.
+Après avoir créé le principal du service, affectez le rôle « Kubernetes Cluster - Azure Arc Onboarding » au principal nouvellement créé. Il s’agit d’un rôle Azure intégré doté d’autorisations limitées, qui permet uniquement au principal d’enregistrer des clusters dans Azure. Le principal ne peut pas mettre à jour, supprimer ou modifier les autres clusters ou ressources au sein de l’abonnement.
 
 Étant donné les capacités limitées, les clients peuvent facilement réutiliser ce principal pour intégrer plusieurs clusters.
 

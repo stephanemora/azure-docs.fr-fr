@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019759"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](https://docs.microsoft.com/graph/extensibility-overview
@@ -33,8 +33,8 @@ Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
 
 Vous pouvez configurer les attributs supplémentaires à synchroniser dans le chemin d’accès des paramètres personnalisés dans l’Assistant d’installation.
 
->[!NOTE]
->La zone Attributs disponibles respecte la casse.
+> [!NOTE]
+> Dans les versions d’Azure AD Connect antérieures à 1.2.65.0, la zone de recherche pour les **Attributs disponibles** respecte la casse.
 
 ![Assistant d’extension de schéma](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

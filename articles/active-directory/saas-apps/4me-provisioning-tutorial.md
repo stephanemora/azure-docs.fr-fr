@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018687"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutoriel : Configurer 4me pour l’attribution automatique d’utilisateurs
 
@@ -128,7 +128,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Mappages d’utilisateurs 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 4me en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 4me en vue de mises à jour ultérieures. Vérifiez que [4me prend en charge le filtrage](https://developer.4me.com/v1/scim/users/) sur l’attribut correspondant que vous avez choisi. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Mappages d’utilisateurs 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
     

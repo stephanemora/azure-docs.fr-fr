@@ -1,6 +1,6 @@
 ---
-title: Utiliser des rôles personnalisés pour les ressources Azure dans PIM – Azure AD | Microsoft Docs
-description: Découvrez comment utiliser des rôles personnalisés pour des ressources Azure dans Azure AD Privileged Identity Management (PIM).
+title: Utiliser des rôles personnalisés Azure dans PIM - Azure AD | Microsoft Docs
+description: Découvrez comment utiliser des rôles Azure personnalisés dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034097"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Utiliser des rôles personnalisés pour des ressources Azure dans Privileged Identity Management
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Utiliser des rôles personnalisés Azure dans Privileged Identity Management
 
 Vous devrez peut-être appliquer des paramètres Privileged Identity Management (PIM) stricts à certains utilisateurs d’un rôle privilégié dans votre organisation Azure Active Directory (Azure AD), tout en offrant une plus grande autonomie aux autres utilisateurs. Par exemple, envisagez un scénario dans lequel votre organisation embauche plusieurs associés sous contrat pour aider au développement d’une application qui s’exécute dans un abonnement Azure.
 
@@ -31,7 +31,7 @@ Suivez les étapes décrites dans la section suivante pour définir les paramèt
 
 ## <a name="create-the-custom-role"></a>Créer le rôle personnalisé
 
-Pour créer un rôle personnalisé pour une ressource, suivez les étapes décrites dans [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control-custom-roles.md).
+Pour créer un rôle personnalisé pour une ressource, suivez les étapes décrites dans [Rôles personnalisés Azure](../role-based-access-control-custom-roles.md).
 
 Quand vous créez un rôle personnalisé, indiquez un nom descriptif afin de vous rappeler facilement du rôle intégré que vous souhaitez dupliquer.
 

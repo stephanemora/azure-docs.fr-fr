@@ -3,12 +3,12 @@ title: Azure Service Bus – Interruption d’entités de messagerie
 description: Cet article explique comment suspendre temporairement et réactiver des entités de message Azure Service Bus (files d’attente, rubriques et abonnements).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038135"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Interrompre et réactiver des entités de messagerie (désactiver)
 
@@ -20,7 +20,7 @@ Aussi bien l’utilisateur que le système peuvent effectuer une interruption ou
 
 Dans le portail, la section **Propriétés** de l’entité respective permet de modifier l’état ; la capture d’écran suivante montre le bouton bascule d’une file d’attente :
 
-![][1]
+![Capture d’écran de la fonctionnalité Service Bus avec le paramètre Propriétés mis en surbrillance et l’option État de la file d’attente définie sur Active et délimitée en rouge.][1]
 
 Le portail vous permet uniquement de désactiver complètement les files d’attente. Vous pouvez également désactiver les opérations d’envoi et de réception séparément à l’aide de l’API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) Service Bus dans le Kit de développement logiciel (SDK) .NET Framework ou avec un modèle Azure Resource Manager via Azure CLI ou Azure PowerShell.
 
@@ -30,10 +30,10 @@ Le portail vous permet uniquement de désactiver complètement les files d’att
 
 Les états pouvant être définis pour une file d’attente sont :
 
--   **Active** : la file d’attente est active.
--   **Désactivée** : la file d’attente est interrompue.
--   **SendDisabled** : la file d’attente est partiellement interrompue, mais les réceptions autorisées.
--   **ReceiveDisabled** : la file d’attente est partiellement interrompue, mais les envois autorisés.
+-   **Actif** : la file d’attente est active.
+-   **Disabled** : la file d’attente est suspendue.
+-   **SendDisabled** : la file d’attente est partiellement suspendue, mais les réceptions sont autorisées.
+-   **ReceiveDisabled** : la file d’attente est partiellement suspendue, mais les envois sont autorisés.
 
 Pour les abonnements et les rubriques, seuls les états **Active** et **Désactivée** peuvent être définis.
 

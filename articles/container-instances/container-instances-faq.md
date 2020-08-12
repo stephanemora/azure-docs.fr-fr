@@ -4,12 +4,12 @@ description: Réponses aux questions fréquemment posées sur le service Azure C
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806599"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421278"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Forum aux questions sur Azure Container Instances
 
@@ -89,7 +89,7 @@ Actuellement, la mise à l’échelle n’est pas disponible pour les conteneurs
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quelles sont les fonctionnalités disponibles pour les instances en cours d’exécution dans un réseau virtuel personnalisé ?
 
-Vous pouvez [déployer des groupes de conteneurs dans un réseau virtuel Azure](container-instances-vnet.md) de votre choix et déléguer des adresses IP privées aux groupes de conteneurs pour acheminer le trafic au sein du réseau virtuel dans vos ressources Azure. Le déploiement d’un groupe de conteneurs dans un réseau virtuel est actuellement disponible pour les charges de travail de production dans un sous-ensemble de régions Azure.
+Vous pouvez [déployer des groupes de conteneurs dans un réseau virtuel Azure](container-instances-vnet.md) de votre choix et déléguer des adresses IP privées aux groupes de conteneurs pour acheminer le trafic au sein du réseau virtuel dans vos ressources Azure. Pour les scénarios et les limitations de mise en réseau pour Azure Container Instances, consultez [Ressources et scénarios relatifs aux réseaux virtuels](container-instances-virtual-network-concepts.md).
 
 ## <a name="pricing"></a>Tarifs
 

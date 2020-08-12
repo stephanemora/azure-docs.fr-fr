@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: ece7fa64c64d4c2f771be61984485cf9b1c4abaf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121739"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317550"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologie et questions fréquentes sur l’analytique de la Place de marché commerciale
 
@@ -41,54 +43,55 @@ Si vous recevez ce message, cela signifie que vous avez des données d’analyti
 | Type de licence Azure | Client, Commande | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal |
 | Type de licence Azure : Fournisseur de solutions cloud | Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais de son fournisseur de solutions cloud, qui agit en tant que revendeur.|
 | Type de licence Azure : Entreprise | Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais d'un contrat Entreprise, signé directement auprès de Microsoft.|
-| Type de licence Azure : entreprise, via un revendeur  | Client, Commande | Le client final se procure Azure et votre offre de Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.|  |
-| Type de licence Azure : paiement à l’utilisation| Client, Commande | Le client final se procure Azure et votre offre de la Place de marché dans le cadre d’un contrat « Paiement à l’utilisation », signé directement avec Microsoft.||
-| Nom de l’instance cloud| JSON| Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées.||
-| Nom de l’instance cloud : Azure Global| JSON| Cloud public global de Microsoft.|| |
+| Type de licence Azure : entreprise, via un revendeur  | Client, Commande | Le client final se procure Azure et votre offre de Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.|
+| Type de licence Azure : paiement à l’utilisation| Client, Commande | Le client final se procure Azure et votre offre de la Place de marché dans le cadre d’un contrat « Paiement à l’utilisation », signé directement avec Microsoft.|
+| Nom de l’instance cloud| JSON| Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées.|
+| Nom de l’instance cloud : Azure Global| JSON| Cloud public global de Microsoft.|
 | Nom de l’instance cloud : Azure Government | JSON| Clouds de Microsoft réservés aux gouvernements suivants : Chine, Allemagne ou États-Unis d’Amérique.| |
-| Ville du client| Customer| Nom de ville fourni par le client final. La ville peut être différente de la ville associée à l’abonnement Azure du client.||
-| Langue de communication du client  | Customer| Langue dans laquelle le client préfère communiquer.||
-| Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client.|  |
-| Pays/Région du client | Client, Commande | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région associé à l’abonnement Azure du client.|  |
-| Adresse e-mail du client| Customer| Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.||
-| Prénom du client| Customer| Prénom fourni par le client. Le prénom peut être différent du prénom associé à l’abonnement Azure du client.| |
-| ID de client | Client, Commande | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.|  |
-| Code postal du client  | Customer| Code postal fourni par le client. Le code postal peut être différent du code postal associé à l’abonnement Azure du client.| |
-| État du client| Customer| État (adresse) fourni par le client. L’État peut être différent de l’État associé à l’abonnement Azure du client.| |
-| Date d'acquisition| Customer| Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée.| |
-| Date d'annulation| Customer| Date à laquelle le client a annulé la dernière des offres achetées précédemment.||
+| Ville du client| Customer| Nom de ville fourni par le client final. La ville peut être différente de la ville associée à l’abonnement Azure du client.|
+| Langue de communication du client  | Customer| Langue dans laquelle le client préfère communiquer.|
+| Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client.|
+| Pays/Région du client | Client, Commande | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région associé à l’abonnement Azure du client.|
+| Adresse e-mail du client| Customer| Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.|
+| Prénom du client| Customer| Prénom fourni par le client. Le prénom peut être différent du prénom associé à l’abonnement Azure du client.|
+| ID de client | Client, Commande | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.|
+| Code postal du client  | Customer| Code postal fourni par le client. Le code postal peut être différent du code postal associé à l’abonnement Azure du client.|
+| État du client| Customer| État (adresse) fourni par le client. L’État peut être différent de l’État associé à l’abonnement Azure du client.|
+| Date d'acquisition| Customer| Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée.|
+| Date d'annulation| Customer| Date à laquelle le client a annulé la dernière des offres achetées précédemment.|
 | Nouveau client  | JSON| La valeur identifie un nouveau client achetant une ou plusieurs de vos offres pour la première fois (ou pas). La valeur est « Oui » si le mois calendaire correspond avec la « date d’acquisition ». La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. |
-| Référence SKU en préversion| JSON| La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ».  |
+| Référence SKU en préversion| JSON| La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ». |
 | Acceptation des messages promotionnels| Customer| La valeur indique si le client a accepté les messages promotionnels provenant d’éditeurs de manière proactive. À ce stade, nous n'offrons pas cette possibilité aux clients. Par conséquent, nous avons indiqué « Non » sur le tableau. Une mise à jour interviendra lorsque cette fonctionnalité sera déployée.|
-| Type de licence de la Place de marché| JSON| Mode de facturation de l’offre de la Place de marché.||
-| Type de licence de la Place de marché : facturé via Azure| JSON| Pour cette offre de la Place de marché, Microsoft est votre agent et facture les clients de votre part. (Carte de crédit avec paiement à l’utilisation ou facture d’entreprise)||
-| Type de licence de la Place de marché : BYOL (apportez votre propre licence) | JSON| Le déploiement de la machine virtuelle requiert une clé de licence fournie par le client. Microsoft ne facture rien aux clients qui répertorient leurs offres de cette façon via la Place de marché.||
-| Type de licence de la Place de marché : Gratuit| JSON| L'offre est configurée pour permettre à tous les utilisateurs d’y accéder gratuitement. Microsoft ne facture rien aux clients qui utilisent cette offre.||
-| Type de licence de la Place de marché : Microsoft en tant que revendeur  | JSON| Microsoft est votre revendeur pour cette offre de la Place de marché.|  |
-| ID d’abonnement de la Place de marché | Client, Commande | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché. Anciennement, GUID d’abonnement Azure.||
-| Nom de l’offre  | JSON| Nom de l’offre de la Place de marché.|| |
-| Type d’offre  | JSON| Type de l’offre de la Place de marché Microsoft.|||
-| Type d’offre : Application managée  | Commande, | Utilisez le type d’offre Application Azure : application managée lorsque les conditions suivantes sont requises : Vous déployez une solution basée sur un abonnement pour votre client à l’aide d’une machine virtuelle ou d’une solution IaaS complète. Vous ou votre client exigez que la solution soit gérée par un partenaire. |
-| Type d’offre : Azure Application| Commande, | Utilisez le type d’offre Azure Application : modèle de solution si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, en plus d’une simple machine virtuelle.||
-| Type d’offre : Service de conseil| JSON| Les services de conseil de la Place de marché Azure aident les clients à se connecter aux services pour gérer et étendre leur utilisation d’Azure.| |
-| Type d’offre : Conteneur | JSON| Utilisez le type d’offre Conteneur si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes.||
-| Type d’offre : Dynamics 365 Business Central| JSON| Utilisez ce type d’offre lorsque votre solution est intégrée à Dynamics 365 for Finance and Operations| |
-| Type d’offre : Dynamics 365 for Customer Engagement | JSON| Utilisez ce type d’offre lorsque votre solution est intégrée à Dynamics 365 for Customer Engagement.||
+| Type de licence de la Place de marché| JSON| Mode de facturation de l’offre de la Place de marché.|
+| Type de licence de la Place de marché : facturé via Azure| JSON| Pour cette offre de la Place de marché, Microsoft est votre agent et facture les clients de votre part. (Carte de crédit avec paiement à l’utilisation ou facture d’entreprise)|
+| Type de licence de la Place de marché : BYOL (apportez votre propre licence) | JSON| Le déploiement de la machine virtuelle requiert une clé de licence fournie par le client. Microsoft ne facture rien aux clients qui répertorient leurs offres de cette façon via la Place de marché.|
+| Type de licence de la Place de marché : Gratuit| JSON| L'offre est configurée pour permettre à tous les utilisateurs d’y accéder gratuitement. Microsoft ne facture rien aux clients qui utilisent cette offre.|
+| Type de licence de la Place de marché : Microsoft en tant que revendeur  | JSON| Microsoft est votre revendeur pour cette offre de la Place de marché.|
+| ID d’abonnement de la Place de marché | Client, Commande | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché. Anciennement, GUID d’abonnement Azure.|
+| Nom de l’offre  | JSON| Nom de l’offre de la Place de marché.|
+| Type d’offre  | JSON| Type de l’offre de la Place de marché Microsoft.|
+| Type d’offre : Application managée  | JSON | Utilisez le type d’offre Application Azure : application managée lorsque les conditions suivantes sont requises : Vous déployez une solution basée sur un abonnement pour votre client à l’aide d’une machine virtuelle ou d’une solution IaaS complète. Vous ou votre client exigez que la solution soit gérée par un partenaire. |
+| Type d’offre : Azure Application| JSON | Utilisez le type d’offre Azure Application : modèle de solution si votre solution nécessite une automatisation supplémentaire du déploiement et de la configuration, en plus d’une simple machine virtuelle.|
+| Type d’offre : Service de conseil| JSON| Les services de conseil de la Place de marché Azure aident les clients à se connecter aux services pour gérer et étendre leur utilisation d’Azure.|
+| Type d’offre : Conteneur | JSON| Utilisez le type d’offre Conteneur si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes.|
+| Type d’offre : Dynamics 365 Business Central| JSON| Utilisez ce type d’offre lorsque votre solution est intégrée à Dynamics 365 for Finance and Operations|
+| Type d’offre : Dynamics 365 for Customer Engagement | JSON| Utilisez ce type d’offre lorsque votre solution est intégrée à Dynamics 365 for Customer Engagement.|
 | Type d’offre : Module IoT Edge | JSON| Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. |
-| Type d’offre : Application Power BI | JSON| Utilisez le type d’offre d'application Power BI lorsque vous déployez une application intégrée à Power BI.|  |
+| Type d’offre : Application Power BI | JSON| Utilisez le type d’offre d'application Power BI lorsque vous déployez une application intégrée à Power BI.|
 | Type d’offre : Application SaaS| JSON| Utilisez le type d’offre Applications SaaS pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement.||
-| Type d’offre : Machine virtuelle | JSON| Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client.||
+| Type d’offre : Machine virtuelle | JSON | Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client.|
 | Type d’offre : Extension Visual Studio Marketplace  | JSON| Type d'offre précédemment disponible pour les développeurs d’extensions Azure DevOps. Désormais, les développeurs d'extensions Azure DevOps peuvent vendre leurs extensions directement aux clients. Les offres d'extensions peuvent être configurées comme payées ou à l'essai. |
-| Date d’annulation de la commande| JSON| Date à laquelle la commande passée sur la Place de marché a été annulée.||
-| ID de commande| JSON| Identificateur unique de la commande du client pour votre service de la Place de marché. Les offres basées sur l’utilisation de machines virtuelles ne sont pas associées à une commande.| |
-| Date de la commande| JSON| Date à laquelle la commande de la Place de marché a été passée.|||
-| État de la commande| JSON| État d’une commande de la Place de marché au moment de la dernière actualisation des données.|     |
-| État de la commande : Actif  | JSON| Le client a passé commande et ne l’a pas annulée.|         |
-| État de la commande : annulée | JSON| Le client a passé commande, puis l’a annulée.||
+| Date d’annulation de la commande| JSON| Date à laquelle la commande passée sur la Place de marché a été annulée.|
+| ID de commande| JSON| Identificateur unique de la commande du client pour votre service de la Place de marché. Les offres basées sur l’utilisation de machines virtuelles ne sont pas associées à une commande.|
+| Date de la commande| JSON| Date à laquelle la commande de la Place de marché a été passée.|
+| État de la commande| JSON| État d’une commande de la Place de marché au moment de la dernière actualisation des données.|
+| État de la commande : Actif  | JSON| Le client a passé commande et ne l’a pas annulée.|
+| État de la commande : annulée | JSON| Le client a passé commande, puis l’a annulée.|
 | Adresse e-mail du fournisseur| Customer| Adresse e-mail du fournisseur impliqué dans la relation entre Microsoft et le client final. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP.|
 | Nom du fournisseur| Customer| Nom du fournisseur impliqué dans la relation entre Microsoft et le client final. Si le client est une entreprise passant par un revendeur, ce sera le revendeur. Si un fournisseur de solutions cloud (CSP) est impliqué, ce sera le CSP.|
-| SKU| JSON| Nom de la référence SKU, tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU, mais une référence SKU ne peut être associée qu’à une seule offre.||
-| Date de fin d'essai| JSON| La date de fin de la période d’essai de cette commande approche ou est dépassée.||
+| SKU| JSON| Nom de la référence SKU (maintenant appelée plan), tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU (plans), mais chaque référence SKU ne peut être associée qu’à une seule offre.|
+| Date de fin d'essai| JSON| La date de fin de la période d’essai de cette commande approche ou est dépassée.|
+|||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

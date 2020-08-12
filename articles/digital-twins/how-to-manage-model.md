@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390582"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281359"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -65,8 +65,11 @@ Ce modèle définit un nom et un ID unique pour la chambre du patient, et les pr
 
 En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital entier, ou bien pour certaines zones.
 
-> [!TIP]
-> Une bibliothèque côté client est disponible pour l’analyse et la validation DTDL. Elle génère un modèle d’objet C# du contenu DTDL, utilisable dans des scénarios de développement basés sur des modèles, comme la génération d’éléments d’interface utilisateur. Vous pouvez également utiliser cette bibliothèque pour vous assurer que vos modèles n’ont pas d’erreurs de syntaxe avant de les charger. Pour plus d’informations sur cette bibliothèque et pour disposer d’un exemple de validateur DTDL basé sur elle, consultez [Guide pratique pour : analyser et valider les modèles](how-to-use-parser.md).
+### <a name="validate-syntax"></a>Valider la syntaxe
+
+Une bibliothèque côté client est disponible pour l’analyse et la validation DTDL. Elle génère un modèle d’objet C# du contenu DTDL, utilisable dans des scénarios de développement basés sur des modèles, comme la génération d’éléments d’interface utilisateur. Vous pouvez également utiliser cette bibliothèque pour vous assurer que vos modèles n’ont pas d’erreurs de syntaxe avant de les charger. 
+
+Pour plus d’informations sur cette bibliothèque et pour disposer d’un exemple de validateur DTDL basé sur elle, consultez [*Guide pratique pour : analyser et valider les modèles*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Gérer les modèles avec des API.
 
@@ -82,7 +85,10 @@ Les sections suivantes montrent comment effectuer différentes opérations de ge
 
 Une fois les modèles créés, vous pouvez les charger vers l’instance Azure Digital Twins.
 
-Voici un extrait de code permettant de le faire :
+> [!TIP]
+> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins. Vous pouvez utiliser la [bibliothèque de l’analyseur côté client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) et [l’exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) décrit dans [*Comment : Analyser et valider les modèles*](how-to-use-parser.md) pour vérifier vos modèles avant de les charger vers le service.
+
+Lorsque vous êtes prêt à télécharger un modèle, vous pouvez utiliser l’extrait de code suivant :
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -126,10 +132,7 @@ Les fichiers de modèle peuvent en contenir plusieurs. Dans un tel cas, les mod�
 ]
 ```
  
-Lors du chargement, les fichiers de modèle sont validés.
-
-> [!TIP] 
-> Notez que vous pouvez également utiliser la [bibliothèque de l’analyseur DTDL côté client](how-to-use-parser.md) pour valider les modèles côté client.
+Lors du chargement, les fichiers de modèle sont validés par le service.
 
 ### <a name="retrieve-models"></a>Récupérer des modèles
 
@@ -190,7 +193,7 @@ L’état de désaffectation d’un modèle est inclus dans les enregistrements 
 
 Vous pouvez supprimer tous les modèles de votre instance d’une seule traite, ou vous pouvez le faire sur une base individuelle.
 
-Pour obtenir un exemple de suppression de tous les modèles, téléchargez l’exemple d’application utilisé dans le didacticiel [ : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllModels`.
+Pour obtenir un exemple de suppression de tous les modèles, téléchargez l’exemple d’application utilisé dans le didacticiel [ *: Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllModels`.
 
 Le reste de cette section décompose la suppression du modèle plus en détails et montre comment le faire pour un modèle individuel.
 
@@ -247,9 +250,9 @@ Azure Digital Twins n’empêche pas cet état, veillez donc à lier les représ
 
 ## <a name="manage-models-with-cli"></a>Gérer les modèles avec une interface CLI
 
-Les modèles peuvent également être gérés à l’aide de l’interface CLI de Azure Digital Twins. Les commandes se trouvent dans [Guide pratique pour : Utiliser l’interface CLI Azure Digital Twins](how-to-use-cli.md).
+Les modèles peuvent également être gérés à l’aide de l’interface CLI de Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer et gérer des représentations numériques basées sur vos modèles :
-* [Guide pratique pour Gérer des représentations numériques](how-to-manage-twin.md)
+* [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md)

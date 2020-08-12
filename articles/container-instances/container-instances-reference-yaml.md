@@ -2,22 +2,22 @@
 title: Référence YAML pour le groupe de conteneurs
 description: Informations de référence pour le fichier YAML pris en charge par Azure Container Instances pour configurer un groupe de conteneurs
 ms.topic: article
-ms.date: 08/12/2019
-ms.openlocfilehash: be78c7d498187486a1502da17faa2b8faa5a0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730524"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084758"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Informations de référence YAML : Azure Container Instances
 
 Cet article traite de la syntaxe et des propriétés du fichier YAML pris en charge par Azure Container Instances pour configurer un [groupe de conteneurs](container-instances-container-groups.md). Vous pouvez utiliser un fichier YAML pour entrer la configuration du groupe dans la commande [az container create][az-container-create] dans Azure CLI. 
 
-Un fichier YAML est un moyen pratique de configurer un groupe de conteneurs pour des déploiements reproductibles. Plutôt que d’utiliser un [modèle Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups) ou les kits SDK Azure Container Instances pour créer ou mettre à jour un groupe de conteneurs, il s’agit d’une solution de rechange succincte.
+Un fichier YAML est un moyen pratique de configurer un groupe de conteneurs pour des déploiements reproductibles. Plutôt que d’utiliser un [modèle Resource Manager](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) ou les kits SDK Azure Container Instances pour créer ou mettre à jour un groupe de conteneurs, il s’agit d’une solution de rechange succincte.
 
 > [!NOTE]
-> Ces informations de référence s’appliquent aux fichiers YAML pour l’API REST Azure Container Instances version `2018-10-01`.
+> Ces informations de référence s’appliquent aux fichiers YAML pour l’API REST Azure Container Instances version `2019-12-01`.
 
 ## <a name="schema"></a>schéma 
 
@@ -25,7 +25,7 @@ Le schéma du fichier YAML vous est présenté ci-dessous. Il comporte des comme
 
 ```yml
 name: string  # Name of the container group
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: string
 tags: {}
 identity: 
@@ -127,6 +127,25 @@ properties: # Properties of container group
     - string
     searchDomains: string
     options: string
+  sku: string # SKU for the container group
+  encryptionProperties:
+    vaultBaseUrl: string
+    keyName: string
+    keyVersion: string
+  initContainers: # Array of init containers in the group
+  - name: string
+    properties:
+      image: string
+      command:
+      - string
+      environmentVariables:
+      - name: string
+        value: string
+        secureValue: string
+      volumeMounts:
+      - name: string
+        mountPath: string
+        readOnly: boolean
 ```
 
 ## <a name="property-values"></a>Valeurs de propriétés
@@ -172,6 +191,9 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  diagnostics | object | Non | Informations de diagnostic pour un groupe de conteneurs. - [Objet ContainerGroupDiagnostics](#containergroupdiagnostics-object) |
 |  networkProfile | object | Non | Informations de profil réseau pour un groupe de conteneurs. - [Objet ContainerGroupNetworkProfile](#containergroupnetworkprofile-object) |
 |  dnsConfig | object | Non | Informations de configuration DNS pour un groupe de conteneurs. - [Objet DnsConfiguration](#dnsconfiguration-object) |
+| sku | enum | Non | La référence (SKU) pour un groupe de conteneurs : standard ou dédié |
+| encryptionProperties | object | Non | Propriétés de chiffrement pour un groupe de conteneurs. - [Objet EncryptionProperties](#encryptionproperties-object) | 
+| initContainers | tableau | Non | Conteneurs d'initialisation d'un groupe de conteneurs. - [Objet InitContainerDefinition](#initcontainerdefinition-object) |
 
 
 
@@ -249,6 +271,20 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  options | string | Non | Options DNS du groupe de conteneurs. |
 
 
+### <a name="encryptionproperties-object"></a>Objet EncryptionProperties
+
+| Nom  | Type  | Obligatoire  | Valeur |
+|  ---- | ---- | ---- | ---- |
+| vaultBaseUrl  | string    | Oui   | URL de base du coffre de clés. |
+| keyName   | string    | Oui   | Nom de la clé de chiffrement. |
+| keyVersion    | string    | Oui   | Version de la clé de chiffrement. |
+
+### <a name="initcontainerdefinition-object"></a>Objet InitContainerDefinition
+
+| Nom  | Type  | Obligatoire  | Valeur |
+|  ---- | ---- | ---- | ---- |
+| name  | string |  Oui | Nom du conteneur d'initialisation. |
+| properties    | object    | Oui   | Propriétés du conteneur init. - [Objet InitContainerPropertiesDefinition](#initcontainerpropertiesdefinition-object)
 
 
 ### <a name="containerproperties-object"></a>Objet ContainerProperties
@@ -299,7 +335,6 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 
 
-
 ### <a name="loganalytics-object"></a>Objet LogAnalytics
 
 |  Nom | Type | Obligatoire | Valeur |
@@ -310,7 +345,14 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  metadata | object | Non | Métadonnées pour l’analytique des journaux. |
 
 
+### <a name="initcontainerpropertiesdefinition-object"></a>Objet InitContainerPropertiesDefinition
 
+| Nom  | Type  | Obligatoire  | Valeur |
+|  ---- | ---- | ---- | ---- |
+| image | string    | Non    | Image du conteneur d'initialisation. |
+| command   | tableau | Non    | Commande à exécuter dans le conteneur d'initialisation dans le formulaire exec. - string |
+| environmentVariables | tableau  | Non |Variables d'environnement à définir dans le conteneur d'initialisation. - [Objet EnvironmentVariable](#environmentvariable-object)
+| volumeMounts |tableau   | Non    | Montages de volumes disponibles pour le conteneur d'initialisation. - [Objet VolumeMount](#volumemount-object)
 
 ### <a name="containerport-object"></a>Objet ContainerPort
 

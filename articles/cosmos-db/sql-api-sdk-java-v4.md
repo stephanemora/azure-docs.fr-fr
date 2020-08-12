@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537882"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500655"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -62,7 +63,30 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 
 ## <a name="release-history"></a>Historique des mises en production
 
+### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (Unreleased)
+
+### <a name="430-2020-07-29"></a>4.3.0 (29/07/2020)
+#### <a name="new-features"></a>Nouvelles fonctionnalités
+* Mise à jour de la version de la bibliothèque reactor-core vers `3.3.8.RELEASE`. 
+* Mise à jour de la version de la bibliothèque reactor-netty vers `0.9.10.RELEASE`. 
+* Mise à jour de la version de la bibliothèque netty vers `4.1.51.Final`. 
+* Ajout de nouvelles API de surcharge pour `upsertItem` avec `partitionKey`. 
+* Ajout de la prise en charge du suivi de télémétrie ouverte. 
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Correction du problème à cause duquel une SSLException était levée en cas d’annulation de requêtes en mode GATEWAY.
+* Correction de la stratégie de nouvelles tentatives de limitation de ressources sur l’exécution de procédures stockées.
+* Correction du problème à cause duquel le kit de développement logiciel (SDK) se bloquait au niveau du journal en mode DEBUG. 
+* Correction des pics périodiques de latence en mode direct. 
+* Résolution du problème de temps d’initialisation élevé du client. 
+* Correction du bogue du proxy HTTP lors de la personnalisation du client en mode direct et en mode passerelle. 
+* Correction d’un bogue NPE potentiel quand les utilisateurs passent des options null. 
+* Ajout de timeUnit à `requestLatency` dans la chaîne de diagnostic.
+* Suppression de la chaîne d’URI dupliquée de la chaîne de diagnostic. 
+* Correction de la chaîne de diagnostic au format JSON approprié pour les opérations de point.
+* Correction du problème avec l’opérateur `.single()` provoquant un problème de chaîne de réacteur en cas d’exception Introuvable. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Nouvelles fonctionnalités
 * Ajout de l’API de journalisation des scripts à `CosmosStoredProcedureRequestOptions`.
 * Mise à jour de `DirectConnectionConfig` par défaut `idleEndpointTimeout` sur 1h et de `connectTimeout` par défaut sur 5s.
 #### <a name="key-bug-fixes"></a>Principaux bogues résolus
@@ -137,6 +161,7 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 * Optimisations de requête en supprimant la sérialisation/désérialisation double. 
 * Optimisations des en-têtes de réponse en supprimant les copies inutiles. 
 * Optimisation de la sérialisation/désérialisation de `ByteBuffer` en supprimant les instanciations de chaîne intermédiaires.
+
 #### <a name="key-bug-fixes"></a>Principaux bogues résolus
 * Correction de l’exception de pointeur nul ConnectionPolicy `toString()`.
 * Correction du problème d’analyse des résultats de requête en cas de requêtes de tri par valeur. 

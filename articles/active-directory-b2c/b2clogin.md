@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79807e8e0f798a73063576a00b8d0c32cdfe5a4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005342"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
@@ -89,24 +89,42 @@ Pour plus d’informations sur la migration des API Gestion des API Azure proté
 
 ## <a name="microsoft-authentication-library-msal"></a>Bibliothèque d’authentification Microsoft (MSAL)
 
-### <a name="validateauthority-property"></a>Propriété ValidateAuthority
+### <a name="msalnet-validateauthority-property"></a>Propriété MSAL.NET ValidateAuthority
 
-Si vous utilisez [MSAL.NET][msal-dotnet] v2 ou une version antérieure, définissez la propriété **ValidateAuthority** sur `false` à l’instanciation du client pour autoriser les redirections vers *b2clogin.com*. Ce paramètre n’est pas obligatoire pour MSAL.NET v3 et les versions ultérieures.
+Si vous utilisez [MSAL.NET][msal-dotnet] v2 ou une version antérieure, définissez la propriété **ValidateAuthority** sur `false` à l’instanciation du client pour autoriser les redirections vers *b2clogin.com*. La définition de ce paramètre sur `false` n’est pas obligatoire pour MSAL.NET v3 et les versions ultérieures.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-Si vous utilisez [MSAL pour JavaScript][msal-js] :
+### <a name="msal-for-javascript-validateauthority-property"></a>MSAL pour la propriété JavaScript validateAuthority
+
+Si vous utilisez [MSAL pour JavaScript][msal-js] v1.2.2 ou une version antérieure, définissez la propriété **validateAuthority** sur `false`.
 
 ```JavaScript
+// MSAL.js v1.2.2 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false
+    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
+  }
+);
+```
+
+Si vous définissez `validateAuthority: true` dans MSAL.js 1.3.0+ (le comportement par défaut), vous devez également spécifier un émetteur de jeton valide avec `knownAuthorities` :
+
+```JavaScript
+// MSAL.js v1.3.0+
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: true, // Supported in MSAL.js v1.3.0+
+    knownAuthorities: ['tenant-name.b2clogin.com'] // Required if validateAuthority: true
   }
 );
 ```

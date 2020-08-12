@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078189"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -86,7 +86,7 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
      Vous pouvez maintenant afficher des informations telles que des entrées et des sorties pour cette étape, par exemple :
 
    > [!NOTE]
-   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez [masquer des entrées et sorties dans l’historique des exécutions](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou contrôler l’accès utilisateur à ces informations à l’aide du [contrôle d’accès en fonction du rôle Azure (RBAC)](../role-based-access-control/overview.md).
+   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez [masquer des entrées et sorties dans l’historique des exécutions](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou contrôler l’accès utilisateur à ces informations à l’aide du [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

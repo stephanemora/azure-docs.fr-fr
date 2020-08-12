@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084821"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -236,9 +236,9 @@ Vous pouvez utiliser votre nouveau DSN pour vous connecter à Azure Cosmos DB av
 
 1. Pour visualiser les données dans Power BI Desktop, cochez la case en regard du nom de la table, puis cliquez sur **Charger**.
 
-1. Dans Power BI Desktop, à l’extrême gauche, sélectionnez l’onglet Données ![Onglet Données de Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) pour confirmer que vos données ont été importées.
+1. Dans Power BI Desktop, à l’extrême gauche, sélectionnez l’onglet Données :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: pour confirmer que vos données ont été importées. 
 
-1. Vous pouvez désormais créer des éléments visuels à l’aide de Power BI en cliquant sur l’onglet Rapport ![onglet Rapport dans Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), sur **Nouvel élément visuel**, puis en personnalisation votre mosaïque. Pour plus d’informations sur la création de visualisations dans Power BI Desktop, consultez [Types de visualisation dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Vous pouvez désormais créer des éléments visuels à l’aide de Power BI en cliquant sur l’onglet :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png":::, sur **Nouvel élément visuel**, puis en personnalisation votre mosaïque. Pour plus d’informations sur la création de visualisations dans Power BI Desktop, consultez [Types de visualisation dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Dépannage
 

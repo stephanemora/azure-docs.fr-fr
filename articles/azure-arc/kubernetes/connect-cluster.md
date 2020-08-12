@@ -9,16 +9,16 @@ ms.author: mlearned
 description: Connecter un cluster Kubernetes à extension Azure Arc avec Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050087"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connecter un cluster Kubernetes à extension Azure Arc (préversion)
 
-Connectez un cluster Kubernetes à Azure Arc.
+Ce document décrit le processus de connexion d’un cluster Kubernetes certifié CNCF (Cloud Native Computing Foundation) comme AKS-engine sur Azure, AKS-engine sur Azure Stack Hub, GKE, EKS et VMware vSphere sur Azure Arc.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -28,7 +28,7 @@ Vérifiez que les exigences suivantes sont remplies :
   * Créer un cluster Kubernetes à l’aide de [Kubernetes dans docker (type)](https://kind.sigs.k8s.io/)
   * Créer un cluster Kubernetes à l’aide de Docker pour [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
 * Vous avez besoin d’un fichier kubeconfig pour accéder au cluster et au rôle d’administrateur de cluster sur le cluster pour le déploiement d’agents Kubernetes activés pour Arc.
-* L’utilisateur ou le principal du service utilisé avec les commandes `az login` et `az connectedk8s connect` doit avoir les autorisations en lecture et en écriture sur le type de ressource « Microsoft. Kubernetes/connectedclusters ». Le rôle « Intégration d’Azure Arc pour Kubernetes » disposant de ces autorisations peut être utilisé pour les attributions de rôles sur l’utilisateur ou le principal du service utilisé avec Azure CLI pour l’intégration.
+* L’utilisateur ou le principal du service utilisé avec les commandes `az login` et `az connectedk8s connect` doit avoir les autorisations en lecture et en écriture sur le type de ressource « Microsoft. Kubernetes/connectedclusters ». Le rôle « Intégration d’Azure Arc pour cluster Kubernetes » disposant de ces autorisations peut être utilisé pour les attributions de rôles sur l’utilisateur ou le principal du service.
 * Helm 3 est requis pour l’intégration du cluster à l’aide de l’extension connectedk8s. [Installez la dernière version de Helm 3](https://helm.sh/docs/intro/install) pour répondre à cette exigence.
 * Pour installer les extensions CLI de Kubernetes activées d’Azure Arc, vous avez besoin de la version 2.3+ d’Azure CLI. [Installez Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou mettez-la à jour vers la dernière version pour vous assurer d’avoir Azure CLI version 2.3 +.
 * Installez les extensions Kubernetes CLI compatibles avec Arc :
@@ -169,6 +169,9 @@ AzureArcTest1  eastus      AzureArcTest
 
 Vous pouvez également afficher cette ressource dans le [Portail Azure](https://portal.azure.com/). Après avoir ouvert le portail dans votre navigateur, recherchez dans le groupe de ressources et la ressource Kubernetes activée d’Azure Arc basés sur le nom de ressource et le nom de du groupe de ressources utilisés plus tôt dans la commande `az connectedk8s connect`.
 
+> [!NOTE]
+> Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc activé dans le portail Azure.
+
 Un Kubernetes à extension Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`. Vous pouvez afficher ces déploiements et pods ici :
 
 ```console
@@ -204,7 +207,7 @@ Un Kubernetes à extension Azure Arc se compose de quelques agents (opérateurs)
 * `deployment.apps/config-agent` : surveille le cluster connecté pour les ressources de configuration de contrôle de code source appliquées au cluster, et met à jour l’état de conformité.
 * `deployment.apps/controller-manager` : opérateur d’opérateurs orchestrant les interactions entre les composants Azure Arc.
 * `deployment.apps/metrics-agent` : collecte les métriques d’autres agents Arc pour s’assurer que ces agents offrent des performances optimales.
-* `deployment.apps/cluster-metadata-operator` : collecte des métadonnées de cluster (version du cluster, nombre de nœuds et version de l’agent Arc).
+* `deployment.apps/cluster-metadata-operator` : collecte des métadonnées de cluster : version du cluster, nombre de nœuds et version de l’agent Azure Arc
 * `deployment.apps/resource-sync-agent` : synchronise les métadonnées de cluster précitées dans Azure.
 * `deployment.apps/clusteridentityoperator`: Kubernetes avec Azure Arc prend actuellement en charge l’identité attribuée par le système. clusteridentityoperator gère le certificat d’identité de service managé (MSI) utilisé par d’autres agents pour la communication avec Azure.
 * `deployment.apps/flux-logs-agent` : collecte des journaux des opérateurs de flux déployés dans le cadre de la configuration du contrôle de code source.
@@ -218,7 +221,7 @@ Vous pouvez supprimer une ressource `Microsoft.Kubernetes/connectedcluster` à l
   ```console
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
-  Cette action supprime la `Microsoft.Kubernetes/connectedCluster`ressource et toute ressource qui y est associée`sourcecontrolconfiguration` dans Azure. Azure CLI utilise une désinstallation de Helm pour supprimer les agents du cluster en cours d’exécution.
+  Cette commande supprime la `Microsoft.Kubernetes/connectedCluster`ressource et toute ressource qui y est associée`sourcecontrolconfiguration` dans Azure. Azure CLI utilise une désinstallation de Helm pour supprimer les agents du cluster en cours d’exécution.
 
 * **Suppression dans le portail Azure** : La suppression de la ressource Kubernetes activée d’Azure Arc sur le portail Azure permet de supprimer la ressource `Microsoft.Kubernetes/connectedcluster` et toutes les ressources qui y sont associées`sourcecontrolconfiguration` dans Azure, mais cela ne supprime pas les agents en cours d’exécution sur le cluster. Pour supprimer ces agents, vous devez exécuter la commande suivante.
 

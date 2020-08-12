@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029566"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide du Portail Microsoft Azure
 
@@ -45,9 +45,26 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 
 ## <a name="specify-a-key"></a>Spécifier une clé
 
-Après avoir activé les clés gérées par le client, vous pourrez spécifier une clé à associer au compte de stockage.
+Après avoir activé les clés gérées par le client, vous pourrez spécifier une clé à associer au compte de stockage. Vous pouvez également indiquer si le stockage Azure doit faire pivoter automatiquement la clé gérée par le client, ou si vous allez faire pivoter la clé manuellement.
+
+### <a name="specify-a-key-from-a-key-vault"></a>Spécifiez une clé à partir d’un coffre de clés
+
+Lorsque vous sélectionnez une clé gérée par le client à partir d’un coffre de clés, la rotation automatique de la clé est automatiquement activée. Pour gérer manuellement la version de la clé, spécifiez l’URI de la clé à la place et incluez la version de la clé. Pour plus d’informations, consultez [Spécifier une clé en tant qu’URI](#specify-a-key-as-a-uri).
+
+Pour spécifier une clé à partir d’un coffre de clés, procédez comme suit :
+
+1. Choisissez l’option **Sélectionner dans le coffre de clés**.
+1. Sélectionnez **Sélectionner un coffre de clés et une clé**.
+1. Sélectionnez le coffre de clés contenant la clé que vous souhaitez utiliser.
+1. Sélectionnez la clé dans le coffre de clés.
+
+   ![Capture d’écran montrant comment sélectionner un coffre de clés et une clé](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+
+1. Enregistrez vos modifications.
 
 ### <a name="specify-a-key-as-a-uri"></a>Spécifier une clé en tant qu’URI
+
+Lorsque vous spécifiez l’URI de la clé, omettez la version de la clé pour activer la rotation automatique de la clé gérée par le client. Si vous incluez la version de clé dans l’URI de la clé, la rotation automatique n’est pas activée et vous devez gérer la version de la clé vous-même. Pour plus d’informations sur la mise à jour de la version de la clé, consultez [Mettre à jour manuellement la version de la clé](#manually-update-the-key-version).
 
 Pour spécifier une clé en tant qu’URI, procédez comme suit :
 
@@ -56,35 +73,29 @@ Pour spécifier une clé en tant qu’URI, procédez comme suit :
 
     ![Capture d’écran montrant l’URI de la clé du coffre de clés](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
-1. Dans les paramètres de **chiffrement** de votre compte de stockage, choisissez l’option **Entrer l’URI de la clé**.
-1. Collez l’URI que vous avez copié dans le champ **URI de clé**.
+1. Dans les paramètres de **clé de chiffrement** de votre compte de stockage, choisissez l’option **Entrer l’URI de la clé**.
+1. Collez l’URI que vous avez copié dans le champ **URI de clé**. Omettez la version de la clé de l’URI pour activer la rotation automatique.
 
    ![Capture d’écran montrant comment entrer l’URI d’une clé](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Spécifiez l’abonnement qui contient le coffre de clés.
 1. Enregistrez vos modifications.
 
-### <a name="specify-a-key-from-a-key-vault"></a>Spécifiez une clé à partir d’un coffre de clés
+Une fois que vous avez spécifié la clé, le portail Azure indique si la rotation de clé automatique est activée et affiche la version de clé en cours d’utilisation pour le chiffrement.
 
-Pour spécifier une clé à partir d’un coffre de clés, assurez-vous d’abord que vous disposez d’un coffre de clés contenant une clé. Pour spécifier une clé à partir d’un coffre de clés, procédez comme suit :
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Capture d’écran montrant la rotation automatique des clés gérées par le client activée":::
 
-1. Choisissez l’option **Sélectionner dans le coffre de clés**.
-1. Sélectionnez le coffre de clés contenant la clé que vous souhaitez utiliser.
-1. Sélectionnez la clé dans le coffre de clés.
+## <a name="manually-update-the-key-version"></a>Mettre à jour manuellement la version de la clé
 
-   ![Capture d’écran montrant une option de clé gérée par le client](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+Par défaut, le stockage Azure effectue automatiquement une rotation automatique des clés gérées par le client, comme décrit dans les sections précédentes. Si vous choisissez de gérer vous-même la version de la clé, vous devez mettre à jour la version de clé spécifiée pour le compte de stockage chaque fois que vous créez une nouvelle version de la clé.
 
-1. Enregistrez vos modifications.
-
-## <a name="update-the-key-version"></a>Mettre à jour la version de la clé
-
-Lors de la création d’une nouvelle version d’une clé, mettez à jour le compte de stockage afin qu’il utilise cette nouvelle version. Procédez comme suit :
+Pour mettre à jour le compte de stockage afin d’utiliser la nouvelle version de la clé, procédez comme suit :
 
 1. Accédez à votre compte de stockage et affichez les paramètres de **chiffrement**.
 1. Saisissez l’URI de la nouvelle version de clé. Vous pouvez également sélectionner à nouveau le coffre de clés et la clé pour mettre à jour la version.
 1. Enregistrez vos modifications.
 
-## <a name="use-a-different-key"></a>Utiliser une autre clé
+## <a name="switch-to-a-different-key"></a>Passer à une clé différente
 
 Pour modifier la clé utilisée pour le chiffrement Azure Storage, procédez comme suit :
 

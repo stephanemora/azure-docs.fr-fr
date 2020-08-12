@@ -1,5 +1,5 @@
 ---
-title: Se connecter à un espace de travail Azure Synapse à l’aide de liens privés
+title: Se connecter à un espace de travail Synapse à l’aide de liens privés
 description: Cet article explique comment se connecter à un espace de travail Azure Synapse à l’aide de liens privés.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193870"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005971"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Se connecter à un espace de travail Azure Synapse à l’aide de liens privés (préversion)
 
@@ -47,7 +47,7 @@ Sélectionnez **Suivant : Configuration >** pour passer à la partie suivante de
 
 Sous l’onglet **Configuration**, sélectionnez le **Réseau virtuel** et le **Sous-réseau** dans lequel créer le point de terminaison privé. Vous devez également créer un enregistrement DNS qui mappe au point de terminaison privé.
 
-Sélectionnez **Oui** pour **Intégrer avec une zone DNS privée** afin d’intégrer votre point de terminaison privé avec une zone DNS privée. Si vous n’avez pas de zone DNS privée associée à votre réseau virtuel, une nouvelle zone DNS privée est créée. Sélectionnez **Vérifier + créer** quand vous avez terminé.
+Sélectionnez **Oui** pour **Intégrer avec une zone DNS privée** afin d’intégrer votre point de terminaison privé avec une zone DNS privée. Si vous n’avez pas de zone DNS privée associée à votre réseau virtuel Microsoft Azure, une nouvelle zone DNS privée est créée. Sélectionnez **Vérifier + créer** quand vous avez terminé.
 
 ![Sélectionner les détails de l’abonnement et de la région](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 

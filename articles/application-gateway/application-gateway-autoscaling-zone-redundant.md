@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273199"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
-Application Gateway et le pare-feu d'applications web (WAF) sont également disponibles sous une référence SKU Standard_v2 et WAF_v2. La référence SKU v2 offre des performances améliorées et prend en charge de nouvelles fonctionnalités critiques telles que la mise à l’échelle automatique, la redondance de zone et la prise en charge d'adresses IP virtuelles statiques. Les fonctionnalités existantes sous la référence SKU Standard et WAF continuent à être prises en charge dans la nouvelle référence SKU v2, à quelques exceptions près que vous trouverez dans la section relative aux [comparaisons](#differences-from-v1-sku).
+Application Gateway est disponible sous une référence SKU Standard_v2. Le pare-feu d’applications web (WAF) est disponible sous une référence WAF_v2. La référence SKU v2 offre des performances améliorées et prend en charge de nouvelles fonctionnalités critiques telles que la mise à l’échelle automatique, la redondance de zone et la prise en charge d'adresses IP virtuelles statiques. Les fonctionnalités existantes sous la référence SKU Standard et WAF continuent à être prises en charge dans la nouvelle référence SKU v2, à quelques exceptions près que vous trouverez dans la section relative aux [comparaisons](#differences-from-v1-sku).
 
 La nouvelle référence SKU v2 inclut les améliorations suivantes :
 
@@ -148,7 +148,7 @@ Cependant, la création d’une instance peut prendre un certain temps (six ou s
 
 Le tableau suivant répertorie les fonctionnalités disponibles avec chaque référence SKU.
 
-|                                                   | Référence SKU v1   | Référence SKU v2   |
+| Fonctionnalité                                           | Référence SKU v1   | Référence SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Mise à l’échelle automatique                                       |          | &#x2713; |
 | Redondance de zone                                   |          | &#x2713; |

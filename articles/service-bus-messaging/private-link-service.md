@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340438"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423420"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Intégrer Azure Service Bus à Azure Private Link
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Service Bus via des points de terminaison privés
 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Service Bus, le Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un **point de terminaison privé** de votre réseau virtuel.
 
@@ -46,7 +46,7 @@ Pour intégrer un espace de noms Service Bus à Azure Private Link, vous avez be
 
 - Un espace de noms Service Bus.
 - Un réseau virtuel Azure.
-- Un sous-réseau dans le réseau virtuel.
+- Un sous-réseau dans le réseau virtuel. Vous pouvez utiliser le sous-réseau **par défaut**. 
 - Des autorisations de propriétaire ou de contributeur à la fois pour l’espace de noms Service Bus et le réseau virtuel.
 
 Votre point de terminaison privé et votre réseau virtuel doivent se trouver dans la même région. Au moment de sélectionner la région du point de terminaison privé sur le portail, les réseaux virtuels qui se trouvent dans cette région sont filtrés automatiquement. Votre espace de noms Service Bus peut se trouver dans une autre région. Et votre point de terminaison privé utilise une adresse IP privée dans votre réseau virtuel.
@@ -58,8 +58,19 @@ Si vous avez déjà un espace de noms, vous pouvez créer un point de terminaiso
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Dans la barre de recherche, saisissez **Service Bus**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
-4. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**.
-5. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page.
+2. Dans le menu de gauche, sélectionnez l’option **Réseaux** sous **Paramètres**. 
+
+    > [!NOTE]
+    > L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **Premium**.  
+    
+    Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Page Mise en réseau - Par défaut" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Si vous sélectionnez l’option **Tous les réseaux**, votre espace de noms Service Bus accepte les connexions depuis n’importe quelle adresse IP (à l’aide de la clé d’accès). Ce paramètre par défaut est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
+
+    ![Option Pare-feu - Tous les réseaux sélectionnée](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Pour autoriser l’accès à l’espace de noms via des points de terminaison privés, sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page
 6. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
     ![Bouton Ajouter un point de terminaison privé](./media/private-link-service/private-link-service-3.png)

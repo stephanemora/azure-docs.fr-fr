@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090618"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fournir une authentification Key Vault avec une identité managée
 
@@ -35,7 +35,7 @@ Pour suivre ce guide, vous avez besoin des ressources suivantes.
    - [Créer un coffre de clés avec Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Créer un coffre de clés avec le portail Azure](../secrets/quick-create-portal.md).
 - Une application App Service existante à laquelle accorder l’accès au coffre de clés. Vous pouvez en créer une rapidement en suivant les étapes décrites dans la [documentation App Service](../../app-service/overview.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Vous pouvez également utiliser le [portail Azure](https://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/). Vous pouvez également utiliser le [portail Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Ajout d’une identité attribuée par le système 
@@ -52,7 +52,7 @@ Pour configurer une identité managée dans le portail, vous créez une applicat
 
 1. Dans l’onglet **Attribuée par le système**, définissez **État** sur **Activé**. Cliquez sur **Enregistrer**. 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![Capture d’écran montrant l’enregistrement d’une identité affectée par le système.](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -100,7 +100,7 @@ Prenez note de `PrincipalId`, qui sera nécessaire dans la section suivante.
 
 1.  Cliquez sur **Ajouter** pour terminer l’ajout de la nouvelle stratégie d’accès.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Capture d’écran montrant comment ajouter une nouvelle stratégie d’accès dans le portail Azure.](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 

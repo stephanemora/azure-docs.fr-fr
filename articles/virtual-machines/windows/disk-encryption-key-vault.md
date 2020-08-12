@@ -3,17 +3,17 @@ title: Création et configuration d’un coffre de clés pour Azure Disk Encrypt
 description: Cet article décrit les étapes de création et de configuration d’un coffre de clés à utiliser avec Azure Disk Encryption.
 ms.service: virtual-machines
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0779cad02f266d49be055ea485e87c9c8075b7b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284521"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Création et configuration d’un coffre de clés pour Azure Disk Encryption
 
@@ -25,7 +25,7 @@ Azure Disk Encryption utilise Azure Key Vault pour contrôler et gérer les clé
 La création et la configuration d’un coffre de clés à utiliser avec Azure Disk Encryption impliquent trois étapes :
 
 > [!Note]
-> Vous devez sélectionner l’option dans les paramètres de stratégie d’accès Azure Key Vault afin d’activer l’accès à Azure Disk Encryption pour le chiffrement de volume.
+> Vous devez sélectionner l’option dans les paramètres de stratégie d’accès Azure Key Vault afin d’activer l’accès à Azure Disk Encryption pour le chiffrement de volume. Si vous avez activé le pare-feu sur le coffre de clés, vous devez accéder à l’onglet Réseau du coffre de clés et activer l’accès aux services de confiance Microsoft. 
 
 1. Création d’un groupe de ressources, si nécessaire
 2. Création d’un coffre de clés 
@@ -43,7 +43,7 @@ Si vous le souhaitez, vous pouvez également générer ou importer une clé de c
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installer les outils et se connecter à Azure
 
-Les étapes décrites dans cet article peuvent être effectuées avec [Azure CLI](/cli/azure/), le [module Az Azure PowerShell](/powershell/azure/overview) ou le [portail Azure](https://portal.azure.com).
+Les étapes décrites dans cet article peuvent être effectuées avec [Azure CLI](/cli/azure/), le [module Az Azure PowerShell](/powershell/azure/) ou le [portail Azure](https://portal.azure.com).
 
 Le portail est accessible par le biais de votre navigateur, alors qu’Azure CLI et Azure PowerShell nécessitent une installation locale. Pour plus d’informations, consultez [Azure Disk Encryption pour Windows : Installer les outils](disk-encryption-windows.md#install-tools-and-connect-to-azure).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003625"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -157,7 +157,7 @@ Pour valider le cluster à l’aide de l’interface utilisateur, procédez comm
 1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
 1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
 1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests**, sélectionnez tous les tests *à l’exception* **d’espaces de stockage direct**.
+1. Sous **Sélection des tests**, sélectionnez tous les tests *à l’exception* **Stockage**
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
 
@@ -181,9 +181,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
-   Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur le stockage en cluster. Avec la technologie Espaces de stockage direct, il ne s’agit pas d’un disque partagé, mais d’un point de montage vers un volume sur chaque serveur. La technologie Espaces de stockage direct synchronise le volume entre les deux nœuds. Le volume est présenté au cluster en tant que volume partagé de cluster (CSV). Utilisez le point de montage du volume partagé de cluster pour les répertoires de données.
-
-   ![Répertoires de données](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur les disques partagés Azure. 
 
 1. Une fois que vous avez terminé les instructions de l’assistant, le programme d’installation installe une instance de cluster de basculement SQL Server sur le premier nœud.
 

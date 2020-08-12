@@ -4,15 +4,15 @@ description: Résoudre les erreurs de connexion intermittentes et les problèmes
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252438"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447911"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Résolution des erreurs intermittentes de connexion sortante dans Azure App Service
 
@@ -37,6 +37,8 @@ L’une des causes majeures de ces symptômes est que l’instance d’applicati
 Lorsque des applications ou des fonctions ouvrent rapidement une nouvelle connexion, elles peuvent rapidement épuiser leur quota pré-alloué de 128 ports. Elles sont ensuite bloquées jusqu’à ce qu’un nouveau port SNAT soit disponible, soit par le biais de l’allocation dynamique de ports SNAT supplémentaires, soit par réutilisation d’un port SNAT récupéré. Les applications ou fonctions qui sont bloquées en raison de cette incapacité à créer de nouvelles connexions commenceront à rencontrer un ou plusieurs des problèmes décrits dans la section **Symptômes** de cet article.
 
 ## <a name="avoiding-the-problem"></a>Éviter le problème
+
+Si votre destination est un service Azure qui prend en charge les points de terminaison de service, vous pouvez éviter les problèmes d’épuisement des ports SNAT en utilisant l’[intégration de réseau virtuel régional](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) et des points de terminaison de service ou des points de terminaison privés. Lorsque vous utilisez l’intégration de réseau virtuel régional et placez des points de terminaison de service sur le sous-réseau d’intégration, le trafic sortant de votre application vers ces services n’aura pas de restrictions de ports SNAT sortants. De même, si vous utilisez l’intégration de réseau virtuel régional et des points de terminaison privés, aucun problème de ports SNAT sortants n’est lié à cette destination. 
 
 Éviter le problème de port SNAT consiste à éviter la création de nouvelles connexions de façon répétée sur le même hôte et le même port.
 

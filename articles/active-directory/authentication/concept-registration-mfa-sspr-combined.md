@@ -1,26 +1,29 @@
 ---
-title: Inscription combinée pour SSPR et MFA - Azure Active Directory
-description: Inscription à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service
+title: Inscription combinée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion) – Azure Active Directory
+description: Apprenez-en davantage sur l’expérience d’inscription combinée pour Azure Active Directory, qui permet aux utilisateurs de s’inscrire à la fois pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550677"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512973"
 ---
-# <a name="combined-security-information-registration-overview"></a>Présentation de l’inscription combinée des informations de sécurité
+# <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Vue d’ensemble de l’inscription combinée d’informations de sécurité pour Azure Active Directory
 
 Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
+
+> [!NOTE]
+> À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD.
 
 Cet article explique ce qu’est l’inscription de sécurité combinée. Pour prendre en main l’inscription de sécurité combinée, consultez l’article suivant :
 
@@ -34,11 +37,13 @@ Avant d’activer la nouvelle expérience, passez en revue cette documentation a
 L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure US Government, Azure Allemagne et Azure China 21Vianet.
 
 > [!IMPORTANT]
-> Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+> Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences ne voient que la nouvelle expérience de la page Mon profil. La nouvelle page *Mon profil* s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 >
-> Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité. Par exemple, « Désolé, nous ne pouvons pas vous connecter ». Dans ce cas, vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur Web.
+> Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité, tel que : « Désolés, nous ne pouvons pas vous connecter ». Vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur web.
 
-Les pages Mon profil sont localisées sur la base des paramètres de langue de l’ordinateur qui accède à ces pages. Microsoft stocke la dernière langue utilisée dans le cache du navigateur, afin que les tentatives suivantes d’accès aux pages continuent de s’afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages seront réaffichées. Pour imposer l’utilisation d’une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez utiliser.
+Les pages *Mon profil* sont localisées sur la base des paramètres linguistiques de l’ordinateur qui y accède. Microsoft stocke la dernière langue utilisée dans le cache du navigateur, afin que les tentatives suivantes d’accès aux pages continuent de s’afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages sont réaffichées.
+
+Pour imposer l’utilisation d’une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez utiliser.
 
 ![Configurer la réinitialisation SSPR ou d’autres méthodes de vérification de sécurité](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -84,24 +89,24 @@ Pour ces deux modes, les utilisateurs qui se sont inscrits précédemment à une
 
 L’inscription combinée respecte les stratégies d’authentification multifacteur et de réinitialisation SSPR, si les deux sont activées pour votre locataire. Ces stratégies contrôlent le fait que l’inscription d’un utilisateur est interrompue ou non pendant la connexion, ainsi que les méthodes d’inscription disponibles.
 
-Voici plusieurs scénarios dans lesquels les utilisateurs peuvent être invités à s’inscrire à leurs informations de sécurité, ou à les actualiser :
+Voici quelques exemples de scénarios dans lesquels les utilisateurs peuvent être invités à s’inscrire ou à actualiser leurs informations de sécurité :
 
-- Inscription à l’authentification multifacteur appliquée via Identity Protection : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies : les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite l’authentification multifacteur. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription à la réinitialisation SSPR appliquée : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent uniquement aux méthodes SSPR.
-- Actualisation SSPR appliquée : les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les informations sont montrées aux utilisateurs et ces derniers peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
+- *Inscription à l’authentification multifacteur appliquée via Identity Protection :* les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- *Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur :* les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- *Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies :* les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite l’authentification multifacteur. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- *Inscription à la réinitialisation de mot de passe en libre-service appliquée :* les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent uniquement aux méthodes SSPR.
+- *Actualisation de la réinitialisation de mot de passe en libre-service appliquée :* les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les informations sont montrées aux utilisateurs et ces derniers peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
 
 Lorsque l’inscription est appliquée, les utilisateurs peuvent voir le nombre minimal de méthodes nécessaires pour être conformes aux stratégies d’authentification multifacteur et SSPR, de la plus à la moins sécurisée.
 
-Par exemple :
+Examinez l’exemple de scénario suivant :
 
 - Un utilisateur est activé pour la réinitialisation SSPR. La stratégie SSPR nécessitait deux méthodes pour réinitialiser et activait le code de l’application mobile, le courrier et le téléphone.
-   - Cet utilisateur est tenu de s’inscrire à deux méthodes.
-      - L’utilisateur voit l’application d’authentification et le téléphone par défaut.
-      - L’utilisateur peut choisir de s’inscrire par e-mail à la place de l’application d’authentification ou du téléphone.
+- Cet utilisateur est tenu de s’inscrire à deux méthodes.
+   - L’utilisateur voit l’application d’authentification et le téléphone par défaut.
+   - L’utilisateur peut choisir de s’inscrire par e-mail à la place de l’application d’authentification ou du téléphone.
 
-Cet organigramme décrit les méthodes qui sont montrées à un utilisateur lorsque son inscription est interrompue pendant la connexion :
+L’organigramme suivant décrit les méthodes qui sont montrées à un utilisateur quand son inscription est interrompue pendant la connexion :
 
 ![Organigramme des informations de sécurité combinée](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
@@ -125,7 +130,7 @@ Un utilisateur n’a pas configuré toutes les informations de sécurité requis
 
 Un administrateur n’a pas appliqué l’inscription.
 
-Un utilisateur qui n’a pas encore configuré toutes les informations de sécurité requises accède à [https://myprofile.microsoft.com](https://myprofile.microsoft.com). L’utilisateur sélectionne **Informations de sécurité** dans le volet gauche. Là, l’utilisateur choisit d’ajouter une méthode, sélectionne une des méthodes disponibles et suit la procédure requise pour configurer cette méthode. Une fois terminé, l’utilisateur voit la méthode qui vient d’être configurée sur la page Informations de sécurité.
+Un utilisateur qui n’a pas encore configuré toutes les informations de sécurité requises accède à [https://myprofile.microsoft.com](https://myprofile.microsoft.com). L’utilisateur sélectionne **Informations de sécurité** dans le volet gauche. Là, l’utilisateur choisit d’ajouter une méthode, sélectionne une des méthodes disponibles et suit la procédure requise pour configurer cette méthode. Quand il a terminé, l’utilisateur voit la méthode configurée sur la page Informations de sécurité.
 
 ### <a name="delete-security-info-from-my-profile"></a>Supprimer les informations de sécurité à partir de Mon profil
 

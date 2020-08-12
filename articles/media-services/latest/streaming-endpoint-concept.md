@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091995"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446208"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Points de terminaison de streaming (origine) dans Azure Media Services
 
@@ -46,6 +46,8 @@ Quand vous utilisez le point de terminaison de streaming par défaut, `servicena
 ## <a name="types"></a>Types
 
 Il existe deux types de **points de terminaison de streaming** : **Standard** (préversion) et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming.
+
+La limite d’unités de streaming est généralement de 10. Contactez-nous [ici](https://azure.microsoft.com/support/create-ticket/) pour augmenter la limite de votre compte.
 
 Le tableau décrit les types :
 

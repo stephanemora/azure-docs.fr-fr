@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075736"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionnement de tables dans un pool SQL Synapse
 
@@ -32,21 +32,33 @@ Le partitionnement peut bénéficier de la maintenance des données et des perfo
 
 Le principal avantage du partitionnement dans un pool SQL Synapse est d’améliorer l’efficacité et les performances du chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de dates étroitement liée à l’ordre selon lequel les données sont chargées dans la base de données. L’un des avantages majeurs de l’utilisation de partitions pour la maintenance des données et qu’elle évite la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de chargement peut considérablement améliorer les performances.
 
-Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table.  Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table.  Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. Toutefois, la suppression d’une grande quantité de données ligne par ligne avec une instruction DELETE peut prendre beaucoup de temps, ainsi que créer le risque de transactions volumineuses qui pourraient nécessiter un temps de restauration considérable en cas de problème. Une approche plus optimale consiste à supprimer la partition de données la plus ancienne. Alors que la suppression des lignes individuelle peut prendre des heures, la suppression d’une partition complète ne prend que secondes.
+Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table.  Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table.  Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. 
+
+Toutefois, la suppression d’une grande quantité de données ligne par ligne avec une instruction DELETE peut prendre beaucoup de temps, ainsi que créer le risque de transactions volumineuses qui pourraient nécessiter un temps de restauration considérable en cas de problème. Une approche plus optimale consiste à supprimer la partition de données la plus ancienne. Alors que la suppression des lignes individuelle peut prendre des heures, la suppression d’une partition complète ne prend que secondes.
 
 ### <a name="benefits-to-queries"></a>Avantages pour les requêtes
 
-Le partitionnement peut également servir à améliorer les performances des requêtes. Une requête qui applique un filtre de données partitionnées peut limiter l’analyse aux seules partitions éligibles. Cette méthode de filtrage peut éviter l’analyse de table complète et n’analyser qu’un sous-ensemble de données moins conséquent. Avec l’introduction des index columnstore en cluster, les avantages des performances de l’élimination de prédicats sont moins notables, mais dans certains cas, il peut exister un avantage pour les requêtes. Par exemple, si la table de faits Sales (Ventes) est partagée en 36 mois grâce au champ de date des ventes, les requêtes filtrées par date de vente peuvent ignorer la recherche dans les partitions qui ne correspondent pas au filtre.
+Le partitionnement peut également servir à améliorer les performances des requêtes. Une requête qui applique un filtre de données partitionnées peut limiter l’analyse aux seules partitions éligibles. Cette méthode de filtrage peut éviter l’analyse de table complète et n’analyser qu’un sous-ensemble de données moins conséquent. Avec l’introduction des index columnstore en cluster, les avantages des performances de l’élimination de prédicats sont moins notables, mais dans certains cas, il peut exister un avantage pour les requêtes. 
+
+Par exemple, si la table de faits Sales (Ventes) est partagée en 36 mois grâce au champ de date des ventes, les requêtes filtrées par date de vente peuvent ignorer la recherche dans les partitions qui ne correspondent pas au filtre.
 
 ## <a name="sizing-partitions"></a>Dimensionnement des partitions
 
-Tandis que le partitionnement peut être utilisé pour améliorer les performances de certains scénarios, la création d’une table avec **trop** de partitions peut nuire aux performances dans certaines circonstances.  Ces inquiétudes sont particulièrement avérées pour les tables columnstore en cluster. Pour que le partitionnement soit utile, il est important de savoir quand utiliser le partitionnement et le nombre de partitions à créer. Il n’existe aucune règle absolue concernant le nombre de partitions ; cela dépend de vos données et du nombre de partitions que vous chargez simultanément. En règle générale, un schéma de partition réussi n’a qu’entre dix et cent partitions, pas mille.
+Tandis que le partitionnement peut être utilisé pour améliorer les performances de certains scénarios, la création d’une table avec **trop** de partitions peut nuire aux performances dans certaines circonstances.  Ces inquiétudes sont particulièrement avérées pour les tables columnstore en cluster. 
 
-Lorsque vous créez des partitions sur des tables **columnstore en cluster**, il est important de prendre en compte le nombre de lignes dans chaque partition. Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire. Avant la création des partitions, le pool SQL Synapse divise déjà chaque table en 60 bases de données distribuées. Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan. Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné qu’un pool SQL Synapse comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis. Si une table contient moins de lignes que le nombre minimum recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition. Pour plus d’informations, consultez l’article [Indexation](sql-data-warehouse-tables-index.md) qui comporte des requêtes pouvant accéder à la qualité des index columnstore en cluster.
+Pour que le partitionnement soit utile, il est important de savoir quand utiliser le partitionnement et le nombre de partitions à créer. Il n’existe aucune règle absolue concernant le nombre de partitions ; cela dépend de vos données et du nombre de partitions que vous chargez simultanément. En règle générale, un schéma de partition réussi n’a qu’entre dix et cent partitions, pas mille.
+
+Lorsque vous créez des partitions sur des tables **columnstore en cluster**, il est important de prendre en compte le nombre de lignes dans chaque partition. Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire. Avant la création des partitions, le pool SQL Synapse divise déjà chaque table en 60 bases de données distribuées. 
+
+Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan. Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné qu’un pool SQL Synapse comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis. Si une table contient moins de lignes que le nombre minimum recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition. 
+
+Pour plus d’informations, consultez l’article [Indexation](sql-data-warehouse-tables-index.md) qui comporte des requêtes pouvant accéder à la qualité des index columnstore en cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Différences de syntaxe par rapport à SQL Server
 
-Le pool SQL Synapse présente un mode de définition des partitions qui est plus simple que SQL Server. Les fonctions et les schémas de partitionnement ne sont pas utilisés dans le pool SQL Synapse, car ils se trouvent dans SQL Server. À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite. Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes. SQL Server et le pool SQL Synapse prennent en charge une colonne de partition par table, qui peut être une partition par spécification de plages de valeurs. Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Le pool SQL Synapse présente un mode de définition des partitions qui est plus simple que SQL Server. Les fonctions et les schémas de partitionnement ne sont pas utilisés dans le pool SQL Synapse, car ils se trouvent dans SQL Server. À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite. 
+
+Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes. SQL Server et le pool SQL Synapse prennent en charge une colonne de partition par table, qui peut être une partition par spécification de plages de valeurs. Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 L’exemple suivant utilise l’instruction [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour partitionner la table FactInternetSales sur la colonne OrderDateKey :
 
@@ -237,7 +249,11 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Charger de nouvelles données dans les partitions qui contiennent des données en une seule étape
 
-Le chargement des données dans des partitions avec basculement de partition est un moyen pratique d’organiser de nouvelles données dans une table qui n’est pas visible aux utilisateurs.  Sur les systèmes occupés, il peut être difficile de traiter la contention de verrouillage associée au basculement de partition.  Pour effacer les données existantes dans une partition, le paramètre `ALTER TABLE` était nécessaire pour extraire les données.  Un autre paramètre `ALTER TABLE` était ensuite requis pour insérer les nouvelles données.  Dans le pool SQL Synapse, l’option `TRUNCATE_TARGET` est prise en charge dans la commande `ALTER TABLE`.  Avec `TRUNCATE_TARGET`, la commande `ALTER TABLE` remplace les données existantes de la partition par de nouvelles données.  Voici un exemple qui illustre l’utilisation de `CTAS` pour créer une table avec les données existantes, l’insertion de nouvelles données, puis le basculement de toutes les données dans la table cible remplaçant ainsi les données existantes.
+Le chargement des données dans des partitions avec basculement de partition est un moyen pratique d’organiser de nouvelles données dans une table qui n’est pas visible aux utilisateurs.  Sur les systèmes occupés, il peut être difficile de traiter la contention de verrouillage associée au basculement de partition.  
+
+Pour effacer les données existantes dans une partition, le paramètre `ALTER TABLE` était nécessaire pour extraire les données.  Un autre paramètre `ALTER TABLE` était ensuite requis pour insérer les nouvelles données.  
+
+Dans le pool SQL Synapse, l’option `TRUNCATE_TARGET` est prise en charge dans la commande `ALTER TABLE`.  Avec `TRUNCATE_TARGET`, la commande `ALTER TABLE` remplace les données existantes de la partition par de nouvelles données.  Voici un exemple qui illustre l’utilisation de `CTAS` pour créer une table avec les données existantes, l’insertion de nouvelles données, puis le basculement de toutes les données dans la table cible remplaçant ainsi les données existantes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

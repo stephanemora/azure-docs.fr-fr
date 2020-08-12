@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513199"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319301"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -16,7 +16,7 @@ L’une des mesures les plus importantes que vous puissiez prendre pour protége
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestion et contrôle des identités et des accès utilisateur
 
-Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Le service Sauvegarde Azure vous permet de contrôler les opérations managées avec une finesse de précision au niveau des accès à l’aide de la fonctionnalité [RBAC (contrôle d’accès en fonction du rôle)](./backup-rbac-rs-vault.md). Le contrôle d’accès en fonction du rôle vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
+Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Le service Sauvegarde Azure vous permet de contrôler les opérations managées avec une finesse de précision au niveau des accès à l’aide de la fonctionnalité de [contrôle d’accès en fonction du rôle (Azure RBAC)](./backup-rbac-rs-vault.md). Le contrôle d’accès en fonction du rôle vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
 
 Le service Sauvegarde Azure fournit trois [rôles intégrés](../role-based-access-control/built-in-roles.md) pour contrôler les opérations de gestion des sauvegardes :
 
@@ -42,13 +42,17 @@ Vous pouvez désormais utiliser des [points de terminaison privés](../private-l
 
 Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](./private-endpoints.md).
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>Chiffrement des données en transit et au repos
+## <a name="encryption-of-data"></a>Chiffrement des données
 
-Le chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Dans Azure, les données en transit entre le stockage Azure et le coffre sont protégées par HTTPS. Ces données restent sur le réseau principal Azure.
+Le chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Le chiffrement des données se produit à de nombreuses étapes dans la sauvegarde Azure :
 
-* Les données de sauvegarde sont automatiquement chiffrées à l’aide de clés gérées par Microsoft. Vous pouvez également chiffrer vos machines virtuelles avec disques managés sauvegardées dans le coffre Recovery Services à l’aide de [clés gérées par le client](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) stockées dans Azure Key Vault. Vous n’avez aucune action explicite à effectuer pour activer ce chiffrement. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
+* Dans Azure, les données en transit entre le stockage Azure et le coffre sont [protégées par HTTPS](backup-support-matrix.md#network-traffic-to-azure). Ces données restent sur le réseau principal Azure.
 
-* Le service Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles Azure dont les disques de système d’exploitation ou de données sont chiffrés avec Azure Disk Encryption. [Apprenez-en davantage sur les machines virtuelles Azure chiffrées et le service Sauvegarde Azure](./backup-azure-vms-encryption.md).
+* Les données de sauvegarde sont automatiquement chiffrées à l’aide de [clés gérées par Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), et vous n’avez pas besoin d’effectuer d’action explicite pour activer le chiffrement. Vous pouvez également chiffrer vos données sauvegardées à l’aide de [clés gérées par le client](encryption-at-rest-with-cmk.md) stockées dans Azure Key Vault. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
+
+* Le service Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles Azure dont les disques de système d’exploitation ou de données sont chiffrés avec [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) et des [machines virtuelles avec des disques chiffrés par clé CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Pour plus d’informations, [apprenez-en davantage sur les machines virtuelles Azure chiffrées et le service Sauvegarde Azure](./backup-azure-vms-encryption.md).
+
+* Lorsque les données sont sauvegardées à partir de serveurs locaux avec l’agent MARS, les données sont chiffrées à l’aide d’une phrase secrète avant le chargement vers la sauvegarde Azure et déchiffrées uniquement après avoir été téléchargées à partir de la sauvegarde Azure. En savoir plus sur les [fonctionnalités de sécurité pour la protection de sauvegardes hybrides](#security-features-to-help-protect-hybrid-backups).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protection des données de sauvegarde contre les suppressions involontaires
 

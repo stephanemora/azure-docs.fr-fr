@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080724"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utiliser IDENTITY pour créer des clés de substitution dans le pool SQL Synapse
 
@@ -24,7 +24,7 @@ Dans cet article, vous trouverez des recommandations et exemples d’utilisation
 
 ## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
 
-Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
+Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement. La propriété IDENTITY présente certaines limitations, comme indiqué dans [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). L’une des limitations d’IDENTITY est qu’il n’est pas garanti qu’elle soit unique. Désactiver IDENTITY INSERT et ne pas réamorcer la valeur d’identité entraîne des valeurs plus uniques, mais ne garantit pas l’unicité dans toutes les situations. Si vous ne pouvez pas utiliser les valeurs d'identité en raison de ces restrictions sur IDENTITY, créez une table distincte contenant une valeur actuelle et gérez l'accès à la table et l'affectation de numéro dans votre application. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Création d’une table avec une colonne IDENTITY
 
@@ -50,7 +50,7 @@ Le reste de cette section met en évidence les nuances de l’implémentation po
 
 ### <a name="allocation-of-values"></a>Allocation de valeurs
 
-La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans le pool SQL Synapse, l’absence de garantie est plus marquée.
+La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont allouées en raison de l’architecture distribuée de l’entrepôt de données. La propriété IDENTITY est conçue pour effectuer un scale-out sur toutes les distributions du pool SQL Synapse sans perturber les performances de chargement. 
 
 L’exemple suivant en est une illustration :
 

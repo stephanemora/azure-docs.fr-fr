@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044513"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319352"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources
 
@@ -59,7 +59,7 @@ Les journaux d’activité sont activés par défaut et proposent des informatio
 
 Il est vivement conseillé d’activer les journaux de ressources et de les envoyer aux journaux Azure Monitor. Ils sont **désactivés** par défaut. Pour les activer, suivez ces étapes :
 
-1.  [Créez un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) si vous n’en avez pas déjà un. Il est recommandé d’avoir votre espace de travail Log Analytics dans la même région que votre travail Stream Analytics.
+1.  Créez un espace de travail Log Analytics si vous n’en avez pas déjà un. Il est recommandé d’avoir votre espace de travail Log Analytics dans la même région que votre travail Stream Analytics.
 
 2.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Supervision**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
 
@@ -138,12 +138,9 @@ Nom | Description
 Error | (facultatif) Informations sur l’erreur, en général des informations sur l’exception si celles-ci sont disponibles.
 Message| Message de journal.
 Type | Type de message, correspond à la catégorisation interne des erreurs. Par exemple, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
-ID de corrélation : | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) qui identifie de façon unique l’exécution du travail. Toutes les entrées du journal d’exécution générées depuis le démarrage du travail jusqu’à son arrêt ont le même **ID de corrélation**.
+ID de corrélation : | GUID qui identifie de façon unique l’exécution du travail. Toutes les entrées du journal d’exécution générées depuis le démarrage du travail jusqu’à son arrêt ont le même **ID de corrélation**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main de Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)
-* [Informations de référence sur le langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Erreurs de données Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Informations de référence sur le langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

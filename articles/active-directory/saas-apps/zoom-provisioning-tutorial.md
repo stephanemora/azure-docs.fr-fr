@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016257"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zoom pour l’approvisionnement automatique d’utilisateurs
 
@@ -153,6 +153,9 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 * Zoom n’autorise aujourd’hui qu’un maximum de 9 999 utilisateurs de base.
+
+## <a name="change-log"></a>Journal des modifications
+* 14/05/2020 - Prise en charge des opérations UPDATE ajoutée pour l’attribut emails[type eq "work"].
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

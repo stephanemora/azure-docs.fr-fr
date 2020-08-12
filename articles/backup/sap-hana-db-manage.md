@@ -3,18 +3,18 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049466"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
-Cet article décrit les tâches courantes de gestion et de supervision des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure et sauvegardées dans un coffre Recovery Services par le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview). Vous apprendrez à superviser des travaux et des alertes, déclencher une sauvegarde à la demande, modifier des stratégies, arrêter et reprendre la protection de la base de données, ainsi que désinscrire une machine virtuelle des sauvegardes.
+Cet article décrit les tâches courantes de gestion et de supervision des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure et sauvegardées dans un coffre Recovery Services par le service [Sauvegarde Azure](./backup-overview.md). Vous apprendrez à superviser des travaux et des alertes, déclencher une sauvegarde à la demande, modifier des stratégies, arrêter et reprendre la protection de la base de données, ainsi que désinscrire une machine virtuelle des sauvegardes.
 
-Si vous n’avez pas encore configuré de sauvegardes pour vos bases de données SAP HANA, consultez [Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Si vous n’avez pas encore configuré de sauvegardes pour vos bases de données SAP HANA, consultez [Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Surveiller les travaux de sauvegarde manuelles sur le portail
 
@@ -26,7 +26,7 @@ Les travaux que vous voyez sur ce portail incluent les opérations de découvert
 
 ![Liste des travaux de sauvegarde](./media/sap-hana-db-manage/backup-jobs-list.png)
 
-Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) et [Supervision à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail Azure](./backup-azure-monitoring-built-in-monitor.md) et [Supervision à l’aide d’Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="view-backup-alerts"></a>Afficher les alertes de sauvegarde
 
@@ -51,7 +51,7 @@ Aujourd’hui, Sauvegarde Azure permet d’envoyer des alertes par e-mail. Ces a
 * Consolidées au niveau de la base de données par code d’erreur.
 * Envoyées uniquement pour le premier échec de sauvegarde d’une base de données.
 
-Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) et [Supervision à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail Azure](./backup-azure-monitoring-built-in-monitor.md) et [Supervision à l’aide d’Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="management-operations"></a>Opérations de gestion
 
@@ -63,7 +63,7 @@ Les sauvegardes s’exécutent conformément à la planification de la stratégi
 
 1. Dans le menu du coffre, cliquez sur **Éléments de sauvegarde**.
 2. Dans **Éléments de sauvegarde**, sélectionnez la machine virtuelle exécutant la base de données SAP HANA, puis cliquez sur **Sauvegarder maintenant**.
-3. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Cliquez ensuite sur **OK**.
+3. Dans **Sauvegarder maintenant**, choisissez le type de sauvegarde que vous souhaitez effectuer. Cliquez ensuite sur **OK**. Cette sauvegarde sera conservée en fonction de la stratégie associée à cet élément de sauvegarde.
 4. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre base de données, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ### <a name="hana-native-client-integration"></a>Intégration du client natif HANA
@@ -74,7 +74,7 @@ Les sauvegardes à la demande déclenchées à partir d’un des clients natifs 
 
 ![Dernières sauvegardes exécutées](./media/sap-hana-db-manage/last-backups.png)
 
-Vous pouvez également [surveiller ces sauvegardes](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) dans la page **Travaux de sauvegarde**.
+Vous pouvez également [surveiller ces sauvegardes](#monitor-manual-backup-jobs-in-the-portal) dans la page **Travaux de sauvegarde**.
 
 Ces sauvegardes complètes figurent aussi dans la liste des points de restauration pour restauration.
 
@@ -82,7 +82,7 @@ Ces sauvegardes complètes figurent aussi dans la liste des points de restaurati
 
 #### <a name="restore"></a>Restaurer
 
-Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
+Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données pour laquelle la sauvegarde Azure est activée
 
@@ -116,7 +116,7 @@ Vous pouvez changer la stratégie sous-jacente d’un élément de sauvegarde SA
 
   ![Sélectionnez une stratégie de sauvegarde existante.](./media/sap-hana-db-manage/existing-backup-policy.png)
 
-* Changez la stratégie en choisissant dans la liste. [Créez une nouvelle stratégie de sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) si nécessaire.
+* Changez la stratégie en choisissant dans la liste. [Créez une nouvelle stratégie de sauvegarde](./backup-azure-sap-hana-database.md#create-a-backup-policy) si nécessaire.
 
   ![Choisir la stratégie dans la liste déroulante](./media/sap-hana-db-manage/choose-backup-policy.png)
 
@@ -198,7 +198,7 @@ Pour arrêter la protection de la base de données :
 
 ### <a name="resume-protection-for-an-sap-hana-database"></a>Reprendre la protection d’une base de données SAP HANA
 
-Lorsque vous arrêtez la protection de la base de données SAP HANA, si vous sélectionnez l’option **Conserver les données de sauvegarde**, vous pourrez reprendre la protection ultérieurement. Si vous ne conservez pas les données sauvegardées, vous ne pourrez pas reprendre la protection.
+Lorsque vous arrêtez la protection de la base de données SAP HANA, si vous sélectionnez l’option **Conserver les données de sauvegarde**, vous pourrez reprendre la protection ultérieurement. Si vous ne conservez pas les données de sauvegarde, vous ne pourrez pas réactiver la protection.
 
 Pour reprendre la protection d’une base de données SAP HANA :
 
@@ -242,4 +242,4 @@ Utilisez cette option avec prudence, car une fois déclenchée sur une machine v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [résoudre les problèmes courants lors de la sauvegarde de bases de données SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot).
+* Découvrez comment [résoudre les problèmes courants lors de la sauvegarde de bases de données SAP HANA](./backup-azure-sap-hana-database-troubleshoot.md).

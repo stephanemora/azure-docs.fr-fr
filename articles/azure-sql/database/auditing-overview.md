@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276309"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040589"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Vous pouvez configurer l’audit pour différents types d’actions et groupes d
 L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de données pour des champs de caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
+  > [!NOTE]
+  > L’activation de l’audit sur un pool Synapse SQL suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool Synapse SQL. En savoir plus sur le [pool SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server**.
 3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans la page d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
@@ -119,10 +122,6 @@ Pour configurer l’écriture des journaux d’audit dans un espace de travail L
 Pour plus d’informations sur les espaces de travail de journaux Azure Monitor, consultez [Conception d’un déploiement de journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
-
-> [!WARNING]
-> L’activation de l’audit sur un serveur disposant d’un pool SQL Database **entraîne la reprise et la remise en pause du pool SQL Database**, ce qui peut donner lieur à des frais de facturation.
-> L’activation de l’audit sur un pool SQL Database suspendu n’est pas possible. Pour l’activer, annulez l’interruption du pool SQL Database.
 
 Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)** , puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 

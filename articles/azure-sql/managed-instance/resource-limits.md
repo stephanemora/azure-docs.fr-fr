@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086827"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ SQL Managed Instance prend actuellement en charge le déploiement uniquement sur
 ## <a name="regional-resource-limitations"></a>Limitations des ressources régionales
 
 > [!Note]
-> Pour obtenir les dernières informations sur la disponibilité des régions pour les abonnements, consultez tout d’abord le [billet de blog officiel sur la COVID-19](https://aka.ms/sqlcapacity).
+> Pour obtenir les dernières informations sur la disponibilité des régions pour les abonnements, veuillez d’abord [sélectionner une région](https://aka.ms/sqlcapacity).
 
 Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. SQL Managed Instance a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](../database/quota-increase-request.md)) en fonction du type d’abonnement :
 

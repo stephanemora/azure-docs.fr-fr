@@ -4,12 +4,12 @@ description: Vous prévient en cas de modifications inhabituelles du taux d’é
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315935"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420207"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](./app-insights-overview.md) vous alerte automatiquement en quasi temps réel si votre application web enregistre une hausse anormale du taux de requêtes ayant échoué. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les requêtes ayant échoué ont généralement un code de réponse supérieur ou égal à 400. Pour vous aider à trier et diagnostiquer les causes du problème, les détails de l’alerte s’accompagnent d’une analyse des caractéristiques des échecs et des données d’application associées. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -20,7 +20,7 @@ Après que vous avez configuré [Application Insights pour votre projet](./app-
 
 Voici un exemple d’alerte :
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 Les détails de l’alerte indiquent :
 
@@ -72,11 +72,11 @@ Cette règle d’alerte est créée avec un [groupe d’actions](../platform/act
 
 Ouvrez la page Alertes. Les règles d’alerte Anomalies des échecs sont affichées avec les alertes que vous avez définies manuellement, et vous pouvez savoir si elle se trouve actuellement à l’état d’alerte.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Dans la page de la ressource Application Insights, cliquez sur la vignette « Alertes », puis sur « Gérer les règles d’alerte »." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Cliquez sur l’alerte pour la configurer.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Écran de configuration des règles." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Notez que vous pouvez désactiver ou supprimer une règle Anomalies des échecs, mais que vous ne pouvez pas en créer une autre sur la même ressource Application Insights.
 
@@ -298,7 +298,7 @@ Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), acc�
 
 Vous pouvez cliquer sur « Diagnostiquer les échecs » pour obtenir plus de détails et résoudre le problème plus aisément.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Recherche de diagnostic." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 78,5 % est comparé à un taux normal de 2,2 %, ce qui indique un problème. En revanche, seuls 46 utilisateurs ont été impactés. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
 
@@ -306,13 +306,13 @@ Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidem
 
 Dans cet exemple, une exception est survenue dans SQL Database à cause du dépassement de la limite de requêtes.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Détails des requêtes ayant échoué." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Consulter les alertes récentes
 
 Cliquez sur **Alertes** dans la page de ressources Application Insights pour accéder aux alertes déclenchées les plus récentes :
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Résumé des alertes." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Quelle est la différence ?
 La détection intelligente des anomalies de type échec vient compléter d’autres fonctionnalités d’Application Insights similaires, mais distinctes.

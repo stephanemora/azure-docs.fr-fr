@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Utiliser une stratégie de contrôle d’accès
           href: group-permissions-for-apps.md
+        - name: Résolution des problèmes d’accès
+          href: troubleshooting-access-issues.md
     - name: Développer
       items:
         - name: Guide du développeur de coffre de clés Azure

@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281155"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499175"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurer et gérer l’authentification Azure AD avec Azure SQL
 
@@ -360,7 +360,7 @@ SQL Managed Instance prenant en charge les principaux de serveur Azure AD (conne
 Toutefois, l’utilisation de l’authentification Azure Active Directory avec SQL Database et Azure Synapse requiert le recours à des utilisateurs de base de données autonome basés sur une identité Azure AD. Un utilisateur de base de données autonome ne dispose pas de connexion dans la base de données MASTER et est mappé à une identité dans Azure AD associée à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Il n’est pas possible de créer des utilisateurs de base de données (à l’exception d’administrateurs) via le portail Azure. Les rôles RBAC ne sont pas propagés à la base de données dans SQL Database, SQL Managed Instance ou Azure Synapse. Les rôles RBAC Azure sont utilisés pour la gestion des ressources Azure et ne s’appliquent pas aux autorisations de base de données. Par exemple, le rôle **Contributeur SQL Server** ne permet pas de se connecter à la base de données dans SQL Database, SQL Managed Instance ou Azure Synapse. L’accès doit être accordé directement dans la base de données à l’aide d’instructions Transact-SQL.
+> Il n’est pas possible de créer des utilisateurs de base de données (à l’exception d’administrateurs) via le portail Azure. Les rôles Azure ne sont pas propagés à la base de données dans SQL Database, SQL Managed Instance ou Azure Synapse. Les rôles Azure sont utilisés pour la gestion des ressources Azure et ne s’appliquent pas aux autorisations de base de données. Par exemple, le rôle **Contributeur SQL Server** ne permet pas de se connecter à la base de données dans SQL Database, SQL Managed Instance ou Azure Synapse. L’accès doit être accordé directement dans la base de données à l’aide d’instructions Transact-SQL.
 
 > [!WARNING]
 > Les caractères spéciaux comme le deux-points `:` ou l’esperluette `&`, lorsqu’ils sont inclus dans les instructions T-SQL `CREATE LOGIN` et `CREATE USER`, ne sont pas pris en charge.
@@ -544,4 +544,3 @@ Vous trouverez des conseils pour résoudre les problèmes liés à l’authentif
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

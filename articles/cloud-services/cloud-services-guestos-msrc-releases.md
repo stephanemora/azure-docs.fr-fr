@@ -10,21 +10,74 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/12/2020
+ms.date: 7/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002877"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
+## <a name="july-2020-guest-os"></a>Système d’exploitation invité, juillet 2020
+>[!NOTE]
+>Le système d’exploitation invité de juillet est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’avril. Cette liste est susceptible d’être modifiée.
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | 14 juillet 2020 |
+|  Version 20-07 |  [4565511]  |  Dernière mise à jour cumulative (LCU) | 5.45 | 14 juillet 2020 |
+|  Version 20-07 |  [4558998]  |  Dernière mise à jour cumulative (LCU) | 6.21 | 14 juillet 2020 |
+|  Version 20-07 |  [4565524]  |  Correctif cumulatif mensuel | 2.100 | 14 juillet 2020 |
+|  Version 20-07 |  [4565616]  |  Correctif cumulatif mensuel | 2.100 | 16 juillet 2020 |
+|  Version 20-07 |  [4565354]  |  Mise à jour de la pile de maintenance | 2.100 | 14 juillet 2020 |
+|  Version 20-07 |  [4565612]  |  Correctif cumulatif mensuel | 2.100 | 14 juillet 2020 |
+|  Version 20-07 |  [4565615]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
+|  Version 20-07 |  [4566426]  |  Mise à jour de la pile de maintenance | 3.87 | 14 juillet 2020 |
+|  Version 20-07 |  [4565537]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
+|  Version 20-07 |  [4565610]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
+|  Version 20-07 |  [4565541]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
+|  Version 20-07 |  [4566425]  |  Mise à jour de la pile de maintenance | 4,80 | 14 juillet 2020 |
+|  Version 20-07 |  [4565614]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
+|  Version 20-07 |  [4565613]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
+|  Version 20-07 |  [4565912]  |  Mise à jour de la pile de maintenance | 5.45 | 14 juillet 2020 |
+|  Version 20-07 |  [4565628]  |  Correctif cumulatif mensuel | 5.45 | 14 juillet 2020 |
+|  Version 20-07 |  [4494175]  |  Microcode | 5.45 | 25 février 2020 |
+|  Version 20-07 |  [4565632]  |  Correctif cumulatif mensuel | 6.21 | 14 juillet 2020 |
+|  Version 20-07 |  [4558997]  |  Mise à jour de la pile de maintenance | 6.21 | 14 juillet 2020 |
+|  Version 20-07 |  [4494174]  |  Microcode | 6.21 | 25 février 2020 |
+
+
+[4565479]: https://support.microsoft.com/kb/4565479
+[4565511]: https://support.microsoft.com/kb/4565511
+[4558998]: https://support.microsoft.com/kb/4558998
+[4565524]: https://support.microsoft.com/kb/4565524
+[4565616]: https://support.microsoft.com/kb/4565616
+[4565354]: https://support.microsoft.com/kb/4565354
+[4565612]: https://support.microsoft.com/kb/4565612
+[4565615]: https://support.microsoft.com/kb/4565615
+[4566426]: https://support.microsoft.com/kb/4566426
+[4565537]: https://support.microsoft.com/kb/4565537
+[4565610]: https://support.microsoft.com/kb/4565610
+[4565541]: https://support.microsoft.com/kb/4565541
+[4566425]: https://support.microsoft.com/kb/4566425
+[4565614]: https://support.microsoft.com/kb/4565614
+[4565613]: https://support.microsoft.com/kb/4565613
+[4565912]: https://support.microsoft.com/kb/4565912
+[4565628]: https://support.microsoft.com/kb/4565628
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565632]: https://support.microsoft.com/kb/4565632
+[4558997]: https://support.microsoft.com/kb/4558997
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="june-2020-guest-os"></a>Système d’exploitation invité, juin 2020
-">[!NOTE]
->Le système d’exploitation invité de juin est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’avril. Cette liste est soumise à modification. »
+>[!NOTE]
+>Le système d’exploitation invité de juin est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’avril. Cette liste est susceptible d’être modifiée.
 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

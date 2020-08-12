@@ -1,16 +1,16 @@
 ---
 title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512251"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421097"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Intégrer Azure Event Hubs à Azure Private Link
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
 
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
@@ -26,9 +26,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](.
 > Les services Microsoft de confiance ne sont pas pris en charge lors de l’utilisation de réseaux virtuels.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor (paramètre de diagnostic)
 > - Azure Stream Analytics
-> - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
 >
@@ -44,7 +42,7 @@ Pour intégrer un espace de noms Event Hubs à Azure Private Link, vous avez bes
 
 - Un espace de noms Event Hubs.
 - Un réseau virtuel Azure.
-- Un sous-réseau dans le réseau virtuel.
+- Un sous-réseau dans le réseau virtuel. Vous pouvez utiliser le sous-réseau **par défaut**. 
 - Des autorisations de propriétaire ou de contributeur à la fois pour l’espace de noms et le réseau virtuel.
 
 Votre point de terminaison privé et votre réseau virtuel doivent se trouver dans la même région. Au moment de sélectionner la région du point de terminaison privé sur le portail, les réseaux virtuels qui se trouvent dans cette région sont filtrés automatiquement. Votre espace de noms peut se trouver dans une autre région.
@@ -57,10 +55,15 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Dans la barre de recherche, tapez **event hubs**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
-4. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**.
+4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**.
 
     > [!NOTE]
     > L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **standard** ou **dédiés**. 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous ne spécifiez pas de règle de pare-feu IP ou n’ajoutez pas de réseau virtuel, l’espace de noms est accessible via l’Internet public. 
 1. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. 
 1. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 

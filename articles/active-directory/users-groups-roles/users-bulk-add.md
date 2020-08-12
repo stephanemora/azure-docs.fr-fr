@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423607"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Créer des utilisateurs en bloc dans Azure Active Directory
 
@@ -48,6 +48,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 - Les colonnes obligatoires sont listées en premier.
 - Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
 - Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
+- Veillez à vérifier l’absence d’espace blanc avant/après chaque champ. Pour **Nom d’utilisateur principal**, ce type d’espace peut entraîner un échec lors de l’importation.
 
 ## <a name="to-create-users-in-bulk"></a>Pour créer des utilisateurs en bloc
 
@@ -59,7 +60,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à créer. Les seules valeurs obligatoires sont **Nom**, **Nom d’utilisateur principal**, **Mot de passe initial** et **Bloquer la connexion (Oui/Non)** . Puis enregistrez le fichier.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![Le fichier CSV contient les noms et les ID des utilisateurs à créer](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Dans la page **Créer des utilisateurs en bloc**, sous Charger votre fichier CSV, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur **Envoyer**, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
@@ -72,7 +73,7 @@ Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier 
 
 Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc**.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Vérifier l’état de la création dans la page Résultats de l’opération en bloc](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Ensuite, vous pouvez vérifier que les utilisateurs que vous avez créés existent bien au sein de l’organisation Azure AD via le portail Azure ou à l’aide de PowerShell.
 

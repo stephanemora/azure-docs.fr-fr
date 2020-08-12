@@ -1,6 +1,6 @@
 ---
-title: Mettre à jour des modèles de machine learning à l’aide d’Azure Data Factory
-description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et de l’apprentissage automatique.
+title: Mettre à jour des modèles Azure Machine Learning Studio (classique) à l’aide d’Azure Data Factory
+description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning Studio (classique)
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -10,34 +10,34 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2018
-ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 07/16/2020
+ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092539"
 ---
-# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Mettre à jour des modèles ML Studio (classique) à l’aide de l’activité des ressources de mise à jour
+# <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning Studio (classique) à l’aide de l’activité des ressources de mise à jour
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article vient compléter l’article principal sur l’intégration Azure Data Factory - ML Studio (classique) : [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article.
+Cet article vient compléter l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning Studio (classique) : [Créez un pipeline prédictif à l’aide d’Azure Machine Learning Studio (classique) et Azure Data Factory](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article.
 
 ## <a name="overview"></a>Vue d’ensemble
-Dans le cadre du processus de mise en place de modèles ML Studio (classique), votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
+Dans le cadre du processus de mise en place de modèles Azure Machine Learning Studio (classique), votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
 
-Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. 
+Les modèles que vous créez à l’aide d’Azure Machine Learning Studio (classique) ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. 
 
-Il peut être très fréquent d’avoir à effectuer à nouveau l’apprentissage du modèle. Avec l’activité d’exécution par lot et l’activité des ressources de mise à jour, vous pouvez mettre en place le modèle Azure Machine Learning qui reforme et met à jour le service web prédictif à l’aide de Data Factory.
+Il peut être très fréquent d’avoir à effectuer à nouveau l’apprentissage du modèle. Avec l’activité d’exécution par lot et l’activité des ressources de mise à jour, vous pouvez mettre en place le modèle Azure Machine Learning Studio (classique) qui reforme et met à jour le service web prédictif à l’aide de Data Factory.
 
 L’image suivante illustre la relation entre les services web d’apprentissage et de prévision.
 
 ![SERVICES WEB](./media/update-machine-learning-models/web-services.png)
 
-## <a name="ml-studio-classic-update-resource-activity"></a>Activité des ressources de mise à jour ML Studio (classique)
+## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Activité de ressource de mise à jour Azure Machine Learning Studio (classique)
 
-L’extrait de code JSON suivant définit une activité d’exécution par lot ML Studio (classique).
+L’extrait de code JSON suivant définit une activité d’exécution par lot Azure Machine Learning Studio (classique).
 
 ```json
 {
@@ -63,8 +63,8 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot M
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nom de l’activité dans le pipeline     | Oui      |
 | description                   | Texte décrivant l’activité.  | Non       |
-| type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | Oui      |
-| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | Oui      |
+| type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning Studio (classique), le type d’activité est **AzureMLUpdateResource**. | Oui      |
+| linkedServiceName             | Service lié Azure Machine Learning Studio (classique) qui contient la propriété updateResourceEndpoint. | Oui      |
 | trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | Oui      |
 | trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
 | trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
@@ -73,17 +73,17 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot M
 
 L’ensemble du processus de mise en place de la reformation d’un modèle et de la mise à jour des services web prédictifs implique les étapes suivantes :
 
-- Appelez le **service web de formation** à l’aide de l’**activité d’exécution par lot**. Un appel de service web de formation est identique à un appel de service web prédictif décrit dans [Créer des pipelines prédictifs avec Azure Machine Learning et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La sortie du service web de formation est un fichier iLearner que vous pouvez utiliser pour mettre à jour le service web prédictif.
+- Appelez le **service web de formation** à l’aide de l’**activité d’exécution par lot**. Un appel de service web de formation est identique à un appel de service web prédictif décrit dans [Créer des pipelines prédictifs avec Azure Machine Learning Studio (classique) et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La sortie du service web de formation est un fichier iLearner que vous pouvez utiliser pour mettre à jour le service web prédictif.
 - Appelez le **point de terminaison des ressources de mise à jour** du **service web prédictif** à l’aide de l’**activité des ressources de mise à jour** pour mettre à jour le service web avec le modèle qui vient d’être formé.
 
-## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Service lié Azure Machine Learning Studio (classique)
 
-Pour que le flux de travail de bout en bout mentionné ci-dessus fonctionne, vous devez créer deux services lié Azure Machine Learning :
+Pour que le flux de travail de bout en bout mentionné ci-dessus fonctionne, vous devez créer deux services liés Azure Machine Learning Studio (classique) :
 
-1. Un service lié Azure Machine Learning pour le service web d’apprentissage. Ce service lié est utilisé par l’activité d’exécution par lot de la même façon que ce qui est mentionné dans [Créer des pipelines prédictifs avec Azure Machine Learning et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La différence est que la sortie du service web d’apprentissage est un fichier iLearner qui est ensuite utilisé par l’activité des ressources de mise à jour pour mettre à jour le service web prédictif.
-2. Un service lié Azure Machine Learning pour le point de terminaison des ressources de mise à jour du service web prédictif. Ce service lié est utilisé par l’activité des ressources de mise à jour pour mettre à jour le service web prédictif à l’aide du fichier iLearner retourné par l’étape ci-dessus.
+1. Un service lié Azure Machine Learning Studio (classique) pour le service web d’apprentissage. Ce service lié est utilisé par l’activité d’exécution par lot de la même façon que ce qui est mentionné dans [Créer des pipelines prédictifs avec Azure Machine Learning Studio (classique) et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La différence est que la sortie du service web d’apprentissage est un fichier iLearner qui est ensuite utilisé par l’activité des ressources de mise à jour pour mettre à jour le service web prédictif.
+2. Un service lié Azure Machine Learning Studio (classique) pour le point de terminaison des ressources de mise à jour du service web prédictif. Ce service lié est utilisé par l’activité des ressources de mise à jour pour mettre à jour le service web prédictif à l’aide du fichier iLearner retourné par l’étape ci-dessus.
 
-Pour le second service lié Azure Machine Learning, la configuration est différente quand votre service web Azure Machine Learning est un service web classique ou un nouveau service web. Les différences sont expliquées distinctement dans les sections suivantes.
+Pour le second service lié Azure Machine Learning Studio (classique), la configuration est différente quand votre service web Azure Machine Learning Studio (classique) est un service web classique ou un nouveau service web. Les différences sont expliquées distinctement dans les sections suivantes.
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Le service web est un nouveau service web Azure Resource Manager
 
@@ -93,7 +93,7 @@ Si le service web est un nouveau type de service web qui expose un point de term
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
-Vous pouvez obtenir des valeurs pour les espaces réservés dans l’URL lors de l’interrogation du service web sur le [portail des services web Azure Machine Learning](https://services.azureml.net/).
+Vous pouvez obtenir des valeurs pour les espaces réservés dans l’URL lors de l’interrogation du service web sur le [portail des services web Azure Machine Learning Studio (classique)](https://services.azureml.net/).
 
 Le nouveau type de point de terminaison des ressources de mise à jour exige une authentification du principal du service. Pour utiliser une authentification du principal du service, inscrivez une entité d’application dans Azure Active Directory (Azure AD) et octroyez-lui le rôle de **contributeur** ou de **propriétaire** de l’abonnement ou du groupe de ressources auquel le service web appartient. Consultez [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md) (comment créer le principal de service et affecter des autorisations de gestion de ressources Azure). Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
@@ -127,18 +127,18 @@ Voici un exemple de définition de service lié :
 }
 ```
 
-Le scénario suivant fournit plus de détails. Il présente un exemple de réentraînement et de mise à jour de modèles Machine Learning Studio à partir d’un pipeline Azure Data Factory.
+Le scénario suivant fournit plus de détails. Il présente un exemple de réentraînement et de mise à jour de modèles Machine Learning Studio (classique) à partir d’un pipeline Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemple : Réentraînement et mise à jour d’un modèle Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-studio-classic-model"></a>Exemple : Réentraînement et mise à jour d’un modèle Azure Machine Learning Studio (classique)
 
-Cette section fournit un exemple de pipeline qui utilise **l’activité d’exécution par lot Azure Machine Learning Studio** pour réentraîner un modèle. Le pipeline utilise également l’**activité des ressources de mise à jour Azure Machine Learning Studio** pour mettre à jour le modèle dans le service web de notation. La section fournit également des extraits de code JSON pour tous les services liés, jeux de données et éléments de pipeline dans l’exemple.
+Cette section fournit un exemple de pipeline qui utilise **l’activité d’exécution par lot Azure Machine Learning Studio (classique)** pour réentraîner un modèle. Le pipeline utilise également l’**activité des ressources de mise à jour Azure Machine Learning Studio (classique)** pour mettre à jour le modèle dans le service web de notation. La section fournit également des extraits de code JSON pour tous les services liés, jeux de données et éléments de pipeline dans l’exemple.
 
 ### <a name="azure-blob-storage-linked-service"></a>Service lié Azure Blob Storage :
 Azure Storage contient les données suivantes :
 
-* Données de formation. Les données d’entrée pour le service web d’entraînement Azure Machine Learning Studio.
-* Fichier iLearner. La sortie du service web d’entraînement Azure Machine Learning Studio. Ce fichier est également l’entrée de l’activité des ressources de mise à jour.
+* Données de formation. Les données d’entrée pour le service web d’entraînement Azure Machine Learning Studio (classique).
+* Fichier iLearner. La sortie du service web d’entraînement Azure Machine Learning Studio (classique). Ce fichier est également l’entrée de l’activité des ressources de mise à jour.
 
 Voici la définition d’exemple JSON du service lié :
 
@@ -154,8 +154,8 @@ Voici la définition d’exemple JSON du service lié :
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-studio-training-endpoint"></a>Service lié pour le point de terminaison d’entraînement Azure Machine Learning Studio
-L’extrait de code JSON suivant définit un service lié Azure Machine Learning qui pointe vers le point de terminaison par défaut du service web de formation.
+### <a name="linked-service-for-azure-machine-learning-studio-classic-training-endpoint"></a>Service lié pour le point de terminaison d’entraînement Azure Machine Learning Studio (classique)
+L’extrait de code JSON suivant définit un service lié Azure Machine Learning Studio (classique) qui pointe vers le point de terminaison par défaut du service web de formation.
 
 ```JSON
 {
@@ -170,16 +170,16 @@ L’extrait de code JSON suivant définit un service lié Azure Machine Learning
 }
 ```
 
-Dans **Azure Machine Learning Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey** :
+Dans **Azure Machine Learning Studio (classique)** , procédez comme suit afin d’obtenir les valeurs pour **mlEndpoint** et **apiKey** :
 
 1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
 2. Cliquez sur le **service web de formation** dans la liste des services web.
 3. Cliquez sur Copier regard de la zone de texte **Clé API** . Collez la clé copiée dans l’éditeur JSON Data Factory.
-4. Dans le **Azure Machine Learning Studio**, cliquez sur le lien **EXÉCUTION PAR LOT**.
+4. Dans **Azure Machine Learning Studio (classique)** , cliquez sur le lien **EXÉCUTION PAR LOTS**.
 5. Copiez l’**URI de demande** à partir de la section **Demande**, et collez-le dans l’éditeur JSON Data Factory.
 
-### <a name="linked-service-for-azure-machine-learning-studio-updatable-scoring-endpoint"></a>Service lié pour le point de terminaison de notation pouvant être mis à jour Azure Machine Learning Studio :
-L’extrait de code JSON suivant définit un service lié Azure Machine Learning qui pointe vers le point de terminaison pouvant être mis à jour du service web de notation.
+### <a name="linked-service-for-azure-machine-learning-studio-classic-updatable-scoring-endpoint"></a>Service lié pour le point de terminaison de notation pouvant être mis à jour Azure Machine Learning Studio (classique) :
+L’extrait de code JSON suivant définit un service lié Azure Machine Learning Studio (classique) qui pointe vers le point de terminaison pouvant être mis à jour du service web de notation.
 
 ```JSON
 {
