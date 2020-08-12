@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/04/2020
+ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515112"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810266"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -26,22 +26,38 @@ ms.locfileid: "86515112"
 
 ## <a name="what-is-a-database-backup"></a>Qu’est-ce qu’une sauvegarde de base de données ?
 
-Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions.
+Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions. Ces sauvegardes permettent de restaurer la base de données à un point dans le temps pendant la période de rétention configurée. Si vos règles de protection des données nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](long-term-retention-overview.md) à la fois pour les bases de données uniques et mises en pool.
+
+### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
 SQL Database et SQL Managed Instance utilisent la technologie SQL Server pour créer des sauvegardes [complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) (chaque semaine), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) (toutes les 12 à 24 heures) et du [journal des transactions](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) (toutes les 5 à 10 minutes). La fréquence des sauvegardes du journal des transactions est basée sur la taille de calcul et le volume d’activité de la base de données.
 
 Quand vous restaurez une base de données, le service identifie les sauvegardes (complète, différentielle ou du journal des transactions) nécessitant une restauration.
 
-Ces sauvegardes permettent de restaurer la base de données à un point dans le temps pendant la période de rétention configurée. Les sauvegardes sont stockées en tant [qu’objets blob de stockage RA-GRS](../../storage/common/storage-redundancy.md) qui sont répliqués dans une [région jumelée](../../best-practices-availability-paired-regions.md) à des fins de protection contre les pannes ayant un impact sur le stockage de la sauvegarde dans la région principale. 
+### <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
-Si vos règles de protection des données nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](long-term-retention-overview.md) à la fois pour les bases de données uniques et mises en pool.
+> [!IMPORTANT]
+> La redondance de stockage configurable pour les sauvegardes n’est actuellement disponible que pour SQL Managed Instance et ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
+
+L’option de configuration de la redondance du stockage de sauvegarde offre la possibilité de choisir entre des [objets BLOB de stockage](../../storage/common/storage-redundancy.md) à redondance locale (LRS), redondant dans une zone (ZRS) ou géo-redondant (RA-GRS). La redondance de stockage stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. Cette fonctionnalité n’est pas disponible actuellement pour SQL Managed Instance.
+
+Les objets BLOB de stockage RA-GRS sont répliqués dans une [région couplée](../../best-practices-availability-paired-regions.md) pour se protéger contre les pannes affectant le stockage de sauvegarde dans la région primaire et vous permettent de restaurer votre serveur dans une autre région en cas de sinistre. 
+
+À l’inverse, les objets BLOB de stockage LRS et ZRS garantissent que vos données restent dans la même région où votre SQL Database ou votre Managed Instance SQL est déployée. Pour l’instant, le stockage redondant interzone (ZRS) est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> Dans SQL Managed Instance, la redondance de sauvegarde configurée est appliquée aux paramètres de rétention de sauvegarde à long terme utilisés pour la restauration dans le temps (PITR) et les sauvegardes de rétention à long terme utilisées pour les sauvegardes à long terme (LTR).
+
+### <a name="backup-usage"></a>Utilisation de la sauvegarde
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
-- [Restaurer une base de données existante à un point dans le temps situé dans le passé](recovery-using-backups.md#point-in-time-restore) pendant la période de rétention, à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Pour les bases de données uniques et mises en pool, cette opération crée une nouvelle base de données sur le même serveur que la base de données d’origine, mais sous un nom différent pour éviter de remplacer la base de données d’origine. Une fois la restauration terminée, vous pouvez supprimer ou [renommer](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) la base de données d’origine et renommer la base de données restaurée pour obtenir le nom de la base de données d’origine. Dans une instance managée, cette opération peut aussi créer une copie de la base de données sur une instance managée, identique ou non, dans le même abonnement et dans la même région.
-- [Restaurer une base de données supprimée au moment de sa suppression](recovery-using-backups.md#deleted-database-restore) ou à tout point dans le temps pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le serveur ou la même instance gérée où la base de données d’origine a été créée. Lors de la suppression d’une base de données, le service effectue une sauvegarde finale du journal des transactions avant sa suppression, afin d’éviter toute perte de données.
-- [Restaurer une base de données dans une autre région géographique](recovery-using-backups.md#geo-restore). La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre base de données ou aux sauvegardes dans la région principale. Cela crée une base de données sur un serveur ou une instance gérée existant(e), dans n’importe quelle région Azure.
-- [Restaurer une base de données à partir d’une sauvegarde à long terme spécifique](long-term-retention-overview.md) d’une base de données unique ou mise en pool, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](long-term-backup-retention-configure.md#using-the-azure-portal) ou de [Microsoft Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](long-term-retention-overview.md).
+- **Restaurer une base de données existante** - [ à un point dans le temps situé dans le passé](recovery-using-backups.md#point-in-time-restore) pendant la période de rétention, à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Pour SQL Database, cette opération crée une nouvelle base de données sur le même serveur que la base de données d’origine, mais sous un nom différent pour éviter de remplacer la base de données d’origine. Une fois la restauration terminée, vous pouvez supprimer la base de données d’origine. Vous pouvez aussi [renommer](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) la base de données d’origine et renommer la base de données restaurée pour obtenir le nom de la base de données d’origine. De même, pour SQL Managed Instance, cette opération peut aussi créer une copie de la base de données sur une instance managée, identique ou non, dans le même abonnement et dans la même région.
+- **Restaurer une base données à un instant dans le passé** - [Restaurer une base de données supprimée au moment de sa suppression](recovery-using-backups.md#deleted-database-restore) ou à tout point dans le temps pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le serveur ou la même instance gérée où la base de données d’origine a été créée. Lors de la suppression d’une base de données, le service effectue une sauvegarde finale du journal des transactions avant sa suppression, afin d’éviter toute perte de données.
+- **Géo-restaurer** - [Restaurer une base de données dans une autre région géographique](recovery-using-backups.md#geo-restore). La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre base de données ou aux sauvegardes dans la région principale. Cela crée une base de données sur un serveur ou une instance gérée existant(e), dans n’importe quelle région Azure.
+   > [!IMPORTANT]
+   > La géo-restauration est disponible uniquement pour les instances gérées avec le stockage de sauvegarde géo-redondant configuré (RA-GRS).
+- **Restaurer une base de données à partir d’une sauvegarde à long terme** - [Restaurer une base de données à partir d’une sauvegarde spécifique à long terme](long-term-retention-overview.md) d’une base de données unique ou mise en pool, si la base de données a été configurée avec une stratégie de conservation à long terme (LTR). La conservation à long terme (LTR) vous permet de restaurer une ancienne version de la base de données à l’aide du [portail Microsoft Azurel](long-term-backup-retention-configure.md#using-the-azure-portal) ou de [Microsoft Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) pour répondre à une requête de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](long-term-retention-overview.md).
 
 Pour effectuer une restauration, consultez [Restaurer une base de données à partir de sauvegardes](recovery-using-backups.md).
 
@@ -50,13 +66,13 @@ Pour effectuer une restauration, consultez [Restaurer une base de données à pa
 
 Vous pouvez essayer les opérations de configuration et de restauration de sauvegarde à l’aide des exemples suivants :
 
-| | Portail Azure | Azure PowerShell |
+| Opération | Portail Azure | Azure PowerShell |
 |---|---|---|
-| **Modifier la rétention des sauvegardes** | [Base de données unique](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [instance gérée](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de données unique](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[instance gérée](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Modifier la rétention des sauvegardes à long terme** | [Base de données unique](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instance gérée – N/A  | [Base de données unique](long-term-backup-retention-configure.md)<br/>Instance gérée – N/A  |
-| **Restaurer une base de données à partir d’un point dans le temps** | [Base de données unique](recovery-using-backups.md#point-in-time-restore) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [instance gérée](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restaurer une base de données supprimée** | [Base de données unique](recovery-using-backups.md) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [instance gérée](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restaurer une base de données à partir d’un stockage Blob Azure** | Base de données unique - N/A <br/>Instance gérée – N/A  | Base de données unique - N/A <br/>[instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Modifier la rétention des sauvegardes** | [Base de données SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de données SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Modifier la rétention des sauvegardes à long terme** | [Base de données SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance - N/A  | [Base de données SQL](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restaurer une base de données à partir d’un point dans le temps** | [Base de données SQL](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [Base de données SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurer une base de données supprimée** | [Base de données SQL](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de données SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurer une base de données à partir d’un stockage Blob Azure** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Planification de la sauvegarde
 
@@ -98,6 +114,7 @@ La consommation du stockage de sauvegarde jusqu’à la taille maximale des donn
 - Pour les opérations de chargement de données volumineuses, envisagez d’utiliser des [index columnstore en cluster](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) et de suivre les [bonnes pratiques](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) connexes, et/ou de réduire le nombre d’index non en cluster.
 - Au niveau de service Usage général, le stockage de données provisionné est moins onéreux que le prix du stockage de sauvegarde. Si vos coûts de stockage de sauvegarde sont sans cesse excessifs, vous pouvez envisager d’augmenter le stockage de données afin de réaliser des économies sur le stockage de sauvegarde.
 - Utilisez TempDB au lieu de tables permanentes dans votre logique d’application pour le stockage des résultats et/ou des données temporaires.
+- Utilisez le stockage de sauvegarde redondant localement chaque fois que cela est possible (par exemple, environnements de développement/test)
 
 ## <a name="backup-retention"></a>Rétention des sauvegardes
 
@@ -112,15 +129,13 @@ La rétention des sauvegardes à des fins de récupération jusqu’à une date 
 
 ### <a name="long-term-retention"></a>Rétention à long terme
 
-Pour des instances gérées et des bases de données uniques et mises en pool, vous pouvez configurer une conservation à long terme (LTR) des sauvegardes complètes allant jusqu’à 10 ans dans un stockage Blob Azure. Si vous activez une stratégie de conservation à long terme, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux diverses exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes complètes hebdomadaires, mensuelles et/ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes LTR et des périodes de rétention. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
-
-Comme les sauvegardes avec récupération jusqu’à une date et heure, les sauvegardes avec conservation à long terme sont protégées par un stockage géoredondant. Pour plus d’informations, consultez [Redondance de Stockage Azure](../../storage/common/storage-redundancy.md).
+Pour SQL Database et SQL Managed Instance, vous pouvez configurer une conservation à long terme (LTR) des sauvegardes complètes allant jusqu’à 10 ans dans un stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage. Pour répondre aux diverses exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes complètes hebdomadaires, mensuelles et/ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes LTR et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
 
 Pour plus d’informations sur la conservation à long terme, consultez [Conservation des sauvegardes à long terme](long-term-retention-overview.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
-Le prix du stockage varie selon que vous utilisez le modèle DTU ou le modèle vCore.
+Le prix du stockage de sauvegarde varie et dépend de votre modèle d’achat (DTU ou vCore), de l’option de redondance de stockage de sauvegarde choisie et également de votre région. Le stockage de sauvegarde est facturé par Go/mois consommés. Pour connaître la tarification, consultez la page [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) et la page [Tarification Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="dtu-model"></a>Modèle DTU
 
@@ -154,6 +169,18 @@ Les scénarios de facturation de sauvegarde réels sont plus complexes. Étant d
 
 Vous pouvez surveiller la consommation totale du stockage de sauvegarde pour chaque type de sauvegarde (complète, différentielle, journal des transactions) au fil du temps, comme décrit dans [Surveiller la consommation](#monitor-consumption).
 
+### <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
+
+La redondance du stockage de sauvegarde a un impact sur les coûts de sauvegarde de la façon suivante :
+- Prix LRS = x
+- Prix ZRS = 1.25x
+- Prix RA-GRS = 2x
+
+Pour connaître la tarification du stockage de sauvegarde, consultez la page [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) et la page [Tarification Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> La redondance de stockage configurable pour les sauvegardes n’est actuellement disponible que pour SQL Managed Instance et ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
+
 ### <a name="monitor-costs"></a>Superviser les coûts
 
 Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts**, puis sélectionnez **Analyse du coût**. Sélectionnez l’abonnement souhaité comme **Étendue**, puis filtrez la période et le service qui vous intéressent.
@@ -161,6 +188,9 @@ Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion de
 Ajoutez un filtre pour **Nom de service**, puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **single/elastic pool pitr backup storage**. Pour une instance gérée, sélectionnez **mi pitr backup storage**. Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
 
 ![Analyse du coût du stockage de sauvegarde](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Les guichets sont visibles uniquement pour les compteurs en cours d’utilisation. Si un compteur n’est pas disponible, il est probable que la catégorie ne soit pas en cours d’utilisation. Par exemple, les compteurs d’instance managée ne seront pas présents pour les clients qui n’ont pas d’instance gérée déployée. De même, les compteurs de stockage ne seront pas visibles pour les ressources qui ne consomment pas de stockage. 
 
 ## <a name="encrypted-backups"></a>Sauvegardes chiffrées
 
@@ -297,6 +327,54 @@ Code d’état : 200
 ```
 
 Pour plus d’informations, consultez [API REST de conservation des sauvegardes](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+#### <a name="sample-request"></a>Exemple de requête
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+
+#### <a name="request-body"></a>Corps de la demande
+
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
+
+#### <a name="sample-response"></a>Exemple de réponse
+
+Code d’état : 200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+Pour plus d’informations, consultez [API REST de conservation des sauvegardes](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+## <a name="configure-backup-storage-redundancy"></a>Configuration de la redondance du stockage de sauvegarde
+
+> [!NOTE]
+> La redondance de stockage configurable pour les sauvegardes n’est actuellement disponible que pour SQL Managed Instance et ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
+
+La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être réglé que lors de la création de l'instance. La valeur par défaut est le stockage géo-redondant (RA-GRS). Pour connaître les différences de tarification entre le stockage de sauvegarde redondant localement (LRS), redondant dans une zone (ZRS) et géo-redondant (RA-GRS), consultez la page [Tarification Managed instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurez la redondance du stockage de sauvegarde à l’aide du Portail Azure
+
+Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage**, accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
+![Ouvrir le panneau Calcul + Stockage](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage**.
+![Configurer la redondance du stockage de sauvegarde](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

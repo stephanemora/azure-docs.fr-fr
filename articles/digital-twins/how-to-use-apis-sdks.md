@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373236"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810409"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utiliser les API et les kits SDK Azure Digital Twins
 
@@ -43,7 +43,7 @@ Les API de plan de données sont utilisées pour gérer les éléments compris d
 * **Query** : la catégorie Query permet aux développeurs de [trouver des jeux de jumeaux numériques dans le graphe jumeau](how-to-query-graph.md) parmi les relations.
 * **EventRoutes** : la catégorie EventRoutes contient des API permettant de [router les données](concepts-route-events.md), via le système et vers les services en aval.
 
-La préversion publique la plus récente de l’API de plan de données est _**2020-05-31-preview**_.
+La préversion publique la plus récente de l’API de plan de données est _**2020-05-31-preview**_. La version d’API _2020-03-01-preview_ pour les opérations de plan de données est maintenant déconseillée.
 
 Pour utiliser les API de plan de données :
 * Vous pouvez appeler les API REST en...
@@ -284,7 +284,7 @@ Les métriques d’API, comme celles concernant les requêtes, la latence et le 
 
 Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twins pour consulter les informations la concernant. Sélectionnez l’option **Métriques** dans le menu de l’instance Azure Digital Twins pour afficher la page *Métriques*.
 
-:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins":::
 
 À partir de là, vous pouvez afficher les métriques de votre instance et créer des vues personnalisées.
 

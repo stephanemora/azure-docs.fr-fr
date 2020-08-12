@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 107b1103b5662decd8da0937ac84e0e8bab3f8eb
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307061"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760768"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 
@@ -142,7 +142,7 @@ L’exemple suivant montre comment utiliser le package d’impartialité pour t�
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Précalculez les métriques d’impartialité.
@@ -152,7 +152,7 @@ L’exemple suivant montre comment utiliser le package d’impartialité pour t�
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ L’exemple suivant montre comment utiliser le package d’impartialité pour t�
 
     Pour en savoir plus sur le tableau de bord de visualisation et son contenu, consultez le [Guide de l’utilisateur](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
 
-s## Charger des informations d’impartialité pour plusieurs modèles
+## <a name="upload-fairness-insights-for-multiple-models"></a>Charger des informations d’impartialité pour plusieurs modèles
 
 Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations d’impartialité diffèrent, vous pouvez passer plusieurs modèles au tableau de bord de visualisation et examiner leurs compromis en matière de performances.
 

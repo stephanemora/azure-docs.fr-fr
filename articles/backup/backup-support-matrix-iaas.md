@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d00f6ee8c10144a7c9fd65101dd21ccb7deeb0a6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289486"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810460"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -32,13 +32,6 @@ Sauvegarde directe de machines virtuelles Azure (Windows uniquement)  | Sauvegar
 Sauvegarder la machine virtuelle Azure sur le serveur de sauvegarde  | Sauvegarder des fichiers/dossiers/volumes ; état du système/fichiers complets ; données d’application sur System Center DPM ou sur le serveur de sauvegarde Microsoft Azure (MABS).<br/><br/> DPM/MABS effectue ensuite la sauvegarde dans le coffre de sauvegarde. | Installez l’agent de protection DPM/MABS sur la machine virtuelle. L’agent MARS est installé sur DPM/MABS.| Restaurer des fichiers/dossiers/volumes ; état du système/fichiers complets ; données d’application.
 
 En savoir plus sur la sauvegarde [à l’aide d’un serveur de sauvegarde](backup-architecture.md#architecture-back-up-to-dpmmabs) et sur les [prérequis de la prise en charge](backup-support-matrix-mabs-dpm.md).
-
->[!NOTE]
-> **Sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure.**
->
->Aujourd’hui, Azure Backup prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
->
->Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
 
 ## <a name="supported-backup-actions"></a>Actions de sauvegarde prises en charge
 
@@ -144,7 +137,7 @@ Restaurer une machine virtuelle dans un autre réseau virtuel |Pris en charge.<b
 
 **Calcul** | **Support**
 --- | ---
-Taille de la machine virtuelle |N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM.<br/><br/> [En savoir plus.](../virtual-machines/windows/sizes.md)
+Taille de la machine virtuelle |N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM.<br/><br/> [En savoir plus.](../virtual-machines/sizes.md)
 Sauvegarder des machines virtuelles dans des [groupes à haute disponibilité](../virtual-machines/availability.md#availability-sets) | Pris en charge.<br/><br/> Vous ne pouvez pas restaurer une machine virtuelle dans un groupe à haute disponibilité en utilisant l’option de création rapide d’une machine virtuelle. Au lieu de cela, quand vous restaurez la machine virtuelle, restaurez le disque et utilisez-le pour déployer une machine virtuelle, ou bien restaurez un disque et utilisez-le pour remplacer un disque existant.
 Sauvegarder des machines virtuelles déployées avec [Hybrid Use Benefit (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Pris en charge.
 Sauvegarder des machines virtuelles déployées dans un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) |Pris en charge. Le [mode d’orchestration](../virtual-machine-scale-sets/orchestration-modes.md) doit être défini sur 2 pour le domaine d'erreur. Le groupe à haute disponibilité n’est pas pris en charge.
@@ -201,7 +194,7 @@ Trafic réseau vers Azure :
 - Le trafic de sauvegarde entre les serveurs et le coffre Recovery Services est chiffré à l’aide du protocole AES (Advanced Encryption Standard) 256.
 - Les données de sauvegarde sont envoyées via une connexion HTTPS sécurisée.
 - Les données de sauvegarde sont stockées dans le coffre Recovery Services sous forme chiffrée.
-- Vous êtes le seul à connaître la phrase secrète pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
+- Vous êtes le seul à connaître la clé de chiffrement pour déverrouiller ces données. Microsoft ne peut déchiffrer les données de sauvegarde à aucun moment.
 
   > [!WARNING]
   > Une fois le coffre configuré, vous êtes le seul à avoir accès à la clé de chiffrement. Microsoft ne conserve jamais de copie de la clé de chiffrement et n’y a pas accès. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
@@ -229,7 +222,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
-Machines virtuelles Azure | NA | N/D
+Machines virtuelles Azure | N/D | N/D
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 

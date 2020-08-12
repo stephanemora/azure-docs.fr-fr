@@ -2,13 +2,13 @@
 title: Alertes métriques d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Azure Monitor pour les conteneurs en préversion publique.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094112"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563362"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertes métriques recommandées (préversion) d’Azure Monitor pour les conteneurs
 
@@ -33,7 +33,7 @@ Avant de commencer, vérifiez les éléments suivants :
 
     La valeur affichée doit être une version postérieure à **ciprod05262020**. Si votre cluster dispose d’une version antérieure, suivez les étapes de l’article [Mettre à niveau l’agent sur un cluster AKS](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) pour obtenir la dernière version.
     
-    Pour plus d’informations sur la version de l’agent, consultez l’[historique de publication des mises en production de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Pour vérifier que les métriques sont collectées, vous pouvez utiliser Azure Monitor Metrics Explorer et vérifier qu’**Insights** figure dans l’**espace de noms métrique** . Si c’est le cas, vous pouvez commencer à configurer les alertes.
+    Pour plus d’informations sur la version de l’agent, consultez l’[historique de publication des mises en production de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Pour vérifier que les métriques sont collectées, vous pouvez utiliser Azure Monitor Metrics Explorer et vérifier qu’**Insights** figure dans l’**espace de noms métrique** . Si c’est le cas, vous pouvez commencer à configurer les alertes. Si vous ne voyez aucune métrique collectée, le principal du service de cluster ou MSI ne dispose pas des autorisations nécessaires. Pour vérifier que le SPN ou MSI est membre du rôle **Éditeur de métriques d’analyse**, suivez les étapes décrites dans la section [Effectuer une mise à niveau par cluster à l’aide d’Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) pour confirmer et définir l’attribution de rôle.
 
 ## <a name="alert-rules-overview"></a>Vue d’ensemble des règles d’alerte
 

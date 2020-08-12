@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404113"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834454"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Démarrage rapide : Créer un détecteur d’objets avec Custom Vision
 
@@ -55,6 +55,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
     |---|---|
     |__Généralités__| Optimisé pour un large éventail de tâches de détection d’objets. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Generic (Général). |
     |__Logo__|Optimisé pour rechercher des logos de marque dans les images.|
+    |__Products on shelves__ (Produits en rayon)|Optimisé pour la détection et la classification des produits en rayon.|
     |__Compact Domains__ (Domaines compacts)| Optimisé en fonction des contraintes de détection d’objets en temps réel sur les appareils mobiles. Les modèles générés par les domaines compacts sont exportables pour s’exécuter localement.|
 
 1. Enfin, sélectionnez __Create project__ (Créer le projet).

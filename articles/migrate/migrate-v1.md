@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306109"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836001"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -101,7 +101,7 @@ La préparation prend en compte un certain nombre de propriétés de machine vir
 --- | --- | ---
 **Type de démarrage** | BIOS pris en charge. UEFI non prise en charge. | Préparé sous condition si le type de démarrage est UEFI.
 **Cœurs** | Cœurs de la machine <= nombre maximal de cœurs (128) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés.<br/>Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
-**Mémoire** | Taille de la mémoire de la machine <= mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) d’une machine virtuelle Azure. [Plus d’informations](../virtual-machines/windows/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée.<br/><br/>Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
+**Mémoire** | Taille de la mémoire de la machine <= mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) d’une machine virtuelle Azure. [Plus d’informations](../virtual-machines/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée.<br/><br/>Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 4 To (4 096 Go).<br/><br/> Le nombre de disques attachés à la machine doit être inférieur ou égal à 65, disque du système d’exploitation compris. | Prêt si dans les limites.
 **Mise en réseau** | Au maximum 32 cartes réseau doivent être attachées à une machine. | Prêt si dans les limites.
 
@@ -263,7 +263,7 @@ Pour les machines surveillées par System Center Operations Manager 2012 R2 ou
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Apprenez-en davantage sur la [prise en charge de l’agent de dépendances](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pour les systèmes d’exploitation Windows et Linux.
-- [En savoir plus](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
+- [En savoir plus](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
 
 >[!NOTE]
 > L’article sur Azure Monitor pour machines virtuelles mentionné qui fournit une vue d’ensemble des exigences système et des méthodes de déploiement de l’agent de dépendances est également applicable à la solution Service Map.

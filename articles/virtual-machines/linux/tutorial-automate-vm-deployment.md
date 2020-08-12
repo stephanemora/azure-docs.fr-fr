@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f1d439569f15d7680d54b35e7ec1c52ca7843af7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433015"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828963"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Didacticiel : comment utiliser cloud-init pour personnaliser une machine virtuelle Linux dans Azure au premier démarrage
 
@@ -57,7 +57,7 @@ Pour voir le cloud-init en action, créez une machine virtuelle qui installe NGI
 
 À l’invite bash ou dans Cloud Shell, créez un fichier nommé *cloud-init.txt*, puis collez la configuration suivante. Par exemple, tapez `sensible-editor cloud-init.txt` pour créer le fichier et voir la liste des éditeurs disponibles. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
-```bash
+```yaml
 #cloud-config
 package_upgrade: true
 packages:

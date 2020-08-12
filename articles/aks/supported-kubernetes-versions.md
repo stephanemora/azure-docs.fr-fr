@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507061"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475190"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -91,6 +91,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### <a name="supported-kubectl-versions"></a>Versions de `kubectl` prises en charge
+
+Vous pouvez utiliser une version mineure de `kubectl` plus ancienne ou plus récente que votre version de *kube-apiserver*, conforme à la [stratégie de prise en charge de Kubernetes pour kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+
+Par exemple, si vous avez la version *1.17* de *kube-apiserver*, vous pouvez utiliser les versions *1.16* à *1.18* de `kubectl`.
+
+Pour installer ou mettre à jour votre version de `kubectl`, exécutez `az aks install-cli`.
+
 ## <a name="release-and-deprecation-process"></a>Processus de publication et de dépréciation
 
 Pour consulter la référence sur les versions à venir et les dépréciations, consultez le [Calendrier de publication AKS Kubernetes](#aks-kubernetes-release-calendar).
@@ -120,7 +128,6 @@ Pour savoir quelles sont les versions disponibles pour vos abonnement et région
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
 ```
-
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendrier des versions d’AKS Kubernetes
 
@@ -162,13 +169,13 @@ Si un cluster ne bénéficie plus du support depuis plus de trois (3) versions 
 
 Le plan de contrôle doit se trouver dans une fenêtre de versions pour tous les pools de nœuds. Pour plus d’informations sur la mise à niveau du plan de contrôle ou des pools de nœuds, consultez la documentation sur la [mise à niveau des pools de nœuds](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-**Puis-je ignorer une version lors de la mise à niveau ?**
+**Puis-je ignorer plusieurs versions d’AKS durant la mise à niveau d’un cluster ?**
 
-Non. Suivant les meilleures pratiques de Kubernetes, AKS autorise uniquement les mises à niveau vers la version corrective ou mineure prise en charge suivante. Le Portail Azure n’affiche que les versions vers lesquelles vous pouvez effectuer la mise à niveau ; sur l’interface CLI, vous pouvez exécuter `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` pour voir les mises à niveau disponibles à partir de votre version actuelle.
+Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
 
-**Comment puis-je effectuer une mise à niveau vers une version prise en charge si j’ai plusieurs versions de retard par rapport à la dernière version prise en charge ?**
+Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 
-Pour rester dans le cadre du support, vous devez éviter d’avoir plusieurs versions de retard par rapport à la liste actuellement prise en charge. Cependant, si vous vous trouvez dans cette situation, AKS autorise toujours la mise à niveau vers la version minimale prise en charge.
+Vous pouvez ignorer plusieurs versions uniquement pour une mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

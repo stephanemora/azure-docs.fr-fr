@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080095"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830408"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Linux
 
@@ -133,4 +133,4 @@ Ce didacticiel vous a montré comment configurer Azure Security Center, puis exa
 Passez au didacticiel suivant pour en savoir plus sur la création d’un pipeline d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker.
 
 > [!div class="nextstepaction"]
-> [Créer une infrastructure d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
+> [Créer une infrastructure d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)

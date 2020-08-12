@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: 292f7b65528c13d23d4f2b72467538c43c6ad75e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172037"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829524"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutoriel : Envoyer des notifications Push à des appareils Android à l’aide du SDK Firebase version 1.0.0-preview1
 
@@ -278,7 +278,7 @@ Dans ce didacticiel, vous avez utilisé Firebase Cloud Messaging pour diffuser d
 
 La liste suivante indique certains autres tutoriels relatif à l’envoi de notifications :
 
-- Azure Mobile Apps : pour obtenir un exemple d’envoi de notifications à partir d’un back-end Mobile Apps intégré à Notification Hubs, consultez [Ajout de notifications Push à votre application iOS](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps : pour obtenir un exemple d’envoi de notifications à partir d’un back-end Mobile Apps intégré à Notification Hubs, consultez [Ajout de notifications Push à votre application iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 - ASP.NET :  [Utiliser Notification Hubs pour envoyer des notifications Push à des utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 

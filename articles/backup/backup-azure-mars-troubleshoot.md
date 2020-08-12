@@ -1,15 +1,14 @@
 ---
 title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Dans cet article, découvrez comment résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539055"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564110"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -42,7 +41,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Cause | Actions recommandées |
 | ---     | ---    |
-| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](./install-mars-agent.md#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
+| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| [Téléchargez les nouvelles informations d’identification](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) à partir du coffre Recovery Services sur le portail Azure. Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure. Sélectionnez ensuite **Inscription du serveur** dans le volet **Actions** pour effectuer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
 | **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.<br></br> Si vous êtes connecté via Azure ExpressRoute, vérifiez que les paramètres sont configurés comme indiqué dans [Support Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -75,6 +74,12 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 | Error  | Cause probable | Actions recommandées |
 | ---     | ---     | ---    |
 | <br /><ul><li>L’agent MARS n’a pas pu se connecter à Sauvegarde Microsoft Azure. (ID : 100050) Vérifiez vos paramètres réseau et assurez-vous que vous pouvez vous connecter à Internet.<li>(407) Authentification proxy requise. |Un proxy bloque la connexion. |  <ul><li>Dans Internet Explorer, accédez à **Outils** > **Options Internet** > **Sécurité** > **Internet**. Sélectionnez **Personnaliser le niveau** et faites défiler l’écran jusqu’à la section **Télécharger le fichier**. Sélectionnez **Activer**.<p>En outre, vous devez peut-être ajouter des [URL et adresses IP](install-mars-agent.md#verify-internet-access) aux sites de confiance dans Internet Explorer.<li>Modifiez les paramètres pour utiliser un serveur proxy. Fournissez ensuite les détails du serveur proxy.<li> Si votre machine a un accès à Internet limité, assurez-vous que les paramètres du pare-feu sur la machine ou le proxy autorisent ces [URL et adresses IP](install-mars-agent.md#verify-internet-access). <li>Si un logiciel antivirus est installé sur le serveur, excluez ces fichiers de l’analyse antivirus : <ul><li>CBEngine.exe (au lieu de dpmra.exe).<li>CSC.exe (lié à .NET Framework). Il existe un fichier CSC.exe pour chaque version de .NET Framework installée sur le serveur. Excluez les fichiers CSC.exe de toutes les versions de .NET Framework sur le serveur concerné. <li>L’emplacement du dossier de travail ou du cache. <br>L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Impossible d’utiliser le fichier d’informations d’identification de coffre spécifié, car il n’a pas été téléchargé à partir du coffre associé à ce serveur.
+
+| Error  | Cause probable | Actions recommandées |
+| ---     | ---     | ---    |
+| Impossible d’utiliser le fichier d’informations d’identification de coffre spécifié, car il n’a pas été téléchargé à partir du coffre associé à ce serveur. (ID : 100110) Fournissez les informations d’identification de coffre appropriées. | Le fichier d’informations d’identification de coffre provient d’un coffre différent de celui auprès duquel ce serveur est déjà inscrit. | Vérifiez que l’ordinateur cible et l’ordinateur source sont inscrits auprès du même coffre Recovery Services. Si le serveur cible a déjà été inscrit auprès d’un autre coffre, utilisez l’option **Inscription du serveur** pour vous l’inscrire auprès du coffre approprié.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Travaux de sauvegarde effectués avec des avertissements
 
@@ -229,7 +234,7 @@ Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier
 
 ### <a name="increase-shadow-copy-storage"></a>Augmenter l’espace de stockage de cliché instantané
 
-Les opérations de sauvegarde peuvent échouer si l’espace de stockage de cliché instantané est insuffisant pour protéger la source de données. Pour résoudre ce problème, augmentez l’espace de stockage de clichés instantanés sur le volume protégé à l’aide de vssadmin comme indiqué ci-dessous :
+Les opérations de sauvegarde peuvent échouer si l’espace de stockage de cliché instantané est insuffisant pour protéger la source de données. Pour résoudre ce problème, augmentez l’espace de stockage de cliché instantanés sur le volume protégé à l’aide de **vssadmin** comme illustré ci-dessous :
 
 - Vérifiez l’espace de stockage de cliché instantané actuel à partir de l’invite de commandes avec élévation de privilèges :<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
@@ -240,8 +245,8 @@ Les opérations de sauvegarde peuvent échouer si l’espace de stockage de clic
 
 Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers :  
 
-- Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
-- Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+- Le dossier de travail. Son emplacement par défaut est `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- Dossier bin à l’emplacement `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -252,25 +257,25 @@ Cette section décrit les erreurs courantes que vous rencontrez lors de l’util
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
 Message d’erreur | Action recommandée
--- | --
+--|--
 L’agent Microsoft Azure Recovery Services n’a pas pu accéder à la somme de contrôle de sauvegarde stockée sur l’emplacement temporaire | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Message d’erreur | Action recommandée
--- | --
-L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplacement temporaire pour initialiser le disque dur virtuel (VHD) | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+--|--
+L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplacement temporaire pour initialiser le disque dur virtuel (VHD) | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou un autre processus verrouille les fichiers dans l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Message d’erreur | Action recommandée
--- | --
+--|--
 La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Message d’erreur | Action recommandée
--- | --
+--|--
 Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ## <a name="next-steps"></a>Étapes suivantes

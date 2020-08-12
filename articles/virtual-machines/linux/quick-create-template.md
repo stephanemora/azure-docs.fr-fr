@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083914"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827654"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Ubuntu Linux à l’aide d’un modèle ARM
 
@@ -65,7 +65,7 @@ Plusieurs ressources sont définies dans le modèle :
     - **Préfixe d’étiquette DNS** : entrez un identificateur unique à utiliser dans l’étiquette DNS.
     - **Version du système d’exploitation Ubuntu** : sélectionnez la version Ubuntu que vous souhaitez exécuter sur la machine virtuelle.
     - **Emplacement** : la valeur par défaut est le même emplacement que le groupe de ressources, s’il existe déjà.
-    - **Taille de la machine virtuelle** : sélectionnez la [taille](sizes.md) à utiliser pour la machine virtuelle.
+    - **Taille de la machine virtuelle** : sélectionnez la [taille](../sizes.md) à utiliser pour la machine virtuelle.
     - **Nom du réseau virtuel** : nom à utiliser pour le réseau virtuel.
     - **Nom du sous-réseau** : nom du sous-réseau que la machine virtuelle doit utiliser.
     - **Nom du groupe de sécurité réseau** : nom du groupe de sécurité réseau.

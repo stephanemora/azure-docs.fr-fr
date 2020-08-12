@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087280"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832295"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Windows à l’aide d’un modèle ARM
 
@@ -63,7 +63,7 @@ Plusieurs ressources sont définies dans le modèle :
     - **Mot de passe d’administrateur** : entrez un mot de passe à utiliser pour le compte d’administrateur. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Préfixe d’étiquette DNS** : entrez un identificateur unique à utiliser dans l’étiquette DNS.
     - **Version du système d’exploitation Windows** : sélectionnez la version de Windows que vous souhaitez exécuter sur la machine virtuelle.
-    - **Taille de la machine virtuelle** : sélectionnez la [taille](sizes.md) à utiliser pour la machine virtuelle.
+    - **Taille de la machine virtuelle** : sélectionnez la [taille](../sizes.md) à utiliser pour la machine virtuelle.
     - **Emplacement** : la valeur par défaut est le même emplacement que le groupe de ressources, s’il existe déjà.
 1. Sélectionnez **Revoir + créer**. Une fois la validation terminée, sélectionnez **Créer** pour créer et déployer la machine virtuelle.
 
