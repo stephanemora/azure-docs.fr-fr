@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324095"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849017"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure classique avec un modèle Resource Manager
+
 > [!WARNING]
-> 
-> Cet article décrit la création **d’alertes de métriques classiques** à l’aide de modèles Resource Manager. Les alertes classiques ont été mises hors service en août 2019 et seront totalement dépréciées en juin 2020. Vous ne pouvez pas créer de nouvelles alertes publiques classiques Azure. Certaines versions régionales d’Azure continuent de proposer cette option, mais nous vous conseillons de créer [des alertes de métriques plus récentes](./alerts-metric-near-real-time.md) à l’aide de modèles, si possible. [Cet article](alerts-metric-create-templates.md) fournit des informations détaillées.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classiques ne sont [mises hors service](./monitoring-classic-retirement.md), bien qu’elles soient toujours utilisées pour les ressources qui ne prennent pas encore en charge les nouvelles alertes.
 >
 
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour configurer les alertes de mesures classiques Azure. Cela vous permet de configurer automatiquement des alertes sur vos ressources lorsqu’elles sont créées pour vous assurer que toutes les ressources sont analysées correctement.

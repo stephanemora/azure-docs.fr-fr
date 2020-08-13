@@ -2,18 +2,18 @@
 title: Inscrire une ressource d’application dans Azure AD – API Azure pour FHIR
 description: Inscrivez une ressource d’application (ou API) dans Azure Active Directory, afin que les applications clientes puissent demander l’accès à la ressource lors de l’authentification.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 10b951300b8386b057744a980abd5d847b6b6907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871089"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852988"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Inscrire une ressource d'application dans Azure Active Directory
 

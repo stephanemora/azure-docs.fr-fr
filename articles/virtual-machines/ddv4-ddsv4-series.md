@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: b5d23442af5afb90071dbf9e3c50d42b91d195d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6d03b289dce3987d6b939fdaf545d6206766e02
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494834"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852869"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 et Ddsv4
 
@@ -38,15 +38,15 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|
-| Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2/1 000 |
-| Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2/2 000 |
-| Standard_D8d_v4 | 8 | 32 | 300 | 16 | 77000/485 | 4/4 000 |
-| Standard_D16d_v4 | 16 | 64 | 600 | 32 | 154000/968 | 8/8 000 |
-| Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8/16 000 |
-| Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8/24 000 |
-| Standard_D64d_v4 | 64 | 256 | 2 400 | 32 | 615000/3872 | 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|
+| Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2|1 000 |
+| Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
+| Standard_D8d_v4 | 8 | 32 | 300 | 16 | 77000/485 | 4|4000 |
+| Standard_D16d_v4 | 16 | 64 | 600 | 32 | 154000/968 | 8|8000 |
+| Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8|16000 |
+| Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24 000 |
+| Standard_D64d_v4 | 64 | 256 | 2 400 | 32 | 615000/3872 | 8|30000 |
 
 ## <a name="ddsv4-series"></a>Série Ddsv4
 
@@ -67,19 +67,19 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max. de cartes réseau/Bande passante réseau attendue (Mbits/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2/1 000 |
-| Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6 400/96 | 2/2 000 |
-| Standard_D8ds_v4 | 8 | 32 | 300 | 16 | 77000/485(200) | 12 800/192 | 4/4 000 |
-| Standard_D16ds_v4 | 16 | 64 | 600 | 32 | 154000/968(400) | 25 600/384 | 8/8 000 |
-| Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51 200/768 | 8/16 000 |
-| Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8/24 000 |
-| Standard_D64ds_v4 | 64 | 256 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8/30 000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3 200/48 | 2|1 000 |
+| Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6 400/96 | 2|2000 |
+| Standard_D8ds_v4 | 8 | 32 | 300 | 16 | 77000/485(200) | 12 800/192 | 4|4000 |
+| Standard_D16ds_v4 | 16 | 64 | 600 | 32 | 154000/968(400) | 25 600/384 | 8|8000 |
+| Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51 200/768 | 8|16000 |
+| Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76 800/1152 | 8|24 000 |
+| Standard_D64ds_v4 | 64 | 256 | 2 400 | 32 | 615000/3872(1600) | 80 000/1 200 | 8|30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -87,6 +87,11 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

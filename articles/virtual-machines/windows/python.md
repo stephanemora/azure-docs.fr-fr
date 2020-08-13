@@ -7,13 +7,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.custom: tracking-python
-ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-python
+ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284453"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853413"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
@@ -464,7 +464,7 @@ Vous pouvez arrêter une machine virtuelle et conserver tous ses paramètres, ma
 
 ### <a name="resize-the-vm"></a>Redimensionner la machine virtuelle
 
-De nombreux aspects du déploiement doivent être pris en considération lors du choix d’une taille pour votre machine virtuelle. Pour plus d’informations, voir [Tailles des machines virtuelles](sizes.md).
+De nombreux aspects du déploiement doivent être pris en considération lors du choix d’une taille pour votre machine virtuelle. Pour plus d’informations, voir [Tailles des machines virtuelles](../sizes.md).
 
 1. Pour modifier la taille de la machine virtuelle, ajoutez la fonction suivante après les variables dans le fichier .py :
 
