@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 33006463ed826d1efe32f8beee361eb211e9d709
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 489025d9cfdd6f1bdbc950e2bd1e7e4d835a4fff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386552"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079207"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
 
@@ -178,7 +178,7 @@ Pour plus d’informations, consultez le [Centre de développement Node.js].
 <!-- URL List -->
 
 [Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: /azure/architecture/guide/technology-choices/compute-decision-tree
-[utiliser une application web légère]: ../app-service/app-service-web-get-started-nodejs.md
+[utiliser une application web légère]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: /powershell/azure/
 [Kit de développement logiciel (SDK) Azure pour .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connectez PowerShell]: /powershell/azure/

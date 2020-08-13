@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: af75afb2840d2bc14e1fa46310f76f662efa2a54
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 17e01894ac3d26720b1e74be9d0fd7fc193c463f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384784"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077303"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Démarrage rapide : Démarrer la supervision de votre application web Node.js avec Azure Application Insights
 
@@ -60,7 +60,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    npm install applicationinsights --save
    ```
 
-3. Modifiez le premier fichier *.js* de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](../../app-service/app-service-web-get-started-nodejs.md), vous modifiez le fichier *index.js*. Remplacez `<instrumentation_key>` par la clé d’instrumentation de votre application. 
+3. Modifiez le premier fichier *.js* de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](../../app-service/quickstart-nodejs.md), vous modifiez le fichier *index.js*. Remplacez `<instrumentation_key>` par la clé d’instrumentation de votre application. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

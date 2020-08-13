@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857199"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079805"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
 ## <a name="overview"></a>Vue d’ensemble
@@ -29,7 +29,7 @@ Vous apprendrez ce qui suit :
 Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](/visualstudio/debugger/intellitrace) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Configuration requise
-Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][GetStartedWJ].
+Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](quickstart-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][GetStartedWJ].
 
 Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
 
@@ -51,7 +51,7 @@ Visual Studio permet d'accéder à un sous-ensemble des fonctionnalités de ges
 
     Pour plus d’informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d’administrateur](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **App Service**.
-3. Développez le groupe de ressources incluant l'application que vous avez créée dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md), puis cliquez avec le bouton droit sur le nœud d'application et sélectionnez **Afficher les paramètres**.
+3. Développez le groupe de ressources incluant l'application que vous avez créée dans [Créer une application ASP.NET dans Azure App Service](quickstart-dotnet-framework.md), puis cliquez avec le bouton droit sur le nœud d'application et sélectionnez **Afficher les paramètres**.
 
     ![Afficher les paramètres dans l'Explorateur de serveurs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Si le message d'erreur détaillé ne fournit pas assez d'informations et que vou
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
 
-Cette section illustre comment déboguer à distance à l'aide du projet que vous créez dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md).
+Cette section illustre comment déboguer à distance à l'aide du projet que vous créez dans [Créer une application ASP.NET dans Azure App Service](quickstart-dotnet-framework.md).
 
-1. Ouvrez le projet web que vous avez créé dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md).
+1. Ouvrez le projet web que vous avez créé dans [Créer une application ASP.NET dans Azure App Service](quickstart-dotnet-framework.md).
 
 1. Ouvrez *Controllers\HomeController.cs*.
 
@@ -129,7 +129,7 @@ Cette section illustre comment déboguer à distance à l'aide du projet que vou
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
-1. Dans la liste déroulante **Profil**, sélectionnez le profil utilisé dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Puis, cliquez sur Paramètres.
+1. Dans la liste déroulante **Profil**, sélectionnez le profil utilisé dans [Créer une application ASP.NET dans Azure App Service](quickstart-dotnet-framework.md). Puis, cliquez sur Paramètres.
 
 1. Dans la boîte de dialogue **Publier**, cliquez sur l’onglet **Paramètres** et remplacez **Configuration** par **Déboguer**, puis cliquez sur **Enregistrer**.
 
@@ -264,7 +264,7 @@ Les journaux d’activité sont consignés dans des fichiers du dossier *LogFile
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Création et affichage des journaux d’activité de suivi d’application
 Dans cette section, vous effectuerez les tâches suivantes :
 
-* ajout d’instructions de traçage au projet web que vous avez créé dans [Prise en main d’Azure et ASP.NET](app-service-web-get-started-dotnet-framework.md).
+* ajout d’instructions de traçage au projet web que vous avez créé dans [Prise en main d’Azure et ASP.NET](quickstart-dotnet-framework.md).
 * affichage des journaux d’activité lorsque vous exécutez le projet localement ;
 * affichage des journaux d’activité durant leur génération par l’application exécutée dans Azure.
 
@@ -686,5 +686,5 @@ Pour plus d’informations sur l’analyse des journaux d’activité de serveur
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analyse des journaux d’activité de suivi des demandes ayant échoué
 Le site web Microsoft TechNet comporte une section [Utilisation du suivi des demandes ayant échoué](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) qui permet de comprendre l’utilisation de ces journaux d’activité. Toutefois, cette documentation se concentre principalement sur la configuration du suivi des demandes ayant échoué dans IIS, ce que vous ne pouvez pas faire dans Azure App Service.
 
-[GetStarted]: app-service-web-get-started-dotnet.md
+[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour gérer les ressources Azure Service Bus | Micros
 description: Cet article explique comment utiliser le module Azure PowerShell pour créer et gérer des entités Service Bus (espaces de noms, files d’attente, rubriques, abonnements).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341756"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065741"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
@@ -159,8 +159,8 @@ Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/az
 
 D’autres manières de gérer les entités Service Bus sont décrites dans les billets de blog suivants :
 
-* [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

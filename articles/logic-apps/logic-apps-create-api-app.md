@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520798"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080828"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -30,12 +30,12 @@ Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md
 > [!TIP] 
 > Bien que vous puissiez déployer vos API comme des applications web, envisagez la possibilité de les déployer comme des applications API, car cela pourrait vous faciliter la tâche lorsque vous créerez, hébergerez et consommerez des API dans le cloud et en local. Vous n’êtes pas obligé de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Par exemple, découvrez comment générer des applications API créées dans les langages suivants : 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md) 
-> * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
+> * [ASP.NET](../app-service/quickstart-dotnetcore.md) 
+> * [Java](../app-service/quickstart-java.md)
+> * [Node.JS](../app-service/quickstart-nodejs.md)
+> * [PHP](../app-service/quickstart-php.md)
+> * [Python](../app-service/quickstart-python.md)
+> * [Ruby](../app-service/quickstart-ruby.md)
 >
 > Pour obtenir des exemples d’application API générées pour les applications logiques, consultez le [référentiel GitHub Azure Logic Apps](https://github.com/logicappsio) ou le [blog](https://aka.ms/logicappsblog).
 

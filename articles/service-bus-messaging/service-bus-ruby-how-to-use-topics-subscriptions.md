@@ -6,12 +6,12 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85336731"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067560"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Ruby
  
@@ -62,7 +62,7 @@ Les abonnements de rubrique sont également créés à l’aide de l’objet **A
 
 Les abonnements sont persistants par défaut. Ils sont conservés jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont associés. Si votre application contient une logique pour la création d’un abonnement, elle doit d’abord vérifier si l’abonnement existe déjà en utilisant la méthode getSubscription.
 
-Vous pouvez supprimer automatiquement les abonnements en définissant la [propriété AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+Vous pouvez supprimer automatiquement les abonnements en définissant la [propriété AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Si aucun filtre n’est spécifié lors de la création d’un abonnement, le filtre **MatchAll** (par défaut) est utilisé. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement « all-messages » qui est créé utilise le filtre par défaut **MatchAll**.
@@ -150,7 +150,7 @@ De même, il faut savoir qu’un message verrouillé dans un abonnement est asso
 Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `delete_subscription_message()`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce traitement est souvent appelé *au moins une fois*. Chaque message est traité au moins une fois, mais dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Cette logique est généralement obtenue grâce à la propriété `message_id` du message, qui reste constante entre chaque nouvelle tentative de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et abonnements sont persistants, sauf si la [propriété AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) est définie. Ils peuvent être supprimés via le [portail Microsoft Azure][Azure portal] ou par programmation. L’exemple suivant montre comment supprimer la rubrique `test-topic`.
+Les rubriques et abonnements sont persistants, sauf si la [propriété AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) est définie. Ils peuvent être supprimés via le [portail Microsoft Azure][Azure portal] ou par programmation. L’exemple suivant montre comment supprimer la rubrique `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

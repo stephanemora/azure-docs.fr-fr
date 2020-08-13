@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341022"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067526"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
 Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous trouverez les exemples aux emplacements suivants :
@@ -30,5 +30,4 @@ En outre, l’[Explorateur Service Bus](https://github.com/paolosalvatori/Servic
 Consultez les rubriques suivantes pour obtenir des présentations conceptuelles de Service Bus.
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Architecture de Service Bus](service-bus-architecture.md)
-
+* [Architecture de Service Bus](./service-bus-messaging-overview.md)

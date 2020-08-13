@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 63b8c33b61d6bff28eca98929e344df7ea54e779
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c082eff4f70b0255b7701340ac6e8b377223c0b5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430672"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076861"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Comment utiliser les files d’attente Service Bus avec Node.js et le package azure/service-bus
 Dans ce tutoriel, vous allez apprendre à écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
@@ -22,7 +22,7 @@ Dans ce tutoriel, vous allez apprendre à écrire un programme Nodejs pour envoy
 - Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la file d’attente que vous avez créée. Nous allons utiliser ces valeurs dans les exemples.
 
 > [!NOTE]
-> - Ce didacticiel utilise des exemples que vous pouvez copier et exécuter à l’aide de [Nodejs](https://nodejs.org/). Pour obtenir des instructions sur la création d’une application Node.js, veuillez consulter les pages [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/app-service-web-get-started-nodejs.md) ou [Service cloud Node.js avec Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Ce didacticiel utilise des exemples que vous pouvez copier et exécuter à l’aide de [Nodejs](https://nodejs.org/). Pour obtenir des instructions sur la création d’une application Node.js, veuillez consulter les pages [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/quickstart-nodejs.md) ou [Service cloud Node.js avec Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) ne prend pas en charge la création de files d’attente pour le moment. Veuillez utiliser le package [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) si vous souhaitez les créer par programmation.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilisation de Node Package Manager (NPM) pour installer le package
@@ -33,7 +33,7 @@ npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Envoi de messages à une file d'attente
-L’interaction avec une file d’attente Service Bus commence par l’instanciation de la classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [QueueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient). Une fois que vous avez le client de file d’attente, vous pouvez créer un expéditeur et lui appliquer la méthode [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) pour envoyer des messages.
+L’interaction avec une file d’attente Service Bus commence par l’instanciation de la classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [QueueueClient](/javascript/api/@azure/service-bus/queueclient). Une fois que vous avez le client de file d’attente, vous pouvez créer un expéditeur et lui appliquer la méthode [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) pour envoyer des messages.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/)
 2. Créez un fichier appelé `send.js` et collez-y le code ci-dessous. Ce code envoie 10 messages vers votre file d’attente.
@@ -83,7 +83,7 @@ Les messages ont des propriétés standard comme `label` et `messageId` que vous
 Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). Si une file d’attente n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-queue"></a>Réception des messages d'une file d'attente
-L’interaction avec une file d’attente Service Bus commence par l’instanciation de la classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [QueueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient). Une fois que vous avez le client de la file d’attente, vous pouvez créer un récepteur et utiliser la méthode [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou la méthode [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) pour recevoir des messages.
+L’interaction avec une file d’attente Service Bus commence par l’instanciation de la classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [QueueueClient](/javascript/api/@azure/service-bus/queueclient). Une fois que vous avez le client de la file d’attente, vous pouvez créer un récepteur et utiliser la méthode [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) ou la méthode [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) pour recevoir des messages.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/)
 2. Créez un fichier appelé `recieve.js` et collez-y le code ci-dessous. Ce code tentera de recevoir 10 messages de votre file d’attente. Le nombre réel de messages que vous recevrez dépend du nombre de messages dans la file d’attente et de la latence du réseau.
@@ -119,7 +119,7 @@ L’interaction avec une file d’attente Service Bus commence par l’instancia
 
 Félicitations ! Vous venez de recevoir des messages d’une file d’attente Service Bus.
 
-La méthode [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) accepte un `ReceiveMode` qui correspond à une énumération avec les valeurs [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) et [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). N’oubliez pas de [régler vos messages](message-transfers-locks-settlement.md#settling-receive-operations) si vous utilisez le mode `PeekLock` en appliquant l’une des méthodes `complete()`, `abandon()`, `defer()` ou `deadletter()` au message.
+La méthode [createReceiver](/javascript/api/@azure/service-bus/queueclient#createreceiver-receivemode-) accepte un `ReceiveMode` qui correspond à une énumération avec les valeurs [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) et [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). N’oubliez pas de [régler vos messages](message-transfers-locks-settlement.md#settling-receive-operations) si vous utilisez le mode `PeekLock` en appliquant l’une des méthodes `complete()`, `abandon()`, `defer()` ou `deadletter()` au message.
 
 > [!NOTE]
 > Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
@@ -129,4 +129,3 @@ Pour en savoir plus, consultez les ressources suivantes :
 - [Files d’attente, rubriques et abonnements.](service-bus-queues-topics-subscriptions.md)
 - Consulter d’autres exemples [Nodejs pour Service Bus sur GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)
-

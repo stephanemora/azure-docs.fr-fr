@@ -3,12 +3,12 @@ title: Protéger les applications Azure Service Bus contre les pannes et les sin
 description: Cet article présente des techniques permettant de protéger les applications contre une éventuelle défaillance d'Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339655"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065622"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -72,7 +72,7 @@ Lorsque vous utilisez la réplication passive, les messages peuvent être perdus
 L’exemple de [géo-réplication avec le niveau Standard de Service Bus][Geo-replication with Service Bus Standard Tier] illustre la réplication passive des entités de messagerie.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protection des points de terminaison de relais contre les pannes ou les sinistres du centre de données
-La géo-réplication des points de terminaison d’[Azure Relay](../service-bus-relay/relay-what-is-it.md) permet à un service qui expose un point de terminaison de relais d’être accessible en cas de pannes de Service Bus. Pour obtenir la géo-réplication, le service doit créer deux points de terminaison de relais dans des espaces de noms différents. Les espaces de noms doivent résider dans des centres de données différents et les deux points de terminaison doivent avoir des noms différents. Par exemple, un point de terminaison principal peut être accessible sous **contosoPrimary.servicebus.windows.net/myPrimaryService**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La géo-réplication des points de terminaison d’[Azure Relay](../azure-relay/relay-what-is-it.md) permet à un service qui expose un point de terminaison de relais d’être accessible en cas de pannes de Service Bus. Pour obtenir la géo-réplication, le service doit créer deux points de terminaison de relais dans des espaces de noms différents. Les espaces de noms doivent résider dans des centres de données différents et les deux points de terminaison doivent avoir des noms différents. Par exemple, un point de terminaison principal peut être accessible sous **contosoPrimary.servicebus.windows.net/myPrimaryService**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Le service écoute alors sur les deux points de terminaison et un client peut appeler le service par le biais de n'importe quel point de terminaison. Une application cliente choisit de façon aléatoire l'un des relais en tant que point de terminaison principal et envoie sa requête au point de terminaison actif. Si l'opération échoue avec un code d'erreur, cette défaillance indique que le point de terminaison de relais n'est pas disponible. L'application ouvre un canal vers le point de terminaison de sauvegarde et soumet la requête à nouveau. À ce stade, les points de terminaison actif et de sauvegarde permutent leurs rôles : l'application cliente considère l'ancien point de terminaison actif comme nouveau point de terminaison de sauvegarde, et l'ancien point de terminaison de sauvegarde comme nouveau point de terminaison actif. Si les deux opérations d'envoi échouent, les rôles des deux entités restent inchangés et une erreur est renvoyée.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74979922"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080930"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
 Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.
@@ -33,7 +33,7 @@ Cette configuration comprend deux parties, en plus de la création des instances
 
 ## <a name="using-azure-portal"></a>En passant par le portail Azure
 Avec Portail Azure, vous suivez quatre étapes pour approvisionner et configurer l’installation. Si vous disposez de ressources existantes, vous pouvez ignorer les premières étapes.
-1. Créez une instance App Service à l’aide de l’un des guides de démarrage rapide dans la documentation d’App Service, par exemple [Guide de démarrage rapide .Net Core](../../app-service/app-service-web-get-started-dotnet.md).
+1. Créez une instance App Service à l’aide de l’un des guides de démarrage rapide dans la documentation d’App Service, par exemple [Guide de démarrage rapide .Net Core](../quickstart-dotnetcore.md).
 2. Créez une instance Application Gateway à l’aide du [portail Démarrage rapide](../../application-gateway/quick-create-portal.md), mais ignorez la section Ajouter des cibles de serveur principal.
 3. Configurez [App Service en tant que serveur principal dans Application Gateway](../../application-gateway/configure-web-app-portal.md), mais ignorez la section Restreindre l’accès.
 4. Enfin, créez la [restriction d’accès à l’aide de points de terminaison de service](../../app-service/app-service-ip-restrictions.md#service-endpoints).

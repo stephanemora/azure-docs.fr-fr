@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308982"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067608"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB
 
@@ -239,28 +239,6 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     ```
     * - nofile 100000
     ```
-
-* **Utiliser l’implémentation TLS/SSL native pour netty**
-
-    Netty peut utiliser OpenSSL directement pour la pile d’implémentation de TLS de façon à obtenir de meilleures performances. En l’absence de cette configuration, netty reviendra à l’implémentation de TLS par défaut de Java.
-
-    sur Ubuntu :
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    et ajoutez la dépendance suivante aux dépendances maven de votre projet :
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-Pour d’autres plateformes (Redhat, Windows, Mac, etc.), reportez-vous à ces instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Stratégie d’indexation
  

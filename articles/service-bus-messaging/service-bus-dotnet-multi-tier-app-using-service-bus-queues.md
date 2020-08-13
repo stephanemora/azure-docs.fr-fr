@@ -4,12 +4,12 @@ description: Un didacticiel .NET qui vous permet de développer dans Azure une a
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083937"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067832"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
 
@@ -24,7 +24,7 @@ Vous allez apprendre les opérations suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal est un rôle web ASP.NET MVC et le composant principal est un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal est un rôle web ASP.NET MVC et le composant principal est un rôle de travail qui utilise une file d’attente Service Bus. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Vous pouvez également essayer le didacticiel [Application hybride .NET locale/dans le cloud](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 La capture d’écran suivante présente l’application terminée.
 

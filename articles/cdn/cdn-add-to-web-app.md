@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254612"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079907"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
 
@@ -49,7 +49,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="create-the-web-app"></a>Créer l’application web
 
-Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure](../app-service/app-service-web-get-started-html.md) jusqu’à la fin de l’étape **Accéder à l’application**.
+Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure](../app-service/quickstart-html.md) jusqu’à la fin de l’étape **Accéder à l’application**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
@@ -60,7 +60,7 @@ Si vous souhaitez optimiser votre point de terminaison CDN pour l’accélérati
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Création d’un profil CDN et d’un point de terminaison
 
-Dans le volet de navigation gauche, sélectionnez **App Services**, puis sélectionnez l’application que vous avez créée à la rubrique [Créer une application web HTML statique dans Azure en 5 minutes](../app-service/app-service-web-get-started-html.md).
+Dans le volet de navigation gauche, sélectionnez **App Services**, puis sélectionnez l’application que vous avez créée à la rubrique [Créer une application web HTML statique dans Azure en 5 minutes](../app-service/quickstart-html.md).
 
 ![Sélection de l’application App Service dans le portail](media/cdn-add-to-web-app/portal-select-app-services.png)
 

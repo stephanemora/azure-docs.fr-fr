@@ -3,12 +3,12 @@ title: Contrôle d’accès Azure Service Bus avec des signatures d’accès par
 description: Vue d’ensemble du contrôle d’accès Service Bus avec des signatures d’accès partagé, et informations sur l’autorisation SAP avec Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460692"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066183"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -27,7 +27,7 @@ SAP protège l’accès à Service Bus en fonction de règles d’autorisation. 
 
 Les signatures d’accès partagé sont un mécanisme d’autorisation reposant sur des revendications à l’aide de simples jetons. À l’aide d’une SAP, les clés ne sont jamais transmises simultanément. Les clés sont utilisées pour signer par chiffrement des informations qui peuvent être vérifiées ultérieurement par le service. Une SAP peut être utilisée de façon similaire à un schéma de nom d’utilisateur et de mot de passe où le client est en possession immédiate d’un nom de règle d’autorisation et d’une clé correspondante. Une SAP peut également être utilisée comme un modèle de sécurité fédéré, où le client reçoit un jeton d’accès signé et limité dans le temps d’un service d’émission de jeton de sécurité sans jamais être en possession de la clé de signature.
 
-L’authentification SAP dans Service Bus est configurée avec des [règles d’autorisation d’accès partagé](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nommées ayant les droits d’accès associés, ainsi qu’une paire de clés de chiffrement primaire et secondaire. Les clés sont des valeurs de 256 bits dans une représentation Base64. Vous pouvez configurer des règles au niveau de l’espace de noms, sur les [relais](../service-bus-relay/relay-what-is-it.md), [files d’attente](service-bus-messaging-overview.md#queues) et [rubriques](service-bus-messaging-overview.md#topics) Service Bus.
+L’authentification SAP dans Service Bus est configurée avec des [règles d’autorisation d’accès partagé](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nommées ayant les droits d’accès associés, ainsi qu’une paire de clés de chiffrement primaire et secondaire. Les clés sont des valeurs de 256 bits dans une représentation Base64. Vous pouvez configurer des règles au niveau de l’espace de noms, sur les [relais](../azure-relay/relay-what-is-it.md), [files d’attente](service-bus-messaging-overview.md#queues) et [rubriques](service-bus-messaging-overview.md#topics) Service Bus.
 
 Le jeton de [signature d’accès partagé](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contient le nom de la règle d’autorisation choisie, l’URI de la ressource à laquelle accéder, un délai d’expiration et une signature de chiffrement HMAC-SHA256 calculé sur ces champs à l’aide de la clé de chiffrement primaire ou secondaire de la règle d’autorisation choisie.
 
@@ -84,7 +84,7 @@ Le jeton contient les valeurs non hachées afin que le destinataire puisse recal
 
 L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>` ; qui est, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L’URI doit être [encodée en pourcentage](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**L’URI doit être [encodée en pourcentage](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 La règle de l’autorisation d’accès partagé utilisée pour la signature doit être configurée sur l’entité spécifiée par cette URI, ou par un de ses parents hiérarchiques. Par exemple, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` dans l’exemple précédent.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597893"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078629"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service
 
@@ -52,7 +52,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 Procédez comme suit :
 
-Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<nom-application>** .
+Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
 
 À partir de la barre de navigation gauche de votre application, démarrez la boîte de dialogue **Liaison TLS/SSL** en procédant comme suit :
 
@@ -153,7 +153,7 @@ Une fois l’opération terminée, votre application rejette toutes les connexio
 
 Dans App Service, un [arrêt TLS](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
-Des guides de configuration spécifiques au langage tels que le [guide de configuration Linux Node.js](containers/configure-language-nodejs.md#detect-https-session) vous montrent comment détecter une session HTTPS dans le code de votre application.
+Des guides de configuration spécifiques au langage tels que le [guide de configuration Linux Node.js](configure-language-nodejs.md#detect-https-session) vous montrent comment détecter une session HTTPS dans le code de votre application.
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 

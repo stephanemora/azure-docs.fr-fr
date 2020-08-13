@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser les bibliothèques de gestion
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341707"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066166"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliothèques de gestion Service Bus
 
@@ -26,11 +26,11 @@ Les bibliothèques de gestion Azure Service Bus peuvent approvisionner dynamique
 
 Pour commencer à utiliser les bibliothèques de gestion Service Bus, vous devez vous authentifier auprès du service Azure Active Directory (Azure AD). Azure AD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 
-* [Utiliser le portail Azure pour créer une application et un principal du service Active Directory pouvant accéder aux ressources](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Utiliser le portail Azure pour créer une application et un principal du service Active Directory pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Ces didacticiels vous fournissent un `AppId` (ID de client), un `TenantId` et un `ClientSecret` (clé d’authentification), tous étant utilisés pour l’authentification par les bibliothèques de gestion. Au minimum, vous devez des autorisations [**Propriétaire de données Azure Service Bus**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) ou [**Contributeur**](/azure/role-based-access-control/built-in-roles#contributor) pour le groupe de ressources sur lequel vous souhaitez effectuer l’exécution.
+Ces didacticiels vous fournissent un `AppId` (ID de client), un `TenantId` et un `ClientSecret` (clé d’authentification), tous étant utilisés pour l’authentification par les bibliothèques de gestion. Au minimum, vous devez des autorisations [**Propriétaire de données Azure Service Bus**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) ou [**Contributeur**](../role-based-access-control/built-in-roles.md#contributor) pour le groupe de ressources sur lequel vous souhaitez effectuer l’exécution.
 
 ## <a name="programming-pattern"></a>Modèle de programmation
 

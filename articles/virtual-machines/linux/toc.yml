@@ -195,7 +195,7 @@
           href: generation-2.md
         - name: Usage général
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../sizes-general.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: "Série\_Av2"
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -258,6 +258,8 @@
               href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Série NCv3
               href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NCasT4_v3-series
+              href: ../nct4-v3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série ND
               href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Série NDv2
@@ -494,8 +496,6 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Créer une machine virtuelle
                   items:
-                    - name: Spécialisée
-                      href: ../vm-specialized-image-version-cli.md
                     - name: Généralisée
                       href: ../vm-generalized-image-version-cli.md
                 - name: Mettre à jour les ressources d’image
@@ -547,8 +547,20 @@
               href: ../image-version-encryption.md
         - name: Générateur d’images (préversion)
           items:
+            - name: Vue d’ensemble
+              href: image-builder-overview.md
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
+            - name: Créer une machine virtuelle avec un réseau virtuel - CLI
+              href: image-builder-vnet.md
+            - name: Configurer les autorisations - CLI
+              href: image-builder-permissions-cli.md
+            - name: Configurer les autorisations - PowerShell
+              href: image-builder-permissions-powershell.md
+            - name: Options réseau
+              href: image-builder-networking.md
+            - name: Tâche DevOps
+              href: image-builder-devops-task.md
             - name: Informations de référence sur les modèles ARM
               displayName: 'ARM,Resource Manager'
               href: image-builder-json.md
@@ -557,7 +569,7 @@
             - name: Mettre à jour une image existante
               href: image-builder-gallery-update-image-version.md
             - name: Dépanner
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: image-builder-troubleshoot.md
         - name: Trouver et utiliser des images
           href: cli-ps-findimage.md
         - name: Informations sur le plan d’achat

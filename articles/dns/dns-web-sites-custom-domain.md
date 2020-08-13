@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76939093"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079448"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Didacticiel : créer des enregistrements DNS pour une application web dans un domaine personnalisé 
 
@@ -48,7 +48,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Pour le test, vous devez disposer d’un nom de domaine disponible que vous pouvez héberger dans Azure DNS. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
-* [Créez une application App Service](../app-service/app-service-web-get-started-html.md), ou utilisez une application créée pour un autre didacticiel.
+* [Créez une application App Service](../app-service/quickstart-html.md), ou utilisez une application créée pour un autre didacticiel.
 
 * Créez une zone DNS dans Azure DNS et déléguez cette zone de votre bureau d’enregistrement à Azure DNS.
 

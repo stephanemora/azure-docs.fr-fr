@@ -3,12 +3,12 @@ title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure Service Bus.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371241"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080811"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Forum Aux Questions (FAQ)
 
@@ -57,7 +57,7 @@ Pour trouver les adresses IP à ajouter à la liste verte pour vos connexions, p
 1. Exécutez la commande suivante depuis une invite de commandes : 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. Elle est susceptible de changer dans un seul cas : si vous restaurez l’espace de noms sur un autre cluster.
 
@@ -66,7 +66,7 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
 1. Tout d’abord, exécutez nslookup sur l’espace de noms.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans l’un des formats suivants : 
 

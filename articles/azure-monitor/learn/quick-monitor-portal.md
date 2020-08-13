@@ -7,18 +7,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82142632"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080947"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
 Azure Application Insights vous permet d’analyser facilement la disponibilité, les performances et l’utilisation de votre application web.  De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale.  Avec les informations que vous collectez à partir d’Application Insights sur les performances et l’efficacité de votre application, vous pouvez prendre des décisions avisées pour gérer et améliorer votre application.
 
-Ce guide de démarrage rapide montre comment ajouter Application Insights à une application web ASP.NET existante et commencer à analyser les statistiques actives, ce qui représente simplement l’une des méthodes que vous pouvez utiliser pour analyser votre application. Si vous n’avez pas d’application web ASP.NET, vous pouvez en créer une en suivant le [Guide de démarrage rapide Créer une application web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md).
+Ce guide de démarrage rapide montre comment ajouter Application Insights à une application web ASP.NET existante et commencer à analyser les statistiques actives, ce qui représente simplement l’une des méthodes que vous pouvez utiliser pour analyser votre application. Si vous n’avez pas d’application web ASP.NET, vous pouvez en créer une en suivant le [Guide de démarrage rapide Créer une application web ASP.NET](../../app-service/quickstart-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 Pour suivre ce guide de démarrage rapide :
@@ -76,7 +76,7 @@ Vous pouvez maintenant ouvrir Application Insights dans le portail Azure pour af
 
     ![Flux temps réel](media/quick-monitor-portal/7livemetrics.png)
 
-    Si vous êtes prêt à héberger votre application dans Azure, vous pouvez la publier maintenant. Suivez les étapes décrites dans le [guide de démarrage rapide Créer une application web ASP.NET](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
+    Si vous êtes prêt à héberger votre application dans Azure, vous pouvez la publier maintenant. Suivez les étapes décrites dans le [guide de démarrage rapide Créer une application web ASP.NET](../../app-service/quickstart-dotnetcore.md#update-the-app-and-redeploy).
 
 5. Si vous utilisez Visual Studio pour ajouter la supervision Application Insights, vous pouvez ajouter la supervision côté client automatiquement. Pour ajouter la supervision côté client à une application manuellement, ajoutez le code JavaScript suivant à votre application :
 

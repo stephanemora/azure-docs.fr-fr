@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 531322c49a772eaf416fadf1bb4f9a5fb6bf1ff6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430607"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080624"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus
 Ce didacticiel explique comment écrire un programme Node.js pour envoyer des messages à une rubrique Service Bus et recevoir des messages d’un abonnement Service Bus à l’aide du nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
@@ -22,7 +22,7 @@ Ce didacticiel explique comment écrire un programme Node.js pour envoyer des me
 - Si vous n’avez pas de rubrique ou d’abonnement à utiliser, suivez les étapes décrites dans l’article [Utiliser le portail Azure pour créer des rubriques et des abonnements Service Bus](service-bus-quickstart-topics-subscriptions-portal.md) afin de les créer. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la rubrique et de l’abonnement que vous avez créés. Nous allons utiliser ces valeurs dans les exemples.
 
 > [!NOTE]
-> - Ce didacticiel utilise des exemples que vous pouvez copier et exécuter à l’aide de [Nodejs](https://nodejs.org/). Pour obtenir des instructions sur la création d’une application Node.js, veuillez consulter les pages [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/app-service-web-get-started-nodejs.md) ou [Service cloud Node.js avec Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Ce didacticiel utilise des exemples que vous pouvez copier et exécuter à l’aide de [Nodejs](https://nodejs.org/). Pour obtenir des instructions sur la création d’une application Node.js, veuillez consulter les pages [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/quickstart-nodejs.md) ou [Service cloud Node.js avec Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) ne prend pas encore en charge la création de rubriques et d’abonnements. Veuillez utiliser le package [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) si vous souhaitez les créer par programmation.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilisation de Node Package Manager (NPM) pour installer le package
@@ -33,7 +33,7 @@ npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Envoi de messages à une rubrique
-L’interaction avec une rubrique Service Bus commence par l’instanciation de la classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient). Une fois que vous avez le client de rubrique, vous pouvez créer un expéditeur et lui appliquer la méthode [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) pour envoyer des messages.
+L’interaction avec une rubrique Service Bus commence par l’instanciation de la classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [TopicClient](/javascript/api/@azure/service-bus/topicclient). Une fois que vous avez le client de rubrique, vous pouvez créer un expéditeur et lui appliquer la méthode [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) pour envoyer des messages.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/)
 2. Créez un fichier appelé `send.js` et collez-y le code ci-dessous. Ce code envoie 10 messages vers votre rubrique.
@@ -83,7 +83,7 @@ Les messages ont des propriétés standard comme `label` et `messageId` que vous
 Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). Si une rubrique n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
-L’interaction avec un abonnement Service Bus commence par l’instanciation de la classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient). Une fois que vous avez le client d’abonnement, vous pouvez créer un récepteur et utiliser la méthode [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou la méthode [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) pour recevoir des messages.
+L’interaction avec un abonnement Service Bus commence par l’instanciation de la classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Une fois que vous avez le client d’abonnement, vous pouvez créer un récepteur et utiliser la méthode [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) ou la méthode [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) pour recevoir des messages.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/)
 2. Créez un fichier appelé `recieve.js` et collez-y le code ci-dessous. Ce code tentera de recevoir 10 messages de votre abonnement. Le nombre réel de messages que vous recevrez dépend du nombre de messages dans l’abonnement et de la latence du réseau.
@@ -121,7 +121,7 @@ L’interaction avec un abonnement Service Bus commence par l’instanciation de
 
 Félicitations ! Vous venez de recevoir des messages d’un abonnement Service Bus.
 
-La méthode [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) accepte un `ReceiveMode` qui correspond à une énumération avec les valeurs [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) et [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). N’oubliez pas de [régler vos messages](message-transfers-locks-settlement.md#settling-receive-operations) si vous utilisez le mode `PeekLock` en appliquant l’une des méthodes `complete()`, `abandon()`, `defer()` ou `deadletter()` au message.
+La méthode [createReceiver](/javascript/api/@azure/service-bus/subscriptionclient#createreceiver-receivemode-) accepte un `ReceiveMode` qui correspond à une énumération avec les valeurs [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) et [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). N’oubliez pas de [régler vos messages](message-transfers-locks-settlement.md#settling-receive-operations) si vous utilisez le mode `PeekLock` en appliquant l’une des méthodes `complete()`, `abandon()`, `defer()` ou `deadletter()` au message.
 
 ## <a name="subscription-filters-and-actions"></a>Filtres et actions d’abonnement
 Service Bus prend en charge les [filtres et actions sur les abonnements](topic-filters.md). Cela vous permet de filtrer les messages entrants d’un abonnement et de modifier leurs propriétés.
@@ -143,5 +143,3 @@ Pour en savoir plus, consultez les ressources suivantes :
 - [Files d’attente, rubriques et abonnements.](service-bus-queues-topics-subscriptions.md)
 - Consulter d’autres exemples [Nodejs pour Service Bus sur GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centre de développement Node.js](https://azure.microsoft.com/develop/nodejs/)
-
-

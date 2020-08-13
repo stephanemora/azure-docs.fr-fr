@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: eeac1c3cb7f92a7e407511c6436fe9d0723b2648
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308778"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079941"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutoriel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 
@@ -49,7 +49,7 @@ Avant de commencer ce didacticiel de développement d’applications, vous devez
 
 * [Kit de développement logiciel Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)
 * [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
-* [Un site web Azure avec un environnement d’exécution Java (Tomcat ou Jetty, par exemple) activé.](../app-service/app-service-web-get-started-java.md)
+* [Un site web Azure avec un environnement d’exécution Java (Tomcat ou Jetty, par exemple) activé.](../app-service/quickstart-java.md)
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas de la procédure d’installation dans la section de démarrage rapide de son [Tutoriel : Installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 

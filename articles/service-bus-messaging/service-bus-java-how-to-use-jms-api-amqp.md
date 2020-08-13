@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Java Message Service (JMS) avec Azure S
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: be6b5de7946fc54ab58087fccabed9f5ed09251d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799682"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065775"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Utiliser Java Message Service (JMS) avec Azure Service Bus et AMQP 1.0
 
@@ -29,7 +29,7 @@ La prise en charge d'AMQP 1.0 dans Azure Service Bus signifie que vous pouvez u
 Ce guide présuppose que vous disposez déjà d’un espace de noms Service Bus contenant une file d’attente nommée `basicqueue`. Dans le cas contraire, vous pouvez [créer l’espace de noms et la file d’attente](service-bus-create-namespace-portal.md) à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Les files d’attente et rubriques partitionnées prennent également en charge AMQP. Pour plus d’informations, consultez [Files d’attente et rubriques partitionnées](service-bus-partitioning.md) et [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Les files d’attente et rubriques partitionnées prennent également en charge AMQP. Pour plus d’informations, consultez [Files d’attente et rubriques partitionnées](service-bus-partitioning.md) et [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus](./service-bus-amqp-protocol-guide.md).
 > 
 > 
 
@@ -380,7 +380,7 @@ Vous pouvez également utiliser l'AMQP 1.0 de Service Bus depuis d'autres langa
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prise en charge d’AMQP 1.0 dans Service Bus](service-bus-amqp-overview.md)
-* [Utilisation d’AMQP 1.0 avec l’API .NET Service Bus](service-bus-dotnet-advanced-message-queuing.md)
+* [Utilisation d’AMQP 1.0 avec l’API .NET Service Bus](./service-bus-amqp-dotnet.md)
 * [Guide du développeur sur l’utilisation de Service Bus avec AMQP 1.0](service-bus-amqp-dotnet.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centre de développement Java](https://azure.microsoft.com/develop/java/)

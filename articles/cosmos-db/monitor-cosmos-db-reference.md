@@ -2,19 +2,18 @@
 title: Informations de référence sur les données de monitoring Azure Cosmos DB | Microsoft Docs
 description: Informations de référence sur le journal et les métriques pour la surveillance des données de Azure Cosmos DB.
 author: bwren
-services: azure-monitor
-ms.service: azure-monitor
+services: cosmos-db
+ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.subservice: logs
-ms.openlocfilehash: 89dc81cdd06bedb6237cf48312ee7ed0510d93ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084736"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080451"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Cosmos DB
 

@@ -3,12 +3,12 @@ title: Configuration de l’authentification et de l’autorisation Service Bus
 description: Authentifiez des applications dans Service Bus avec l’authentification Signature d’accès partagé (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337727"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066859"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 Il existe deux façons d’authentifier et d’autoriser l’accès aux ressources Azure Service Bus : Azure Active Directory (Azure AD) et les signatures d’accès partagé (SAP). Cet article vous explique l’utilisation de ces deux types de mécanismes de sécurité. 
@@ -30,7 +30,7 @@ Pour plus d’informations sur l’authentification avec Azure AD, consultez les
 ## <a name="shared-access-signature"></a>Signature d’accès partagé
 [L’authentification SAP](service-bus-sas.md) vous permet d’accorder un accès utilisateur aux ressources Service Bus avec des droits spécifiques. L’authentification SAP dans Service Bus implique la configuration d’une clé de chiffrement avec les droits associés sur une ressource Service Bus. Les clients peuvent alors accéder à cette ressource en présentant un jeton SAS qui se compose de la ressource URI à laquelle accéder et une échéance signée avec la clé configurée.
 
-Vous pouvez configurer des clés pour SAS dans un espace de noms Service Bus. La clé s’applique à toutes les entités de messagerie dans cet espace de noms. Vous pouvez également configurer des clés sur les rubriques et files d’attente Service Bus. SAP est également pris en charge par [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
+Vous pouvez configurer des clés pour SAS dans un espace de noms Service Bus. La clé s’applique à toutes les entités de messagerie dans cet espace de noms. Vous pouvez également configurer des clés sur les rubriques et files d’attente Service Bus. SAP est également pris en charge par [Azure Relay](../azure-relay/relay-authentication-and-authorization.md).
 
 Pour utiliser SAS, vous pouvez configurer un objet [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sur un espace de noms, une file d’attente ou une rubrique. Cette règle se compose des éléments suivants :
 
@@ -46,7 +46,7 @@ Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide
 La prise en charge de l’authentification SAS pour Service Bus est incluse dans le Kit de développement Azure .NET SDK versions 2.0 et ultérieures. SAP inclut l’assistance pour [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
 > [!IMPORTANT]
-> Si vous utilisez Azure Active Directory Access Control (également appelé Access Control Service ou ACS) avec Service Bus, notez que la prise en charge de cette méthode est désormais limitée et que vous devez [migrer votre application en vue d’utiliser SAS](service-bus-migrate-acs-sas.md) ou utiliser l’authentification OAuth 2.0 avec Azure AD (option recommandée). Pour plus d’informations sur les limites d’ACS, lisez [ce billet de blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Si vous utilisez Azure Active Directory Access Control (également appelé Access Control Service ou ACS) avec Service Bus, notez que la prise en charge de cette méthode est désormais limitée et que vous devez [migrer votre application en vue d’utiliser SAS](service-bus-migrate-acs-sas.md) ou utiliser l’authentification OAuth 2.0 avec Azure AD (option recommandée). Pour plus d’informations sur les limites d’ACS, lisez [ce billet de blog](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’authentification avec Azure AD, consultez les articles suivants :

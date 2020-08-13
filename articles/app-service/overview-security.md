@@ -5,12 +5,12 @@ keywords: azure app service, application web, application mobile, application d�
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649027"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080298"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -56,7 +56,7 @@ Le module d’autorisation et d’authentification App Service prend en charge p
 Quand l’authentification est effectuée par rapport à un service backend, App Service fournit deux mécanismes différents selon vos besoins :
 
 - **Identité de service** : se connecter à la ressource distante à l’aide de l’identité de l’application proprement dite. App Service vous permet de créer facilement une [identité managée](overview-managed-identity.md) que vous pouvez utiliser pour vous authentifier auprès d’autres services, par exemple [Azure SQL Database](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Pour un tutoriel de bout en bout sur cette approche, voir [Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée](app-service-web-tutorial-connect-msi.md).
-- **Pour le compte de** : effectuer l’accès délégué aux ressources distantes pour le compte de l’utilisateur. Avec Azure Active Directory comme fournisseur d’authentification, votre application App Service peut effectuer une connexion déléguée à un service distant, tel que l’[API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md), ou à une application API distante dans App Service. Pour suivre un tutoriel de bout en bout sur cette approche, consultez [Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **Pour le compte de** : effectuer l’accès délégué aux ressources distantes pour le compte de l’utilisateur. Avec Azure Active Directory comme fournisseur d’authentification, votre application App Service peut effectuer une connexion déléguée à un service distant, tel que l’[API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md), ou à une application API distante dans App Service. Pour suivre un tutoriel de bout en bout sur cette approche, consultez [Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Connectivité aux ressources distantes
 

@@ -3,12 +3,12 @@ title: Guide de dépannage pour Azure Service Bus | Microsoft Docs
 description: Cet article fournit la liste des exceptions de messagerie Azure Service Bus et les actions suggérées à entreprendre quand une exception se produit.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071305"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067050"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 L’identité ne dispose pas des autorisations nécessaires pour accéder à la rubrique Service Bus. 
 
 ### <a name="resolution"></a>Résolution
-Pour résoudre cette erreur, installez la bibliothèque [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Pour plus d’informations, consultez [Authentification du développement local](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+Pour résoudre cette erreur, installez la bibliothèque [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Pour plus d’informations, consultez [Authentification du développement local](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Pour savoir comment affecter des autorisations à des rôles, consultez [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus](service-bus-managed-service-identity.md).
 
@@ -101,5 +101,4 @@ Ouvrez une nouvelle connexion à l’espace de noms Service Bus pour envoyer pl
 Voir les articles suivants : 
 
 - [Exceptions Azure Resource Manager](service-bus-resource-manager-exceptions.md). Répertorie les exceptions générées lors de l’interaction avec Azure Service Bus à l’aide d’Azure Resource Manager (via des modèles ou des appels directs).
-- [Exceptions de messagerie](service-bus-messaging-exceptions.md). Fournit une liste d’exceptions générées par .NET Framework pour Azure Service Bus. 
-
+- [Exceptions de messagerie](service-bus-messaging-exceptions.md). Fournit une liste d’exceptions générées par .NET Framework pour Azure Service Bus.

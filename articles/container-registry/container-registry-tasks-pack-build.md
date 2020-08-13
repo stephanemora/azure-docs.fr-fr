@@ -4,12 +4,12 @@ description: Utilisez la commande AZ ACR Pack Build pour créer une image conten
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1892f4c20eb75e5e95140c829c49a708a81c2184
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408014"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077218"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -96,7 +96,7 @@ Accédez à `localhost:8080` dans votre navigateur favori pour voir l’exemple 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez généré et envoyé une image conteneur avec `az acr pack build`, vous pouvez la déployer comme n’importe quelle image vers une cible de votre choix. Les options de déploiement Azure incluent l'exécution de cette opération dans [App Service](../app-service/containers/tutorial-custom-docker-image.md) ou le [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre autres.
+Une fois que vous avez généré et envoyé une image conteneur avec `az acr pack build`, vous pouvez la déployer comme n’importe quelle image vers une cible de votre choix. Les options de déploiement Azure incluent l'exécution de cette opération dans [App Service](../app-service/tutorial-custom-container.md) ou le [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre autres.
 
 Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [Automatiser les builds d’image de conteneur et la maintenance avec les tâches ACR](container-registry-tasks-overview.md).
 

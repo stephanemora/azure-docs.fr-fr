@@ -4,12 +4,12 @@ description: Découvrez comment configurer une application ASP.NET dans Azure Ap
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907932"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080145"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configurer une application ASP.NET pour Azure App Service
 
@@ -18,7 +18,7 @@ ms.locfileid: "84907932"
 
 Les applications ASP.NET doivent être déployées pour Azure App Service en tant que fichiers binaires compilés. L’outil de publication de Visual Studio génère la solution, puis déploie directement les fichiers binaires compilés, alors que le moteur de déploiement d’App Service déploie en premier le référentiel de code, puis compile les fichiers binaires.
 
-Ce guide fournit des concepts clés et des instructions pour les développeurs ASP.NET. Si vous n’avez jamais utilisé Azure App Service, commencez par suivre le [Guide de démarrage rapide d’ASP.NET](app-service-web-get-started-dotnet-framework.md) et le [tutoriel sur ASP.NET avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md).
+Ce guide fournit des concepts clés et des instructions pour les développeurs ASP.NET. Si vous n’avez jamais utilisé Azure App Service, commencez par suivre le [Guide de démarrage rapide d’ASP.NET](quickstart-dotnet-framework.md) et le [tutoriel sur ASP.NET avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md).
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Afficher les versions du runtime .NET Framework prises en charge
 

@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: d84867e598110c5d9a59b477d92a2c8e021358db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ea03b1ff2e2a1e9b7d5256a0f1417c5ac113e0e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087337"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067322"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell
 
@@ -52,23 +52,32 @@ Pour charger un fichier sur un objet blob de blocs, obtenez une référence de c
 Les exemples suivants chargent *Image001.jpg* et *Image002.png* à partir du dossier *D:\\_TestImages* sur le disque local, dans le conteneur que vous avez créé.
 
 ```powershell
-# upload a file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+# upload a file to the default account (inferred) access tier
+Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
-# upload another file
+# upload a file to the Hot access tier
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+  -Container $containerName `
+  -Blob "Image001.jpg" `
+  -Context $ctx 
+  -StandardBlobTier Hot
+
+# upload another file to the Cool access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
+  -StandardBlobTier Cool
 
-# upload a file to a folder
+# upload a file to a folder to the Archive access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
   -Container $containerName `
   -Blob "Foldername/Image003.jpg" `
   -Context $ctx 
+  -StandardBlobTier Archive
 ```
 
 Chargez autant de fichiers que vous le souhaitez avant de continuer.

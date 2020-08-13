@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Décrit les processus sur lesquels repose Azure Dev Spaces et le fonctionnement du routage
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512467"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077663"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Fonctionnement du routage avec Azure Dev Spaces
 
@@ -49,7 +49,7 @@ Tout autre trafic TCP non HTTP transite par le contrôleur d’entrée et les co
 
 ## <a name="sharing-a-dev-space"></a>Partage d’un espace de développement
 
-Lorsque vous travaillez en équipe, vous pouvez [partager un espace de développement avec tous les membres de cette équipe](how-to/share-dev-spaces.md) et créer des espaces de développement dérivés. Un espace de développement peut être utilisé par toute personne ayant un accès contributeur au groupe de ressources de cet espace de développement.
+Lorsque vous travaillez en équipe, vous pouvez partager un espace de développement avec tous les membres de cette équipe et créer des espaces de développement dérivés. Un espace de développement peut être utilisé par toute personne ayant un accès contributeur au groupe de ressources de cet espace de développement.
 
 Vous pouvez également créer un espace de développement dérivé d'un autre espace de développement. Lorsque vous créez un espace de développement dérivé, l’étiquette *azds.io/parent-space=PARENT-SPACE-NAME* est ajouté à l'espace de noms de l'espace de développement dérivé. De plus, toutes les applications de l'espace de développement parent sont partagées avec l'espace de développement dérivé. Si vous déployez une version mise à jour d'une application dans l'espace de développement dérivé, elle n'existera que dans cet espace de développement dérivé, et l'espace de développement parent ne sera pas affecté. Vous pouvez avoir un maximum de trois niveaux d'espaces de développement dérivés ou espaces *grands-parents*.
 

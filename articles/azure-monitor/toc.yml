@@ -149,7 +149,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -196,7 +196,21 @@
               href: app/pricing.md
             - name: Utilisation et coûts des données de journal
               href: platform/manage-cost-storage.md
-        - name: Espaces de travail Log Analytics
+    - name: Journaux de plateforme
+      items:
+        - name: Vue d’ensemble
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Journal d’activité
+          href: platform/activity-log.md
+        - name: Journaux d’activité de ressources
+          href: platform/resource-logs.md
+        - name: Paramètres de diagnostic
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
+    - name: Log Analytics
+      items:
+        - name: Workspaces
           items:
             - name: Concevoir un déploiement d’espace de travail
               href: platform/design-logs-deployment.md
@@ -218,119 +232,6 @@
               href: platform/service-providers.md
             - name: Gérer l’accès
               href: platform/manage-access.md
-        - name: Agents de machine virtuelle
-          items:
-            - name: Vue d’ensemble
-              href: platform/agents-overview.md
-            - name: Questions fréquentes (FAQ)
-              href: faq.md#agents
-            - name: Extension Diagnostics Azure
-              items:
-                - name: Vue d’ensemble
-                  href: platform/diagnostics-extension-overview.md
-                - name: Windows
-                  displayname: diagnostics extension
-                  items:
-                    - name: Installation et configuration
-                      items:
-                        - name: Options d'installation
-                          href: platform/diagnostics-extension-windows-install.md
-                        - name: PowerShell
-                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                        - name: Modèle Resource Manager
-                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-                    - name: Envoyer aux métriques Azure Monitor
-                      items:
-                        - name: Machine virtuelle
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                        - name: Groupe de machines virtuelles identiques
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                        - name: Machine virtuelle classique
-                          href: platform/collect-custom-metrics-guestos-vm-classic.md
-                        - name: service cloud
-                          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: Envoyer à Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Envoyer aux journaux
-                      href: platform/diagnostics-extension-logs.md
-                    - name: Envoyer à Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Historique des versions
-                      href: platform/diagnostics-extension-versions.md
-                    - name: Dépannage
-                      href: platform/diagnostics-extension-troubleshooting.md
-                - name: Linux
-                  displayname: diagnostics extension
-                  items:
-                    - name: Vue d’ensemble
-                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-                    - name: Collecter des métriques avec Telegraf
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Agent Log Analytics
-              items:
-                - name: Vue d’ensemble
-                  href: platform/log-analytics-agent.md
-                - name: Agents Windows
-                  href: platform/agent-windows.md
-                - name: Agents Linux
-                  href: platform/agent-linux.md
-                - name: Extension de machine virtuelle pour Windows
-                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-                - name: Extension de machine virtuelle pour Linux
-                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-                - name: Passerelle Log Analytics
-                  href: platform/gateway.md
-                - name: Gestion des agents
-                  href: platform/agent-manage.md
-                - name: Agent Health
-                  href: insights/solution-agenthealth.md
-                - name: Sources de données
-                  items:
-                    - name: Vue d’ensemble
-                      href: platform/agent-data-sources.md
-                    - name: Événements Windows
-                      href: platform/data-sources-windows-events.md
-                    - name: Données JSON personnalisées
-                      href: platform/data-sources-json.md
-                    - name: Données de performances de CollectD
-                      href: platform/data-sources-collectd.md
-                    - name: syslog
-                      href: platform/data-sources-syslog.md
-                    - name: Compteurs de performance
-                      href: platform/data-sources-performance-counters.md
-                    - name: Performances des applications Linux
-                      href: platform/data-sources-linux-applications.md
-                    - name: Journaux d’activité IIS
-                      href: platform/data-sources-iis-logs.md
-                    - name: Journaux d’activité personnalisés
-                      href: platform/data-sources-custom-logs.md
-                    - name: Champs personnalisés
-                      href: platform/custom-fields.md
-            - name: Dépanner
-              items:
-                - name: "Extension de machine virtuelle Log\_Analytics"
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/vmext-troubleshoot.md
-                - name: Agent Windows Log Analytics
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-windows-troubleshoot.md
-                - name: "Agent Linux de Log\_Analytics"
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-linux-troubleshoot.md
-    - name: Journaux de plateforme
-      items:
-        - name: Vue d’ensemble
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Journal d’activité
-          href: platform/activity-log.md
-        - name: Journaux d’activité de ressources
-          href: platform/resource-logs.md
-        - name: Paramètres de diagnostic
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
         - name: Vue d’ensemble des requêtes de journal
           displayname: 'log query, log queries, query, queries'
           href: log-query/log-query-overview.md
@@ -424,6 +325,135 @@
           href: platform/metric-chart-samples.md
         - name: Dépannage des graphiques de métriques
           href: platform/metrics-troubleshoot.md
+    - name: Collecte des données
+      items:
+        - name: Règles de collecte des données
+          href: platform/data-collection-rule-overview.md
+        - name: Mesures personnalisées
+          items:
+            - name: Mesures personnalisées
+              href: platform/metrics-custom-overview.md
+            - name: API REST pour les métriques
+              href: platform/metrics-store-custom-rest-api.md
+        - name: Journaux d’activité personnalisés
+          items:
+            - name: "API collecteur de données Log\_Analytics"
+              href: platform/data-collector-api.md
+            - name: "Exemple de pipeline d’API collecteur de données Log\_Analytics"
+              href: platform/create-pipeline-datacollector-api.md
+        - name: Logic Apps
+          items:
+            - name: Connecteur des journaux Azure Monitor
+              href: platform/logicapp-flow-connector.md
+            - name: Connecteur Application Insights
+              href: app/automate-with-logic-apps.md
+    - name: Agents
+      items:
+        - name: Vue d'ensemble
+          href: platform/agents-overview.md
+        - name: Questions fréquentes (FAQ)
+          href: faq.md#agents
+        - name: Agent Azure Monitor
+          items:
+            - name: Vue d'ensemble
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-overview.md
+            - name: Collecte des données
+              displayname: 'data collection rule,Azure Monitor agent'
+              href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Extension Diagnostics Azure
+          items:
+            - name: Vue d’ensemble
+              href: platform/diagnostics-extension-overview.md
+            - name: Windows
+              displayname: diagnostics extension
+              items:
+                - name: Installation et configuration
+                  items:
+                    - name: Options d'installation
+                      href: platform/diagnostics-extension-windows-install.md
+                    - name: PowerShell
+                      href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                    - name: Modèle Resource Manager
+                      href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                - name: Envoyer aux métriques Azure Monitor
+                  items:
+                    - name: Machine virtuelle
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                    - name: Groupe de machines virtuelles identiques
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                    - name: Machine virtuelle classique
+                      href: platform/collect-custom-metrics-guestos-vm-classic.md
+                    - name: service cloud
+                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                - name: Envoyer à Event Hubs
+                  href: platform/diagnostics-extension-stream-event-hubs.md
+                - name: Envoyer aux journaux
+                  href: platform/diagnostics-extension-logs.md
+                - name: Envoyer à Application Insights
+                  href: platform/diagnostics-extension-to-application-insights.md
+                - name: Historique des versions
+                  href: platform/diagnostics-extension-versions.md
+                - name: Dépannage
+                  href: platform/diagnostics-extension-troubleshooting.md
+            - name: Linux
+              displayname: diagnostics extension
+              items:
+                - name: Vue d’ensemble
+                  href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                - name: Collecter des métriques avec Telegraf
+                  href: platform/collect-custom-metrics-linux-telegraf.md
+        - name: Agent Log Analytics
+          items:
+            - name: Vue d'ensemble
+              href: platform/log-analytics-agent.md
+            - name: Agents Windows
+              href: platform/agent-windows.md
+            - name: Agents Linux
+              href: platform/agent-linux.md
+            - name: Extension de machine virtuelle pour Windows
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Extension de machine virtuelle pour Linux
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Passerelle Log Analytics
+              href: platform/gateway.md
+            - name: Gestion des agents
+              href: platform/agent-manage.md
+            - name: Agent Health
+              href: insights/solution-agenthealth.md
+            - name: Sources de données
+              items:
+                - name: Vue d’ensemble
+                  href: platform/agent-data-sources.md
+                - name: Événements Windows
+                  href: platform/data-sources-windows-events.md
+                - name: Données JSON personnalisées
+                  href: platform/data-sources-json.md
+                - name: Données de performances de CollectD
+                  href: platform/data-sources-collectd.md
+                - name: syslog
+                  href: platform/data-sources-syslog.md
+                - name: Compteurs de performance
+                  href: platform/data-sources-performance-counters.md
+                - name: Performances des applications Linux
+                  href: platform/data-sources-linux-applications.md
+                - name: Journaux d’activité IIS
+                  href: platform/data-sources-iis-logs.md
+                - name: Journaux d’activité personnalisés
+                  href: platform/data-sources-custom-logs.md
+                - name: Champs personnalisés
+                  href: platform/custom-fields.md
+        - name: Dépanner
+          items:
+            - name: "Extension de machine virtuelle Log\_Analytics"
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/vmext-troubleshoot.md
+            - name: Agent Windows Log Analytics
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-windows-troubleshoot.md
+            - name: "Agent Linux de Log\_Analytics"
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-linux-troubleshoot.md
     - name: Mise à l’échelle automatique
       items:
         - name: Vue d’ensemble
@@ -762,7 +792,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -917,7 +947,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -1148,29 +1178,6 @@
               href: log-query/dashboard-upgrade.md
         - name: Envoyer des données vers Grafana
           href: platform/grafana-plugin.md
-    - name: Collecte et analyse de données personnalisées
-      items:
-        - name: Mesures personnalisées
-          items:
-            - name: Mesures personnalisées
-              href: platform/metrics-custom-overview.md
-            - name: API REST pour les métriques
-              href: platform/metrics-store-custom-rest-api.md
-        - name: Journaux d’activité personnalisés
-          items:
-            - name: "API collecteur de données Log\_Analytics"
-              href: platform/data-collector-api.md
-            - name: "Exemple de pipeline d’API collecteur de données Log\_Analytics"
-              href: platform/create-pipeline-datacollector-api.md
-        - name: Logic Apps
-          items:
-            - name: Connecteur des journaux Azure Monitor
-              href: platform/logicapp-flow-connector.md
-            - name: Connecteur Application Insights
-              href: app/automate-with-logic-apps.md
-        - name: API REST
-          displayname: 'metrics, analyze'
-          href: platform/rest-api-walkthrough.md
     - name: Intégration de System Center
       items:
         - name: Se connecter à Operations Manager
@@ -1274,6 +1281,9 @@
           href: /rest/api/monitor/
         - name: Journaux Azure Monitor
           href: /rest/api/loganalytics
+        - name: Procédure pas à pas de l’API REST
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: Modèles Resource Manager
       items:
         - name: Azure Monitor

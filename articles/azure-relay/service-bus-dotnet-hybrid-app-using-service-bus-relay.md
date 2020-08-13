@@ -3,12 +3,12 @@ title: Application hybride Azure Windows Communication Foundation (WCF) Relay lo
 description: Découvrir comment exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314405"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079958"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay
 
@@ -244,7 +244,7 @@ Dans cette section, vous générez une application ASP.NET simple qui affiche de
     ![Spécifier l’authentification][18]
 
 1. De retour dans **Créer une application web ASP.NET**, sélectionnez **Créer** pour créer l’application MVC.
-1. Configurez les ressources Azure d’une nouvelle application web. Suivez les étapes décrites dans [Publier votre application web](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
+1. Configurez les ressources Azure d’une nouvelle application web. Suivez les étapes décrites dans [Publier votre application web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Modèles** et sélectionnez **Ajouter** > **une classe**.
 1. Nommez la classe *Product.cs*, puis sélectionnez **Ajouter**.
 
