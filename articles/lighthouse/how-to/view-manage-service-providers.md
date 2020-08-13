@@ -1,18 +1,21 @@
 ---
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273776"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167162"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
-Les clients peuvent utiliser la page **Fournisseurs de services** du [Portail Azure](https://portal.azure.com) pour visualiser des informations sur les fournisseurs de services et les offres de fournisseurs de services, déléguer des ressources spécifiques à [Azure Lighthouse](../overview.md) et souscrire à de nouvelles offres de fournisseurs de services. Si nous faisons référence ici aux fournisseurs de services et aux clients, des entreprises gérant plusieurs locataires peuvent suivre le même processus pour consolider leur expérience de gestion.
+Les clients peuvent utiliser la page **Fournisseurs de services** du [Portail Azure](https://portal.azure.com) pour visualiser des informations sur les fournisseurs de services et les offres de fournisseurs de services, déléguer des ressources spécifiques à [Azure Lighthouse](../overview.md) et souscrire à de nouvelles offres de fournisseurs de services.
+
+> [!TIP]
+> Si nous faisons référence ici aux fournisseurs de services et aux clients, des [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour consolider leur expérience de gestion.
 
 Pour accéder à la page **Fournisseurs de services** sur le portail Azure, le client peut sélectionner **Tous les services**, puis rechercher et sélectionner **Fournisseurs de services**. Il peut également la trouver en tapant « Fournisseurs de services » ou « Azure Lighthouse » dans la zone de recherche dans la partie supérieure du portail Azure.
 

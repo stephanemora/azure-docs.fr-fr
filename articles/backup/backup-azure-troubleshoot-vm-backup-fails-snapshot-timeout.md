@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809763"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167927"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -23,7 +23,7 @@ Les échecs de sauvegarde les plus courants peuvent se résoudre de manière aut
 
 ### <a name="step-1-check-azure-vm-health"></a>Étape 1 : Vérifier l’intégrité de la machine virtuelle Azure
 
-- **Assurez-vous que l’état d’approvisionnement de la machine virtuelle Azure est « en cours d’exécution »**  : Si l’[état d’approvisionnement de la machine virtuelle](../virtual-machines/windows/states-lifecycle.md#provisioning-states) est **Arrêté/Libéré/En cours de mise à jour**, cela interfère avec l’opération de sauvegarde. Ouvrez *Portail Azure > Machine virtuelle > Vue d’ensemble >* et vérifiez l’état de la machine virtuelle pour vous assurer qu’elle est **en cours d’exécution** et faites une nouvelle tentative de sauvegarde.
+- **Assurez-vous que l’état d’approvisionnement de la machine virtuelle Azure est « en cours d’exécution »**  : Si l’[état d’approvisionnement de la machine virtuelle](../virtual-machines/states-lifecycle.md#provisioning-states) est **Arrêté/Libéré/En cours de mise à jour**, cela interfère avec l’opération de sauvegarde. Ouvrez *Portail Azure > Machine virtuelle > Vue d’ensemble >* et vérifiez l’état de la machine virtuelle pour vous assurer qu’elle est **en cours d’exécution** et faites une nouvelle tentative de sauvegarde.
 - **Passez en revue les mises à jour ou redémarrages du système d’exploitation en attente** : Assurez-vous qu’il n’existe aucune mise à jour du système d’exploitation ni redémarrages en attente sur la machine virtuelle.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Étape 2 : Vérifier l’intégrité du service de l’agent invité de la machine virtuelle Azure
@@ -101,7 +101,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Sauv
 **Code d’erreur** : UserErrorVmProvisioningStateFailed<br>
 **Message d’erreur** : Échec de l’approvisionnement de la machine virtuelle<br>
 
-Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Si l’extension VMSnapshot est à l’état d’échec, cliquez avec le bouton droit sur l’extension qui a échoué, puis supprimez-la. Déclenchez une sauvegarde à la demande. Cette action réinstalle les extensions et exécute le travail de sauvegarde.  <br>
 - Si une autre extension est à l’état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.

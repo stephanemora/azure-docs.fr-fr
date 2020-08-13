@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: dpalled
-ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446634"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167995"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Ajout de la prise en charge du type de données long dans Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Si vous envoyez actuellement des données de télémétrie entières, vos donné
 
 Vos données entière sont écrites dans **propertyValue_long**. Les données numériques ingérées précédemment (et ultérieurement) dans **propertyValue_double** ne sont pas copiées.
 
-Si vous souhaitez interroger les données figurant dans ces deux colonnes pour la propriété **propertyValue**, vous devez utiliser la fonction scalaire **coalesce()** dans votre TSX. La fonction accepte les arguments du même **DataType** et retourne la première valeur non null de la liste d’arguments. Pour plus d’informations, consultez [Concepts d’accès aux données Azure Time Series Insights Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+Si vous souhaitez interroger les données figurant dans ces deux colonnes pour la propriété **propertyValue**, vous devez utiliser la fonction scalaire **coalesce()** dans votre TSX. La fonction accepte les arguments du même **DataType** et retourne la première valeur non null de la liste d’arguments. Pour plus d’informations, consultez [Concepts d’accès aux données Azure Time Series Insights Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Définition de variable dans TSX – Numérique
 
@@ -78,7 +78,7 @@ Si vous souhaitez interroger les données figurant dans ces deux colonnes pour l
 
 [![Nouvelle définition de la variable](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
+Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Définition de variable Inline à l’aide d’API de requête TSX – Numérique
 
@@ -126,7 +126,7 @@ Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble
 }
 ```
 
-Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
+Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 > [!NOTE]
 > Nous vous recommandons de mettre à jour ces variables dans tous les emplacements où elles pourraient être utilisées. Ces emplacements incluent un modèle de série chronologique, des requêtes enregistrées et les requêtes de connecteur Power BI.
@@ -147,7 +147,7 @@ Si vous utilisez actuellement des variables de catégorie qui mappent des valeur
 
 Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
 
-Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
+Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Définition de variable incluse à l’aide d’API de requête TSX – Catégorielle
 
@@ -227,7 +227,7 @@ Les variables de catégorie requièrent toujours une valeur de type entier. Le *
 }
 ```
 
-Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
+Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 > [!NOTE]
 > Nous vous recommandons de mettre à jour ces variables dans tous les emplacements où elles pourraient être utilisées. Ces emplacements incluent un modèle de série chronologique, des requêtes enregistrées et les requêtes de connecteur Power BI.
