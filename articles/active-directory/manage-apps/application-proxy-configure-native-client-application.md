@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764806"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165071"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Comment autoriser les applications clientes natives à interagir avec des applications de proxy
 
@@ -124,4 +124,4 @@ Une fois que vous avez modifié le code MSAL avec ces paramètres, vos utilisate
 
 Pour en savoir plus sur le flux d’application native, voir [Applications natives dans Azure Active Directory](../azuread-dev/native-app.md).
 
-Découvrez comment configurer [l’authentification unique SAML auprès des applications dans Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Découvrez comment configurer [l’authentification unique SAML auprès des applications dans Azure Active Directory](sso-options.md#choosing-a-single-sign-on-method).

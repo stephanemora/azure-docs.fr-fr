@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77185827"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166074"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator
 
@@ -38,7 +38,7 @@ Ils permettent d’effectuer les opérations suivantes :
 
 - Authentification unique.
 - Identification d’appareil requise par certaines [stratégies d’accès conditionnel](../conditional-access/overview.md). Pour plus d’informations, consultez [Gestion des appareils](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Vérification de l’identification de l'application, également requise dans certains scénarios d’entreprise. Pour plus d'informations, consultez [Gestion des applications mobiles Intune (GAM)](https://docs.microsoft.com/intune/mam-faq).
+- Vérification de l’identification de l'application, également requise dans certains scénarios d’entreprise. Pour plus d'informations, consultez [Gestion des applications mobiles Intune (GAM)](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrer d’ADAL vers MSAL
 
@@ -241,4 +241,4 @@ Pour plus d’informations sur l’inscription de l'URI de redirection dans le p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les [considérations spécifiques de Xamarin iOS avec MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Découvrez les [considérations spécifiques de Xamarin iOS avec MSAL.NET](msal-net-xamarin-ios-considerations.md).

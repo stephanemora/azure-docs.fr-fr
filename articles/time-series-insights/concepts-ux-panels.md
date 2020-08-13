@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53e29734095506a3f55593f938c2d9aba5903771
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094474"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164153"
 ---
 # <a name="azure-time-series-insights-gen2-explorer"></a>Explorateur Azure Time Series Insights Gen2
 
@@ -28,7 +28,7 @@ Pour commencer à utiliser l’Explorateur Azure Time Series Insights Gen2, vous
 * Avoir un environnement Azure Time Series Insights Gen2 approvisionné. Pour en savoir plus sur l’approvisionnement d’une instance, lisez le tutoriel [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md).
 * [Fournissez l’accès aux données](./time-series-insights-data-access.md) à l’environnement Azure Time Series Insights Gen2 que vous avez créé pour le compte. Vous pouvez octroyer l’accès à d’autres personnes ainsi qu’à vous-même.
 * Ajoutez une source d’événement à l’environnement Azure Time Series Insights Gen2 pour envoyer (push) des données à ce dernier :
-  * Découvrez [comment vous connecter à un Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md). 
+  * Découvrez [comment vous connecter à un Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
   * Découvrez [comment vous connecter à un Hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Découvrir l’Explorateur Azure Time Series Insights Gen2
@@ -44,7 +44,6 @@ L’Explorateur Azure Time Series Insights Gen2 en préversion est composé des 
 1. [Panneau Graphique](#5-chart-panel) : affiche votre graphique actif.
 1. [Chronologie](#6-time-editor-panel) : vous permet de modifier votre intervalle de temps actif.
 1. [Barre de l’application](#7-app-bar) : Contient vos options de gestion d’utilisateur, comme le locataire actuel, et vous permet de les modifier, ainsi que les paramètres de langage.
-
 
 ## <a name="1-environment-panel"></a>1. Volet Environment
 
@@ -79,19 +78,19 @@ Pour plus d’informations le modèle Time Series, consultez [Modèles Time Seri
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. Arborescence hiérarchique et volet de recherche
 
-L’arborescence hiérarchique et le volet de recherche vous permettent de rechercher et de parcourir facilement votre hiérarchie de [modèles Time Series](./concepts-model-overview.md) pour rechercher les instances de séries chronologiques spécifiques que vous voulez afficher sur votre graphique. Lorsque vous sélectionnez vos instances, elles sont ajoutées au graphique actuel et aussi aux données. 
+L’arborescence hiérarchique et le volet de recherche vous permettent de rechercher et de parcourir facilement votre hiérarchie de [modèles Time Series](./concepts-model-overview.md) pour rechercher les instances de séries chronologiques spécifiques que vous voulez afficher sur votre graphique. Lorsque vous sélectionnez vos instances, elles sont ajoutées au graphique actuel et aussi aux données.
 
 [![Arborescence hiérarchique et volet de recherche](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 Le volet des résultats de la recherche vous permet également d’afficher vos résultats dans une vue hiérarchique ou une vue liste, ce qui facilite la recherche des instances que vous souhaitez afficher.
- 
+
 ## <a name="4-time-series-well"></a>4. Puits de série chronologique
 
-Le puits affiche les champs d’instance et d’autres métadonnées associées aux instances du modèle de série chronologique. Les cases à cocher à droite vous permettent de masquer ou d’afficher des instances spécifiques du graphique actuel. 
+Le puits affiche les champs d’instance et d’autres métadonnées associées aux instances du modèle de série chronologique. Les cases à cocher à droite vous permettent de masquer ou d’afficher des instances spécifiques du graphique actuel.
 
   [![Le puits Gen2](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
-Vous pouvez supprimer des éléments de données spécifiques à partir de vos données en cours en sélectionnant le contrôle **Supprimer** (corbeille) affiché en rouge à gauche de l’élément. La source vous permet également de contrôler la façon dont chaque élément est affiché dans le graphique. Vous pouvez choisir d’ajouter des ombres min./max., des points de données, de déplacer l’élément dans le temps et de visualiser l’instance de manière échelonnée. 
+Vous pouvez supprimer des éléments de données spécifiques à partir de vos données en cours en sélectionnant le contrôle **Supprimer** (corbeille) affiché en rouge à gauche de l’élément. La source vous permet également de contrôler la façon dont chaque élément est affiché dans le graphique. Vous pouvez choisir d’ajouter des ombres min./max., des points de données, de déplacer l’élément dans le temps et de visualiser l’instance de manière échelonnée.
 
 En outre, le contrôle Explorations vous permet de créer facilement des décalages temporels et des nuages de points.  
 
@@ -104,7 +103,7 @@ En outre, le contrôle Explorations vous permet de créer facilement des décala
 
 ## <a name="5-chart-panel"></a>5. Volet Graphique
 
-Le graphique vous permet d’afficher les instances de séries chronologiques sous forme de lignes. Vous pouvez réduire le panneau d’environnement, le modèle de données et le panneau de contrôle des intervalles de temps en cliquant sur les contrôles web afin d’agrandir le graphique. 
+Le graphique vous permet d’afficher les instances de séries chronologiques sous forme de lignes. Vous pouvez réduire le panneau d’environnement, le modèle de données et le panneau de contrôle des intervalles de temps en cliquant sur les contrôles web afin d’agrandir le graphique.
 
   [![Vue d’ensemble du graphique Gen2](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
@@ -149,7 +148,7 @@ Lorsque vous utilisez Azure Time Series Insights Gen2, vous commencez par sélec
 > [!TIP]
 > Une partie de la chronologie est mise en surbrillance avec la couleur orange ou ambre pour indiquer l’étendue des données disponibles dans le magasin à chaud.
 
-Les contrôles web suivants sont disponibles dans Azure Time Series Insights Gen2 pour la sélection de votre intervalle de temps actif. 
+Les contrôles web suivants sont disponibles dans Azure Time Series Insights Gen2 pour la sélection de votre intervalle de temps actif.
 
   [![Contrôle Source d’exploration](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -205,7 +204,7 @@ L’Explorateur Azure Time Series Insights Gen2 prend en charge deux thèmes :
 
 ### <a name="gen2-terms-panel"></a>Volet des conditions Gen2
 
-Cette section s’applique uniquement aux environnements Gen1 existants qui tentent d’utiliser l’Explorateur dans l’interface utilisateur mise à jour. Vous souhaiterez peut-être utiliser le produit Gen1 et le produit Gen2 en combinaison. Nous avons ajouté certaines fonctionnalités de l’interface utilisateur existante à l’Explorateur mis à jour, mais vous pouvez bénéficier de l’expérience d’interface utilisateur complète pour un environnement Gen1 dans le nouvel Explorateur Azure Time Series Insights Gen2. 
+Cette section s’applique uniquement aux environnements Gen1 existants qui tentent d’utiliser l’Explorateur dans l’interface utilisateur mise à jour. Vous souhaiterez peut-être utiliser le produit Gen1 et le produit Gen2 en combinaison. Nous avons ajouté certaines fonctionnalités de l’interface utilisateur existante à l’Explorateur mis à jour, mais vous pouvez bénéficier de l’expérience d’interface utilisateur complète pour un environnement Gen1 dans le nouvel Explorateur Azure Time Series Insights Gen2.
 
 Au lieu de la hiérarchie, le volet des conditions d’Azure Time Series Insights Gen2 s’affiche. Le panneau des termes vous permet de définir des requêtes dans votre environnement. Utilisez-le pour filtrer vos données en fonction d’un prédicat.
 
@@ -222,7 +221,7 @@ Le volet de l’éditeur des conditions d’Azure Time Series Insights Gen2 acce
 | `IN` | Chaîne, Bool, Double, DateTime, TimeSpan, NULL | Tous les opérandes doivent être du même type ou être la constante NULL. |
 | `HAS` | String | Seuls les littéraux de chaîne constante sont autorisés à droite. Les chaînes vides et NULL ne sont pas autorisées. |
 
-Pour plus d’informations sur les types d’opérations et de données de requête pris en charge, consultez [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Pour plus d’informations sur les types d’opérations et de données de requête pris en charge, consultez [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exemples de clauses Where
 
@@ -240,10 +239,10 @@ Vous pouvez afficher et masquer des éléments dans le panneau de graphique en s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [réception de données](./concepts-ingestion-overview.md) dans votre environnement.
+* En savoir plus sur la [réception de données](./concepts-ingestion-overview.md) dans votre environnement.
 
-- Consultez l’article sur le [stockage](concepts-storage.md).
+* Consultez l’article sur le [stockage](concepts-storage.md).
 
-- Découvrez la [modélisation des données](./concepts-model-overview.md) dans Azure Time Series Insights Gen2.
+* Découvrez la [modélisation des données](./concepts-model-overview.md) dans Azure Time Series Insights Gen2.
 
-- Découvrez [comment diagnostiquer et dépanner](./time-series-insights-update-how-to-troubleshoot.md) votre environnement.
+* Découvrez [comment diagnostiquer et dépanner](./time-series-insights-update-how-to-troubleshoot.md) votre environnement.

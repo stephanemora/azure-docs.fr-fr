@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883224"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166431"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
@@ -134,7 +134,7 @@ En utilisant la combinaison nom d’utilisateur/mot de passe dans un flux ROPC, 
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurer le flux ROPC dans Azure AD B2C
 
-Dans votre locataire Azure AD B2C, créez un flux d’utilisateur et sélectionnez **Se connecter à l’aide de ROPC** pour activer ROPC pour ce flux d’utilisateur. Pour plus d’informations, consultez [Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource](/azure/active-directory-b2c/configure-ropc).
+Dans votre locataire Azure AD B2C, créez un flux d’utilisateur et sélectionnez **Se connecter à l’aide de ROPC** pour activer ROPC pour ce flux d’utilisateur. Pour plus d’informations, consultez [Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication` contient la méthode `AcquireTokenByUsernamePassword` :
 
@@ -182,7 +182,7 @@ Un symptôme d’un tel scénario est que MSAL.NET renvoie `Missing from the tok
 
 La solution de contournement suggérée consiste à utiliser la [mise en cache par stratégie](#acquire-a-token-to-apply-a-policy) décrite précédemment.
 
-Vous pouvez également utiliser la revendication `tid` si vous utilisez des [stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md) dans Azure AD B2C. Les stratégies personnalisées peuvent renvoyer des revendication supplémentaires à votre application à l’aide de la [transformation des revendications](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Vous pouvez également utiliser la revendication `tid` si vous utilisez des [stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md) dans Azure AD B2C. Les stratégies personnalisées peuvent renvoyer des revendication supplémentaires à votre application à l’aide de la [transformation des revendications](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Atténuation pour « Absent de la réponse de jeton »
 

@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d120973939dd1efabee868fc75e9f6c1352bf3
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562631"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164578"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -100,7 +99,7 @@ Le proxy d’application prend également en charge les protocoles d’authentif
 * [**Authentification basée sur des formulaires ou un mot de passe**](application-proxy-configure-single-sign-on-password-vaulting.md). Avec cette méthode d’authentification, les utilisateurs se connectent à l’application avec un nom d’utilisateur et un mot de passe quand ils y accèdent la première fois. Après la première connexion, Azure AD fournit le nom d’utilisateur et le mot de passe à l’application. Dans ce scénario, l’authentification est gérée par Azure AD.
 * [**Authentification SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). L’authentification unique SAML est prise en charge pour les applications qui utilisent les protocoles SAML 2.0 ou WS-Federation. Grâce à l’authentification unique SAML, Azure AD s’authentifie auprès de l’application en utilisant le compte Azure AD de l’utilisateur.
 
-Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Avantages en matière de sécurité
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206f87e45377287217b4895b8d481e14618c888c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386943"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164221"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -55,7 +55,7 @@ Azure AD prend en charge les comptes partagés pour tous les plans de licence En
 
 Les fonctionnalités Azure AD qui permettent le partage de compte sont les suivantes :
 
-* [Authentification unique avec mot de passe](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* [Authentification unique avec mot de passe](../manage-apps/sso-options.md#password-based-sso)
 * Agent d’authentification unique avec mot de passe
 * [Affectation de groupe](groups-self-service-management.md)
 * Applications de mot de passe personnalisé
