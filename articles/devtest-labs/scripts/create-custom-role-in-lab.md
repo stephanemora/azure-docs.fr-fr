@@ -1,23 +1,15 @@
 ---
 title: PowerShell - Créer un rôle personnalisé dans un lab dans Azure DevTest Labs
 description: Cet article fournit un script Azure PowerShell qui ajoute un utilisateur externe à un lab dans Azure DevTest Labs.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 242e2a2bf743777dd43a4c84194ebd894b5edd3c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+ms.openlocfilehash: 9b6e4d47babd17916e31ab2762ec87f6aa433da6
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290413"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136199"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour créer un rôle personnalisé dans un lab dans Azure DevTest Labs
 
@@ -41,7 +33,7 @@ Ce script utilise les commandes suivantes :
 | Commande | Notes |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Obtient les opérations d’un fournisseur de ressources Azure qui sont sécurisables à l’aide d’Azure RBAC. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Répertorie tous les rôles Azure RBAC qui peuvent être affectés. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Répertorie tous les rôles Azure qui peuvent être attribués. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Crée un rôle personnalisé. |
 
 ## <a name="next-steps"></a>Étapes suivantes
