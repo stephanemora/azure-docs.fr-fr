@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/29/2020
+ms.date: 08/09/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9bb290106c5ceafe8c636bbeeab38b74ea475eb4
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204036"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056189"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -93,7 +93,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     ![Créer une révision d’accès : paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings.png)
 
-1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à la ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
+1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
 
 1. Utilisez la liste **Le réviseur ne doit pas répondre** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
 

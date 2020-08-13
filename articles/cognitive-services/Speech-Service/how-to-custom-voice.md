@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402049"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056684"
 ---
 # <a name="get-started-with-custom-voice"></a>Bien démarrer avec Custom Voice
 
@@ -56,7 +56,7 @@ Une fois que vous avez créé un compte Azure et un abonnement Speech, vous deve
 4. Si vous voulez basculer vers un autre abonnement Speech, utilisez l’icône représentant une roue dentée dans le volet de navigation du haut.
 
 > [!NOTE]
-> Le service Custom Voice NE prend PAS en charge la clé d’essai gratuit de 30 jours. Pour pouvoir utiliser le service, vous devez disposer d’une clé F0 ou S0 créée dans Azure.
+> Pour pouvoir utiliser le service, vous devez disposer d’une clé F0 ou S0 créée dans Azure.
 
 ## <a name="how-to-create-a-project"></a>Comment créer un projet
 
@@ -65,7 +65,7 @@ Le contenu que représentent les données, les modèles, les tests et les points
 Pour créer votre premier projet, sélectionnez l’onglet **Text-to-Speech/Custom Voice**, puis cliquez sur **New Project**. Suivez les instructions fournies par l’Assistant pour créer votre projet. Une fois le projet créé, quatre onglets sont affichés : **Data**, **Training**, **Testing** et **Deployment**. Utilisez les liens fournis dans [Étapes suivantes](#next-steps) pour savoir comment utiliser chaque onglet.
 
 > [!IMPORTANT]
-> Le [portail Custom Voice](https://aka.ms/custom-voice) a été récemment mis à jour. Si vous avez créé des données, des modèles, des tests et des points de terminaison publiés sur le portail CRIS.ai ou avec des API, vous devez créer un nouveau projet sur le nouveau portail pour vous connecter à ces anciennes entités.
+> Le [portail Custom Voice](https://aka.ms/custom-voice) a été récemment mis à jour. Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

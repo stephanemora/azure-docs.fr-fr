@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: d1b545129312e2954c76e296560d9476f37f4424
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 271787c47b29bc713cc923c7d27852a8e05703ef
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081761"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042545"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -824,7 +824,7 @@ Dans les fonctions non C#, les requêtes envoyées avec le type de contenu `imag
 
 ## <a name="limits"></a>limites
 
-La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config) du runtime.
+La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config) du runtime.
 
 Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout de 230 secondes, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 

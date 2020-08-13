@@ -1,23 +1,21 @@
 ---
 title: Ponteneurs de profil FSLogix de stockage dans Windows Virtual Desktop - Azure
 description: Options pour le stockage de votre profil FSLogix de Windows Virtual Desktop dans le stockage Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009407"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
-Azure propose plusieurs solutions de stockage que vous pouvez utiliser pour stocker votre conteneur de profil FSLogix. Cet article compare les solutions de stockage qu’Azure propose pour les profils utilisateur des conteneurs de profil FSLogix de Windows Virtual Desktop. Nous recommandons le stockage des conteneurs de profil FSLogix sur Azure Files à la plupart de nos clients. 
+Azure propose plusieurs solutions de stockage que vous pouvez utiliser pour stocker votre conteneur de profil FSLogix. Cet article compare les solutions de stockage qu’Azure propose pour les profils utilisateur des conteneurs de profil FSLogix de Windows Virtual Desktop. Nous recommandons le stockage des conteneurs de profil FSLogix sur Azure Files à la plupart de nos clients.
 
 Windows Virtual Desktop propose des conteneurs de profil FSLogix en tant que solution recommandée de profil utilisateur. FSLogix est conçu pour l’itinérance des profils dans des environnements informatiques à distance, comme Windows Virtual Desktop. Lors de la connexion, ce conteneur est attaché dynamiquement à l’environnement informatique à l’aide d’un disque dur virtuel (VHD) et d’un disque dur virtuel Hyper-V (VHDX) pris en charge en mode natif. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natif.
 

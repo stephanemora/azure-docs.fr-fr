@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête dans le portail'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour exécuter votre première requête à partir du portail Azure en utilisant l’Explorateur Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958805"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056378"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 

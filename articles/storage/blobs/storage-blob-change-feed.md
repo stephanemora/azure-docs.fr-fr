@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518739"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055418"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 
 L’objectif du flux de modification est de fournir des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Le flux de modification fournit un journal **ordonné**, **garanti**, **durable**, **immuable** et **en lecture seule** de ces changements. Les applications clientes peuvent lire ces journaux à tout moment, soit en diffusion en continu, soit en mode de traitement par lot. Le flux de modification vous permet de créer des solutions efficaces et évolutives qui traitent les événements de modification qui se produisent dans votre compte Stockage Blob à moindre coût.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 Le flux de modification est stocké en tant que [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) dans un conteneur spécial dans votre compte de stockage au [tarif standard des objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/). Vous pouvez contrôler la période de rétention de ces fichiers en fonction de vos exigences (voir les [conditions](#conditions) de la version actuelle). Les événements de modification sont ajoutés au flux de modification sous forme d’enregistrements dans la spécification de format [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : un format binaire, compact et rapide qui fournit des structures de données enrichies avec un schéma inlined. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory.
 
@@ -71,7 +71,7 @@ Activez le flux de modification sur votre compte de stockage à l’aide du port
 
 4. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de **protection des données**.
 
-    ![Capture d’écran montrant les paramètres de protection des données.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Capture d’écran montrant les paramètres de protection des données.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

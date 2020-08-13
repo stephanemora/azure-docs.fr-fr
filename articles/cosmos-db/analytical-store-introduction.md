@@ -1,17 +1,17 @@
 ---
 title: Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
 description: Découvrez le magasin transactionnel (basé sur des lignes) et analytique (basé sur des colonnes) d’Azure Cosmos DB. Avantages du magasin analytique, impact sur les performances pour les charges de travail à grande échelle et synchronisation automatique des données d’un magasin transactionnel à un magasin analytique
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116024"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037097"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083597"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056076"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -54,8 +54,6 @@ Ces API REST BLOB ne sont pas prises en charge :
 * [Obtenir les portées de page](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Copie incrémentielle BLOB](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Placer la page à partir de l’URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Placer BLOB (ajouter)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Ajouter un bloc à partir d’une URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.

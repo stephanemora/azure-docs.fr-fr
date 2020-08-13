@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête Azure CLI'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour activer l’extension Resource Graph pour Azure CLI et vous exécutez votre première requête.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 82e36027e5016554770fc9359f413c1fff6fe227
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500672"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056446"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 

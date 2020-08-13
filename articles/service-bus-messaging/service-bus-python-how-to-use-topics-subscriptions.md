@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-python
+ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341029"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064381"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Python
 
@@ -176,7 +176,7 @@ La suppression d’une rubrique supprime tous les abonnements à la rubrique. Vo
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-Par défaut, les rubriques et les abonnements sont persistants et existent jusqu’à ce que vous les supprimiez. Pour supprimer automatiquement des abonnements après l’expiration d’une période donnée, vous pouvez définir le paramètre [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) sur l’abonnement. 
+Par défaut, les rubriques et les abonnements sont persistants et existent jusqu’à ce que vous les supprimiez. Pour supprimer automatiquement des abonnements après l’expiration d’une période donnée, vous pouvez définir le paramètre [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) sur l’abonnement. 
 
 > [!TIP]
 > Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer vous permet de vous connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction importer/exporter ou la possibilité de tester des rubriques, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
@@ -192,4 +192,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md

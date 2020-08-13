@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 650210ab965936de6e48b2ace3f2042857760053
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 000413267d09f5f51ffdb50ccc5aeaab78a18b5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800005"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036655"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Créer une offre Dynamics 365 for Customer Engagement et PowerApps
 
@@ -190,19 +190,19 @@ Fournissez ici entrez un et trois documents marketing d’accompagnement, comme 
 
 Fournissez des logos et des images pour votre offre. Toutes les images doivent être au format .png.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) * taille de logo. Vous pouvez éventuellement la remplacer par une autre image.
+Fournissez le logo de votre offre en trois tailles (en pixels) :
+- **Petite** (obligatoire ; 48 x 48)
+- **Grande** (obligatoire ; 216 x 216)
+- **Large** (facultative ; 255 x 115)
 
-Ces deux tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
-
-- **Petit** (48 x 48)
-- **Grand** (entre 216 x 216 et 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

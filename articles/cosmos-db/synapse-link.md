@@ -1,18 +1,18 @@
 ---
 title: Avantages et modalités d’utilisation d’Azure Synapse Link pour Azure Cosmos DB
 description: En savoir plus sur Azure Synapse Link pour Azure Cosmos DB. Synapse Link vous permet d’exécuter l’analytique en temps quasi-réel (HTAP) à l’aide d’Azure Synapse Analytics sur les données opérationnelles d’Azure Cosmos DB.
-author: srchi
-ms.author: srchi
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025775"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034176"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 

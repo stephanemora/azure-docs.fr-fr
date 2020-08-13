@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146998"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053046"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (moteur de synchronisation).
@@ -171,7 +171,7 @@ Lorsqu’un cycle de synchronisation est en cours d’exécution, vous ne pouvez
 Le planificateur est toujours actif et redémarrera à la prochaine occasion.
 
 ## <a name="custom-scheduler"></a>Planificateur personnalisé
-Les applets de commande décrites dans cette section sont uniquement disponibles dans le build [1.1.130.0](reference-connect-version-history.md#111300) et versions ultérieures.
+Les applets de commande décrites dans cette section sont uniquement disponibles dans le build [1.1.130.0](reference-connect-version-history.md) et versions ultérieures.
 
 Si le planificateur intégré ne satisfait pas à vos exigences, vous pouvez planifier les connecteurs à l'aide de PowerShell.
 

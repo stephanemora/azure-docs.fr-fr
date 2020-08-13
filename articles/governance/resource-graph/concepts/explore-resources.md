@@ -1,14 +1,14 @@
 ---
 title: Explorer vos ressources Azure
 description: Apprenez à utiliser le langage de requête Resource Graph pour explorer vos ressources et découvrir comment elles sont connectées.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654484"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056582"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Avant d’exécuter la requête, comment aurions-nous pu savoir que le **type** allait maintenant être **Microsoft.Compute/disks** ?
-Si vous examinez l’ID complet, vous constaterez que **/providers/Microsoft.Compute/disks/** fait partie intégrante de la chaîne. Ce fragment de chaîne vous donne une indication du type à rechercher. Une autre méthode consiste à retirer la limite par type et à effectuer à la place une recherche sur le champ ID uniquement. Comme l’ID est unique, un seul enregistrement est retourné et la propriété **type** de ce dernier fournit ce détail.
+Avant d’exécuter la requête, comment aurions-nous pu savoir que le **type** allait maintenant être **Microsoft.Compute/disks** ? Si vous examinez l’ID complet, vous constaterez que **/providers/Microsoft.Compute/disks/** fait partie intégrante de la chaîne.
+Ce fragment de chaîne vous donne une indication du type à rechercher. Une autre méthode consiste à retirer la limite par type et à effectuer à la place une recherche sur le champ ID uniquement. Comme l’ID est unique, un seul enregistrement est retourné et la propriété **type** de ce dernier fournit ce détail.
 
 > [!NOTE]
 > Pour que cet exemple fonctionne, vous devez remplacer la valeur du champ ID par un résultat tiré de votre propre environnement.

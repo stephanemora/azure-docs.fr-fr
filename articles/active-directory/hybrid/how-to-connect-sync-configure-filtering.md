@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357764"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061504"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -47,7 +47,7 @@ Avant d’apporter des modifications au filtrage, veillez à [désactiver la tâ
 
 Pour vous protéger contre la suppression par inadvertance de nombreux objets, la fonctionnalité « [Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) » est activée par défaut. Si vous supprimez de nombreux objets suite à un filtrage (500 par défaut), vous devez exécuter les étapes décrites dans cet article pour que les suppressions soient appliquées à Azure AD.
 
-Si vous utilisez une version antérieure à novembre 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), que vous modifiez une configuration de filtre et que vous utilisez une synchronisation de hachage du mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour plus d’informations sur le déclenchement d’une synchronisation complète des mots de passe, consultez la section [Déclencher une synchronisation complète de tous les mots de passe](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être ou non synchronisés et si cette étape supplémentaire n’est plus nécessaire.
+Si vous utilisez une version antérieure à novembre 2015 ([1.0.9125](reference-connect-version-history.md)), que vous modifiez une configuration de filtre et que vous utilisez une synchronisation de hachage du mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour plus d’informations sur le déclenchement d’une synchronisation complète des mots de passe, consultez la section [Déclencher une synchronisation complète de tous les mots de passe](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être ou non synchronisés et si cette étape supplémentaire n’est plus nécessaire.
 
 Si des objets **utilisateur** ont été accidentellement supprimés d’Azure AD à la suite d’une erreur de filtrage, vous pouvez recréer ces objets utilisateur dans Azure AD en supprimant vos configurations de filtrage. Vous pouvez ensuite resynchroniser vos annuaires. Cette opération restaure les utilisateurs présents dans la corbeille d’Azure AD. Toutefois, vous ne pouvez pas annuler la suppression d’autres types d’objets. Par exemple, si vous supprimez accidentellement un groupe de sécurité et que ce dernier a été utilisé comme liste de contrôle d’accès (ACL, access-control list) d’une ressource, le groupe et ses ACL ne sont pas récupérables.
 
@@ -202,7 +202,7 @@ Vous pouvez configurer le moteur de synchronisation de façon qu’il ne synchro
 Avec cette configuration, une unité d’organisation qui a été créée sous ManagedObjects n’est pas synchronisée.
 
 ## <a name="attribute-based-filtering"></a>Filtrage par attribut
-Avant d’exécuter ces étapes, vérifiez que vous utilisez la version de novembre 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) ou une version ultérieure.
+Avant d’exécuter ces étapes, vérifiez que vous utilisez la version de novembre 2015 ([1.0.9125](reference-connect-version-history.md)) ou une version ultérieure.
 
 > [!IMPORTANT]
 >Microsoft recommande de ne pas modifier les règles par défaut créés par **Azure AD Connect**. Si vous voulez modifier la règle, clonez-la, puis désactivez la règle d’origine. Apportez les modifications souhaitées à la règle clonée. Notez qu’en procédant ainsi (désactiver la règle d’origine), vous ne bénéficiez pas des résolutions de bogues ou des fonctionnalités activées via cette règle.

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: eda3afdf8deb3336cd0c5293c2422e694caa69c8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132765"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055460"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
@@ -148,7 +148,7 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. L’URL qui appelle la fonction déclenchée via HTTP doit être au format suivant :
 
-        https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart
+    `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
 1. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. Vous devez obtenir la même réponse d’état que lorsque vous avez utilisé l’application publiée.
 
@@ -277,7 +277,7 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 
     L’URL qui appelle le déclencheur HTTP de la fonction durable doit être au format suivant :
 
-        https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
+    `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
 2. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. Vous devez obtenir la même réponse d’état que lorsque vous avez utilisé l’application publiée.
 

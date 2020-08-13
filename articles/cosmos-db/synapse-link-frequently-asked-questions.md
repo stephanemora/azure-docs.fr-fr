@@ -1,17 +1,17 @@
 ---
 title: Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 description: Recevez des réponses aux questions fréquemment posées sur Synapse Link pour Azure Cosmos DB dans des domaines comme la facturation, le magasin analytique, la sécurité et la durée de vie dans le magasin analytique.
-author: srchi
-ms.author: srchi
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e65838074260a4d4a9c9668fa6ac4aa2a403929b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921189"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037556"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 

@@ -1,19 +1,17 @@
 ---
 title: Développer un pool d’hôtes Windows Virtual Desktop (classique) existant avec de nouveaux hôtes de session - Azure
 description: Comment développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285031"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009169"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique)
 

@@ -1,19 +1,17 @@
 ---
 title: Création d’un pool d’hôtes et d’un locataire Windows Virtual Desktop (classique) – Azure
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement client Windows Virtual Desktop (classique).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269595"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009254"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Windows Virtual Desktop (classique)
 
@@ -43,9 +41,9 @@ Exemple d’erreur brute :
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Pour voir l’erreur dans le journal d’activité :
 1. Quittez l’offre de déploiement actuelle de la Place de marché Azure.
 2. Dans la barre de recherche du haut, recherchez et sélectionnez **Journal d’activité**.
 3. Recherchez une activité nommée **Valider le déploiement** dont l’état est **Échec** et sélectionnez l’activité.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran de l’activité **Valider le déploiement** avec un état **Échec**](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Sélectionnez JSON, puis faites défiler jusqu’au bas de l’écran jusqu’à ce que le champ « statusMessage » apparaisse.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran de l’activité en échec, avec un encadré rouge autour de la propriété statusMessage du texte JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Exemple d’erreur brute :
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

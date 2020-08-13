@@ -9,13 +9,13 @@ ms.author: jordane
 author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: dfe3d0e7bf0d291807a5a051f834753c7816801a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 4221ed6a927d0c589407dc38b5371ad8a65d2174
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320882"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054389"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,6 +86,7 @@ Créez un environnement Azure ML à partir de cette spécification de l’enviro
 from azureml.core import Environment
 
 myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
+myenv.docker.enabled = True
 ```
 
 #### <a name="use-a-curated-environment"></a>Utiliser un environnement organisé
@@ -104,7 +105,7 @@ Ce ScriptRunConfig enverra votre tâche pour exécution sur la cible de calcul l
 from azureml.core import ScriptRunConfig
 
 sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
-src.run_config.environment = myenv
+sklearnconfig.run_config.environment = myenv
 ```
 
 Si vous souhaitez envoyer des modifications à un cluster distant, vous pouvez remplacer run_config.target par la cible de calcul souhaitée.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une passerelle NAT - Azure CLI'
+title: Créer une passerelle NAT - Azure CLI
 titlesuffix: Azure Virtual Network NAT
 description: Ce guide de démarrage rapide montre comment créer une passerelle NAT à l’aide de l’interface Azure CLI
 services: virtual-network
@@ -10,19 +10,19 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e0fcf4a973be1fe2c753e7606c6628eaeefaae8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486780"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054017"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>Tutoriel : Créer une passerelle NAT avec Azure CLI
+# <a name="create-a-nat-gateway-using-azure-cli"></a>Créer une passerelle NAT avec Azure CLI
 
 Ce tutoriel vous montre comment utiliser le service NAT de réseau virtuel Azure. Vous allez créer une passerelle NAT pour fournir une connectivité sortante à une machine virtuelle dans Azure. 
 

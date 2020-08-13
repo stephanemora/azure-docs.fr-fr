@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253135"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032881"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
@@ -76,7 +76,7 @@ Ce paramètre reproduit la [condition des plateformes d’appareil](concept-cond
 
 ### <a name="client-apps"></a>Applications clientes
 
-Ce paramètre reproduit la [condition des applications client](concept-conditional-access-conditions.md#client-apps-preview).
+Ce paramètre reproduit la [condition des applications client](concept-conditional-access-conditions.md#client-apps).
 Par défaut, ce paramètre entraîne une évaluation de toutes les stratégies ayant **Navigateur** et/ou **Applications mobiles et clients de bureau** sélectionnés. Il détecte également les stratégies qui appliquent **Exchange ActiveSync (EAS)** . Vous pouvez réduire la portée de ce paramètre en sélectionnant :
 
 - **Navigateur** pour évaluer toutes les stratégies ayant au moins **Navigateur** sélectionné. 

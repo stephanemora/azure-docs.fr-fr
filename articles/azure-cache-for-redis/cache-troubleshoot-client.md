@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506432"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008965"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Résoudre les problèmes côté client liés à Azure Cache pour Redis
 
@@ -53,7 +53,7 @@ Dans l’exception précédente, plusieurs problèmes sont intéressants :
 - Notez que dans les sections `IOCP` et `WORKER`, la valeur de `Busy` est supérieure à la valeur de `Min`. Cette différence signifie que vos paramètres `ThreadPool` ont besoin d’être ajustés.
 - Vous pouvez également voir `in: 64221`. Cette valeur indique que 64 211 octets ont été reçus au niveau de la couche de socket du noyau du client, mais qu’ils n’ont pas encore été lus par l’application. En général, cette différence signifie que votre application (par exemple, StackExchange.Redis) ne lit pas les données du réseau aussi rapidement que le serveur les lui envoie.
 
-Vous pouvez [configurer vos paramètres `ThreadPool`](cache-faq.md#important-details-about-threadpool-growth) pour que votre pool de threads puisse rapidement faire l’objet d’un scale-up en cas d’augmentation du trafic.
+Vous pouvez [configurer vos paramètres `ThreadPool`](cache-management-faq.md#important-details-about-threadpool-growth) pour que votre pool de threads puisse rapidement faire l’objet d’un scale-up en cas d’augmentation du trafic.
 
 ## <a name="high-client-cpu-usage"></a>Utilisation importante du processeur du client
 
@@ -109,4 +109,4 @@ Les solutions possibles pour la gestion des réponses volumineuses sont variées
 ## <a name="additional-information"></a>Informations supplémentaires
 
 - [Résoudre les problèmes côté serveur liés à Azure Cache pour Redis](cache-troubleshoot-server.md)
-- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

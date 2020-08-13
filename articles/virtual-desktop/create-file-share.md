@@ -1,19 +1,17 @@
 ---
 title: Créer un partage de fichiers Azure Files avec un contrôleur de domaine - Azure
 description: Configurez un conteneur de profil FSLogix sur un partage de fichiers Azure dans un pool hôte Windows Virtual Desktop existant avec votre domaine Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027390"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009220"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure Files et AD DS
 
@@ -189,8 +187,6 @@ Pour configurer vos autorisations NTFS :
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Sélectionnez **Appliquer**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configurer FSLogix sur des machines virtuelles hôtes de session
 

@@ -1,19 +1,17 @@
 ---
 title: Environnement Windows Virtual Desktop (classique) – Azure
 description: Éléments de base d’un environnement Windows Virtual Desktop (classique).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fa281f6435013e9feb6808aab04ffa69c5f96c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285014"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008608"
 ---
 # <a name="windows-virtual-desktop-classic-environment"></a>Environnement Windows Virtual Desktop (classique)
 

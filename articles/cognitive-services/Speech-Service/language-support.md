@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554054"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053573"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur la disponibilité régionale, consultez [régions
 |Paramètres régionaux  | Langage            | Sexe | Nom de la voix | Prise en charge du style |
 |--|--|--|--|--|
 | `ar-EG` | Arabe (Égypte)                  | Female | `ar-EG-SalmaNeural`      | Général |
-| `ar-SA` | Arabe (Arabie saoudite)           | Female | `ar-SA-ZariyahNeura`     | Général |
+| `ar-SA` | Arabe (Arabie saoudite)           | Female | `ar-SA-ZariyahNeural`    | Général |
 | `ca-ES` | Catalan (Espagne)                 | Female | `ca-ES-AlbaNeural`       | Général |
 | `da-DK` | Danois (Danemark)                | Female | `da-DK-ChristelNeural`   | Général |
 | `de-DE` | Allemand (Allemagne)                | Female | `de-DE-KatjaNeural`      | Général |
@@ -360,21 +360,21 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 | Paramètres régionaux | Langage | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
-| fr-FR | Anglais (US) | Oui | oui | Oui |
-|zh-CN  |Chinois (mandarin, simplifié)|    n/a|    Oui|    Oui|
-|de-DE  |Allemand (Allemagne)   |n/a    |Oui    |Oui|
-|en-GB  |Anglais (Royaume-Uni)   |n/a    |Oui    |Oui|
-|fr-FR  |Français (France)    |n/a    |Oui    |Oui|
-|en-AU  |Anglais (Australie)    |n/a    |Oui    |Oui|
-|en-CA  |Anglais (Canada)   |n/a|   Oui|    Oui|
-|fr-CA  |Français (Canada)    |n/a    |Oui|   Oui|
-|it-IT  |Italien|   n/a |Oui|   Oui|
-|es-ES| Espagnol (Espagne) |n/a    |Oui|   Oui|
-|es-MX  |Espagnol (Mexique)   |n/a|   Oui|    Oui|
-|ja-JP| Japonais    |n/a    |Oui    |Oui|
-|pt-br| Portugais (Brésil)|    n/a|    Oui|    oui|
+| fr-FR | Anglais (US) | Oui | Oui | Oui |
+|zh-CN    |Chinois (mandarin, simplifié)|    n/a|    Oui|    Oui|
+|de-DE    |Allemand (Allemagne)    |n/a    |Oui    |Oui|
+|en-GB    |Anglais (Royaume-Uni)    |n/a    |Oui    |Oui|
+|fr-FR    |Français (France)    |n/a    |Oui    |Oui|
+|en-AU    |Anglais (Australie)    |n/a    |Oui    |Oui|
+|en-CA    |Anglais (Canada)    |n/a|    Oui|    Oui|
+|fr-CA    |Français (Canada)    |n/a    |Oui|    Oui|
+|it-IT    |Italien|    n/a    |Oui|    Oui|
+|es-ES|    Espagnol (Espagne)    |n/a    |Oui|    Oui|
+|es-MX    |Espagnol (Mexique)    |n/a|    Oui|    Oui|
+|ja-JP|    Japonais    |n/a    |Oui    |Oui|
+|pt-br|    Portugais (Brésil)|    n/a|    Oui|    Oui|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Créer un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
 * [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

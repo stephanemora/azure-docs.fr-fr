@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/30/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108490"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010930"
 ---
 > [!NOTE]
 > Pour détecter `PHI` (informations médicales protégées), utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
@@ -28,20 +28,18 @@ Les catégories d’entité suivantes sont retournées lors de l’envoi de dema
 | PersonType | N/A         | Type de tâche ou rôle d’une personne. | `2020-02-01` | |
 | PhoneNumber | N/A | Numéros de téléphone (Numéros de téléphone américains et européens uniquement). | `2019-10-01` | Également retourné avec `domain=phi` |
 |Organisation  | N/A | Sociétés, partis politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques.  | `2019-10-01` | Les nationalités et les religions ne sont pas incluses dans ce type d’entité.  |
-|Organisation | Médecine | Sociétés et groupes médicaux. | `2020-04-01` | Également retourné avec `domain=phi`. |
-|Organisation | Bourse | Groupes de bourse. | `2020-04-01` | Également retourné avec `domain=phi`. |
-| Organisation | Sports | Les organisations liées au sport. | `2020-04-01` | Également retourné avec `domain=phi`. |
+|Organisation | Médecine | Sociétés et groupes médicaux. | `2020-04-01` |  |
+|Organisation | Bourse | Groupes de bourse. | `2020-04-01` |  |
+| Organisation | Sports | Les organisations liées au sport. | `2020-04-01` |  |
 | Adresse | N/A | Adresses postales complètes.  | `2020-04-01` | Également retourné avec `domain=phi`. |
 | Coordonnées GPS UE | N/A | Coordonnées GPS de lieux situés au sein de l’Union européenne.  | `2019-10-01` |  |
 | E-mail | N/A | Adresses e-mail. | `2019-10-01` | Également retourné avec `domain=phi`.   |
 | URL | N/A | URL vers des sites web. | `2019-10-01` | Également retourné avec `domain=phi`. |
-| IP | N/A | Adresses IP du réseau. | `2019-10-01` | |
+| IP | N/A | Adresses IP du réseau. | `2019-10-01` | Également retourné avec `domain=phi`. |
 | DateTime | N/A | Dates et heures du jour. | `2019-10-01` |  | 
 | DateTime | Date | Dates du calendrier. | `2019-10-01` | Également retourné avec `domain=phi`. |
 | Quantité | N/A | Nombres et quantités numériques. | `2019-10-01` |  |
 | Quantité | Age | Ages. | `2019-10-01` | | |
-| Classification internationale des maladies (CIM-9-CM) | N/A | Entités relatives à la Classification internationale des maladies, neuvième révision.   | `2020-04-01` | |
-| Classification internationale des maladies (CIM-10-CM) | N/A | Entités relatives à la Classification internationale des maladies, dixième révision.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informations Azure
 

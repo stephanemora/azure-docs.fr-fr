@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71180046"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057836"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites du niveau de partage de fichiers premium supplémentaires
 
@@ -23,11 +23,11 @@ ms.locfileid: "71180046"
 
 #### <a name="file-level-limits"></a>Limites relatives au niveau des fichiers
 
-|Domaine  |Fichier Premium  |Fichier standard |
+|Domaine  |Fichier standard  |Fichier Premium  |
 |---------|---------|---------|
-|Size                  |1 Tio         |1 Tio|
-|Nb max. d’IOPS par fichier     |5 000         |1 000|
-|Descripteurs simultanés    |2 000         |2 000|
-|Sortie  |300 Mio/s|      Consultez les valeurs de débit de fichier standard|
-|Entrée  |200 Mio/s| Consultez les valeurs de débit de fichier standard|
-|Débit| Voir les valeurs d’entrée et de sortie des fichiers Premium| Jusqu’à 60 Mio/s|
+|Size     |1 Tio         |4 Tio         |
+|Nb max. d’IOPS par fichier      |1 000         |5 000         |
+|Descripteurs simultanés     |2 000         |2 000         |
+|Sortie     |Consultez les valeurs de débit de fichier standard         |300 Mio/s         |
+|Entrée     |Consultez les valeurs de débit de fichier standard         |200 Mio/s         |
+|Débit     |Jusqu’à 60 Mio/s         |Voir les valeurs d’entrée et de sortie des fichiers Premium         |

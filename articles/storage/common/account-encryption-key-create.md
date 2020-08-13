@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07e265710c69c2ed72df520bf090b7c7d86c8097
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503767"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056718"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente
 
@@ -40,7 +40,7 @@ Afin de vous inscrire pour utiliser la clé de chiffrement de compte avec le Sto
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Pour vous inscrire à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+Pour vous inscrire à l’aide de PowerShell, appelez la commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `

@@ -1,17 +1,17 @@
 ---
 title: Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB (préversion)
 description: Découvrez comment activer le lien Synapse pour les comptes Azure Cosmos, créer un conteneur avec le magasin analytique activé, connecter la base de données Azure Cosmos à l’espace de travail Synapse et exécuter des requêtes.
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262036"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037080"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB (préversion)
 

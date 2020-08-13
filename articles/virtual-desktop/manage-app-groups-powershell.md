@@ -1,19 +1,17 @@
 ---
 title: Gérer des groupes d’applications pour Windows Virtual Desktop avec PowerShell - Azure
 description: Comment gérer des groupes d’applications Windows Virtual Desktop avec PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 186c6e455fa4d2ab578d6ab2a37f8f8f0d038e02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a6f24dea00a174aa0276a9b30add0854c3694056
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291424"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008642"
 ---
 # <a name="manage-app-groups-using-powershell"></a>Gérer des groupes d’applications à l’aide de PowerShell
 
