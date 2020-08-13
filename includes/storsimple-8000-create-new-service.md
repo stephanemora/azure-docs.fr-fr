@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76020866"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507607"
 ---
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
@@ -29,7 +29,7 @@ ms.locfileid: "76020866"
 
    2. Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
 
-   3. Pour le **Groupe de ressources**, sélectionnez un groupe existant en cliquant sur **Utiliser existant** ou créez-en un avec l’option **Créer**. Pour plus d’informations, consultez la page [Groupes de ressources dans Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Pour le **Groupe de ressources**, sélectionnez un groupe existant en cliquant sur **Utiliser existant** ou créez-en un avec l’option **Créer**. Pour plus d’informations, consultez la page [Groupes de ressources dans Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Indiquez un **emplacement** pour votre service. De manière générale, choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Vous pouvez également prendre en compte les considérations suivantes :
 
