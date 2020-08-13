@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a7de0dfadd7af4f5baca30a037651b4201278cba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Didacticiel : Intégration d’Azure Active Directory à Getabstract
 
@@ -40,6 +40,9 @@ Pour configurer l’intégration d’Azure AD à Getabstract, vous avez besoin d
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 * Un abonnement Getabstract pour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -108,7 +111,7 @@ Pour configurer l’authentification unique Azure AD avec Getabstract, effectuez
 
     ![Informations d’authentification unique dans Domaine et URL Getabstract](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL :
+    a. Dans la zone de texte **Identificateur**, tapez une URL : 
 
     Pour l’étape/la pré-production : `https://int.getabstract.com`
 
@@ -124,7 +127,7 @@ Pour configurer l’authentification unique Azure AD avec Getabstract, effectuez
 
     ![Informations d’authentification unique dans Domaine et URL Getabstract](common/metadata-upload-additional-signon.png)
     
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : 
 
     Pour l’étape/la pré-production : `https://int.getabstract.com/portal/<org_username>`
     

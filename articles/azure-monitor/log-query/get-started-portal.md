@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075338"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874229"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutoriel : Bien démarrer avec les requêtes Log Analytics
 
@@ -32,7 +32,7 @@ Pour suivre un tutoriel détaillé sur l’écriture de requêtes de journal, co
 ## <a name="open-log-analytics"></a>Ouvrir Log Analytics
 Pour utiliser Log Analytics, vous devez être connecté à un compte Azure. Si vous ne possédez pas de compte Azure, [créez un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Vous pouvez effectuer la plupart des étapes de ce tutoriel en utilisant [cet environnement de démonstration](https://portal.loganalytics.io/demo) qui comprend de nombreux exemples de données. Avec l’environnement de démonstration, vous ne pouvez pas enregistrer les requêtes ni épingler les résultats à un tableau de bord.
+Vous pouvez effectuer la plupart des étapes de ce tutoriel en utilisant [cet environnement de démonstration](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) qui comprend de nombreux exemples de données. Avec l’environnement de démonstration, vous ne pouvez pas enregistrer les requêtes ni épingler les résultats à un tableau de bord.
 
 Vous avez aussi la possibilité d’utiliser votre propre environnement si Azure Monitor vous sert à collecter des données de journal sur au moins une ressource Azure. Pour ouvrir un espace de travail Log Analytics, dans le volet de navigation gauche d’Azure Monitor, sélectionnez **Journaux**. 
 

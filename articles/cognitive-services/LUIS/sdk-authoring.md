@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Bibliothèque de client de création LUIS'
 description: Ce guide de démarrage rapide vous permet de bien démarrer avec la bibliothèque de client LUIS. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: e5fc21ed42d3704cf102a820cebb64c09aff23ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 124cfbac897be76365710ffd505dee18af7adcec
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369421"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876969"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Démarrage rapide : Bibliothèque de client de création LUIS
 

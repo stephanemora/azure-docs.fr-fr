@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420683"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904052"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutoriel : Connecter un exemple d’application d’appareil multicomposant IoT Plug-and-Play en préversion à IoT Hub (Node.js)
 
@@ -98,29 +98,29 @@ Ouvrez le fichier *pnpTemperatureController.js* dans un éditeur de code de votr
 
 1. Définir le `modelId` qui est le DTMI pour l’appareil à implémenter. Ce DTMI est défini par l’utilisateur et doit correspondre au DTMI du [modèle DTDL du contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-1. Implémenter les composants définis dans le modèle DTDL du contrôleur de température. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Dans cet exemple, les deux interfaces sont :
+2. Implémenter les composants définis dans le modèle DTDL du contrôleur de température. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Dans cet exemple, les deux interfaces sont :
   - Thermostat
   - Informations sur l’appareil développées par Azure
 
-1. Définit les noms des composants. Cet exemple a deux thermostats et un composant d’informations sur l’appareil.
+3. Définit les noms des composants. Cet exemple a deux thermostats et un composant d’informations sur l’appareil.
 
-1. Définit un nom de commande. Il s’agit des commandes auxquelles l’appareil répond.
+4. Définit un nom de commande. Il s’agit des commandes auxquelles l’appareil répond.
 
-1. Définit la constante `serialNumber`. `serialNumber` est fixe pour un appareil donné.
+5. Définit la constante `serialNumber`. `serialNumber` est fixe pour un appareil donné.
 
-1. Définit les gestionnaires de commandes.
+6. Définit les gestionnaires de commandes.
 
-1. Définit les fonctions pour envoyer des réponses aux commandes.
+7. Définit les fonctions pour envoyer des réponses aux commandes.
 
-1. Définit des fonctions helper pour journaliser les demandes de commandes.
+8. Définit des fonctions helper pour journaliser les demandes de commandes.
 
-1. Définit une fonction helper pour créer les propriétés.
+9. Définit une fonction helper pour créer les propriétés.
 
-1. Définit un écouteur pour les mises à jour des propriétés.
+10. Définit un écouteur pour les mises à jour des propriétés.
 
-1. Définit une fonction pour envoyer de la télémétrie depuis cet appareil. Les thermostats et le composant racine envoient de la télémétrie. Cette fonction reçoit le nom du composant comme paramètre.
+11. Définit une fonction pour envoyer de la télémétrie depuis cet appareil. Les thermostats et le composant racine envoient de la télémétrie. Cette fonction reçoit le nom du composant comme paramètre.
 
-1. Définissez une fonction `main` qui :
+12. Définissez une fonction `main` qui :
 
     1. Utilise le SDK d’appareil pour créer un client d’appareil et se connecter à votre hub IoT. L’appareil fournit le `modelId` pour que IoT Hub puisse identifier l’appareil en tant qu’appareil IoT Plug-and-Play.
 

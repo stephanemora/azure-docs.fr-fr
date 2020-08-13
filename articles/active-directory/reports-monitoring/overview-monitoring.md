@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68988203"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873413"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>En quoi consiste la surveillance d’Azure Active Directory ?
 
@@ -33,6 +33,8 @@ Actuellement, vous pouvez acheminer les journaux d’activité vers :
 - Un compte de stockage Azure.
 - Un Azure Event Hub pour vous permettre d’intégrer vos instances Splunk et Sumologic.
 - Espace de travail Azure Log Analytics, dans lequel vous pouvez analyser les données, créer un tableau de bord et signaler des événements spécifiques
+
+**Rôle prérequis** : Administrateur général
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
