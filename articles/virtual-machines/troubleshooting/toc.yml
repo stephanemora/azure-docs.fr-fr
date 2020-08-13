@@ -56,7 +56,7 @@
     - name: Blocage du démarrage de la machine virtuelle
       href: troubleshoot-vm-boot-configure-update.md
     - name: Cycle de vie et états des machines virtuelles
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: La machine virtuelle ne démarre pas
   items:
     - name: Linux

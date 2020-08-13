@@ -149,7 +149,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -405,7 +405,7 @@
                   href: platform/collect-custom-metrics-linux-telegraf.md
         - name: Agent Log Analytics
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/log-analytics-agent.md
             - name: Agents Windows
               href: platform/agent-windows.md
@@ -792,7 +792,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Ordinateurs Windows
               href: app/windows-desktop.md
+        - name: Autres outils
+          items:
+            - name: Changer d’analyse
+              href: app/change-analysis.md
     - name: Azure Monitor pour machines virtuelles
       items:
         - name: Vue d’ensemble
@@ -947,7 +951,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Résoudre des problèmes d’insights
           href: insights/troubleshoot-workbooks.md
-    - name: Changer d’analyse
-      items:
-        - name: Changer d’analyse
-          href: app/change-analysis.md
     - name: Solutions
       items:
         - name: Vue d’ensemble
