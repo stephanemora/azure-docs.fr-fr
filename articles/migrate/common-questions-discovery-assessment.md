@@ -3,12 +3,12 @@ title: Questions sur la découverte, l’évaluation et l’analyse des dépenda
 description: Obtenez des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385719"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829881"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -169,7 +169,7 @@ Non, le rapport de visualisation des dépendances dans la visualisation basée s
 
 Pour la visualisation des dépendances basée sur les agents :
 
-- Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
 - Pour MMA, [utilisez la ligne de commande ou l’automatisation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), ou utilisez un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/intigua-for-azure-migration) pour déployer les agents.
 

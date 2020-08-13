@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1771b0b55301fe4beaf2049859ebf3b9642fdd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077351"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831054"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -336,7 +336,7 @@ Conformément à la description générale, les exécutables SQL Server doivent 
 
 
 * Avec tous les types de machines virtuelles certifiées SAP (voir la note SAP [1928533]), à l’exception des machines virtuelles de la série A, les données de la base de données tempdb et les fichiers journaux peuvent être placés sur le lecteur D:\ non persistant. 
-* Toutefois, il est recommandé d’utiliser plusieurs fichiers de données tempdb. N’oubliez pas que les volumes de lecteur D:\ sont différents selon le type de machine virtuelle. Pour connaître les tailles exactes du lecteur D:\ des différentes machines virtuelles, consultez l’article [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md).
+* Toutefois, il est recommandé d’utiliser plusieurs fichiers de données tempdb. N’oubliez pas que les volumes de lecteur D:\ sont différents selon le type de machine virtuelle. Pour connaître les tailles exactes du lecteur D:\ des différentes machines virtuelles, consultez l’article [Tailles des machines virtuelles Windows dans Azure](../../sizes.md).
 
 Ces configurations permettent à la base de données tempdb de consommer davantage d’espace que celui que peut proposer le lecteur système. Le lecteur D:\ non persistant offre également un débit et une latence d’E/S améliorés (à l’exception des machines virtuelles de la série A). Pour déterminer la taille de base de données tempdb appropriée, vous pouvez consulter les tailles des bases de données tempdb sur les systèmes existants. 
 
@@ -379,7 +379,7 @@ Les versions SQL Server 2014 et ultérieures permettent de stocker les fichiers 
 
 * Le compte de stockage utilisé doit se trouver dans la même région Azure que celui qui permet de déployer la machine virtuelle sur laquelle SQL Server s’exécute.
 * Les considérations relatives à la répartition de disques VHD sur différents comptes de stockage Azure qui ont été abordées précédemment portent également sur cette méthode de déploiement. Cela signifie que les opérations d’E/S sont concernées par les limites du compte Azure Storage.
-* À la place de la prise en compte du quota d’E/S de stockage des machines virtuelles, c’est le trafic sur les objets blob de stockage représentant les fichiers journaux et de données SQL Server, qui est pris en compte dans la bande passante réseau de du type de machine virtuelle spécifique. Pour connaître la bande passante réseau et de stockage d’un type particulier de machine virtuelle, consultez l’article [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md).
+* À la place de la prise en compte du quota d’E/S de stockage des machines virtuelles, c’est le trafic sur les objets blob de stockage représentant les fichiers journaux et de données SQL Server, qui est pris en compte dans la bande passante réseau de du type de machine virtuelle spécifique. Pour connaître la bande passante réseau et de stockage d’un type particulier de machine virtuelle, consultez l’article [Tailles des machines virtuelles Windows dans Azure](../../sizes.md).
 * Quand vous poussez des E/S de fichier au-delà du quota de réseau, vous abandonnez la plupart du quota de stockage et, par conséquent, n’utilisez que partiellement la bande passante de la machine virtuelle.
 * Les objectifs de performances de débit d’IOPS et d’E/S du stockage Premium Azure pour les différentes tailles de disques ne s’appliquent plus, même si les objets blob que vous avez créés sont situés dans le stockage Premium Azure. Les objectifs sont documentés dans l’article [Stockage Premium hautes performances et disques managés pour les machines virtuelles](../../windows/disks-types.md#premium-ssd). Conséquence du placement des fichiers journaux et des fichiers de données SQL Server directement dans les objets blob qui sont stockés dans le stockage Premium Azure, les caractéristiques de performances peuvent être différentes par rapport aux disques durs virtuels situés dans le stockage Premium Azure.
 * La mise en cache basée sur l’hôte, disponible pour les disques de stockage Premium Azure, n’est pas disponible quand vous placez les fichiers de données SQL Server directement sur des objets blob Azure.

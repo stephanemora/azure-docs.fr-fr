@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a7b81dc18af15e0928582fd8c1414e3401297c3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291200"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837089"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Séries Dv2 et Dsv2 à mémoire optimisée
 
@@ -83,7 +83,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

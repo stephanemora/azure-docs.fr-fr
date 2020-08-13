@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051836"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832261"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -359,9 +359,9 @@ Nous recommandons fortement l’utilisation d’[Azure Disques managés](../../w
 
 Les lecteurs réseau ou les partages distants comme les services de fichiers Azure ne sont pas pris en charge pour les fichiers Oracle Database. Pour plus d'informations, consultez les pages suivantes :
 
-- [Présentation de Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Présentation de Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Conservation des connexions vers les fichiers Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Conservation des connexions vers les fichiers Microsoft Azure](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou sur la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
@@ -450,9 +450,9 @@ Nous vous recommandons vivement d’utiliser des [disques managés Azure](../../
 
 Les lecteurs réseau ou les partages distants comme les services de fichiers Azure ne sont pas pris en charge pour les fichiers Oracle Database. Pour plus d’informations, consultez les rubriques suivantes : 
 
-- [Présentation de Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Présentation de Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Conservation des connexions vers les fichiers Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Conservation des connexions vers les fichiers Microsoft Azure](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 

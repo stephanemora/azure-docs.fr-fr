@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64f1de178e2b1e1692ddad316e6c1c1d20517b78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284810"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835831"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -52,7 +52,7 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 
 <sup>3</sup> La technologie Hyper-V NVMe Direct fournit un accès illimité aux disques NVMe locaux mappés de manière sécurisée à l'espace de la machine virtuelle invitée.  Pour atteindre des performances maximales, vous devez utiliser la dernière build WS2019, ou Ubuntu 18.04 ou 16.04, de la Place de marché Azure.  Les performances en écriture varient en fonction de la taille des E/S, de la charge du lecteur et de l’utilisation des fonctionnalités.
 
-<sup>4</sup> Les machines virtuelles de la série Lsv2 ne fournissent pas de cache hôte pour le disque de données, car cela ne profite pas aux charges de travail Lsv2.  Toutefois, les machines virtuelles Lsv2 peuvent prendre en charge l’option de disque de système d’exploitation de machine virtuelle Ephemeral d’Azure (jusqu’à 30 Gio).
+<sup>4</sup> Les machines virtuelles de la série Lsv2 ne fournissent pas de cache hôte pour le disque de données, car cela ne profite pas aux charges de travail Lsv2.
 
 <sup>5</sup> Les machines virtuelles de la série Lsv2 peuvent [augmenter via le mode rafale](linux/disk-bursting.md) leurs performances de disque pendant 30 minutes à la fois. 
 
@@ -87,7 +87,7 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

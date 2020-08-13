@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079806"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833332"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Charge de travail SAP sur les machines virtuelles Azure - Scénarios pris en charge
 Concevoir un architecture système SAP NetWeaver, Business One, `Hybris` ou S/4HANA dans Azure ouvre la voie à bien des opportunités en termes d'architectures et d'outils à utiliser afin d'obtenir un déploiement évolutif, efficace et hautement disponible. Bien qu’elles dépendent du système d’exploitation ou du SGBD utilisé, il existe des restrictions. De même, tous les scénarios pris en charge localement ne sont pas pris en charge de la même manière dans Azure. Ce document présente les configurations sans haute disponibilité prises en charge, ainsi que les configurations et architectures haute disponibilité utilisant exclusivement des machines virtuelles Azure. Pour les scénarios pris en charge avec de [grandes instances HANA](./hana-overview-architecture.md), consultez l’article [Scénarios pris en charge pour les grandes instances HANA](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ L’utilisation d’une machine virtuelle plus petite comme instance cible dans 
 - Le redimensionnement entre familles de machines virtuelles peut s'avérer problématique lorsque différentes machines virtuelles sont collectées dans un groupe à haute disponibilité Azure ou lorsque le redimensionnement doit intervenir entre machines virtuelles de série M et MV2
 - Consommation d’UC et de mémoire de l’instance de base de données capable de recevoir le flux de modifications avec un délai minimal, et ressources d'UC et de mémoire suffisantes pour appliquer ces modifications aux données avec un délai minimal  
 
-Vous trouverez plus d’informations sur les limitations des différentes tailles de machines virtuelles [ici](../../linux/sizes.md) 
+Vous trouverez plus d’informations sur les limitations des différentes tailles de machines virtuelles [ici](../../sizes.md) 
 
 Une autre méthode prise en charge à des fins de déploiement d'une cible de récupération d'urgence consiste à installer une seconde instance SGBD exécutant une instance SGBD non-production d’une instance SAP non-production. Cela peut s'avérer plus complexe car vous devez déterminer la mémoire, les ressources d'UC, la bande passante réseau et la bande passante de stockage nécessaires pour les instances cibles spécifiques censées fonctionner en tant qu’instance principale dans le scénario de récupération d’urgence. En particulier dans HANA, il vous est vivement recommandé de configurer l’instance fonctionnant en tant que cible de récupération d’urgence sur un hôte partagé de manière à ce que les données ne soient pas préchargées dans l’instance cible de récupération d’urgence.
 

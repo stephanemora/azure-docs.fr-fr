@@ -3,18 +3,18 @@ title: Validation de jeton d’accès de l’API Azure pour FHIR
 description: Décrit la validation de jeton et fournit des conseils sur la résolution de problèmes d’accès
 services: healthcare-apis
 author: caitlinv39
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
-ms.openlocfilehash: 672acd4f68acd4998fd7631240c2f998299def11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 426ec0c2d6cc274aa0b6829eb4a30fd29b9ba8e2
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871229"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844658"
 ---
 # <a name="azure-api-for-fhir-access-token-validation"></a>Validation de jeton d’accès de l’API Azure pour FHIR
 

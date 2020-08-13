@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327982"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828402"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Activer Azure Monitor pour machines virtuelles pour une machine virtuelle hybride
 Cet article explique comment activer Azure Monitor pour machines virtuelles pour une machine virtuelle en dehors d’Azure, y compris des environnements locaux et autres clouds.
 
 > [!IMPORTANT]
-> La méthode recommandée pour activer des machines virtuelles hybrides consiste tout d’abord à activer [Azure Arc pour serveurs](/azure-arc/servers/overview.md) afin que les machines virtuelles puissent être activées pour Azure Monitor pour machines virtuelles à l’aide de processus similaires aux machines virtuelles Azure. Cet article explique comment intégrer des machines virtuelles hybrides si vous choisissez de ne pas utiliser Azure Arc.
+> La méthode recommandée pour activer des machines virtuelles hybrides consiste tout d’abord à activer [Azure Arc pour serveurs](../../azure-arc/servers/overview.md) afin que les machines virtuelles puissent être activées pour Azure Monitor pour machines virtuelles à l’aide de processus similaires aux machines virtuelles Azure. Cet article explique comment intégrer des machines virtuelles hybrides si vous choisissez de ne pas utiliser Azure Arc.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +31,7 @@ Les machines virtuelles en dehors d’Azure nécessitent les mêmes agent Log An
 Pour plus d’informations sur le déploiement de l’agent Log Analytics, consultez [Connecter des ordinateurs Windows à Azure Monitor](../platform/agent-windows.md) ou [Connecter des ordinateurs Linux à Azure Monitor](../platform/agent-linux.md). Des détails pour l’agent Dependency Agent sont fournis dans cet article. 
 
 ## <a name="firewall-requirements"></a>Configuration requise du pare-feu
-La configuration requise du pare-feu pour l’agent Log Analytics est fournie dans [Présentation de l’agent Log Analytics](..//platform/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle Operations Management Suite](../../azure-monitor/platform/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
+La configuration requise du pare-feu pour l’agent Log Analytics est fournie dans [Présentation de l’agent Log Analytics](../platform/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle Operations Management Suite](../../azure-monitor/platform/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
 
 
 ## <a name="dependency-agent"></a>Agent de dépendances
@@ -158,7 +158,7 @@ Si votre installation de l’agent de dépendances a réussi, mais que vous ne v
 
     **Linux** : recherchez « microsoft-dependency-agent » dans les processus en cours d’exécution.
 
-2. Utilisez-vous le [niveau tarifaire Gratuit de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ? Le plan Gratuit autorise jusqu’à 5 ordinateurs uniques. Les ordinateurs suivants ne s’affichent pas sur la carte, même si les cinq précédents n’envoient plus de données.
+2. Utilisez-vous le [niveau tarifaire Gratuit de Log Analytics](./solutions.md) ? Le plan Gratuit autorise jusqu’à 5 ordinateurs uniques. Les ordinateurs suivants ne s’affichent pas sur la carte, même si les cinq précédents n’envoient plus de données.
 
 3. L’ordinateur envoie-t-il des données de journal et de performances aux journaux Azure Monitor ? Exécutez la requête suivante sur votre ordinateur :
 

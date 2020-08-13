@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 59dbe7f1a41c7241843362018909e9b65efe7b0e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bc9a5f38d50318f858a4d7169391e9d2e5e610
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292447"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848728"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 et Easv4
 
@@ -32,7 +32,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Les tailles de la série Eav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Eav4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, utilisez les tailles de la série Easv4. Les tarifs et les compteurs de facturation pour les tailles Easv4 sont identiques à celles de la série Eav3.
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max de cartes réseau | Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
 | Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 | 1 000 |
 | Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 2000 |
@@ -83,7 +83,7 @@ Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

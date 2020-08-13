@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 52c715b65ed3d37446dfc42a1375bf686fc25000
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0fa4fb1fa55d5d3fa61c923bc024e6536b43c87a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288505"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829184"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
 
@@ -87,7 +87,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

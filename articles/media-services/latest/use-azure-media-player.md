@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca2da842d9a2d529cf5ea01211efaff2047a9e9a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292890"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836018"
 ---
 # <a name="playback-with-azure-media-player"></a>Lecture avec le lecteur multimédia Azure
 
@@ -47,7 +47,7 @@ Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](ht
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configurer le lecteur multimédia Azure dans votre code HTML
 
-Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants sont nécessaires pour lire du contenu multimédia à partir de votre compte Media Services. Pour plus d’informations sur l’installation et la configuration du lecteur multimédia Azure, consultez la [documentation relative au lecteur multimédia Azure](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview).
+Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants sont nécessaires pour lire du contenu multimédia à partir de votre compte Media Services. Pour plus d’informations sur l’installation et la configuration du lecteur multimédia Azure, consultez la [documentation relative au lecteur multimédia Azure](../azure-media-player/azure-media-player-overview.md).
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
@@ -55,5 +55,5 @@ Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Documentation relative au lecteur multimédia Azure](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Documentation relative au lecteur multimédia Azure](../azure-media-player/azure-media-player-overview.md)
 * [Exemples du lecteur multimédia Azure](https://github.com/Azure-Samples/azure-media-player-samples).

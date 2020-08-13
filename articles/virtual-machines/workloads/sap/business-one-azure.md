@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f119acc06883dc077218c56accd31c805092db85
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088289"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831105"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
 Ce document fournit des conseils pour déployer SAP Business One sur des machines virtuelles Azure. Ce document n’est pas un substitue au document d’installation pour SAP Business One. Le document doit couvrir la planification de base et les instructions de déploiement pour que l’infrastructure Azure exécute des applications Business One.
@@ -149,7 +149,7 @@ Pour les stratégies de restauration et de sauvegarde SAP HANA, vous devez lire 
 ### <a name="business-one-client-server"></a>Serveur client Business One
 Pour ces composants, les facteurs de stockage ne sont pas primordiaux. Néanmoins, vous devez disposer d’une plateforme fiable. Par conséquent, vous devez utiliser le stockage Premium Azure pour cette machine virtuelle, même pour le disque dur virtuel de base. Dimensionnement de la machine virtuelle, avec les données fournies dans le [Guide des exigences matérielles SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Pour Azure, vous devez vous concentrer sur le calcul des conditions requises stipulées dans le chapitre 2.4 du document. Lors du calcul des exigences, vous devez les comparer aux documents suivants pour trouver la machine virtuelle idéale pour vous :
 
-- [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md)
+- [Tailles des machines virtuelles Windows dans Azure](../../sizes.md)
 - [Note SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Comparez le nombre de processeurs et la mémoire nécessaires à ce qui est documenté par Microsoft. Gardez aussi à l’esprit le débit réseau lorsque vous choisissez les machines virtuelles.

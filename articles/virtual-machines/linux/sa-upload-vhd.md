@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292252"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830306"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-Le compte de stockage de destination doit être celui sur lequel vous avez chargé votre disque virtuel. Vous devez également spécifier tous les paramètres supplémentaires nécessaires à la commande **az vm create**, ou répondre aux invites correspondantes, notamment le réseau virtuel, l’adresse IP publique, le nom d’utilisateur et les clés SSH. Vous pouvez en savoir plus sur les [paramètres Resource Manager disponibles de l’interface de ligne de commande classique](../azure-cli-arm-commands.md#virtual-machines).
+Le compte de stockage de destination doit être celui sur lequel vous avez chargé votre disque virtuel. Vous devez également spécifier tous les paramètres supplémentaires nécessaires à la commande **az vm create**, ou répondre aux invites correspondantes, notamment le réseau virtuel, l’adresse IP publique, le nom d’utilisateur et les clés SSH. Vous pouvez en savoir plus sur les [paramètres Resource Manager disponibles de l’interface de ligne de commande classique](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines).
 
 ## <a name="requirements"></a>Spécifications
 Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants :

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082628"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829082"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -36,7 +36,7 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 - Appliquer des configurations DSC (Desired State Configuration) PowerShell à une machine virtuelle avec l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](dsc-overview.md) (en anglais).
 - Configurez la supervision d’une machine virtuelle avec l’extension de machine virtuelle Log Analytics Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
-- Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](../../chef/chef-automation.md).
+- Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](/azure/developer/chef/windows-vm-configure).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 

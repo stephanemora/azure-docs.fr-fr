@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: bf55c1f7de751f03fb804eb263cf0810a48378e1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 32efde2cb2497fb8aab415d09a1063ff07c6b0f0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837191"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choisir le bon nombre de domaines d’erreur pour un groupe de machines virtuelles identiques
 Des groupes de machines virtuelles identiques sont créés avec cinq domaines d’erreur par défaut dans les régions Azure sans zones. Pour les régions qui prennent en charge le déploiement zonal de groupes de machines virtuelles identiques et si cette option est sélectionnée, la valeur par défaut du nombre de domaines d’erreur est de 1 pour chacune des zones. FD = 1 implique dans ce cas que les instances de machine virtuelle appartenant au groupe identique sont réparties entre plusieurs racks dans la mesure du possible.
@@ -41,4 +41,4 @@ az vmss create \
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [fonctionnalités de disponibilité et de redondance](../virtual-machines/windows/availability.md) pour les environnements Azure.
+- En savoir plus sur les [fonctionnalités de disponibilité et de redondance](../virtual-machines/availability.md) pour les environnements Azure.

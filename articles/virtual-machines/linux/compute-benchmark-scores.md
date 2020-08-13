@@ -5,12 +5,12 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373417"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830527"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
 Les scores de test d’évaluation CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -469,6 +469,5 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 Les chiffres Linux ont été calculés en exécutant [CoreMark](https://www.eembc.org/coremark/faq.php) sur Ubuntu. CoreMark a été configuré avec le nombre de threads défini sur le nombre de processeurs virtuels et la concurrence définie sur PThreads. Le nombre cible d’itérations a été ajusté en fonction des performances attendues pour fournir un runtime d’au moins 20 secondes (en général, beaucoup plus long). Le score final représente le nombre d’itérations accomplies, divisé par le nombre de secondes nécessaires pour l’exécution du test. Chaque test a été exécuté au moins sept fois sur chaque machine virtuelle. Dates des tests indiquées ci-dessus. Tests effectués sur plusieurs machines virtuelles entre les régions publiques Azure où la machine virtuelle était prise en charge à la date d’exécution. Séries de base A et B (burstable) non affichées, car les performances sont variables. Série N non affichée car elle utilise le processeur graphique (GPU) et Coremark ne mesure pas les performances des GPU.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour exécuter les scripts CoreMark sur les machines virtuelles Linux, téléchargez le [Pack de script CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-

@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035738"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833383"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035738"
 
 Cet article est associé au [Guide de sauvegarde pour SAP HANA sur des machines virtuelles Azure](./sap-hana-backup-guide.md), qui offre une vue d’ensemble permettant de bien démarrer avec cette sauvegarde et fournit des informations détaillées sur le service Sauvegarde Azure et les captures instantanées de stockage. 
 
-Différents types de machines virtuelles dans Azure autorisent un nombre différent de disques durs virtuels attachés. Les détails exacts sont documentés dans [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md). Pour les tests indiqués dans cette documentation, nous avons utilisé une machine virtuelle Azure GS5 qui permet d’attacher 64 disques de données. Pour les grands systèmes SAP HANA, un nombre important de disques peut déjà être utilisé pour les données et les fichiers journaux, éventuellement en association avec un entrelacement logiciel pour un débit d’E/S de disque optimal. Pour plus d’informations sur les configurations de disque suggérées pour les déploiements de SAP HANA sur les machines virtuelles Azure, lisez l’article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md). Les recommandations préconisées incluent notamment les recommandations d’espace disque pour les sauvegardes locales.
+Différents types de machines virtuelles dans Azure autorisent un nombre différent de disques durs virtuels attachés. Les détails exacts sont documentés dans [Tailles des machines virtuelles Linux dans Azure](../../sizes.md). Pour les tests indiqués dans cette documentation, nous avons utilisé une machine virtuelle Azure GS5 qui permet d’attacher 64 disques de données. Pour les grands systèmes SAP HANA, un nombre important de disques peut déjà être utilisé pour les données et les fichiers journaux, éventuellement en association avec un entrelacement logiciel pour un débit d’E/S de disque optimal. Pour plus d’informations sur les configurations de disque suggérées pour les déploiements de SAP HANA sur les machines virtuelles Azure, lisez l’article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md). Les recommandations préconisées incluent notamment les recommandations d’espace disque pour les sauvegardes locales.
 
 La méthode standard pour gérer la sauvegarde/restauration au niveau fichier est d’utiliser une sauvegarde basée sur les fichiers via SAP HANA Studio ou via les instructions SQL SAP HANA. Pour plus d’informations, consultez le [document de référence sur SQL SAP HANA et les vues système](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 

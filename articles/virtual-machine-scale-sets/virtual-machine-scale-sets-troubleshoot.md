@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830680"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
 **Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale ), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
@@ -23,7 +23,7 @@ ms.locfileid: "87029431"
 Parmi les éléments à prendre en considération :
 
 * De combien de processeurs virtuels chaque machine virtuelle dispose-t-elle et chargez-vous chaque processeur virtuel ?
-  L’exemple de modèle Azure QuickStart précédent a un script do_work.php, qui charge un seul processeur virtuel. Si vous utilisez une machine virtuelle plus volumineuse qu’une machine virtuelle à un seul processeur virtuel telle qu’une machine Standard_A1 ou D1, vous devez exécuter cette charge plusieurs fois. Vérifiez le nombre de processeurs virtuels de vos machines virtuelles en consultant [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  L’exemple de modèle Azure QuickStart précédent a un script do_work.php, qui charge un seul processeur virtuel. Si vous utilisez une machine virtuelle plus volumineuse qu’une machine virtuelle à un seul processeur virtuel telle qu’une machine Standard_A1 ou D1, vous devez exécuter cette charge plusieurs fois. Vérifiez le nombre de processeurs virtuels de vos machines virtuelles en consultant [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Combien de machines virtuelles sont dans le groupe de machines virtuelles identique et travaillez-vous sur chacune d’elles ?
   
     La mise à l’échelle augmente uniquement lorsque l’utilisation moyenne du processeur sur **toutes** les machines virtuelles d’un groupe identique dépasse la valeur seuil, sur la période définie dans les règles de mise à l’échelle automatique.

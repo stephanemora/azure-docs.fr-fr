@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327274"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829507"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 
@@ -796,7 +796,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](./resource-logs-schema.md). Le tableau ci-dessous fournit un mappage des propriétés des schémas ci-dessus au schéma des journaux de ressources.
 
 > [!IMPORTANT]
-> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](/azure/azure-monitor/platform/resource-logs-blob-format).
+> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](./resource-logs-blob-format.md).
 
 
 | Propriété du schéma des journaux de ressource | Propriété du schéma de l’API REST Journal d’activité | Notes |
@@ -885,4 +885,3 @@ Voici un exemple d’événement utilisant ce schéma.
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité](platform-logs-overview.md)
 * [Créer un paramètre de diagnostic pour envoyer le journal d’activité à l’espace de travail Log Analytics, au stockage Azure ou à Event Hub](diagnostic-settings.md)
-

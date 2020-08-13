@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268031"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831411"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale sur Azure
 
@@ -67,7 +67,7 @@ Cette architecture exécute les couches application, stockage et données sur de
 
 -   Un cluster DB2 pureScale. Le type de ressources de calcul dont vous avez besoin sur Azure dépend de votre installation. En règle générale, vous pouvez utiliser deux approches :
 
-    -   Utiliser un réseau de type calcul haute performance (HPC) à plusieurs nœuds, où des instances de petite à moyenne taille accèdent au stockage partagé. Pour ce type de configuration HPC, les [machines virtuelles](../windows/sizes.md) de série E à mémoire optimisée Azure ou de série L à stockage optimisé fournissent les ressources de calcul nécessaires.
+    -   Utiliser un réseau de type calcul haute performance (HPC) à plusieurs nœuds, où des instances de petite à moyenne taille accèdent au stockage partagé. Pour ce type de configuration HPC, les [machines virtuelles](../sizes.md) de série E à mémoire optimisée Azure ou de série L à stockage optimisé fournissent les ressources de calcul nécessaires.
 
     -   Utiliser moins de grandes instances de machines virtuelles pour les moteurs de données. Pour les grandes instances, les plus grandes machines virtuelles de [série M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) à mémoire optimisée sont idéales pour les lourdes charges de travail en mémoire. Vous aurez peut-être besoin d’une instance dédiée, selon la taille de la partition logique qui est utilisée pour exécuter DB2.
 

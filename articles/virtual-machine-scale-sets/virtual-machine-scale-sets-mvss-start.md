@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503045"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831496"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de groupe identique de base et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss).
@@ -115,7 +115,7 @@ Dans ce cas, la liste ne contient qu’un seul élément, le réseau virtuel iss
 ## <a name="specify-scale-set-properties"></a>Spécifier les propriétés du groupe identique
 Les groupes identiques disposent de nombreuses propriétés pour personnaliser les machines virtuelles dans le groupe identique. Pour obtenir une liste complète de ces propriétés, consultez la [documentation de référence des modèles](/azure/templates/microsoft.compute/virtualmachinescalesets). Pour ce didacticiel, seules quelques propriétés couramment utilisées sont définies.
 ### <a name="supply-vm-size-and-capacity"></a>Fournir la capacité et la taille de machine virtuelle
-Le groupe identique doit connaître la taille de machine virtuelle à créer (le « nom de la référence (SKU) ») et le nombre de ces machines virtuelles à créer (la « capacité de la référence (SKU) »). Pour voir les tailles de machines virtuelles disponibles, consultez la [documentation sur les tailles de machines virtuelles](../virtual-machines/windows/sizes.md).
+Le groupe identique doit connaître la taille de machine virtuelle à créer (le « nom de la référence (SKU) ») et le nombre de ces machines virtuelles à créer (la « capacité de la référence (SKU) »). Pour voir les tailles de machines virtuelles disponibles, consultez la [documentation sur les tailles de machines virtuelles](../virtual-machines/sizes.md).
 
 ```json
        "sku": {

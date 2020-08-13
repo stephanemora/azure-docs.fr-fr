@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 03c1d8e6d6b5b1d55fee964b509c1bc08537cf6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088578"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832448"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance (pas de prise en charge sur les contrôleurs de domaine Windows). Pour réinitialiser le mot de passe, utilisez le Portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell. Une fois connecté à la machine virtuelle, réinitialisez le mot de passe de cet administrateur local.  
-Si vous utilisez PowerShell, assurez-vous d’avoir [installé et configuré le dernier module PowerShell](/powershell/azure/) et d’être connecté à votre abonnement Azure. Vous pouvez également [effectuer ces étapes pour les machines virtuelles créées à l’aide du modèle de déploiement classique](/azure/virtual-machines/windows/classic/reset-rdp).
+Si vous utilisez PowerShell, assurez-vous d’avoir [installé et configuré le dernier module PowerShell](/powershell/azure/) et d’être connecté à votre abonnement Azure. Vous pouvez également [effectuer ces étapes pour les machines virtuelles créées à l’aide du modèle de déploiement classique](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 Vous pouvez réinitialiser les informations d’identification et les Services Bureau à distance de plusieurs manières :
 

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507877"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835525"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Réhébergement de mainframe sur des machines virtuelles Azure
 
@@ -90,7 +90,7 @@ Avec Azure IaaS (une machine virtuelle, par exemple), des fonctions système sp�
 
 ### <a name="scalability"></a>Extensibilité
 
-En règle générale, les ordinateurs mainframe procèdent à un scale-up, tandis que les environnements cloud procèdent à un scale-out. Pour répondre à vos besoins, Azure propose toute une gamme de dimensions sous [Linux](../../linux/sizes.md) et [Windows](../../windows/sizes.md). Le cloud s’adapte également aux spécifications exactes de l’utilisateur (scale up et scale down). La puissance de calcul, le stockage et les services sont [mis à l’échelle](/azure/architecture/best-practices/auto-scaling) à la demande selon un modèle de facturation à l’utilisation.
+En règle générale, les ordinateurs mainframe procèdent à un scale-up, tandis que les environnements cloud procèdent à un scale-out. Pour répondre à vos besoins, Azure propose toute une gamme de dimensions sous [Linux](../../sizes.md) et [Windows](../../sizes.md). Le cloud s’adapte également aux spécifications exactes de l’utilisateur (scale up et scale down). La puissance de calcul, le stockage et les services sont [mis à l’échelle](/azure/architecture/best-practices/auto-scaling) à la demande selon un modèle de facturation à l’utilisation.
 
 ### <a name="storage"></a>Stockage
 

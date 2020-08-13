@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520644"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836324"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Ligne de base de sécurité Azure pour Logic Apps
 
@@ -56,7 +56,7 @@ Assurez-vous qu'un groupe de sécurité réseau lié à votre ISE a été appliq
 
 * [Guide pratique pour activer l’accès pour l’environnement ISE](./connect-virtual-network-vnet-isolated-environment.md#enable-access-for-ise)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Partagé
 
@@ -272,7 +272,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Non applicable
 
@@ -370,7 +370,7 @@ Chaque point de terminaison de requête pour une application logique dispose d�
 
 * [Guide pratique pour sécuriser l’accès et les données dans Azure Logic Apps avec SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -386,7 +386,7 @@ Si vous utilisez l’infrastructure en tant que code, évitez de stocker les mot
 
 * [Guide pratique pour définir et récupérer un secret à partir d’Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -423,7 +423,7 @@ Dans le cas des connecteurs qui utilisent l’authentification OAuth Azure AD (A
 
 * [Comprendre la configuration du connecteur](../connectors/apis-list.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -435,7 +435,7 @@ Dans le cas des connecteurs qui utilisent l’authentification OAuth Azure AD (A
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -447,7 +447,7 @@ Dans le cas des connecteurs qui utilisent l’authentification OAuth Azure AD (A
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -461,7 +461,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 * [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -475,7 +475,7 @@ De plus, chaque point de terminaison de requête pour une application logique di
 
 * [Comprendre comment limiter les adresses IP entrantes dans Logic Apps](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -547,7 +547,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -599,7 +599,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Logic Apps, et a impl�
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Partagé
 
@@ -637,13 +637,13 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Logic Apps, et a impl�
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Partagé
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
 
-**Conseils** : Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le Contrôle d’accès en fonction du rôle (RBAC) Azure afin d’attribuer des rôles personnalisés ou intégrés aux membres de votre abonnement Azure :
+**Conseils** : Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le Contrôle d’accès en fonction du rôle (Azure RBAC) afin d’attribuer des rôles personnalisés ou intégrés aux membres de votre abonnement Azure :
 - Contributeur d’application logique : Permet de gérer des applications logiques, mais pas d’en modifier l’accès.
 - Opérateur d’application logique : Permet de lire, d’activer et de désactiver des applications logiques, mais pas de les modifier ni de les mettre à jour.
 
@@ -703,7 +703,7 @@ Quand vous créez un environnement de service d’intégration (ISE) pour héber
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -711,7 +711,7 @@ Quand vous créez un environnement de service d’intégration (ISE) pour héber
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -719,7 +719,7 @@ Quand vous créez un environnement de service d’intégration (ISE) pour héber
 
 **Aide** : Non applicable ; Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure Logic Apps.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -757,7 +757,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -813,7 +813,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -821,7 +821,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -829,7 +829,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -841,7 +841,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
 **Supervision d’Azure Security Center** : N/A
 
@@ -917,7 +917,7 @@ Utilisez également des paramètres sécurisés pour protéger les données sens
 
 * [Suggestions en matière de sécurité pour les paramètres](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -987,7 +987,7 @@ Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle a
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -1005,7 +1005,7 @@ Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle a
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 
@@ -1255,7 +1255,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : N/A
+**Supervision d’Azure Security Center** : N/A
 
 **Responsabilité** : Customer
 

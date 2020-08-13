@@ -3,12 +3,12 @@ title: Rubriques de partenaire Azure Event Grid
 description: Envoyez des événements de partenaires SaaS et PaaS Event Grid tiers directement à des services Azure avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115993"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831904"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Rubriques de partenaire dans Azure Event Grid (préversion)
 Les rubriques partenaires vous permettent de connecter des sources d’événements tiers directement à Azure Event Grid. Cette intégration vous permet de vous abonner à des événements de partenaires de la même façon que vous vous abonnez à des événements de services Azure. 
@@ -22,7 +22,7 @@ Le premier partenaire disponible via les rubriques de partenaire Event Grid est 
 Les rubriques de partenaires sont facturées au même tarif que les rubriques système.
 
 ## <a name="limits"></a>limites
-Les rubriques de partenaires sont disponibles en préversion publique. Pendant la préversion publique, les rubriques de partenaires sont soumises aux [mêmes limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que des rubriques système et personnalisées.
+Les rubriques de partenaires sont disponibles en préversion publique. Pendant la préversion publique, les rubriques de partenaires sont soumises aux [mêmes limites](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) que des rubriques système et personnalisées.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Comment devenir partenaire Event Grid ?
 L’infrastructure créée pour ce lancement permet aux nouveaux partenaires d’intégrer facilement et rapidement leurs capacités de gestion d’événements avec Event Grid. Pour plus d’informations, consultez la [documentation relative à l’intégration des partenaires](partner-onboarding-overview.md).

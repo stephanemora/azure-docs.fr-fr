@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258828"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837004"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
 L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](../windows/template-description.md#extensions) . Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.  
@@ -79,7 +79,7 @@ La valeur de la propriété *name* peut être utilisée pour faire référence �
 
 L’élément *typeHandlerVersion* spécifie la version de l’extension que vous souhaitez utiliser. Le fait de définir la version mineure *autoUpgradeMinorVersion* sur **true** garantit que vous obtenez la dernière version mineure de l’extension qui est disponible. Il est fortement recommandé de toujours définir *autoUpgradeMinorVersion* sur **true** afin de toujours utiliser l’extension Diagnostics la plus récente avec l’ensemble des nouvelles fonctionnalités et des correctifs de bogues. 
 
-L’élément *settings* contient des propriétés de configuration pour l’extension pouvant être définies et lues à partir de l’extension (on parle alors parfois de configuration publique). La propriété *xmlcfg* comporte la configuration XML des journaux de diagnostic, compteurs de performances, etc. qui sont collectés par l’agent de diagnostics. Pour plus d’informations sur le schéma XML, consultez la page [Schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx). Une pratique courante consiste à stocker la configuration XML réelle en tant que variable dans le modèle Azure Resource Manager, puis à la concaténer et la coder en base64 pour définir la valeur de *xmlcfg*. Consultez la section [Variables de configuration des diagnostics](#diagnostics-configuration-variables) pour en savoir plus sur la façon de stocker le code XML dans des variables. La propriété *storageAccount* spécifie le nom du compte de stockage vers lequel les données de diagnostics sont transférées. 
+L’élément *settings* contient des propriétés de configuration pour l’extension pouvant être définies et lues à partir de l’extension (on parle alors parfois de configuration publique). La propriété *xmlcfg* comporte la configuration XML des journaux de diagnostic, compteurs de performances, etc. qui sont collectés par l’agent de diagnostics. Pour plus d’informations sur le schéma XML, consultez la page [Schéma de configuration des diagnostics](../../azure-monitor/platform/diagnostics-extension-schema-windows.md). Une pratique courante consiste à stocker la configuration XML réelle en tant que variable dans le modèle Azure Resource Manager, puis à la concaténer et la coder en base64 pour définir la valeur de *xmlcfg*. Consultez la section [Variables de configuration des diagnostics](#diagnostics-configuration-variables) pour en savoir plus sur la façon de stocker le code XML dans des variables. La propriété *storageAccount* spécifie le nom du compte de stockage vers lequel les données de diagnostics sont transférées. 
 
 Les propriétés dans *protectedSettings* (parfois désignées par le terme « configuration privée ») peuvent être définies, mais ne peuvent pas être lues ensuite. La nature en écriture seule de *protectedSettings* est utile pour stocker des secrets tels que la clé de compte de stockage où les données de diagnostics sont écrites.    
 
@@ -117,7 +117,7 @@ L’extrait de code JSON de l’extension Diagnostics qui précède définit une
 
 La propriété *xmlcfg* de l’extension Diagnostics est définie à l’aide de plusieurs variables concaténées. Les valeurs de ces variables étant au format XML, elles doivent être correctement placées dans une séquence d’échappement lorsque vous définissez les variables JSON.
 
-L’exemple suivant décrit le XML de configuration des diagnostics qui collecte les compteurs de performances au niveau du système standard, ainsi que certains journaux des événements Windows et journaux d’activité d’infrastructure de diagnostics. Il a été correctement placé dans une séquence d’échappement et mis en forme afin que la configuration puisse être collée directement dans la section des variables de votre modèle. Consultez le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) pour obtenir un exemple plus lisible du XML de configuration.
+L’exemple suivant décrit le XML de configuration des diagnostics qui collecte les compteurs de performances au niveau du système standard, ainsi que certains journaux des événements Windows et journaux d’activité d’infrastructure de diagnostics. Il a été correctement placé dans une séquence d’échappement et mis en forme afin que la configuration puisse être collée directement dans la section des variables de votre modèle. Consultez le [schéma de configuration des diagnostics](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) pour obtenir un exemple plus lisible du XML de configuration.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -179,4 +179,4 @@ Chaque table WADMetrics contient les colonnes suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Déployer le modèle Azure Resource Manager à l’aide [d’Azure PowerShell](../windows/ps-template.md) ou de la [ligne de commande Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* En savoir plus sur la [création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md)
+* En savoir plus sur la [création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)

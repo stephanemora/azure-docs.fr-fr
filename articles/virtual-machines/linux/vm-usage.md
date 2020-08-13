@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387708"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828861"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,7 +35,7 @@ Pour commencer, [téléchargez vos détails d’utilisation](../../cost-manageme
 | Consommé| Quantité de la ressource consommée ce jour-là. Pour le calcul, nous facturons chaque minute d’exécution de la machine virtuelle pour une heure donnée (jusqu’à six décimales de précision).| `1, 0.5`|
 | Emplacement de la ressource  | Identifie le centre de données dans lequel la ressource est en cours d’exécution.| `JA East`|
 | Service consommé | Service de plateforme Azure que vous avez utilisé.| `Microsoft.Compute`|
-| Groupe de ressources | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| Groupe de ressources | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](../../azure-resource-manager/management/overview.md)|`MyRG`|
 | ID de l’instance | Identificateur pour la ressource. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. Pour les machines virtuelles, l’ID de l’instance contient l’ID d’abonnement, le nom du groupe de ressources et le nom de la machine virtuelle (ou le nom du groupe identique en cas d’utilisation d’un groupe de machines virtuelles identiques).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Balises| Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment [baliser vos machines virtuelles.](tag.md) Disponible uniquement pour les machines virtuelles Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informations supplémentaires | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <br><br> Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.<br><br> Type de service : taille que vous avez déployée.<br><br> VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.<br><br> UsageType : spécifie le type d’utilisation représenté.<br><br> ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.<br><br> ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium, comme Microsoft R Server. | Machines Virtuelles<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Logiciel Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |

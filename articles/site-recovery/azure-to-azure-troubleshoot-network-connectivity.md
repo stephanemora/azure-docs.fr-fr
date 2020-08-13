@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132720"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835882"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 
@@ -18,12 +18,12 @@ Cet article décrit les problèmes courants liés à la connectivité réseau lo
 
 Pour que la réplication Site Recovery fonctionne, une connectivité sortante vers des URL ou des plages d’adresses IP spécifiques est nécessaire à partir de la machine virtuelle. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après.
 
-| URL | Détails |
-|---|---|
-| `*.blob.core.windows.net` | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache pour vos machines virtuelles, vous pouvez utiliser une liste verte pour les URL de compte de stockage spécifiques. Par exemple, `cache1.blob.core.windows.net` et `cache2.blob.core.windows.net` au lieu de `*.blob.core.windows.net`. |
-| `login.microsoftonline.com` | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser l’_Adresse IP de Site Recovery_ correspondante si votre proxy de pare-feu prend en charge les adresses IP. |
-| `*.servicebus.windows.net` | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser l’_Adresse IP de supervision de Site Recovery_ correspondante si votre proxy de pare-feu prend en charge les adresses IP. |
+| **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache pour vos machines virtuelles, vous pouvez utiliser une liste verte pour les URL de compte de stockage spécifiques. Par exemple, `cache1.blob.core.windows.net` et `cache2.blob.core.windows.net` au lieu de `*.blob.core.windows.net`. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery. |
+| Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser l’_Adresse IP de Site Recovery_ correspondante si votre proxy de pare-feu prend en charge les adresses IP. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser l’_Adresse IP de supervision de Site Recovery_ correspondante si votre proxy de pare-feu prend en charge les adresses IP. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connectivité sortante pour les plages d’adresses IP ou les URL Site Recovery (code d’erreur 151037 ou 151072)
 
@@ -51,7 +51,7 @@ Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le ser
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problème2 : Échec de la configuration de Site Recovery (151196)
 
 > [!NOTE]
-> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n’ont pas accès aux adresses IP Office 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n’ont pas accès aux adresses IP Office 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Cause probable
 

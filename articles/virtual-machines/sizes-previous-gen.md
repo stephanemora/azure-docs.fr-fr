@@ -4,16 +4,16 @@ description: Répertorie les tailles des générations précédentes disponibles
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119220"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831292"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -80,7 +80,7 @@ Chaque GPU dans les instances NVv2 est fourni avec une licence GRID. Cette licen
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations antérieures
 
-Cette section fournit des informations sur les tailles de machines virtuelles des anciennes générations. Ces tailles sont toujours prises en charge mais ne peuvent pas recevoir de capacité supplémentaire. Il existe des tailles plus récentes ou alternatives qui sont généralement disponibles. Pour choisir les tailles de machine virtuelle les plus adaptées à vos besoins, voir [Tailles des machines virtuelles Linux dans Azure](linux/sizes.md).  
+Cette section fournit des informations sur les tailles de machines virtuelles des anciennes générations. Ces tailles sont toujours prises en charge mais ne peuvent pas recevoir de capacité supplémentaire. Il existe des tailles plus récentes ou alternatives qui sont généralement disponibles. Pour choisir les tailles de machine virtuelle les plus adaptées à vos besoins, voir [Tailles des machines virtuelles Linux dans Azure](./sizes.md).  
 
 Pour plus d’informations sur le redimensionnement d’une machine virtuelle Linux, consultez [Redimensionner une machine virtuelle Linux](linux/change-vm-size.md).  
 
