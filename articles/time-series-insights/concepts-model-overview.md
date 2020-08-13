@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289970"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141718"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modèle de série chronologique dans Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Ces composants sont combinés pour spécifier un modèle de série chronologique
 
 [![Graphique de vue d’ensemble du modèle de la série chronologique](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instances de modèle de série chronologique
 
@@ -129,7 +129,7 @@ Les instances ont la représentation JSON suivante :
 ```
 
 > [!TIP]
-> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API d’instances, lisez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API d’instances](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API d’instances, lisez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API d’instances](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hiérarchies de modèle de série de temps
 
@@ -186,7 +186,7 @@ Dans l’exemple JSON précédent :
 * `ManufactureDate` définit une hiérarchie avec une `year` parent et un `month` enfant. Chaque `ManufactureDate` peut avoir plusieurs `years`, lesquelles peuvent avoir à leur tour plusieurs `months`.
 
 > [!TIP]
-> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API de hiérarchie, lisez l’article [Interrogation des données](concepts-query-overview.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de hiérarchie](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API de hiérarchie, lisez l’article [Interrogation des données](concepts-query-overview.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de hiérarchie](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemple de hiérarchie
 
@@ -231,7 +231,7 @@ La [démonstration du parc éolien Contoso](https://insights.timeseries.azure.co
 [![Exemple de type de modèle de série chronologique](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API de types, lisez l’article [Interrogation des données](concepts-query-overview.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de types](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Pour une prise en charge des opérations CRUD (create, read, update et delete) de l’API de types, lisez l’article [Interrogation des données](concepts-query-overview.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de types](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Propriétés type
 
@@ -288,7 +288,7 @@ Les types de modèles de série chronologique peuvent avoir de nombreuses variab
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la modification du modèle à l’aide d’API, consultez la documentation de référence du [modèle de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+* Pour plus d’informations sur la modification du modèle à l’aide d’API, consultez la documentation de référence du [modèle de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 * Explorez les formules et les calculs que vous pouvez créer à l’aide de [variables de modèle de série chronologique](./concepts-variables.md).
 

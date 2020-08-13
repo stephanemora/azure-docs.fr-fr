@@ -2,18 +2,18 @@
 title: Expédition autogérée Microsoft Azure Data Box | Microsoft Docs sur les données
 description: Décrit le flux de travail d’expédition autogérée pour les appareils Azure Data Box
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608585"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142534"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box dans le Portail Azure
 
@@ -28,6 +28,8 @@ L’expédition autogérée est disponible comme option lorsque vous [commandez 
 * Japon
 * Singapour
 * Corée du Sud
+* Inde
+* Afrique du Sud
 
 ## <a name="use-self-managed-shipping"></a>Utiliser l’expédition autogérée
 

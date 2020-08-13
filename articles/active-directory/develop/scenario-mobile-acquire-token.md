@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541904"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141276"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` n'a qu'un seul paramètre obligatoire : `scopes`. Le paramètre `scopes` énumère les chaînes qui définissent les étendues pour lesquelles un jeton est requis. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence de chaque API Microsoft Graph. Dans les informations de référence, accédez à la section « Autorisations ».
 
-Par exemple, pour [répertorier les contacts de l'utilisateur](https://docs.microsoft.com/graph/api/user-list-contacts), utilisez les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Par exemple, pour [répertorier les contacts de l'utilisateur](/graph/api/user-list-contacts), utilisez les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](/graph/permissions-reference).
 
 Sur Android, vous pouvez spécifier l'activité parente lors de la création de l'application à l'aide de `PublicClientApplicationBuilder`. Si vous ne spécifiez pas l'activité parente à ce moment-là, vous pouvez la spécifier ultérieurement à l'aide de `.WithParentActivityOrWindow`, comme dans la section suivante. Si vous spécifiez l'activité parente, le jeton y revient après l'interaction. Si vous ne la spécifiez pas, l'appel `.ExecuteAsync()` renvoie une exception.
 
@@ -234,7 +234,7 @@ La classe définit les constantes suivantes :
 - `ForceLogin` permet au service d'inviter l'utilisateur à entrer ses informations d'identification même si l'invite n'est pas nécessaire.
 
     Cette option peut être utile si l'acquisition du jeton échoue et que vous souhaitez permettre à l'utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. Vous souhaiterez peut-être utiliser cette option dans les applications axées sur la sécurité pour lesquelles la gouvernance de l'organisation exige que l'utilisateur se connecte chaque fois qu'il accède à des parties spécifiques de l'application.
-- `Never` concerne uniquement .NET 4.5 et Windows Runtime (WinRT). Cette constante n'affichera aucune invite utilisateur, mais elle tentera d'utiliser le cookie stocké dans l'affichage web incorporé masqué. Pour plus d'informations, consultez [Utilisation de navigateurs avec MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never` concerne uniquement .NET 4.5 et Windows Runtime (WinRT). Cette constante n'affichera aucune invite utilisateur, mais elle tentera d'utiliser le cookie stocké dans l'affichage web incorporé masqué. Pour plus d'informations, consultez [Utilisation de navigateurs avec MSAL.NET](./msal-net-web-browsers.md).
 
     Si cette option échoue, `AcquireTokenInteractive` renvoie une exception pour vous informer qu'une interaction avec l'interface utilisateur est nécessaire. Vous devez alors utiliser un autre paramètre `Prompt`.
 - `NoPrompt` n'envoie pas d'invite au fournisseur d'identité.

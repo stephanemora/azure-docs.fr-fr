@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423947"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163949"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migration vers les nouvelles versions d’API d’Azure Time Series Insights Gen2
 
@@ -23,7 +23,7 @@ ms.locfileid: "87423947"
 
 Si vous avez créé un environnement Azure Time Series Insights Gen2 lors de la préversion publique (avant le 16 juillet 2020), mettez à jour votre environnement TSI pour utiliser les nouvelles versions mises à la disposition générale des API en suivant la procédure décrite dans cet article.
 
-La nouvelle version de l’API est `2020-07-31` et utilise une [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) mise à jour.
+La nouvelle version de l’API est `2020-07-31` et utilise une [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) mise à jour.
 
 Les utilisateurs doivent migrer de leur environnement les [variables du modèle de série chronologique](./concepts-variables.md), les requêtes enregistrées, les requêtes Power BI et les outils personnalisés effectuant des appels aux points de terminaison de l’API. Si vous avez des questions ou des préoccupations concernant ce processus de migration, soumettez un ticket de support par le biais du portail Azure et mentionnez ce document.
 
@@ -95,7 +95,7 @@ Si votre application personnalisée effectue des appels aux points de terminaiso
     - [Opérations de suppression et de récupération](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Liste](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-Pour les points de terminaison REST suivants, vous devez mettre à jour la version de l’API sur `2020-07-31` dans l’URI et vérifier que toutes les occurrences de la propriété `tsx` utilisent la [syntaxe d’expression de série chronologique mise à jour](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Pour les points de terminaison REST suivants, vous devez mettre à jour la version de l’API sur `2020-07-31` dans l’URI et vérifier que toutes les occurrences de la propriété `tsx` utilisent la [syntaxe d’expression de série chronologique mise à jour](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - API de types
   - [Opération Put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -355,7 +355,7 @@ Corps de la demande mis à jour (utilisé par `2020-07-31`) :
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Si vous voyez l’erreur suivante, vous utilisez la nouvelle version de l’API (`2020-07-31`), mais la syntaxe TSX n’a pas été mise à jour. Consultez la [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) et les exemples de migration ci-dessus. Assurez-vous que toutes les propriétés de `tsx` sont correctement mises à jour avant de renvoyer la requête d’API.
+Si vous voyez l’erreur suivante, vous utilisez la nouvelle version de l’API (`2020-07-31`), mais la syntaxe TSX n’a pas été mise à jour. Consultez la [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) et les exemples de migration ci-dessus. Assurez-vous que toutes les propriétés de `tsx` sont correctement mises à jour avant de renvoyer la requête d’API.
 
 ```JSON
 {

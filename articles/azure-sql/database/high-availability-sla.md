@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 04/02/2020
-ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/12/2020
+ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542006"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142432"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -103,7 +103,7 @@ Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou 
 |:---|:---|:---|:---|
 |Base de données|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
 |Pool élastique|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > La commande de basculement n’est pas disponible pour les réplicas secondaires accessibles en lecture des bases de données Hyperscale.

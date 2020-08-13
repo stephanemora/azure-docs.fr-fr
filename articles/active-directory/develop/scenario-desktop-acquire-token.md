@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 85fb188028e0e61378b1e47c1fb7b88eaaa4d7a0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541921"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141293"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Paramètres obligatoires
 
-`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’API de chaque API Microsoft Graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://docs.microsoft.com/graph/api/user-list-contacts), vous devez utiliser les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’API de chaque API Microsoft Graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](/graph/api/user-list-contacts), vous devez utiliser les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](/graph/permissions-reference).
 
 Sur Android, vous devez également spécifier l’activité parente au moyen de `.WithParentActivityOrWindow`, comme indiqué, afin que le jeton retourne à cette activité parente après l’interaction. Si vous ne le précisez pas, une exception est levée lors de l’appel de `.ExecuteAsync()`.
 
@@ -278,7 +278,7 @@ L’équipe de MSAL.NET a réécrit les tests d’interface utilisateur pour uti
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Fournir une bonne expérience avec SystemWebViewOptions
 
-À partir de MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), vous pouvez spécifier :
+À partir de MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), vous pouvez spécifier :
 
 - L’URI vers laquelle naviguer (`BrowserRedirectError`) ou le fragment HTML à afficher (`HtmlMessageError`) en cas d’erreurs de connexion ou de consentement dans le navigateur web système.
 - L’URI vers laquelle naviguer (`BrowserRedirectSuccess`) ou le fragment HTML à afficher (`HtmlMessageSuccess`) en cas de réussite de la connexion ou du consentement.
@@ -433,13 +433,13 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
   - Ou bien, l’administrateur de locataires doit avoir préalablement consenti à ce que tous les utilisateurs dans le locataire utilisent l’application.
   - En d’autres termes :
     - En tant que développeur, vous avez sélectionné le bouton **Accorder** pour vous-même, dans le portail Azure.
-    - Ou bien, un administrateur de locataire a sélectionné le bouton **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Ou bien, vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Demande de consentement d’utilisateur individuel](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Ou bien, vous avez fourni un moyen à l’administrateur de locataire de donner son consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Ou bien, un administrateur de locataire a sélectionné le bouton **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder aux API web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Ou bien, vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Demande de consentement d’utilisateur individuel](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Ou bien, vous avez fourni un moyen à l’administrateur de locataire de donner son consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Consentement administrateur](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Ce flux est activé pour les applications .NET Desktop, .NET Core et UWP.
 
-Pour plus d’informations sur le consentement, consultez [Autorisations et consentement de la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Pour plus d’informations sur le consentement, consultez [Autorisations et consentement de la plateforme d’identités Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Découvrez son utilisation
 

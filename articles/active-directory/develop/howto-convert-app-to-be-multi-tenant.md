@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201957"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141362"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -47,7 +47,7 @@ Avant qu’une application soit mutualisée, Azure AD nécessite que l’URI ID 
 Par défaut, les applications créées via le portail Azure disposent d’un URI d’ID d’application unique au monde dès leur création, mais vous pouvez modifier cette valeur. Par exemple, si le nom de votre client était contoso.onmicrosoft.com, un URI ID d’application valide serait `https://contoso.onmicrosoft.com/myapp`. Si votre client possède le domaine vérifié `contoso.com`, un URI ID d’application valide serait alors `https://contoso.com/myapp`. Si l’URI ID d’application ne suit pas ce modèle, une application ne peut pas être définie comme multi-locataire.
 
 > [!NOTE]
-> Les inscriptions clientes natives ainsi que les [applications de la plateforme d’identités Microsoft](./active-directory-appmodel-v2-overview.md) sont mutualisées par défaut. Vous n’avez rien à faire pour mutualiser ces inscriptions d’application.
+> Les inscriptions clientes natives ainsi que les [applications de la plateforme d’identités Microsoft](./v2-overview.md) sont mutualisées par défaut. Vous n’avez rien à faire pour mutualiser ces inscriptions d’application.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Mise à jour de votre code pour envoyer des demandes à /common
 
@@ -201,11 +201,11 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
+[AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: /graph/
+[MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -226,9 +226,9 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
+[O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
+[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6

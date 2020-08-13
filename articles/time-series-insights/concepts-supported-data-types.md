@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 9d29d83ed92ee0fa2217bb1c27fbf6c2fbb3584c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/12/2020
+ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170894"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141157"
 ---
 # <a name="supported-data-types"></a>Types de données pris en charge
 
@@ -31,7 +31,7 @@ Le tableau suivant répertorie les types de données qu’Azure Time Series Insi
 
 ## <a name="sending-mixed-data-types"></a>Envoi de types de données mixtes
 
-Votre environnement Azure Time Series Insights Gen2 est très typé. Si des appareils ou des balises envoient des données de types différents pour une propriété d’appareil, les valeurs sont stockées dans deux colonnes séparées, et la fonction [coalesce()](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) doit être utilisée lors de la définition de vos expressions de variable de modèle de série chronologique dans les appels d’API.
+Votre environnement Azure Time Series Insights Gen2 est très typé. Si des appareils ou des balises envoient des données de types différents pour une propriété d’appareil, les valeurs sont stockées dans deux colonnes séparées, et la fonction [coalesce()](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions) doit être utilisée lors de la définition de vos expressions de variable de modèle de série chronologique dans les appels d’API.
 
 L’Explorateur Azure Time Series Insights offre un moyen de fusionner automatiquement les colonnes distinctes de la même propriété d’appareil. Dans l’exemple ci-dessous, le capteur envoie une propriété `PresentValue` qui peut être une valeur Long ou Double. Pour effectuer une requête sur toutes les valeurs stockées (quel que soit le type de données) de la propriété `PresentValue`, choisissez `PresentValue (Double | Long)` et les colonnes seront fusionnées pour vous.
 

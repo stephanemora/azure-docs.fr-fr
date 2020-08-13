@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194120"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141497"
 ---
 # <a name="national-clouds"></a>Clouds nationaux
 
@@ -67,7 +67,7 @@ Pour les applications à client unique, remplacez « common » dans les URL ci-d
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
-Pour savoir comment appeler les API Microsoft Graph dans un environnement de cloud national, accédez à [Microsoft Graph in national cloud deployments (Microsoft Graph dans les déploiements sur les clouds nationaux)](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Pour savoir comment appeler les API Microsoft Graph dans un environnement de cloud national, accédez à [Microsoft Graph in national cloud deployments (Microsoft Graph dans les déploiements sur les clouds nationaux)](/graph/deployments).
 
 > [!IMPORTANT]
 > Certains services et fonctionnalités dans des régions spécifiques du service global peuvent ne pas être disponibles dans l’ensemble des clouds nationaux. Pour connaître les services disponibles, accédez à la [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
@@ -78,7 +78,7 @@ Pour savoir comment créer une application à l’aide de la plateforme d’iden
 
 Pour en savoir plus :
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Allemagne](https://docs.microsoft.com/azure/germany/)
-- [Principes fondamentaux de l’authentification Azure AD](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Allemagne](../../germany/index.yml)
+- [Principes fondamentaux de l’authentification Azure AD](./authentication-vs-authorization.md)
