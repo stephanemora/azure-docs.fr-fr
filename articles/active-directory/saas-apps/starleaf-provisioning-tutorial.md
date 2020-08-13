@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064289"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920685"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutoriel : Configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs
 
@@ -36,7 +36,7 @@ L'objectif de ce didacticiel est de présenter les étapes à suivre dans StarLe
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * Un locataire Azure AD.
-* [Un locataire StarLeaf](https://www.starleaf.com/solutions/).
+* [Un locataire StarLeaf](https://starleaf.com/).
 * Un compte d'utilisateur StarLeaf doté d'autorisations d'administrateur.
 
 ## <a name="assign-users-to-starleaf"></a>Attribuer des utilisateurs à StarLeaf

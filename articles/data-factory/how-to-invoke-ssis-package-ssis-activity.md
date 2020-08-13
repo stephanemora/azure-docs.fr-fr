@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003191"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926702"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
 
@@ -97,7 +97,7 @@ Sous l'onglet **Paramètres** de l'activité Exécuter le package SSIS, procéde
 
 **SSISDB** est automatiquement sélectionné comme emplacement de votre package si votre runtime d'intégration Azure-SSIS a été approvisionné avec un catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance. Vous pouvez également le sélectionner vous-même. S'il est sélectionné, procédez comme suit.
 
-   1. Si votre runtime d'intégration Azure-SSIS est en cours d'exécution et que la case **Entrées manuelles** n'est pas cochée, vous pouvez parcourir et sélectionner vos dossiers, projets, packages et environnements existants dans SSISDB. Sélectionnez **Actualiser** pour récupérer vos nouveaux dossiers, projets, packages ou environnements ajoutés dans SSISDB afin qu'ils soient sélectionnables lors de la navigation. Pour parcourir et sélectionner les environnements à des fins d'exécution de vos packages, vous devez configurer vos projets au préalable de manière à ajouter ces environnements en tant que références à partir des mêmes dossiers sous SSISDB. Pour plus d’informations, consultez [Créer et mapper des environnements SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Si votre runtime d'intégration Azure-SSIS est en cours d'exécution et que la case **Entrées manuelles** n'est pas cochée, vous pouvez parcourir et sélectionner vos dossiers, projets, packages et environnements existants dans SSISDB. Sélectionnez **Actualiser** pour récupérer vos nouveaux dossiers, projets, packages ou environnements ajoutés dans SSISDB afin qu'ils soient sélectionnables lors de la navigation. Pour parcourir et sélectionner les environnements à des fins d'exécution de vos packages, vous devez configurer vos projets au préalable de manière à ajouter ces environnements en tant que références à partir des mêmes dossiers sous SSISDB. Pour plus d’informations, consultez [Créer et mapper des environnements SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Sélectionnez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. 
 
@@ -269,7 +269,7 @@ Sous l'onglet **Substitutions de propriété** de l'activité Exécuter le packa
 
    1. Entrez un par un les chemins d'accès des propriétés existantes dans le package sélectionné pour leur attribuer manuellement des valeurs. Assurez-vous que les valeurs existent et qu’elles sont correctement entrées pour que l’exécution du package réussisse. Par exemple, pour remplacer la valeur de votre variable utilisateur, entrez son chemin d’accès au format suivant : `\Package.Variables[User::<variable name>].Value`. 
 
-      Vous pouvez obtenir le **CHEMIN D’ACCÈS À LA PROPRIÉTÉ** correct pour toute propriété de package en ouvrant le package qui le contient sur SSDT. Une fois le package ouvert, sélectionnez son flux de contrôle et sa propriété **Configurations** dans la fenêtre **Propriétés** de SSDT. Sélectionnez ensuite le bouton de sélection ( **…** ) à côté de sa propriété **Configurations** pour ouvrir la **bibliothèque des configurations du package** qui est normalement utilisée pour [créer des configurations de package dans le modèle de déploiement de package](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      Vous pouvez obtenir le **CHEMIN D’ACCÈS À LA PROPRIÉTÉ** correct pour toute propriété de package en ouvrant le package qui le contient sur SSDT. Une fois le package ouvert, sélectionnez son flux de contrôle et sa propriété **Configurations** dans la fenêtre **Propriétés** de SSDT. Sélectionnez ensuite le bouton de sélection ( **…** ) à côté de sa propriété **Configurations** pour ouvrir la **bibliothèque des configurations du package** qui est normalement utilisée pour [créer des configurations de package dans le modèle de déploiement de package](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Récupérer les propriétés de package à partir de SSDT – Propriété Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

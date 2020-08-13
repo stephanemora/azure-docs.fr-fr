@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401046"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921416"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Qu'est-ce que la conversation multi-appareil (préversion) ?
 
@@ -60,7 +60,7 @@ La transcription et la traduction en temps réel peuvent rendre les conversation
 Vous pouvez également afficher des sous-titres lors des présentations et des conférences, à la fois à l'écran et sur les appareils des membres du public. Une fois que les membres du public ont rejoint la présentation à l'aide du code de conversation, la transcription peut apparaître sur leur appareil, dans la langue de leur choix.
 
 > [!NOTE]
-> Pour consulter un exemple, reportez-vous à [Traducteur de présentations](https://www.microsoft.com/translator/apps/presentation-translator/), un complément PowerPoint qui utilise le service de conversation multi-appareil. Vous pouvez le télécharger [ici](https://www.microsoft.com/download/details.aspx?id=55024).
+> Pour consulter un exemple, reportez-vous à [Traducteur de présentations](https://www.microsoft.com/translator/apps/presentation-translator/), un complément PowerPoint qui utilise le service de conversation multi-appareil. Vous pouvez le télécharger [ici](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 

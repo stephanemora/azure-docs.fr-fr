@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505549"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921994"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Créer une forêt de ressources Azure Active Directory Domain Services et une approbation de forêt sortante vers un domaine local à l’aide d’Azure PowerShell
 
@@ -148,8 +148,8 @@ Avant de commencer, assurez-vous de comprendre les [considérations et recommand
 
 1. Créez la connectivité hybride de votre réseau local à Azure à l’aide d’une connexion VPN Azure ou Azure ExpressRoute. La configuration du réseau hybride n’entre pas dans le cadre de cette documentation et elle existe peut-être déjà dans votre environnement. Pour plus de détails sur des scénarios spécifiques, consultez les articles suivants :
 
-    * [VPN de site à site Azure](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Vue d’ensemble d’Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [VPN de site à site Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Vue d’ensemble d’Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Si vous créez une connexion directement vers votre réseau virtuel de domaine managé, utilisez un sous-réseau de passerelle distinct. Ne créez pas la passerelle dans le sous-réseau du domaine managé.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552116"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874773"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -106,8 +106,6 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
 ![Stratégie d’accès conditionnel configurée pour la fréquence de connexion](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 Sur les appareils Windows inscrits dans Azure AD, connectez-vous à l’appareil qui est considéré invite. Par exemple, si vous avez configuré la fréquence de connexion sur 24 heures pour les applications Office, les utilisateurs d’appareils Windows inscrits à Azure AD répondront à la stratégie de fréquence de connexion en se connectant à l’appareil et ne seront donc pas réinvités à le faire pour ouvrir des applications Office.
-
-Si vous avez configuré une autre fréquence de connexion pour différentes applications web qui s’exécutent dans la même session de navigateur, la stratégie la plus stricte sera appliquée aux deux applications, car toutes les applications en cours d’exécution dans la même session de navigateur partagent un jeton de session unique.
 
 ### <a name="policy-2-persistent-browser-session"></a>Stratégie 2 : Session de navigateur persistante
 

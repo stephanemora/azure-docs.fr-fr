@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461763"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925343"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -123,7 +123,7 @@ Un environnement managé peut être déployé par le biais de la [synchronisatio
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
 > [!NOTE]
-> [L’authentification Cloud à l’aide du déploiement intermédiaire](/hybrid/how-to-connect-staged-rollout) est prise en charge uniquement lors du démarrage de la mise à jour de Windows 10 1903
+> [L’authentification Cloud à l’aide du déploiement intermédiaire](/azure/active-directory/hybrid/how-to-connect-staged-rollout) est prise en charge uniquement lors du démarrage de la mise à jour de Windows 10 1903
 
 ### <a name="federated-environment"></a>Environnement fédéré
 

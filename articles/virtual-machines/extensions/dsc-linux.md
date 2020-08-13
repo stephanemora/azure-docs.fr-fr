@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494783"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876714"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extension DSC pour Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -29,25 +29,17 @@ Desired State Configuration (DSC) est une plateforme de gestion que vous pouvez 
 
 L’extension DSCForLinux est publiée et prise en charge par Microsoft. L’extension installe l’agent DSC et OMI sur des machines virtuelles Azure. L’extension DSC peut également effectuer les actions suivantes :
 
-
 - Enregistrer la machine virtuelle Linux sur un compte Azure Automation pour extraire des configurations depuis le service Azure Automation (Register ExtensionAction).
 - Envoyer (push) des configurations MOF vers la machine virtuelle Linux (Push ExtensionAction).
 - Appliquer la configuration MOF méta à la machine virtuelle Linux pour configurer le serveur Pull et ainsi extraire la configuration de nœud (Pull ExtensionAction).
 - Installer des modules DSC personnalisés sur la machine virtuelle Linux (Install ExtensionAction).
 - Supprimer des modules DSC personnalisés de la machine virtuelle Linux (Remove ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L'extension DSC Linux prend en charge toutes les [distributions Linux approuvées sur Azure](../linux/endorsed-distros.md), à l'exception des suivantes :
-
-| Distribution | Version |
-|---|---|
-| Debian | Toutes les versions |
-| Ubuntu| 18,04 |
+Pour les nœuds exécutant Linux, l’extension Linux DSC prend en charge toutes les distributions Linux listées dans la [documentation de DSC PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -425,7 +417,7 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 ```
 
 Code d’erreur : 51 correspond soit à une distribution non prise en charge, soit à une action de l’extension non prise en charge.
-Dans certains cas, l’extension Linux DSC ne parvient pas à installer OMI lorsqu’une version plus récente d’OMI existe déjà sur la machine. [Réponse d’erreur : (000003)Passage à une version antérieure interdit]
+Dans certains cas, l’extension Linux DSC ne parvient pas à installer OMI lorsqu’une version plus récente d’OMI existe déjà sur la machine. [error response: (000003)Downgrade not allowed]
 
 
 

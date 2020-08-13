@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1057bb908e973c74b6dfb70931469e27f77512de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 902dfc924fdac28c0aed46745604c5d4d19f084b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292674"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920328"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Interroger des données à partir d’un environnement Azure Time Series Insights Gen2 en utilisant C#
 
@@ -71,7 +71,7 @@ Vous pouvez également ajouter chaque package à l’aide de [NuGet 2.12+](http
 
 ## <a name="c-sample-code"></a>Exemple de code C#
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
+[!code-csharp[csharpquery-example](~/samples-tsi/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
 > * L’exemple de code peut être exécuté sans modification des variables d’environnement par défaut.

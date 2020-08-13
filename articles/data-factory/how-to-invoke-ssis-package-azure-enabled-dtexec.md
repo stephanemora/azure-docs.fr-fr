@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414322"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927077"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Exécuter des packages SQL Server Integration Services avec l’utilitaire dtexec compatible Azure
 
@@ -87,7 +87,7 @@ L’appel d’AzureDTExec offre des options similaires à celles de l’appel de
 - **/F[ile]**  : charge un package qui est stocké dans le système de fichiers, le partage de fichiers ou Azure Files. Comme valeur pour cette option, vous pouvez spécifier le chemin UNC de votre fichier de package dans le système de fichiers, de partage de fichiers ou Azure Files avec son extension .dtsx. Si le chemin UNC spécifié contient des espaces, mettez tout le chemin entre guillemets.
 - **/Conf[igFile]**  : spécifie un fichier de configuration à partir duquel extraire des valeurs. À l’aide de cette option, vous pouvez définir une configuration d’exécution pour votre package qui diffère de celle spécifiée au moment de la conception. Vous pouvez stocker différents paramètres dans un fichier de configuration XML, puis les charger avant l’exécution de votre package. Pour plus d’informations, consultez [Configurations de package SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Pour spécifier la valeur de cette option, utilisez le chemin UNC de votre fichier de configuration dans le système de fichiers, le partage de fichiers ou Azure Files avec son extension dtsConfig. Si le chemin UNC spécifié contient des espaces, mettez tout le chemin entre guillemets.
 - **/Conn[ection]**  : spécifie les chaînes de connexion des gestionnaires de connexions existants dans votre package. À l’aide de cette option, vous pouvez définir des chaînes de connexion d’exécution pour les gestionnaires de connexions existants dans votre package qui diffèrent de celles spécifiées au moment de la conception. Spécifiez la valeur de cette option comme suit : `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
-- **/Set** : remplace la configuration d’un paramètre, d’une variable, d’une propriété, d’un conteneur, d’un module fournisseur d’informations, d’un énumérateur Foreach ou d’une connexion dans votre package. Cette option peut être spécifiée plusieurs fois. Spécifiez la valeur de cette option comme suit : `property_path;value`. Par exemple, `\package.variables[counter].Value;1` remplace la valeur de la variable `counter` par 1. Vous pouvez utiliser l’Assistant **Configuration de package** pour rechercher, copier et coller la valeur de `property_path` pour les éléments de votre package dont vous souhaitez remplacer la valeur. Pour plus d’informations, consultez [Configurations de package SSIS](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set** : remplace la configuration d’un paramètre, d’une variable, d’une propriété, d’un conteneur, d’un module fournisseur d’informations, d’un énumérateur Foreach ou d’une connexion dans votre package. Cette option peut être spécifiée plusieurs fois. Spécifiez la valeur de cette option comme suit : `property_path;value`. Par exemple, `\package.variables[counter].Value;1` remplace la valeur de la variable `counter` par 1. Vous pouvez utiliser l’Assistant **Configuration de package** pour rechercher, copier et coller la valeur de `property_path` pour les éléments de votre package dont vous souhaitez remplacer la valeur. Pour plus d’informations, consultez [Configurations de package SSIS](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De[crypt]**  : définit le mot de passe de déchiffrement de votre package configuré avec le niveau de protection **EncryptAllWithPassword**/**EncryptSensitiveWithPassword**.
 
 > [!NOTE]
