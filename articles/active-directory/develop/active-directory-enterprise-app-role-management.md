@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478618"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116085"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -265,7 +265,7 @@ Pour supprimer un rôle existant, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour connaître les étapes supplémentaires, consultez la [documentation de l’application](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Pour connaître les étapes supplémentaires, consultez la [documentation de l’application](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

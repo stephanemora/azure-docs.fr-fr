@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282991"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118448"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | --- | --- | --- |
 | id | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
 | Version | Obligatoire | Ce paramètre doit être défini sur **2.0**. |
-| IssueInstant | Obligatoire | Chaîne DateTime associée à une valeur UTC et comportant le [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur DateHeure de ce type, sans pour autant l’évaluer ni l’utiliser. |
+| IssueInstant | Obligatoire | Chaîne DateTime associée à une valeur UTC et comportant le [format aller-retour (« o »)](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD attend une valeur DateHeure de ce type, sans pour autant l’évaluer ni l’utiliser. |
 | AssertionConsumerServiceUrl | Facultatif | Si ce paramètre est fourni, il doit correspondre à l’élément `RedirectUri` du service cloud dans Azure AD. |
 | ForceAuthn | Facultatif | Il s’agit d’une valeur booléenne. Une valeur true signifie que l’utilisateur devra se réauthentifier, même s’il a ouvert une session valide avec Azure AD. |
 | IsPassive | Facultatif | Il s’agit d’une valeur booléenne qui spécifie si Azure AD doit authentifier l’utilisateur en mode silencieux, sans intervention de l’utilisateur, en utilisant le cookie de la session s’il en existe un. Si la valeur est true, Azure AD tente d’authentifier l’utilisateur en utilisant le cookie de la session. |

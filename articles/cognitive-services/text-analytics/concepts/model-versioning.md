@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/21/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108547"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120930"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Contrôle de version de modèle dans l’API Analyse de texte
 
@@ -26,27 +26,29 @@ La version 3 de l’API Analyse de texte vous permet de choisir la version de m
 Utilisez le tableau ci-dessous pour rechercher les versions de modèle prises en charge par chaque point de terminaison.
 
 
-| Point de terminaison                        | Versions prises en charge                       | version la plus récente |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`                             | `2019-10-01`   |
+| Point de terminaison                        | Versions prises en charge                                     | version la plus récente |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
 Pour plus d’informations sur les mises à jour de ces modèles, consultez la section [Nouveautés](../whats-new.md).
 
-## <a name="text-analytics-for-health"></a>Analyse de texte pour l’intégrité
+## <a name="text-analytics-for-health"></a>Analyse de texte pour la santé
 
 Le conteneur [Analyse de texte pour l’intégrité](../how-tos/text-analytics-for-health.md) utilise une gestion de versions de modèle distinct des points de terminaison d’API ci-dessus.  Notez qu’une seule version de modèle est disponible par image conteneur.
 
 | Point de terminaison                        | Étiquette de l’image conteneur                     | Version du modèle |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.012640001-amd64-preview` ou la plus récente | `2020-05-08`  |
+| `/domains/health`               | `1.1.013150001-amd64-preview` ou la plus récente | `2020-07-24`  |
+| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
 
 
 

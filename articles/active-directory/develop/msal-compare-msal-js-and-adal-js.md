@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696416"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120896"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Différences entre MSAL JS et ADAL JS
 
@@ -30,7 +30,7 @@ Cet article compare la Bibliothèque d'authentification Microsoft pour JavaScrip
 
 Dans la plupart des cas, il est préférable d'utiliser la plateforme d'identités Microsoft et MSAL.js, qui correspond à la dernière génération de bibliothèques d'authentification de Microsoft. MSAL.js vous permet d'acquérir des jetons pour les utilisateurs qui se connectent à votre application avec Azure AD (comptes professionnels et scolaires), avec des comptes (personnels) Microsoft (MSA) ou avec Azure AD B2C.
 
-Si vous connaissez déjà le point de terminaison v1.0 (et ADAL.js), n'hésitez pas à consulter l'article consacré aux [différences du point de terminaison v2.0](active-directory-v2-compare.md).
+Si vous connaissez déjà le point de terminaison v1.0 (et ADAL.js), n'hésitez pas à consulter l'article consacré aux [différences du point de terminaison v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Mais vous devrez quand même utiliser ADAL.js si votre application a besoin de connecter des utilisateurs dotés de versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services).
 
@@ -96,4 +96,4 @@ Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonlin
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d'informations, consultez la [comparaison entre v1.0 et v2.0](active-directory-v2-compare.md).
+Pour plus d'informations, consultez la [comparaison entre v1.0 et v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

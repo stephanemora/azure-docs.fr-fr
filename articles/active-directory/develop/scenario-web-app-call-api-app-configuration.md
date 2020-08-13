@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 662520b9e31b4fe9a0925683fd0e661ce179e5b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: ac438b42f25fc82a0a5dd5384205e809e45ff57a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518145"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120083"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Application web qui appelle des API web : Configuration de code
 
@@ -61,7 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 Si vous souhaitez en savoir plus sur le cache de jeton, consultez [Options de sérialisation du cache de jetons](#token-cache).
 
 > [!NOTE]
-> Pour bien comprendre les exemples de code présentés ici, vous devez maîtriser les [notions de base d'ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals), en particulier l'[injection de dépendances](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) et le modèle [options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+> Pour bien comprendre les exemples de code présentés ici, vous devez maîtriser les [notions de base d'ASP.NET Core](/aspnet/core/fundamentals), en particulier l'[injection de dépendances](/aspnet/core/fundamentals/dependency-injection) et le modèle [options](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -268,7 +268,7 @@ L'utilisation d'assertions de client est un scénario avancé décrit en détail
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Le tutoriel ASP.NET Core utilise l’injection de dépendances pour vous laisser déterminer l’implémentation du cache de jetons dans le fichier Startup.cs de votre application. Microsoft.Identity.Web est fourni avec des sérialiseurs de cache de jetons prédéfinis décrits dans [Sérialisation du cache de jetons](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Une possibilité intéressante consiste à choisir des [caches en mémoire distribuée](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache) ASP.NET Core :
+Le tutoriel ASP.NET Core utilise l’injection de dépendances pour vous laisser déterminer l’implémentation du cache de jetons dans le fichier Startup.cs de votre application. Microsoft.Identity.Web est fourni avec des sérialiseurs de cache de jetons prédéfinis décrits dans [Sérialisation du cache de jetons](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Une possibilité intéressante consiste à choisir des [caches en mémoire distribuée](/aspnet/core/performance/caching/distributed#distributed-memory-cache) ASP.NET Core :
 
 ```csharp
 // Use a distributed token cache by adding:

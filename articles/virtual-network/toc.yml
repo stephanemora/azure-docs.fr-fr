@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: Créer un réseau virtuel - Azure CLI
       href: quick-create-cli.md
+    - name: Créer un réseau virtuel - Modèle ARM
+      href: quick-create-template.md
   expanded: true
 - name: Tutoriels
   items:

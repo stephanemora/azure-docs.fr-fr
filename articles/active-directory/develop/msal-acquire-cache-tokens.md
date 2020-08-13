@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194048"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119893"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquérir et mettre en cache des jetons à l’aide de la bibliothèque d’authentification Microsoft (MSAL)
 
@@ -30,7 +30,7 @@ Vous pouvez également effacer le cache de jetons, en supprimant les comptes du 
 
 ## <a name="scopes-when-acquiring-tokens"></a>Étendues lors de l’acquisition de jetons
 
-Les [étendues](v2-permissions-and-consent.md) correspondent aux autorisations qu’une API web expose pour que les applications clientes puissent demander à y accéder. Les applications clientes demandent le consentement de l’utilisateur pour ces étendues lors des demandes d’authentification pour obtenir des jetons permettant d’accéder aux API web. MSAL vous permet d’obtenir des jetons pour accéder à des API Azure AD pour développeurs (v1.0) et de la plateforme d’identités Microsoft (v2.0). Le protocole v2.0 utilise des étendues au lieu de ressources dans les demandes. Pour plus d’informations, consultez la [comparaison entre v1.0 et v2.0](active-directory-v2-compare.md). Selon la configuration de la version de jeton acceptée par l’API web, le point de terminaison v2.0 retourne un jeton d’accès à MSAL.
+Les [étendues](v2-permissions-and-consent.md) correspondent aux autorisations qu’une API web expose pour que les applications clientes puissent demander à y accéder. Les applications clientes demandent le consentement de l’utilisateur pour ces étendues lors des demandes d’authentification pour obtenir des jetons permettant d’accéder aux API web. MSAL vous permet d’obtenir des jetons pour accéder à des API Azure AD pour développeurs (v1.0) et de la plateforme d’identités Microsoft (v2.0). Le protocole v2.0 utilise des étendues au lieu de ressources dans les demandes. Pour plus d’informations, consultez la [comparaison entre v1.0 et v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Selon la configuration de la version de jeton acceptée par l’API web, le point de terminaison v2.0 retourne un jeton d’accès à MSAL.
 
 Plusieurs méthodes d’acquisition de jetons de MSAL nécessitent un paramètre `scopes`. Le paramètre `scopes` représente une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Les [autorisations Microsoft Graph](/graph/permissions-reference) sont des étendues bien connues.
 

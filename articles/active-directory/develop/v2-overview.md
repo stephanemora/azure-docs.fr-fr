@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231673"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119553"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Présentation de la plateforme d’identités Microsoft
 
@@ -59,7 +59,7 @@ Lorsque vous travaillez avec la plateforme d’identités Microsoft pour intégr
 
 Découvrez dans ces quelques articles conseillés comment l’authentification de base et les concepts d’Azure AD s’appliquent à la plateforme d’identités Microsoft :
 
-- [Principes fondamentaux de l’authentification](authentication-scenarios.md)
+- [Principes fondamentaux de l’authentification](./authentication-vs-authorization.md)
 - [Applications et principaux de service](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
 - [Autorisations et consentement](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Découvrez dans ces quelques articles conseillés comment l’authentification d
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) – Créez des applications destinées aux clients, auxquelles vos utilisateurs peuvent se connecter au moyen de leurs comptes de réseaux sociaux, tels que Facebook ou Google, ou d’une adresse e-mail et d’un mot de passe.
 
-[Azure AD B2B](../b2b/what-is-b2b.md) – Invitez des utilisateurs externes en tant qu’utilisateurs « invités » dans votre locataire Azure AD, et affectez des autorisations qui leur permettent d’utiliser leurs informations d’identification existantes pour l’authentification.
+[Azure AD B2B](../external-identities/what-is-b2b.md) – Invitez des utilisateurs externes en tant qu’utilisateurs « invités » dans votre locataire Azure AD, et affectez des autorisations qui leur permettent d’utiliser leurs informations d’identification existantes pour l’authentification.
 
 > [!TIP]
 > Vous recherchez de la documentation relative à la *plateforme de développement Azure Active Directory (v1.0)*  ? Consultez la [Présentation d’Azure Active Directory pour les développeurs (v1.0)](../azuread-dev/v1-overview.md).

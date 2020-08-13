@@ -13,12 +13,12 @@ ms.date: 06/22/2018
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 59ba97ccc0bc4a1a273873d638ef3f519b91e530
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284436"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114963"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
 
@@ -154,7 +154,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 
 ## <a name="related-content"></a>Contenu connexe
 
-* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [ressource de stratégie](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta).
+* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [ressource de stratégie](/graph/api/resources/policy?view=graph-rest-beta).
 * Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (en anglais). 
 * Ajoutez [revendications personnalisées et facultatives](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) aux jetons pour votre application.
 * Utilisez l’[authentification unique (SSO) avec SAML](single-sign-on-saml-protocol.md).

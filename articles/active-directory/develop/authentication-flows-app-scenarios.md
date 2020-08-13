@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593163"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115643"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -154,9 +154,9 @@ Certains scénarios, comme ceux qui impliquent un accès conditionnel lié à l�
 Pour plus d’informations, consultez [Application mobile qui appelle des API web](scenario-mobile-overview.md).
 
 > [!NOTE]
-> Vous pouvez appliquer des stratégies de protection des applications à votre application mobile qui utilise MSAL.iOS, MSAL.Android ou MSAL.NET sur Xamarin. Par exemple, les stratégies peuvent empêcher un utilisateur de copier du texte protégé. L’application mobile est gérée par Intune et reconnue par Intune en tant qu’application gérée. Pour plus d’informations, consultez l’article [Présentation du Microsoft Intune App SDK](https://docs.microsoft.com/intune/app-sdk).
+> Vous pouvez appliquer des stratégies de protection des applications à votre application mobile qui utilise MSAL.iOS, MSAL.Android ou MSAL.NET sur Xamarin. Par exemple, les stratégies peuvent empêcher un utilisateur de copier du texte protégé. L’application mobile est gérée par Intune et reconnue par Intune en tant qu’application gérée. Pour plus d’informations, consultez l’article [Présentation du Microsoft Intune App SDK](/intune/app-sdk).
 >
-> Le [SDK d’application Intune](https://docs.microsoft.com/intune/app-sdk-get-started) est distinct des bibliothèques MSAL et interagit avec Azure AD de façon autonome.
+> Le [SDK d’application Intune](/intune/app-sdk-get-started) est distinct des bibliothèques MSAL et interagit avec Azure AD de façon autonome.
 
 ### <a name="protected-web-api"></a>API web protégée
 
@@ -305,5 +305,5 @@ Pour plus d’informations, consultez [Prise en charge Microsoft des bibliothèq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [notions de base de l’authentification](authentication-scenarios.md) et les [jetons d’accès dans la plateforme d’identités Microsoft](access-tokens.md)
+* En savoir plus sur les [notions de base de l’authentification](./authentication-vs-authorization.md) et les [jetons d’accès dans la plateforme d’identités Microsoft](access-tokens.md)
 * En savoir plus sur la [sécurisation de l’accès aux applications IoT](/azure/architecture/example-scenario/iot-aad/iot-aad)

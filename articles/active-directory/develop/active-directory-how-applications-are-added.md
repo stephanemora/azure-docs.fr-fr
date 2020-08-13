@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884271"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115762"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -74,7 +74,7 @@ Le principal de service peut inclure :
   * Lorsque vous vous abonnez à Office 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Office 365.
   * Certains services d’Office 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
-* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](/azure/active-directory/manage-apps/application-proxy)
+* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](../manage-apps/application-proxy.md)
 * Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
 * Par programmation via l’API Microsoft Graph ou PowerShell
 
@@ -104,8 +104,8 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
   * Revendication des règles de transformation
   * Mappages d'attributs (déploiement de l'utilisateur)
 * Pour plus d’informations détaillées sur le principal de service et les objets d’application, consultez la documentation de référence sur l’API Microsoft Graph :
-  * [Application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Principal du service](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Application](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Principal du service](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Pourquoi les applications s’intègrent à Azure AD ?
 

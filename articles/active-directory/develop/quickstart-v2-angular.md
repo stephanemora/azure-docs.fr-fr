@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129183"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115235"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application monopage Angular
 
@@ -47,7 +47,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 > 1. Si votre compte a accès à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
-> 1. Suivez les instructions pour [inscrire une application monopage](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) dans le portail Azure.
+> 1. Suivez les instructions pour [inscrire une application monopage](./scenario-spa-app-registration.md) dans le portail Azure.
 > 1. Ajoutez une nouvelle plateforme dans le volet **Authentification** de l’inscription de votre application, puis enregistrez l’URI de redirection : `http://localhost:4200/`.
 > 1. Ce guide de démarrage rapide utilise le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Sélectionnez les paramètres **Octroi implicite** pour les **jetons d’ID** et les **jetons d’accès**. Des jetons d’ID et des jetons d’accès sont nécessaires, car cette application connectent des utilisateurs et appellent une API.
 
@@ -99,7 +99,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >|Nom de la valeur|Description|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Dans la page **Vue d’ensemble** de l’inscription de votre application, il s’agit de la valeur de votre **ID d’application (client)** . |
->|Enter_the_Cloud_Instance_Id_Here|Il s’agit de l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez **https://login.microsoftonline.com** . Pour les clouds nationaux (par exemple Chine), consultez [Clouds nationaux](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Il s’agit de l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez **https://login.microsoftonline.com** . Pour les clouds nationaux (par exemple Chine), consultez [Clouds nationaux](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Définissez cette valeur sur une des options suivantes : Si votre application prend en charge les *comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’ID de l’annuaire (locataire) ou le nom du locataire (par exemple, **contoso.microsoft.com**). Si votre application prend en charge les *Comptes dans un annuaire organisationnel*, remplacez cette valeur par **organizations**. Si votre application prend en charge les *Comptes dans un annuaire organisationnel et comptes personnels Microsoft*, remplacez cette valeur par **common**. Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement*, remplacez cette valeur par **consumers**. |
 >|Enter_the_Redirect_Uri_Here|Remplacez par **http://localhost:4200** .|
 >|cacheLocation  | (Facultatif) Définissez le stockage du navigateur pour l’état d’authentification. La valeur par défaut est **sessionStorage**.   |
@@ -142,5 +142,4 @@ Une fois que l’application est chargée dans le navigateur, sélectionnez **Se
 À présent, découvrez comment connecter un utilisateur et acquérir des jetons dans le tutoriel Angular :
 
 > [!div class="nextstepaction"]
-> [Tutoriel Angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Tutoriel Angular](./tutorial-v2-angular.md)

@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313487"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115983"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Comptes et profils de locataire (Android)
 
@@ -69,7 +69,7 @@ Dans le diagramme ci-dessus :
   - Un profil de locataire pour `tom@live.com` existe dans chacun de ces locataires.
 - Les informations sur Tom et Bob dans d'autres locataires peuvent différer de celles figurant dans le système d'enregistrement. Elles peuvent différer au niveau de certains attributs tels que le poste, le bureau, etc. Ces personnes peuvent être membres de groupes et/ou de rôles au sein de chaque organisation (locataire Azure Active Directory). Ces informations sont référencées sous le terme de profil de locataire bob@contoso.com.
 
-Dans le diagramme, bob@contoso.com et tom@live.com ont accès aux ressources de différents locataires Azure Active Directory. Pour plus d’informations, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+Dans le diagramme, bob@contoso.com et tom@live.com ont accès aux ressources de différents locataires Azure Active Directory. Pour plus d’informations, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Comptes et authentification unique (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Pour afficher une liste des réclamations disponibles à partir de l'objet du compte, référez-vous à la section [Revendications dans un jeton id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Pour afficher une liste des réclamations disponibles à partir de l'objet du compte, référez-vous à la section [Revendications dans un jeton id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Pour inclure d’autres revendications dans votre id_token, reportez-vous à la documentation sur les revendications facultatives dans [Procédure  : Fournir des revendications facultatives à votre application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Pour inclure d’autres revendications dans votre id_token, reportez-vous à la documentation sur les revendications facultatives dans [Procédure  : Fournir des revendications facultatives à votre application Azure AD](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Accéder aux revendications d’un profil de locataire
 

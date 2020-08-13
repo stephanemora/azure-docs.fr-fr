@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552779"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115609"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utiliser des attributs d’extension de schéma d’annuaire dans les revendications
 
@@ -34,7 +34,7 @@ L’identificateur d’un attribut d’extension de schéma d’annuaire se pré
 ## <a name="registering-and-using-directory-schema-extensions"></a>Inscription et utilisation des extensions de schéma d’annuaire
 Les attributs d’extension de schéma d’annuaire peuvent être inscrits et renseignés d’une de ces deux façons :
 
-- En configurant AD Connect pour les créer et y synchroniser des données à partir de l’AD local. Consultez [Extensions d’annuaire de synchronisation Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- En configurant AD Connect pour les créer et y synchroniser des données à partir de l’AD local. Consultez [Extensions d’annuaire de synchronisation Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Utilisation de Microsoft Graph pour l’inscription, la définition des valeurs et la lecture depuis les attributs d’extension de schéma d’annuaire [Extensions de schéma d’annuaire | Concepts de l’API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) et/ou PowerShell+ [Gestion des attributs d’extension avec les cmdlets AzureAD PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Émission de revendications avec les données des attributs d’extension de schéma d’annuaire créés à l’aide d’AD Connect

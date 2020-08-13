@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268437"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119638"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Point de terminaison UserInfo de la plateforme d’identités Microsoft
 
@@ -34,7 +34,7 @@ Dans le cadre de la spécification OpenID Connect, le point de terminaison UserI
 
 Les informations disponibles dans le jeton d’ID que votre application peut recevoir sont un sur-ensemble des informations qu’il peut obtenir du point de terminaison UserInfo.  Dès lors que vous pouvez obtenir un jeton d’ID en même temps que vous obtenez un jeton permettant d’appeler le point de terminaison UserInfo, nous vous suggérons d’utiliser ce jeton d’ID pour obtenir des informations sur l’utilisateur au lieu d’appeler le point de terminaison UserInfo.  L’utilisation du jeton d’ID supprimera une à deux requêtes réseau du lancement de votre application, ce qui réduira la latence dans votre application.
 
-Si vous avez besoin de détails supplémentaires sur l’utilisateur, appelez l’[API Microsoft Graph `/user` ](https://docs.microsoft.com/graph/api/user-get) pour obtenir des informations telles que le numéro de téléphone du bureau ou le poste.   Vous pouvez également utiliser des [revendications facultatives](active-directory-optional-claims.md) pour inclure des informations utilisateur supplémentaires dans vos jetons d’ID et d’accès.
+Si vous avez besoin de détails supplémentaires sur l’utilisateur, appelez l’[API Microsoft Graph `/user` ](/graph/api/user-get) pour obtenir des informations telles que le numéro de téléphone du bureau ou le poste.   Vous pouvez également utiliser des [revendications facultatives](active-directory-optional-claims.md) pour inclure des informations utilisateur supplémentaires dans vos jetons d’ID et d’accès.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Appel du point de terminaison UserInfo
 

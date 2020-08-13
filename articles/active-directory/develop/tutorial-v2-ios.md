@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904760"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118142"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-La seule valeur que vous devez modifier ci-dessus est la valeur attribuée à `kClientID` comme [ID d’application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Cette valeur fait partie des données de configuration MSAL que vous avez enregistrées au début de ce tutoriel pour inscrire l’application dans le portail Azure.
+La seule valeur que vous devez modifier ci-dessus est la valeur attribuée à `kClientID` comme [ID d’application](./developer-glossary.md#application-id-client-id). Cette valeur fait partie des données de configuration MSAL que vous avez enregistrées au début de ce tutoriel pour inscrire l’application dans le portail Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Configurer les paramètres d’un projet Xcode
 
@@ -842,4 +842,4 @@ Une fois que vous êtes connecté, l’application affiche les données retourn�
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](./developer-support-help-options.md).

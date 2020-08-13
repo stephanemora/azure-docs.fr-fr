@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309502"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115354"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -50,7 +50,7 @@ Vous pouvez intégrer votre application à la plateforme des identités Microsof
     * Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `https://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
     * Pour les applications de client public, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique de votre application, par exemple, `myapp://auth`.
 
-    Pour obtenir des exemples d’applications web ou natives, consultez les guides de démarrage rapide dans [Plateforme des identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
+    Pour obtenir des exemples d’applications web ou natives, consultez les guides de démarrage rapide dans [Plateforme des identités Microsoft](./index.yml).
 
 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
 
@@ -70,7 +70,7 @@ Azure AD affecte à votre application un ID d’application, ou client, unique. 
 
 * Pour gérer les comptes pris en charge, consultez [Démarrage rapide : Modifiez les comptes pris en charge par une application](quickstart-modify-supported-accounts.md).
 
-* Pour générer une application et ajouter des fonctionnalités, consultez les guides de démarrage rapide dans [Plateforme des identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
+* Pour générer une application et ajouter des fonctionnalités, consultez les guides de démarrage rapide dans [Plateforme des identités Microsoft](./index.yml).
 
 * Pour en savoir plus sur les deux objets Azure AD représentant une application inscrite et la relation entre ces objets, consultez [Objets application et principal du service dans Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
 

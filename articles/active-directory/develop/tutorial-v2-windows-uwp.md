@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119706"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -27,7 +27,7 @@ Ce guide explique comment une application de plateforme Windows universelle (UWP
 À la fin de ce guide, votre application appelle une API protégée à l’aide de comptes personnels. Outlook.com, live.com, etc. en sont des exemples. Votre application appelle également des comptes professionnels et scolaires de toute entreprise ou organisation qui utilise Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> Ce guide nécessite Visual Studio avec Développement pour la plateforme Windows universelle. Pour obtenir des instructions sur le téléchargement et la configuration de Visual Studio afin de développer des applications de plateforme Windows universelle, consultez l’article [Se préparer](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> Ce guide nécessite Visual Studio avec Développement pour la plateforme Windows universelle. Pour obtenir des instructions sur le téléchargement et la configuration de Visual Studio afin de développer des applications de plateforme Windows universelle, consultez l’article [Se préparer](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > Si vous êtes un nouvel utilisateur de la plateforme d’identité Microsoft, commencez avec le [guide de démarrage rapide Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)](quickstart-v2-uwp.md).

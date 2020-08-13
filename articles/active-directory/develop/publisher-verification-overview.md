@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682422"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120777"
 ---
 # <a name="publisher-verification-preview"></a>Vérification de l'éditeur (préversion)
 
@@ -42,13 +42,13 @@ Il existe quelques conditions préalables à la vérification de l'éditeur, don
 
 -  Un ID MPN pour un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) valide auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme. Ce compte MPN doit être le [compte global partenaire (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) de votre organisation. 
 
--  Un locataire Azure AD avec un [domaine personnalisé](/azure/active-directory/fundamentals/add-custom-domain) vérifié par DNS. Le domaine personnalisé doit correspondre au domaine de l'adresse e-mail utilisée lors de la vérification à l'étape précédente. 
+-  Un locataire Azure AD avec un [domaine personnalisé](../fundamentals/add-custom-domain.md) vérifié par DNS. Le domaine personnalisé doit correspondre au domaine de l'adresse e-mail utilisée lors de la vérification à l'étape précédente. 
 
 -  Une application inscrite auprès d'un locataire Azure AD, avec un [domaine d'éditeur](howto-configure-publisher-domain.md) configuré avec le même domaine que précédemment. 
 
 -  L'utilisateur qui procède à la vérification doit être autorisé à apporter des modifications à l'inscription de l'application dans Azure AD et au compte MPN dans l'Espace partenaires. 
 
-    -  Dans Azure AD, cet utilisateur doit être le propriétaire de l'application ou disposer d'un des [rôles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    -  Dans Azure AD, cet utilisateur doit être le propriétaire de l'application ou disposer d'un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
 
     -  Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD).
     
@@ -67,7 +67,7 @@ Vous trouverez ci-dessous quelques questions fréquemment posées au sujet du pr
 
   Les développeurs qui s'intègrent également à Microsoft 365 peuvent bénéficier d'avantages supplémentaires grâce à ces programmes. Pour plus d'informations, reportez-vous à [Attestation d'éditeur Microsoft 365](/microsoft-365-app-certification/docs/attestation) et [Certification d'application Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **Est-ce la même chose que la Galerie d'applications Azure AD ?** Non. La vérification de l'éditeur est un programme complémentaire mais distinct de la [Galerie d'applications Azure Active Directory](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Les développeurs qui remplissent les critères ci-dessus doivent finaliser le processus de vérification de l'éditeur indépendamment de leur participation à ce programme. 
+- **Est-ce la même chose que la Galerie d'applications Azure AD ?** Non. La vérification de l'éditeur est un programme complémentaire mais distinct de la [Galerie d'applications Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Les développeurs qui remplissent les critères ci-dessus doivent finaliser le processus de vérification de l'éditeur indépendamment de leur participation à ce programme. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à [marquer une application avec la mention « éditeur vérifié »](mark-app-as-publisher-verified.md).

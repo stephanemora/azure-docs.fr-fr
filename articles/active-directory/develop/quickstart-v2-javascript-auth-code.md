@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311940"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115184"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification
 
 Dans ce guide de démarrage rapide, vous allez exécuter un exemple de code montrant comment une application monopage JavaScript (SPA) peut connecter les utilisateurs de comptes personnels, professionnels et scolaires à l’aide du flux de code d’autorisation. L’exemple de code indique également comment obtenir un jeton d’accès pour appeler une API web, en l’occurrence l’API Microsoft Graph. Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
-Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’autorisation. Pour accéder à un guide de démarrage rapide similaire qui utilise MSAL.js 1.0 avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’autorisation. Pour accéder à un guide de démarrage rapide similaire qui utilise MSAL.js 1.0 avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
@@ -152,7 +152,7 @@ Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’auto
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` est le point de terminaison sur lequel les appels d’API seront effectués. Pour le service API Microsoft Graph principal (mondial), entrez `https://graph.microsoft.com/` (en incluant la barre oblique de fin). Pour plus d’informations sur Microsoft Graph sur les clouds nationaux, consultez [Déploiement cloud national](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` est le point de terminaison sur lequel les appels d’API seront effectués. Pour le service API Microsoft Graph principal (mondial), entrez `https://graph.microsoft.com/` (en incluant la barre oblique de fin). Pour plus d’informations sur Microsoft Graph sur les clouds nationaux, consultez [Déploiement cloud national](/graph/deployments).
 >
 > Les valeurs `graphMeEndpoint` et `graphMailEndpoint` dans le fichier *graphConfig.js* doivent se présenter ainsi si vous utilisez le service API Microsoft Graph principal (mondial) :
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 Pour un guide pas à pas plus détaillé sur la création de l’application utilisée dans ce guide de démarrage rapide, consultez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel pour se connecter et appeler MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Tutoriel pour se connecter et appeler MS Graph >](./tutorial-v2-javascript-auth-code.md)

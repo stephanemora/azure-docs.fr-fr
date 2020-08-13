@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026728"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115031"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -49,7 +49,7 @@ Aucun n’est planifié pour l’instant.  Pour connaître les changements qui s
 
 Le 1er juin 2018, l’adresse de l’autorité officielle Azure Active Directory (AAD) pour Azure Government a changée de `https://login-us.microsoftonline.com` en `https://login.microsoftonline.us`. Cette modification s’applique également à Microsoft 365 GCC High et DoD, également géré par Azure Government AAD. Si vous possédez une application au sein d’un locataire US Government, vous devez mettre à jour votre application pour qu’elle connecte les utilisateurs sur le point de terminaison `.us`.  
 
-À partir du 5 mai, Azure AD commencera à appliquer le changement de point de terminaison en empêchant les utilisateurs gouvernementaux de se connecter à des applications hébergées dans des locataires US Government à l’aide du point de terminaison public (`microsoftonline.com`).  Les applications impactées commenceront à afficher une erreur `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. Cette erreur indique que l’application tente de se connecter à un utilisateur US Government sur le point de terminaison du cloud public. Si votre application se trouve dans un locataire de cloud public et est destinée à prendre en charge les utilisateurs US Government, vous devrez [mettre à jour votre application pour les prendre en charge explicitement](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Cela peut nécessiter la création d’une nouvelle inscription d’application dans le cloud US Government. 
+À partir du 5 mai, Azure AD commencera à appliquer le changement de point de terminaison en empêchant les utilisateurs gouvernementaux de se connecter à des applications hébergées dans des locataires US Government à l’aide du point de terminaison public (`microsoftonline.com`).  Les applications impactées commenceront à afficher une erreur `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. Cette erreur indique que l’application tente de se connecter à un utilisateur US Government sur le point de terminaison du cloud public. Si votre application se trouve dans un locataire de cloud public et est destinée à prendre en charge les utilisateurs US Government, vous devrez [mettre à jour votre application pour les prendre en charge explicitement](./authentication-national-cloud.md). Cela peut nécessiter la création d’une nouvelle inscription d’application dans le cloud US Government. 
 
 L’application de cette modification sera effectuée à l’aide d’un déploiement progressif en fonction de la fréquence à laquelle les utilisateurs du cloud US Government se connectent à l’application : les applications connectant rarement des utilisateurs US Government verront la mise en œuvre d’abord, et les applications fréquemment utilisées par les utilisateurs US Government seront les dernières à voir l’application de la mise en œuvre. Nous nous attendons à ce que la mise en œuvre soit terminée sur toutes les applications en juin 2020. 
 
@@ -98,7 +98,7 @@ Quand une réponse d’authentification est envoyée à partir de login.microsof
 
 **Points de terminaison impactés** : V1.0 et v2.0
 
-**Protocole impacté** : Partout où POST est utilisé ([informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [utilisation de code d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) et [utilisation de jeton d’actualisation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protocole impacté** : Partout où POST est utilisé ([informations d’identification du client](./v2-oauth2-client-creds-grant-flow.md), [utilisation de code d’autorisation](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md) et [utilisation de jeton d’actualisation](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 À partir de la semaine du 2 septembre, les demandes d’authentification qui utilisent la méthode POST seront validées à l’aide de normes HTTP plus strictes.  Plus précisément, les espaces et les guillemets doubles (“) ne seront plus supprimés des valeurs du formulaire de demande. Ces modifications ne devraient pas bloquer les clients existants et permettront de s’assurer que les demandes envoyées à Azure AD sont gérées de manière fiable à chaque fois. À l’avenir (voir ci-dessus), nous prévoyons également de rejeter les paramètres dupliqués et d’ignorer la marque d’ordre d'octet dans les demandes.
 
@@ -113,9 +113,9 @@ Aujourd’hui, `?e=    "f"&g=h` est analysé de la même façon que `?e=f&g=h`, 
 
 **Date d’effet** : 26 juillet 2019
 
-**Points de terminaison impactés** : [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) et [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Points de terminaison impactés** : [V1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) et [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocole impacté** : [Informations d’identification du client (jetons d’application uniquement)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocole impacté** : [Informations d’identification du client (jetons d’application uniquement)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 Une modification de sécurité a été mise en ligne le 26 juillet qui modifie la façon dont sont émis les jetons d’application (via l’octroi d’informations d’identification du client). Auparavant, les applications étaient autorisées à obtenir des jetons pour appeler une autre application, quelle que soit la présence dans le locataire ou les rôles consentis pour cette application.  Ce comportement a été mis à jour de sorte que, pour les ressources (parfois appelées API web) définies sur un locataire unique (valeur par défaut), l’application cliente doit exister dans le locataire de la ressource.  Notez que le consentement existant entre le client et l’API n’est toujours pas nécessaire, et que les applications doivent toujours effectuer leurs propres vérifications d’autorisation pour s’assurer qu’une revendication `roles` est présente et contient la valeur attendue pour l’API.
 

@@ -12,12 +12,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: f49a5703b19a76095c8eafe358742b442725d3d0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886430"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118244"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutoriel : Utiliser le mode d’appareil partagé dans votre application Android
 
@@ -28,11 +28,11 @@ ms.locfileid: "80886430"
 
 ## <a name="developer-guide"></a>Guide du développeur
 
-Ce guide fournit des conseils aux développeurs sur l’implémentation du mode d’appareil partagé dans une application Android à l’aide de la bibliothèque d’authentification Microsoft (MSAL). Consultez le [tutoriel MSAL Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) pour voir comment intégrer MSAL à votre application Android, connecter un utilisateur, appeler Microsoft Graph et déconnecter un utilisateur.
+Ce guide fournit des conseils aux développeurs sur l’implémentation du mode d’appareil partagé dans une application Android à l’aide de la bibliothèque d’authentification Microsoft (MSAL). Consultez le [tutoriel MSAL Android](./tutorial-v2-android.md) pour voir comment intégrer MSAL à votre application Android, connecter un utilisateur, appeler Microsoft Graph et déconnecter un utilisateur.
 
 ### <a name="download-the-sample"></a>Télécharger l’exemple
 
-Clonez l’[exemple d’application](https://github.com/Azure-Samples/ms-identity-android-java/) à partir de GitHub. L’exemple a la possibilité de fonctionner en [mode monocompte ou multicompte](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clonez l’[exemple d’application](https://github.com/Azure-Samples/ms-identity-android-java/) à partir de GitHub. L’exemple a la possibilité de fonctionner en [mode monocompte ou multicompte](./single-multi-account.md).
 
 ### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Ajouter le SDK MSAL à votre dépôt Maven local
 
@@ -46,7 +46,7 @@ dependencies{
 
 ### <a name="configure-your-app-to-use-shared-device-mode"></a>Configurer votre application pour utiliser le mode d’appareil partagé
 
-Reportez-vous à la [documentation de configuration](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) pour plus d’informations sur la configuration de votre fichier de configuration.
+Reportez-vous à la [documentation de configuration](./msal-configuration.md) pour plus d’informations sur la configuration de votre fichier de configuration.
 
 Affectez à `"shared_device_mode_supported"` la valeur `true` dans votre fichier de configuration MSAL.
 
@@ -204,7 +204,7 @@ Les étapes suivantes décrivent la configuration de votre application dans le p
 
 Tout d’abord, inscrivez votre application dans le locataire de votre organisation. Ensuite, fournissez les valeurs ci-dessous dans auth_config.json afin que votre application s’exécute correctement.
 
-Pour plus d’informations sur la procédure à suivre, reportez-vous à [Inscrire votre application](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Pour plus d’informations sur la procédure à suivre, reportez-vous à [Inscrire votre application](./tutorial-v2-android.md#register-your-application).
 
 > [!NOTE]
 > Quand vous inscrivez votre application, utilisez le guide de démarrage rapide situé dans la partie gauche, puis sélectionnez **Android**. Vous accédez alors à une page dans laquelle vous êtes invité à fournir le **nom du package** et le **code de hachage de la signature** de votre application. Ces informations sont très importantes pour garantir le fonctionnement de la configuration de votre application. Vous recevez ensuite un objet de configuration que vous pouvez utiliser pour votre application que vous allez couper et coller dans votre fichier auth_config.json.

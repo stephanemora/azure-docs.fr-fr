@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058282"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118227"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -264,7 +264,7 @@ Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et affich
     ```
 
 ### <a name="more-information"></a>Informations complémentaires
-Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez aux [Conseils pour la personnalisation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Instructions de personnalisation").
+Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez aux [Conseils pour la personnalisation](./howto-add-branding-in-azure-ad-apps.md "Instructions de personnalisation").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Ajouter un contrôleur pour afficher les revendications de l’utilisateur
 Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code suivant tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion :
@@ -403,7 +403,7 @@ Les applications qui s’intègrent à la plateforme d’identité Microsoft sui
 - Le développeur d’applications ajoute toutes les autorisations supplémentaires qui exigent le **consentement de l’administrateur**.
 - Ou le locataire est configuré (dans **Applications d’entreprise -> Paramètres utilisateur**), ce qui empêche les utilisateurs de donner leur consentement pour les applications qui accèdent à des données de l’entreprise en leur nom.
 
-Pour plus d’informations, consultez [Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Pour plus d’informations, consultez [Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
 
@@ -424,7 +424,7 @@ Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tab
 |**Subject** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web|
 |**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur|
 
-En outre, vous devriez voir un tableau de toutes les revendications qui se trouvent dans la demande d’authentification. Pour plus d’informations, consultez la [liste des revendications figurant dans un jeton d’ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+En outre, vous devriez voir un tableau de toutes les revendications qui se trouvent dans la demande d’authentification. Pour plus d’informations, consultez la [liste des revendications figurant dans un jeton d’ID](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Tester l’accès à une méthode disposant d’un attribut Authorize (facultatif)
 
@@ -484,6 +484,6 @@ Découvrez plus d’informations sur les applications web appelant des API web a
 Découvrez comment générer des applications web appelant Microsoft Graph :
 
 > [!div class="nextstepaction"]
-> [Tutoriel ASP.NET Microsoft Graph](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Tutoriel ASP.NET Microsoft Graph](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

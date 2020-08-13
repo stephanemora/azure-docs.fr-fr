@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154472"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117615"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
 
@@ -33,8 +33,8 @@ Les *autorisations*, également appelées *étendues*, facilitent l’autorisati
 
 Azure AD définit deux types d’autorisations :
 
-* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur »](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Autorisations d’application** : utilisées par les applications qui s’exécutent sans utilisateur connecté présent ; par exemple, les applications qui s’exécutent en tant que services ou démons en arrière-plan. Les permissions d’application ne peuvent être [accordées que par un administrateur](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), car elles sont généralement puissantes et permettent d’accéder à des données situées au-delà des limites de l’utilisateur ou à des données normalement réservées aux seuls administrateurs. Les utilisateurs définis en tant que propriétaires de l’application de ressource (c’est-à-dire l’API qui publie les autorisations) sont également autorisés à accorder des permissions d’application pour leurs API.
+* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur »](../develop/howto-convert-app-to-be-multi-tenant.md).
+* **Autorisations d’application** : utilisées par les applications qui s’exécutent sans utilisateur connecté présent ; par exemple, les applications qui s’exécutent en tant que services ou démons en arrière-plan. Les permissions d’application ne peuvent être [accordées que par un administrateur](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant), car elles sont généralement puissantes et permettent d’accéder à des données situées au-delà des limites de l’utilisateur ou à des données normalement réservées aux seuls administrateurs. Les utilisateurs définis en tant que propriétaires de l’application de ressource (c’est-à-dire l’API qui publie les autorisations) sont également autorisés à accorder des permissions d’application pour leurs API.
 
 Les autorisations effectives sont celles qu’a votre application lors des requêtes faites à une API. 
 
@@ -75,12 +75,12 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
 * **Consentement de l’utilisateur statique** : se produit automatiquement pendant le [flux d’autorisation OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) quand vous spécifiez la ressource avec laquelle votre application veut interagir. Dans le cadre d’un consentement de l’utilisateur statique, votre application doit déjà avoir spécifié toutes les autorisations dont elle a besoin dans sa configuration dans le portail Azure. Si l’utilisateur (ou administrateur, selon le cas) n’a pas donné son consentement à cette application, Azure AD invite l’utilisateur à le donner à ce stade. 
 
     Découvrez-en plus sur l’inscription d’une application Azure AD qui demande l’accès à un ensemble statique d’API.
-* **Consentement de l’utilisateur dynamique** : fonctionnalité du modèle d’application Azure AD v2. Dans ce scénario, votre application demande un ensemble d’autorisations dont elle a besoin dans le [flux d’autorisation OAuth 2.0 pour des applications v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Si l’utilisateur n’a pas déjà donné son consentement, il est invité à le faire à ce stade. [Découvrez-en plus sur le consentement dynamique](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Consentement de l’utilisateur dynamique** : fonctionnalité du modèle d’application Azure AD v2. Dans ce scénario, votre application demande un ensemble d’autorisations dont elle a besoin dans le [flux d’autorisation OAuth 2.0 pour des applications v2](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Si l’utilisateur n’a pas déjà donné son consentement, il est invité à le faire à ce stade. [Découvrez-en plus sur le consentement dynamique](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Le consentement dynamique peut s’avérer pratique, mais il représente un véritable défi pour les autorisations qui nécessitent un consentement de l’administrateur, dans la mesure où l’expérience de consentement de l’administrateur n’a pas connaissance de ces autorisations au moment du consentement. Si vous avez besoin d’autorisations à privilège administratif ou si votre application utilise le consentement dynamique, vous devez inscrire toutes les autorisations dans le portail Azure (pas seulement le sous-ensemble d’autorisations qui nécessite le consentement de l’administrateur). Ceci permet aux administrateurs de locataires de donner leur consentement au nom de tous leurs utilisateurs.
   
-* **Consentement de l’administrateur** : nécessaire quand votre application a besoin d’accéder à certaines autorisations à privilèges élevés. Le consentement de l’administrateur garantit que les administrateurs disposent de contrôles supplémentaires avant d’autoriser des applications ou des utilisateurs à accéder aux données à privilèges élevés de l’organisation. [Découvrez-en plus sur la manière d’accorder un consentement de l’administrateur](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Consentement de l’administrateur** : nécessaire quand votre application a besoin d’accéder à certaines autorisations à privilèges élevés. Le consentement de l’administrateur garantit que les administrateurs disposent de contrôles supplémentaires avant d’autoriser des applications ou des utilisateurs à accéder aux données à privilèges élevés de l’organisation. [Découvrez-en plus sur la manière d’accorder un consentement de l’administrateur](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

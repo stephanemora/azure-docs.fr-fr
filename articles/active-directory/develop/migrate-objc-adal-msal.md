@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085179"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119927"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrer des applications vers MSAL pour iOS et macOS
 
@@ -45,7 +45,7 @@ La plateforme d’identités Microsoft présente quelques différences clés ave
 * Le point de terminaison Azure Active Directory v1.0 exige que toutes les autorisations soient déclarées à l’avance pendant l’inscription de l’application. Cela signifie que ces autorisations sont statiques.
 * La plateforme d’identités Microsoft vous permet de demander des autorisations de manière dynamique. Les applications peuvent demander des autorisations uniquement en fonction des besoins, et en demander plus à mesure qu’elles en ont besoin.
 
-Pour plus d’informations sur les différences entre Azure Active Directory v1.0 et la plateforme d’identités Microsoft, consultez [Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Pour plus d’informations sur les différences entre Azure Active Directory v1.0 et la plateforme d’identités Microsoft, consultez [Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Différences entre les bibliothèques ADAL et MSAL
 
@@ -77,7 +77,7 @@ Il s’agit de l’étendue intégrée pour chaque application. Elle fait réfé
 
 Pour utiliser l’étendue `/.default`, ajoutez `/.default` à l’identificateur de ressource. Par exemple : `https://graph.microsoft.com/.default`. Si votre ressource se termine par une barre oblique (`/`), vous devez quand même ajouter `/.default`, y compris la barre oblique de début. Vous obtiendrez ainsi une étendue avec une double barre oblique (`//`).
 
-Pour en savoir plus sur l’utilisation de l’étendue « /.default », consultez [cet article](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope).
+Pour en savoir plus sur l’utilisation de l’étendue « /.default », consultez [cet article](./v2-permissions-and-consent.md#the-default-scope).
 
 ### <a name="supporting-different-webview-types--browsers"></a>Prise en charge de différents types WebView & navigateurs
 
@@ -207,7 +207,7 @@ MSAL sur iOS prend également en charge deux autres types d’authentification u
 
 ## <a name="intune-mam-sdk"></a>SDK GAM Intune
 
-Le [SDK Intune GAM](https://docs.microsoft.com/intune/app-sdk-get-started) prend en charge MSAL pour iOS à compter de la version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2).
+Le [SDK Intune GAM](/intune/app-sdk-get-started) prend en charge MSAL pour iOS à compter de la version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2).
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL et ADAL dans la même application
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034905"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116391"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?
 
@@ -33,9 +33,9 @@ Lorsque vous développez une nouvelle application, il est important de connaîtr
 
 * Le point de terminaison v1.0 permet uniquement aux comptes professionnels et scolaires de se connecter à votre application (Azure AD).
 * Le point de terminaison de la Plateforme d’identités Microsoft permet aux comptes professionnels et scolaires d’Azure AD ainsi qu’aux comptes Microsoft personnels (MSA), tels que hotmail.com, outlook.com et msn.com, de se connecter.
-* Les deux points de terminaison acceptent également des connexions d’ *[utilisateurs invités](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* issus d’un répertoire Azure AD pour les applications configurées comme étant *[à client unique](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou pour les applications *mutualisées* configurées de manière à pointer vers le point de terminaison spécifique du locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* Les deux points de terminaison acceptent également des connexions d’ *[utilisateurs invités](../external-identities/what-is-b2b.md)* issus d’un répertoire Azure AD pour les applications configurées comme étant *[à client unique](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou pour les applications *mutualisées* configurées de manière à pointer vers le point de terminaison spécifique du locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Le point de terminaison de la Plateforme d’identités Microsoft vous permet d’écrire des applications qui acceptent les connexions à partir de comptes Microsoft personnels, ainsi que de comptes professionnels ou scolaires. Ceci vous donne la possibilité d’écrire votre application de façon complètement indépendante des comptes. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels, comme leurs sites SharePoint ou les données de leurs annuaires. Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
+Le point de terminaison de la Plateforme d’identités Microsoft vous permet d’écrire des applications qui acceptent les connexions à partir de comptes Microsoft personnels, ainsi que de comptes professionnels ou scolaires. Ceci vous donne la possibilité d’écrire votre application de façon complètement indépendante des comptes. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels, comme leurs sites SharePoint ou les données de leurs annuaires. Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](/graph/api/user-list-messages?view=graph-rest-1.0), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
 
 Pour le point de terminaison de la Plateforme d’identités Microsoft, vous pouvez utiliser la bibliothèque MSAL (Microsoft Authentication Library) pour accéder aux différents mondes (utilisateurs privés, scolaires ou professionnels). Le point de terminaison Azure AD v1.0 accepte les connexions uniquement depuis des comptes professionnels et scolaires.
 
@@ -141,7 +141,7 @@ Les inscriptions d’applications qui prennent en charge les comptes professionn
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrictions concernant les URL de redirection
 
-Pour obtenir les informations les plus récentes concernant les restrictions sur les URL de redirection pour les applications inscrites pour Plateforme d’identités Microsoft, consultez [Limitations et restrictions des URI de redirection/URL de réponse](https://docs.microsoft.com/azure/active-directory/develop/reply-url) dans la documentation de Plateforme d’identités Microsoft.
+Pour obtenir les informations les plus récentes concernant les restrictions sur les URL de redirection pour les applications inscrites pour Plateforme d’identités Microsoft, consultez [Limitations et restrictions des URI de redirection/URL de réponse](../develop/reply-url.md) dans la documentation de Plateforme d’identités Microsoft.
 
 Pour savoir comment inscrire une application en vue de son utilisation avec la Plateforme d’identités Microsoft, voir [Inscrire une application à l’aide de la nouvelle expérience Inscriptions application](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

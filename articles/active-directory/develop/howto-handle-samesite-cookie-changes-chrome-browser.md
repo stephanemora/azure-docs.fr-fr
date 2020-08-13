@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477802"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116969"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Gérer les changements de cookie SameSite dans le navigateur Chrome
 
@@ -59,7 +59,7 @@ Le tableau ci-dessous présente les demandes de tirage (pull request) qui ont co
 
 Pour plus d’informations sur la gestion des cookies SameSite dans ASP.NET et ASP.NET Core, consultez également :
 
-- [Utiliser des cookies SameSite dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite).
+- [Utiliser des cookies SameSite dans ASP.NET Core](/aspnet/core/security/samesite).
 - [Blog ASP.NET concernant SameSite](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # <a name="python"></a>[Python](#tab/python)

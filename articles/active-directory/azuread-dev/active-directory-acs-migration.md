@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: bae052e06aae4881dd7203a5616b35e9c96997fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551729"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117785"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procédure : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -59,7 +59,7 @@ Toutes les communications avec le service STS et les opérations de gestion s’
 
 Le trafic vers l’URL `https://accounts.accesscontrol.windows.net` fait figure d’exception. Déjà géré par un autre service, il **n’est pas** affecté par la mise hors service d’Access Control. 
 
-Pour plus d’informations sur Access Control Service, consultez la page [Access Control Service 2.0 (archivée)](https://msdn.microsoft.com/library/hh147631.aspx).
+Pour plus d’informations sur Access Control Service, consultez la page [Access Control Service 2.0 (archivée)](/previous-versions/azure/azure-services/hh147631(v=azure.100)).
 
 ## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Découvrir les applications qui vont être affectées
 
@@ -129,13 +129,13 @@ Chaque service cloud Microsoft qui accepte les jetons émis par Access Control S
 
 | Service | Assistance |
 | ------- | -------- |
-| Azure Service Bus | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Service Bus Relay | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migrer vers le Cache Azure pour Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Migrer vers les API Cognitive Services](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migrer vers la fonctionnalité Logic Apps d’Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus Relay | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](../../azure-relay/relay-migrate-acs-sas.md) |
+| Azure Managed Cache | [Migrer vers le Cache Azure pour Redis](../../azure-cache-for-redis/cache-faq.md) |
+| Azure DataMarket | [Migrer vers les API Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) |
+| BizTalk Services | [Migrer vers la fonctionnalité Logic Apps d’Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrer vers l’authentification Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Sauvegarde Azure | [Questions sur le service de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Sauvegarde Azure | [Questions sur le service de sauvegarde Azure](../../backup/backup-azure-file-folder-backup-faq.md) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -150,10 +150,10 @@ Les clients SharePoint 2013, 2016 et SharePoint Online utilisent depuis longtemp
 
 | Fonctionnalité | Assistance |
 | ------- | -------- |
-| Authentification des utilisateurs à partir d’Azure AD | Avant, Azure AD ne prenait pas en charge les jetons SAML 1.1 requis par SharePoint pour l’authentification, et ACS était utilisé comme un intermédiaire assurant la compatibilité de SharePoint avec les formats de jetons Azure AD. Désormais, vous pouvez [connecter SharePoint directement à Azure AD à l’aide de l’application SharePoint sur site Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Authentification des applications et authentification de serveur à serveur dans SharePoint en local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. | 
-| [Autorisation peu fiable pour les compléments SharePoint (fournisseur et SharePoint hébergés)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
-| [Recherche hybride cloud SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
+| Authentification des utilisateurs à partir d’Azure AD | Avant, Azure AD ne prenait pas en charge les jetons SAML 1.1 requis par SharePoint pour l’authentification, et ACS était utilisé comme un intermédiaire assurant la compatibilité de SharePoint avec les formats de jetons Azure AD. Désormais, vous pouvez [connecter SharePoint directement à Azure AD à l’aide de l’application SharePoint sur site Galerie d’applications Azure AD](../saas-apps/sharepoint-on-premises-tutorial.md). |
+| [Authentification des applications et authentification de serveur à serveur dans SharePoint en local](/SharePoint/security-for-sharepoint-server/authentication-overview) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. | 
+| [Autorisation peu fiable pour les compléments SharePoint (fournisseur et SharePoint hébergés)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
+| [Recherche hybride cloud SharePoint](/archive/blogs/spses/cloud-hybrid-search-service-application) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Applications web utilisant l’authentification passive
 
@@ -214,7 +214,7 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 
 Si vous décidez qu’Azure Active Directory est la meilleure voie de migration pour vos applications et services, sachez qu’il existe deux manières d’intégrer votre application dans Azure Active Directory.
 
-Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active Directory, nous vous recommandons l’approche décrite dans [Comment configurer l’authentification unique fédérée pour une application non issue de la galerie](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Cet article fait référence à la configuration d’Azure Active Directory pour l’authentification unique basée sur SAML, mais il concerne également la configuration de WS-Federation. Cette approche nécessite une licence Azure Active Directory Premium. Cette approche offre deux avantages :
+Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active Directory, nous vous recommandons l’approche décrite dans [Comment configurer l’authentification unique fédérée pour une application non issue de la galerie](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Cet article fait référence à la configuration d’Azure Active Directory pour l’authentification unique basée sur SAML, mais il concerne également la configuration de WS-Federation. Cette approche nécessite une licence Azure Active Directory Premium. Cette approche offre deux avantages :
 
 - Vous bénéficiez de toute la flexibilité offerte par la personnalisation des jetons Azure AD. Vous pouvez personnaliser les revendications émises par Azure Active Directory pour les faire correspondre aux revendications émises par Access Control Service. Cela inclut notamment la revendication d’identificateur de nom ou d’ID utilisateur. Pour continuer de recevoir des identificateurs cohérents pour vos utilisateurs même après avoir changé de technologie, vérifiez que les ID d’utilisateur émis par Azure Active Directory correspondent à ceux émis par Access Control Service.
 - Vous pouvez configurer un certificat de signature de jeton propre à votre application, dont vous contrôlez la durée de vie.
@@ -224,7 +224,7 @@ Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active
 
 Une autre solution consiste à suivre [cet exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), qui fournit des instructions légèrement pour configurer WS-Federation. Cet exemple de code n’utilise pas WIF mais plutôt l’intergiciel (middleware) OWIN ASP.NET 4.5. Toutefois, les instructions d’inscription d’application sont valides pour les applications qui utilisent WIF, et elles ne nécessitent pas de licence Azure Active Directory Premium. 
 
-Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements. Pour plus d’informations, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](../develop/active-directory-signing-key-rollover.md). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements. Pour plus d’informations, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](/previous-versions/azure/dn641920(v=azure.100)).
 
 Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](https://aka.ms/aaddev).
 
@@ -265,8 +265,8 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 
 Si vous décidez qu’Azure Active Directory B2C représente la meilleure solution de migration pour vos applications et services, vous devez commencer par les ressources suivantes :
 
-- [Documentation d’Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Stratégies personnalisées Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Documentation d’Azure Active Directory B2C](../../active-directory-b2c/overview.md)
+- [Stratégies personnalisées Azure Active Directory B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Tarification d’Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrer vers Ping Identity ou Auth0

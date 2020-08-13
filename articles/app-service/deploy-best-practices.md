@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770680"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88081049"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -69,7 +69,7 @@ App Service est doté de la [livraison continue intégrée](deploy-continuous-de
 
 ### <a name="use-github-actions"></a>Utiliser GitHub Actions
 
-Vous pouvez également automatiser le déploiement de vos conteneurs à l’aide de [GitHub Actions](containers/deploy-container-github-action.md).  Le fichier de workflow ci-dessous génère et balise le conteneur avec l’ID de validation, l’envoie (push) à un registre de conteneurs et met à jour l’emplacement de site spécifié avec la nouvelle balise d’image.
+Vous pouvez également automatiser le déploiement de vos conteneurs à l’aide de [GitHub Actions](deploy-container-github-action.md).  Le fichier de workflow ci-dessous génère et balise le conteneur avec l’ID de validation, l’envoie (push) à un registre de conteneurs et met à jour l’emplacement de site spécifié avec la nouvelle balise d’image.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

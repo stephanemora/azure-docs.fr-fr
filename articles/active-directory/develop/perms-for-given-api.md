@@ -11,22 +11,21 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883888"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120726"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Guide pratique pour sélectionner les autorisations pour une API donnée 
 
 ## <a name="recommended-documents"></a>Documents recommandés
 
-- Découvrez comment les applications clientes utilisent [des demandes d’autorisation déléguée et d’application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) pour accéder aux ressources.
-- Consultez les instructions détaillées sur la façon de [configurer les demandes d’autorisation d’une application cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Pour plus de détails, découvrez comment les applications de ressources exposent des [étendues](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) et des [rôles d’application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) aux applications clientes, qui se manifestent respectivement comme autorisations déléguées et comme autorisations d’application dans le portail Azure. 
+- Découvrez comment les applications clientes utilisent [des demandes d’autorisation déléguée et d’application](./developer-glossary.md#permissions) pour accéder aux ressources.
+- Consultez les instructions détaillées sur la façon de [configurer les demandes d’autorisation d’une application cliente](./quickstart-register-app.md)
+- Pour plus de détails, découvrez comment les applications de ressources exposent des [étendues](./developer-glossary.md#scopes) et des [rôles d’application](./developer-glossary.md#roles) aux applications clientes, qui se manifestent respectivement comme autorisations déléguées et comme autorisations d’application dans le portail Azure. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-

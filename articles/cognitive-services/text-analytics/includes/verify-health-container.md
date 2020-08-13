@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 5c598807f36000a18211e32eba53220bfbeea2f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108706"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122450"
 ---
 ### <a name="verify-that-a-container-is-running"></a>Vérification de l’exécution du conteneur
 
@@ -37,4 +37,4 @@ Il existe également plusieurs URL permettant de vérifier que le conteneur est 
 |`http://localhost:5000/swagger`|Par le biais de cette URL, le conteneur fournit un ensemble complet de documentation pour les points de terminaison et une fonctionnalité `Try it now`. Avec cette fonctionnalité, vous pouvez entrer vos paramètres dans un formulaire HTML basé sur le web, et constituer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer les en-têtes HTTP, et le format du corps qui est nécessaire. |
 |`http://localhost:5000/demo`| Par le biais d’un navigateur, cette fonctionnalité fournit une visualisation interactive des résultats des requêtes pour les exemples de texte d’entrée ou le texte de votre choix.  |
 
-Utilisez cette URL de demande (`http://localhost:5000/text/analytics/v3.0-preview.1/domains/health`) pour envoyer une requête au conteneur.
+Utilisez cette URL de demande (`http://localhost:5000/text/analytics/v3.2-preview.1/entities/health`) pour envoyer une requête au conteneur.

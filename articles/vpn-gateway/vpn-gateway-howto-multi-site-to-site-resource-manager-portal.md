@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984150"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121423"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
@@ -43,7 +43,7 @@ Vérifiez les points suivants :
 * La passerelle de réseau virtuel de votre réseau virtuel est de type RouteBased. Si vous avez une passerelle VPN de type PolicyBased, vous devez supprimer la passerelle de réseau virtuel et créer une passerelle VPN de type RouteBased.
 * Les plages d’adresses ne se chevauchent pour aucun des réseaux virtuels auxquels ce réseau virtuel se connecte.
 * Vous disposez d’un périphérique VPN compatible et d’une personne capable de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
-* Vous disposez d’une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+* Vous disposez d’une adresse IP publique exposée en externe pour votre périphérique VPN.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Partie 1 - Configuration d’une connexion
 1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
@@ -56,7 +56,7 @@ Vérifiez les points suivants :
     ![Bouton Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Bouton Ajouter une connexion")<br>
 5. Dans la page **Ajouter une connexion**, renseignez les champs suivants :
    
-   * **Nom :** nom que vous voulez donner au site pour lequel vous créez la connexion.
+   * **Nom** : nom que vous voulez donner au site pour lequel vous créez la connexion.
    * **Type de connexion :** sélectionnez **Site à site (IPsec)** .
      
      ![Page Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Page Ajouter une connexion")<br>
@@ -70,9 +70,9 @@ Vérifiez les points suivants :
     ![Page Créer une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Créer une passerelle de réseau local")<br>
 3. Dans la page **Créer une passerelle de réseau local**, renseignez les champs suivants :
    
-   * **Nom :** nom que vous voulez attribuer à la ressource de passerelle de réseau local.
-   * **Adresse IP :** adresse IP publique du périphérique VPN sur le site auquel vous voulez vous connecter.
-   * **Espace d’adressage :** espace d’adressage qui doit être routé vers le nouveau site de réseau local.
+   * **Nom** : nom que vous voulez attribuer à la ressource de passerelle de réseau local.
+   * **Adresse IP** : adresse IP publique du périphérique VPN sur le site auquel vous voulez vous connecter.
+   * **Espace d’adressage** : espace d’adressage qui doit être acheminé vers le nouveau site de réseau local.
 4. Cliquez sur **OK** dans la page **Créer une passerelle de réseau local** pour enregistrer les modifications.
 
 ## <a name="part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Partie 3 : ajout de la clé partagée et création de la connexion

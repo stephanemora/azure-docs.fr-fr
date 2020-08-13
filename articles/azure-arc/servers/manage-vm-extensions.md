@@ -3,16 +3,12 @@ title: Gestion des extensions de machine virtuelle avec Azure Arc pour serveurs
 description: Azure Arc pour serveurs (préversion) peut gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration de post-déploiement sur des machines virtuelles non Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809627"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121304"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestion des extensions de machine virtuelle avec Azure Arc pour serveurs (préversion)
 

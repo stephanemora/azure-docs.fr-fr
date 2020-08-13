@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868663"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119604"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentement administrateur sur la plateforme d’identités Microsoft
 
@@ -88,5 +88,5 @@ Ajout aux paramètres affichés dans une réponse correcte. Les paramètres d’
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez [comment convertir une application multi-locataire](howto-convert-app-to-be-multi-tenant.md)
 - Découvrez comment [le consentement est pris en charge au niveau de la couche du protocole OAuth 2.0 pendant le flux d’octroi de code d’autorisation](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Découvrez [comment une application mutualisée peut utiliser l’infrastructure de consentement](active-directory-devhowto-multi-tenant-overview.md) pour implémenter un consentement de type « utilisateur » et « admin », en prenant en charge des modèles d’applications mutualisées plus avancés.
+- Découvrez [comment une application mutualisée peut utiliser l’infrastructure de consentement](./howto-convert-app-to-be-multi-tenant.md) pour implémenter un consentement de type « utilisateur » et « admin », en prenant en charge des modèles d’applications mutualisées plus avancés.
 - Compréhension des [expériences de consentement de l’application Azure AD](application-consent-experience.md)

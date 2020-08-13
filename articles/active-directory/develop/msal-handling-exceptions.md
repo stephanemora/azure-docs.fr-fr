@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204624"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120947"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gérer les erreurs et les exceptions MSAL
 
@@ -236,7 +236,7 @@ Dans MSAL pour Python, la plupart des erreurs sont transmises sous la forme d’
 * Une réponse correcte contient la clé `"access_token"`. Le format de la réponse est défini par le protocole OAuth2. Pour plus d’informations, consultez [5.1 Réponse réussie](https://tools.ietf.org/html/rfc6749#section-5.1)
 * Une réponse d’erreur contient `"error"` et généralement `"error_description"`. Le format de la réponse est défini par le protocole OAuth2. Pour plus d’informations, consultez [5.2 Réponse d’erreur](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-Lorsqu’une erreur est retournée, la clé `"error_description"` contient un message explicite qui, à son tour, contient un code d’erreur de la plateforme d’identité Microsoft. Pour obtenir les divers codes d’erreur, consultez [Codes d’erreur d’authentification et d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Lorsqu’une erreur est retournée, la clé `"error_description"` contient un message explicite qui, à son tour, contient un code d’erreur de la plateforme d’identité Microsoft. Pour obtenir les divers codes d’erreur, consultez [Codes d’erreur d’authentification et d’autorisation](./reference-aadsts-error-codes.md).
 
 Dans MSAL pour Python, les exceptions sont rares car la plupart des erreurs sont gérées en renvoyant une valeur d’erreur. L’exception `ValueError` est levée uniquement en cas de problème lié à la façon dont vous essayez d’utiliser la bibliothèque, par exemple lorsque des paramètres d’API sont incorrects.
 

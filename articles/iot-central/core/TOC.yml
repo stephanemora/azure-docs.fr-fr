@@ -35,7 +35,7 @@
       href: quick-configure-rules.md
     - name: 4. Superviser vos appareils
       href: quick-monitor-devices.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: Se connecter
       items:
@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: À propos de votre application
               href: howto-get-app-info.md
+            - name: "Déployer des certificats\_X.509"
+              href: how-to-roll-x509-certificates.md
         - name: Gérer à partir d’autres emplacements
           items:
             - name: Gérer à partir du portail Azure

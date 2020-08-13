@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256694"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120811"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -72,5 +72,5 @@ Pour commencer à créer des applications pour connecter des comptes sociaux et 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Inscrivez une application](quickstart-register-app.md) et intégrez-la à la plateforme des identités Microsoft. 
-* Découvrez les [principes de base de l’authentification](authentication-scenarios.md).
+* Découvrez les [principes de base de l’authentification](./authentication-vs-authorization.md).
 * Consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) pour obtenir des détails sur la relation entre des abonnements et un locataire Azure AD.

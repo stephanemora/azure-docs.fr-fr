@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558683"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119910"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guide de migration ADAL vers MSAL pour Python
 
@@ -38,19 +38,19 @@ Prend en charge :
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-Consultez l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) pour plus d’informations.
+Consultez l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) pour plus d’informations.
 
 ### <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
-ADAL Python acquiert des jetons pour les ressources, alors que MSAL Python en acquiert pour les étendues. La surface d’API n’a plus de paramètre de ressource dans MSAL Python. Vous devez fournir des étendues sous la forme d’une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Pour découvrir des exemples d’étendues, consultez [Étendues de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+ADAL Python acquiert des jetons pour les ressources, alors que MSAL Python en acquiert pour les étendues. La surface d’API n’a plus de paramètre de ressource dans MSAL Python. Vous devez fournir des étendues sous la forme d’une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Pour découvrir des exemples d’étendues, consultez [Étendues de Microsoft Graph](/graph/permissions-reference).
 
 Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour faciliter la migration de vos applications du point de terminaison v1.0 (ADAL) vers le point de terminaison de la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
-Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) et les articles [Étendues pour une API web acceptant des jetons v1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes).
+Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](./v2-permissions-and-consent.md) et les articles [Étendues pour une API web acceptant des jetons v1.0](./msal-v1-app-scopes.md).
 
 ### <a name="error-handling"></a>Gestion des erreurs
 
-La bibliothèque d’authentification Active Directory (ADAL) pour Python utilise l’exception `AdalError` pour indiquer qu’un problème est survenu. MSAL pour Python utilise généralement des codes d’erreur à la place. Pour plus d’informations, consultez la rubrique [Gestion des erreurs MSAL pour Python](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+La bibliothèque d’authentification Active Directory (ADAL) pour Python utilise l’exception `AdalError` pour indiquer qu’un problème est survenu. MSAL pour Python utilise généralement des codes d’erreur à la place. Pour plus d’informations, consultez la rubrique [Gestion des erreurs MSAL pour Python](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Modifications d'API
 
@@ -122,4 +122,4 @@ print("Migration completed")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez la [comparaison entre v1.0 et v2.0](active-directory-v2-compare.md).
+Pour plus d'informations, consultez la [comparaison entre v1.0 et v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

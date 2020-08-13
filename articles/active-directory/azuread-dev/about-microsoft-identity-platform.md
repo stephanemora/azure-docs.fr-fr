@@ -12,12 +12,12 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 504caffe0505a4e8a66608fcad528130630a5cc8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236205"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117768"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Évolution de la plateforme d’identités Microsoft
 
@@ -49,7 +49,7 @@ L’expérience d’ **[inscription d’application](https://go.microsoft.com/fw
 
 Pour l’intégration à Azure AD B2C (lors de l’authentification d’identités sociales ou locales), vous devrez inscrire votre application dans un locataire Azure AD B2C. Cette expérience fait également partie du portail Azure.
 
-Utilisez l’[API d’application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) pour configurer par programmation vos applications intégrées à la plateforme d’identités Microsoft pour l’authentification de n’importe quelle identité Microsoft.
+Utilisez l’[API d’application](/graph/api/resources/application?view=graph-rest-1.0) pour configurer par programmation vos applications intégrées à la plateforme d’identités Microsoft pour l’authentification de n’importe quelle identité Microsoft.
 
 ### <a name="msal-libraries"></a>Bibliothèques MSAL
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser la bibliothèque MSAL pour générer des applications qui a
 
 Vous pouvez également utiliser les bibliothèques MSAL pour intégrer votre application à Azure AD B2C.
 
-Les bibliothèques côté serveur pour générer des applications web et des API web sont en disponibilité générale : [ASP.NET](https://docs.microsoft.com/aspnet/overview) et [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
+Les bibliothèques côté serveur pour générer des applications web et des API web sont en disponibilité générale : [ASP.NET](/aspnet/overview) et [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
 
 ### <a name="microsoft-identity-platform-endpoint"></a>Point de terminaison de la plateforme d’identités Microsoft
 

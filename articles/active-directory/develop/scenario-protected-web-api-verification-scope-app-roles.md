@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563310"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120964"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protégée : Vérifier les étendues et les rôles d’application
 
@@ -88,7 +88,7 @@ La méthode `VerifyUserHasAnyAcceptedScope` effectue des étapes semblables aux 
 
 #### <a name="verify-the-scopes-more-globally"></a>Vérifier les étendues plus globalement
 
-La définition d’étendues précises pour votre API web et la vérification des étendues dans chaque action de contrôleur est l’approche recommandée. Toutefois, il est également possible de vérifier les étendues au niveau de l’application ou d’un contrôleur à l’aide d’ASP.NET Core. Pour plus d’informations, consultez [Autorisation basée sur les revendications](https://docs.microsoft.com/aspnet/core/security/authorization/claims) dans la documentation d’ASP.NET Core.
+La définition d’étendues précises pour votre API web et la vérification des étendues dans chaque action de contrôleur est l’approche recommandée. Toutefois, il est également possible de vérifier les étendues au niveau de l’application ou d’un contrôleur à l’aide d’ASP.NET Core. Pour plus d’informations, consultez [Autorisation basée sur les revendications](/aspnet/core/security/authorization/claims) dans la documentation d’ASP.NET Core.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ Pour ASP.NET, remplacez simplement `HttpContext.User` par `ClaimsPrincipal.Curre
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Vérifier les rôles d’application dans les API appelées par des applications démon
 
-Si votre API web est appelée par une [application de démon](scenario-daemon-overview.md), cette application doit exiger une autorisation d’application à votre API web. Comme indiqué dans [Exposition des autorisations d’application (rôles d’application)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), votre API expose de telles autorisations. Le rôle d’application `access_as_application` en est un exemple.
+Si votre API web est appelée par une [application de démon](scenario-daemon-overview.md), cette application doit exiger une autorisation d’application à votre API web. Comme indiqué dans [Exposition des autorisations d’application (rôles d’application)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), votre API expose de telles autorisations. Le rôle d’application `access_as_application` en est un exemple.
 
 Vous devez maintenant demander à votre API de vérifier que le jeton qu’elle reçoit contient la revendication `roles` et que cette revendication a la valeur attendue. Le code de vérification est similaire au code qui vérifie les autorisations déléguées, excepté que votre action de contrôleur teste les rôles au lieu des étendues :
 

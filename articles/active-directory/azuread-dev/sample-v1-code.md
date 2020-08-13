@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 822390200b7a94f2bbf8aac56d26812f36b5f12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1efae6563b88f82318f9b8358d255b234c6cb7fd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387607"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116204"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -124,4 +124,4 @@ Pour obtenir des exemples et des tutoriels qui illustrent différents modèles d
 
 - [Guide du développeur Azure Active Directory](v1-overview.md)
 - [Bibliothèques d’authentification Azure Active Directory](active-directory-authentication-libraries.md)
-- [Concept et référence de l’API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
+- [Concept et référence de l’API Microsoft Graph](/graph/use-the-api)

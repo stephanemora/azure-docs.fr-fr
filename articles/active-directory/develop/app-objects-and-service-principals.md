@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a3e6d918f4ab94c4533e930ea73b5267deb53a4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027236"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115524"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -91,12 +91,12 @@ Dans cet exemple de scénario :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez utiliser [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour interroger à la fois les objets d’application et de principal de service.
-- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
-- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
+- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
+- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](/powershell/azure/?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
 
 <!--Image references-->
 
 <!--Reference style links -->
-[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: /graph/api/resources/application
+[MS-Graph-Sp-Entity]: /graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80576716"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114912"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 
@@ -67,7 +67,7 @@ Votre appareil doit être configuré pour prendre en charge le mode Appareil par
       - Tapez : Boolean
       - Valeur : True
 
-    Pour plus d’informations sur la configuration avec Intune, consultez la [documentation sur la configuration d’Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    Pour plus d’informations sur la configuration avec Intune, consultez la [documentation sur la configuration d’Intune](/intune/configuration/ios-device-features-settings).
 
 1. Ensuite, configurez votre GPM pour envoyer (push) l’application Microsoft Authenticator à votre appareil via un profil GPM.
 

@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552711"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115575"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
 
@@ -26,7 +26,7 @@ Ce document fournit le contexte et les descriptions de différentes fonctionnali
 
 ## <a name="my-applications-or-converged-applications"></a>Mes applications ou Applications convergentes
 
-Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison de plateforme des identités Microsoft (v2.0). Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison de plateforme des identités, consultez la [présentation de v2.0](active-directory-appmodel-v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.
+Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison de plateforme des identités Microsoft (v2.0). Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison de plateforme des identités, consultez la [présentation de v2.0](./v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Applications Azure AD uniquement
 

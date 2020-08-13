@@ -11,7 +11,11 @@
           expanded: true
           items:
             - name: Configuration - Portail Azure
-              href: data-box-quickstart-portal.md
+              items:
+                - name: Pour l’importation
+                  href: data-box-quickstart-portal.md
+                - name: Pour l’exportation
+                  href: data-box-quickstart-export.md
         - name: Tutoriels
           items:
             - name: Importer des données dans Azure

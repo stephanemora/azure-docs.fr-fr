@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation sur Azure Maps
-summary: 'Microsoft Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Ces fonctionnalités géospatiales s’accompagnent des données de mappage les plus récentes. Azure Maps est disponible pour les applications web et mobiles. Azure Maps est un ensemble d’API REST conforme à Azure One API. Les services suivants ne sont qu’une vue d’ensemble de ce que peut offrir Azure Maps : cartes, recherche, routage, trafic, mobilité, météo, fuseaux horaires, géolocalisation, geofencing, données cartographiques et opérations spatiales. Les kits SDK Web et Android rendent le développement simple, souple et portable sur plusieurs plateformes.'
+summary: 'Microsoft Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Ces fonctionnalités géospatiales s’accompagnent des données de mappage les plus récentes. Azure Maps est disponible pour les applications web et mobiles. Azure Maps est un ensemble d’API REST conforme à Azure One API. Les services suivants ne sont qu’une vue d’ensemble de ce que peut offrir Azure Maps : cartes, recherche, routage, trafic, mobilité, météo, fuseaux horaires, géolocalisation, geofencing, données cartographiques, créateur et opérations spatiales. Les kits SDK Web et Android rendent le développement simple, souple et portable sur plusieurs plateformes.'
 metadata:
   title: Documentation sur Azure Maps | Microsoft Docs
   description: Découvrez Azure Maps et comment l’utiliser pour fournir des services géospatiaux à votre application web ou mobile.
@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
-  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+  ms.openlocfilehash: 4e95d7d9afb77dcf8e168a04c9e0f4fc3b266807
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87461746"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88121644"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
