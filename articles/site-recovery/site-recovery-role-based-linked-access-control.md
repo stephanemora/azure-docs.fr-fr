@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503529"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927162"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gérer l’accès à Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC)
 
@@ -72,7 +72,7 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 Envisagez d’utiliser les [rôles intégrés](../role-based-access-control/built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

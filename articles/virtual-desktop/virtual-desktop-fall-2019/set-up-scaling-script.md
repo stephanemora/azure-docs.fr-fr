@@ -1,19 +1,17 @@
 ---
 title: Mettre à l’échelle des hôtes de session Azure Automation Windows Virtual Desktop (classique) - Azure
 description: Explique comment mettre automatiquement à l’échelle des hôtes de session Windows Virtual Desktop (classique) avec Azure Automation.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288636"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005582"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Mettre à l’échelle des hôtes de session Windows Virtual Desktop (classique) à l’aide d’Azure Automation
 
@@ -94,11 +92,11 @@ Tout d'abord, vous devez disposer d'un compte Azure Automation pour exécuter le
     ```powershell
     Login-AzAccount
     ```
-    
+
     >[!NOTE]
     >Votre compte doit disposer de droits de contributeur sur l’abonnement Azure où vous souhaitez déployer l’outil de mise à l’échelle.
 
-3. Exécutez l’applet de commande suivante pour télécharger le script de création du compte Azure Automation :
+3. Exécutez la cmdlet suivante pour télécharger le script de création du compte Azure Automation :
 
     ```powershell
     New-Item -ItemType Directory -Path "C:\Temp" -Force
@@ -119,11 +117,11 @@ Tout d'abord, vous devez disposer d'un compte Azure Automation pour exécuter le
          "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
-    
+
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
-5. La sortie de l’applet de commande inclura un URI de webhook. Prenez note de l’URI, car vous l’utiliserez comme paramètre lors de la configuration du calendrier d’exécution pour l’application logique Azure.
+5. La sortie de la cmdlet inclura un URI de webhook. Prenez note de l’URI, car vous l’utiliserez comme paramètre lors de la configuration du calendrier d’exécution pour l’application logique Azure.
 
 6. Si vous avez spécifié le paramètre **WorkspaceName** pour Log Analytics, la sortie de l’applet de commande inclut également l’ID de l’espace de travail Log Analytics et sa clé primaire. Prenez note de l’URI, car vous le réutiliserez comme paramètre lors de la configuration du calendrier d’exécution pour l’application logique Azure.
 
@@ -142,7 +140,7 @@ Un [compte d’identification Azure Automation](../../automation/manage-runas-ac
 
 Tout utilisateur membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement peut créer un compte d’identification.
 
-Pour créer un compte d’identification dans votre compte Azure Automation
+Pour créer un compte d’identification dans votre compte Azure Automation :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste des ressources, entrez et sélectionnez **Comptes Automation**.
 
@@ -208,23 +206,23 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
     # Set-RdsContext -TenantGroupName "<Tenant_Group_Name>"
     ```
 
-5. Exécutez le script PowerShell suivant pour créer l’application logique Azure et le calendrier d’exécution pour votre pool d’hôtes. 
+5. Exécutez le script PowerShell suivant pour créer l’application logique Azure et le calendrier d’exécution pour votre pool d’hôtes.
 
     >[!NOTE]
     >Vous devez exécuter ce script pour chaque pool d’hôtes que vous souhaitez mettre à l’échelle automatiquement, mais vous n’avez besoin que d’un seul compte Azure Automation.
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
-    
+
     $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
     Select-AzSubscription -Subscription $AzSubscription.Id
-    
+
     $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
-    
+
     $RDBrokerURL = (Get-RdsContext).DeploymentUrl
     $WVDTenant = Get-RdsTenant | Out-GridView -OutputMode:Single -Title "Select your WVD tenant"
     $WVDHostPool = Get-RdsHostPool -TenantName $WVDTenant.TenantName | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
-    
+
     $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
     $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
@@ -237,12 +235,12 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-    
+
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
+
     $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURI' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-    
+
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -267,7 +265,7 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
          "WebhookURI"                    = $WebhookURIAutoVar.Value
     }
-    
+
     .\CreateOrUpdateAzLogicApp.ps1 @Params
     ```
 

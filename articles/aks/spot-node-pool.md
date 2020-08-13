@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374608"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987288"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Vue d’ensemble - Ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS)
 
@@ -32,11 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Lorsque vous créez un cluster pour utiliser un pool de nœuds spot, le cluster en question doit également utiliser Virtual Machine Scale Sets pour les pools de nœuds et l’équilibreur de charge de référence SKU *Standard*. Après avoir créé votre cluster, vous devez également ajouter un pool de nœuds supplémentaire pour utiliser un pool de nœuds spot. L’ajout d’un pool de nœuds supplémentaire est traité plus loin dans une autre étape, mais vous devez d’abord activer une fonctionnalité d’évaluation.
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Ils sont fournis pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. En préversion, ces fonctionnalités ne sont pas destinées à une utilisation en production. Les fonctionnalités en préversion publique font l’objet d’un support relatif. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau du fuseau horaire Heure du Pacifique uniquement. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Inscrire la fonctionnalité d’évaluation spotpoolpreview
 

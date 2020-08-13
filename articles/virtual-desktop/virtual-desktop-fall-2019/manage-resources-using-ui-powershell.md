@@ -1,19 +1,17 @@
 ---
 title: Déployer un outil de gestion pour Windows Virtual Desktop (classique) en utilisant le principal de service - Azure
 description: Guide pratique pour l’outil de gestion pour Windows Virtual Desktop (classique) avec PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284963"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005769"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Déployer un outil de gestion de Windows Virtual Desktop (classique) avec PowerShell
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184869"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004847"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 
@@ -99,7 +99,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 | Présences dans le cache |Nombre de recherches clés réussies au cours de l’intervalle de création des rapports. Ce nombre mappe à [ à partir de la commande Redis ](https://redis.io/commands/info)INFO`keyspace_hits`. |
 | Latence du cache (préversion) | Latence du cache calculée à partir de la latence entre les nœuds du cache. Cette métrique est mesurée en microsecondes et a trois dimensions, `Avg`, `Min` et `Max`, qui représentent respectivement les latences moyenne, minimale et maximale du cache pendant l’intervalle de rapport spécifié. |
 | Absences dans le cache |Nombre de recherches clés non réussies au cours de l’intervalle de création des rapports. Ce nombre mappe à `keyspace_misses` à partir de la commande Redis INFO. Les absences dans le cache ne signifient pas nécessairement qu’il y a un problème dans le cache. Par exemple, en cas d’utilisation du mode de programmation de type cache-aside, une application recherche d’abord l’élément dans le cache. Si cet élément ne s’y trouve pas (Absence dans le cache), il est récupéré dans la base de données et ajouté au cache pour la prochaine fois. Les absences dans le cache sont un comportement normal pour le mode de programmation de type cache-aside. Si le nombre d’absences dans le cache est plus élevé que prévu, examinez la logique d’application qui remplit le cache et y lit les informations. Si des éléments sont supprimés du cache en raison d’une trop grande sollicitation de la mémoire, il peut y avoir des absences dans le cache, mais `Used Memory` ou `Evicted Keys` seraient de meilleures métriques pour superviser la pression sur la mémoire. |
-| Lecture du cache |Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. **Cette valeur correspond à la bande passante réseau utilisée par ce cache. Si vous souhaitez configurer des alertes pour des limites de bande passante réseau côté serveur, vous pouvez les créer à l’aide de ce compteur `Cache Read`. Pour connaître les limites de bande passante observées pour les différents niveaux de tarification et tailles de cache, voir [ce tableau](cache-faq.md#cache-performance).** |
+| Lecture du cache |Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. **Cette valeur correspond à la bande passante réseau utilisée par ce cache. Si vous souhaitez configurer des alertes pour des limites de bande passante réseau côté serveur, vous pouvez les créer à l’aide de ce compteur `Cache Read`. Pour connaître les limites de bande passante observées pour les différents niveaux de tarification et tailles de cache, voir [ce tableau](cache-planning-faq.md#azure-cache-for-redis-performance).** |
 | Cache d’écriture |Quantité de données écrites dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. Cette valeur correspond à la bande passante réseau des données envoyées au cache depuis le client. |
 | Clients connectés |Nombre de connexions client au cache au cours de l’intervalle de création des rapports spécifié. Ce nombre mappe à `connected_clients` à partir de la commande Redis INFO. Une fois la [limite de connexions](cache-configure.md#default-redis-server-configuration) atteinte, les tentatives de connexion ultérieures au cache échouent. Même s’il n’y a aucune application cliente active, il peut rester quelques instances de clients connectés en raison de connexions et processus internes. |
 | UC |Utilisation du processeur du serveur de cache Azure pour Redis (sous forme de pourcentage) au cours de l’intervalle spécifié pour la création des rapports. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |

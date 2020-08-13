@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056588"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986710"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Réduire la latence au moyen de groupes de placement de proximité (préversion)
 
@@ -26,11 +26,7 @@ Quand vous déployez votre application dans Azure, la répartition des instances
 * Un pool de nœuds doit utiliser Virtual Machine Scale Sets pour associer un groupe de placement de proximité.
 * Un pool de nœuds peut associer un groupe de placement de proximité uniquement lors de la création du pool de nœuds.
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont disponibles en libre-service et font l’objet d’un abonnement. Les préversions sont fournies « en l’état » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service et de la garantie limitée. Les préversions AKS sont, dans la mesure du possible, partiellement couvertes par le service clientèle. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour plus d’informations, consultez les articles de support suivants :
->
-> - [Stratégies de support AKS](support-policies.md)
-> - [FAQ du support Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

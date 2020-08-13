@@ -1,19 +1,17 @@
 ---
 title: Meilleures pratiques pour Windows Virtual Desktop - Azure
 description: Meilleures pratiques pour sécuriser votre environnement Windows Virtual Desktop.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736670"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002297"
 ---
 # <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
@@ -103,7 +101,7 @@ Les hôtes de session sont des machines virtuelles qui s’exécutent au sein d�
 
 ### <a name="enable-endpoint-protection"></a>Activer Endpoint Protection
 
-Pour protéger votre déploiement contre les logiciels malveillants connus, nous vous recommandons d’activer Endpoint Protection sur tous les hôtes de session. Vous pouvez utiliser l’antivirus Windows Defender ou un programme tiers. Pour plus d’informations, consultez [Guide de déploiement de l’antivirus Windows Defender dans un environnement VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Pour protéger votre déploiement contre les logiciels malveillants connus, nous vous recommandons d’activer Endpoint Protection sur tous les hôtes de session. Vous pouvez utiliser l’antivirus Windows Defender ou un programme tiers. Pour plus d’informations, consultez [Guide de déploiement de l’antivirus Windows Defender dans un environnement VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 Pour les solutions de profil, telles que FSLogix ou d’autres solutions, qui effectuent le montage de fichiers VHD, nous vous recommandons d’exclure les extensions de fichier VHD.
 

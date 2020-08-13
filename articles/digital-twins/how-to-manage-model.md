@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281359"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987322"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -67,9 +67,7 @@ En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital e
 
 ### <a name="validate-syntax"></a>Valider la syntaxe
 
-Une bibliothèque côté client est disponible pour l’analyse et la validation DTDL. Elle génère un modèle d’objet C# du contenu DTDL, utilisable dans des scénarios de développement basés sur des modèles, comme la génération d’éléments d’interface utilisateur. Vous pouvez également utiliser cette bibliothèque pour vous assurer que vos modèles n’ont pas d’erreurs de syntaxe avant de les charger. 
-
-Pour plus d’informations sur cette bibliothèque et pour disposer d’un exemple de validateur DTDL basé sur elle, consultez [*Guide pratique pour : analyser et valider les modèles*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="manage-models-with-apis"></a>Gérer les modèles avec des API.
 
@@ -86,7 +84,7 @@ Les sections suivantes montrent comment effectuer différentes opérations de ge
 Une fois les modèles créés, vous pouvez les charger vers l’instance Azure Digital Twins.
 
 > [!TIP]
-> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins. Vous pouvez utiliser la [bibliothèque de l’analyseur côté client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) et [l’exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) décrit dans [*Comment : Analyser et valider les modèles*](how-to-use-parser.md) pour vérifier vos modèles avant de les charger vers le service.
+> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins. Vous pouvez utiliser la [bibliothèque de l’analyseur côté client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) et [l’exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) décrit dans [*Comment : Analyser et valider les modèles*](how-to-parse-models.md) pour vérifier vos modèles avant de les charger vers le service.
 
 Lorsque vous êtes prêt à télécharger un modèle, vous pouvez utiliser l’extrait de code suivant :
 

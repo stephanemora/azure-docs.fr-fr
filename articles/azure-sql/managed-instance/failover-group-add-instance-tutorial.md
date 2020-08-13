@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024187"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002987"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutoriel : Ajouter une instance managée SQL Managed Instance à un groupe de basculement
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Ajoutez des instances managées d’Azure SQL Managed Instance à un groupe de b
   > [!NOTE]
   > - En parcourant ce tutoriel, assurez-vous de configurer vos ressources dans le respect des [conditions préalables à la configuration de groupes de basculement pour SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La création d’une instance managée peut prendre beaucoup de temps. En conséquence, ce didacticiel peut prendre plusieurs heures. Pour plus d’informations sur les délais de provisionnement, consultez [Opérations de gestion SQL Managed Instance](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Les instances managées participant à un groupe de basculement nécessitent soit [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) soit deux passerelles VPN connectées. Ce didacticiel décrit les étapes de création et de connexion des passerelles VPN. Ignorez ces étapes si vous avez déjà configuré ExpressRoute. 
+  > - Les instances managées participant à un groupe de basculement nécessitent soit [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) soit deux passerelles VPN connectées. L’homologation Global VNet Peering n’est pas prise en charge. Ce didacticiel décrit les étapes de création et de connexion des passerelles VPN. Ignorez ces étapes si vous avez déjà configuré ExpressRoute. 
 
 
 ## <a name="prerequisites"></a>Prérequis

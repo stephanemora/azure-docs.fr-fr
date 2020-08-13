@@ -1,19 +1,17 @@
 ---
 title: Analytique des journaux d'activité Windows Virtual Desktop - Azure
 description: Comment utiliser l’analytique des journaux d’activité avec la fonctionnalité de diagnostic de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85cd94c9ba0cf8909e2013a49d43a473a313db8b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292606"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005105"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
@@ -134,7 +132,7 @@ Accédez à des exemples de requêtes par le biais de l’interface utilisateur 
 1. Accédez à votre espace de travail Log Analytics, puis sélectionnez **Journaux**. L’interface utilisateur de l’exemple de requête s’affiche automatiquement.
 1. Changez le filtre en **Catégorie**.
 1. Sélectionnez **Windows Virtual Desktop** pour examiner les requêtes disponibles.
-1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée. 
+1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée.
 
 Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 

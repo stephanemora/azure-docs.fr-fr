@@ -3,20 +3,17 @@ title: Utiliser une clé gérée par le client pour chiffrer les disques Azure d
 description: BYOK (Bring Your Own Keys) pour chiffrer les disques de données et de système d’exploitation AKS.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d4f7842330862013644cf961f5bd8e079d097069
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252043"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985839"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>BYOK (Bring Your Own Keys) avec des disques Azure dans Azure Kubernetes Service (AKS)
 
 Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour renforcer le contrôle sur les clés de chiffrement, vous pouvez fournir des [clés managées par le client][customer-managed-keys] à utiliser pour le chiffrement au repos des disques de système d’exploitation et des disques de données pour vos clusters AKS.
-
-> [!NOTE]
-> Les clusters AKS Windows et Linux BYOK sont disponibles dans les [régions Azure][supported-regions] qui prennent en charge le chiffrement côté serveur des disques managés Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -26,11 +23,7 @@ Le stockage Azure chiffre toutes les données dans un compte de stockage au repo
 
 * Vous devez disposer d’Azure CLI version 2.0.79 ou ultérieure et de l’extension aks-preview 0.4.26
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS](support-policies.md)
-> * [FAQ du support Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>Installer la dernière extension de la préversion d’AKS CLI
 
@@ -164,9 +157,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Limites
 
-* BYOK est disponible uniquement en disponibilité générale et en préversion dans certaines [régions Azure][supported-regions]
-* Le chiffrement de disque de données avec la version Kubernetes 1.17 et ultérieure   
-* Disponible uniquement dans les régions où BYOK est pris en charge
+* Le chiffrement de disque de données avec la version Kubernetes 1.17 et ultérieure
 * Le chiffrement avec des clés gérées par le client est actuellement réservé aux nouveaux clusters AKS. Les clusters existants ne peuvent pas être mis à niveau
 
 ## <a name="next-steps"></a>Étapes suivantes

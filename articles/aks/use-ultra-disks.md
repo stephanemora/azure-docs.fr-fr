@@ -4,12 +4,12 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 46be67a415f67e260262e5b80e5a1dad534aea79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527971"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986829"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
@@ -49,11 +49,7 @@ Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressource
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> - [Stratégies de support AKS](support-policies.md)
-> - [FAQ du support Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
@@ -95,9 +91,8 @@ Si vous souhaitez créer des clusters sans prise en charge des disques Ultra, vo
 
 Vous pouvez activer les disques Ultra sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster qui prend en charge les disques Ultra. Configurez un nouveau pool de nœuds pour utiliser le chiffrement basé sur l’hôte à l’aide de l’indicateur `--aks-custom-headers`.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Si vous souhaitez créer des pools de nœuds sans la prise en charge des disques Ultra, vous pouvez le faire en omettant le paramètre `--aks-custom-headers` personnalisé.

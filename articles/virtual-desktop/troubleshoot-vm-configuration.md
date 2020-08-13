@@ -1,19 +1,17 @@
 ---
 title: Détecter un problème sur un hôte de la session Windows Virtual Desktop – Azure
 description: Guide pratique pour résoudre les problèmes pendant la configuration de machines virtuelles hôte de session Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286374"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005221"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -138,8 +136,8 @@ Lorsque l’agent Windows Virtual Desktop est installé pour la première fois s
 
 **Correctif :** Suivez ces instructions pour corriger l'erreur de registre de l'agent.
 
-1. S’il existe déjà un jeton d’inscription, supprimez-le à l’aide de la cmdlet Remove-RDSRegistrationInfo. 
-2. Exécutez la cmdlet **New-AzWvdRegistrationInfo** pour générer un nouveau jeton. 
+1. S’il existe déjà un jeton d’inscription, supprimez-le à l’aide de la cmdlet Remove-RDSRegistrationInfo.
+2. Exécutez la cmdlet **New-AzWvdRegistrationInfo** pour générer un nouveau jeton.
 3. Vérifiez que le paramètre *-ExpriationTime* est défini sur 3 jours.
 
 ### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erreur : L’agent Windows Virtual Desktop ne signale aucune pulsation lors de l’exécution de la cmdlet Get-RdsSessionHost.
@@ -305,7 +303,7 @@ Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un
 
 Si le délai limite expire, le message d’erreur « La session distante a été déconnectée, car aucune licence d’accès client Bureau à distance n’est disponible pour cet ordinateur » s’affiche.
 
-Si vous voyez l’un de ces messages, cela signifie que les dernières mises à jour Windows ne sont pas installées sur l’image ou que vous définissez le mode de licence Bureau à distance via la stratégie de groupe. Suivez les étapes décrites dans les sections suivantes pour vérifier le paramètre de stratégie de groupe, identifier la version de Windows 10 Entreprise multi-session et installer la mise à jour correspondante.  
+Si vous voyez l’un de ces messages, cela signifie que les dernières mises à jour Windows ne sont pas installées sur l’image ou que vous définissez le mode de licence Bureau à distance via la stratégie de groupe. Suivez les étapes décrites dans les sections suivantes pour vérifier le paramètre de stratégie de groupe, identifier la version de Windows 10 Entreprise multi-session et installer la mise à jour correspondante.
 
 >[!NOTE]
 >Windows Virtual Desktop nécessite une licence d’accès client (CAL) aux services Bureau à distance uniquement si votre pool d’hôtes contient des hôtes de session Windows Server. Pour savoir comment configurer une licence d’accès client aux services Bureau à distance, consultez [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

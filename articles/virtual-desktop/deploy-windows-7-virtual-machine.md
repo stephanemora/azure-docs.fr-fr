@@ -1,19 +1,17 @@
 ---
 title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop – Azure
 description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285151"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007571"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop
 
@@ -24,7 +22,7 @@ Le processus de déploiement d’une machine virtuelle Windows 7 sur Windows Vi
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, suivez les instructions de l'article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour créer un pool d'hôtes. Si vous utilisez le portail, suivez les instructions des étapes 1 à 9 de [Create a host pool using the Azure portal](create-host-pools-azure-marketplace.md) (Créer un pool d’hôtes à l’aide du portail Azure). Après cela, sélectionnez **Passer en revue + Créer** pour créer un pool d’hôtes vide. 
+Avant de commencer, suivez les instructions de l'article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour créer un pool d'hôtes. Si vous utilisez le portail, suivez les instructions des étapes 1 à 9 de [Create a host pool using the Azure portal](create-host-pools-azure-marketplace.md) (Créer un pool d’hôtes à l’aide du portail Azure). Après cela, sélectionnez **Passer en revue + Créer** pour créer un pool d’hôtes vide.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configurer une machine virtuelle Windows 7
 
@@ -49,9 +47,9 @@ Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
      ```
 
 12. Suivez les instructions [ici](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) pour obtenir un jeton d’inscription.
-      
+
       - Si vous préférez utiliser le portail Azure, vous pouvez également accéder à la page de présentation du pool d’hôtes auquel vous souhaitez ajouter la machine virtuelle et y créer un jeton.
-  
+
 13. [Téléchargez l’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Téléchargez le gestionnaire d’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Ouvrez le programme d’installation de l’agent Windows Virtual Desktop et suivez les instructions. Quand vous y êtes invité, spécifiez la clé d’inscription que vous avez créée à l’étape 12.

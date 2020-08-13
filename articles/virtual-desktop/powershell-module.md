@@ -1,19 +1,17 @@
 ---
 title: Module PowerShell Windows Virtual Desktop - Azure
 description: Comment installer et configurer le module PowerShell pour Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0d5193cbaf759e513eb8d6e88e70abc74a2dd30d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 11742b00b62437b3acd6fa804a668cf83c2860f6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291416"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007256"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurer le module PowerShell pour Windows Virtual Desktop
 

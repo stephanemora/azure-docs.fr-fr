@@ -4,12 +4,12 @@ description: Découvrez comment configurer un chiffrement basé sur l’hôte da
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517720"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986863"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS) (préversion)
 
@@ -57,11 +57,7 @@ az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> - [Stratégies de support AKS](support-policies.md)
-> - [FAQ du support Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 

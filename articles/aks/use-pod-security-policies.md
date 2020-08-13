@@ -4,12 +4,12 @@ description: Apprendre à contrôler les admissions pod à l’aide de PodSecuri
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015576"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987271"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -22,11 +22,7 @@ ms.locfileid: "87015576"
 
 Pour améliorer la sécurité de votre cluster AKS, vous pouvez limiter les pods pouvant être planifiés. Les pods qui demandent des ressources non autorisées ne sont pas exécutés dans le cluster AKS. Vous définissez cet accès à l’aide de stratégies de sécurité des pods. Cet article explique comment utiliser des stratégies de sécurité des pods pour limiter le déploiement de pods dans AKS.
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

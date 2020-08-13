@@ -1,18 +1,16 @@
 ---
 title: Configurer le GPU pour Windows Virtual Desktop - Azure
 description: Découvrez comment activer le rendu et le codage avec accélération GPU dans Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291501"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007774"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -58,7 +56,7 @@ Par défaut, le rendu des applications et des bureaux exécutés dans des config
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurer le codage d’image avec accélération GPU
 
 Le Bureau à distance code tous les graphiques rendus par les applications et les bureaux (que le rendu ait été fait avec le GPU ou l’UC) pour la transmission aux clients Bureau à distance. Quand une partie de l’écran est fréquemment mise à jour, cette partie de l’écran est encodée à l’aide d’un codec vidéo (H.264/AVC). Par défaut, le Bureau à distance n’exploite pas les GPU disponibles pour ce codage. Configurez la stratégie de groupe pour l’hôte de session afin d’activer le codage d’image avec accélération GPU. Continuez les étapes ci-dessus :
- 
+
 >[!NOTE]
 >L’encodage de trames avec accélération GPU n’est pas disponible dans les machines virtuelles de la série NVv4.
 

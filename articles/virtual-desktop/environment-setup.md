@@ -1,19 +1,17 @@
 ---
 title: Environnement Windows Virtual Desktop - Azure
 description: Découvrez les éléments de base d’un environnement Windows Virtual Desktop, tels que les pools d’hôtes et les groupes d’applications.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283416"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002609"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Environnement Windows Virtual Desktop
 
@@ -49,7 +47,7 @@ Pour publier des ressources pour des utilisateurs, vous devez affecter ceux-ci �
 
 ## <a name="workspaces"></a>Workspaces
 
-Un espace de travail est un regroupement logique de groupes d’applications dans le Windows Virtual Desktop. Chaque groupe d’applications Windows Virtual Desktop doit être associé à un espace de travail pour que les utilisateurs puissent voir les applications et les bureaux distants qui y sont publiés.  
+Un espace de travail est un regroupement logique de groupes d’applications dans le Windows Virtual Desktop. Chaque groupe d’applications Windows Virtual Desktop doit être associé à un espace de travail pour que les utilisateurs puissent voir les applications et les bureaux distants qui y sont publiés.
 
 ## <a name="end-users"></a>Utilisateurs finaux
 

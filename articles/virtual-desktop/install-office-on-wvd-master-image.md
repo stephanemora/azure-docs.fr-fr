@@ -1,19 +1,17 @@
 ---
 title: Installer Office sur une image VHD principale – Azure
 description: Guide pratique pour installer et personnaliser Office sur une image principale Windows Virtual Desktop dans Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200526"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007299"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 

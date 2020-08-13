@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop PowerShell – Azure
 description: Comment résoudre des problèmes avec PowerShell quand vous configurez un environnement Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288728"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002277"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -33,10 +31,10 @@ Cette section répertorie les commandes PowerShell qui sont généralement utili
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erreur : New-AzRoleAssignment: Les informations fournies ne correspondent pas à un ID d’objet AD.
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Cause :** L’utilisateur spécifié par le paramètre *-SignInName* est introuvable dans l’Azure Active Directory lié à l’environnement Windows Virtual Desktop. 
+**Cause :** L’utilisateur spécifié par le paramètre *-SignInName* est introuvable dans l’Azure Active Directory lié à l’environnement Windows Virtual Desktop.
 
 **Correctif :** Vérifiez les points suivants.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Erreur : New-AzRoleAssignment: « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) »
 
-**Cause 1 :** Le compte utilisé ne dispose pas d’autorisations de propriétaire sur l’abonnement. 
+**Cause 1 :** Le compte utilisé ne dispose pas d’autorisations de propriétaire sur l’abonnement.
 
 **Correctif 1 :** Un utilisateur disposant d’autorisations de propriétaire doit exécuter l’attribution de rôle. Ou bien, l’utilisateur doit être affecté au rôle Administrateur de l’accès utilisateur pour affecter un utilisateur à un groupe d’applications.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Erreur : New-AzWvdHostPool -- l’emplacement n’est pas disponible pour le type de ressource
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Cause : Windows Virtual Desktop prend en charge la sélection de l’emplacement des pools d’hôtes, des groupes d’applications et des espaces de travail pour stocker les métadonnées de service dans certains emplacements. Vos options sont limitées en fonction de l’emplacement où cette fonctionnalité est disponible. Cette erreur signifie que la fonctionnalité n’est pas disponible à l’emplacement que vous avez choisi.
