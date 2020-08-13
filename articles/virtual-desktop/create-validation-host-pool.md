@@ -1,19 +1,17 @@
 ---
 title: Mises à jour du service de pool d'hôtes Windows Virtual Desktop - Azure
 description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 177763e7939de082faa0c83d2ab661292f0758b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292649"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008710"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -62,7 +60,7 @@ Les résultats de la cmdlet doivent se présenter comme suit :
     HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -77,7 +75,7 @@ S’il existe des mises à jour de service, vérifiez que vous avez au moins un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Un pool d’hôtes de validation étant créé, vous pouvez apprendre à utiliser Azure Service Health pour superviser votre déploiement de Windows Virtual Desktop. 
+Un pool d’hôtes de validation étant créé, vous pouvez apprendre à utiliser Azure Service Health pour superviser votre déploiement de Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Configurer des alertes de service](./set-up-service-alerts.md)

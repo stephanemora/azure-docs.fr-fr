@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b141f3722a722a57e5ec7c5662ded4b9a8c790
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1de6af0f30453d40348e9e836b2a5989652f49f1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170426"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925059"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SuccessFactors
 
@@ -116,7 +116,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     - `https://<companyname>.sapsf.cn/<companyname>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Contactez [l’équipe de support client de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) pour obtenir ces valeurs.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Contactez [l’équipe de support client de SuccessFactors](https://www.sap.com/support.html) pour obtenir ces valeurs.
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Pour pouvoir se connecter à SuccessFactors, les utilisateurs d’Azure AD doivent être attribués dans SuccessFactors. Dans le cas de SuccessFactors, l’approvisionnement est une tâche manuelle.
 
-Pour créer des utilisateurs dans SuccessFactors, vous devez contacter [l’équipe de support technique SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
+Pour créer des utilisateurs dans SuccessFactors, vous devez contacter [l’équipe de support technique SuccessFactors](https://www.sap.com/support.html).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

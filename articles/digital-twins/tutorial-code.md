@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6000bffb80c83ffce58605bcc7e5bfaf404329da
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537414"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986677"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codage avec les API Azure Digital Twins
 
@@ -174,7 +174,7 @@ Dans le répertoire où vous avez créé votre projet, créez un fichier *.json*
 > Si vous utilisez Visual Studio pour ce tutoriel, vous souhaiterez peut-être sélectionner le nouveau fichier JSON et affecter la valeur *Copier si plus récent* ou *Toujours copier* à la propriété *Copier dans le répertoire de sortie* dans l’inspecteur de propriété. Cela permettra à Visual Studio de trouver le fichier JSON avec le chemin par défaut quand vous exécuterez le programme avec **F5** lors des étapes suivantes du tutoriel.
 
 > [!TIP] 
-> Il existe un [exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [*Guide pratique pour analyser et valider les modèles*](how-to-use-parser.md).
+> Il existe un [exemple de validateur DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [*Guide pratique pour analyser et valider les modèles*](how-to-parse-models.md).
 
 Ensuite, ajoutez du code à *Program.cs* pour charger le modèle que vous venez de créer dans votre instance Azure Digital Twins.
 

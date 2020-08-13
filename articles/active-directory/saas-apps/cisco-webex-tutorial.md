@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a6182159275236f023a1647275ed1fb8c8f4112
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026264"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex Meetings
 
@@ -39,6 +39,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement Cisco Webex Meetings pour lequel l’authentification unique (SSO) est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

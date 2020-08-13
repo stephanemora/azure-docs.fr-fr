@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875871"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921756"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -75,6 +75,10 @@ Cliquez sur **Call API** (Appeler une API) pour que votre nom d’affichage soit
 ![Exemple d’application dans un navigateur affichant la réponse de l’API web](./media/quickstart-single-page-app/call-api-spa.png)
 
 L’exemple d’application monopage inclut un jeton d’accès dans la requête envoyée à la ressource de l’API web protégée.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

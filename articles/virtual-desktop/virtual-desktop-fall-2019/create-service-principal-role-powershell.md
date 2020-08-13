@@ -1,19 +1,17 @@
 ---
 title: Attribution de rôle de principal du service Windows Virtual Desktop (classique) – Azure
 description: Comment créer des principaux de service et attribuer des rôles avec PowerShell dans Windows Virtual Desktop (classique).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 67527967e76174fd0152775aed140ec89e1674ec
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270088"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008829"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell dans Windows Virtual Desktop (classique)
 

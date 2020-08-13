@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3d5dbd5c831b4e3cf2ab63796165dc6bad005a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67107499"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Didacticiel : Intégration d’Azure Active Directory avec Absorb LMS
 
@@ -41,6 +41,9 @@ Pour configurer l’intégration d’Azure AD avec Absorb LMS, vous avez besoi
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Abonnement Absorb LMS pour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -163,7 +166,7 @@ Pour configurer l’authentification unique Azure AD avec Absorb LMS, procédez 
 
     b. Sélectionnez **SAML** comme **Méthode**.
 
-    c. Dans le bloc-notes, ouvrez le certificat que vous avez téléchargé à partir du portail Azure. Supprimez les balises **-----BEGIN CERTIFICATE-----** et **-----END CERTIFICATE-----** . Puis, dans la zone **Clé**, collez le reste du contenu.
+    c. Dans le bloc-notes, ouvrez le certificat que vous avez téléchargé à partir du portail Azure. Supprimez les balises **-----BEGIN CERTIFICATE-----** et **-----END CERTIFICATE-----**. Puis, dans la zone **Clé**, collez le reste du contenu.
 
     d. Dans la zone **Mode**, sélectionnez **Identity Provider Initiated** (Initiée par le fournisseur d’identité).
 

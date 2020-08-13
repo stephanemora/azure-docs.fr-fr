@@ -1,19 +1,17 @@
 ---
 title: Pool d’hôtes Windows Virtual Desktop Portail Azure - Azure
 description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide du portail Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291437"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002660"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
@@ -61,7 +59,7 @@ Pour commencer à créer votre nouveau pool d’hôtes
 6. Entrez un nom unique pour votre pool d’hôtes.
 
 7. Dans le champ Emplacement, sélectionnez dans le menu déroulant la région dans laquelle vous souhaitez créer le pool d’hôtes.
-   
+
    La zone géographique Azure associée aux régions sélectionnées est l’emplacement où seront stockées les métadonnées de ce pool d’hôtes et ses objets connexes. Veillez à choisir les régions à l’intérieur de la zone géographique dans laquelle vous souhaitez stocker les métadonnées de service.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la page du groupe de sécurité qui montre la liste des ports disponibles dans un menu déroulant.](media/available-ports.png)
-    
+
     Si vous choisissez **Avancé**, sélectionnez un groupe de sécurité réseau existant que vous avez déjà configuré.
 
 10. Après cela, indiquez si vous souhaitez que les machines virtuelles soient jointes à un domaine et une unité d’organisation spécifiques. Si vous choisissez **Oui**, spécifiez le domaine à joindre. Vous pouvez également ajouter une unité d’organisation spécifique à laquelle doivent appartenir les machines virtuelles.
@@ -153,7 +151,7 @@ Nous sommes maintenant prêts à commencer la phase suivante de la configuration
 
 ## <a name="workspace-information"></a>Informations sur l’espace de travail
 
-Le processus de création du pool d’hôtes crée un groupe d’applications de bureau par défaut. Pour que le pool d’hôtes fonctionne comme prévu, vous devez publier ce groupe d’applications sur des utilisateurs ou des groupes d’utilisateurs, et vous devez inscrire le groupe d’applications auprès d’un espace de travail. 
+Le processus de création du pool d’hôtes crée un groupe d’applications de bureau par défaut. Pour que le pool d’hôtes fonctionne comme prévu, vous devez publier ce groupe d’applications sur des utilisateurs ou des groupes d’utilisateurs, et vous devez inscrire le groupe d’applications auprès d’un espace de travail.
 
 Pour inscrire le groupe d’applications de bureau auprès d’un espace de travail
 
@@ -167,10 +165,10 @@ Pour inscrire le groupe d’applications de bureau auprès d’un espace de trav
 
     Ici, vous pouvez ajouter des étiquettes pour pouvoir regrouper les objets avec des métadonnées afin de faciliter la tâche des administrateurs.
 
-4. Quand vous avez terminé, sélectionnez **Vérifier + créer**. 
+4. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
 
      >[!NOTE]
-     >Le processus de validation Vérifier + créer ne vérifie pas si votre mot de passe répond aux normes de sécurité ou si votre architecture est correcte. Vous devez donc vérifier ces éléments vous-même. 
+     >Le processus de validation Vérifier + créer ne vérifie pas si votre mot de passe répond aux normes de sécurité ou si votre architecture est correcte. Vous devez donc vérifier ces éléments vous-même.
 
 5. Passez en revue les informations relatives à votre déploiement pour vérifier que tout semble correct. Sélectionnez **Créer** lorsque vous avez terminé. Cela démarre le processus de déploiement, qui crée les objets suivants :
 

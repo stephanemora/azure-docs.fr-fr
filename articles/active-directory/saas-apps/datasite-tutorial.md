@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 08/05/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da42ef51646f7775234ed870e59c442d54933c1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: df9b417b6387a44004b6c363f4e8b12a6f692a94
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170551"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032269"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Datasite
 
@@ -87,17 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique de Datasite](mailto:applicationsupport@datasite.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-
-1. L’application Datasite s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
-
-    ![image](common/default-attributes.png)
-
-1. En plus de ce qui précède, l’application Datasite s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
-    | Nom | Attribut source |
-    | -------------| --------- |
-    | organizationId | < organizationId > |
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique de Datasite](mailto:service@datasite.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -139,11 +129,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-datasite-sso"></a>Configurer l’authentification unique Datasite
 
-Pour configurer l’authentification unique côté **Datasite**, vous devez envoyer le **Certificat (en base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support technique de Datasite](mailto:applicationsupport@datasite.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Datasite**, vous devez envoyer le **Certificat (en base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support technique de Datasite](mailto:service@datasite.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-datasite-test-user"></a>Créer un utilisateur de test Datasite
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Datasite. Collaborez avec l’ [équipe du support technique de Datasite](mailto:applicationsupport@datasite.com) pour ajouter des utilisateurs à la plateforme Datasite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Datasite. Collaborez avec l’ [équipe du support technique de Datasite](mailto:service@datasite.com) pour ajouter des utilisateurs à la plateforme Datasite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
