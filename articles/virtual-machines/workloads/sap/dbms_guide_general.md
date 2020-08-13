@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525464"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827416"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -174,7 +174,7 @@ Un compte de stockage Azure est une construction administrative qui, par ailleur
 
 Pour le stockage Standard, n’oubliez pas qu’il y a une limite d’IOPS par compte de stockage. Reportez-vous à la ligne **Taux de requêtes maximal** dans l’article [Objectifs de performance et de scalabilité du stockage Azure](../../../storage/common/scalability-targets-standard-account.md). Il y a également une limite initiale du nombre de comptes de stockage par abonnement Azure. Répartissez les disques durs virtuels de l’environnement SAP le plus grand entre les différents comptes de stockage pour ne pas dépasser les limites de ces comptes. Ce travail peut s’avérer fastidieux quand vous avez des centaines de machines virtuelles avec plus d’un millier de disques durs virtuels.
 
-Dans la mesure où l’utilisation du stockage Standard dans les déploiements SGBD conjointement avec une charge de travail SAP n’est pas recommandée, les références et les recommandations relatives au stockage Standard se limitent à ce court [article](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Dans la mesure où l’utilisation du stockage Standard dans les déploiements SGBD conjointement avec une charge de travail SAP n’est pas recommandée, les références et les recommandations relatives au stockage Standard se limitent à ce court [article](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance).
 
 Afin d’éviter le travail d’administration lié à la planification et au déploiement de disques durs virtuels sur plusieurs comptes de stockage Azure, Microsoft a introduit la fonctionnalité [Disques managés Azure](https://azure.microsoft.com/services/managed-disks/) en 2017. Les disques managés sont disponibles pour le stockage Standard et le stockage Premium. Voici les principaux avantages des disques managés par rapport aux disques non managés :
 
@@ -327,7 +327,7 @@ L’équilibreur de charge propose une option de DirectServerReturn. Si cette op
 
 Nous vous recommandons de configurer DirectServerReturn en combinaison avec les équilibreurs de charge positionnés entre la couche Application SAP et la couche SGBD. Cette configuration réduit la latence du réseau entre les deux couches.
 
-Pour obtenir un exemple de cette configuration avec SQL Server Always On, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+Pour obtenir un exemple de cette configuration avec SQL Server Always On, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 Si vous utilisez des modèles JSON GitHub publiés en référence pour les déploiements de votre infrastructure SAP dans Azure, examinez ce [modèle pour un système SAP à trois niveaux](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). Ce modèle vous montre également les paramètres appropriés à utiliser pour l’équilibreur de charge.
 

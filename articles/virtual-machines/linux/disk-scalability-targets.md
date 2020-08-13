@@ -7,18 +7,18 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f0345df783a3bf3398c8be6b04dbc5671855f6be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 33a0df73e280fc195a7ccba18c857b2ebdcbe31a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502637"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825393"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Cibles de scalabilité et de performance des disques de machine virtuelle sur Linux
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Consultez [Tailles des machines virtuelles Linux](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
+Consultez [Tailles des machines virtuelles Linux](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
 
 ## <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
 

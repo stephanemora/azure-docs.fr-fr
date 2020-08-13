@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f71e52fd1fd40015ff93e189495daef0e2c333e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327966"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824577"
 ---
 # <a name="enable-azure-monitor-for-vms-using-powershell"></a>Activer Azure Monitor pour machines virtuelles à l’aide de PowerShell
 Cet article explique comment activer Azure Monitor pour machines virtuelles sur des machines virtuelles Azure à l’aide de PowerShell. Cette procédure peut être utilisée pour les éléments suivants :
@@ -35,7 +35,7 @@ Si vous souhaitez activer Azure Monitor pour machines virtuelles pour plusieurs 
 
 Pour chaque machine virtuelle ou groupe de machines virtuelles identiques, le script vérifie si les extensions de machine virtuelle pour l’agent de Log Analytics et l’agent Dependency sont installées. Si les extensions de machine virtuelle sont installées, le script tente de les réinstaller. Si elles ne sont pas installées, le script les installe.
 
-Vérifiez que vous utilisez le module Azure PowerShell Az version 1.0.0 ou ultérieure avec les alias de compatibilité `Enable-AzureRM` activés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
+Vérifiez que vous utilisez le module Azure PowerShell Az version 1.0.0 ou ultérieure avec les alias de compatibilité `Enable-AzureRM` activés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
 
 Pour obtenir une liste des détails de l’argument du script et un exemple d’utilisation, exécutez `Get-Help`.
 

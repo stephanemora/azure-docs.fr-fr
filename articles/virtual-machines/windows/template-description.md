@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283229"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827450"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -274,7 +274,7 @@ Pour définir cette propriété, l’interface réseau doit exister. Vous avez d
 
 Plusieurs éléments de profil sont utilisés lors de la définition d’une ressource de machine virtuelle. Certains sont obligatoires, et d’autres facultatifs. Par exemple, les éléments hardwareProfile, osProfile, storageProfile et networkProfile sont requis, mais diagnosticsProfile est facultatif. Ces profils définissent des paramètres tels que :
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [nom](/azure/architecture/best-practices/resource-naming) et informations d’identification
 - disque et [paramètres du système d’exploitation](cli-ps-findimage.md)
 - [interface réseau](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Si vous souhaitez créer une machine virtuelle à partir d’une image gérée, 
 
 ### <a name="attach-data-disks"></a>Connecter des disques de données
 
-Vous pouvez aussi ajouter des disques de données aux machines virtuelles. Le [nombre de disques](sizes.md) dépend de la taille du disque de système d’exploitation que vous utilisez. Si la taille des machines virtuelles est définie sur Standard_DS1_v2, le nombre maximal de disques de données qui peuvent leur être ajoutés est de deux. Dans l’exemple, un disque de données géré est ajouté à chaque machine virtuelle :
+Vous pouvez aussi ajouter des disques de données aux machines virtuelles. Le [nombre de disques](../sizes.md) dépend de la taille du disque de système d’exploitation que vous utilisez. Si la taille des machines virtuelles est définie sur Standard_DS1_v2, le nombre maximal de disques de données qui peuvent leur être ajoutés est de deux. Dans l’exemple, un disque de données géré est ajouté à chaque machine virtuelle :
 
 ```json
 "dataDisks": [

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501549"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825257"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 
@@ -24,7 +24,7 @@ Lorsque vous validez une instance réservée d’hôtes Azure Dedicated Host, vo
 
 Avant d’acheter une réservation, vous devez déterminer l’hôte dédié dont vous avez besoin. Une référence SKU est définie pour un hôte dédié représentant la série et le type de la machine virtuelle. 
 
-Commencez par passer en revue les tailles prises en charge pour la [machine virtuelle Windows](./windows/sizes.md) ou [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin d’identifier la série de machine virtuelle.
+Commencez par passer en revue les tailles prises en charge pour la [machine virtuelle Windows](./sizes.md) ou [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin d’identifier la série de machine virtuelle.
 
 Ensuite, vérifiez qu’elle est prise en charge sur les hôtes Azure Dedicated Host. La page de [tarification des hôtes Azure Dedicated Host](https://aka.ms/ADHPricing) contient la liste complète des références SKU d’hôtes dédiés, les informations de l’UC et diverses options de tarification (y compris les instances réservées).
 

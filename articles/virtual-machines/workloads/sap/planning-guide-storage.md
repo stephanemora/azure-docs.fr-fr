@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042306"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825002"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -146,7 +146,7 @@ La matrice de capacité pour la charge de travail SAP ressemble à ceci :
 | Latence | faible à moyen | - |
 | Contrat de niveau de service IOPS | YES | - |
 | IOPS linéaires à la capacité | semi-linéaire entre crochets  | [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maximum d’E/S par seconde par disque | 20 000 [dépendant de la taille du disque](https://azure.microsoft.com/pricing/details/managed-disks/) | Tenez également compte des [limites de machine virtuelle](../../linux/sizes.md) |
+| Maximum d’E/S par seconde par disque | 20 000 [dépendant de la taille du disque](https://azure.microsoft.com/pricing/details/managed-disks/) | Tenez également compte des [limites de machine virtuelle](../../sizes.md) |
 | SLA de débit | YES | - |
 | Débit linéaire par rapport à la capacité | semi-linéaire entre crochets | [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certifié HANA | YES | [spécialement pour SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -335,11 +335,11 @@ Le stockage HDD Standard Azure était le seul type de stockage lorsque l'infrast
 
 | Type de stockage| Linux | Windows | Commentaires |
 | --- | --- | --- | --- |
-| HDD Standard | [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md) | Il est probablement difficile d’atteindre les limites de stockage des machines virtuelles moyennes ou grandes |
-| SSD Standard | [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md) | Il est probablement difficile d’atteindre les limites de stockage des machines virtuelles moyennes ou grandes |
-| Stockage Premium | [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md) | Limites d’IOPS ou de débit de stockage facilement atteintes par la machine virtuelle avec la configuration du stockage |
-| Stockage sur disque Ultra | [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md) | Limites d’IOPS ou de débit de stockage facilement atteintes par la machine virtuelle avec la configuration du stockage |
-| Azure NetApp Files | [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md) | Le trafic de stockage utilise la bande passante du débit réseau et non la bande passante du stockage. |
+| HDD Standard | [Tailles des machines virtuelles Linux dans Azure](../../sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../sizes.md) | Il est probablement difficile d’atteindre les limites de stockage des machines virtuelles moyennes ou grandes |
+| SSD Standard | [Tailles des machines virtuelles Linux dans Azure](../../sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../sizes.md) | Il est probablement difficile d’atteindre les limites de stockage des machines virtuelles moyennes ou grandes |
+| Stockage Premium | [Tailles des machines virtuelles Linux dans Azure](../../sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../sizes.md) | Limites d’IOPS ou de débit de stockage facilement atteintes par la machine virtuelle avec la configuration du stockage |
+| Stockage sur disque Ultra | [Tailles des machines virtuelles Linux dans Azure](../../sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../sizes.md) | Limites d’IOPS ou de débit de stockage facilement atteintes par la machine virtuelle avec la configuration du stockage |
+| Azure NetApp Files | [Tailles des machines virtuelles Linux dans Azure](../../sizes.md) | [Tailles des machines virtuelles Windows dans Azure](../../sizes.md) | Le trafic de stockage utilise la bande passante du débit réseau et non la bande passante du stockage. |
 
 Vous pouvez noter les limitations suivantes :
 

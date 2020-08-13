@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326067"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825359"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -35,7 +35,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 ## <a name="enable-service-map"></a>Activer Service Map
 
 1. Activez la solution Service Map depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions de supervision à partir de la galerie Solutions](solutions.md).
-1. [Installez l’agent de dépendances sur Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [installez l’agent de dépendances sur Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) sur chaque ordinateur sur lequel vous souhaitez obtenir des données. L’agent de dépendances peut surveiller les connexions aux voisins immédiats ; par conséquent, vous n’avez pas forcément besoin d’un agent sur chaque ordinateur.
+1. [Installez l’agent de dépendances sur Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) ou [installez l’agent de dépendances sur Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) sur chaque ordinateur sur lequel vous souhaitez obtenir des données. L’agent de dépendances peut surveiller les connexions aux voisins immédiats ; par conséquent, vous n’avez pas forcément besoin d’un agent sur chaque ordinateur.
 
 Accédez à Service Map dans le portail Azure à partir de votre espace de travail Log Analytics, puis sélectionnez l’option **Solutions** dans le volet gauche.<br><br> ![Sélectionnez l’option Solutions dans l’espace de travail](./media/service-map/select-solution-from-workspace.png).<br> Dans la liste des solutions, sélectionnez **ServiceMap(workspaceName)** et dans la page de présentation de la solution Service Map, cliquez sur la vignette de résumé Service Map.<br><br> ![Vignette de résumé Service Map](./media/service-map/service-map-summary-tile.png).
 
@@ -603,4 +603,3 @@ Vérifiez le `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file`
 ## <a name="suggestions"></a>Suggestions
 
 Avez-vous des commentaires à nous transmettre à propos de Service Map ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) vous permet de nous suggérer des fonctionnalités ou de voter pour des suggestions en cours.
-

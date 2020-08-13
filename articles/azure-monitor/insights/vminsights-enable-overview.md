@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323942"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824764"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
@@ -174,10 +174,10 @@ Voici plusieurs méthodes pour déployer ces agents.
 
 | Méthode | Description |
 |:---|:---|
-| [Azure portal](vminsights-enable-single-vm.md) | Installez les deux agents sur une seule machine virtuelle, des machines virtuelles hybrides ou un groupe de machines virtuelles identiques connectés à Azure Arc. |
+| [Azure portal](./vminsights-enable-portal.md) | Installez les deux agents sur une seule machine virtuelle, des machines virtuelles hybrides ou un groupe de machines virtuelles identiques connectés à Azure Arc. |
 | [Modèles Microsoft Azure Resource Manager](vminsights-enable-powershell.md) | Installez les deux agents à l’aide de l’une des méthodes prises en charge pour déployer un modèle Resource Manager, notamment l’interface CLI et PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Attribuez une initiative Azure Policy pour installer automatiquement les agents lors de la création d’une machine virtuelle ou d’un groupe de machines virtuelles identiques. |
-| [Installation manuelle](vminsights-enable-hybrid-cloud.md) | Installez les agents dans le système d’exploitation invité sur les ordinateurs hébergés en dehors d’Azure, notamment dans votre centre de centres ou dans d’autres environnements clouds. |
+| [Azure Policy](./vminsights-enable-policy.md) | Attribuez une initiative Azure Policy pour installer automatiquement les agents lors de la création d’une machine virtuelle ou d’un groupe de machines virtuelles identiques. |
+| [Installation manuelle](./vminsights-enable-hybrid.md) | Installez les agents dans le système d’exploitation invité sur les ordinateurs hébergés en dehors d’Azure, notamment dans votre centre de centres ou dans d’autres environnements clouds. |
 
 
 
@@ -200,4 +200,3 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment utiliser la fonctionnalité d’analyse des performances, consultez [Afficher les performances d’Azure Monitor pour machines virtuelles](vminsights-performance.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
-

@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323109"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824985"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Ressources Application Insights basées sur un espace de travail (préversion)
 
@@ -19,7 +19,7 @@ Les ressources basées sur un espace de travail prennent en charge l’intégrat
 Cela permet également de disposer d’un contrôle d’accès en fonction du rôle (RBAC) commun sur vos ressources et élimine le besoin de requêtes entre des applications ou des espaces de travail.
 
 > [!NOTE]
-> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont facturées dans l’espace de travail Log Analytics où se trouvent les données. [En savoir plus]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
+> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont facturées dans l’espace de travail Log Analytics où se trouvent les données. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
 
 Pour tester la nouvelle expérience, connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressource Application Insights :
 
@@ -204,4 +204,3 @@ La fonctionnalité héritée d’exportation continue n’est pas prise en charg
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

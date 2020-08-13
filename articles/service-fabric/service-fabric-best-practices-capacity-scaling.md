@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261172"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824594"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -19,7 +19,7 @@ Avant de créer un cluster Azure Service Fabric ou de mettre à l’échelle les
 En plus de prendre en compte les caractéristiques de type de nœud et de cluster, prévoyez que les opérations de mise à l’échelle d’un environnement de production prendront plus d’une heure. Cette considération est vraie quel que soit le nombre de machines virtuelles que vous ajoutez.
 
 ## <a name="autoscaling"></a>Mise à l’échelle automatique
-Vous devez effectuer les opérations de mise à l’échelle via des modèles Azure Resource Manager, car il est recommandé de traiter [les configurations de ressources en tant que code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Vous devez effectuer les opérations de mise à l’échelle via des modèles Azure Resource Manager, car il est recommandé de traiter [les configurations de ressources en tant que code](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 L’utilisation de la mise à l’échelle automatique via des groupes de machines virtuelles identiques empêchera votre modèle Resource Manager versionné de définir avec précision le nombre d’instance des groupes de machines virtuelles identiques. Une définition non précise augmente les risques d’opérations de mise à l’échelle non désirées lors de futurs déploiements. En règle générale, vous devez utiliser la mise à l’échelle automatique si :
 
