@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321987"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141923"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -85,7 +85,9 @@ Pour en savoir plus sur les séries prises en charge et les restrictions, consul
 | D | None |
 | Dv2 | None |  
 | DSv2 | None |  
-| FSv2 | None |  
+| FSv2 | None | 
+| HBv2 | Nécessite une approbation |  
+| Service de calcul hôte | Nécessite une approbation |  
 | M | Nécessite une approbation |
 | NC | None |    
 | NCsv2 | Nécessite une approbation |
