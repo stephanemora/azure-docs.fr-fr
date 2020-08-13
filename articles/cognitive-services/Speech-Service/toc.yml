@@ -117,30 +117,16 @@
   items:
     - name: Documentation sur la synthèse vocale
       href: index-text-to-speech.yml
-    - name: Vue d’ensemble
-      items:
-        - name: Qu’est-ce que la synthèse vocale ?
-          href: text-to-speech.md
-        - name: Concepts de base de la synthèse vocale
-          href: text-to-speech-basics.md
-    - name: Démarrage rapide
-      items:
-        - name: Synthétiser la voix vers un haut-parleur
-          href: quickstarts/text-to-speech.md
-        - name: Synthétiser la voix vers un fichier audio
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Synthétiser la parole au format audio long
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: Qu’est-ce que la synthèse vocale ?
+      href: text-to-speech.md
+    - name: Démarrage rapide sur la conversion de texte par synthèse vocale
+      href: get-started-text-to-speech.md
     - name: Guides pratiques
       items:
         - name: Améliorer la synthèse avec SSML
           href: speech-synthesis-markup.md
         - name: Synthétiser la voix avec l’API Audio long
           href: long-audio-api.md
-        - name: Obtenir une liste de voix avec REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Convertir du texte par synthèse vocale avec REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Personnalisation
       items:
         - name: Déploiement responsable

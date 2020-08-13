@@ -72,7 +72,7 @@
               items:
                 - name: "Configurer l’authentification Azure\_AD"
                   href: database/authentication-aad-configure.md
-                - name: Authentification AAD multifacteur
+                - name: Authentification multifacteur Azure AD
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Configuration de l’authentification multifacteur
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Connecter des applications
           href: managed-instance/connect-application-instance.md
-        - name: Créez des alertes
+        - name: Créer des alertes sur une instance managée
           href: managed-instance/alerts-create.md
+        - name: Lancer manuellement un basculement sur une instance managée
+          href: managed-instance/user-initiated-failover.md
     - name: Exemples
       items:
         - name: Azure CLI

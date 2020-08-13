@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: tamram
-ms.openlocfilehash: c222869df561a9a36ebd69eb9ae09fa688ba0086
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96d8100f2cffcfb001a693575128ce19e742225d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518676"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534128"
 ---
-Avant d’attribuer un rôle RBAC à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.
+Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources d’objets blob et de files d’attente Azure, en commençant par la plus petite étendue :
 
@@ -24,4 +24,4 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 - **L’abonnement.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou à toutes les files d’attente dans tous les comptes de stockage de tous les groupes de ressources de l’abonnement.
 - **Un groupe d’administration.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou à toutes les files d’attente dans tous les comptes de stockage de tous les groupes de ressources de tous les abonnements du groupe d’administration.
 
-Pour plus d’informations sur les attributions de rôle RBAC et l’étendue, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../articles/role-based-access-control/overview.md).
+Pour plus d’informations sur les attributions de rôles Azure et l’étendue, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../articles/role-based-access-control/overview.md).

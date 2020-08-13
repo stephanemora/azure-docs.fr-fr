@@ -49,14 +49,8 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Authentification unique
       items:
-        - name: Activer SSO pour votre application multilocataire
-          href: isv-sso-content.md
-        - name: Créer un locataire Azure pour une application multilocataire
-          href: isv-tenant-multi-tenant-app.md
-        - name: Choisir une fédération multilocataire
-          href: isv-choose-multi-tenant-federation.md
-        - name: Créer une documentation pour une application multilocataire
-          href: isv-create-sso-documentation.md
+        - name: Options d’authentification unique
+          href: sso-options.md
         - name: Planifier un déploiement de l’authentification unique
           href: plan-sso-deployment.md
         - name: SSO en un clic
@@ -97,6 +91,16 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Comparaison des solutions d’accès à distance
           href: application-proxy-migration.md
+    - name: Mettre une application sur le marché
+      items:
+        - name: Activer SSO pour votre application multilocataire
+          href: isv-sso-content.md
+        - name: Créer un locataire Azure pour une application multilocataire
+          href: isv-tenant-multi-tenant-app.md
+        - name: Choisir une fédération multilocataire
+          href: isv-choose-multi-tenant-federation.md
+        - name: Créer une documentation pour une application multilocataire
+          href: isv-create-sso-documentation.md
 - name: Guides pratiques
   expanded: false
   items:

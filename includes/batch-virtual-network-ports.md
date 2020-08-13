@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506591"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507602"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -89,7 +89,7 @@ Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquemen
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Autorisations** : le `Microsoft Azure Batch`principal du service doit jouer le rôle de contrôle d’accès en fonction du rôle (RBAC) `Classic Virtual Machine Contributor` pour le réseau virtuel spécifié.
+**Autorisations** : le `Microsoft Azure Batch`principal du service doit avoir le rôle Azure `Classic Virtual Machine Contributor` pour le réseau virtuel spécifié.
 
 #### <a name="network-security-groups"></a>Groupes de sécurité réseau
 

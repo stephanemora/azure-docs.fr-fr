@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292393"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545196"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -53,7 +53,9 @@ Apprenez-en davantage sur le déploiement d’une machine virtuelle [Windows](..
 Les groupes à haute disponibilité constituent une autre configuration de centre de données destinée à assurer la redondance et la disponibilité des machines virtuelles. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Une seule machine virtuelle à instance unique dans un groupe à haute disponibilité doit utiliser le SSD Premium ou le disque Ultra pour tous les disques de système d’exploitation et disques de données afin de bénéficier de la connectivité d’au moins 99,9 % du SLA pour les machines virtuelles.
+> Une seule machine virtuelle à instance unique dans un groupe à haute disponibilité doit utiliser le SSD Premium ou le disque Ultra pour tous les disques de système d’exploitation et disques de données afin de bénéficier de la connectivité d’au moins 99,9 % du SLA pour les machines virtuelles. 
+> 
+> Une machine virtuelle à instance unique avec un SSD Standard aura un contrat SLA d’au moins 99,5 %, tandis qu’une machine virtuelle à instance unique avec un HDD Standard aura un contrat SLA d’au moins 95 %.  Voir [Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/)
 
 Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un **domaine de mise à jour** et un **domaine d’erreur** par la plateforme Azure sous-jacente. Pour un groupe à haute disponibilité donné, cinq domaines de mise à jour non configurables par l’utilisateur sont affectés par défaut (les déploiements Resource Manager peuvent ensuite être étendus à 20 domaines de mise à jour) pour indiquer les groupes de machines virtuelles et les équipements physiques sous-jacents qui peuvent être redémarrés simultanément. Dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine est placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois. Un domaine de mise à jour redémarré bénéficie de 30 minutes pour récupérer avant que la maintenance ne soit lancée sur un autre domaine de mise à jour.
 

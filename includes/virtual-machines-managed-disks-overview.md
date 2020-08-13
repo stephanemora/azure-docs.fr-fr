@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102635"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162769"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -41,7 +41,7 @@ Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../artic
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
-Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/role-based-access-control/overview.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Les disques managés exposent différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
+Vous pouvez utiliser le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../articles/role-based-access-control/overview.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Les disques managés exposent différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
 ### <a name="upload-your-vhd"></a>Charger votre disque dur virtuel
 
@@ -53,7 +53,7 @@ Pour découvrir comment transférer votre disque dur virtuel sur Azure, consulte
 
 ### <a name="private-links"></a>Liaisons privées
 
-Les disques managés prennent en charge l’utilisation de liaisons privées pour importer ou exporter un disque managé interne à votre réseau. Les liaisons privées vous permettent de générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés que vous pouvez utiliser pour exporter les données vers d’autres régions dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou d’une analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement un disque dur virtuel sur un disque vide à partir de l’environnement local. Vous pouvez désormais tirer parti des [liaisons privées](../articles/private-link/private-link-overview.md) pour restreindre l’exportation et l’importation des disques managés, afin qu’elles aient lieu uniquement au sein de votre réseau virtuel Azure. Les liaisons privées vous permettent de vous assurer que vos données ne transitent que dans le réseau principal sécurisé de Microsoft.
+La prise en charge des liaisons privées pour les disques managés est actuellement en préversion et peut être utilisée pour importer ou exporter un disque managé interne dans votre réseau. Les liaisons privées vous permettent de générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés que vous pouvez utiliser pour exporter les données vers d’autres régions dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou d’une analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement un disque dur virtuel sur un disque vide à partir de l’environnement local. Vous pouvez désormais tirer parti des [liaisons privées](../articles/private-link/private-link-overview.md) pour restreindre l’exportation et l’importation des disques managés, afin qu’elles aient lieu uniquement au sein de votre réseau virtuel Azure. Les liaisons privées vous permettent de vous assurer que vos données ne transitent que dans le réseau principal sécurisé de Microsoft.
 
 Pour savoir comment activer les liaisons privées pour l’importation ou l’exportation d’un disque managé, consultez les articles relatifs à l’interface [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) ou au [portail](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
 

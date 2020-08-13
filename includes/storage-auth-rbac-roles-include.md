@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c0ca96d1829a73f856de021d1286e53007b03219
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: bc5d4e5a8a9607f74eb8733855a216b83520ff11
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368969"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503704"
 ---
 Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès au blob et aux données de file d’attente avec Azure AD et OAuth :
 
@@ -28,7 +28,7 @@ Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès au 
 
 Seuls les rôles explicitement définis pour l’accès aux données permettent à un principal de sécurité d’accéder aux données d’objet blob ou de file d’attente. Des rôles intégrés, tels que **Propriétaire**, **Contributeur** et **Contributeur de comptes de stockage**, permettent à un principal de sécurité de gérer un compte de stockage, mais n’accordent pas l’accès aux données de l’objet blob ou de la file d’attente dans ce compte via Azure AD. Toutefois, si un rôle comprend **Microsoft.Storage/storageAccounts/listKeys/action**, un utilisateur auquel ce rôle est affecté peut accéder aux données du compte de stockage via l’autorisation de la clé partagée avec les clés d’accès au compte. Pour plus d’informations, voir [Utiliser le portail Azure pour accéder aux données d’objet blob ou de file d’attente](../articles/storage/common/storage-access-blobs-queues-portal.md).
 
-Pour des informations détaillées sur les rôles intégrés Azure pour le Stockage Azure pour les services de données et de gestion, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). En outre, pour plus d’informations sur les différents types de rôles qui fournissent des autorisations dans Azure, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
+Pour des informations détaillées sur les rôles intégrés Azure pour le Stockage Azure pour les services de données et de gestion, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Pour plus d’informations sur les différents types de rôles qui fournissent des autorisations dans Azure, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> Les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager.
+> Les attributions de rôles Azure peuvent prendre jusqu’à cinq minutes pour se propager.

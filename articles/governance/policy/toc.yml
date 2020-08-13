@@ -10,16 +10,22 @@
   items:
     - name: Attribuer une stratégie - Portail
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: "Attribuer une stratégie\_- Azure PowerShell"
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: Attribuer une stratégie - Azure CLI
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: "Attribuer une stratégie\_- Azure PowerShell"
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: Attribuer une stratégie - Python
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: Attribuer une stratégie - REST
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: "Attribuer une stratégie\_- Modèle ARM"
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: Tutoriels
   items:
     - name: Créer et gérer une stratégie Azure

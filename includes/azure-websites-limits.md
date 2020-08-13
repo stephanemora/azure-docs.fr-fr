@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 469138da19248bc7872028508f3080de5fae4a52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838734"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425268"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,8 +28,9 @@ ms.locfileid: "85838734"
 | [Connexions simultanées du débogueur](../articles/app-service/troubleshoot-dotnet-visual-studio.md) par application |1 |1 |1 |5 |5 |5 |
 | Certificats App Service par abonnement<sup>9</sup>| Non pris en charge | Non pris en charge |10 |10 |10 |10 |
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
-| domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-certificate.md) |Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
-| Connexions hybrides par plan | | | 5 | 25 | 200 | 200 |
+| domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-certificate.md) |Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
+| Connexions hybrides | | | 5 par plan | 25 par plan | 200 par application | 200 par application |
+| [Intégration du réseau virtuel](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Équilibreur de charge intégré | |X |X |X |X |X<sup>10</sup> |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Sauvegardes planifiées](../articles/app-service/manage-backup.md) | | | | Sauvegardes planifiées toutes les 2 heures, un maximum de 12 sauvegardes par jour (manuelles + planifiées) | Sauvegardes planifiées toutes les heures, un maximum de 50 sauvegardes par jour (manuelles + planifiées) | Sauvegardes planifiées toutes les heures, un maximum de 50 sauvegardes par jour (manuelles + planifiées) |
@@ -37,6 +38,11 @@ ms.locfileid: "85838734"
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
 | [Surveillance de point de terminaison](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Emplacements de préproduction](../articles/app-service/deploy-staging-slots.md) par application| | | |5 |20 |20 |
+| [Test en production](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
+| [Journaux de diagnostic](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
+| Kudu | X | X | X | X | X | X |
+| [Authentification et autorisation](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |
+| [Certificats managés App Service (préversion publique)](https://azure.microsoft.com/updates/secure-your-custom-domains-at-no-cost-with-app-service-managed-certificates-preview/)<sup>12</sup> | |  | X | X | X | X |
 | Contrat SLA | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
 
 <sup>1</sup>Des quotas d'applications et de stockage s'appliquent pour chaque plan App Service, sauf mention contraire.  
@@ -49,4 +55,6 @@ ms.locfileid: "85838734"
 <sup>8</sup>Le nombre maximal de connexions IP s’entend par instance et dépend de la taille de l’instance : 1 920 par instance B1/S1/P1V2, 3 968 par instance B2/S2/P2V2, 8 064 par instance B3/S3/P3V2.  
 <sup>9</sup>La limite de quota de certificats App Service par abonnement peut être augmentée via une demande de support jusqu’à la limite maximale de 200.  
 <sup>10</sup>Les références SKU App Service Isolé peuvent bénéficier d’un équilibrage de charge en interne (sans connectivité à Internet) avec Azure Load Balancer. Aussi, certaines fonctionnalités d’une instance isolée d’App Service à charge équilibrée en interne doivent être utilisées à partir de machines qui ont un accès direct au point de terminaison réseau avec équilibrage de charge en interne.  
-<sup>11</sup>Exécutez des exécutables et/ou des scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Il n’existe aucune limite prédéfinie pour le nombre de tâches Web pouvant s’exécuter dans une instance App Service. Il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.  
+<sup>11</sup>Exécutez des exécutables et/ou des scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Il n’existe aucune limite prédéfinie pour le nombre de tâches Web pouvant s’exécuter dans une instance App Service. Il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.
+
+<sup>12</sup>Les domaines nus ne sont pas pris en charge. Émission de certificats standard uniquement (les certificats avec caractères génériques ne sont pas disponibles). Limité à un seul certificat gratuit par domaine personnalisé.

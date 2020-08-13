@@ -19,6 +19,8 @@
       href: terminology.md
     - name: Rôles et conditions requises
       href: concepts-roles-permissions.md
+    - name: Comprendre les tarifs
+      href: concepts-pricing.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -29,12 +31,12 @@
   items:
     - name: Superviser
       href: how-to-monitor.md
-    - name: Configurer des mappages de jeu de données
-      href: how-to-configure-mapping.md
     - name: Dépanner
       href: data-share-troubleshoot.md
     - name: Ajouter des jeux de données
       href: how-to-add-datasets.md
+    - name: Configurer des mappages de jeu de données
+      href: how-to-configure-mapping.md
     - name: Ajouter des destinataires
       href: how-to-add-recipients.md
     - name: Supprimer une invitation

@@ -24,7 +24,7 @@
       href: tutorial-backup-vm-at-scale.md
     - name: Sauvegarder des machines virtuelles Azure avec PowerShell
       href: tutorial-backup-azure-vm.md
-    - name: Restaurer un disque
+    - name: Restaurer une machine virtuelle avec Azure CLI
       href: tutorial-restore-disk.md
     - name: Restaurer des fichiers individuels
       href: tutorial-restore-files.md
@@ -181,7 +181,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -355,7 +355,7 @@
           href: backup-rm-template-samples.md
     - name: Sécurité
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: security-overview.md
         - name: Contrôle d’accès en fonction du rôle
           href: backup-rbac-rs-vault.md

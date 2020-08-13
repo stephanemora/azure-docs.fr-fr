@@ -3,7 +3,7 @@ title: Documentation SQL Azure
 summary: 'Découvrez la documentation de la famille SQL Azure des produits de moteur de base de données SQL Server dans le cloud : Azure SQL Database, Azure SQL Managed Instance et SQL Server sur machine virtuelle Azure. '
 metadata:
   title: Documentation SQL Azure
-  description: SQL Azure est une famille de produits de moteur de base de données SQL Server dans le cloud, avec une base de données complètement managée dans Azure SQL Database, une instance complètement managée dans Azure SQL Managed Instance ou SQL Server installé sur une machine virtuelle dans Azure.
+  description: Azure SQL est une famille de produits de moteur de base de données SQL Server dans le cloud, avec une base de données complètement managée dans Azure SQL Database, une instance complètement managée dans Azure SQL Managed Instance ou SQL Server installé sur une machine virtuelle dans Azure.
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 10/30/2019
-  ms.openlocfilehash: b069cd8a027d5652ae68bbbbf21e03434daf1443
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.openlocfilehash: 131be4c87e0274050b6c7b374f75757c8d3f94f2
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85318571"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167842"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -151,14 +151,16 @@ landingContent:
     links:
     - text: Ressources SQL éducatives
       url: /sql/sql-server/educational-sql-resources
+    - text: Fondamentaux Azure SQL
+      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
   - linkListType: deploy
     links:
     - text: Exemples d’interface de ligne de commande Azure
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/az-cli-script-samples-content-guide.md
     - text: Exemples PowerShell
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/powershell-script-content-guide.md
     - text: Exemples de modèles ARM
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/arm-templates-content-guide.md
   - linkListType: download
     links:
     - text: SQL Server Management Studio (SSMS)
