@@ -1,3 +1,5 @@
+- name: "Documentation Azure\_HDInsight"
+  href: index.yml
 - name: Service HDInsight
   expanded: true
   items:
@@ -74,7 +76,7 @@
               href: overview-data-lake-storage-gen1.md
             - name: Vue d’ensemble d’Azure Data Lake Storage Gen2
               href: overview-data-lake-storage-gen2.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Créer des clusters
           items:
@@ -342,7 +344,7 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: "Migrer vers Spark\_2.3 ou\_2.4"
           href: ./spark/migrate-versions.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Utiliser des outils
           items:
@@ -471,7 +473,7 @@
           href: ./hdinsight-hadoop-create-linux-clusters-adf.md
         - name: Envoyer des tâches Apache Hadoop
           href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Utiliser des outils
           items:
@@ -616,7 +618,7 @@
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Forum aux questions sur Kafka
           href: ./kafka/kafka-faq.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Développer
           items:
@@ -667,7 +669,7 @@
       items:
         - name: Utiliser Apache HBase dans HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Développer
           items:
@@ -746,7 +748,7 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Recommandations de dimensionnement
           href: ./interactive-query/sizing-guidelines.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Développer
           items:
@@ -843,7 +845,7 @@
           href: ./r-server/ml-services-tutorial-spark-compute.md
         - name: Utiliser Outils R pour Visual Studio
           href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Développer
           items:
@@ -875,7 +877,7 @@
           href: ./storm/apache-storm-write-data-lake-store.md
         - name: Apache Kafka et Apache Storm (Java)
           href: ./hdinsight-apache-storm-with-kafka.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Migrer Storm vers Spark
           href: ./storm/migrate-storm-to-spark.md
@@ -943,7 +945,7 @@
           href: ./disk-encryption.md
         - name: Synchronisation LDAP dans Ranger et Apache Ambari
           href: ./domain-joined/ldap-sync.md
-    - name: Procédures
+    - name: Guides pratiques
       items:
         - name: Utiliser un broker d’ID pour la gestion des informations d’identification
           href: ./domain-joined/identity-broker.md

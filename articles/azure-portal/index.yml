@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: mblythe
   ms.author: mblythe
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 277326eb6b120c4cc1b456a17c6f58791c66dd16
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/05/2020
+  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75890770"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212092"
 landingContent:
 - title: À propos du portail Azure
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
-    - text: Gérer les ressources dans Azure
+    - text: Gérer des ressources dans Azure
       url: /learn/paths/manage-resources-in-azure/
     - text: Sécuriser vos ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
@@ -63,7 +63,7 @@ landingContent:
       url: azure-portal-video-series.md
   - linkListType: learn
     links:
-    - text: Fondamentaux Azure
+    - text: Principes de base d’Azure
       url: /learn/paths/azure-fundamentals/
     - text: Concepts du cloud - Principes du cloud computing
       url: /learn/modules/principles-cloud-computing/
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Activer le contraste élevé
-      url: azure-portal-change-theme-high-contrast.md
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Créer et gérer des demandes de support
   linkLists:
   - linkListType: how-to-guide
