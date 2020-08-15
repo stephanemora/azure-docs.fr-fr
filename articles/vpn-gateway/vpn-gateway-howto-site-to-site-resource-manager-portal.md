@@ -1,6 +1,6 @@
 ---
 title: 'Connecter un réseau local à un réseau virtuel Azure : VPN de site à site : Portail'
-description: Étapes de création d’une connexion IPsec entre votre réseau local et un réseau virtuel Azure via l’Internet public. Ces étapes vous aideront à créer une connexion de passerelle VPN de site à site à l’aide du portail.
+description: Créez une connexion de passerelle VPN de site à site IPsec à partir de votre réseau local vers un réseau virtuel Azure via l’Internet public à l’aide du portail.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 601e31cde22942abd6d2bc7c5bdcbc5d97f5a591
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebfd03935f5189a544f11e5b8bbdd4b46e2aa989
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987656"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037063"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -45,19 +45,19 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 
 * **Nom du réseau virtuel :** VNet1
 * **Espace d’adressage :** 10.1.0.0/16
-* **Abonnement :** abonnement à utiliser
+* **Abonnement :** abonnement à utiliser
 * **Groupe de ressources :** TestRG1
 * **Région :** USA Est
-* **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
+* **Sous-réseau :** FrontEnd : 10.1.0.0/24 ; BackEnd : 10.1.1.0/24 (facultatif pour cet exercice)
 * **Plage d’adresses du sous-réseau de passerelle :** 10.1.255.0/27
-* **Nom de la passerelle de réseau virtuel :** VNet1GW
-* **Nom de l'adresse IP publique :** VNet1GWpip
+* **Nom de passerelle de réseau virtuel :** VNet1GW
+* **Adresse IP publique :** VNet1GWpip
 * **Type de VPN :** basé sur la route
 * **Type de connexion :** Site à site (IPsec)
 * **Type de passerelle :** VPN
 * **Nom de passerelle de réseau local :** Site1
 * **Nom de la connexion :** VNet1toSite1
-* **Clé partagée :** Pour cet exemple, nous utilisons abc123. Toutefois, vous pouvez utiliser n’importe quelle valeur compatible avec votre matériel VPN. L’important est que les valeurs soient les mêmes de part et d’autre de la connexion.
+* **Clé partagée :** pour cet exemple, nous utilisons abc123. Toutefois, vous pouvez utiliser n’importe quelle valeur compatible avec votre matériel VPN. L’important est que les valeurs soient les mêmes de part et d’autre de la connexion.
 
 ## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Créez un réseau virtuel
 

@@ -1,6 +1,6 @@
 ---
 title: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
-description: Déployer des passerelles VPN et ExpressRoute dans les zones de disponibilité
+description: Découvrez comment déployer des passerelles VPN redondantes interzone et des passerelles ExpressRoute dans les zones de disponibilité Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cd0b2f31af187d881fe650c0829bb28e353dcbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1404f5201ff5f543e34c6a4c8e5713cab3a4c51b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987619"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033476"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
 

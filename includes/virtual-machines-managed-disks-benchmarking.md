@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67673324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010821"
 ---
 *Préchauffage du cache*  
 Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Pendant l’exécution du test, le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 produit un taux d’E/S par seconde maximal en écriture limité à 50 000 E/S par seconde.  
-    ![Nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>Taux d’E/S maximal en lecture
 
@@ -194,11 +194,11 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Pendant l’exécution du test, le nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 64 000 E/S par seconde en lecture. Cette valeur représente les performances combinées du disque et du cache.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Capture d’écran du nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>Taux d’E/S maximal en lecture et en écriture
 
-Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
+ Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Pendant l’exécution du test, le nombre d’E/S par seconde combinées en lect
 
 #### <a name="maximum-combined-throughput"></a>Débit maximal combiné
 
-Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.
+ Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.

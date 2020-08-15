@@ -1,6 +1,6 @@
 ---
 title: Provisionner des nœuds pour VMware Solution by CloudSimple - Azure
-description: Découvrez comment ajouter des nœuds à votre déploiement VMWare avec CloudSimple
+description: Découvrez comment ajouter des nœuds à votre déploiement VMWare avec CloudSimple dans le Portail Azure. Vous pouvez configurer la capacité avec un paiement à l’utilisation pour votre environnement de cloud privé.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccff5b4dc6ed5a571e25ab0569b9fa92674e1340
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024804"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140732"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionner des nœuds pour Azure VMware Solution by CloudSimple
 
