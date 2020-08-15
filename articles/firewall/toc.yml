@@ -58,10 +58,8 @@
       href: remote-work-support.md
     - name: FQDN dans les règles de réseau
       href: fqdn-filtering-network-rules.md
-    - name: Concepts
-      items:
-        - name: Base de référence de la sécurité
-          href: security-baseline.md
+    - name: Base de référence de la sécurité
+      href: security-baseline.md
 - name: Guides pratiques
   items:
     - name: Déployer avec Azure PowerShell

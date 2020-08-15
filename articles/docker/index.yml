@@ -3,19 +3,19 @@ title: Documentation Docker sur Azure
 summary: Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux et Windows. Découvrez comment tirer parti de Docker sur Azure.
 metadata:
   title: Documentation Docker sur Azure
-  description: Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux et Windows. Découvrez comment tirer parti de Docker sur Azure.
+  description: Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux et Windows.
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 9205a47ee0ba3e6e0b328c8f481b15fe593ec5fb
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080383"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88224575"
 landingContent:
 - title: Déployer Docker sur Azure
   linkLists:

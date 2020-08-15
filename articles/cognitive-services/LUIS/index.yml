@@ -12,12 +12,12 @@ metadata:
   title: Documentation Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Le service LUIS (Language Understanding) permet à votre application de comprendre le sens des propos d’une personne. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
-  ms.openlocfilehash: 0d941872670a5bdd559a2760f73cda72773fc887
-  ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+  ms.openlocfilehash: 561f6ee161d2a697b8c143ee49209515f679c77b
+  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84791586"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88236520"
 landingContent:
 - title: À propos de Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portail : Créer une application LUIS'
       url: get-started-portal-build-app.md
     - text: Utilisation du SDK C#
-      url: sdk-authoring.md?pivots=programming-language-csharp
+      url: quickstart-sdk.md?pivots=programming-language-csharp
     - text: Utilisation du SDK Python
-      url: sdk-authoring.md?pivots=programming-language-python
+      url: quickstart-sdk.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Créer une application LUIS
@@ -88,7 +88,7 @@ landingContent:
     - text: 'Portail : Déployer l’application sur le point de terminaison de prédiction'
       url: get-started-portal-deploy-app.md
     - text: Utiliser le kit de développement logiciel (SDK)
-      url: sdk-authoring.md
+      url: quickstart-sdk.md
   - linkListType: how-to-guide
     links:
     - text: Versionner votre application
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utiliser le kit de développement logiciel (SDK)
-      url: sdk-query-prediction-endpoint.md
+      url: quickstart-sdk.md
   - linkListType: quickstart
     links:
     - text: Avec C# utilisant REST
