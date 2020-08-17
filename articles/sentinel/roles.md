@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374216"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836766"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
-Azure Sentinel utilise le  [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) pour fournir des  [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être attribués à des utilisateurs, des groupes et des services dans Azure.
+Azure Sentinel utilise le  [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) pour fournir des  [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être attribués à des utilisateurs, des groupes et des services dans Azure.
 
-Utilisez RBAC pour créer et attribuer des rôles au sein de votre équipe en charge des opérations de sécurité pour accorder l’accès approprié à Azure Sentinel. Les différents rôles vous donnent un contrôle précis sur ce que les utilisateurs d’Azure Sentinel peuvent voir et faire. Les rôles RBAC peuvent être attribués directement dans l’espace de travail Azure Sentinel (voir la remarque ci-dessous), ou dans un abonnement ou un groupe de ressources auquel appartient l’espace de travail, dont Azure Sentinel héritera.
+Utilisez RBAC pour créer et attribuer des rôles au sein de votre équipe en charge des opérations de sécurité pour accorder l’accès approprié à Azure Sentinel. Les différents rôles vous donnent un contrôle précis sur ce que les utilisateurs d’Azure Sentinel peuvent voir et faire. Les rôles Azure peuvent être attribués directement dans l’espace de travail Azure Sentinel (voir la remarque ci-dessous), ou dans un abonnement ou un groupe de ressources auquel appartient l’espace de travail, dont Azure Sentinel héritera.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Rôles pour travailler dans Azure Sentinel
 
@@ -64,7 +64,7 @@ Pour une comparaison côte à côte, consultez le [tableau ci-dessous](#roles-an
 
 ### <a name="other-roles-you-might-see-assigned"></a>Autres rôles que vous pouvez voir attribués
 
-En attribuant des rôles RBAC spécifiques à Azure Sentinel, vous pouvez rencontrer d’autres rôles RBAC Azure et Log Analytics qui peuvent avoir été attribués aux utilisateurs à d’autres fins. Notez que ces rôles accordent un ensemble plus important d’autorisations qui incluent l’accès à votre espace de travail Azure Sentinel et à d’autres ressources :
+En attribuant des rôles Azure spécifiques à Azure Sentinel, vous pouvez rencontrer d’autres rôles Azure et Log Analytics qui peuvent avoir été attribués aux utilisateurs à d’autres fins. Notez que ces rôles accordent un ensemble plus important d’autorisations qui incluent l’accès à votre espace de travail Azure Sentinel et à d’autres ressources :
 
 - **Rôles Azure :** [Propriétaire](../role-based-access-control/built-in-roles.md#owner), [Contributeur](../role-based-access-control/built-in-roles.md#contributor) et [Lecteur](../role-based-access-control/built-in-roles.md#reader). Les rôles Azure accordent l’accès à l’ensemble de vos ressources Azure, notamment aux espaces de travail Log Analytics et aux ressources Azure Sentinel.
 

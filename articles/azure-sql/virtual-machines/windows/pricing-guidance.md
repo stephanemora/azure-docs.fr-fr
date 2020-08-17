@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342593"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141956"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Guide des prix de SQL Server sur machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -67,7 +67,7 @@ Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux 
 
 **Le paiement d’une licence SQL Server à l’utilisation** (ou **paiement au fur et à mesure**) signifie que le coût par seconde de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. Les tarifs des différentes éditions de SQL Server (Web, Standard, Entreprise) sont indiqués dans la page de tarification des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Le coût de licence par seconde varie selon le nombre de processeurs virtuels de machine virtuelle.
+Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2019). Le coût de licence par seconde varie selon le nombre de processeurs virtuels de machine virtuelle.
 
 Le paiement de la licence SQL Server à l’utilisation est recommandé pour :
 

@@ -1,5 +1,5 @@
 ---
-title: Référence de contenu concernant la configuration et la gestion
+title: Configurer et gérer une référence de contenu
 titleSuffix: Azure SQL Managed Instance
 description: Guide de référence de contenu qui explique comment configurer et gérer Azure SQL Managed Instance.
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708822"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167949"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Référence du contenu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,6 +75,14 @@ Dans cet article, vous trouverez une référence du contenu des guides, des scri
 - [Stocker des événements étendus dans un fichier d’événements](../database/xevent-code-event-file.md)
 - [Capturer des événements étendus dans la mémoire tampon](../database/xevent-code-ring-buffer.md)
 
+### <a name="alerting"></a>Génération d’alertes
+
+- [Créer des alertes sur une instance managée](alerts-create.md)
+
+## <a name="operations"></a>Opérations
+
+- [Basculement manuel initié par l’utilisateur sur SQL Managed Instance](user-initiated-failover.md)
+
 ## <a name="develop-applications"></a>Développer des applications
 
 - [Connectivité](../database/connect-query-content-reference-guide.md#libraries)
@@ -99,8 +107,6 @@ Dans cet article, vous trouverez une référence du contenu des guides, des scri
 - [Modèles de conception SaaS](../database/saas-tenancy-app-design-patterns.md)
 - [Video Indexer SaaS](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Sécurité des applications SaaS](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

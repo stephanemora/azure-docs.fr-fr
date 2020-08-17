@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279302"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056548"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -25,7 +25,7 @@ Vous pouvez continuer à travailler comme d’habitude dans l’Espace partenair
 | Domaine<img src="" width=200px> | Modifications |
 | --- | --- |
 | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires ; vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](partner-center-portal/manage-account.md). |
-| Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md). |
+| Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](partner-center-portal/update-existing-offer.md). |
 | Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la Place de marché commerciale, elle continuera à être active. |
 | Nouveaux achats et déploiements | Aucun changement. Vos clients peuvent continuer à acheter et à déployer vos offres sans interruption. |
 | Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](partner-center-portal/get-paid.md). |
@@ -143,7 +143,7 @@ Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouill
 
 ### <a name="enhanced-preview-options"></a>Options d’aperçu améliorées
 
-L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
+L’Espace partenaires comprend une [fonctionnalité de comparaison](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Affiche la fonctionnalité de comparaison de l’Espace partenaires")](media/cpp-pc-faq/compare.png#lightbox)
 

@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529974"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926278"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 
@@ -39,7 +39,7 @@ Chaque abonnement Azure peut être associé à une instance d’Azure Active Dir
 
 Une fois qu’un utilisateur est authentifié par Azure Active Directory pour accéder à Data Lake Storage Gen1, les contrôles d’autorisation accèdent aux autorisations pour Data Lake Storage Gen1. Data Lake Storage Gen1 sépare l’autorisation pour les activités relatives aux comptes et aux données de la manière suivante :
 
-* [Le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) fournit par Azure pour la gestion des comptes ;
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) pour la gestion des comptes
 * ACL POSIX pour accéder aux données dans le magasin
 
 ### <a name="rbac-for-account-management"></a>RBAC pour la gestion des comptes

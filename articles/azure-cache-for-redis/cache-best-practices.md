@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007911"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bonnes pratiques en matière d’utilisation du cache Azure pour Redis 
 En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la rentabilité d’utilisation de votre instance du cache Azure pour Redis.
@@ -79,7 +79,7 @@ Si vous souhaitez tester le comportement de votre code dans des conditions d’e
  * **Envisagez d’utiliser des instances Redis de niveau Premium**.  Ces tailles de cache offrent une meilleure latence de réseau et un débit supérieur, car les instances s’exécutent sur un matériel plus performant pour le processeur et le réseau.
  
      > [!NOTE]
-     > Les résultats observés sur les performances sont [publiés ici](cache-faq.md#azure-cache-for-redis-performance) à titre de référence.   Par ailleurs, sachez que SSL/TLS augmente la charge, et que vous pouvez donc constater des latences et/ou des débits différents si vous utilisez le chiffrement de transport.
+     > Les résultats observés sur les performances sont [publiés ici](cache-planning-faq.md#azure-cache-for-redis-performance) à titre de référence.   Par ailleurs, sachez que SSL/TLS augmente la charge, et que vous pouvez donc constater des latences et/ou des débits différents si vous utilisez le chiffrement de transport.
  
 ### <a name="redis-benchmark-examples"></a>Exemples redis-benchmark
 **Configuration des prétests** : préparez l’instance de cache avec les données requises pour les commandes de test de la latence et du débit ci-dessous.
