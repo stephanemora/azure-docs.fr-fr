@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921126"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135995"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
@@ -113,7 +113,7 @@ Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB
 
 ## <a name="example-query-2"></a>Exemple de requête 2
 
-La requête suivante retourne tous les noms donnés des enfants de la famille dont l’ID correspond à `WakefieldFamily`, classés par classe.
+La requête suivante retourne tous les prénoms des enfants de la famille dont l’ID correspond à `WakefieldFamily`.
 
 **Requête**
 

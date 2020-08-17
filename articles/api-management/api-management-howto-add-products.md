@@ -1,6 +1,6 @@
 ---
 title: Création et publication d'un produit dans Gestion des API Azure
-description: Apprenez à créer et à publier des produits dans Gestion des API Azure.
+description: Apprenez à créer et à publier des produits dans Gestion des API Azure. Une fois qu’un produit est publié, les développeurs peuvent commencer à utiliser ses API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69b5e381ed8446b45f68b4b1ce9bb13df47039c0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254722"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904902"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
@@ -69,7 +69,7 @@ Afficher/ajouter des abonnés au produit à partir de l’onglet **Abonnements**
 
 Définissez la visibilité d’un produit pour les développeurs ou invités à partir de l’onglet **Contrôle d’accès**.
 
-## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Ajouter des API à un produit
+## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Ajout d’API à un produit
 
 Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.
 

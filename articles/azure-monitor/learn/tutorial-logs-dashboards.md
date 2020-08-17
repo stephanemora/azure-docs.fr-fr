@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927366"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -54,7 +54,7 @@ Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui
 
 ![Partager un nouveau tableau de bord dans le portail Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.  Vérifiez l’abonnement sélectionné, puis cliquez sur **Publier**.  L’accès aux informations figurant dans le tableau de bord est contrôlé par le [Contrôle d’accès en fonction des ressources Azure](../../role-based-access-control/role-assignments-portal.md).   
+Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.  Vérifiez l’abonnement sélectionné, puis cliquez sur **Publier**.  L’accès aux informations figurant dans le tableau de bord est contrôlé par un [Contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualiser une requête de journal
 [Log Analytics](../log-query/get-started-portal.md) est un portail dédié qui permet d’utiliser des requêtes de journal et leurs résultats. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans ce tutoriel, vous utilisez Log Analytics pour créer une vue des performances sous forme graphique, l’enregistrer pour une requête ultérieure et l’épingler au tableau de bord partagé créé précédemment.

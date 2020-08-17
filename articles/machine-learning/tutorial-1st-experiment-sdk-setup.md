@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ba6141bddd60c2bdc2fdf17845e8f470dd6ef55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520525"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852716"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
         + Le nom doit commencer par une lettre (et non par un chiffre ou un tiret).
         + S’il contient un tiret, celui-ci doit être suivi d’au moins une lettre. Exemple : Test-, test-0, test-01 ne sont pas noms d’instances valides, alors que test-a0, test-0a le sont.
 
-    1.  Sélectionnez la taille de la machine virtuelle parmi les options disponibles.
+    1.  Sélectionnez la taille de la machine virtuelle parmi les options disponibles. Pour les didacticiels, la machine virtuelle par défaut constitue un bon choix.
 
     1. Sélectionnez ensuite **Créer**. Environ 5 minutes sont nécessaires pour configurer votre machine virtuelle.
 

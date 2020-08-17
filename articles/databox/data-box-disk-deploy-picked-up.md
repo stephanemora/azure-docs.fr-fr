@@ -1,20 +1,20 @@
 ---
 title: Tutoriel sur le renvoi d’Azure Data Box Disk | Microsoft Docs
-description: Utilisez ce didacticiel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
+description: Dans ce tutoriel, découvrez comment retourner votre Azure Data Box Disk. Les instructions d’enlèvement varient selon la destination de retour de l’appareil.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 62ab110a24bbf6b93f7f019c829222ca666ecfaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039461"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923779"
 ---
 ::: zone target="docs"
 
@@ -85,7 +85,7 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 
 1. Utilisez l’étiquette d’expédition de retour et assurez-vous que le code TAU (numéro de référence) est écrit dessus. Si l’étiquette d’expédition fournie est manquante ou si vous rencontrez tout autre problème, envoyez un e-mail à [Data Box Asia Operations](mailto:adbo@microsoft.com). Indiquez le nom de la commande dans l’en-tête d’objet et les détails du problème auquel vous êtes confronté.
 2. Collez l’étiquette sur le colis.
-3. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+3. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
 ### <a name="japan"></a>[Japon](#tab/in-japan)
 
@@ -138,7 +138,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
      b.    Requestor contact number
@@ -155,6 +155,32 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
    Si vous rencontrez des problèmes, contactez l’équipe Data Box Operations Asia à l’adresse suivante : adbo@microsoft.com. Indiquez le nom de la tâche dans l’objet du message, ainsi que le problème rencontré.
 
 3. Remettez le colis au transporteur.
+
+### <a name="south-africa"></a>[Afrique du Sud](#tab/in-sa)
+
+Si vous retournez l’appareil en Afrique du Sud, procédez comme suit.
+
+1. Apposez l’étiquette d’expédition fournie sur le colis. Cette étiquette mentionne le numéro de suivi. Si l’étiquette d’expédition est manquante, vous pouvez en télécharger une nouvelle à partir de **Vue d’ensemble > Télécharger l’étiquette d’expédition**.
+
+2. Scellez la boîte d’envoi et assurez-vous que l’étiquette de retour est visible.
+
+3. Pour réserver un enlèvement auprès de DHL :
+
+    * Appelez le centre de contact du service clientèle en composant le +27(0) 11 9213600, sélectionnez l’option 1, puis indiquez le numéro de lettre de transport.
+    * Vous devez appeler avant 14h00, heure standard d’Afrique du Sud, pour planifier un enlèvement.  
+    * Envoyez un e-mail à [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) pour organiser l’enlèvement à l’aide du modèle d’e-mail suivant :
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject:Pickup request for Microsoft Azure
+    Body:  Need pick up for the below shipment
+    *  DHL tracking number (reference number/waybill number)
+    *  Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```
+
+    * Vous pouvez également déposer le colis au point de service DHL le plus proche.
+
+4. Si vous rencontrez des problèmes, envoyez e-mail à l’adresse [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), en détaillant les problèmes que vous avez rencontrés et en insérant le numéro de lettre de transport dans la ligne Objet. Vous pouvez également appeler le +27(0)119213902.
 
 ### <a name="china"></a>[Chine](#tab/in-china)
 
@@ -231,7 +257,3 @@ Passez à la procédure suivante pour savoir comment vérifier le chargement de 
 > [Vérifier le chargement de données à partir d’un disque Azure Data Box](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
-
-
-
-

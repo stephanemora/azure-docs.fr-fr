@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430814"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056905"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Fonctions JavaScript définies par l’utilisateur dans Azure Stream Analytics
  
@@ -132,7 +132,61 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+### <a name="cast-string-to-json-object-to-process"></a>Convertir une chaîne en objet JSON à traiter
+
+Si vous disposez d’un champ de chaîne JSON que vous souhaitez convertir en objet JSON à des fins de traitement dans une fonction JavaScript définie par l’utilisateur, vous pouvez utiliser la fonction **JSON.parse()** pour créer un objet JSON à utiliser ensuite.
+
+**Définition de la fonction JavaScript définie par l’utilisateur :**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Exemple de requête :**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>Utiliser try/catch pour la gestion des erreurs
+
+Les blocs try/catch vous aident à identifier les problèmes liés aux données d’entrée incorrectes transmises dans une fonction JavaScript définie par l’utilisateur.
+
+**Définition de la fonction JavaScript définie par l’utilisateur :**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Exemple de requête : Transmettez l’intégralité de l’enregistrement en tant que premier paramètre de manière à ce qu’il soit renvoyé en cas d’erreur.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Fonction définie par l’utilisateur pour le machine learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [Fonction définie par l’utilisateur en C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [C# UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

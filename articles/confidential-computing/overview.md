@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773277"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835814"
 ---
 # <a name="confidential-computing-on-azure"></a>Informatique confidentielle dans Azure
 
@@ -52,7 +52,7 @@ Les enclaves sont les parties sécurisées du processeur et de la mémoire d’u
 
 Quand vous développez des applications, vous pouvez utiliser des [outils logiciels](#oe-sdk) pour protéger des parties de votre code et de vos données dans l’enclave. Ces outils garantissent qu’aucune personne extérieure à l’environnement approuvé ne peut consulter ou modifier votre code et vos données. 
 
-Une enclave est similaire à une boîte noire. Vous placez le code et les données chiffrés dans la boîte noire. De l’extérieur, vous ne voyez rien. Vous donnez à l’enclave une clé pour déchiffrer les données, puis les données sont traitées et rechiffrées avant d’être envoyées hors de l’enclave.
+Une enclave est similaire à une boîte sécurisée. Vous placez le code et les données chiffrés dans la boîte noire. De l’extérieur, vous ne voyez rien. Vous donnez à l’enclave une clé pour déchiffrer les données, puis les données sont traitées et rechiffrées avant d’être envoyées hors de l’enclave.
 
 ### <a name="attestation"></a>Attestation
 

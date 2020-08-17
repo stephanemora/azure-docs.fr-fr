@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404172"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054338"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -265,7 +265,7 @@ Pour vous connecter et vous lier à votre domaine managé, et effectuer une rech
 Ensuite, créez une liaison à votre domaine managé. Les utilisateurs (et les comptes de service) ne peuvent pas établir des liaisons simples LDAP si vous désactivez la synchronisation de hachage des mots de passe NTLM sur votre domaine managé. Pour plus d’informations sur la désactivation de la synchronisation de hachage de mot de passe NTLM, consultez [Sécuriser votre domaine managé][secure-domain].
 
 1. Sélectionnez l’option de menu **Connexion**, puis choisissez **Lier...** .
-1. Fournissez les informations d’identification d’un compte d’utilisateur appartenant au groupe *Administrateurs AAD DC*, par exemple *contosoadmin*. Entrez le mot de passe du compte d’utilisateur, puis entrez votre domaine, par exemple *aaddscontoso.com*.
+1. Fournissez les informations d’identification d’un compte d’utilisateur appartenant au domaine managé. Entrez le mot de passe du compte d’utilisateur, puis entrez votre domaine, par exemple *aaddscontoso.com*.
 1. Pour **Type de liaison**, choisissez l’option pour *Liaison avec informations d’identification*.
 1. Sélectionnez **OK** pour établir une liaison à votre domaine managé.
 

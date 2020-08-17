@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808403"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135485"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -48,37 +48,24 @@ Pour modifier les propriétés de l’application :
     - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
     - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
     - **Visible par les utilisateurs** détermine si les utilisateurs assignés à une application peuvent la voir dans le [volet d’accès](https://myapps.microsoft.com) et le lanceur d’applications Office 365. (Voir le menu gaufre en haut à gauche d’un site web Office 365 ou Microsoft 365.)
-4. Utilisez les tableaux suivants pour vous aider à choisir les meilleures options en fonction de vos besoins.
+    
+    > [!TIP]
+    > L’attribution d’utilisateurs intervient dans la section de navigation **Utilisateurs et groupes**.
 
-   - Comportement pour les utilisateurs *assignés* :
+    Les trois options peuvent être activées indépendamment les unes des autres et le comportement qui en résulte n’est pas toujours évident. Voici un tableau susceptible de vous aider :
+    
+    | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Comportement des utilisateurs attribués ou non à l’application. |
+    |---|---|---|---|
+    | Oui | Oui | Oui | Les utilisateurs attribués peuvent voir l’application et se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
+    | Oui | Oui | Non  | Les utilisations attribués ne peuvent pas voir l’application, mais peuvent se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
+    | Oui | Non  | Oui | Les utilisateurs attribués peuvent voir l’application et se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application, mais peuvent se connecter. |
+    | Oui | Non  | Non  | Les utilisateurs attribués ne peuvent pas voir l’application, mais peuvent se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application, mais peuvent se connecter. |
+    | Non  | Oui | Oui | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
+    | Non  | Oui | Non  | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
+    | Non  | Non  | Oui | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
+    | Non  | Non  | Non  | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
 
-       | Propriété d’application | Propriété d’application | Propriété d’application | Expérience de l’utilisateur assigné | Expérience de l’utilisateur assigné |
-       |---|---|---|---|---|
-       | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
-       | Oui | Oui | Oui | Oui | Oui  |
-       | Oui | Oui | Non  | Oui | Non   |
-       | Oui | Non  | Oui | Oui | Oui  |
-       | Oui | Non  | Non  | Oui | Non   |
-       | Non  | Oui | Oui | Non  | Non   |
-       | Non  | Oui | Non  | Non  | Non   |
-       | Non  | Non  | Oui | Non  | Non   |
-       | Non  | Non  | Non  | Non  | Non   |
-
-   - Comportement pour les utilisateurs *non assignés* :
-
-       | Propriété d’application | Propriété d’application | Propriété d’application | Expérience de l’utilisateur non assigné | Expérience de l’utilisateur non assigné |
-       |---|---|---|---|---|
-       | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
-       | Oui | Oui | Oui | Non  | Non   |
-       | Oui | Oui | Non  | Non  | Non   |
-       | Oui | Non  | Oui | Oui | Non   |
-       | Oui | Non  | Non  | Oui | Non   |
-       | Non  | Oui | Oui | Non  | Non   |
-       | Non  | Oui | Non  | Non  | Non   |
-       | Non  | Non  | Oui | Non  | Non   |
-       | Non  | Non  | Non  | Non  | Non   |
-
-     \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
+4. Quand vous avez terminé, Sélectionnez **Enregistrer**.
 
 ## <a name="use-a-custom-logo"></a>Utiliser un logo personnalisé
 

@@ -1,18 +1,18 @@
 ---
 title: Guide de démarrage rapide pour la gestion des partages de fichiers Azure avec le portail Azure
-description: Utilisez ce guide de démarrage rapide pour apprendre à utiliser le portail Azure pour gérer Azure Files.
+description: Découvrez comment créer et gérer les partages de fichiers Azure dans le portail Azure. Créez un compte de stockage, un partage de fichiers Azure et utilisez votre partage de fichiers Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71260288"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036536"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guide de démarrage rapide : créer et gérer les partages de fichiers Azure avec le portail Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec le [portail Azure](https://portal.azure.com/).

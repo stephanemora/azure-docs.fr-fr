@@ -19,15 +19,15 @@
       href: advisor-get-started.md
 - name: Guides pratiques
   items:
-    - name: Améliorer la fiabilité d’une application Azure
+    - name: Fiabilité
       href: advisor-high-availability-recommendations.md
-    - name: Sécuriser davantage les ressources
+    - name: Sécurité
       href: advisor-security-recommendations.md
-    - name: Améliorer les performances des applications Azure
+    - name: Efficacité des performances
       href: advisor-performance-recommendations.md
-    - name: Réduire les coûts de service
+    - name: Optimisation des coûts
       href: advisor-cost-recommendations.md
-    - name: Atteindre l’excellence opérationnelle
+    - name: Excellence opérationnelle
       href: advisor-operational-excellence-recommendations.md
     - name: Configurer des recommandations
       href: view-recommendations.md
@@ -35,6 +35,8 @@
       href: permissions.md
     - name: Configurer des alertes pour les recommandations
       href: advisor-alerts-portal.md
+    - name: Configurer un résumé des recommandations
+      href: advisor-recommendations-digest.md
     - name: Correction en bloc pour les recommandations
       href: advisor-quick-fix.md
     - name: Données Advisor dans Azure Resource Graph

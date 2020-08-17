@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffc9d3f4feb003d537b52cde15356e756aa11c0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd5e3e2a0e6d50340954600c5a452b6d026e5afc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500104"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987444"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Slack
 
@@ -52,7 +52,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Slack prend en charge l’authentification unique initiée par le **fournisseur de services**
 * Slack prend en charge l’attribution d’utilisateurs **Juste-à-temps**
 * Slack prend en charge [l’attribution d’utilisateurs **automatique**](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
-* Après avoir configuré Slack, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Slack, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-slack-from-the-gallery"></a>Ajout de Slack à partir de la galerie
 
@@ -159,15 +159,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à **Microsoft Azure AD**, puis à **Team Settings**.
 
-     ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. Dans la section **Team Settings**, cliquez sur l’onglet **Authentication** puis sur **Change Settings**.
 
-    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. Dans la boîte de dialogue **SAML Authentication Settings** , procédez comme suit :
 
-    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)** , collez la valeur de **l’URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     d. Configurez les trois paramètres ci-dessus comme nécessaire pour votre équipe Slack. Pour plus d’informations sur les paramètres, vous trouverez le **guide de configuration de l’authentification unique sur Slack**. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Cliquez sur **Développer** et entrez `https://slack.com` dans la zone de texte **Émetteur du fournisseur de service**.
 

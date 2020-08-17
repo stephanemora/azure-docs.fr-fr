@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: c49894c722897233afa6325def1d3e17562d2dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a770fe2362e1e1c98c683f694f7f834ac6f4ea6c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836851"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -98,7 +98,7 @@ Le portail Azure EA peut transférer des abonnements d’un propriétaire de co
 
 ## <a name="subscription-transfer-effects"></a>Effets d’un transfert d'abonnement
 
-Quand un abonnement Azure est transféré vers un compte figurant dans le même locataire Azure Active Directory, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md) pour gérer les ressources conservent leur accès.
+Lorsqu’un abonnement Azure est transféré vers un compte figurant dans le même locataire Azure Active Directory, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) pour gérer les ressources conservent leur accès.
 
 Pour afficher les utilisateurs disposant d’un accès RBAC à l’abonnement :
 

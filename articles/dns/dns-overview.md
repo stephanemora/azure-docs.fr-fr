@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76932401"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924272"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -29,7 +29,7 @@ Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveur
 
  Azure DNS est basé sur Azure Resource Manager, vous donnant l’accès à des fonctionnalités telles que :
 
-* [Contrôle d’accès en fonction de rôles](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour déterminer les utilisateurs qui sont autorisés à accéder à des actions spécifiques pour votre organisation.
+* [Contrôle d’accès en fonction de rôles (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour déterminer les utilisateurs qui sont autorisés à accéder à des actions spécifiques pour votre organisation.
 
 * [Journaux d’activité](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) : pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
@@ -70,4 +70,3 @@ Pour plus d’informations, consultez [Vue d’ensemble des enregistrements d’
 * Pour en savoir plus sur la création d’une zone dans Azure DNS, consultez [Créer une zone DNS](./dns-getstarted-create-dnszone-portal.md).
 
 * Pour les questions fréquemment posées sur Azure DNS, consultez le [FAQ sur Azure DNS](dns-faq.md).
-

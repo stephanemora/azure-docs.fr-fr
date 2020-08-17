@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372363"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055035"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Firewall Manager
 
@@ -65,6 +65,8 @@ Azure Firewall Manager peut être déployé de différentes manières, mais la p
 > - Seul un hub par WAN virtuel par région est autorisé. Vous pouvez cependant ajouter plusieurs WAN virtuels dans la région.
 > - Les espaces d’adresses IP des hubs ne doivent pas se chevaucher dans un vWAN.
 > - Vos connexions de réseau virtuel de hub doivent se trouver dans la même région que le hub.
+>
+> Pour plus d’informations sur les problèmes connus, consultez [Qu’est-ce qu’Azure Firewall Manager ?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Convertir des réseaux virtuels
 

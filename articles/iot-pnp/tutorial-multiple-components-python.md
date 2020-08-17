@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0cde9caa2f2b68b1e75eac635a81865cc4b6b33c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351765"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905854"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Tutoriel : Connecter un exemple d’application d’appareil multicomposant IoT Plug-and-Play en préversion à IoT Hub (Python)
 
@@ -86,26 +86,26 @@ Ouvrez le fichier *pnp_temp_controller_with_thermostats.py* dans l’éditeur de
 
 1. Importe `pnp_helper_preview_refresh.py` pour accéder aux méthodes d’assistance.
 
-1. Définit deux identificateurs de modèle de jumeau numérique (DTMI) qui représentent de manière unique deux interfaces différentes, définies dans le modèle DTDL. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Les DTMI doivent être connus de l’utilisateur et varient en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, ces deux interfaces représentent :
+2. Définit deux identificateurs de modèle de jumeau numérique (DTMI) qui représentent de manière unique deux interfaces différentes, définies dans le modèle DTDL. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Les DTMI doivent être connus de l’utilisateur et varient en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, ces deux interfaces représentent :
 
   - un thermostat ;
   - des informations sur l’appareil développées par Azure.
 
-. Définit le DTMI `model_id` pour l’appareil en cours d’implémentation. Le DTMI est défini par l’utilisateur et doit correspondre au DTMI spécifié dans le fichier du modèle DTDL.
+3. Définit le DTMI `model_id` pour l’appareil en cours d’implémentation. Le DTMI est défini par l’utilisateur et doit correspondre au DTMI spécifié dans le fichier du modèle DTDL.
 
-1. Définit les noms donnés aux composants dans le fichier DTDL. Il existe deux thermostats dans le DTDL et un composant d’informations sur l’appareil. Une constante nommée `serial_number` est également définie dans l’interface racine. Un `serial_number` ne peut pas changer pour un appareil.
+4. Définit les noms donnés aux composants dans le fichier DTDL. Il existe deux thermostats dans le DTDL et un composant d’informations sur l’appareil. Une constante nommée `serial_number` est également définie dans l’interface racine. Un `serial_number` ne peut pas changer pour un appareil.
 
-1. Définit des implémentations de gestionnaire de commandes. Celles-ci définissent ce que fait l’appareil quand il reçoit des demandes de commande.
+5. Définit des implémentations de gestionnaire de commandes. Celles-ci définissent ce que fait l’appareil quand il reçoit des demandes de commande.
 
-1. Définit des fonctions pour créer une réponse de commande. Celles-ci définissent la façon dont l’appareil répond avec des demandes de commande. Vous pouvez créer des fonctions de réponse de commande si une commande doit renvoyer une réponse personnalisée au hub IoT. Si une fonction de réponse pour une commande n’est pas fournie, une réponse générique est envoyée. Dans cet exemple, seule la commande **getMaxMinReport** a une réponse personnalisée.
+6. Définit des fonctions pour créer une réponse de commande. Celles-ci définissent la façon dont l’appareil répond avec des demandes de commande. Vous pouvez créer des fonctions de réponse de commande si une commande doit renvoyer une réponse personnalisée au hub IoT. Si une fonction de réponse pour une commande n’est pas fournie, une réponse générique est envoyée. Dans cet exemple, seule la commande **getMaxMinReport** a une réponse personnalisée.
 
-1. Définit une fonction pour envoyer la télémétrie de cet appareil. Les thermostats et l’interface racine envoient une télémétrie. Cette fonction accepte un paramètre de nom de composant facultatif lui permettant d’identifier le composant qui a envoyé la télémétrie.
+7. Définit une fonction pour envoyer la télémétrie de cet appareil. Les thermostats et l’interface racine envoient une télémétrie. Cette fonction accepte un paramètre de nom de composant facultatif lui permettant d’identifier le composant qui a envoyé la télémétrie.
 
-1. Définit un écouteur pour les demandes de commande.
+8. Définit un écouteur pour les demandes de commande.
 
-1. Définit un écouteur pour les mises à jour de propriétés souhaitées.
+9. Définit un écouteur pour les mises à jour de propriétés souhaitées.
 
-1. A une fonction `main` qui effectue les opérations suivantes :
+10. A une fonction `main` qui effectue les opérations suivantes :
 
     1. Utilise le Kit de développement logiciel (SDK) d’appareil pour créer un client d’appareil et se connecter à votre hub IoT. L’appareil envoie le `model_id` pour permettre au hub IoT d’identifier l’appareil en tant qu’appareil IoT Plug-and-Play.
 

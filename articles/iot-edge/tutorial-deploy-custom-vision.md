@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439723"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042800"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
@@ -433,9 +433,9 @@ Sur votre appareil, affichez les journaux d’activité du module cameraCapture 
 Dans Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**. 
 
 > [!NOTE]
-> Vous pouvez voir au début des erreurs de connexion dans la sortie du module cameraCapture. Elles sont dues au délai entre le déploiement et le démarrage des modules.
+> Au début, vous pouvez constater des erreurs de connexion dans la sortie du module cameraCapture. Elles sont dues au délai entre le déploiement et le démarrage des modules.
 >
-> Le module cameraCapture retente la connexion automatiquement jusqu’à ce qu’elle réussisse. Ensuite, vous devez commencer à voir les messages de classification d’image attendus décrits ci-dessous.
+> Le module cameraCapture tente automatiquement de se reconnecter jusqu'à ce qu'il y parvienne. Une fois la connexion établie, vous verrez les messages de classification d'image attendus décrits ci-dessous.
 
 Les résultats du module Custom Vision, qui sont envoyés sous la forme de messages depuis le module cameraCapture, incluent la probabilité que l’image représente une cigüe ou un cerisier. Dans la mesure où l’image représente une cigüe, la probabilité doit être égale à 1,0.
 

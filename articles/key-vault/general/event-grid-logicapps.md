@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53e8586486d9a9ebf870de350d5607f58977c0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 340fcd723442a53ca72d3af0461226be737eb7a5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81426328"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844199"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Utilisez Logic Apps pour recevoir un e-mail sur les changements d’état des secrets du coffre de clés
 
@@ -28,6 +28,7 @@ Pour obtenir une vue d’ensemble de l’intégration d’Azure Key Vault/Azure 
 - Un compte e-mail d’un fournisseur d’e-mail pris en charge par Azure Logic Apps (par exemple Office 365 Outlook). Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](/connectors).
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Un coffre de clés dans votre abonnement Azure. Vous pouvez créer rapidement un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](../secrets/quick-create-cli.md).
+- Event Grid inscrit en tant que fournisseur de ressources. Consultez [Inscriptions de fournisseurs de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Créer une application logique via Event Grid
 
@@ -53,13 +54,13 @@ Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
 
 1. Sélectionnez **+ Nouvelle étape**. Une fenêtre s’ouvre pour vous permettre de choisir une action.
 1. Recherchez **E-mail**. Selon votre fournisseur de messagerie, recherchez et sélectionnez le connecteur correspondant. Ce didacticiel utilise **Office 365 Outlook**. Les étapes pour les autres fournisseurs d’e-mail sont similaires.
-1. Sélectionnez l’action **Envoyer un e-mail (V2)** .
+1. Sélectionnez l’action **Envoyer un e-mail (V2)**.
 
    ![Concepteur d’application logique - Ajouter un e-mail](../media/eventgrid-logicappdesigner3.png)
 
 1. Créez votre modèle d’e-mail :
-    - **À :** entrez l’adresse e-mail à laquelle recevoir les e-mails de notification. Pour ce didacticiel, utilisez un compte e-mail auquel vous pouvez accéder à des fins de test.
-    - **Objet** et **Corps** : écrivez le texte de votre e-mail. Sélectionnez les propriétés JSON à partir de l’outil de sélection pour inclure du contenu dynamique en fonction des données d’événement. Vous pouvez récupérer les données de l’événement via `@{triggerBody()?['Data']}`.
+    - **À :** entrez l’adresse e-mail à laquelle recevoir les e-mails de notification. Pour ce didacticiel, utilisez un compte de messagerie auquel vous pouvez accéder pour les tests.
+    - **Objet** et **Corps** : écrivez le texte de votre e-mail. Sélectionnez Propriétés JSON dans l’outil de sélection pour inclure du contenu dynamique basé sur les données d’événement. Vous pouvez récupérer les données de l’événement via `@{triggerBody()?['Data']}`.
 
     Votre modèle d’e-mail peut ressembler à l’exemple suivant.
 

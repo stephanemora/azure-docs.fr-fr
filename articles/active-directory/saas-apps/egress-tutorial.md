@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a197c879e4c091c9b421c194e1f6a50b91d24bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093417"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Egress
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Egress prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 * Egress prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré Egress, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré Egress, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-egress-from-the-gallery"></a>Ajout d’Egress à partir de la galerie
 
@@ -130,7 +130,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Effectuez les étapes ci-après dans la page suivante.
 
-    ![Configuration d’Egress](./media/egress-tutorial/configure1.PNG)
+    ![Configuration d’Egress](./media/egress-tutorial/configure-1.PNG)
 
     a. Dans le menu de gauche, cliquez sur **SSO Configuration**.
 
@@ -150,11 +150,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Invite Users** dans le menu de gauche et cliquez sur **Invite Single User** pour ajouter l’utilisateur.
 
-    ![Création d’un utilisateur de test Egress](./media/egress-tutorial/createuser1.PNG)
+    ![Création d’un utilisateur de test Egress](./media/egress-tutorial/create-user-1.PNG)
 
 1. Renseignez les champs requis, puis cliquez sur **Invite**.
 
-    ![Création d’un utilisateur de test Egress](./media/egress-tutorial/createuser2.PNG)
+    ![Création d’un utilisateur de test Egress](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

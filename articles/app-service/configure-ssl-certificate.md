@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146427"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987169"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -64,6 +64,7 @@ Le certificat managé App Service gratuit est une solution clé en main pour la 
 - Ne prend pas en charge les certificats avec caractères génériques.
 - Il ne prend pas en charge les domaines nus.
 - Il n’est pas exportable.
+- N’est pas pris en charge sur App Service Environment (ASE)
 - Ne prend pas en charge les enregistrements A. Par exemple, le renouvellement automatique ne fonctionne pas avec les enregistrements A.
 
 > [!NOTE]

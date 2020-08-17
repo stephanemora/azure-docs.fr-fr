@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257801"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927026"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Qu’est-ce que Service Fabric Mesh ?
 
@@ -42,7 +42,7 @@ Avec Service Fabric Mesh, vous pouvez :
 
 - Déployer et gérer des applications sans devoir explicitement approvisionner et gérer l’infrastructure.  Service Fabric Mesh approvisionne, met à niveau, corrige et gère l’infrastructure sous-jacente à votre place.
 - Configurer l’intégration continue en utilisant les outils intégrés pour empaqueter et déployer facilement des applications.
-- Exploitez toutes les fonctionnalités des ressources Azure Resource Manager. Une piste d’audit et un [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) sont des exemples de ces fonctionnalités. Toutes les ressources que vous déployez sur le service Service Fabric Mesh dans Azure sont des ressources Azure Resource Manager. Ces ressources incluent des applications, des services, des secrets, etc.
+- Exploitez toutes les fonctionnalités des ressources Azure Resource Manager. Une piste d’audit et un [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md) sont des exemples de ces fonctionnalités. Toutes les ressources que vous déployez sur le service Service Fabric Mesh dans Azure sont des ressources Azure Resource Manager. Ces ressources incluent des applications, des services, des secrets, etc.
 - Déployer et gérer des ressources à l’aide du [portail Azure](https://portal.azure.com), des modèles Resource Manager ou des bibliothèques d’Azure CLI/PowerShell.
 - Configurer la supervision opérationnelle et la génération d’alertes à l’aide [d’Application Insights](/azure/application-insights/) (ou de l’outil de votre choix) pour capturer des traces opérationnelles et de diagnostic à partir de la plateforme.
 - Accéder aux informations de diagnostic des applications émises à partir du modèle d’application à l’aide [d’Application Insights](/azure/application-insights/) ou de l’outil de votre choix.

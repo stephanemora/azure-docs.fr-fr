@@ -138,6 +138,8 @@
           href: concepts-server-parameters.md
     - name: Développement
       items:
+        - name: Bonnes pratiques pour les applications
+          href: app-development-best-practices.md
         - name: Compatibilité des pilotes et des outils
           href: concepts-compatibility.md
         - name: Développement d’applications

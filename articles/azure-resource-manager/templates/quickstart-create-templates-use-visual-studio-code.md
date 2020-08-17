@@ -2,15 +2,15 @@
 title: Créer un modèle - Visual Studio Code
 description: Utilisez Visual Studio Code et l’extension des outils Azure Resource Manager pour travailler sur des modèles Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040513"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034977"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code
 
@@ -26,7 +26,7 @@ Dans Visual Studio Code, créez puis ouvrez avec un fichier nommé *azuredeploy.
 
 Sélectionnez `arm!` pour créer un modèle limité à un déploiement de groupe de ressources Azure.
 
-![Image montrant la génération de modèles automatique Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Image montrant des extraits de code génération de modèles automatique Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Cet extrait de code crée la base d’un modèle ARM.
 
@@ -68,7 +68,7 @@ Pour utiliser les fonctionnalités d’autocomplétion, supprimez `megaStorage`,
 
 À présent, vous allez créer et utiliser un paramètre pour spécifier le nom du compte de stockage.
 
-Placez votre curseur dans le bloc de paramètres, ajoutez un retour chariot, tapez `par`, puis sélectionnez l’extrait de code `arm-param-value`. Cette action ajoute un paramètre générique au modèle.
+Placez votre curseur dans le bloc de paramètres, ajoutez un retour chariot, tapez `"`, puis sélectionnez l’extrait de code `new-parameter`. Cette action ajoute un paramètre générique au modèle.
 
 ![Image montrant un paramètre en train d’être ajouté au modèle ARM](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

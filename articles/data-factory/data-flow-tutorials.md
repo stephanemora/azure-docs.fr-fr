@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848870"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067849"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -36,6 +36,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Superviser et gérer les performances du flux de données de mappage](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Minutages des tests d’évaluation](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Débogage de flux de travail pour les flux de données](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>Vues d’ensemble de la transformation
 
@@ -118,6 +120,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Optimiser dynamiquement la taille du cluster de flux de données au moment de l’exécution](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Optimiser les temps de démarrage de flux de données](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Runtimes d’intégration Azure pour les flux de données](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scénarios de flux de données de mappage
 

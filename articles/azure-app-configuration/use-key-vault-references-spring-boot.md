@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31aaa0134ffe34d0424868221f01b68b64e4b088
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371156"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121593"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutoriel : Utiliser des références Key Vault dans une application Java Spring
 
@@ -102,7 +102,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
     Cette opération retourne une série de paires clé/valeur :
 
-    ```console
+    ```json
     {
     "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -118,31 +118,51 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 1. Exécutez la commande suivante pour autoriser le principal du service à accéder à votre coffre de clés :
 
-    ```console
+    ```azurecli
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
 
 1. Exécutez la commande suivante pour récupérer votre ID d’objet, puis ajoutez-le à App Configuration.
 
-    ```console
+    ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Créez les variables d’environnement suivantes, en utilisant les valeurs du principal de service affichées à l’étape précédente :
+1. Créez les variables d’environnement **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** et **AZURE_TENANT_ID**. Utilisant les valeurs du principal de service affichées à l’étape précédente. Sur la ligne de commande, exécutez la commandes suivantes et redémarrez l’invite de commandes pour que la modification soit prise en compte :
 
-    * **AZURE_CLIENT_ID** : *clientId*
-    * **AZURE_CLIENT_SECRET** : *clientSecret*
-    * **AZURE_TENANT_ID** : *tenantId*
+    ```cmd
+    setx AZURE_CLIENT_ID "clientId"
+    setx AZURE_CLIENT_SECRET "clientSecret"
+    setx AZURE_TENANT_ID "tenantId"
+    ```
+
+    Si vous utilisez Windows PowerShell, exécutez la commande suivante :
+
+    ```azurepowershell
+    $Env:AZURE_CLIENT_ID = "clientId"
+    $Env:AZURE_CLIENT_SECRET = "clientSecret"
+    $Env:AZURE_TENANT_ID = "tenantId"
+    ```
+
+    Si vous utilisez macOS ou Linux, exécutez la commande suivante :
+
+    ```cmd
+    export AZURE_CLIENT_ID ='clientId'
+    export AZURE_CLIENT_SECRET ='clientSecret'
+    export AZURE_TENANT_ID ='tenantId'
+    ```
+
 
 > [!NOTE]
 > Ces informations d’identification Key Vault sont utilisées uniquement dans votre application.  Votre application s’authentifie directement auprès de Key Vault à l’aide de ces informations d’identification sans impliquer le service App Configuration.  Le coffre de clés fournit l’authentification pour votre application et votre service App Configuration sans partager ni exposer les clés.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Mettre à jour votre code pour utiliser une référence Key Vault
 
-1. Créez une variable d’environnement appelée **APP_CONFIGURATION_ENDPOINT**. Définissez sa valeur sur le point de terminaison de votre magasin App Configuration. Vous trouverez le point de terminaison dans le panneau **Clés d’accès** dans le portail Azure.
+1. Créez une variable d’environnement appelée **APP_CONFIGURATION_ENDPOINT**. Définissez sa valeur sur le point de terminaison de votre magasin App Configuration. Vous trouverez le point de terminaison dans le panneau **Clés d’accès** dans le portail Azure. Redémarrez l’invite de commandes pour que la modification soit prise en compte. 
 
-1. Ouvrez *bootstrap.properties* dans le dossier *resources*. Mettez à jour ce fichier pour utiliser le point de terminaison App Configuration plutôt qu’une chaîne de connexion.
+
+1. Ouvrez *bootstrap.properties* dans le dossier *resources*. Mettez à jour ce fichier pour utiliser la valeur **APP_CONFIGURATION_ENDPOINT**. Supprimez toutes les références à une chaîne de connexion dans ce fichier. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -218,7 +238,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     }
     ```
 
-1. Créez un fichier nommé *spring.factories* dans le répertoire META-INF de vos ressources et ajoutez :
+1. Créez un fichier nommé *spring.factories* dans le répertoire META-INF de vos ressources et ajoutez le code suivant.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\

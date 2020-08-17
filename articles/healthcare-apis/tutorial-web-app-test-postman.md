@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: a6805fc686d0bc5bd0e2357828d59d40ba05f248
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84870386"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852920"
 ---
 # <a name="testing-the-fhir-api"></a>Test de l’API FHIR
 Au cours des deux étapes précédentes, vous avez déployé l’API Azure pour FHIR et inscrit votre application cliente. Vous êtes maintenant prêt à vérifier que votre API Azure pour FHIR est configurée avec votre application cliente. 
@@ -22,11 +22,11 @@ Au cours des deux étapes précédentes, vous avez déployé l’API Azure pour 
 ## <a name="retrieve-capability-statement"></a>Récupérer l’énoncé de capacité
 Tout d’abord, nous allons obtenir l’énoncé de capacité pour votre API Azure pour FHIR. 
 1. Ouvrez Postman.
-1. Récupérez l’énoncé de capacité en effectuant GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. Dans l’image ci-dessous, le nom du serveur FHIR est **fhirserver**.
+1. Récupérez l’énoncé de capacité en exécutant la commande GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. Dans l’image ci-dessous, le nom du serveur FHIR est **fhirserver**.
 
 ![Énoncé de capacité](media/tutorial-web-app/postman-capability-statement.png)
 
-Ensuite, nous allons essayer de récupérer un patient. Pour récupérer un patient, entrez GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/Patient. Vous obtenez alors une erreur 401 Non autorisé. Cette erreur est due au fait que vous n’avez pas prouvé que vous étiez habilité à accéder aux données des patients.
+Ensuite, nous allons essayer de récupérer un patient. Pour récupérer un patient, entrez la commande GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/Patient. Vous obtenez alors une erreur 401 Non autorisé. Cette erreur est due au fait que vous n’avez pas prouvé que vous étiez habilité à accéder aux données des patients.
 
 ## <a name="get-patient-from-fhir-server"></a>Obtenir un patient auprès du serveur FHIR
 ![Patient en échec](media/tutorial-web-app/postman-patient-authorization-failed.png)
@@ -41,11 +41,11 @@ Pour obtenir un accès, vous avez besoin d’un jeton d’accès.
 |Token Name (Nom du jeton)           |Nom de votre jeton.                                               |
 |Grant Type (Type d’autorisation)           |Code d’autorisation                                                  |
 |Callback URL (URL de rappel)         |https://www.getpostman.com/oauth2/callback                          |
-|Auth URL (URL d’autorisation)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
-|Access Token URL (URL du jeton d’accès)     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/token|
+|Auth URL (URL d’autorisation)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
+|Access Token URL (URL du jeton d’accès)     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/token|
 |Client ID (ID client)            |ID client que vous avez copié aux étapes précédentes             |
-|Client Secret (Clé secrète client)        |\<VIDE>                                                            |
-|Scope (Étendue)                |\<VIDE>                                                            |
+|Client Secret (Clé secrète client)        |\<BLANK>                                                            |
+|Scope (Étendue)                |\<BLANK>                                                            |
 |State (État)                |1234                                                                |
 |Client Authentication|Envoyer les informations d’identification du client dans le corps                                     |
 

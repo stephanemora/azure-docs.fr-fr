@@ -3,12 +3,12 @@ title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
 description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090074"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067675"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
@@ -84,7 +84,7 @@ Si la connexion aboutit, la liste des appareils de périphérie s’affiche. Vou
 
 ![nœud lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
 
-## <a name="use-direct-methods"></a>Utiliser des méthodes directes
+## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 
 Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant des méthodes directes. Pour plus d’informations, consultez [Méthodes directes pour Live Video Analytics sur IoT Edge](direct-methods.md). 
 

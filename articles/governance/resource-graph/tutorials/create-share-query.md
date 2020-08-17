@@ -3,16 +3,16 @@ title: 'Tutoriel : Gérer les requêtes dans le portail Azure'
 description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
 ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970584"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005179"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutoriel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
-L'Explorateur Azure Resource Graph vous permet d'enregistrer vos requêtes Resource Graph directement sur le portail Azure. Il existe deux types de requêtes : les requêtes _privées_ et les requêtes _partagées_. Une requête privée est enregistrée dans les paramètres de votre portail Azure. Une requête partagée, quant à elle, est une ressource Azure Resource Manager qui peut être gérée avec des contrôles d’accès en fonction du rôle (RBAC) et protégée à l’aide de verrous de ressources. Les deux types de requêtes sont chiffrées au repos.
+L'Explorateur Azure Resource Graph vous permet d'enregistrer vos requêtes Resource Graph directement sur le portail Azure. Il existe deux types de requêtes : les requêtes _privées_ et les requêtes _partagées_. Une requête privée est enregistrée dans les paramètres de votre portail Azure. Une requête partagée, quant à elle, est une ressource Azure Resource Manager qui peut être gérée avec un contrôle d'accès en fonction du rôle Azure (Azure RBAC) et protégée à l'aide de verrous de ressources. Les deux types de requêtes sont chiffrées au repos.
 
 L'enregistrement de requêtes sur le portail Azure vous fait gagner du temps puisqu'il vous évite de devoir rechercher vos requêtes favorites ou couramment utilisées. Lorsque vous partagez des requêtes, vous aidez votre équipe à atteindre des objectifs de cohérence et d'efficacité par la répétition.
 
@@ -60,7 +60,7 @@ Les requêtes privées ne sont accessibles et visibles que par le compte qui les
 
 ## <a name="create-a-shared-query"></a>Créer une requête partagée
 
-Contrairement à une requête privée, une requête partagée est une ressource Resource Manager. Cela signifie que la requête est enregistrée dans un groupe de ressources, qu'elle peut être gérée et contrôlée à l'aide du contrôle RBAC, et qu'elle peut même être protégée à l'aide de verrous de ressources. Comme il s'agit d'une ressource, toute personne disposant des autorisations appropriées peut la voir et l'utiliser.
+Contrairement à une requête privée, une requête partagée est une ressource Resource Manager. Cela signifie que la requête est enregistrée dans un groupe de ressources, qu'elle peut être gérée et contrôlée à l'aide du contrôle Azure RBAC, et qu'elle peut même être protégée à l'aide de verrous de ressources. Comme il s'agit d'une ressource, toute personne disposant des autorisations appropriées peut la voir et l'utiliser.
 Pour créer une requête partagée, procédez comme suit :
 
 1. Dans le menu du portail, sélectionnez **Tous les services** ou utilisez la zone de recherche Azure située en haut de toutes les pages pour rechercher et sélectionner l'**Explorateur Resource Graph**.

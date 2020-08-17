@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921566"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901995"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutoriel : Configurer et exécuter le fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets sur Kubernetes
 
@@ -71,7 +71,7 @@ Suivez les instructions des sections « Créer un groupe de ressources », «�
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Pour afficher les métadonnées du cluster AKS que vous avez créé, utilisez la commande suivante. Copiez les valeurs de **principalId**, **clientId**, **subscriptionId** et **nodeResourceGroup** pour une utilisation ultérieure.
+1. Pour afficher les métadonnées du cluster AKS que vous avez créé, utilisez la commande suivante. Copiez les valeurs de **principalId**, **clientId**, **subscriptionId** et **nodeResourceGroup** pour une utilisation ultérieure. Si le cluster AKS n’a pas été créé avec les identités managées activées, les paramètres **principalId** et **clientId** sont Null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ L’image suivante montre la sortie de la console pour **az keyvault show --name
 
 ### <a name="assign-a-service-principal"></a>Affecter un principal de service
 
-Si vous utilisez un principal de service, accordez-lui des autorisations pour accéder à votre coffre de clés et récupérer les secrets. Attribuez le rôle *Lecteur* et accordez au principal du service des autorisations pour *obtenir* les secrets de votre coffre de clés en effectuant les étapes suivantes :
+Si vous utilisez un principal de service, accordez-lui des autorisations pour accéder à votre coffre de clés et récupérer les secrets. Attribuez le rôle *Lecteur* et accordez au principal du service des autorisations pour *obtenir* les secrets de votre coffre de clés à l’aide de la commande suivante :
 
 1. Affectez votre principal de service à votre coffre de clés existant. Le paramètre **$AZURE_CLIENT_ID** correspond à la valeur de **appId** que vous avez copiée après avoir créé votre principal de service.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Si vous utilisez des identités managées, attribuez des rôles spécifiques au cluster AKS que vous avez créé. 
 
-1. Pour créer, lister ou lire une identité managée affectée par l’utilisateur, le rôle [Contributeur d’identité managée](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) doit être affecté à votre cluster AKS. Vérifiez que **$clientId** correspond au clientId du cluster Kubernetes.
+1. Pour créer, lister ou lire une identité managée affectée par l’utilisateur, le rôle [Opérateur d’identité managée](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) doit être affecté à votre cluster AKS. Vérifiez que **$clientId** correspond au clientId du cluster Kubernetes. Pour l’étendue, il se trouve sous votre service d’abonnement Azure, notamment le groupe de ressources de nœud mis en place lors de la création du cluster AKS. Cette étendue permet de s’assurer que seules les ressources de ce groupe sont affectées par les rôles attribués ci-dessous. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

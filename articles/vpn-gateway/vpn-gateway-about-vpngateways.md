@@ -1,6 +1,6 @@
 ---
 title: À propos de la passerelle VPN Azure
-description: En savoir plus sur les passerelles VPN et la façon dont vous pouvez les utiliser pour vous connecter à des réseaux virtuels Azure. Y compris les solutions de réseau virtuel à réseau virtuel et IPsec/IKE site à site entre locaux, ainsi que les VPN point à site.
+description: Découvrez ce qu’est une passerelle VPN et comment l’utiliser pour vous connecter à des réseaux virtuels IPsec IKE de site à site, de réseau virtuel à réseau virtuel et de point à site.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ec008fa97c75f5ae7c79e2b98efc9005df1014f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300045"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036876"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 

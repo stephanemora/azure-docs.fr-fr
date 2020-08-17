@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/10/2020
 ms.author: banders
-ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 592a5d9573cb4e475c5d1ca6b4f06002f949e197
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039748"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136250"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
@@ -32,10 +32,10 @@ Si vous annulez un plan de support Azure, vous êtes toujours facturé du reliqu
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Annuler un abonnement dans le portail Azure
 
 1. Sélectionnez votre abonnement dans la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Sélectionnez l'abonnement que vous souhaitez annuler.
-3. Sélectionnez **Vue d'ensemble**, puis **Annuler l'abonnement**.
+1. Sélectionnez l'abonnement que vous souhaitez annuler.
+1. Sélectionnez **Vue d'ensemble**, puis **Annuler l'abonnement**.
     ![Capture d’écran montrant le bouton Annuler](./media/cancel-azure-subscription/cancel_ibiza.png)
-3. Suivez les invites et terminez l’annulation.
+1. Suivez les invites et terminez l’annulation.
 
 ## <a name="who-can-cancel-a-subscription"></a>Qui peut annuler un abonnement ?
 
@@ -49,11 +49,20 @@ Le tableau ci-dessous présente l’autorisation requise pour annuler un abonnem
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Que se passe-t-il après l’annulation de mon abonnement ?
 
-Une fois que vous l’annulez, la facturation s’arrête immédiatement. Toutefois, l’annulation peut prendre jusqu’à 10 minutes avant d’être visible sur le portail. Si vous annulez en milieu de période de facturation, nous envoyons la facture finale à la date de facture par défaut à la fin de la période. 
+Une fois que vous l’annulez, la facturation s’arrête immédiatement. Toutefois, l’annulation peut prendre jusqu’à 10 minutes avant d’être visible sur le portail. Si vous annulez en milieu de période de facturation, nous envoyons la facture finale à la date de facture par défaut à la fin de la période.
 
 Après l'annulation, vos services sont désactivés. Cela signifie que vos machines virtuelles et les adresses IP temporaires sont libérées et que le stockage est en lecture seule.
 
-Microsoft attend 30 à 90 jours avant de supprimer définitivement vos données au cas où vous devriez y accéder ou changeriez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
+Une fois votre abonnement annulé, Microsoft attend 30 à 90 jours avant de supprimer définitivement vos données au cas où vous deviez y accéder ou changiez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
+
+## <a name="delete-free-trial-subscription"></a>Supprimer un abonnement d’essai gratuit
+
+Si vous disposez d’un abonnement d’essai gratuit, vous n’êtes pas tenu d’attendre 30 jours pour que l’abonnement soit automatiquement supprimé. Vous pouvez supprimer votre abonnement *trois jours* après l’avoir annulé. L’option **Supprimer l’abonnement** n’est disponible qu’au bout de trois jours après son annulation.
+
+1. Attendez trois jours après la date d’annulation de l’abonnement.
+1. Sélectionnez votre abonnement dans la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
+1. Sélectionnez l'abonnement que vous souhaitez supprimer.
+1. Sélectionnez **Vue d'ensemble**, puis **Supprimer l’abonnement**.
 
 ## <a name="reactivate-subscription"></a>Réactivation de l’abonnement
 

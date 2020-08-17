@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539259"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922726"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Exemples de modèle Resource Manager pour Azure Monitor
 
@@ -49,7 +49,7 @@ az deployment group create \
 - Alertes
   - [Règles d’alerte de journal](resource-manager-alerts-log.md) : alertes provenant des requêtes de journal et du journal d’activité Azure.
   - [Règles d’alerte de métriques](resource-manager-alerts-metric.md) : alertes issues des métriques en utilisant différents types de logiques.
-- Application Insights - Bientôt disponible.
+- [Application Insights](resource-manager-app-resource.md)
 - [Paramètres de diagnostic](resource-manager-diagnostic-settings.md) : création des paramètres de diagnostic permettant de transférer journaux et métriques depuis différents types de ressources.
 - [Requêtes de journal](resource-manager-log-queries.md) : création de requêtes de journal enregistrées dans un espace de travail Log Analytics.
 - [Espace de travail Log Analytics](resource-manager-workspace.md) : création d’un espace de travail Log Analytics et configuration de la collecte de différentes sources de données à partir de l’agent Log Analytics.

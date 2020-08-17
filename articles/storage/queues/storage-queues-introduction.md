@@ -1,6 +1,6 @@
 ---
 title: Présentation de Files d’attente Azure - Stockage Azure
-description: Présentation de Files d’attente Azure
+description: Consultez une introduction aux Files d’attente Azure, un service permettant de stocker un grand nombre de messages. Un service de file d’attente contient un format d’URL, un compte de stockage, une file d’attente et un message.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/18/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: 678ab8a3f3dace17671c242939c20cb5499b2e39
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805123"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826498"
 ---
 # <a name="what-are-azure-queues"></a>Que sont les files d’attente Azure ?
 
@@ -25,7 +25,7 @@ Le service de file d’attente contient les composants suivants :
 
 ![Diagramme montrant la relation qui existe entre un compte de stockage, les files d’attente et les messages](./media/storage-queues-introduction/queue1.png)
 
-* **Format d’URL** : Les files d’attente sont adressables à l’aide du format d’URL suivant :
+* **Format d’URL :** les files d’attente sont adressables à l’aide du format d’URL suivant :
 
     `https://<storage account>.queue.core.windows.net/<queue>`
   
@@ -35,9 +35,9 @@ Le service de file d’attente contient les composants suivants :
 
 * **Compte de stockage :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-* **File d’attente :** Une file d’attente contient un ensemble de messages. Le nom de la file d’attente **doit** être en minuscules. Pour plus d'informations sur l’affectation de noms à des files d’attente, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **File d’attente :** une file d’attente contient un ensemble de messages. Le nom de la file d’attente **doit** être en minuscules. Pour plus d'informations sur l’affectation de noms à des files d’attente, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Message :** Message dans n’importe quel format d’une taille maximale de 64 Ko. Avant la version du 29 juillet 2017, la durée de vie maximale autorisée est de sept jours. Pour les versions du 29 juillet 2017 ou ultérieures, la durée de vie maximale peut être n’importe quel nombre positif, ou -1 indiquant que le message n’expire pas. Si ce paramètre est omis, la valeur par défaut de la durée de vie est de sept jours.
+* **Message :** message dans n’importe quel format d’une taille maximale de 64 Ko. Avant la version du 29 juillet 2017, la durée de vie maximale autorisée est de sept jours. Pour les versions du 29 juillet 2017 ou ultérieures, la durée de vie maximale peut être n’importe quel nombre positif, ou -1 indiquant que le message n’expire pas. Si ce paramètre est omis, la valeur par défaut de la durée de vie est de sept jours.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

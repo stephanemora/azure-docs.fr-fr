@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: abfb4f6ba9452581811db1f462089cbafc771266
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544906"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88068603"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,6 +51,58 @@ Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un proces
 
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
+#### <a name="docker-install"></a>[Installation de Docker](#tab/dockerinstall)
+
+Suivez la procédure ci-dessous pour installer l’interface CLI Speech dans un conteneur Docker :
+
+1. Installez et exécutez [Docker Desktop pour votre plateforme](https://www.docker.com/get-started).
+1. Dans une nouvelle invite de commandes ou un terminal, entrez cette commande : `docker pull msftspeech/spx`
+1. Entrez la commande suivante : Vous devriez voir des informations d’aide sur l’interface CLI Speech : `docker run -it --rm msftspeech/spx help`
+
+### <a name="mount-a-directory-in-the-container"></a>Monter un répertoire dans le conteneur
+
+L’outil d’interface CLI Speech enregistre les paramètres de configuration sous forme de fichiers et charge ces fichiers lors de l’exécution des commandes (à l’exception des commandes d’aide).
+Lors de l’utilisation de l’interface CLI Speech dans un conteneur Docker, vous devez monter un répertoire local à partir du conteneur pour permettre à l’outil de stocker ou de rechercher les paramètres de configuration, ainsi que de lire ou d’écrire les fichiers requis par la commande, tels que les fichiers audio.
+
+Sur Windows, entrez la commande suivante pour créer un répertoire local que l’interface CLI Speech peut utiliser au sein du conteneur :
+
+`mkdir c:\spx-data`
+
+Sur Linux ou Mac, entrez cette commande dans un terminal pour créer un répertoire et voir son chemin d’accès absolu :
+
+```bash
+mkdir ~/spx-data
+cd ~/spx-data
+pwd
+```
+
+Vous utilisez le chemin d’accès absolu lorsque vous appelez l’interface CLI Speech.
+
+### <a name="run-speech-cli-in-the-container"></a>Exécuter l’interface CLI Speech dans le conteneur
+
+Cette documentation porte sur la commande `spx` CLI Speech utilisée dans les installations autres que Docker.
+Lors de l’appel de la commande `spx` dans un conteneur Docker, vous devez monter un répertoire du conteneur dans le système de fichiers pour permettre à l’interface CLI Speech de stocker et de rechercher des valeurs de configuration, et de lire et d’écrire des fichiers.
+Sur Windows, vos commandes commencent comme suit :
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+
+Sur Linux ou Mac, vos commandes commencent comme suit :
+
+`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+
+> [!NOTE]
+> Remplacez `/ABSOLUTE_PATH` par le chemin d’accès absolu indiqué par la commande `pwd` dans la section ci-dessus.
+
+Pour utiliser la commande `spx` installée dans un conteneur, entrez toujours la commande complète présentée ci-dessus, suivie des paramètres de votre requête.
+Par exemple, sur Windows, cette commande définit votre clé :
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+
+> [!NOTE]
+> Vous ne pouvez utiliser ni le microphone ni le haut-parleur de votre ordinateur lorsque vous exécutez l’interface CLI Speech dans un conteneur Docker.
+> Pour utiliser ces périphériques, transmettez les fichiers audio vers et depuis l’interface CLI Speech à des fins d’enregistrement/de lecture en dehors du conteneur Docker.
+> L’outil de l’interface CLI Speech peut accéder au répertoire local que vous avez configuré lors des étapes ci-dessus.
+
 ***
 
 ## <a name="create-subscription-config"></a>Création d’une configuration d’abonnement
@@ -58,8 +110,8 @@ Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 Pour pouvoir utiliser l’interface CLI Speech, vous devez entrer les informations relatives à votre clé d’abonnement et à votre région Speech. Consultez la page de [prise en charge des régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) pour rechercher l’identificateur de votre région. Une fois que vous avez récupéré votre clé d’abonnement et votre identificateur de la région (par exemple, `eastus`, `westus`), exécutez les commandes suivantes.
 
 ```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 L’authentification de votre abonnement est maintenant stockée pour les futures demandes SPX. Si vous devez supprimer l’une de ces valeurs stockées, exécutez `spx config @region --clear` ou `spx config @key --clear`.
