@@ -146,7 +146,11 @@
         - name: Vue d’ensemble
           href: backup-azure-sql-database.md
         - name: Sauvegarde
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre
+              href: backup-sql-server-database-azure-vms.md
+            - name: Sauvegarder une machine virtuelle SQL Server à partir du volet de machine virtuelle
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Restaurer
           href: restore-sql-database-azure-vm.md
         - name: Gérer

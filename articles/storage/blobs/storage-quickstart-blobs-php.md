@@ -1,23 +1,23 @@
 ---
 title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
-description: Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec PHP
+description: Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec PHP. Charger, télécharger et répertorier des objets blob de blocs dans un conteneur dans Stockage Blob Azure.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68726387"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835746"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -166,7 +166,7 @@ Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthod
 
 ### <a name="get-the-content-of-your-blobs"></a>Obtenir le contenu de vos objets blob
 
-Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()** . Le code suivant affiche le contenu de l’objet blob chargé dans une section précédente.
+Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()**. Le code suivant affiche le contenu de l’objet blob chargé dans une section précédente.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);

@@ -1,18 +1,18 @@
 ---
 title: Créer et utiliser un partage Azure Files sur des machines virtuelles Windows
-description: Dans ce guide de démarrage rapide, vous configurez un partage Azure Files dans le portail Azure, puis vous le connectez à une machine virtuelle Windows. Vous vous connectez au partage Files pour y charger un fichier. Ensuite, vous prenez un instantané du partage Files, modifiez le fichier dans le partage Files et restaurez le précédent instantané du partage Files.
+description: Créez et utilisez un partage Azure Files dans le portail Azure. Connectez-le à une machine virtuelle Windows, connectez-vous au partage de fichiers, et chargez un fichier dans le partage de fichiers.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75463913"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836426"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
 
@@ -72,7 +72,7 @@ Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichi
 1. Conservez les paramètres par défaut pour la **Région**, les **Options de disponibilité**, l’**Image**, et la **Taille**.
 1. Sous **Compte d’administrateur**, ajoutez *VMadmin* comme **Nom d’utilisateur** et entrez un **Mot de passe** pour la machine virtuelle.
 1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans la liste déroulante.
-1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Vérifier + créer**.
 1. Sélectionnez **Create** (Créer). La création d’une machine virtuelle prend plusieurs minutes.
 
 1. Une fois le déploiement de votre machine virtuelle terminé, sélectionnez **Accéder à la ressource**.
@@ -85,7 +85,7 @@ Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichi
 
    ![Se connecter à une machine virtuelle Azure à partir du portail](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. Dans la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par **adresse IP** sur le **numéro de port** *3389* et sélectionnez **Télécharger le fichier RDP**.
+1. Dans la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par **adresse IP** sur le **numéro de port ** *3389* et sélectionnez **Télécharger le fichier RDP**.
 1. Ouvrez le fichier RDP téléchargé et, à l’invite, sélectionnez **Connecter**.
 1. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *localhost\username*, où &lt;username&gt; est le nom d’utilisateur administrateur que vous avez créé pour la machine virtuelle. Entrez le mot de passe que vous avez créé pour la machine virtuelle, puis sélectionnez **OK**.
 

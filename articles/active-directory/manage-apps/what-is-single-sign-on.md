@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que l’authentification unique Azure ?
-description: Découvrez comment choisir une méthode d’authentification unique lors de la configuration d’applications dans Azure Active Directory (Azure AD). Utilisez l’authentification unique pour éviter aux utilisateurs de devoir mémoriser des mots de passe pour chaque application et pour simplifier l’administration de la gestion des comptes.
+description: Découvrez le fonctionnement de l’authentification unique (SSO) avec Azure Active Directory. Utilisez l’authentification unique afin d’éviter aux utilisateurs de mémoriser les mots de passe de toutes les applications. Utilisez également l’authentification unique pour simplifier l’administration de la gestion des comptes.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,23 +11,39 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387538"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121508"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 
-L’authentification unique (SSO) est plus sûre et plus pratique quand les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD). Cet article décrit les différentes méthodes d’authentification unique et vous aide à choisir la méthode SSO la plus appropriée lors de la configuration de vos applications.
+L’authentification unique signifie qu’un utilisateur n’a pas besoin de se connecter à chaque application qu’il utilise. Après que l’utilisateur s’est connecté, ses informations d’identification sont utilisées pour d’autres applications.
+
+Si vous êtes un utilisateur final, vous ne vous souciez probablement pas beaucoup des détails de l’authentification unique. Vous souhaitez simplement utiliser les applications qui vous rendent productif sans avoir à saisir constamment votre mot de passe. Vous pouvez trouver vos applications à l’emplacement suivant : https://myapps.microsoft.com.
+ 
+Si vous êtes un administrateur ou un professionnel de l’informatique, lisez la suite pour en savoir plus sur l’implémentation de l’authentification unique dans Azure.
+
+## <a name="single-sign-on-basics"></a>Notions de base de l’authentification unique
+L’authentification unique constitue un énorme bond en avant dans la manière dont les utilisateurs se connectent aux applications et les utilisent. Les systèmes d’authentification basés sur une authentification unique sont souvent considérés comme utilisant une « authentification moderne ». Pour comprendre ce qui rend possible l’authentification unique, regardez cette vidéo.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+## <a name="understanding-where-an-app-is-hosted"></a>Comprendre où une application est hébergée
+La façon dont vous implémentez l’authentification unique pour une application dépend beaucoup de l’emplacement où l’application est hébergée. L’hébergement est important en raison de la façon dont le trafic réseau est routé pour accéder à l’application. Si une application est hébergée et accessible sur votre réseau local (application locale), les utilisateurs n’ont pas besoin d’accéder à Internet pour l’utiliser. Si l’application est hébergée ailleurs (application hébergée dans le cloud), les utilisateurs devront accéder à Internet pour pouvoir utiliser l’application.
+
+> [!TIP]
+> Les applications cloud sont également appelées applications SaaS (Software as a Service, logiciel en tant que service). 
+
+> [!TIP]
+> Les termes cloud et Internet sont souvent utilisés de manière interchangeable. La raison à cela est liée aux diagrammes de réseau. Les grands réseaux informatiques sont souvent représentés sous la forme de nuages (clouds) dans les diagrammes, car il n’est pas possible d’en dessiner chaque composant. Internet étant le réseau le plus connu et, il est facile d’utiliser les termes de manière interchangeable. Cependant, tout réseau informatique peut être considéré comme un cloud.
+
+## <a name="choosing-a-single-sign-on-method"></a>Choix d’une méthode d’authentification unique
 
 - **Avec l’authentification unique**, les utilisateurs se connectent une seule fois avec un seul compte pour accéder à des appareils joints au domaine, à des ressources d’entreprise, à des applications Saas et à des applications web. Une fois la connexion effectuée, l’utilisateur peut lancer des applications à partir du portail Office 365 ou du panneau d’accès Azure AD MyApps. Les administrateurs peuvent centraliser la gestion des comptes d’utilisateur, et ajouter ou supprimer automatiquement l’accès utilisateur à des applications en fonction de l’appartenance à des groupes.
 
 - **Sans l’authentification unique**, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Office 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application.
-
-## <a name="choosing-a-single-sign-on-method"></a>Choix d’une méthode d’authentification unique
 
 Vous pouvez configurer une application pour l’authentification unique de plusieurs façons. Le choix d’une méthode d’authentification unique dépend de la façon dont l’application est configurée pour l’authentification.
 
@@ -42,7 +58,7 @@ Le tableau suivant récapitule les méthodes d’authentification unique et cont
 
 | Méthode d’authentification unique | Types d’applications | Quand l’utiliser |
 | :------ | :------- | :----- |
-| [OpenID Connect et OAuth](#openid-connect-and-oauth) | Cloud uniquement | Utilisez OpenID Connect et OAuth lors du développement d’une nouvelle application. Ce protocole simplifie la configuration de l’application, propose des kits SDK faciles à utiliser et permet à votre application d’utiliser MS Graph.
+| [OpenID Connect et OAuth](#openid-connect-and-oauth) | Cloud et locales | Utilisez OpenID Connect et OAuth lors du développement d’une nouvelle application. Ce protocole simplifie la configuration de l’application, propose des kits SDK faciles à utiliser et permet à votre application d’utiliser MS Graph.
 | [SAML](#saml-sso) | Cloud et locales | Choisissez SAML autant que possible pour les applications existantes qui n’utilisent pas OpenID Connect ou OAuth. SAML fonctionne pour les applications qui s’authentifient par le biais d’un protocole SAML.|
 | [Par mot de passe](#password-based-sso) | Cloud et locales | Choisissez la méthode par mot de passe quand l’application authentifie avec un nom d’utilisateur et un mot de passe. L’authentification unique par mot de passe permet de sécuriser le stockage et la lecture des mots de passe des applications avec une extension de navigateur web ou une application mobile. Cette méthode utilise le processus de connexion existant fourni par l’application, mais permet aux administrateurs de gérer les mots de passe. |
 | [Liée](#linked-sign-on) | Cloud et locales | Choisissez l’authentification liée quand l’application est configurée pour l’authentification unique dans un autre service de fournisseur d’identité. Cette option n’ajoute pas l’authentification unique à l’application. Cependant, il se peut que l’authentification unique soit déjà implémentée dans l’application avec un autre service, comme les services de fédération Active Directory (AD FS).|
@@ -197,10 +213,5 @@ Vos utilisateurs ne voient pas de différence quand ils se connectent pour utili
 
 Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Articles connexes
-* [Série de démarrages rapides sur la gestion des applications](view-applications-portal.md)
-* [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configurer l’authentification liée](configure-linked-sign-on.md)
-* [Introduction à la gestion de l’accès aux applications](what-is-access-management.md)
-* Lien de téléchargement : [Plan de déploiement de l’authentification unique](https://aka.ms/SSODeploymentPlan).
+## <a name="next-steps"></a>Étapes suivantes
+* [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)

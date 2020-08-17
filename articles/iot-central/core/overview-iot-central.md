@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337175"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042715"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -34,10 +34,10 @@ Cet article décrit, en ce qui concerne IoT Central :
 
 La documentation de IoT Central fait référence à quatre personnages qui interagissent avec une application IoT Central :
 
-- Un _créateur de solution_ est chargé de définir les types d’appareils qui se connectent à l’application et de la personnalisation de l’application pour l’opérateur.
-- Un _opérateur_ gère les périphériques connectés à l’application.
+- Un _créateur de solution_ est chargé de [définir les types d’appareils](howto-set-up-template.md) qui se connectent à l’application et de la personnalisation de l’application pour l’opérateur.
+- Un _opérateur_ [gère les appareils](howto-manage-devices.md) connectés à l’application.
 - Un _administrateur_ est responsable des tâches d’administration comme la gestion des [rôles et des autorisations des utilisateurs](howto-administer.md) au sein de l’application.
-- Un _développeur de l’appareil_ crée le code qui s’exécute sur un appareil ou un module IoT Edge connecté à votre application.
+- Un _développeur d’appareil_ [crée le code qui s’exécute sur un appareil](concepts-telemetry-properties-commands.md) ou un [module IoT Edge](concepts-iot-edge.md) connecté à votre application.
 
 ## <a name="create-your-iot-central-application"></a>Créer votre application IoT Central
 
@@ -55,7 +55,7 @@ En tant que créateur de solution, vous utilisez les outils web pour créer un _
 - Les propriétés d’appareil qui sont définies par un appareil et en lecture seule dans l’application.
 - Les propriétés définies par un opérateur, qui déterminent le comportement de l’appareil.
 
-Ce modèle d’appareil inclut les éléments suivants :
+Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivants :
 
 - Un _modèle de fonctionnalité d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter, telles que la télémétrie qu’il envoie et les propriétés qu’il signale.
 - Propriétés cloud qui ne sont pas stockées sur l’appareil.
@@ -83,13 +83,13 @@ En tant que créateur de solution, vous pouvez également personnaliser l’inte
 
 ## <a name="manage-your-devices"></a>Gestion de vos appareils
 
-En tant qu’opérateur, vous utilisez l’application IoT Central pour gérer les appareils dans votre solution IoT Central. Les opérateurs effectuent des tâches telles que :
+En tant qu’opérateur, vous utilisez l’application IoT Central pour [gérer les appareils](howto-manage-devices.md) dans votre solution IoT Central. Les opérateurs effectuent des tâches telles que :
 
 - Surveiller les appareils connectés à l’application.
 - La résolution et la correction des problèmes avec des appareils.
 - La configuration de nouveaux appareils.
 
-En tant que créateur de solution, vous pouvez définir des règles et des actions personnalisées qui s’exécutent sur les flux de données d’appareils connectés. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
+En tant que créateur de solution, vous pouvez [définir des règles et des actions](howto-configure-rules.md) personnalisées qui s’exécutent sur les flux de données d’appareils connectés. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
 
 Pour toute solution IoT conçue pour fonctionner à grande échelle, il est important d’avoir une approche structurée de la gestion des appareils. Il ne vous suffit pas de connecter vos appareils au cloud ; ceux-ci doivent rester connectés et sains. Un opérateur peut utiliser les capacités IoT Central suivantes pour gérer vos appareils tout au long du cycle de vie de l’application :
 

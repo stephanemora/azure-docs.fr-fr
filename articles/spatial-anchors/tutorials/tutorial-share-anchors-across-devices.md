@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77615498"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810165"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutoriel : Partager Azure Spatial Anchors entre plusieurs sessions et appareils
 
@@ -34,7 +34,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Il est important de noter que vous allez utiliser Unity et une application web ASP.NET Core dans ce tutoriel uniquement pour illustrer un exemple de la façon de partager des identificateurs d’ancre spatiale Azure entre d’autres appareils. Vous pouvez utiliser d’autres langages et technologies back-end pour atteindre le même objectif. Par ailleurs, l’application web ASP.NET Core utilisée dans ce tutoriel a une dépendance sur le kit SDK .NET Core 2.2. Elle s’exécute correctement sur Azure Web Apps standard (pour Windows), mais ne fonctionne pas sur Azure Web Apps pour Linux.
+Il est important de noter que vous allez utiliser Unity et une application web ASP.NET Core dans ce tutoriel uniquement pour illustrer un exemple de la façon de partager des identificateurs d’ancre spatiale Azure entre d’autres appareils. Vous pouvez utiliser d’autres langages et technologies back-end pour atteindre le même objectif.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -54,9 +54,9 @@ Ouvrez Visual Studio, puis ouvrez le projet au dossier `Sharing\SharingServiceSa
 
 Vous devrez créer un groupe de ressources et un plan App Service avant de déployer le service dans VS Code.
 
-### <a name="sign-in-to-azure"></a>Se connecter à Azure
+### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure</a> et connectez-vous à votre abonnement Azure.
+Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a> et connectez-vous à votre abonnement Azure.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -82,19 +82,13 @@ Dans la boîte de dialogue **Configurer le plan d’hébergement**, utilisez ces
 
 Sélectionnez **OK**.
 
-Ouvrez Visual Studio Code, puis le projet situé dans le dossier `Sharing\SharingServiceSample`. Suivez <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">ce tutoriel</a> pour déployer le service de partage par le biais de Visual Studio Code. Vous pouvez suivre les étapes à partir de la section « Ouvrir le projet avec Visual Studio Code ». Ne créez pas un autre projet MVC comme expliqué à l’étape ci-dessus, car vous disposez déjà du projet qui doit être déployé et publié : SharingServiceSample.
+Ouvrez Visual Studio Code, puis le projet situé dans le dossier `Sharing\SharingServiceSample`. Suivez <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">ce tutoriel</a> pour déployer le service de partage par le biais de Visual Studio Code. Vous pouvez suivre les étapes à partir de la section « Ouvrir le projet avec Visual Studio Code ». Ne créez pas un autre projet ASP.NET comme expliqué à l’étape ci-dessus, car vous disposez déjà du projet qui doit être déployé et publié : SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Déployer l’exemple d’application
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Dépannage
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-En raison de changements cassants, Unity 2019.3 n’est pas pris en charge pour le moment. Utilisez Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

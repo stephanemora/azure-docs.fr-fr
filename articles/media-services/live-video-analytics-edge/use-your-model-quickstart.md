@@ -3,12 +3,12 @@ title: Analyser une vidéo en direct à l’aide de votre propre modèle - Azur
 description: Dans ce guide de démarrage rapide, vous allez appliquer la vision par ordinateur pour analyser le flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 75e18917b0d44dc33999d17360cd66a538c83d2b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170624"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065197"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Démarrage rapide : Analyser une vidéo en direct à l’aide de votre propre modèle
 
@@ -31,7 +31,7 @@ Ce guide de démarrage rapide utilise une machine virtuelle Azure comme appareil
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 Quand vous configurez les ressources Azure, une courte vidéo du trafic d’une autoroute est copiée dans Azure sur la machine virtuelle Linux que vous utilisez comme appareil IoT Edge. Ce guide de démarrage rapide utilise le fichier vidéo pour simuler un flux en direct.
 
-Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.org/vlc/). Sélectionnez Ctrl+N, puis collez un lien vers [la vidéo](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) pour démarrer la lecture. Vous voyez la séquence vidéo de nombreux véhicules se déplaçant dans le trafic d’une autoroute.
+Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.org/vlc/). Sélectionnez `Ctrl+N`, puis collez un lien vers [l’exemple de vidéo d’intersection d’autoroute](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) pour démarrer la lecture. Vous voyez la séquence vidéo de nombreux véhicules se déplaçant dans le trafic d’une autoroute.
 
 Dans ce guide de démarrage rapide, vous allez utiliser Live Video Analytics sur IoT Edge pour détecter des objets tels que des véhicules et des personnes. Vous allez publier les événements d’inférence associés sur IoT Edge Hub.
 
@@ -107,9 +107,18 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 1. Quand vous êtes invité à sélectionner un appareil IoT Hub, sélectionnez **lva-sample-device**.
 1. Après environ 30 secondes, dans l’angle en bas à gauche de la fenêtre, actualisez Azure IoT Hub. L’appareil de périphérie affiche maintenant les modules déployés suivants :
 
-    * Le module Live Video Analytics, nommé **lvaEdge**
-    * Le module **rtspsim**, qui simule un serveur RTSP et fait office de source d’un flux vidéo en direct
-    * Le module **yolov3**, qui est le modèle de détection de l’objet YOLOv3 qui applique la vision par ordinateur aux images et retourne plusieurs classes de types d’objets
+    * Le module Live Video Analytics, nommé `lvaEdge`
+    * Le module `rtspsim`, qui simule un serveur RTSP et fait office de source d’un flux vidéo en direct
+    > [!NOTE]
+    > Si vous utilisez votre propre périphérique au lieu de celui approvisionné par notre script de configuration, accédez à votre périphérique et exécutez les commandes suivantes avec des **droits d’administrateur** pour extraire et stocker l’exemple de fichier vidéo utilisé pour ce démarrage rapide :  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * Module `yolov3`, qui est le modèle de détection d’objet Yolov3 qui applique la vision par ordinateur aux images, et retourne plusieurs classes de types d’objets
  
       ![Modules qui sont déployés sur l’appareil de périphérie](./media/quickstarts/yolov3.png)
 
@@ -284,7 +293,7 @@ Si vous envisagez d’essayer d’autres guides de démarrage rapide, conservez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Essayez une [version sécurisée du modèle YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) et déployez-la sur l’appareil IOT Edge. 
+* Essayez une [version sécurisée du modèle Yolov3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) et déployez-la sur l’appareil IOT Edge. 
 
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 

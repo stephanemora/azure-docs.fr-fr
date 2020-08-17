@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide pour la gestion de partages de fichiers Azure à l’aide d’Azure CLI
-description: Utilisez ce guide de démarrage rapide pour découvrir comment utiliser Azure CLI pour gérer Azure Files.
+description: Ce démarrage rapide montre comment utiliser Azure CLI pour gérer Azure Files. Créez un groupe de ressources et un compte de stockage, puis créez et utilisez un partage de fichiers Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495773"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034564"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Démarrage rapide : créer et gérer des partages de fichiers Azure à l’aide d’Azure CLI
 Ce guide vous explique les bases de l’utilisation des [partages de fichiers Azure](storage-files-introduction.md) avec Azure CLI. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -203,7 +203,7 @@ az storage file list \
     --output table
 ```
 
-Bien que la commande `az storage file copy start` soit pratique pour les déplacements de fichiers entre les partages de fichiers Azure, pour les migrations et les déplacements de données plus importants, nous préconisons `rsync` sur macOS et Linux et `robocopy` sur Windows. Pour effectuer les déplacements de données, `rsync` et `robocopy` utilisent SMB plutôt que l’API FileREST.
+Bien que la commande `az storage file copy start` soit pratique pour les déplacements de fichiers entre les partages de fichiers Azure, pour les migrations et les déplacements de données plus importants, nous préconisons `rsync` sur macOS et Linux et `robocopy` sur Windows. `rsync` et `robocopy` utilisent SMB pour effectuer les déplacement de données et non l’API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Créer et gérer des instantanés de partage
 Une autre tâche utile que vous pouvez effectuer avec un partage de fichiers Azure consiste à créer des instantanés de partage. Un instantané conserve une copie d’un point dans le temps d’un partage de fichiers Azure. Les instantanés de partage sont similaires à des technologies de systèmes d’exploitation que vous connaissez peut-être déjà :

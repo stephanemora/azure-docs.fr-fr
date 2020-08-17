@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252543"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927236"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer un service Private Link en utilisant le portail Azure
 
@@ -33,16 +33,16 @@ Créez d’abord un réseau virtuel. Ensuite, créez un équilibreur de charge i
 
 Dans cette section, vous créez un réseau virtuel. Vous créez également le sous-réseau pour héberger l’équilibreur de charge qui accède à votre service Private Link.
 
-Dans les étapes figurant dans cette section, vous devez remplacer les paramètres suivants par les informations ci-dessous :
+Dans cette section, vous allez devoir remplacer les paramètres suivants dans les étapes par les informations ci-dessous :
 
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
-| **\<nom_groupe_ressource>**  | myResourceGroupLB |
-| **\<nom_réseau_virtuel>** | myVNet          |
-| **\<nom_région>**          | USA Est 2      |
-| **\<espace_d’adressage_IPv4>**   | 10.3.0.0\16          |
-| **\<nom_sous-réseau>**          | myBackendSubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.3.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | USA Est 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -133,7 +133,7 @@ Pour créer une règle d’équilibreur de charge :
 
 ## <a name="create-a-private-link-service"></a>Créer un service Liaison privée
 
-Dans cette section, vous créez un service Private Link derrière un équilibreur de charge standard.
+Dans cette section, vous allez créer un service Private Link derrière un équilibreur de charge standard.
 
 1. En haut à gauche de la page du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** . Vous pouvez également utiliser la zone de recherche du portail pour rechercher une liaison privée.
 
@@ -173,7 +173,7 @@ Dans cette section, vous créez un service Private Link derrière un équilibreu
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous avez terminé d’utiliser le service Private Link, supprimez le groupe de ressources pour nettoyer les ressources utilisées dans ce guide de démarrage rapide.
+Quand vous avez terminé d’utiliser le service Private Link, supprimez le groupe de ressources pour nettoyer les ressources utilisées dans ce démarrage rapide.
 
 1. Entrez **myResourceGroupLB** dans la zone de recherche en haut du portail, puis sélectionnez **myResourceGroupLB** dans les résultats de la recherche.
 1. Sélectionnez **Supprimer le groupe de ressources**.

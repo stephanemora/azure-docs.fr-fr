@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534768"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987135"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -81,12 +81,13 @@ Le tableau ci-dessous présente les types d’autorisation disponibles :
 
 Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage Azure ci-dessous :
 
-|                     | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
+| Type d’autorisation  | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Prise en charge      | Non pris en charge   | Prise en charge     |
-| *Identité managée* | Prise en charge      | Prise en charge        | Prise en charge     |
-| *Identité de l’utilisateur*    | Prise en charge      | Prise en charge        | Prise en charge     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Prise en charge\*      | Non pris en charge   | Prise en charge\*     |
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Prise en charge        | Prise en charge     |
+| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Prise en charge\*      | Prise en charge\*        | Prise en charge\*     |
 
+\* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
 
 > [!IMPORTANT]
 > Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
@@ -177,27 +178,46 @@ Les informations d’identification informations d’identification incluses dan
 
 Les utilisateurs Azure AD peuvent accéder à n’importe quel fichier sur le stockage Azure s’ils disposent au moins du rôle `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Les utilisateurs Azure AD n’ont pas besoin d’informations d’identification pour accéder au stockage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
-Le script suivant crée des informations d’identification qui sont utilisées pour accéder aux fichiers sur le stockage en utilisant le jeton SAP spécifié dans les informations d’identification.
+Le script suivant crée des informations d’identification qui sont utilisées pour accéder aux fichiers sur le stockage en utilisant le jeton SAP spécifié dans les informations d’identification. Le script crée un exemple de source de données externe qui utilise ce jeton SAP pour accéder au stockage.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
-Le script suivant crée des informations d’identification incluses dans l’étendue de la base de données, qui peuvent être utilisées pour emprunter l’identité de l’utilisateur Azure AD actuel en tant qu’identité managée du service. 
+Le script suivant crée des informations d’identification incluses dans l’étendue de la base de données, qui peuvent être utilisées pour emprunter l’identité de l’utilisateur Azure AD actuel en tant qu’identité managée du service. Le script crée un exemple de source de données externe qui utilise l’identité de l’espace de travail pour accéder au stockage.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 Les informations d’identification incluses dans l’étendue de la base de données ne doivent pas nécessairement correspondre au nom du compte de stockage, car elles seront utilisées de manière explicite dans la SOURCE DE DONNÉES qui définit l’emplacement de stockage.
@@ -206,6 +226,11 @@ Les informations d’identification incluses dans l’étendue de la base de don
 
 Les informations d’identification incluses dans l’étendue de la base de données ne sont pas requises pour autoriser l’accès aux fichiers publiquement disponibles. Créez une [source de données sans informations d’identification incluses dans l’étendue de la base de données](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) pour accéder aux fichiers publiquement disponibles sur le stockage Azure.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Les informations d’identification incluses dans l’étendue de la base de données sont utilisées dans des sources de données externes pour spécifier la méthode d’authentification qui sera utilisée pour accéder à ce stockage :

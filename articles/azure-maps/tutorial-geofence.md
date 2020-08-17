@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Créer une limite géographique et suivre des appareils sur une carte Microsoft Azure'
-description: Découvrez comment définir une limite géographique et suivre des appareils en fonction de cette limite géographique à l’aide du service spatial Microsoft Azure Maps.
+description: Découvrez comment configurer une limite géographique. Découvrez comment suivre des appareils par rapport à la limite géographique à l’aide du service spatial Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517355"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121236"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -25,7 +25,7 @@ Ce tutoriel vous présente les principes de base de la création et de l’utili
 Azure Maps offre un certain nombre de services permettant de suivre les équipements qui entrent dans la zone de construction et en sortent, répondant ainsi aux besoins du scénario ci-dessus. Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
-> * Charger les [données de geofencing GeoJSON](geofence-geojson.md) qui définissent les zones du site de construction que nous souhaitons superviser. Vous utiliserez l’[API Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) pour charger les limites géographiques sous forme de coordonnées de polygone sur votre compte Azure Maps.
+> * Chargez des [données GeoJSON de geofencing](geofence-geojson.md) qui définissent les zones de site de construction que nous souhaitons superviser. Vous utiliserez l’[API Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) pour charger les limites géographiques sous forme de coordonnées de polygone sur votre compte Azure Maps.
 > * Configurer deux [applications logiques](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) qui, quand elles sont déclenchées (quand un équipement entre dans la limite géographique ou en sort), envoient des notifications par e-mail au chef d’exploitation du site de construction.
 > * Utiliser la [grille d’événement Azure](https://docs.microsoft.com/azure/event-grid/overview) pour l’abonnement aux événements d’entrée et de sortie de limite géographique Azure Maps. Nous configurerons deux abonnements aux événements Webhook, qui appelleront les points de terminaison HTTP définis dans vos deux applications logiques. Les applications logiques enverront alors les notifications par e-mail appropriées, relatives à l’équipement qui entre dans le limite géographique ou en sort.
 > * Utiliser l’[API Get Search Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) pour recevoir des notifications quand un équipement entre dans les zones de limite géographique ou en sort.
@@ -276,7 +276,7 @@ Les sections suivantes présentent les requêtes HTTP de l’API GET Geofencing
 
 1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande).  Entrez un **Request name** (Nom de demande) pour la demande. Nous allons utiliser le nom *Localisation 1*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
-2. Sélectionnez la méthode HTTP **GET** dans l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
+2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -397,7 +397,7 @@ Les sections suivantes présentent les requêtes HTTP de l’API GET Geofencing
 
 ### <a name="location-4-47637988-1221338344"></a>Localisation 4 (47.637988,-122.1338344)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande).  Entrez un **Request name** (Nom de demande) pour la demande. Nous allons utiliser le nom *Localisation 4*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande).  Entrez un **Request name** (Nom de demande) pour la demande. Nous allons utiliser le nom *Localisation 5*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** dans l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 

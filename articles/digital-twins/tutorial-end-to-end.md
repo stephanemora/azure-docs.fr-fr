@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131733"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827321"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Créer une solution de bout en bout
 
@@ -95,6 +95,20 @@ L’étape suivante consiste à configurer une [application Azure Functions](../
 
 Dans cette section, vous allez publier l’application de fonction préécrite et lui attribuer une identité Azure Active Directory (Azure AD) pour qu’elle puisse accéder à Azure Digital Twins. Une fois ces étapes effectuées, vous pourrez utiliser les fonctions de l’application de fonction dans le reste du tutoriel. 
 
+De retour dans la fenêtre Visual Studio dans laquelle le projet _**AdtE2ESample**_ est ouvert, l’application de fonction se trouve dans le fichier de projet _**SampleFunctionsApp**_. Vous pouvez l’afficher dans le volet *Explorateur de solutions*.
+
+### <a name="update-dependencies"></a>Mettre à jour les dépendances
+
+Avant de publier l’application, il est judicieux de vérifier que vos dépendances sont à jour pour être certain que vous disposez de la dernière version de tous les packages inclus.
+
+Dans le volet *Explorateur de solutions*, développez *SampleFunctionsApp > Dépendances*. Cliquez avec le bouton droit sur *Packages*, puis sélectionnez *Gérer les packages NuGet...* .
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio : Gérer les packages NuGet pour le projet SampleFunctionsApp" border="false":::
+
+Cette action a pour effet d’ouvrir le Gestionnaire de package NuGet. Sélectionnez l’onglet *Mises à jour* et, s’il y a des packages à mettre à jour, activez la case à cocher *Sélectionner tous les packages*. Ensuite, appuyez sur *Mettre à jour*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio : Sélection de la mise à jour de tous les packages dans le Gestionnaire de package NuGet":::
+
 ### <a name="publish-the-app"></a>Publier l’application
 
 Dans la fenêtre Visual Studio où le projet _**AdtE2ESample**_ est ouvert, dans le volet *Explorateur de solutions*, cliquez avec le bouton droit sur le fichier de projet _**SampleFunctionsApp**_, puis cliquez sur **Publier**.
@@ -134,19 +148,21 @@ Dans le volet *Publier* qui s’ouvre de nouveau dans la fenêtre principale de 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publier la fonction Azure dans Visual Studio : publier":::
 
 > [!NOTE]
-> Une fenêtre contextuelle semblable à celle-ci peut s’afficher : :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publier la fonction Azure dans Visual Studio : informations d’identification de publication" border="false":::
-> Si c’est le cas, sélectionnez **Essayer de récupérer les informations d’identification d’Azure**, puis **Enregistrer**.
+> Si une fenêtre contextuelle similaire à celle-ci s’affiche : :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publier la fonction Azure dans Visual Studio : informations d’identification de publication" border="false":::
+> Sélectionnez **Essayer de récupérer les informations d’identification d’Azure**, puis **Enregistrer**.
 >
-> Si vous voyez un avertissement indiquant que *votre version du runtime Functions ne correspond pas à la version en cours d’exécution dans Azure*, suivez les invites pour effectuer une mise à niveau vers la dernière version du runtime Azure Functions. Ce problème peut se produire si vous utilisez une version de Visual Studio antérieure à celle recommandée dans la section *Prérequis* du début de ce tutoriel.
+> Si vous voyez s’afficher l’avertissement *Mettre à niveau la version de Functions sur Azure* ou *Votre version du runtime Functions ne correspond pas à la version en cours d’exécution dans Azure* :
+>
+> Suivez les invites pour effectuer une mise à niveau vers la dernière version du runtime Azure Functions. Ce problème peut se produire si vous utilisez une version de Visual Studio antérieure à celle recommandée dans la section *Prérequis* du début de ce tutoriel.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Attribuer des autorisations à l’application de fonction
 
-Pour que l’application de fonction puisse accéder à Azure Digital Twins, l’étape suivante consiste à configurer un paramètre d’application, à attribuer à l’application une identité Azure AD gérée par le système et à accorder à cette identité des autorisations de *propriétaire* dans l’instance Azure Digital Twins.
+Pour permettre à l’application de fonction d’accéder à Azure Digital Twins, l’étape suivante consiste à configurer un paramètre d’application, à attribuer à l’application une identité Azure AD gérée par le système et à accorder à cette identité le rôle *Propriétaire Azure Digital Twins (préversion)* dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md).
 
-Dans Azure Cloud Shell, utilisez la commande suivante pour définir un paramètre d’application qu’utilisera votre application de fonction pour référencer votre instance Digital Twins.
+Dans Azure Cloud Shell, utilisez la commande suivante pour définir un paramètre d’application que votre application de fonction utilisera pour référencer votre instance Azure Digital Twins.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Utilisez la commande suivante pour créer l’identité gérée par le système. Prenez note du champ *principalId* dans la sortie.
@@ -155,7 +171,7 @@ Utilisez la commande suivante pour créer l’identité gérée par le système.
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Utilisez la valeur de *principalId* dans la commande suivante afin d’attribuer l’identité de l’application de fonction au rôle de *propriétaire* pour votre instance Azure Digital Twins :
+Utilisez la valeur *principalId* de la sortie dans la commande suivante afin d’attribuer l’identité de l’application de fonction au rôle *Propriétaire Azure Digital Twins (préversion)* pour votre instance Azure Digital Twins :
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ Vous pouvez également vérifier que la création du point de terminaison a réu
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Recherchez le champ `provisioningState` dans la sortie et vérifiez que la valeur est « Succeeded ».
+Recherchez le champ `provisioningState` dans la sortie et vérifiez que la valeur est « Succeeded ». Il peut également indiquer « Approvisionnement », ce qui signifie que le point de terminaison est toujours en cours de création. Dans ce cas, attendez quelques secondes, puis réexécutez la commande pour vérifier que la création du point de terminaison a réussi.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Résultat de la requête de point de terminaison, indiquant que l’état provisioningState du point de terminaison est Succeeded":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 Les informations générées par cette commande décrivent la route que vous avez créé.
+
+>[!NOTE]
+>L’approvisionnement des points de terminaison (de l’étape précédente) doit être terminé pour que vous puissiez configurer un itinéraire des événements qui les utilise. Si la création d’itinéraires échoue parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.
 
 #### <a name="connect-the-function-to-event-grid"></a>Connecter la fonction à Event Grid
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34bdd8561b30358e3cb5c9a64ed4405ba8d94588
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: db496ac504a48398ef7ab656cc5a6a890f882bab
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160146"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Didacticiel : Intégration d’Azure Active Directory avec Proofpoint on Demand
 
@@ -41,6 +41,9 @@ Pour configurer l’intégration d’Azure AD avec Proofpoint on Demand, vous a
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 * Un abonnement Proofpoint on Demand pour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Si vous utilisez une authentification multifacteur ou sans mot de passe avec Azure AD, désactivez la valeur AuthnContext dans la demande SAML. Autrement, Azure AD lève l’erreur en cas d’incompatibilité d’ AuthnContext et ne renvoie pas le jeton à l’application.
 
 ## <a name="scenario-description"></a>Description du scénario
 

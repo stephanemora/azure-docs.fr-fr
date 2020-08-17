@@ -1,6 +1,6 @@
 ---
 title: Exemple de script Azure PowerShell - Télécharger le modèle de configuration de périphérique | Microsoft Docs
-description: Téléchargez le modèle de configuration de périphérique.
+description: Découvrez comment utiliser un script PowerShell pour télécharger le modèle de configuration de périphérique VPN pour une connexion.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: yushwang
-ms.openlocfilehash: 8c0be71f5ffe82f6b6e1cb607baf070c499bd46f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 283ddb12e497c242f1843840fe1f1ff208712626
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077239"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031708"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Télécharger le modèle de périphérique VPN à l’aide de PowerShell
 

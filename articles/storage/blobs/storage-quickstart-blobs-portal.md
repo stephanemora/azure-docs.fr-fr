@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535165"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067745"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et lister les objets blob avec le portail Azure
 
@@ -45,7 +45,7 @@ Pour charger un objet blob de blocs dans votre nouveau conteneur dans le portail
 
 1. Dans le portail Azure, accédez au conteneur que vous avez créé dans la section précédente.
 1. Sélectionnez le conteneur pour afficher une liste des objets blob qu’il contient. Comme ce conteneur est nouveau, il ne contient pas encore d’objets blob.
-1. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs. Vous pouvez éventuellement développer la section Avancé pour configurer d’autres paramètres pour l’opération de chargement.
+1. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs. Vous pouvez éventuellement développer la section **Avancé** pour configurer d’autres paramètres pour l’opération de chargement.
 
     ![Capture d’écran montrant comment charger un objet blob à partir de votre disque local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Vous pouvez télécharger un objet blob de blocs à afficher dans le navigateur 
 1. Accédez à la liste d’objets blob que vous avez chargée dans la section précédente.
 1. Cliquez avec le bouton droit sur l’objet blob que vous souhaitez télécharger, puis sélectionnez **Télécharger**.
 
+    ![Capture d’écran montrant comment télécharger un blob](media/storage-quickstart-blobs-portal/download-blob.png)
+
+## <a name="delete-a-block-blob"></a>Supprimer un objet blob de blocs
+
+Vous pouvez télécharger un objet blob de blocs à afficher dans le navigateur ou à enregistrer dans votre système de fichiers local. Pour télécharger un objet blob de blocs, procédez comme suit :
+
+1. Accédez à la liste d’objets blob que vous avez chargée dans la section précédente.
+1. Sélectionnez les objets blobs que vous souhaitez supprimer, puis choisissez **Supprimer** dans la barre d’action supérieure.
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer les ressources que vous avez créées dans ce démarrage rapide, vous pouvez supprimer le conteneur. Tous les objets blob dans le conteneur seront également supprimés.
+Pour supprimer toutes les ressources que vous avez créées dans ce démarrage rapide, vous pouvez simplement supprimer le conteneur. Tous les objets blob dans le conteneur seront également supprimés.
 
 Pour supprimer le conteneur :
 

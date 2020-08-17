@@ -1,20 +1,18 @@
 ---
 title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 08/07/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291240"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003538"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -27,13 +25,48 @@ Windows Virtual Desktop est mis à jour régulièrement. Vous trouverez dans cet
 
 Cet article est mis à jour tous les mois. Pensez à consulter cette page régulièrement pour être tenu informé des nouvelles mises à jour.
 
+## <a name="july-2020"></a>Juillet 2020  
+
+En juillet, l’intégration de Windows Virtual Desktop avec Gestion des ressources Azure est devenue généralement disponible.
+
+Voici ce qui a changé avec cette nouvelle mise en production : 
+
+- La « mise en production de l’automne 2019 » est désormais appelée « Windows Virtual Desktop (classique) », tandis que la « mise en production du printemps 2020 » s’appelle désormais simplement « Windows Virtual Desktop ». Pour plus d’informations, consultez [ce billet de blog](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+
+Pour en savoir plus sur les nouvelles fonctionnalités, consultez [ce billet de blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+### <a name="autoscaling-tool-update"></a>Mise à jour de l’outil de mise à l’échelle automatique
+
+La dernière version de l’outil de mise à l’échelle automatique qui était en préversion est désormais généralement disponible. Cet outil se sert d’un compte Azure Automation et de l’application logique Azure pour arrêter et redémarrer automatiquement les machines virtuelles de l’hôte de la session dans un pool d’hôtes, ce qui réduit les coûts d’infrastructure. Pour en savoir plus, consultez [Procéder à la mise à l’échelle des hôtes de session à l’aide d’Azure Automation](set-up-scaling-script.md).
+
+### <a name="azure-portal"></a>Portail Azure
+
+Vous pouvez désormais effectuer les opérations suivantes avec le portail Azure dans Windows Virtual Desktop : 
+
+- affecter directement des utilisateurs à des hôtes de session de bureau personnel ;  
+- modifier le paramètre d’environnement de validation pour les pools d’hôtes. 
+
+### <a name="diagnostics"></a>Diagnostics
+
+Nous avons mis en production de nouvelles requêtes prédéfinies pour l’espace de travail Log Analytics. Pour accéder aux requêtes, accédez à **Journaux**, puis, sous **Catégorie**, sélectionnez **Windows Virtual Desktop**. Pour en savoir plus, consultez [Utiliser Log Analytics pour la fonctionnalité de diagnostic](diagnostics-log-analytics.md).
+
+### <a name="update-for-remote-desktop-client-for-android"></a>Mise à jour du client Bureau à distance pour Android
+
+Le [client Bureau à distance pour Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) prend à présent en charge les connexions Windows Virtual Desktop. Depuis la version 10.0.7, le client Android offre une nouvelle interface utilisateur pour une expérience utilisateur améliorée. Le client s’intègre également avec Microsoft Authenticator sur les appareils Android pour activer l’accès conditionnel lors de l’abonnement à des espaces de travail Windows Virtual Desktop.  
+
+La version précédente du client Bureau à distance s’appelle désormais « Bureau à distance 8 ». Toutes les connexions existantes dans la version antérieure du client seront transférées sans problème vers le nouveau client. Le nouveau client a été réécrit dans le même moteur central de protocole RDP (Remote Desktop Protocol) sous-jacent que les clients iOS et macOS, ce qui accélère la mise en production de nouvelles fonctionnalités sur toutes les plateformes. 
+
+### <a name="teams-update"></a>Mise à jour de Microsoft Teams
+
+Nous avons apporté des améliorations à Microsoft Teams pour Windows Virtual Desktop. Plus important encore, Windows Virtual Desktop prend désormais en charge l’optimisation audio et vidéo pour le client Windows Desktop. La redirection améliore la latence en créant des chemins directs entre utilisateurs quand ceux-ci utilise l’audio ou la vidéo dans le cadre d’appels et de réunions. Une distance moins élevée signifie moins de tronçons, ce qui améliore la fluidité sonore et visuelle des appels. Pour plus d’informations, consultez [Utiliser Microsoft Teams sur Windows Virtual Desktop](teams-on-wvd.md).
+
 ## <a name="june-2020"></a>Juin 2020
 
 Le mois dernier, nous avons introduit l’intégration de Windows Virtual Desktop avec Azure Resource Manager en préversion. Cette mise à jour comprend de nombreuses nouvelles fonctionnalités passionnantes que nous souhaiterions vous présenter. Voici les nouveautés de cette version de Windows Virtual Desktop.
 
-### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Windows Virtual Desktop est maintenant intégré à Azure Resource Manager (préversion)
+### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager"></a>Windows Virtual Desktop est désormais intégré avec Azure Resource Manager
 
-Windows Virtual Desktop est maintenant intégré à Azure Resource Manager. Dans la dernière mise à jour, tous les objets Windows Virtual Desktop sont désormais des ressources Azure Resource Manager. Cette mise à jour est également intégrée aux contrôles d’accès en fonction du rôle (RBAC) Azure. Pour en savoir plus, consultez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md).
+Windows Virtual Desktop est maintenant intégré à Azure Resource Manager. Dans la dernière mise à jour, tous les objets Windows Virtual Desktop sont désormais des ressources Azure Resource Manager. Cette mise à jour est également intégrée avec le contrôle d’accès en fonction du rôle (RBAC) Azure. Pour en savoir plus, consultez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md).
 
 Les conséquences de ce changement sont les suivantes :
 
@@ -41,7 +74,7 @@ Les conséquences de ce changement sont les suivantes :
 
 - Avant cette mise à jour, vous pouviez uniquement publier des RemoteApps et des Desktops sur des utilisateurs individuels. Avec Azure Resource Manager, vous pouvez désormais publier des ressources sur des groupes Azure Active Directory.
 
-- La version précédente de Windows Virtual Desktop avait quatre rôles d’administrateur intégrés que vous pouviez attribuer à un locataire ou un pool d’hôtes. Ces rôles sont désormais dans le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) Azure. Vous pouvez appliquer ces rôles à chaque objet Azure Resource Manager Windows Virtual Desktop, ce qui vous permet d’avoir un modèle de délégation complet et riche.
+- La version précédente de Windows Virtual Desktop avait quatre rôles d’administrateur intégrés que vous pouviez attribuer à un locataire ou un pool d’hôtes. Ces rôles sont désormais dans le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). Vous pouvez appliquer ces rôles à chaque objet Azure Resource Manager Windows Virtual Desktop, ce qui vous permet d’avoir un modèle de délégation complet et riche.
 
 - Dans cette mise à jour, vous n’avez plus besoin d’exécuter la Place de marché Azure ou le modèle GitHub de manière répétée pour étendre un pool d’hôtes. Il vous suffit d’accéder à votre pool d’hôtes dans le portail Azure et de sélectionner **+ Ajouter** pour déployer des hôtes de session supplémentaires.
 
@@ -49,7 +82,7 @@ Les conséquences de ce changement sont les suivantes :
 
 - Les fonctions de supervision qui étaient auparavant effectuées à l’aide de PowerShell ou de l’application web Service de diagnostics ont été déplacées vers Log Analytics dans le portail Azure. Vous disposez désormais aussi de deux options pour visualiser vos rapports. Vous pouvez exécuter des requêtes Kusto et utiliser des classeurs pour créer des rapports visuels.
 
-- Vous n’avez plus besoin de finaliser le consentement Azure Active Directory (Azure AD) pour utiliser Windows Virtual Desktop. Dans cette mise à jour, le locataire Azure AD sur votre abonnement Azure authentifie vos utilisateurs et fournit des contrôles RBAC pour vos administrateurs.
+- Vous n’avez plus besoin de finaliser le consentement Azure Active Directory (Azure AD) pour utiliser Windows Virtual Desktop. Dans cette mise à jour, le locataire Azure AD sur votre abonnement Azure authentifie vos utilisateurs et fournit des contrôles Azure AD pour vos administrateurs.
 
 
 ### <a name="powershell-support"></a>Prise en charge de PowerShell
@@ -60,7 +93,7 @@ Pour installer le module, suivez les instructions fournies dans [Configurer le m
 
 Vous pouvez également consulter la liste des commandes disponibles dans la [référence PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
-Pour plus d’informations sur les nouvelles fonctionnalités, consultez [notre billet de blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+Pour plus d’informations sur les nouvelles fonctionnalités, consultez [notre billet de blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
 ### <a name="additional-gateways"></a>Passerelles supplémentaires
 

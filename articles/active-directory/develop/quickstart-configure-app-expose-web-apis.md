@@ -1,6 +1,7 @@
 ---
-title: Configurer une application pour exposer des API web - Plateforme d’identités Microsoft | Azure
-description: Découvrez comment configurer une application pour exposer une nouvelle autorisation/étendue ainsi qu’un rôle pour rendre l’application disponible sur les applications clientes.
+title: 'Démarrage rapide : Configurer une application pour exposer une API web | Azure'
+titleSuffix: Microsoft identity platform
+description: Cet démarrage rapide montre comment configurer une application pour exposer une nouvelle autorisation/étendue ainsi qu’un nouveau rôle pour rendre l’application disponible pour des applications clientes.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,30 +9,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799410"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830289"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
+# <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Démarrage rapide : Configurer une application pour exposer une API web
 
 Vous pouvez développer une API web et la mettre à disposition des applications clientes en exposant l’[autorisation/étendue](developer-glossary.md#scopes) et les [rôles](developer-glossary.md#roles). Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l'API Graph et les API Office 365.
 
-Dans ce démarrage rapide, vous découvrirez comment configurer une application pour exposer une nouvelle étendue pour la rendre disponible sur les applications clientes.
+Ce démarrage explique comment configurer une application pour exposer une nouvelle étendue afin de la rendre disponible pour des applications clientes.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, assurez-vous de remplir ces conditions préalables :
-
-* Découvrez les [autorisations et consentement](v2-permissions-and-consent.md) pris en charge qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
-* Disposez d’un locataire auprès duquel des applications sont inscrites.
-  * Si vous n’avez pas d’applications inscrites, [découvrez comment inscrire des applications à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md).
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Exécution du [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Connectez-vous au portail Azure puis sélectionnez l’application
 
@@ -86,13 +84,17 @@ Pour exposer une nouvelle étendue via l’interface utilisateur vous devez...
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Exposer une nouvelle étendue ou un nouveau rôle via le manifeste de l’application
 
+Le manifeste de l’application sert de mécanisme pour mettre à jour l’entité d’application qui définit les attributs d’une inscription d’application Azure AD.
+
 [![Exposer une nouvelle étendue à l’aide de la collection oauth2Permissions du manifeste](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
-Pour exposer une nouvelle étendue via le manifeste de l'application vous devez...
+Pour exposer une nouvelle étendue en modifiant le manifeste de l’application :
 
 1. sélectionner la section **Manifeste** sur la **page de présentation** de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de **Modifier** le manifeste depuis le portail. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.
 
     L’exemple suivant explique comment exposer une nouvelle étendue appelée `Employees.Read.All` sur la ressource/l’API, en ajoutant l’élément JSON suivant pour la collection `oauth2Permissions`.
+
+    Générez la valeur `id` par programmation ou à l’aide d’un outil de génération de GUID tel que [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
       ```json
       {
@@ -107,13 +109,12 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
       }
       ```
 
-   > [!NOTE]
-   > La valeur `id` doit être générée par programme ou en utilisant un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré et possède les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth 20. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
-   >
-   > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
-
 1. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Votre API web est maintenant configurée pour être utilisée par d’autres applications de votre répertoire.
 1. Suivez les étapes pour [vérifier que l’API web est exposée à d’autres applications](#verify-the-web-api-is-exposed-to-other-applications).
+
+Pour plus d’informations sur l’entité d’application et son schéma, consultez la documentation de référence sur le type de ressource [Application][ms-graph-application] de Microsoft Graph.
+
+Pour plus d’informations sur le manifeste de l’application, y compris sa référence de schéma, consultez [Compréhension du manifeste de l’application Azure AD](reference-app-manifest.md).
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Vérifier que l’API web est exposée à d’autres applications
 
@@ -125,24 +126,24 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
 
 Après avoir sélectionné la ressource d’API web, vous devez voir la nouvelle étendue disponible pour les demandes d’autorisations clientes.
 
-## <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
+## <a name="using-the-exposed-scopes"></a>Utilisation des étendues exposées
 
-Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Cet article contient des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API, y compris :
+Une fois qu’un client est correctement configuré avec des autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth 20. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication d’étendue (`scp`) est définie sur les autorisations demandées dans son inscription d’application.
 
-* Le membre appRoles, qui est une collection d’entités [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type), utilisée pour définir les [autorisations d’application](developer-glossary.md#permissions) pour une API web.
-* Le membre oauth2Permissions, qui est une collection d’entités [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type), utilisée pour définir les [autorisations déléguées](developer-glossary.md#permissions) pour une API web.
+Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
 
-Pour des informations plus générales sur les concepts de manifeste d’application, consultez la page [Connaître le manifeste d’application Azure Active Directory](reference-app-manifest.md).
+Dans vos applications, la valeur d’étendue complète est une concaténation de l’**URI de l’ID d’application** de l’API web (la ressource) et du **nom de l’étendue**.
+
+Par exemple, si l’URI de l’ID d’application de votre API web est `https://contoso.com/api`, et le nom de votre étendue est `Employees.Read.All`, l’étendue complète est :
+
+`https://contoso.com/api/Employees.Read.All`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les autres démarrages rapides relatifs à la gestion des applications pour les applications :
+Maintenant que vous avez exposé votre API web en configurant ses étendues, configurez l’inscription de votre application cliente avec l’autorisation d’accès à ces étendues.
 
-* [Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-* [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
-* [Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
-* [Supprimer une application inscrite à l’aide de la plateforme d’identité Microsoft](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configurer une inscription d’application pour l’accès à une API web](quickstart-configure-app-access-web-apis.md)
 
-Pour en savoir plus sur les deux objets Azure AD représentant une application inscrite et la relation entre ces objets, consultez [Objets application et principal du service dans Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
-
-Pour en savoir plus sur les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory, consultez [Directives de personnalisation des applications](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application

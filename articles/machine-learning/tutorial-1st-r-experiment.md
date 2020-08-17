@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 53b1c22e93c342373cae2bbb14958f4810a79630
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb2a7d8ef55e993726b185e5652c8dff9e96b23e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092318"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056361"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -102,22 +102,15 @@ La configuration de votre travail de développement dans ce tutoriel inclut les 
 * Créer une cible de calcul distante à utiliser pour l’apprentissage
 
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
-
- * Installez la dernière version à partir de CRAN.
-
-    ```R
-    # install the latest version from CRAN
-    install.packages("azuremlsdk")
-    azuremlsdk::install_azureml(envname = 'r-reticulate')
-    ```
+La version la plus récente du Kit de développement logiciel (SDK) R de CRAN est déjà installée sur l’instance de calcul. Si vous souhaitez installer la version de développement à partir de GitHub au lieu de récupérer les derniers correctifs de bogues, exécutez la commande suivante :
     
-* Ou installez la version de développement à partir de GitHub.
+```R
+remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+azuremlsdk::install_azureml()
+```
 
-    ```R
-    # or install the development version from GitHub
-    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
-    azuremlsdk::install_azureml(envname = 'r-reticulate')
-    ```
+> [!WARNING]
+> Pendant le processus d’installation, si vous recevez l’invite « `Would you like to install Miniconda? [Y/n]:` », répondez avec « `n` », car Anaconda est déjà installé sur l’instance de calcul et une installation de Miniconda n’est pas nécessaire.
 
 À présent, importez le package **azuremlsdk**.
 

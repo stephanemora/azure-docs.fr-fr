@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Rechercher des lieux à proximité sur une carte | Microsoft Azure Maps'
-description: Dans ce tutoriel, vous allez apprendre à rechercher des points d’intérêt sur une carte à l’aide de Microsoft Azure Maps.
+description: Découvrez comment rechercher des points d’intérêt sur une carte. Découvrez comment utiliser le Kit de développement logiciel (SDK) web Azure Maps pour ajouter des fonctionnalités de recherche et des zones contextuelles interactives à une carte.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281529"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035856"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -173,7 +173,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
 
 ### <a name="service-module"></a>Module de service
 
-1. Dans le gestionnaire d’événements `ready` de la carte, construisez l’URL du service de recherche en ajoutant le code JavaScript suivant.
+1. Dans le gestionnaire d’événements `ready` de carte, construisez l’URL du service de recherche en ajoutant le code JavaScript suivant.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key

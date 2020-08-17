@@ -1,6 +1,6 @@
 ---
 title: Tutoriel pour transférer des données sur des partages avec Azure Stack Edge | Microsoft Docs
-description: Découvrez comment ajouter des partages et s’y connecter sur un appareil Azure Stack Edge.
+description: Ce tutoriel explique comment ajouter des partages sur votre appareil Azure Stack Edge et vous y connecter, afin qu’Azure Stack Edge puisse transférer des données vers Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e62d746be92583abead1c3edb93900068b123838
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: fc47497eeceff20e8357195226c2d44cea64fa88
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82565097"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926108"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge"></a>Tutoriel : Transférer des données avec Azure Stack Edge
 

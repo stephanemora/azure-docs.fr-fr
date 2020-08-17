@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines virtuelles AWS ver
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534825"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066642"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -99,7 +99,7 @@ Azure Migrate : Server Migration utilise une appliance de réplication pour ré
 Préparez le déploiement de l’appliance comme suit :
 
 - Configurez une machine virtuelle EC2 distincte pour héberger l’appliance de réplication. Cette instance doit exécuter Windows Server 2012 R2 ou Windows Server 2016. [Passez en revue](./migrate-replication-appliance.md#appliance-requirements) la configuration matérielle, logicielle et réseau nécessaire pour l’appliance.
-- L’appliance ne doit pas être installée sur une machine virtuelle source que vous voulez répliquer. Elle doit plutôt être déployée sur une autre machine virtuelle.
+- L’appliance ne doit pas être installée sur une machine virtuelle source que vous souhaitez répliquer, ou sur l’appliance de découverte et d’évaluation Azure Migrate que vous avez peut-être déjà installée. Elle doit plutôt être déployée sur une autre machine virtuelle.
 - Les machines virtuelles AWS sources à migrer doivent avoir l’appliance de réplication en ligne de mire. Configurez les règles de groupe de sécurité nécessaires à cette fin. Il est recommandé de déployer l’appliance de réplication sur le même VPC que les machines virtuelles sources à migrer. Si l’appliance de réplication a besoin de se trouver dans un autre VPC, les VPC doivent être connectés par peering VPC.
 - Les machines virtuelles AWS sources communiquent avec l’appliance de réplication sur les ports HTTPS 443 (orchestration du canal de contrôle) et TCP 9443 (transport de données) entrants pour la gestion de la réplication et le transfert des données de réplication. L’appliance de réplication à son tour orchestre et envoie les données de réplication à Azure sur le port HTTPS 443 sortant. Pour configurer ces règles, modifiez les règles de trafic entrant/sortant du groupe de sécurité avec les ports et les informations d’adressage IP source appropriés.
 

@@ -1,0 +1,52 @@
+---
+title: Générer une chaîne de connexion avec PowerShell – Azure Database for MariaDB
+description: Cet article fournit un exemple Azure PowerShell pour générer une chaîne de connexion à Azure Database for MariaDB.
+author: ajlam
+ms.author: andrela
+ms.service: mariadb
+ms.custom: mvc, devx-track-azurepowershell
+ms.topic: quickstart
+ms.date: 8/5/2020
+ms.openlocfilehash: b4b0853cb71ccc85826d1230fb7828ed9df24b52
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87839943"
+---
+# <a name="how-to-generate-an-azure-database-for-mariadb-connection-string-with-powershell"></a>Comment générer une chaîne de connexion à Azure Database for MariaDB avec PowerShell
+
+Cet article montre comment générer une chaîne de connexion pour un serveur Azure Database for MariaDB. Vous pouvez utiliser une chaîne de connexion pour vous connecter à Azure Database for MariaDB à partir de nombreuses applications différentes.
+
+## <a name="requirements"></a>Spécifications
+
+Cet article utilise comme point de départ les ressources créées dans le guide suivant :
+
+* [Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide de PowerShell](quickstart-create-mariadb-server-database-using-azure-powershell.md)
+
+## <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
+
+La cmdlet `Get-AzMariaDbConnectionString` est utilisée pour générer une chaîne de connexion afin de connecter des applications à Azure Database for MariaDB. L’exemple suivant retourne la chaîne de connexion pour un client PHP depuis **mydemoserver**.
+
+```azurepowershell-interactive
+Get-AzMariaDbConnectionString -Client PHP -Name mydemoserver -ResourceGroupName myresourcegroup
+```
+
+```Output
+$con=mysqli_init();mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "mydemoserver.mariadb.database.azure.com", "myadmin@mydemoserver", {your_password}, {your_database}, 3306);
+```
+
+Les valeurs valides pour le paramètre `Client` sont :
+
+* ADO&#46;NET
+* JDBC
+* Node.js
+* PHP
+* Python
+* Ruby
+* WebApp
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Personnaliser les paramètres du serveur Azure Database for MariaDB à l’aide de PowerShell](howto-configure-server-parameters-using-powershell.md)

@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Créer une application de type localisateur de magasin à l’aide d’Azure Maps | Microsoft Azure Maps'
-description: Dans ce tutoriel, vous allez apprendre à créer une application web de type localisateur de magasin à l’aide du kit SDK web Microsoft Azure Maps.
+description: Découvrez comment créer des applications web de localisateur de magasin. Utilisez le kit de développement logiciel (SDK) Web Azure Maps pour créer une page web, interroger le service de recherche et afficher les résultats sur une carte.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 08/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289559"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121253"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -31,25 +31,24 @@ Ce tutoriel vous guide tout au long du processus de création d’un localisateu
 
 <a id="Intro"></a>
 
-Passez directement à l’[exemple de localisateur de magasin animé](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou au [code source](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Passez directement à l’[exemple de localisateur de magasin animé](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou au [code source](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-azure-maps-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+1. [Créer un compte Azure Maps avec le niveau tarifaire S1](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
+
+Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Conception
 
 Avant de passer au code, il est judicieux de commencer par réfléchir à la conception. Votre localisateur de magasin peut être aussi simple ou aussi complexe que vous le voulez. Dans le cadre de ce tutoriel, nous allons créer un localisateur de magasin simple. Pendant ce processus, nous vous livrerons quelques conseils pour développer certaines fonctionnalités (facultatif). Nous allons créer un localisateur de magasin pour une société fictive nommée Contoso Coffee. L’illustration suivante correspond à la maquette de la disposition générale du localisateur de magasin que nous allons créer dans ce tutoriel :
 
-<center>
-
-![Maquette d’une application de type localisateur de magasin pour la localisation des magasins Contoso Coffee Shop](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Maquette d’une application de type localisateur de magasin pour la localisation des magasins Contoso Coffee Shop](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)
 
 Pour optimiser l’utilité de ce localisateur de magasin, nous allons inclure une disposition réactive qui s’adapte à la taille de l’écran de l’utilisateur quand sa largeur est inférieure à 700 pixels. La disposition réactive facilite l’utilisation du localisateur de magasin sur un petit écran, comme celui d’un appareil mobile. Voici la maquette d’une disposition pour petit écran :  
 
-<center>
-
-![Maquette de l’application de localisation des magasins Contoso Coffee Shop sur un appareil mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Maquette de l’application de localisation des magasins Contoso Coffee Shop sur un appareil mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</
 
 Les maquettes présentent une application assez simple. L’application contient une zone de recherche, une liste de magasins à proximité et une carte comportant des marqueurs, comme des symboles. Elle dispose également une fenêtre contextuelle qui affiche des informations supplémentaires quand l’utilisateur sélectionne un marqueur. Pour être plus précis, voici les fonctionnalités que nous créons dans le localisateur de magasin dans le cadre de ce tutoriel :
 
@@ -71,45 +70,36 @@ Les maquettes présentent une application assez simple. L’application contient
 
 Avant de développer une application de localisateur de magasin, nous devons créer un jeu de données des magasins à afficher sur la carte. Dans ce tutoriel, nous utilisons un jeu de données de cafés fictifs appelé Contoso Coffee. Le jeu de données de ce localisateur de magasin simple est géré dans un classeur Excel. Le jeu de données contient 10 213 emplacements de cafés Contoso Coffee répartis dans neuf pays/régions : États-Unis, Canada, Royaume-Uni, France, Allemagne, Italie, Pays-Bas, Danemark et Espagne. Voici une capture d’écran qui montre à quoi ressemblent les données :
 
-<center>
+![Capture d’écran des données du localisateur de magasin dans un classeur Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)
 
-![Capture d’écran des données du localisateur de magasin dans un classeur Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
-
-Vous pouvez [télécharger le classeur Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
+Vous pouvez [télécharger le classeur Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data).
 
 À l’examen de la capture d’écran des données, voici les observations que nous pouvons faire :
-    
+
 * Les informations sur les emplacements sont stockées dans les colonnes **AddressLine** (adresse), **City** (ville), **Municipality** (chef-lieu), **AdminDivision** (État/province), **PostCode** (code postal) et **Country** (pays).  
 * Les colonnes **Latitude** et **Longitude** contiennent les coordonnées géographiques de chaque café Contoso Coffee. Si vous ne disposez pas des coordonnées, vous pouvez utiliser les services de recherche d’Azure Maps pour déterminer les coordonnées d’emplacement.
 * D’autres colonnes contiennent des métadonnées sur les cafés : un numéro de téléphone, des colonnes booléennes, ainsi que les heures d’ouverture et de fermeture au format 24 heures. Les colonnes booléennes sont destinées au Wi-Fi et à l’accessibilité pour les personnes en fauteuil roulant. Vous pouvez créer vos propres colonnes contenant des métadonnées plus en rapport avec vos données d’emplacement.
 
-> [!Note]
-> Azure Maps affiche les données dans la projection Mercator sphérique « EPSG:3857 », mais lit les données dans « EPSG:4325 » qui utilisent la donnée WGS84. 
+> [!NOTE]
+> Azure Maps affiche les données dans la projection Mercator sphérique « EPSG:3857 », mais lit les données dans « EPSG:4325 » qui utilisent la donnée WGS84.
 
-Il existe de nombreuses façons d’exposer le jeu de données à l’application. Une approche consiste à charger les données dans une base de données et à exposer un service web qui les interroge. Vous pouvez ensuite envoyer les résultats au navigateur de l’utilisateur. Cette option est idéale pour les jeux de données volumineux ou qui sont fréquemment mis à jour. Cependant, elle demande plus de travail de développement et son coût de revient est plus élevé. 
+Il existe de nombreuses façons d’exposer le jeu de données à l’application. Une approche consiste à charger les données dans une base de données et à exposer un service web qui les interroge. Vous pouvez ensuite envoyer les résultats au navigateur de l’utilisateur. Cette option est idéale pour les jeux de données volumineux ou qui sont fréquemment mis à jour. Cependant, elle demande plus de travail de développement et son coût de revient est plus élevé.
 
 Une autre approche consiste à convertir le jeu de données en fichier texte plat que le navigateur peut analyser facilement. Le fichier lui-même peut être hébergé avec le reste de l’application. Simple de conception, cette option doit cependant être réservée aux jeux de données peu volumineux, car l’utilisateur télécharge toutes les données. Pour ce jeu de données, nous optons pour le fichier texte plat dans la mesure où la taille du fichier de données est inférieure à 1 Mo.  
 
-Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*. 
+Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*.
 
-<center>
-
-![Capture d’écran de la boîte de dialogue Type de fichier](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![Capture d’écran de la boîte de dialogue Type de fichier](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
 Si vous ouvrez le fichier texte dans le Bloc-notes, il se présente comme suit :
 
-<center>
-
-![Capture d’écran d’un fichier de Bloc-notes qui montre un jeu de données délimité par des tabulations](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
-
+![Capture d’écran d’un fichier de Bloc-notes qui montre un jeu de données délimité par des tabulations](./media/tutorial-create-store-locator/StoreDataTabFile.png)
 
 ## <a name="set-up-the-project"></a>Configuration du projet
 
 Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html*, *index.css*, et *index.js*. Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt*. Créez un autre dossier nommé *images*. Cette application utilise 10 images pour les icônes, les boutons et les marqueurs sur la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
 
-<center>
-
-![Capture d’écran du dossier du projet de localisateur de magasin simple](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Capture d’écran du dossier du projet de localisateur de magasin simple](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Créer l’interface utilisateur
 
@@ -922,23 +912,17 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
 
 Maintenant, vous disposez d’un localisateur de magasin entièrement opérationnel. Dans un navigateur web, ouvrez le fichier *index.html* du localisateur de magasin. Une fois les groupes affichés sur la carte, vous pouvez rechercher un emplacement. Pour cela, utilisez la zone de recherche, sélectionnez le bouton de localisation de l’utilisateur (My Location), sélectionnez un groupe ou effectuez un zoom avant sur la carte pour afficher les emplacements individuels.
 
-La première fois qu’un utilisateur sélectionne le bouton de localisation (My Location), le navigateur affiche un avertissement de sécurité qui demande l’autorisation d’accéder à l’emplacement de l’utilisateur. Si l’utilisateur accepte de partager son emplacement, la carte effectue un zoom avant sur cet emplacement, et les cafés qui se trouvent à proximité sont affichés. 
+La première fois qu’un utilisateur sélectionne le bouton de localisation (My Location), le navigateur affiche un avertissement de sécurité qui demande l’autorisation d’accéder à l’emplacement de l’utilisateur. Si l’utilisateur accepte de partager son emplacement, la carte effectue un zoom avant sur cet emplacement, et les cafés qui se trouvent à proximité sont affichés.
 
-<center>
-
-![Capture d’écran de la demande du navigateur à accéder à l’emplacement de l’utilisateur](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![Capture d’écran de la demande du navigateur à accéder à l’emplacement de l’utilisateur](./media/tutorial-create-store-locator/GeolocationApiWarning.png)
 
 Quand vous zoomez suffisamment sur une zone où se trouvent des cafés, les groupes se séparent en emplacements individuels. Sélectionnez l’une des icônes sur la carte ou sélectionnez un élément dans le volet latéral pour afficher une fenêtre indépendante. Celle-ci montre des informations sur la localisation correspondante.
 
-<center>
+![Capture d’écran du localisateur de magasin finalisé](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)
 
-![Capture d’écran du localisateur de magasin finalisé](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+Si vous redimensionnez la fenêtre du navigateur en définissant une largeur de moins de 700 pixels ou que vous ouvrez l’application sur un appareil mobile, la disposition change pour s’adapter à la taille inférieure de l’écran.
 
-Si vous redimensionnez la fenêtre du navigateur en définissant une largeur de moins de 700 pixels ou que vous ouvrez l’application sur un appareil mobile, la disposition change pour s’adapter à la taille inférieure de l’écran. 
-
-<center>
-
-![Capture d’écran de la version « petit écran » du localisateur de magasin](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Capture d’écran de la version « petit écran » du localisateur de magasin](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -950,7 +934,7 @@ Ce tutoriel vous apprend à créer un localisateur de magasin simple à l’aide
 > * Autorisez l’utilisateur à [filtrer les emplacements le long d’un itinéraire](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Ajoutez la possibilité de [définir des filtres](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Ajoutez la possibilité de spécifier une valeur de recherche initiale en utilisant une chaîne de requête. Quand vous incluez cette option dans votre localisateur de magasin, les utilisateurs peuvent ajouter les recherches aux favoris et les partager. Elle offre aussi un moyen simple de transférer les recherches de la page active vers une autre.  
-> * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
 > * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 > [!div class="nextstepaction"]

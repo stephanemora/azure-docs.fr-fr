@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b1be75b06b4281ee5d03675d9d33db00a5aaf7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 783a61c8e2b6c60b81e31d7771d3237c93be92a8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70013794"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055519"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Darwinbox
 
@@ -30,7 +30,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Darwinbox à Azure Active Di
 * Contrôler dans Azure AD qui a accès à Darwinbox.
 * Permettre à vos utilisateurs de se connecter automatiquement à Darwinbox avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -39,6 +38,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Darwinbox pour lequel l’authentification unique (SSO) est activée.
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -83,12 +85,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.darwinbox.in/`
+   1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Darwinbox](https://darwinbox.com/contact-us.php). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+      > [!NOTE]
+      > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Darwinbox](https://darwinbox.com/contact-us.php). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -141,6 +143,28 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans Darwinbox. C
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Le fait de cliquer sur la vignette Darwinbox dans le volet d’accès doit vous connecter automatiquement à l’application Darwinbox pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="test-sso-for-darwinbox-mobile"></a>Tester l’authentification unique pour Darwinbox (mobile)
+
+1. Ouvrez l’application mobile Darwinbox. Cliquez sur **Entrer l’URL de l’organisation**, entrez l’URL de votre organisation dans la zone de texte, puis cliquez sur le bouton fléché.
+
+    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. Si vous avez plusieurs domaines, cliquez sur votre domaine.
+
+    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Entrez l’e-mail de votre Azure AD dans l’application Darwinbox, puis cliquez sur **Suivant**.
+
+    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Entrez le mot de passe de votre Azure AD dans l’application Darwinbox, puis cliquez sur **Se connecter**.
+
+    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Une fois la connexion réussie, la page d’accueil de l’application s’affiche.
+
+    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
