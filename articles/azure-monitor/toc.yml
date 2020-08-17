@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Utiliser des seuils dynamiques
               href: platform/alerts-dynamic-thresholds.md
+            - name: Alertes uniques pour plusieurs séries chronologiques
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Alertes de métrique sur les journaux
               href: platform/alerts-metric-logs.md
             - name: Utilisation du modèle Resource Manager

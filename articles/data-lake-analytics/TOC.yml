@@ -32,7 +32,7 @@
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité pour Azure Security Benchmark
           href: security-baseline.md
-- name: Procédures
+- name: Guides pratiques
   items:
     - name: Gérer Data Lake Analytics
       items:

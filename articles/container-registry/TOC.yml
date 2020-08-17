@@ -148,6 +148,12 @@
         - name: Dépanner
           expanded: false
           items:
+            - name: Résoudre les problèmes de connexion
+              href: container-registry-troubleshoot-login.md
+            - name: Résoudre les problèmes réseau
+              href: container-registry-troubleshoot-access.md
+            - name: Résoudre les problèmes de performances de registre
+              href: container-registry-troubleshoot-performance.md
             - name: Détecter les problèmes courants
               href: container-registry-check-health.md
             - name: Questions fréquentes (FAQ)

@@ -8,7 +8,7 @@
       href: ./servers/overview.md
 - name: Démarrages rapides
   items:
-    - name: Activer Arc pour les agents de serveurs
+    - name: Activer l’agent des serveurs compatibles avec Arc
       href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Tutoriels
   items:

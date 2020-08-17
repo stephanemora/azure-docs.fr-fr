@@ -1,20 +1,16 @@
 ---
 title: 'Azure Arc pour serveurs (préversion) : vue d’ensemble'
 description: Découvrez comment utiliser Azure Arc pour serveurs afin de gérer les machines hébergées en dehors d’Azure comme s’il s’agissait d’une ressource Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482188"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121797"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Présentation d’Azure Arc pour serveurs (préversion)
 
@@ -28,10 +24,15 @@ Pour bénéficier de cette expérience avec vos machines hybrides hébergées en
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Azure Arc pour serveurs (préversion) prend en charge les scénarios suivants avec les ordinateurs connectés :
+Quand vous connectez votre machine à la fonctionnalité Azure Arc pour serveurs (préversion), celle-ci permet d’effectuer les tâches de gestion de la configuration suivantes :
 
 - Affecter des [configurations invité Azure Policy](../../governance/policy/concepts/guest-configuration.md) à l’aide de la même expérience que lors de l’attribution de stratégie pour des machines virtuelles Azure.
-- Consigner les données collectées par l’agent Log Analytics et stockées dans l’espace de travail Log Analytics sur lequel l’ordinateur est inscrit. Les données de journal de l’ordinateur hybride contiennent désormais des propriétés spécifiques à l’ordinateur, telles qu’un ID de ressource, qui peuvent être utilisées pour prendre en charge l’accès au journal du [contexte de la ressource](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
+
+- Surveillez les performances du système d’exploitation invité de votre machine connectée, et découvrez les composants de l’application afin de surveiller leurs processus et dépendances avec d’autres ressources que l’application communique à l’aide d’[Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md).
+
+- Simplifiez le déploiement avec d’autres services Azure tels que Azure Automation State Configuration et un espace de travail Azure Monitor Log Analytics à l’aide des [extensions de machine virtuelle Azure](manage-vm-extensions.md) prises en charge pour vos machines Windows ou Linux non-Azure. Cela comprend l’exécution de la configuration après déploiement ou de l’installation de logiciels à l’aide de l’extension de script personnalisé.
+
+Les données de journal collectées et stockées dans un espace de travail Log Analytics à partir de la machine hybride contiennent désormais des propriétés spécifiques de la machine, telles qu’un ID de ressource. Cela peut être utilisé pour prendre en charge l’accès au journal de [contexte de ressource](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -42,7 +43,7 @@ Avec Azure Arc pour serveurs (préversion), seules certaines régions sont prise
 - WestEurope
 - AsieSudEst
 
-Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. Pour bénéficier d’une résilience en cas de panne régionale, si vous avez plusieurs emplacements qui assurent un service géographiquement redondant, il est préférable de connecter les ordinateurs de chaque emplacement à une autre région Azure.
+Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. En cas de panne régionale, si vous avez plusieurs emplacements qui assurent un service géographiquement redondant, l’idéal est de connecter les machines de chaque emplacement à une région Azure distincte.
 
 ### <a name="agent-status"></a>État de l’agent
 

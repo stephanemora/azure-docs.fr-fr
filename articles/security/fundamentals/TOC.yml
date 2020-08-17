@@ -78,12 +78,16 @@
   items:
     - name: Chiffrement et sécurité des données
       href: encryption-overview.md
+    - name: Double chiffrement
+      href: double-encryption.md
     - name: Chiffrement de disque
       items:
         - name: Meilleures pratiques
           href: data-encryption-best-practices.md
         - name: Chiffrement des données au repos
           href: encryption-atrest.md
+        - name: Modèles de chiffrement des données
+          href: encryption-models.md
         - name: Azure Disk Encryption pour les machines virtuelles
           href: azure-disk-encryption-vms-vmss.md
     - name: Sécurité de la base de données

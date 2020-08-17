@@ -1,23 +1,23 @@
 ---
-title: Portail Azure - Restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées (préversion)
-description: Activez des liaisons privées (préversion) pour vos disques managés avec le portail Azure. Exportez et importez des disques de manière sécurisée, uniquement au sein de votre réseau virtuel.
+title: Portail Azure – Restreindre l’accès en importation/exportation à des disques managés avec des liaisons privées
+description: Activez des liaisons privées pour vos disques managés avec le portail Azure, actuellement en préversion. Vous permet d’exporter et d’importer des disques de manière sécurisée au sein de votre réseau virtuel.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 75b5ba995ff87649ec8a7a96a7c816bf2bec7e44
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535532"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135842"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Portail Azure - Restreindre l’accès par importation/exportation pour les disques managés avec des liaisons privées (préversion)
+# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portail Azure – Restreindre l’accès en importation/exportation pour des disques managés avec des liaisons privées
 
-Vous pouvez générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés afin d’exporter les données vers une autre région dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou de la lecture des données à des fins d’analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement le disque dur virtuel sur un disque vide à partir de votre site local.  Vous pouvez désormais tirer parti des [liaisons privées](../private-link/private-link-overview.md) (préversion) pour restreindre l’exportation et l’importation de disques managés à votre réseau virtuel Azure uniquement. Vous avez ainsi l’assurance que les données ne transitent jamais par l’Internet public et qu’elles circulent toujours dans le réseau principal Microsoft sécurisé quand vous utilisez des liaisons privées. 
+La prise en charge des liaisons privées pour des disques managés est actuellement en préversion. Elle vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Vous pouvez générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés afin d’exporter les données vers une autre région dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou de la lecture des données à des fins d’analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement le disque dur virtuel sur un disque vide à partir de votre site local. Le trafic réseau entre clients sur leurs réseau virtuel et disques managés transite uniquement sur le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public.
 
 Vous pouvez créer une ressource d’accès au disque et la lier à votre réseau virtuel dans le même abonnement en créant un point de terminaison privé. Vous devez associer un disque ou un instantané avec accès au disque pour exporter et importer les données au moyen de liaisons privées. Vous devez également définir la propriété NetworkAccessPolicy du disque ou de l’instantané avec `AllowPrivate`. 
 

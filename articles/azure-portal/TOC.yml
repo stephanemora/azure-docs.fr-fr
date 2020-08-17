@@ -27,20 +27,16 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guides pratiques
   items:
-    - name: Définir vos préférences relatives au portail Azure
+    - name: Gérer les paramètres et les préférences du portail Azure
       href: set-preferences.md
-    - name: Définir des paramètres de délai d’expiration inactif pour tous les utilisateurs
-      href: admin-timeout.md
-    - name: Activer le contraste élevé ou modifier le thème
-      href: azure-portal-change-theme-high-contrast.md
     - name: 'Ajouter, supprimer et trier des favoris'
       href: azure-portal-add-remove-sort-favorites.md
-    - name: Créer et partager des tableaux de bord Azure
-      href: azure-portal-dashboards.md
-    - name: Utiliser une vignette Markdown personnalisée
-      href: azure-portal-markdown-tile.md
-    - name: Exporter ou supprimer des paramètres utilisateur
-      href: azure-portal-export-delete-settings.md
+    - name: Créer des tableaux de bord Azure
+      items:
+        - name: Créer et partager des tableaux de bord Azure
+          href: azure-portal-dashboards.md
+        - name: Utiliser une vignette Markdown personnalisée
+          href: azure-portal-markdown-tile.md
     - name: Série de vidéos de procédures sur le portail Azure
       href: azure-portal-video-series.md
     - name: Créer et gérer des demandes de support

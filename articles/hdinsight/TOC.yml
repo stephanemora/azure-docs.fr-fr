@@ -531,6 +531,8 @@
               items:
                 - name: Utiliser des nœuds de périmètre vides
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: Utiliser des nœuds de périphérie pour mettre à l’échelle HiveServer2
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: Dépanner
           items:
             - name: Problèmes courants

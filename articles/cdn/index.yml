@@ -3,18 +3,18 @@ title: Documentation Azure CDN
 summary: Microsoft Azure Content Delivery Network (CDN) est une solution de réseau de distribution de contenu globale permettant de diffuser du contenu à bande passante élevée. Elle peut être hébergée dans Azure ou tout autre emplacement. Avec Microsoft Azure Content Delivery Network, vous pouvez mettre en cache des objets statiques chargés à partir du Stockage Blob Azure, d’une application web ou de tout serveur web en accès public, en utilisant le serveur de point de présence (POP) le plus proche. Azure CDN peut aussi accélérer le contenu dynamique qui ne peut être mis en cache, en exploitant diverses optimisations réseau et de routage.
 metadata:
   title: Documentation Azure CDN - Tutoriels, informations de référence sur les API
-  description: Microsoft Azure Content Delivery Network (CDN) est une solution de réseau de distribution de contenu globale permettant de diffuser du contenu à bande passante élevée. Elle peut être hébergée dans Azure ou tout autre emplacement. Avec Microsoft Azure Content Delivery Network, vous pouvez mettre en cache des objets statiques chargés à partir du Stockage Blob Azure, d’une application web ou de tout serveur web en accès public, en utilisant le serveur de point de présence (POP) le plus proche. Azure CDN peut aussi accélérer le contenu dynamique qui ne peut être mis en cache, en exploitant diverses optimisations réseau et de routage.
+  description: Découvrez Azure Content Delivery Network, solution qui fournit du contenu à large bande passante pouvant être hébergé sur Azure ou ailleurs.
   ms.service: azure-cdn
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
+  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85554314"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88192450"
 landingContent:
 - title: À propos d’Azure CDN
   linkLists:

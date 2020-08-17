@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327920"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121559"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application Java Spring
 
@@ -36,7 +36,7 @@ Ensuite, ouvrez le fichier *pom.xml* dans un éditeur de texte, puis ajoutez un 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -46,11 +46,33 @@ Ensuite, ouvrez le fichier *pom.xml* dans un éditeur de texte, puis ajoutez un 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Enregistrez le fichier, puis créez et exécutez votre application comme d’habitude.
+## <a name="run-and-test-the-app-locally"></a>Exécuter et tester l’application localement
+
+1. Générez votre application Spring Boot avec Maven, puis exécutez-la.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Ouvrez une fenêtre de navigateur, puis accédez à l’URL : `http://localhost:8080`.  Le message associé à votre clé s’affiche. 
+
+    Vous pouvez également utiliser *curl* pour tester votre application, par exemple : 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. Pour tester la configuration dynamique, ouvrez le portail Azure App Configuration associé à votre application. Sélectionnez l’**Explorateur de configurations**, et mettez à jour la valeur de votre clé affichée, par exemple :
+    | Clé | Valeur |
+    |---|---|
+    | application/config.message | Hello – Mis à jour |
+
+1. Actualisez la page du navigateur pour afficher le nouveau message.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -287,8 +287,10 @@
       items:
         - name: Vue d’ensemble
           href: offline-backup-overview.md
-        - name: Sauvegarde hors connexion avec Azure Data Box
+        - name: Sauvegarde hors connexion avec Azure Data Box (MARS)
           href: offline-backup-azure-data-box.md
+        - name: Sauvegarde hors connexion avec Azure Data Box (DPM/MABS)
+          href: offline-backup-azure-data-box-dpm-mabs.md
         - name: Sauvegarde hors connexion avec Import/Export (MARS)
           href: backup-azure-backup-import-export.md
         - name: Sauvegarde hors connexion avec Import/Export (DPM/MABS)
