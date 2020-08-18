@@ -1,7 +1,7 @@
 ---
 title: Authentification avec Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: Dans cet article, vous allez découvrir l’authentification Azure Active Directory et l’authentification par clé partagée.
+description: 'Découvrez les deux méthodes d’authentification des requêtes dans Azure Maps : authentification par clé partagée et authentification Azure Active Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285830"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036842"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -80,7 +80,7 @@ Pour plus d’informations sur l’affichage de votre ID client, consultez [Voir
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorisation avec contrôle d’accès en fonction du rôle
 
-Azure Maps prend en charge l’accès à tous les types de principaux pour le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), notamment les utilisateurs Azure AD, les groupes, les applications, les ressources Azure et les identités managées Azure. Un jeu d’autorisations, également appelé définition de rôle, est accordé aux types de principaux. Une définition de rôle fournit des autorisations pour les actions de l’API REST. L’application de l’accès à un ou plusieurs comptes Azure Maps est appelée « étendue ». Lors de l’application d’un principal, d’une définition de rôle et d’une étendue, une attribution de rôle est créée. 
+Azure Maps prend en charge l’accès à tous les types de principaux pour le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), notamment les utilisateurs Azure AD, les groupes, les applications, les ressources Azure et les identités managées Azure. Un jeu d’autorisations, également appelé définition de rôle, est accordé aux types de principaux. Une définition de rôle fournit des autorisations pour les actions de l’API REST. L’application de l’accès à un ou plusieurs comptes Azure Maps est appelée « étendue ». Lors de l’application d’un principal, d’une définition de rôle et d’une étendue, une attribution de rôle est créée. 
 
 Les sections ci-après traitent des concepts et des composants de l’intégration d’Azure Maps au contrôle d’accès en fonction du rôle Azure AD. Dans le cadre du processus de configuration de votre compte Azure Maps, un annuaire Azure AD est associé à l’abonnement Azure dans lequel réside le compte Azure Maps. 
 

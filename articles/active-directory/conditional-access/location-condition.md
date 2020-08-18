@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518434"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055375"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -190,7 +190,7 @@ Lorsque vous créez ou mettez à jour des emplacements nommés, pour effectuer d
 
 Lorsque vous utilisez un proxy hébergé dans le cloud ou une solution VPN, l’adresse IP Azure AD utilisée pendant l’évaluation d’une stratégie correspond à l’adresse IP du proxy. L’en-tête X-Forwarded-For (XFF) qui contient l’adresse IP publique de l’utilisateur n’est pas utilisé car il n’existe aucune validation provenant d’une source approuvée, il pourrait donc permettre de falsifier une adresse IP.
 
-Lorsqu’un proxy cloud est disponible, une stratégie utilisée pour exiger un appareil joint à un domaine peut être utilisée, ou la revendication de réseau d’entreprise interne à partir d’AD FS.
+Lorsqu’un proxy cloud est disponible, une stratégie utilisée pour exiger un appareil joint Azure AD hybride peut être utilisée, ou la revendication de réseau d’entreprise interne à partir d’AD FS.
 
 ### <a name="api-support-and-powershell"></a>Prise en charge des API et PowerShell
 

@@ -1,6 +1,6 @@
 ---
 title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à afficher un calque de mosaïques sur une carte à l’aide de l’Android SDK Microsoft Azure Maps.
+description: Découvrez comment ajouter une couche de mosaïques à une carte. Consultez un exemple qui utilise l’Android SDK Azure Maps pour ajouter un calque de radar météo à une carte.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7480ba3befaf560eace2cae4ef4a822012373a2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126973"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037352"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps
 

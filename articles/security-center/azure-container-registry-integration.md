@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534666"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056599"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Analyse d’images Azure Container Registry par Security Center
 
@@ -27,17 +27,16 @@ Si vous êtes sur le niveau standard d’Azure Security Center, vous pouvez ajou
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **Disponibilité générale**
-- Rôles nécessaires : **Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Registres et images pris en charge :
-    - ✔ Registres Azure Container Registry hébergés sur Linux qui sont accessibles à partir de l’Internet public et qui fournissent un accès à l’interpréteur de commandes.
-    - ✘ Registres Azure Container Registry hébergés sur Windows.
-    - ✘ Registres « privés » : Security Center exige que vos registres soient accessibles à partir de l’Internet public. Security Center ne peut actuellement pas se connecter à des registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link, ni les analyser.
-    - ✘ Images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.
-- Clouds : 
-    - ✔ Clouds commerciaux
-    - ✘ Cloud du gouvernement des États-Unis
-    - ✘ Cloud du gouvernement chinois, autres clouds gouvernementaux
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Disponibilité générale|
+|Prix :|Niveau standard|
+|Registres et images pris en charge :|![Oui](./media/icons/yes-icon.png) Registres Azure Container Registry hébergés sur Linux qui sont accessibles à partir de l’Internet public et qui fournissent un accès à l’interpréteur de commandes.<br>![Non](./media/icons/no-icon.png) Registres Azure Container Registry hébergés sur Windows.<br>![No](./media/icons/no-icon.png) Registres « privés » : Security Center exige que vos registres soient accessibles à partir de l’Internet public. Security Center ne peut actuellement pas se connecter à des registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link, ni les analyser.<br>![Non](./media/icons/no-icon.png) Images super-minimalistes, telles que les images [de base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.|
+|Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>Quand les images sont-elles analysées ?

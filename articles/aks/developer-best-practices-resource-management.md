@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281563"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005310"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
 
@@ -74,7 +74,7 @@ Pour plus d’informations sur les mesures et affectations de ressources, consul
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Développer et déboguer des applications sur un cluster AKS
 
-**Guide de bonne pratique** : les équipes de développement doivent déployer et déboguer leurs applications sur un cluster AKS à l’aide de Dev Spaces. Ce modèle de développement garantit que les besoins en termes de réseau, de stockage ou de contrôles d’accès en fonction du rôle sont implémentés avant le déploiement de l’application en production.
+**Guide de bonne pratique** : les équipes de développement doivent déployer et déboguer leurs applications sur un cluster AKS à l’aide de Dev Spaces. Ce modèle de développement garantit que les besoins en termes de réseau, de stockage ou de contrôle d’accès en fonction du rôle (RBAC) sont implémentés avant le déploiement de l’application en production.
 
 Avec Azure Dev Spaces, vous développez, déboguez et testez les applications directement sur un cluster AKS. Les développeurs d’une équipe travaillent ensemble pour générer et tester l’application tout au long de son cycle de vie. Vous pouvez continuer à utiliser des outils existants tels que Visual Studio ou Visual Studio Code. Une extension installée pour Dev Spaces permet d’exécuter et de déboguer l’application dans un cluster AKS.
 

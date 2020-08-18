@@ -3,12 +3,12 @@ title: Glossaire - LUIS
 description: Le glossaire explique les termes que vous pourriez rencontrer en utilisant le service API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056376"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836409"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
@@ -94,11 +94,11 @@ Une [intention](#intent) est un exemple de classifieur.
 
 ## <a name="collaborator"></a>Collaborateur
 
-Le concept d’un collaborateur est le même que celui d’un [contributeur](#contributor). Un collaborateur reçoit l’accès lorsqu’un propriétaire ajoute l’adresse email du collaborateur à une application qui n’est pas contrôlée par le contrôle d’accès en fonction du rôle (ou RBAC, pour « Role-Based Access Control »). Si vous utilisez toujours des collaborateurs, vous devez migrer votre compte LUIS et utiliser les ressources de création de LUIS pour gérer les contributeurs avec le contrôle d’accès en fonction du rôle .
+Le concept d’un collaborateur est le même que celui d’un [contributeur](#contributor). Un collaborateur reçoit l’accès lorsqu’un propriétaire ajoute l’adresse email du collaborateur à une application qui n’est pas contrôlée par le contrôle d’accès en fonction du rôle Azure (ou Azure RBAC, pour « Role-Based Access Control »). Si vous utilisez toujours des collaborateurs, vous devez migrer votre compte LUIS et utiliser les ressources de création de LUIS pour gérer les contributeurs avec le contrôle d’accès en fonction du rôle .
 
 ## <a name="contributor"></a>Contributeur
 
-Un contributeur n’est pas le [propriétaire](#owner) de l’application, mais il dispose des mêmes autorisations pour ajouter, modifier et supprimer les intentions, les entités et les énoncés. Un contributeur fournit un contrôle d’accès en fonction du rôle à une application LUIS.
+Un contributeur n’est pas le [propriétaire](#owner) de l’application, mais il dispose des mêmes autorisations pour ajouter, modifier et supprimer les intentions, les entités et les énoncés. Un contributeur fournit un contrôle d’accès en fonction du rôle Azure (Azure RBAC) à une application LUIS.
 
 Voir aussi :
 * [Découvrez comment](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) ajouter des contributeurs
