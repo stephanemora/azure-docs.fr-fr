@@ -151,6 +151,8 @@
           href: workflow-automation.md
         - name: Exporter les recommandations
           href: continuous-export.md
+    - name: Gérer vos ressources avec un inventaire d’actifs
+      href: asset-inventory.md
     - name: Intégrer aux autres outils et services
       items:
         - name: S’intégrer à Windows Admin Center

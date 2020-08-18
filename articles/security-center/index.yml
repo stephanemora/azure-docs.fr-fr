@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 13a7ca317630a5a1b0606fa0d2e2022f065fbd4d
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.openlocfilehash: fa0ef29a1ae9e7fa7fbb1798927b01383f891c29
+  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85317174"
+  ms.lasthandoff: 08/17/2020
+  ms.locfileid: "88262090"
 landingContent:
 - title: À propos de Security Center
   linkLists:
@@ -32,13 +32,13 @@ landingContent:
     links:
     - text: Notes de publication pour Security Center
       url: release-notes.md
-    - text: Advanced Data Security pour les machines SQL
-      url: security-center-iaas-advanced-data.md
-    - text: Règles de suppression d’alerte
-      url: alerts-suppression-rules.md
+    - text: Gérer vos ressources avec un inventaire d’actifs
+      url: asset-inventory.md
+    - text: Réécriture de la page sur les contrôles d’application adaptatifs
+      url: security-center-adaptive-application.md
     - text: Descriptions complètes des nouveaux contrôles de sécurité
       url: secure-score-security-controls.md#security-controls-and-their-recommendations
-    - text: Nouvelle API de score sécurisé
+    - text: API de score sécurisé
       url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: Bien démarrer
   linkLists:

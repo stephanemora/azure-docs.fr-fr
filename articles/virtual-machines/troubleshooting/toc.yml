@@ -232,6 +232,8 @@
       href: ../extensions/troubleshoot.md
     - name: Installer l’agent de machine virtuelle Windows en mode hors connexion
       href: install-vm-agent-offline.md
+    - name: Résoudre les problèmes de l’agent de machines virtuelles Windows
+      href: windows-azure-guest-agent.md
 - name: Sauvegarde et restauration
   items:
     - name: Résoudre les échecs de la sauvegarde sur une machine virtuelle Azure

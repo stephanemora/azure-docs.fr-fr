@@ -22,6 +22,9 @@
     - name: Créer une fonction durable - Python
       displayName: 'get started, chaining'
       href: quickstart-python-vscode.md
+    - name: Créer une fonction durable - PowerShell
+      displayName: 'get started, chaining'
+      href: quickstart-powershell-vscode.md
 - name: Tutoriels
   items:
     - name: Chaînage de fonctions

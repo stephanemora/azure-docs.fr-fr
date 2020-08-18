@@ -79,6 +79,8 @@
   items:
     - name: "Mise en réseau dans les clusters Azure Red Hat OpenShift\_4"
       href: concepts-networking.md
+    - name: "Migrer d’Azure Red Hat OpenShift\_3.11 vers Azure Red Hat OpenShift\_4"
+      href: migration.md
 - name: Informations de référence
   items:
     - name: Interface CLI Azure Red Hat OpenShift
