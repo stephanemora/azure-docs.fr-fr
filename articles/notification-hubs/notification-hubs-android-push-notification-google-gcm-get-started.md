@@ -16,14 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 8bbdf984311883006fcd6af16f42d7f7972cc169
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8c97710202a448c613ab685932cb335bbaed4953
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323313"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832652"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutoriel : Notifications Push aux appareils Android via Azure Notification Hubs et Google Cloud Messaging (déconseillé)
+# <a name="tutorial-send-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutoriel : Envoyer des notifications Push aux appareils Android via Azure Notification Hubs et Google Cloud Messaging (déconseillé)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -98,6 +98,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
+
 2. Ajoutez le référentiel suivant après la section **dépendances** .
 
     ```gradle
@@ -121,6 +122,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         </intent-filter>
     </service>
     ```
+
 2. Une fois que l’application a reçu le jeton d’inscription GCM de la part de l’API d’ID d’instance, elle l’utilise pour [s’inscrire auprès d’Azure Notification Hub](notification-hubs-push-notification-registration-management.md). L’inscription en arrière-plan est effectuée à l’aide d’un élément `IntentService` nommé `RegistrationIntentService`. Ce service gère [l’actualisation du jeton d’inscription GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
 
     Ajoutez la définition de service suivante au fichier AndroidManifest.xml, dans la balise `<application>` . Remplacez l’espace réservé `<your package>` par le nom de votre package actuel, qui apparaît en haut du fichier `AndroidManifest.xml`.
@@ -131,6 +133,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         android:exported="false">
     </service>
     ```
+
 3. Définissez le destinataire qui recevra les notifications. Ajoutez la définition de destinataire suivante au fichier AndroidManifest.xml, dans la balise `<application>` . Remplacez l’espace réservé `<your package>` par le nom de votre package actuel, qui apparaît en haut du fichier `AndroidManifest.xml`.
 
     ```xml
@@ -142,9 +145,10 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         </intent-filter>
     </receiver>
     ```
-4. Ajoutez les autorisations GCM nécessaires suivantes sous la balise `</application>`. Remplacez `<your package>` par le nom du package qui apparaît en haut du fichier `AndroidManifest.xml`.
 
-    Pour plus d’informations sur ces autorisations, consultez la rubrique [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/)(Configuration d’une application cliente GCM pour Android).
+4. Ajoutez les autorisations GCM nécessaires suivantes sous la balise `<application>`. Remplacez `<your package>` par le nom du package qui apparaît en haut du fichier `AndroidManifest.xml`.
+
+    Pour plus d'informations sur ces autorisations, consultez la rubrique [Configurer une application cliente GCM pour Android](https://developers.google.com/cloud-messaging/).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -165,7 +169,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     Mettez à jour les trois espaces réservés dans le code suivant pour la classe `NotificationSettings` :
 
    * `SenderId`: numéro de projet que vous avez obtenu précédemment dans la [console Google Cloud](https://cloud.google.com/console).
-   * `HubListenConnectionString`: chaîne de connexion `DefaultListenAccessSignature` de votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Stratégies d’accès** dans la page **Paramètres** de votre hub dans le [Azure portal].
+   * `HubListenConnectionString`: chaîne de connexion **DefaultListenAccessSignature** de votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Stratégies d’accès** dans la page **Paramètres** de votre hub dans le [Azure portal].
    * `HubName`: utilisez le nom de votre hub de notification qui s’affiche dans la page Hub du [Azure portal].
 
      `NotificationSettings` code :
@@ -177,6 +181,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         public static String HubListenConnectionString = "<Your default listen connection string>";
      }
      ```
+
 2. Ajoutez une nouvelle classe nommée `MyInstanceIDService`. Cette classe est l’implémentation de service d’écouteur d’ID d’instance.
 
     Le code de cette classe appelle `IntentService` pour [actualiser le jeton GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) en arrière-plan.
@@ -200,7 +205,8 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         }
     };
     ```
-3. Ajoutez à votre projet une autre nouvelle classe nommée `RegistrationIntentService`. Cette classe implémente `IntentService` qui gère [l’actualisation du jeton GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) et [l’inscription au hub de notification](notification-hubs-push-notification-registration-management.md).
+
+3. Ajoutez à votre projet une nouvelle classe nommée `RegistrationIntentService`. Cette classe implémente `IntentService` qui gère [l’actualisation du jeton GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) et [l’inscription au hub de notification](notification-hubs-push-notification-registration-management.md).
 
     Utilisez le code suivant pour cette classe.
 
@@ -270,6 +276,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         }
     }
     ```
+
 4. Dans votre classe `MainActivity`, ajoutez les instructions `import` suivantes au début de la classe.
 
     ```java
@@ -282,6 +289,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     import android.widget.Toast;
     import android.content.Intent;
     ```
+
 5. Ajoutez les membres privés suivants dans la partie supérieure de la classe. Ce code [vérifie la disponibilité de Google Play Services comme recommandé par Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
     ```java
@@ -291,6 +299,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";
     ```
+
 6. Dans votre classe `MainActivity` , ajoutez la méthode suivante à la disponibilité des services Google Play.
 
     ```java
@@ -316,6 +325,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         return true;
     }
     ```
+
 7. Dans votre classe `MainActivity`, ajoutez le code suivant pour rechercher Google Play Services avant d’appeler votre `IntentService` pour obtenir votre jeton d’inscription GCM et vous inscrire auprès de votre hub de notification.
 
     ```java
@@ -330,6 +340,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         }
     }
     ```
+
 8. Dans la méthode `OnCreate` de la classe `MainActivity`, ajoutez le code suivant pour lancer le processus d’inscription lorsque l’activité est créée.
 
     ```java
@@ -343,6 +354,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         registerWithNotificationHubs();
     }
     ```
+
 9. Ajoutez ces méthodes supplémentaires à `MainActivity` pour vérifier l’état de l’application et afficher un rapport dans votre application.
 
     ```java
@@ -381,12 +393,15 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         });
     }
     ```
+
 10. La méthode `ToastNotify` utilise le contrôle *« Hello World »* `TextView` pour afficher en permanence un rapport d’état et des notifications dans l’application. Dans votre disposition activity_main.xml, ajoutez l’ID suivant pour ce contrôle.
 
     ```xml
     android:id="@+id/text_hello"
     ```
+
 11. Ajoutez une sous-classe pour le destinataire qui est défini dans le fichier AndroidManifest.xml. Ajoutez à votre projet une autre nouvelle classe nommée `MyHandler`.
+
 12. Ajoutez les instructions d’importation suivantes au-dessus de `MyHandler.java` :
 
     ```java
@@ -400,6 +415,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     import android.net.Uri;
     import android.media.RingtoneManager;
     ```
+
 13. Ajoutez le code suivant pour la classe `MyHandler` afin d’en faire une sous-classe de `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
     Comme ce code remplace la méthode `OnReceive`, le gestionnaire rapporte les notifications reçues. Le gestionnaire envoie également la notification Push au gestionnaire de notifications Android en utilisant la méthode `sendNotification()` . La méthode `sendNotification()` doit être exécutée quand l’application n’est pas en cours d’exécution et qu’une notification est reçue.
@@ -447,6 +463,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
         }
     }
     ```
+
 14. Dans Android Studio, sur la barre de menus, cliquez sur **Build** > **Rebuild Project** pour vérifier que votre code ne contient aucune erreur.
 
 ## <a name="testing-your-app"></a>Test de votre application
@@ -508,12 +525,14 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
+
 2. Dans la vue de projet Android Studio, développez **App** > **src** > **main** > **res** > **values**. Ouvrez le fichier `strings.xml` et ajoutez les valeurs de chaîne référencées par les nouveaux contrôles `Button` et `EditText`. Ajoutez les lignes suivantes en bas du fichier, juste avant `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
     <string name="notification_message_hint">Enter notification message text</string>
     ```
+
 3. Dans votre fichier `NotificationSetting.java`, ajoutez le paramètre suivant à la classe `NotificationSettings`.
 
     Mettez à jour `HubFullAccess` avec la chaîne de connexion **DefaultFullSharedAccessSignature** correspondant à votre hub. Vous pouvez copier cette chaîne de connexion à partir du [Azure portal] en cliquant sur **Stratégies d’accès** dans la page **Paramètres** de votre hub de notification.
@@ -521,6 +540,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
     ```
+
 4. Ajoutez les instructions `import` suivantes au début du fichier `MainActivity.java`.
 
     ```java
@@ -537,6 +557,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
     import android.view.View;
     import android.widget.EditText;
     ```
+
 5. Dans votre fichier `MainActivity.java`, ajoutez les membres suivants au-dessus de la classe `MainActivity`.
 
     ```java
@@ -544,7 +565,8 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Créez un jeton SaS (Software Access Signature) pour authentifier une requête POST d’envoi de messages à votre hub de notification. Analysez les données clés de la chaîne de connexion, puis créez le jeton SaS, comme indiqué sur la page [Concepts courants](/previous-versions/azure/reference/dn495627(v=azure.100)) des informations de référence sur l’API REST. Le code suivant est un exemple d'implémentation.
+
+6. Créez un jeton SAP (signature d'accès partagé) pour authentifier une requête POST d'envoi de messages à votre hub de notification. Analysez les données clés de la chaîne de connexion, puis créez le jeton SaS, comme indiqué sur la page [Concepts courants](/previous-versions/azure/reference/dn495627(v=azure.100)) des informations de référence sur l’API REST. Le code suivant est un exemple d'implémentation.
 
     Dans `MainActivity.java`, ajoutez la méthode suivante à la classe `MainActivity` pour analyser votre chaîne de connexion.
 
@@ -575,6 +597,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
         }
     }
     ```
+
 7. Dans `MainActivity.java`, ajoutez la méthode suivante à la classe `MainActivity` pour créer un jeton d’authentification SaS.
 
     ```java
@@ -630,6 +653,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
         return token;
     }
     ```
+
 8. Dans `MainActivity.java`, ajoutez la méthode suivante à la classe `MainActivity` pour gérer le clic sur le bouton **Envoyer une notification** et envoyer le message de notification Push au hub à l’aide de l’API REST intégrée.
 
     ```java
@@ -738,7 +762,7 @@ Dans ce didacticiel, vous avez envoyé des notifications de diffusion à tous vo
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
