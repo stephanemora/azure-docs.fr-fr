@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce qu’Azure AD Identity Protection\_?"
+    - name: "Qu’est-ce qu’Identity Protection\_?"
       href: overview-identity-protection.md
 - name: Concepts
   expanded: false

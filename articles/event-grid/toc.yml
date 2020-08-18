@@ -155,7 +155,7 @@
     - name: Gestionnaires d’événements
       href: event-handlers.md
       items:
-        - name: Webhooks
+        - name: webhooks
           displayName: 'Azure Automation, Webhooks, Logic Apps'
           href: handler-webhooks.md
         - name: Azure Functions
@@ -236,7 +236,7 @@
       items:
         - name: Configurer des points de terminaison privés
           href: configure-private-endpoints.md
-        - name: Configurer le pare-feu IP (préversion)
+        - name: Configurer le pare-feu IP
           href: configure-firewall.md
         - name: Sécuriser un webhook avec AAD
           href: secure-webhook-delivery.md

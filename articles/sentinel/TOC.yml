@@ -60,8 +60,8 @@
               href: connect-asc-iot.md
             - name: Serveur de noms de domaine
               href: connect-dns.md
-            - name: Pare-feu d'application web Microsoft
-              href: connect-microsoft-waf.md
+            - name: Pare-feu d’applications web (WAF) d’Azure
+              href: connect-azure-waf.md
             - name: Pare-feu Windows
               href: connect-windows-firewall.md
             - name: Événements de sécurité Windows

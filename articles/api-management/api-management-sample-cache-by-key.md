@@ -1,6 +1,6 @@
 ---
 title: Mise en cache personnalisée dans Azure API Management
-description: Découvrez comment mettre en cache des éléments par clé dans le service Azure API Management
+description: Découvrez comment mettre en cache des éléments par clé dans Gestion des API Azure. Vous pouvez modifier la clé à l’aide des en-têtes de demande.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249714"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903440"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Mise en cache personnalisée dans Azure API Management
 Le service Azure API Management prend en charge la [mise en cache de réponses HTTP](api-management-howto-cache.md) en utilisant l’URL de la ressource comme clé. La clé peut être modifiée par les en-têtes de requête à l’aide des propriétés `vary-by` . Si cette approche permet de mettre en cache l’ensemble des réponses HTTP (également appelées représentations), elle peut être aussi parfois utile pour la mise en cache d’une simple partie d’une représentation. Les nouvelles stratégies [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) et [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) permettent de stocker et de récupérer des éléments de données arbitraires à partir des définitions de stratégie. Cette fonctionnalité apporte une valeur supplémentaire à la stratégie [send-request](./api-management-advanced-policies.md#SendRequest) présentée précédemment, puisqu’elle vous permet de mettre en cache les réponses à partir de services externes.
@@ -276,5 +276,5 @@ Dans les déploiements mutualisés plus volumineux, certaines entreprises créen
 
 Au lieu de renvoyer une version par défaut de l’API pour chaque clé d’abonnement, vous devez retourner un identificateur qui associe un locataire au groupe matériel attribué. Cet identificateur peut être utilisé pour construire l’URL du serveur principal approprié.
 
-## <a name="summary"></a>Résumé
+## <a name="summary"></a>Récapitulatif
 L’utilisation du cache du service Azure API Management pour le stockage de n’importe quel type de données permet d’accéder efficacement aux données de configuration susceptibles d’affecter le mode de traitement d’une demande entrante. Cette mise en cache peut également être utilisée pour stocker des fragments de données pouvant augmenter les réponses retournées à partir d’une API du serveur principal.

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760794"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078935"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Intégration au proxy d’application Azure AD sur un serveur NDES (Network Device Enrollment service)
 
@@ -89,10 +89,10 @@ Le proxy d’application Azure AD repose sur Azure. Il met à votre disposition 
 
 1. Vous devez obtenir une réponse **Erreur HTTP 403 – Interdit**.
 
-1. Changez l’URL NDES fournie (par le biais de Microsoft Intune) aux appareils. Ce changement peut être effectué dans le Centre de configuration des points de terminaison Microsoft ou dans le cloud Intune.
+1. Remplacez l’URL NDES fournie (via Microsoft Intune) par des appareils. Cette modification peut s’effectuer dans Microsoft Endpoint Configuration Manager ou dans le centre d’administration Microsoft Endpoint Manager.
 
-   * Pour le Centre de configuration, accédez au Point d’enregistrement de certificat (CRP) et ajustez l’URL. C’est cette URL qu’appellent les appareils pour présenter leur demande.
-   * Pour le cloud Intune uniquement, également appelé Intune autonome, modifiez ou créez une stratégie SCEP et ajoutez la nouvelle URL.
+   * Pour Configuration Manager, accédez au point d’enregistrement de certificat et ajustez l’URL. C’est cette URL qu’appellent les appareils pour présenter leur demande.
+   * Pour Intune autonome, modifiez ou créez une stratégie SCEP et ajoutez la nouvelle URL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

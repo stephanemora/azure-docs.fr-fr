@@ -423,7 +423,7 @@
         - name: Vue d'ensemble de la migration
           href: migration-classic-resource-manager-overview.md
         - name: Présentation détaillée de la migration
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Planifier la migration
           href: migration-classic-resource-manager-plan.md
         - name: Migrer à l’aide de PowerShell
@@ -433,7 +433,7 @@
         - name: Outils de la communauté pour la migration
           href: migration-classic-resource-manager-community-tools.md
         - name: Questions fréquentes (FAQ)
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Utiliser des images
       displayName: 'SIG, AMI, image'
       items:
@@ -673,7 +673,7 @@
           items:
             - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Interface de ligne de commande
+            - name: CLI
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -853,7 +853,7 @@
           href: detach-disk.md
         - name: Déployer des disques avec un modèle ARM
           displayName: Azure Resource Manager
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Activer les disques partagés
           href: disks-shared-enable.md
         - name: Charger un disque dur virtuel sur un disque - PowerShell
@@ -901,7 +901,7 @@
         - name: Performances
           items:
             - name: Activer l’accélérateur d’écriture
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Utilisation de disques Ultra
               href: disks-enable-ultra-ssd.md
             - name: Évaluer un disque

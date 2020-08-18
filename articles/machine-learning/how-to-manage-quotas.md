@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372941"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141123"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Voici la répartition des limites de quota selon les différents types de ressou
 > Les limites sont susceptibles d’être modifiées. La dernière version se trouve toujours dans le [document](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) sur les quotas au niveau du service pour l’ensemble d’Azure.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-Pour chaque abonnement Azure, il existe une limite au nombre de machines virtuelles que vous pouvez avoir entre vos services ou de manière autonome. Cette limite se situe au niveau régional à la fois sur le nombre total de cœurs et en fonction de la famille.
-
-Une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle. Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).
+Pour chaque abonnement Azure, il existe une limite au nombre de machines virtuelles entre vos services ou de manière autonome. Une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle. Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’[article sur les quotas à l’échelle d’Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Capacité de calcul Azure Machine Learning
 La [capacité de calcul Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) fixe une limite de quota par défaut sur le nombre de cœurs et le nombre de ressources de calcul autorisées par région dans un abonnement. Ce quota est distinct du quota de cœurs de machine virtuelle ci-dessus et les limites principales ne sont pas partagées entre les deux types de ressources étant donné qu’AmlCompute est un service géré qui déploie des ressources dans un modèle « hébergé pour le compte de ».
@@ -84,16 +80,10 @@ Pour les [pipelines Azure Machine Learning](concept-ml-pipelines.md), il existe 
 - Un pipeline peut contenir au maximum 30 000 étapes.
 - Le nombre maximal d’exécutions basées sur une planification et d’extractions d’objets blob pour les planifications déclenchées par blob sur les pipelines publiés par abonnement et par mois est de 100 000
 
-> [!NOTE]
-> Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
-
 ### <a name="container-instances"></a>Container Instances
 
 Il existe également une limite sur le nombre d’instances de conteneur que vous pouvez lancer dans un laps de temps donné (limite horaire) ou sur l’ensemble de votre abonnement.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’article sur les quotas à l’échelle d’Azure [ici](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Pour les limites, consultez [Limites de Container Instances](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Stockage
 Il existe une limite sur le nombre de comptes de stockage par région ainsi que dans un abonnement donné. La limite par défaut est de 250 et comprend les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 250 comptes de stockage dans une région donnée, sollicitez le [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). L’équipe Stockage Azure examinera le cas de votre entreprise et pourra approuver jusqu’à 250 comptes de stockage pour une région donnée.
@@ -117,24 +107,26 @@ Pour définir des quotas au niveau de l’espace de travail, accédez à n’imp
 
 ## <a name="view-your-usage-and-quotas"></a>Voir votre utilisation et les quotas
 
-La capacité de calcul Azure Machine Learning est gérée indépendamment des autres quotas de ressources Azure de votre abonnement. Pour voir ce quota, vous devez explorer au niveau du détail les services Machine Learning.  
+Le quota Capacité de calcul Machine Learning sur votre abonnement est géré indépendamment des autres quotas de ressources Azure. Pour voir ce quota, vous devez explorer au niveau du détail les services Machine Learning.  
 
 1. Dans le volet gauche, sélectionnez **Machine Learning service**, puis sélectionnez un espace de travail dans la liste qui s’affiche.
 
-1. Dans le panneau suivant, sous la section **Support + résolution des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
+2. Dans le panneau suivant, sous la section **Support + résolution des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
 
-1. Sélectionnez un abonnement pour afficher les limites de quota. Pensez à ajouter un filtre sur la région qui vous intéresse.
+3. Sélectionnez un abonnement pour afficher les limites de quota. Pensez à ajouter un filtre sur la région qui vous intéresse.
 
-1. Vous pouvez maintenant basculer entre une vue de niveau d’abonnement et une vue de niveau d’espace de travail :
+4. Vous pouvez maintenant basculer entre une vue de niveau d’abonnement et une vue de niveau d’espace de travail :
     + **Vue d’abonnement** : Cela vous permet d’afficher votre utilisation du quota de cœurs par famille de machines virtuelles, de l’étendre par espace de travail et de l’étendre davantage par noms de clusters réels. Cette vue est optimale pour obtenir rapidement les détails de l’utilisation de base pour une famille de machines virtuelles particulière afin de voir la répartition par espace de travail et davantage par les clusters sous-jacents pour chacun de ces espaces de travail. La convention générale dans cette vue est (utilisation/quota), où l’utilisation est le nombre actuel de cœurs mis à l’échelle, et quota est le nombre maximum logique de cœurs auquel la ressource peut évoluer. Pour chaque **espace de travail**, le quota correspond au quota de niveau de l’espace de travail (comme expliqué ci-dessus) qui indique le nombre maximum de cœurs que vous pouvez mettre à l’échelle pour une famille de machines virtuelles spécifique. De la même façon, pour un **cluster**, le quota représente en fait le nombre de cœurs correspondant au nombre maximum de nœuds auquel le cluster peut évoluer tel que défini par la propriété max_nodes.
-
+    
     + **Vue d’espace de travail** : Cela vous permet d’afficher votre utilisation du quota de cœurs par espace de travail, de l’étendre par famille de machines virtuelles et de l’étendre davantage par noms de clusters réels. Cette vue est optimale pour obtenir rapidement les détails de l’utilisation de base pour un espace de travail particulier afin de voir la répartition par familles de machines virtuelles et davantage par les clusters sous-jacents pour chacune de ces familles.
 
 Il est facile de voir votre quota pour les diverses autres ressources Azure, comme les machines virtuelles, le stockage ou le réseau, via le portail Azure.
 
 1. Dans le volet gauche, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie Général.
 
-1. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
+2. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
+
+3. Sélectionnez **Utilisation + quotas** pour afficher l’utilisation et les limites de quota actuelles. Utilisez les filtres pour sélectionner le fournisseur et les emplacements. 
 
 ## <a name="request-quota-increases"></a>Demander des augmentations de quota
 
@@ -149,8 +141,4 @@ Quand vous demandez une augmentation de quota, vous devez sélectionner le servi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus, consultez les articles suivants :
-
 + [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Guide pratique pour augmenter votre quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

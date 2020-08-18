@@ -12,16 +12,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 992ad40d343fcc85b6c7c8fe0ed8b083a5b08238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344507"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808845"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservation à long terme – Azure SQL Database et Azure SQL Managed Instance
 
-De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](automated-backups-overview.md) Azure SQL Database et Azure SQL Managed Instance. À l’aide de la fonctionnalité de conservation à long terme (LTR), vous pouvez stocker certaines sauvegardes complètes SQL Database and SQL Managed Instance dans Stockage Blob Azure en disposant d’un stockage géoredondant avec accès en lecture pendant 10 ans maximum. Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données. Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redondance du Stockage Azure](../../storage/common/storage-redundancy.md). 
+De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](automated-backups-overview.md) Azure SQL Database et Azure SQL Managed Instance. À l’aide de la fonctionnalité de conservation à long terme (LTR), vous pouvez stocker certaines sauvegardes complètes SQL Database and SQL Managed Instance dans Stockage Blob Azure en disposant d’un stockage géoredondant avec accès en lecture pendant 10 ans maximum. Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données.
+
+En outre, SQL Managed Instance introduit la [redondance du stockage de sauvegarde configurable](automated-backups-overview.md#backup-storage-redundancy) qui offre la possibilité de choisir entre des [objets blob de stockage](../../storage/common/storage-redundancy.md) à redondance locale (LRS), redondant dans une zone (ZRS) ou géo-redondant (RA-GRS). Cette option est actuellement disponible uniquement pendant le processus de création d’une instance gérée et ne peut pas être modifiée une fois que la ressource est approvisionnée.
 
 La conservation à long terme peut être activée pour Azure SQL Database et est en préversion publique limitée pour Azure SQL Managed Instance. Cet article fournit une vue d’ensemble conceptuelle de la conservation à long terme. Pour configurer la conservation à long terme, consultez [Configurer la conservation à long terme dans Azure SQL Database](long-term-backup-retention-configure.md) et [Configurer la conservation à long terme dans Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md). 
 

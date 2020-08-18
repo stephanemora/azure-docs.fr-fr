@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482681"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079669"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -63,6 +63,10 @@ Vous pouvez augmenter ou supprimer les quotas dans votre application en procéda
 
 > [!IMPORTANT]
 > Le **temps de réponse moyen** sera bientôt déprécié afin d’éviter toute confusion avec les agrégations de métriques. Utilisez le **Temps de réponse** à la place.
+
+> [!NOTE]
+> Les métriques d’une application incluent les requêtes adressées au site SCM de l’application (Kudu).  Cela comprend les requêtes d’affichage du flux de journaux du site à l’aide de Kudu.  Les requêtes de flux de journaux peuvent s’étendre sur plusieurs minutes, ce qui affecte les métriques d’heure de la requête.  Les utilisateurs doivent être conscients de cette relation lors de l’utilisation de ces métriques avec la logique de mise à l’échelle automatique.
+> 
 
 Les métriques fournissent des informations sur le comportement de l’application ou du plan App Service.
 

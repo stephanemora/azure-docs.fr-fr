@@ -4,14 +4,14 @@ description: Découvrez comment utiliser le portail Azure ou l’interface CLI p
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321120"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065860"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -88,6 +88,7 @@ Vous pouvez afficher et gérer les règles d’alerte de métrique à l’aide d
 
 6. Cliquez sur **Terminé** pour enregistrer vos modifications.
 
+
 ## <a name="with-azure-cli"></a>Avec l’interface de ligne de commande Azure
 
 Les sections précédentes décrivaient comment créer, afficher et gérer des règles d’alerte de métrique à l’aide du portail Azure. Cette section décrit comment faire de même à l’aide de l’[interface de ligne de commande Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multiplateforme. Le plus rapide pour commencer à utiliser Azure CLI est de s’appuyer sur [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Pour cet article, nous utiliserons Cloud Shell.
@@ -133,6 +134,23 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>Avec PowerShell
+
+Les règles d’alerte de métrique disposent de cmdlets PowerShell dédiées :
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) : Créez une nouvelle règle d'alerte de métrique ou mettez-en à jour une existante.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2) : Obtenez une ou plusieurs règles d’alerte de métrique.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2) : Supprimez une règle d’alerte de métrique.
+
+## <a name="with-rest-api"></a>Avec l’API REST
+
+- [Créer ou mettre à jour](/rest/api/monitor/metricalerts/createorupdate) : Créez une nouvelle règle d'alerte de métrique ou mettez-en à jour une existante.
+- [Obtenir](/rest/api/monitor/metricalerts/get) : Obtenez une règle d’alerte de métrique spécifique.
+- [Lister par groupe de ressources](/rest/api/monitor/metricalerts/listbyresourcegroup) : Obtenez la liste des règles d’alerte de métrique dans un groupe de ressources spécifique.
+- [Lister par abonnement](/rest/api/monitor/metricalerts/listbysubscription) : Obtenez la liste des règles d’alerte de métrique dans un abonnement spécifique.
+- [Mettre à jour](/rest/api/monitor/metricalerts/update) : Mettez à jour une règle d’alerte de métrique.
+- [Supprimer](/rest/api/monitor/metricalerts/delete) : Supprimez une règle d’alerte de métrique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

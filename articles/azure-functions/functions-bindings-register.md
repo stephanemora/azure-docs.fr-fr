@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506483"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031118"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
-Dans Azure Functions version 2.x, des [liaisons](./functions-triggers-bindings.md) sont disponibles sous forme de packages distincts du runtime de fonctions. Alors que les fonctions .NET accèdent aux liaisons via des packages NuGet, les offres groupées d’extension permettent à d’autres fonctions d’accéder à toutes les liaisons via un paramètre de configuration.
+À partir d’Azure Functions version 2.x, des [liaisons](./functions-triggers-bindings.md) sont disponibles sous forme de packages distincts du runtime de fonctions. Alors que les fonctions .NET accèdent aux liaisons via des packages NuGet, les offres groupées d’extension permettent à d’autres fonctions d’accéder à toutes les liaisons via un paramètre de configuration.
 
 Prenez en compte les éléments suivants liés aux extensions de liaison :
 
@@ -24,30 +24,38 @@ Prenez en compte les éléments suivants liés aux extensions de liaison :
 
 Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 
-| Environnement de développement |Inscription<br/> dans Functions 1.x  |Inscription<br/> dans Functions 2.x  |
+| Environnement de développement |Inscription<br/> dans Functions 1.x  |Inscription<br/> dans Functions 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portail Azure|Automatique|Automatique|
+|Portail Azure|Automatique|Automatique<sup>*</sup>|
 |Langages non .NET ou développement Azure Core Tools local|Automatique|[Utiliser Azure Functions Core Tools et des offres groupées d’extension](#extension-bundles)|
 |Bibliothèque de classes C# avec Visual Studio|[Utiliser les outils NuGet](#vs)|[Utiliser les outils NuGet](#vs)|
 |Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Offres groupées d’extension pour développement local
+<sup>*</sup> Le portail utilise des offres groupées d’extensions.
 
-Les offres groupées d’extensions constituent une technologie de déploiement qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible avec votre application de fonction. Un ensemble prédéfini d’extensions est ajouté lorsque vous générez votre application. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Vous activez les offres groupées d’extensions dans le fichier host.json de l’application.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>Offres groupées d’extensions
 
-Vous pouvez utiliser des offres groupées d’extensions avec la version 2.x et les versions ultérieures du runtime Functions. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2).
+Les offres groupées d’extensions permettent d’ajouter un jeu d’extensions de liaison Functions compatible avec votre application de fonction. Lors de l’utilisation d’offres groupées, un ensemble prédéfini d’extensions est ajouté lorsque vous générez votre application. La compatibilité entre les packages d’extension définis dans une offre groupée est vérifiée, vous permettant ainsi d’éviter les conflits entre les packages. Les packages d’extension vous permettent d’éviter d’avoir à publier du code de projet .NET avec un projet de fonctions non .NET. Vous activez les offres groupées d’extensions dans le fichier host.json de l’application.  
 
-Utilisez des offres groupées d’extensions pour le développement local à l’aide d’Azure Functions Core Tools ou de Visual Studio Code, ou lorsque vous créez à distance.
+Vous pouvez utiliser des offres groupées d’extensions avec la version 2.x et les versions ultérieures du runtime Functions. 
 
-Si vous n’utilisez pas d’offres groupées d’extension, vous devez installer le Kit de développement logiciel (SDK) .NET Core 2.x sur votre ordinateur local avant d’installer des extensions de liaison. Les offres groupées d’extensions suppriment cette exigence pour le développement local. 
+Utilisez des offres groupées d’extensions pour le développement local à l’aide d’Azure Functions Core Tools ou de Visual Studio Code, ou lorsque vous créez à distance. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2). Les offres groupées d’extension sont également utilisées lors du développement de fonctions dans le Portail Azure. 
+
+Si vous n’utilisez pas d’offres groupées d’extension, vous devez installer le Kit de développement logiciel (SDK) .NET Core 2.x sur votre ordinateur local avant d’[installer explicitement des extensions de liaison](#explicitly-install-extensions). Un fichier extensions.csproj, qui définit explicitement les extensions requises, est ajouté à votre projet. Les offres groupées d’extensions suppriment ces exigences pour le développement local. 
 
 Pour utiliser des offres groupées d’extension, mettez à jour le fichier *host.json* pour inclure l’entrée suivante pour `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>Installer des extensions de manière explicite
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>Packages NuGet
+
+Pour un projet de fonctions basées sur une bibliothèque de classes C#, vous devez installer les extensions directement. Les offres groupées d’extension sont conçues spécifiquement pour les projets qui ne sont pas basés sur une bibliothèque de classes .NET. 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
 
 Dans **Visual Studio**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
 
