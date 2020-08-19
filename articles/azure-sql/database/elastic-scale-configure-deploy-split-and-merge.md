@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031970"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064942"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,6 +173,9 @@ Déterminez le point de terminaison web de votre service de fractionnement/fusio
 ### <a name="test-with-powershell-scripts"></a>Effectuer des tests avec des scripts PowerShell
 
 Le déploiement et votre environnement peuvent être testés en exécutant les exemples de scripts PowerShell fournis.
+
+> [!IMPORTANT]
+> Les exemples de scripts s’exécutent sur PowerShell 5.1. Ils ne s’exécutent actuellement pas sur PowerShell 6 ou version ultérieure.
 
 Les fichiers de script inclus sont les suivants :
 

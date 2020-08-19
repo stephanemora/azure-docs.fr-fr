@@ -1,6 +1,6 @@
 ---
 title: Modèles d’image dans le SDK web Azure Maps | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à utiliser des modèles d’image avec des marqueurs HTML et différentes couches dans le SDK web Microsoft Azure Maps.
+description: Découvrez comment ajouter des icônes d’image et des polygones remplis de motifs à des mappages à l’aide du kit de développement logiciel (SDK) Web Azure Maps. Affichez les modèles d’image et de motif de remplissage disponibles.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285677"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004651"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 

@@ -1,6 +1,6 @@
 ---
 title: Liste des mises à jour appliquées au système d’exploitation invité d’Azure | Microsoft Docs
-description: Publications de la liste des mises à jour appliquées au système d’exploitation invité
+description: Cet article répertorie les mises à jour de Microsoft Security Response Center appliquées à différents systèmes d’exploitation invités d’Azure. Vérifiez si une mise à jour s’applique au système d’exploitation invité que vous utilisez.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -10,21 +10,21 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002877"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142347"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="july-2020-guest-os"></a>Système d’exploitation invité, juillet 2020
 >[!NOTE]
->Le système d’exploitation invité de juillet est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’avril. Cette liste est susceptible d’être modifiée.
+>Le système d’exploitation invité de juillet est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de juillet. Cette liste est susceptible d’être modifiée.
 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -76,24 +76,22 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 ## <a name="june-2020-guest-os"></a>Système d’exploitation invité, juin 2020
->[!NOTE]
->Le système d’exploitation invité de juin est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’avril. Cette liste est susceptible d’être modifiée.
 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  9 juin 2020  |
-|  Version 20-06  |  [4561616]  |  Dernière mise à jour cumulative (LCU)  |  5,44  |  9 juin 2020  |
-|  Version 20-06  |  [4561608]  |  Dernière mise à jour cumulative (LCU)  |  6.20  |  9 juin 2020  |
-|  Version 20-06  |  [4562030]  |  Mise à jour de la pile de maintenance  |  2.99  |  9 juin 2020  |
-|  Version 20-06  |  [4561643]  |  Correctif cumulatif mensuel  |  2.99  |  9 juin 2020  |
-|  Version 20-06  |  [4562252]  |  Mise à jour de la pile de maintenance  |  3,86  |  9 juin 2020  |
-|  Version 20-06  |  [4561612]  |  Correctif cumulatif mensuel  |  3,86  |  9 juin 2020  |
-|  Version 20-06  |  [4561600]  |  Clignote  |  3.86, 4.79, 5.44, 6.20  |  9 juin 2020  |
-|  Version 20-06  |  [4562253]  |  Mise à jour de la pile de maintenance  |  4,79  |  9 juin 2020  |
-|  Version 20-06  |  [4561666]  |  Correctif cumulatif mensuel  |  4,79  |  9 juin 2020  |
-|  Version 20-06  |  [4562561]  |  Mise à jour de la pile de maintenance  |  5,44  |  9 juin 2020  |
-|  Version 20-06  |  [4562562]  |  Mise à jour de la pile de maintenance  |  6.20  |  9 juin 2020  |
+|  Version 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  9 juin 2020  |
+|  Version 20-06  |  [4561616]  |  Dernière mise à jour cumulative (LCU)  |  [5,44]  |  9 juin 2020  |
+|  Version 20-06  |  [4561608]  |  Dernière mise à jour cumulative (LCU)  |  [6.20]  |  9 juin 2020  |
+|  Version 20-06  |  [4562030]  |  Mise à jour de la pile de maintenance  |  [2.99]  |  9 juin 2020  |
+|  Version 20-06  |  [4561643]  |  Correctif cumulatif mensuel  |  [2.99]  |  9 juin 2020  |
+|  Version 20-06  |  [4562252]  |  Mise à jour de la pile de maintenance  |  [3,86]  |  9 juin 2020  |
+|  Version 20-06  |  [4561612]  |  Correctif cumulatif mensuel  |  [3,86]  |  9 juin 2020  |
+|  Version 20-06  |  [4561600]  |  Clignote  |  [3.86], [4.79], [5.44], [6.20]  |  9 juin 2020  |
+|  Version 20-06  |  [4562253]  |  Mise à jour de la pile de maintenance  |  [4,79]  |  9 juin 2020  |
+|  Version 20-06  |  [4561666]  |  Correctif cumulatif mensuel  |  [4,79]  |  9 juin 2020  |
+|  Version 20-06  |  [4562561]  |  Mise à jour de la pile de maintenance  |  [5,44]  |  9 juin 2020  |
+|  Version 20-06  |  [4562562]  |  Mise à jour de la pile de maintenance  |  [6.20]  |  9 juin 2020  |
 
 
 
@@ -109,6 +107,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Système d’exploitation invité, mai 2020

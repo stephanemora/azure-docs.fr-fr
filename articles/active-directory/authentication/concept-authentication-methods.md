@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540833"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116765"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
@@ -39,12 +39,14 @@ Le tableau suivant décrit les méthodes disponibles pour l’authentification p
 | [Application Microsoft Authenticator](#microsoft-authenticator-app) | Oui (préversion) | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | [Clés de sécurité FIDO2 (version préliminaire)](#fido2-security-keys) | Oui | MFA uniquement |
 | [Jetons logiciels OATH](#oath-software-tokens) | Non | MFA |
-| [Jetons matériels OATH (version préliminaire)](#oath-hardware-tokens-preview) | Oui | MFA |
+| [Jetons matériels OATH (version préliminaire)](#oath-hardware-tokens-preview) | Non | MFA |
 | [SMS](#phone-options) | Oui (préversion) | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | [Appel vocal](#phone-options) | Non | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | [Question de sécurité](#security-questions) | Non | SSPR uniquement |
 | [Adresse de messagerie](#email-address) | Non | SSPR uniquement |
 | [Mots de passe d’application](#app-passwords) | Non | Authentification aultifacteur uniquement dans certains cas |
+
+Ces méthodes d’authentification peuvent être configurées dans le Portail Azure, et de plus en plus à l’aide des [API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 Cet article décrit les différentes méthodes d’authentification et de vérification disponibles dans Azure AD ainsi que les limitations ou restrictions spécifiques.
 
@@ -297,6 +299,8 @@ Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe 
 Pour en savoir plus sur les concepts de SSPR, consultez [Fonctionnement de la réinitialisation de mot de passe en libre-service dans Azure AD][concept-sspr].
 
 Pour plus d’informations sur les concepts MFA, consultez [Azure Multi-Factor Authentication : fonctionnement][concept-mfa].
+
+Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

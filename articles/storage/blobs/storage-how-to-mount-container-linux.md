@@ -1,6 +1,6 @@
 ---
 title: Comment monter le stockage Blob Azure en tant que système de fichiers sur Linux | Microsoft Docs
-description: Monter un conteneur de stockage Blob Azure avec FUSE sur Linux
+description: Découvrez comment monter un conteneur de stockage Azure Blob avec blobfuse, un pilote de système de fichiers virtuel sur Linux.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc7c16b83816d2b408cef7ade06767bfe2a4582
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465471"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826546"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Comment monter le stockage Blob en tant que système de fichiers avec blobfuse
 

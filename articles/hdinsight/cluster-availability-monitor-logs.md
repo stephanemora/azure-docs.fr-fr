@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077216"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163728"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Comment surveiller la disponibilité des clusters avec les journaux Azure Monitor et Ambari
 
@@ -30,6 +30,8 @@ Dans la page des ressources du cluster HDInsight du portail, sélectionnez **Azu
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+Par défaut, cela installe l’agent OMS sur tous les nœuds de cluster hormis pour les nœuds de périphérie. Comme aucun agent OMS n’est installé sur les nœuds de périphérie de cluster, il n’y a pas de télémétrie sur les nœuds de périphérie dans Log Analytics par défaut.
+
 ## <a name="query-metrics-and-logs-tables"></a>Interroger les tables de métriques et de journaux
 
 Une fois que l’intégration des journaux Azure Monitor est activée (cela peut prendre plusieurs minutes), accédez à votre ressource **Espace de travail Log Analytics** et sélectionnez **Journaux**.
@@ -46,7 +48,7 @@ Les journaux listent des exemples de requêtes, comme ci-dessous :
 | Unavailable computers (Ordinateurs non disponibles)           | Répertorie tous les ordinateurs connus qui n’ont pas envoyé de pulsation au cours des 5 dernières heures |
 | Availability rate (Taux de disponibilité)               | Calcule le taux de disponibilité de chaque ordinateur connecté                |
 
-Par exemple, exécutez l’exemple de requête **Availability rate** (Taux de disponibilité) en sélectionnant **Exécuter** pour cette requête, comme illustré dans la capture d’écran ci-dessus. Vous pourrez ainsi connaître le taux de disponibilité, exprimé en pourcentage, de chaque nœud de votre cluster. Si vous avez activé plusieurs clusters HDInsight pour l’envoi de métriques vers le même espace de travail Log Analytics, vous pouvez voir le taux de disponibilité de tous les nœuds de ces clusters.
+Par exemple, exécutez l’exemple de requête **Availability rate** (Taux de disponibilité) en sélectionnant **Exécuter** pour cette requête, comme illustré dans la capture d’écran ci-dessus. Vous pourrez ainsi connaître le taux de disponibilité, exprimé en pourcentage, de chaque nœud de votre cluster. Si vous avez activé plusieurs clusters HDInsight pour l’envoi de métriques vers le même espace de travail Log Analytics, vous pouvez voir le taux de disponibilité de tous les nœuds (hormis les nœuds de périphérie) de ces clusters.
 
 ![Exemple de requête « taux de disponibilité » dans les journaux de l’espace de travail Log Analytics](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 

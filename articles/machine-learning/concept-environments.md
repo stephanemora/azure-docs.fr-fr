@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012805"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166771"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Présentation des environnements Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Pour déterminer s’il faut réutiliser une image mise en cache ou en créer un
  * La liste des packages Python dans la définition Conda.
  * La liste des packages dans la définition Spark. 
 
-Le hachage ne dépend pas du nom ou de la version de l’environnement ; si vous renommez simplement votre environnement ou si vous en créez un nouveau avec les propriétés et packages exacts d’un environnement existant, la valeur de hachage reste la même. Cependant, les modifications de définition d’environnement, telles que l’ajout ou la suppression d’un package Python ou la modification de la version du package, entraînent la modification de la valeur de hachage. Il est important de noter que toute modification apportée à un environnement organisé invalidera le hachage et générera un nouvel environnement « non organisé ».
+Le hachage ne dépend pas du nom ou de la version de l’environnement ; si vous renommez simplement votre environnement ou si vous en créez un nouveau avec les propriétés et packages exacts d’un environnement existant, la valeur de hachage reste la même. Cependant, les modifications de définition d’environnement, telles que l’ajout ou la suppression d’un package Python ou la modification de la version du package, entraînent la modification de la valeur de hachage. La modification de l’ordre des dépendances ou des canaux dans un environnement entraîne un nouvel environnement et nécessite donc une nouvelle génération d’image. Il est important de noter que toute modification apportée à un environnement organisé invalidera le hachage et générera un nouvel environnement « non organisé ».
 
 La valeur de hachage calculée est comparée à celles de l’espace de travail et de l’ACR global (ou sur la cible de calcul pour les exécutions locales). En cas de correspondance, l’image mise en cache est extraite, sinon une génération d’image est déclenchée. La durée d’extraction d’une image mise en cache comprend le temps de téléchargement, tandis que la durée d’extraction d’une image nouvellement générée comprend la durée de génération et le temps de téléchargement. 
 
@@ -105,7 +105,7 @@ Le diagramme suivant montre trois définitions d’environnement. Deux d’entre
 >[!IMPORTANT]
 > Si vous créez un environnement avec une dépendance de package désépinglée, par exemple ```numpy```, cet environnement continuera à utiliser la version de package installée _au moment de la création de l’environnement_. En outre, tout environnement ultérieur avec une définition correspondante continuera à utiliser l’ancienne version. 
 
-Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple ```numpy==1.18.1```. Les nouvelles dépendances, notamment celles imbriquées, seront installées et risquent de provoquer le non-fonctionnement d’un scénario précédemment opérationnel.
+Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple ```numpy==1.18.1```. Les nouvelles dépendances, notamment celles imbriquées, seront installées et risquent de provoquer le non-fonctionnement d’un scénario précédemment opérationnel. 
 
 > [!WARNING]
 >  La méthode [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) regénérera l’image mise en cache, avec comme effet secondaire possible la mise à jour des packages désépinglés et la rupture de la reproductibilité pour toutes les définitions d’environnement correspondant à cette image mise en cache.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133711"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824526"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
 
@@ -47,6 +47,8 @@ SQL Server sur une machine virtuelle Azure IaaS ou localement.| Réplication ave
 > * Vous pouvez choisir d’utiliser Site Recovery pour n’importe quel déploiement d’une infrastructure Azure, Hyper-V, VMware ou physique. Suivez les instructions fournies à la fin de cet article sur la [façon de protéger un cluster SQL Server](#how-to-help-protect-a-sql-server-cluster) avec Site Recovery.
 > * Assurez-vous que le taux de modification des données observé sur l'ordinateur se situe dans les [limites de Site Recovery](vmware-physical-azure-support-matrix.md#churn-limits). Le taux de modification est mesuré en octets écrits par seconde. Pour les machines exécutant Windows, vous pouvez afficher ce taux de modification en sélectionnant l’onglet **Performance** dans le gestionnaire des tâches. Observez la vitesse d’écriture pour chaque disque.
 > * Site Recovery prend en charge la réplication des instances de cluster de basculement sur Storage Spaces Direct. Pour plus d’informations, consultez [Comment activer la réplication de Storage Spaces Direct](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+> 
+> Lorsque vous migrez votre charge de travail SQL vers Azure, il est recommandé d’appliquer les [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Récupération d’urgence d’une application
 

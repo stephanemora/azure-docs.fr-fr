@@ -1,24 +1,27 @@
 ---
-title: Configurer des applications Windows ASP.NET Core
-description: Découvrez comment configurer une application ASP.NET Core dans les instances Windows natives d’App Service. Cet article présente les tâches de configuration les plus courantes.
+title: Configurer les applications ASP.NET Core
+description: Découvrez comment configurer une application ASP.NET Core dans les instances Windows natives ou dans un conteneur Linux prédéfini, dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5819fc5b2d6e64d1812dacd88a2a4f840f6e03c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907927"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080162"
 ---
-# <a name="configure-a-windows-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core Windows pour Azure App Service
+# <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service
 
 > [!NOTE]
 > Pour ASP.NET dans .NET Framework, consultez [Configurer une application ASP.NET pour Azure App Service](configure-language-dotnet-framework.md)
 
-Les applications ASP.NET Core doivent être déployées pour Azure App Service en tant que fichiers binaires compilés. L’outil de publication de Visual Studio génère la solution, puis déploie directement les fichiers binaires compilés, alors que le moteur de déploiement d’App Service déploie en premier le référentiel de code, puis compile les fichiers binaires. Pour plus d’informations sur les applications Linux, consultez [Configurer une application ASP.NET Core Linux pour Azure App Service](containers/configure-language-dotnetcore.md).
+Les applications ASP.NET Core doivent être déployées pour Azure App Service en tant que fichiers binaires compilés. L’outil de publication de Visual Studio génère la solution, puis déploie directement les fichiers binaires compilés, alors que le moteur de déploiement d’App Service déploie en premier le référentiel de code, puis compile les fichiers binaires.
 
-Ce guide fournit des concepts clés et des instructions pour les développeurs ASP.NET Core. Si vous n’avez jamais utilisé Azure App Service, commencez par suivre le [Guide de démarrage rapide d’ASP.NET](app-service-web-get-started-dotnet.md) et le [Didacticiel sur ASP.NET Core avec SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md).
+Ce guide fournit des concepts clés et des instructions pour les développeurs ASP.NET Core. Si vous n’avez jamais utilisé Azure App Service, suivez au préalable le [Guide de démarrage rapide d’ASP.NET Core](quickstart-dotnetcore.md) et le [didacticiel sur ASP.NET Core avec SQL Database](tutorial-dotnetcore-sqldb-app.md).
+
+::: zone pivot="platform-windows"  
 
 ## <a name="show-supported-net-core-runtime-versions"></a>Afficher les versions du runtime .NET Core prises en charge
 
@@ -28,9 +31,69 @@ Dans App Service, toutes les versions de .NET Core prises en charge sont déjà 
 dotnet --info
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="show-net-core-version"></a>Afficher la version de .NET Core
+
+Pour afficher la version actuelle de .NET Core, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Pour afficher toutes les versions de .NET Core prises en charge, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep DOTNETCORE
+```
+
+::: zone-end
+
 ## <a name="set-net-core-version"></a>Définir la version de .NET Core
 
+::: zone pivot="platform-windows"  
+
 Définissez la version cible de .NET Framework dans le fichier projet de votre projet ASP.NET Core. Pour plus d’informations, consultez [Sélectionner la version .NET Core à utiliser](https://docs.microsoft.com/dotnet/core/versions/selection) dans la documentation .NET Core.
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) pour définir la version 3.1 de .NET Core :
+
+```azurecli-interactive
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|3.1"
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="customize-build-automation"></a>Personnaliser l’automatisation de la génération
+
+Si vous déployez votre application à l’aide de packages Git ou zip quand l’automatisation de la génération est activée, ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
+
+1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
+1. Exécution de `dotnet restore` pour restaurer les dépendances NuGet.
+1. Exécution de `dotnet publish` afin de générer un fichier binaire pour la production.
+1. Exécution du script personnalisé s’il est spécifié par `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` et `POST_BUILD_COMMAND` sont des variables d’environnement qui sont vides par défaut. Pour exécuter des commandes pré-build, définissez `PRE_BUILD_COMMAND`. Pour exécuter des commandes post-build, définissez `POST_BUILD_COMMAND`.
+
+L’exemple suivant définit les deux variables sur une série de commandes, séparées par des virgules.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Pour connaître les autres variables d’environnement permettant de personnaliser l’automatisation de la génération, consultez [Configuration d’Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Pour plus d’informations sur la façon dont App Service exécute et génère des applications ASP.NET Core dans Linux, consultez [Documentation Oryx : Comment les applications .NET Core sont détectées et générées](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
+
+::: zone-end
 
 ## <a name="access-environment-variables"></a>Accéder aux variables d’environnement
 
@@ -72,7 +135,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="deploy-multi-project-solutions"></a>Déployer des solutions à projets multiples
 
-Quand une solution Visual Studio comprend plusieurs projets, le processus de publication de Visual Studio comprend déjà la sélection du projet à déployer. Lorsque vous déployez vers le moteur de déploiement App Service, comme c’est le cas avec Git ou Zip Deploy, avec l’automation de la génération activée, le moteur de déploiement App Service sélectionne le premier site web ou projet d’application web qu’il trouve en tant qu’application App Service. Vous pouvez spécifier le projet qu’App Service doit utiliser en spécifiant le paramètre d’application `PROJECT`. Par exemple, exécutez la commande suivante dans le service [Cloud Shell](https://shell.azure.com) :
+Quand une solution Visual Studio comprend plusieurs projets, le processus de publication de Visual Studio comprend déjà la sélection du projet à déployer. Lorsque vous effectuez un déploiement vers le moteur de déploiement App Service, comme c’est le cas avec Git ou Zip Deploy, avec l’automation de la génération activée, le moteur de déploiement App Service sélectionne le premier site web ou projet d’application web qu’il trouve en tant qu’application App Service. Vous pouvez spécifier le projet qu’App Service doit utiliser en spécifiant le paramètre d’application `PROJECT`. Par exemple, exécutez la commande suivante dans le service [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -80,7 +143,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
-ASP.NET Core comprend un [fournisseur de journalisation intégré pour App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). Dans le fichier *Program.cs* de votre projet, ajoutez le fournisseur à votre application à l’aide de la méthode d’extension `ConfigureLogging`, comme dans l’exemple suivant :
+ASP.NET Core fournit un [module fournisseur d’informations intégré pour App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). Dans *Program.cs* pour votre projet, ajoutez le fournisseur à votre application à l’aide de la méthode d’extension `ConfigureLogging`, comme indiqué dans l’exemple suivant :
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -115,7 +178,7 @@ Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_terminati
 
 - Configurez l’intergiciel avec [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer les en-têtes `X-Forwarded-For` et `X-Forwarded-Proto` dans `Startup.ConfigureServices`.
 - Ajoutez des plages d’adresses IP privées aux réseaux connus afin que l’intergiciel puisse approuver l’équilibreur de charge d’App Service.
-- Appelez la méthode [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) dans `Startup.Configure` avant les autres intergiciels.
+- Appelez la méthode [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) dans `Startup.Configure` avant d’appeler les autres intergiciels.
 
 Assemblez les trois éléments ; le code ressemble à l’exemple suivant :
 
@@ -146,7 +209,25 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour l’utilisation de serveurs proxy et d’équilibreurs de charge](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
+::: zone pivot="platform-linux"
+
+## <a name="open-ssh-session-in-browser"></a>Ouvrir une session SSH dans un navigateur
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : application ASP.NET Core avec SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [Tutoriel : application ASP.NET Core avec SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
+
+::: zone-end
+

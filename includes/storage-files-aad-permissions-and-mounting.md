@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544825"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545103"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2\. Assigner des autorisations d’accès à une identité
 
@@ -28,7 +28,7 @@ Nous avons introduit trois rôles intégrés Azure pour accorder aux utilisateur
 > [!IMPORTANT]
 > Le contrôle administratif total d’un partage de fichiers, y compris la possibilité de prendre possession d’un fichier, nécessite l’utilisation de la clé de compte de stockage. Le contrôle administratif n'est pas pris en charge avec les informations d'identification Azure AD.
 
-Vous pouvez utiliser le portail Azure, PowerShell ou Azure CLI pour attribuer les rôles intégrés à l’identité Azure AD d’un utilisateur afin d’accorder des autorisations au niveau du partage. N’oubliez pas que l’attribution de rôle RBAC au niveau du partage peut prendre un certain temps. 
+Vous pouvez utiliser le portail Azure, PowerShell ou Azure CLI pour attribuer les rôles intégrés à l’identité Azure AD d’un utilisateur afin d’accorder des autorisations au niveau du partage. N’oubliez pas que l’attribution de rôle Azure au niveau du partage peut prendre un certain temps. 
 
 > [!NOTE]
 > N’oubliez pas de [synchroniser vos informations d’identification AD DS avec Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) si vous envisagez d’utiliser AD DS localement pour l’authentification. La synchronisation du hachage de mot de passe d’AD DS vers Azure AD est facultative. L’autorisation au niveau du partage sera accordée à l’identité Azure AD synchronisée à partir de votre instance AD DS locale.
@@ -36,7 +36,7 @@ Vous pouvez utiliser le portail Azure, PowerShell ou Azure CLI pour attribuer le
 La recommandation générale est d’utiliser l’autorisation de niveau partage pour la gestion de l’accès de haut niveau pour un groupe AD représentant un groupe d’utilisateurs et d’identités, puis à tirer parti des autorisations NTFS pour un contrôle d’accès précis au niveau de l’annuaire/fichier. 
 
 #### <a name="azure-portal"></a>Portail Azure
-Pour affecter un rôle RBAC à une identité Azure AD à l’aide du [portail Azure](https://portal.azure.com), procédez comme suit :
+Pour affecter un rôle Azure à une identité Azure AD par le biais du [portail Azure](https://portal.azure.com), suivez ces étapes :
 
 1. Sur le Portail Azure, accédez à votre partage de fichiers ou [Créez un partage de fichiers](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Sélectionnez **Contrôle d’accès (IAM)** .
@@ -46,7 +46,7 @@ Pour affecter un rôle RBAC à une identité Azure AD à l’aide du [portail Az
 
 #### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant montre comment attribuer un rôle RBAC à une identité Azure AD, selon le nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec PowerShell, consultez [Gérer l’accès à l’aide de RBAC et Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+L’exemple PowerShell suivant montre comment affecter un rôle Azure à une identité Azure AD, en fonction du nom de connexion. Pour plus d’informations sur l’affectation de rôles Azure avec PowerShell, consultez [Gérer l’accès à l’aide de RBAC et Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Avant d’exécuter l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>Interface de ligne de commande
   
-La commande CLI 2.0 suivante montre comment attribuer un rôle RBAC à une identité Azure AD, selon le nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec Azure CLI, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+La commande CLI 2.0 suivante montre comment attribuer un rôle Azure à une identité Azure AD, selon le nom de connexion. Pour plus d’informations sur l’affectation de rôles Azure avec Azure CLI, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Avant d’exécuter l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs.
 
@@ -130,7 +130,7 @@ Pour plus d’informations sur l’utilisation d’icacls afin de définir des a
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4\. Monter un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine
 
-Le processus suivant vérifie que vos autorisations de partage de fichiers et d’accès ont été configurées correctement, et que vous pouvez accéder à un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine. N’oubliez pas que l’attribution de rôle RBAC au niveau du partage peut prendre un certain temps. 
+Le processus suivant vérifie que vos autorisations de partage de fichiers et d’accès ont été configurées correctement, et que vous pouvez accéder à un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine. N’oubliez pas que l’attribution de rôle Azure au niveau du partage peut prendre un certain temps. 
 
 Connectez-vous à la machine virtuelle à l’aide de l’identité Azure AD à laquelle vous avez accordé les autorisations, comme illustré dans l’image suivante. Si vous avez activé l’authentification AD DS locale pour Azure Files, utilisez vos informations d’identification AD DS. Pour l’authentification Azure AD DS, connectez-vous avec les informations d’identification Azure AD.
 

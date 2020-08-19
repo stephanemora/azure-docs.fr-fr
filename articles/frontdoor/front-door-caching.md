@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471742"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056956"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne ; de ce fait, au même titre que l’accélération de site dynamique et l’équilibrage de charge, il prend en charge les comportements de mise en cache comme n’importe quel réseau CDN.
@@ -111,6 +111,12 @@ Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pa
 Les en-têtes de demande suivants ne sont pas transférés à un backend quand la mise en cache est utilisée.
 - Content-Length
 - Transfer-Encoding
+
+## <a name="cache-duration"></a>Durée du cache
+
+La durée du cache peut être configurée à la fois dans le concepteur Front Door et dans Rules Engine. La durée du cache définie dans le concepteur Frontdoor correspond à la durée minimale du cache. Ce remplacement ne fonctionnera pas si l’en-tête de contrôle du cache de l’origine a une durée de vie supérieure à la valeur de remplacement. 
+
+La durée du cache définie via Rules Engine est un véritable remplacement de cache, ce qui signifie qu’elle utilisera la valeur de remplacement, quelle que soit l’en-tête de réponse d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

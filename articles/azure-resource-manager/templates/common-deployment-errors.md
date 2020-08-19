@@ -3,21 +3,19 @@ title: Résoudre les erreurs de déploiement courantes
 description: Décrit comment résoudre les erreurs courantes lors du déploiement de ressources sur Azure à l’aide d’Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446596"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008166"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
 Cet article décrit certaines erreurs courantes liées au déploiement Azure et fournit des informations pour les résoudre. Si vous ne trouvez pas le code d’erreur correspondant à l’erreur de votre déploiement, consultez [Rechercher un code d’erreur](#find-error-code).
 
 Si vous recherchez des informations sur un code d’erreur et que ces informations ne sont pas fournies dans cet article, faites-le nous savoir. En bas de cette page, vous pouvez laisser des commentaires. Ces commentaires sont suivis avec les problèmes GitHub.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Codes d’erreur
 
@@ -76,6 +74,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | StorageAccountAlreadyTaken | Attribuez un nom unique au compte de stockage. | [Résoudre les erreurs de nom du compte de stockage](error-storage-account-name.md) |
 | StorageAccountNotFound | Vérifiez l’abonnement, le groupe de ressources et le nom du compte de stockage que vous tentez d’utiliser. | |
 | SubnetsNotInSameVnet | Une machine virtuelle ne peut avoir qu’un seul réseau virtuel. Si vous déployez plusieurs cartes réseau, assurez-vous qu’elles appartiennent au même réseau virtuel. | [Cartes réseau multiples](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | Impossible d’accéder à un abonnement spécifié pour le déploiement. L’ID d’abonnement est peut-être incorrect, l’utilisateur qui déploie le modèle ne dispose pas des autorisations appropriées pour le déployer sur l’abonnement, ou l’ID d’abonnement n’est pas au bon format. Lorsque vous utilisez des déploiements imbriqués pour [déployer à travers des étendues](cross-scope-deployment.md), indiquez le GUID de l’abonnement. | |
 | SubscriptionNotRegistered | Lors du déploiement de ressources réseau, le fournisseur de ressources Microsoft.Network est inscrit automatiquement dans l’abonnement. Parfois, l’inscription automatique ne se termine pas à temps. Pour éviter cette erreur intermittente, inscrivez le fournisseur de ressources Microsoft.Network avant le déploiement. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement inter-étendue](cross-scope-deployment.md) |

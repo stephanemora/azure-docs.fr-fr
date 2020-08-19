@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428009"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141531"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -261,13 +261,15 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 **Type de données :** Objet blob JSON avec une ou plusieurs entrées de schéma de revendication
 
 **Résumé :** Cette propriété définit les revendications présentes dans les jetons affectés par la stratégie, en plus de l’ensemble de revendications de base et de l’ensemble de revendications principal.
-Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données (**Value** ou **Paire Source/ID**), et la revendication à laquelle les données ont trait (**Type de revendication**).
+Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données (**Value**, **Paire Source/ID** ou **Paire Source/ExtensionID**), et la revendication à laquelle les données ont trait (**Type de revendication**).
 
 ### <a name="claim-schema-entry-elements"></a>Éléments d’entrée du schéma de revendication
 
 **Value :** L’élément Value définit une valeur statique en tant que données à émettre dans la revendication.
 
-**Paire Source/ID :** Les éléments Source et ID définissent la provenance des données de la revendication. 
+**Paire Source/ID :** Les éléments Source et ID définissent la provenance des données de la revendication.  
+
+**Paire Source/ExtensionID :** Les éléments Source et ExtensionID définissent l’attribut d’extension de schéma de répertoire à partir duquel proviennent les données de la revendication. Pour plus d’informations, consultez [Utiliser des attributs d’extension de schéma de répertoire dans les revendications](active-directory-schema-extensions.md).
 
 Définissez l’élément Source sur l’une des valeurs suivantes : 
 
@@ -327,7 +329,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | facsimiletelephonenumber | Numéro de télécopie |
 | Utilisateur | assignedroles | Liste des rôles d’application attribués à l’utilisateur|
 | application, ressource, audience | displayname | Nom d’affichage |
-| application, ressource, audience | objected | ObjectID |
+| application, ressource, audience | objectid | ObjectID |
 | application, ressource, audience | tags | Balise de principal du service |
 | Company | tenantcountry | Pays/région du locataire |
 
@@ -416,7 +418,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser l’applet de commande Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette applet de commande Azure PowerShell, consultez [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser l’applet de commande Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette applet de commande Azure PowerShell, consultez [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous : 
 

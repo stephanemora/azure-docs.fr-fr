@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406280"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135961"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -49,7 +49,7 @@ Les points de terminaison privés managés sont des points de terminaison privé
 
 ![Nouveau point de terminaison privé managé](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que le Stockage Azure, Azure Cosmos DB, Azure SQL Data Warehouse.
+Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que le Stockage Azure, Azure Cosmos DB, Azure Synapse Analytics (anciennement Azure SQL Data Warehouse).
 
 Quand vous utilisez une liaison privée, le trafic entre vos magasins de données et le réseau virtuel managé transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
@@ -79,7 +79,7 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sans Azure SQL Managed Instance)
-- Azure SQL Data Warehouse.
+- Azure Synapse Analytics (anciennement Azure SQL Data Warehouse)
 - SQL Azure Cosmos DB
 - Azure Key Vault
 - Azure Private Link

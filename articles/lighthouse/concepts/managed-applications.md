@@ -1,18 +1,21 @@
 ---
 title: Azure Lighthouse et applications managées Azure
-description: Azure Lighthouse et applications managées Azure
-ms.date: 05/01/2020
+description: Découvrez comment les applications gérées par Azure Lighthouse et Azure peuvent vous aider à activer différents scénarios et comment elles peuvent être utilisées ensemble.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121603"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163422"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse et applications managées Azure
 
 Azure Lighthouse et les applications managées Azure sont deux solutions qui permettent à un fournisseur de services d’accéder aux ressources qui résident dans le locataire du client. Il est utile de comprendre en quoi le fonctionnement de ces solutions diffère, les scénarios pour lesquels elles sont pertinentes ainsi que la façon dont elles peuvent être utilisées ensemble.
+
+> [!TIP]
+> Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](enterprise.md) peuvent utiliser les mêmes processus et outils.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Comparaison d’Azure Lighthouse et des applications managées Azure
 

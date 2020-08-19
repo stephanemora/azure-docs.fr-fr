@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856378"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056888"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -132,6 +132,9 @@ Les hubs Azure Virtual WAN interconnectent tous les points de terminaison résea
 ![hub virtuel sécurisé avec le Pare-feu Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Figure 5 : Hub virtuel sécurisé avec le Pare-feu Azure**
+
+> [!NOTE]
+> L’inter-hub avec pare-feu n’est actuellement pas pris en charge. Le trafic entre les hubs passera directement en ignorant le pare-feu Azure dans chaque hub.
 
 Le Pare-feu Azure dans le hub WAN virtuel prend en charge les chemins de connectivité suivants pour le transit de sécurisé global. Les lettres entre parenthèses renvoient à la Figure 5.
 

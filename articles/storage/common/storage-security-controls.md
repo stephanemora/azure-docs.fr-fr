@@ -1,7 +1,7 @@
 ---
 title: Contrôles de sécurité
 titleSuffix: Azure Storage
-description: Liste de vérification des contrôles de sécurité pour l’évaluation du Stockage Azure.
+description: Affichez les listes de contrôle de sécurité pour l’évaluation du stockage Azure. Les domaines couverts sont la protection des données, le réseau, la surveillance et la journalisation, l’identité et la configuration.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128032"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826515"
 ---
 # <a name="security-controls-for-azure-storage"></a>Contrôles de sécurité pour le Stockage Azure
 

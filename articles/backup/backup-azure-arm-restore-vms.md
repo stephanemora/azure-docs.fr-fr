@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809182"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006330"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -45,7 +45,7 @@ Informations sur les comptes de stockage :
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Pour restaurer une machine virtuelle (créer une machine virtuelle), vérifiez que vous disposez des [autorisations](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) appropriées de contrôle de l’accès en fonction du rôle (RBAC) pour l’opération de restauration de machine virtuelle.
+Pour restaurer une machine virtuelle (créer une nouvelle machine virtuelle), vérifiez que vous disposez des [autorisations](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) appropriées de contrôle de l’accès en fonction du rôle Azure (Azure RBAC) pour l’opération de restauration de machine virtuelle.
 
 Si vous n’avez pas ces autorisations, vous pouvez [restaurer un disque](#restore-disks) et, une fois le disque restauré, [utiliser le modèle](#use-templates-to-customize-a-restored-vm) généré dans le cadre de l’opération de restauration pour créer une machine virtuelle.
 
@@ -173,7 +173,7 @@ L’expérience utilisateur de restauration de la région secondaire est similai
 >
 >- Une fois la restauration déclenchée et au cours de la phase de transfert des données, le travail de restauration ne peut pas être annulé.
 >- La fonctionnalité de restauration inter-régions restaure les machines virtuelles Azure compatibles avec CMK (clés gérées par le client), qui ne sont pas sauvegardées dans un coffre Recovery Services avec CMK activé, en tant que machines virtuelles non compatibles CMK dans la région secondaire.
->- Les rôles RBAC (contrôle d’accès en fonction du rôle) nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
+>- Les rôles Azure nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Surveillance des travaux de restauration de la région secondaire
 

@@ -1,6 +1,6 @@
 ---
 title: Exemple de script Azure PowerShell - Homologuer deux réseaux virtuels | Microsoft Docs
-description: Créez et connectez deux réseaux virtuels situés dans la même région. Utilisez le script Azure pour deux réseaux virtuels homologues afin d’interconnecter ceux-ci via le réseau Azure.
+description: Créez et connectez deux réseaux virtuels situés dans la même région. Utilisez le script Azure pour deux réseaux virtuels homologues afin d’interconnecter ceux-ci via Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
-ms.openlocfilehash: 135a91d24220cee2a3e902941e5ade3fd3fc84a7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 17224e859dce99a20cd51c2fe9024759c5239c03
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288839"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037233"
 ---
 # <a name="peer-two-virtual-networks"></a>Homologuer deux réseaux virtuels
 

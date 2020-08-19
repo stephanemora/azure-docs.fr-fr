@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039872"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116680"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Désactiver les chiffrements faibles et la synchronisation de hachage de mot de passe pour sécuriser un domaine managé Azure Active Directory Domain Services
 
@@ -74,6 +74,11 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 L’application des paramètres de sécurité au domaine managé prend quelques instants.
+
+> [!IMPORTANT]
+> Après avoir désactivé NTLM, effectuez une synchronisation de hachage de mot de passe complète dans Azure AD Connect pour supprimer tous les hachages de mot de passe du domaine géré. Si vous désactivez NTLM mais ne forcez pas la synchronisation du hachage de mot de passe, les hachages de mot de passe NTLM d’un compte d’utilisateur ne sont supprimés que lors de la prochaine modification de mot de passe. Ce comportement peut permettre à un utilisateur de continuer à se connecter s’il a des informations d’identification mises en cache sur un système où NTLM est utilisé comme méthode d’authentification.
+>
+> Une fois que le hachage de mot de passe NTLM est différent du hachage de mot de passe Kerberos, le recours à NTLM ne fonctionnera pas. Les informations d’identification mises en cache ne fonctionnent pas non plus si la machine virtuelle dispose d’une connectivité au contrôleur de domaine géré.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

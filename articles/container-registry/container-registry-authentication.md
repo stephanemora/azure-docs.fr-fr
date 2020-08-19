@@ -3,12 +3,12 @@ title: Options d’authentification du Registre
 description: Options d’authentification pour un registre de conteneurs Azure privé, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760581"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926318"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Authentification avec un registre de conteneurs Azure
 
@@ -44,7 +44,7 @@ Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton c
 
 Pour l’accès au registre, le jeton utilisé par `az acr login` est valable **trois heures**. Nous vous recommandons donc de toujours vous connecter au registre avant d’exécuter une commande `docker`. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. 
 
-L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md). Pour certains scénarios, vous souhaiterez peut-être vous connecter à un registre avec votre propre identité dans Azure AD ou configurer d’autres utilisateurs Azure avec des [autorisations et des rôles RBAC](container-registry-roles.md) spécifiques. Pour les scénarios entre les services ou pour gérer les besoins d’un groupe de travail ou d’un workflow de développement où vous ne souhaitez pas gérer l’accès individuel, vous pouvez également vous connecter avec une [identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md).
+L’utilisation de `az acr login` avec des identités Azure fournit un [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Pour certains scénarios, vous souhaiterez peut-être vous connecter à un registre avec votre propre identité dans Azure AD ou configurer d’autres utilisateurs Azure avec des [autorisations et des rôles Azure](container-registry-roles.md) spécifiques. Pour les scénarios entre les services ou pour gérer les besoins d’un groupe de travail ou d’un workflow de développement où vous ne souhaitez pas gérer l’accès individuel, vous pouvez également vous connecter avec une [identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md).
 
 ### <a name="az-acr-login-with---expose-token"></a>az acr login with --expose-token
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Principal du service
 
-Si vous affectez un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) à votre registre, votre application ou service peut l’utiliser pour une authentification headless (administrée à distance). Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
+Si vous affectez un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) à votre registre, votre application ou service peut l’utiliser pour une authentification headless (administrée à distance). Les principaux du service autorisent le [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
 
 Les rôles disponibles pour un registre de conteneurs sont les suivants :
 

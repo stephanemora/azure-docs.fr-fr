@@ -3,12 +3,12 @@ title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105266"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163235"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -17,6 +17,9 @@ En tant que fournisseur de services, vous avez peut-être intégré les locatair
 Azure Sentinel assure une analyse de sécurité intelligente et fournit des informations sur les menaces. Elle constitue une solution unique pour la détection des alertes, la visibilité des menaces, la chasse proactive et la réponse face aux menaces. Avec Azure Lighthouse, vous pouvez gérer plusieurs espaces de travail Azure Sentinel entre les locataires à grande échelle. Cela permet des scénarios tels que l’exécution de requêtes sur plusieurs espaces de travail ou la création de classeurs pour visualiser et surveiller les données de vos sources de données connectées afin de mieux les exploiter. Les protocoles Internet tels que les requêtes et les guides opérationnels restent dans votre locataire de gestion, mais ils peuvent être utilisés pour effectuer la gestion de la sécurité dans les locataires clients.
 
 Cette rubrique fournit une vue d’ensemble de l’utilisation d’[Azure Sentinel](../../sentinel/overview.md) de manière évolutive pour la visibilité entre locataires et les services de sécurité managés.
+
+> [!TIP]
+> Bien que nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Considérations sur l’architecture
 

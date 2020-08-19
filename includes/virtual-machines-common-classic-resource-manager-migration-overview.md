@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192649"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507215"
 ---
 Cet article décrit comment migrer des ressources infrastructure as a service (IaaS) de modèles de déploiement Classic vers Resource Manager et détaille comment connecter les ressources des deux modèles qui coexistent dans votre abonnement avec des passerelles de site à site de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -22,9 +22,9 @@ Resource Manager autorise le déploiement d’applications complexes à l’aide
 
 Pratiquement toutes les fonctionnalités du modèle de déploiement Classic sont prises en charge pour le calcul, le réseau et le stockage dans Azure Resource Manager. Pour bénéficier des nouvelles fonctionnalités d’Azure Resource Manager, vous pouvez migrer des déploiements existants à partir du modèle de déploiement classique.
 
-## <a name="supported-resources-for-migration"></a>Ressources prises en charge pour la migration
-Ces ressources IaaS classiques sont prises en charge lors de la migration
+## <a name="supported-resources--configurations-for-migration"></a>Ressources et configurations prises en charge pour la migration
 
+### <a name="supported-resources-for-migration"></a>Ressources prises en charge pour la migration
 * Virtual Machines
 * Groupes à haute disponibilité
 * Comptes de stockage
@@ -34,6 +34,13 @@ Ces ressources IaaS classiques sont prises en charge lors de la migration
 * Network Security Group
 * Tables de routage
 * IP réservées
+
+## <a name="supported-configurations-for-migration"></a>Configurations prises en charge pour la migration
+Ces ressources IaaS classiques sont prises en charge lors de la migration
+
+| Service | Configuration |
+| --- | --- |
+| Services de domaine Azure AD | [Réseaux virtuels contenant des services de domaine Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Étendues de migration prises en charge
 Il existe quatre façons différentes de migrer les ressources de calcul, de réseau et de stockage :
@@ -129,5 +136,4 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | Azure App Service |Réseaux virtuels contenant des environnements App Service |Non pris en charge actuellement. |
 | Azure HDInsight |Réseaux virtuels contenant des services HDInsight |Non pris en charge actuellement. |
 | Services de cycle de vie Microsoft Dynamics |Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services |Non pris en charge actuellement. |
-| Services de domaine Azure AD |Réseaux virtuels contenant des services de domaine Azure AD |Non pris en charge actuellement. |
 | Gestion des API Azure |Réseaux virtuels contenant des déploiements Gestion des API Azure |Non pris en charge actuellement. Pour migrer le réseau virtuel IaaS, modifiez le réseau virtuel du déploiement Gestion des API. Il s’agit d’une opération sans temps d’arrêt. |

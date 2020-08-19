@@ -1,5 +1,5 @@
 ---
-title: API de traitement SaaS dans Place de marché commerciale Microsoft
+title: API de traitement SaaS dans la Place de marché commerciale Microsoft
 description: Présentation des API de traitement qui vous permettent d’intégrer vos offres SaaS dans Microsoft AppSource et Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304137"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037522"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de traitement SaaS dans Place de marché commerciale Microsoft
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>API de traitement SaaS dans la Place de marché commerciale Microsoft
 
 Les API de traitement SaaS permettent aux éditeurs de logiciels indépendants (ISV) de publier et vendre leurs applications SaaS dans Microsoft AppSource et Place de marché Azure. Ces API permettent aux applications d’éditeurs de logiciels indépendants d’utiliser tous les canaux commerciaux : directs, gérés par des partenaires (revendeurs) et gérés par des acteurs de terrain.  L’intégration avec ces API est une condition requise pour la création et la publication d’une offre SaaS dans l’espace partenaires.
 

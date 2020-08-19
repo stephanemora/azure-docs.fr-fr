@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799172"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166737"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Créer une offre de conteneur Azure dans la Place de marché Azure
 
@@ -190,20 +190,23 @@ Pour plus d’informations sur la création d’annonces d’offres, consultez [
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
-
-Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
+ Fournissez des fichiers .png du logo de votre offre dans chacune des quatre tailles de pixel suivantes :
 
 - **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (entre 216 x 216 et 350 x 350)
+- **Grand** (216 x 216)
+- **Large** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Les quatre logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 
@@ -249,9 +252,11 @@ Ajoutez au moins un ID d’abonnement Azure, soit séparément (jusqu’à 10), 
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
-### <a name="plan-overview"></a>Vue d’ensemble du plan
+## <a name="plan-overview"></a>Vue d’ensemble du plan
 
 Cet onglet vous permet de proposer différentes options de plan dans une même offre. Les plans (auparavant appelés « SKU ») peuvent varier selon les clouds disponibles, tels que les clouds mondiaux et les clouds gouvernementaux, et l’image qu’ils référencent. Pour référencer votre offre dans la Place de marché commerciale, vous devez configurer au moins un plan.
+
+Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
 
 Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan** affiche les informations suivantes :
 
@@ -266,7 +271,7 @@ Les actions disponibles dans Vue d’ensemble du plan varient selon l’état ac
 - **Supprimer le brouillon** : si l’état du plan est Brouillon.
 - **Arrêter la vente du plan** : si l’état du plan est « publié en ligne ».
 
-#### <a name="create-new-plan"></a>Créer un plan
+### <a name="create-new-plan"></a>Créer un plan
 
 Sélectionnez **Créer un plan**. La boîte de dialogue **Nouveau plan** s’affiche.
 
@@ -298,7 +303,7 @@ Les services Azure Government gèrent des données soumises à certaines réglem
 
 Afin de renseigner les clients sur vos certifications pour ces programmes, vous pouvez fournir jusqu’à 100 liens décrivant ces certifications. Il peut s’agir de liens vers vos annonces sur le programme directement ou vers votre propre site web. Ces liens sont visibles uniquement par les clients Azure Government.
 
-## <a name="plan-listing"></a>Liste des plans
+### <a name="plan-listing"></a>Liste des plans
 
 Cet onglet affiche des informations spécifiques pour chaque plan de l’offre actuelle.
 
@@ -328,7 +333,7 @@ Voici les détails du plan sur le portail Azure :
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustre les détails du plan sur le portail Azure.":::
 
-## <a name="plan-availability"></a>Disponibilité du plan
+### <a name="plan-availability"></a>Disponibilité du plan
 
 Si vous souhaitez masquer votre offre publiée afin que les clients ne puissent pas l’explorer, la parcourir ou l’acheter sur la Place de marché, cochez la case **Masquer le plan** sous l’onglet **Disponibilité**.
 

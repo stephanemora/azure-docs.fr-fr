@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005211"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116697"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Foire aux questions (FAQ) sur Azure Active Directory (AD) Domain Services
 
@@ -117,7 +117,11 @@ Non. Le schéma est administré par Microsoft pour le domaine géré. Les extens
 Oui. Les membres du groupe *AAD DC Administrators* bénéficient de privilèges *Administrateur DNS*, afin de modifier les enregistrements DNS sur le domaine géré. Ces utilisateurs peuvent utiliser la console du Gestionnaire DNS sur un ordinateur exécutant Windows Server joint au domaine managé afin de gérer le système DNS. Pour utiliser la console du Gestionnaire DNS, installez les *outils de serveur DNS*, qui font partie de la fonctionnalité facultative *Outils d’administration de serveur distant* sur le serveur. Pour plus d’informations, consultez [Administrer DNS dans un domaine managé Azure AD Domain Services](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Quelle est la stratégie de durée de vie des mots de passe dans un domaine managé ?
-Par défaut, la durée de vie des mots de passe dans un domaine managé Azure AD Domain Services est de 90 jours. Cette durée de vie des mots de passe n’est pas synchronisée avec celle configurée dans Azure AD. Par conséquent, il est possible qu’un mot de passe utilisateur expire dans votre domaine managé, mais soit toujours valide dans Azure AD. Dans les scénarios comme celui-ci, les utilisateurs doivent modifier leur mot de passe dans Azure AD. Le nouveau mot de passe est ensuite synchronisé avec votre domaine managé. De plus, les attributs *password-does-not-expire* et *user-must-change-password-at-next-logon* des comptes d’utilisateur ne sont pas synchronisés avec votre domaine managé.
+Par défaut, la durée de vie des mots de passe dans un domaine managé Azure AD Domain Services est de 90 jours. Cette durée de vie des mots de passe n’est pas synchronisée avec celle configurée dans Azure AD. Par conséquent, il est possible qu’un mot de passe utilisateur expire dans votre domaine managé, mais soit toujours valide dans Azure AD. Dans les scénarios comme celui-ci, les utilisateurs doivent modifier leur mot de passe dans Azure AD. Le nouveau mot de passe est ensuite synchronisé avec votre domaine managé. Si vous souhaitez modifier la durée de vie par défaut d’un mot de passe dans un domaine géré, vous pouvez [créer et configurer des stratégies de mot de passe personnalisées.](password-policy.md).
+
+En outre, la stratégie de mot de passe Azure AD pour *DisablePasswordExpiration* est synchronisée avec un domaine managé. Lorsque *DisablePasswordExpiration* est appliqué à un utilisateur dans Azure AD, la valeur *UserAccountControl* pour l’utilisateur synchronisé dans le domaine managé a *DONT_EXPIRE_PASSWORD* appliqué.
+
+Lorsque les utilisateurs réinitialisent leur mot de passe dans Azure AD, l’attribut *forceChangePasswordNextSignIn=true* est appliqué. Un domaine managé synchronise cet attribut à partir de Azure AD. Lorsque le domaine managé détecte que *forceChangePasswordNextSignIn* est défini pour un utilisateur synchronisé à partir de Azure AD, l’attribut *pwdLastSet* dans le domaine managé est défini sur *0*, ce qui invalide le mot de passe actuellement défini.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Le service Azure AD Domain Services assure-t-il une protection par verrouillage du compte AD ?
 Oui. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé. Les tentatives de saisie de mot de passe non valide dans le domaine managé ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé Azure AD Domain Services. Pour plus d'informations, consultez [Stratégies de mot de passe et de verrouillage de compte sur les domaines managés](password-policy.md).

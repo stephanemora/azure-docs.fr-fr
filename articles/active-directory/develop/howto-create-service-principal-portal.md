@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115921"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117224"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -178,7 +178,7 @@ Si vous choisissez de ne pas utiliser un certificat, vous pouvez créer un nouve
    ![Copiez la valeur du secret, car vous ne pourrez pas la récupérer plus tard.](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurer des stratégies d’accès sur les ressources
-Gardez à l’esprit que vous devrez peut-être configurer des autorisations supplémentaires sur les ressources auxquelles votre application doit accéder. Par exemple, vous devez également [mettre à jour les stratégies d’accès d’un coffre de clés](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) pour permettre à votre application d’accéder aux clés, secrets ou certificats.  
+Gardez à l’esprit que vous devrez peut-être configurer des autorisations supplémentaires sur les ressources auxquelles votre application doit accéder. Par exemple, vous devez également [mettre à jour les stratégies d’accès d’un coffre de clés](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) pour permettre à votre application d’accéder aux clés, secrets ou certificats.  
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre coffre de clés et sélectionnez **Accès partagé**.  
 1. Sélectionnez **Ajouter une stratégie d’accès**, puis sélectionnez les autorisations de clé, de secret et de certificat que vous souhaitez accorder à votre application.  Sélectionnez le principal de service que vous avez créé précédemment.
@@ -187,5 +187,5 @@ Gardez à l’esprit que vous devrez peut-être configurer des autorisations sup
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrir comment [utiliser Azure PowerShell pour créer un principal de service](howto-authenticate-service-principal-powershell.md).
-* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](../../role-based-access-control/role-assignments-portal.md).  
+* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
 * Pour une liste des actions disponibles qui peuvent être autorisées ou refusées aux utilisateurs, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

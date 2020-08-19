@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 07/31/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ec3896b85f825b22dc9b57d4220e1cdcdf3e390
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500876"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003611"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -33,7 +33,9 @@ Azure Lighthouse offre une plus grande flexibilité pour gérer les ressources d
 
 Vous pouvez effectuer des tâches de gestion sur les ressources déléguées directement sur le portail ou à l’aide d’API et d’outils de gestion (tels que Azure CLI et Azure PowerShell). Toutes les API existantes peuvent être utilisées lorsque vous travaillez avec des ressources déléguées, tant que la fonctionnalité est prise en charge pour la gestion entre inter-locataires et que l’utilisateur dispose des autorisations appropriées.
 
-Les commandes Azure CLI telles que [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) affichent les attributs **homeTenantId** et **managedByTenants** pour chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient au locataire de votre fournisseur de services ou à un locataire géré par le client.
+La [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Azure PowerShell affiche les attributs `HomeTenantId` et `ManagedByTenantIds` de chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient au locataire géré par le client ou à votre locataire gérant.
+
+De même, des commandes Azure CLI comme [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) affichent les attributs `homeTenantId` et `managedByTenants`.
 
 > [!TIP]
 > Si vous ne voyez pas ces valeurs lors de l’utilisation d'Azure CLI, essayez d’effacer votre cache en exécutant `az account clear`, puis `az login --identity`.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485582"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007877"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Base de la sécurité Azure pour Customer Lockbox pour Microsoft Azure
 
@@ -222,13 +222,13 @@ Intégrez les journaux d’activité générés par Customer Lockbox à Azure Se
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
-**Conseils** : conservez un inventaire des comptes d’utilisateur qui ont un accès administratif à vos demandes Customer Lockbox. Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle (RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Azure Active Directory.
+**Conseils** : conservez un inventaire des comptes d’utilisateur qui ont un accès administratif à vos demandes Customer Lockbox. Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Azure Active Directory.
 
 Dans l’organisation du client, l’utilisateur qui a le rôle de Propriétaire pour l’abonnement Azure reçoit un e-mail de la part de Microsoft l’informant de tout demande d’accès en attente. Pour les demandes Customer Lockbox, cette personne est l’approbateur désigné.
 
 * [Comprendre les rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Comment configurer RBAC pour les classeurs](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Comment configurer Azure RBAC pour les classeurs](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Comprendre les autorisations de demande d’accès dans Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -527,7 +527,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 * [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Comprendre le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Comprendre le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Supervision d’Azure Security Center** : Non applicable
 

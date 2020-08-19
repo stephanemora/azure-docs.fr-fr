@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285864"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142177"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -93,7 +93,7 @@ L’*état du service* correspond aux données en mémoire ou sur disque nécess
 
 L’état peut être externalisé ou colocalisé avec le code qui le manipule. En règle générale, l’état est externalisé au moyen d’une base de données ou d’un autre magasin de données qui s’exécute sur différentes machines du réseau ou en dehors du processus sur la même machine.
 
-Les conteneurs et microservices sont plus résilients quand les processus qui s’y exécutent ne conservent pas l’état. Sachant que les applications contiennent presque toujours un état, utilisez une solution PaaS comme Azure Database pour MySQL, Azure Database pour PostgreSQL ou Azure SQL Database.
+Les conteneurs et microservices sont plus résilients quand les processus qui s’y exécutent ne conservent pas l’état. Sachant que les applications contiennent presque toujours un état, utilisez une solution PaaS comme Azure Cosmos DB, Azure Database pour PostgreSQL, Azure Database pour MySQL ou Azure SQL Database.
 
 Pour créer des applications portables, suivez les recommandations suivantes :
 

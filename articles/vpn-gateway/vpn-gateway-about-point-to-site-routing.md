@@ -1,18 +1,18 @@
 ---
 title: 'Passerelle VPN Azure : à propos du routage P2S'
-description: Cet article vous aide à comprendre le comportement du routage VPN point à site.
+description: En savoir plus sur le routage VPN point à site Azure pour différents systèmes d’exploitation, protocoles d’accès à distance et configurations de réseau virtuel.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027867"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032371"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
 

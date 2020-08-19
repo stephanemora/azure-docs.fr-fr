@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283008"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032082"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -36,8 +36,8 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud**, sélectionnez **Toutes les applications cloud**.
    1. Sélectionnez **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** > **Sélectionnez les applications clientes auxquelles cette stratégie s’applique** :
-   1. Cochez uniquement les cases **Applications mobiles et clients de bureau** > **Autres clients**.
+1. Sous **Conditions** > **Applications clientes**, définissez **Configurer** sur **Oui**.
+   1. Cochez uniquement les cases **Clients Exchange ActiveSync** et **Autres clients**.
    1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d'accès** > **Accorder**, sélectionnez **Bloquer l’accès**.
    1. Sélectionnez **Sélectionner**.

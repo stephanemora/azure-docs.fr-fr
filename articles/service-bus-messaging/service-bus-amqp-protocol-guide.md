@@ -3,12 +3,12 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511311"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064534"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -73,7 +73,7 @@ Les connexions, les canaux et les sessions sont éphémères. En cas de coupure 
 
 ### <a name="amqp-outbound-port-requirements"></a>Configuration requise de port sortant AMQP
 
-Les clients qui utilisent des connexions AMQP sur TCP nécessitent que les ports 5671 et 5672 soient ouverts dans le pare-feu local. Outre ces ports, il peut être nécessaire d’ouvrir des ports supplémentaires si la fonctionnalité [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) est activée. `EnableLinkRedirect` est une nouvelle fonctionnalité de messagerie qui permet d’ignorer un tronçon tout en recevant des messages, ce qui contribue à augmenter le débit. Le client commence à communiquer directement avec le service principal sur la plage de ports 104XX comme indiqué dans l’image suivante. 
+Les clients qui utilisent des connexions AMQP sur TCP nécessitent que les ports 5671 et 5672 soient ouverts dans le pare-feu local. Outre ces ports, il peut être nécessaire d’ouvrir des ports supplémentaires si la fonctionnalité [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) est activée. `EnableLinkRedirect` est une nouvelle fonctionnalité de messagerie qui permet d’ignorer un tronçon tout en recevant des messages, ce qui contribue à augmenter le débit. Le client commence à communiquer directement avec le service principal sur la plage de ports 104XX comme indiqué dans l’image suivante. 
 
 ![Liste des ports de destination][4]
 
@@ -410,7 +410,7 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 
 * [Vue d’ensemble du protocole AMQP de Service Bus]
 * [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
-* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]
+* [AMQP dans Service Bus pour Windows Server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -419,5 +419,5 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]: https://msdn.microsoft.com/library/dn574799.aspx
+[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

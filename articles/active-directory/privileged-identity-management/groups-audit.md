@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505633"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141667"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Historique des activités d’audit pour les affectations de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -36,7 +36,9 @@ L’**audit des ressources** vous donne un aperçu de toutes les activités asso
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Sélectionnez **Accès privilégié (préversion)** .
+1. Sélectionnez **Groupes d’accès privilégiés (Préversion)** .
+
+1. Sélectionnez le groupe d’accès privilégié pour lequel vous souhaitez consulter l’historique d’audit.
 
 1. Sous **Activité**, sélectionnez **Audit des ressources**.
 
@@ -46,15 +48,15 @@ L’**audit des ressources** vous donne un aperçu de toutes les activités asso
 
 ## <a name="view-my-audit"></a>Afficher mon audit
 
-Mon audit vous permet d’afficher votre activité personnelle de rôle.
+**Mon audit** vous permet d’afficher votre activité personnelle de rôle pour un groupe d’accès privilégié.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Sélectionnez **Accès privilégié (préversion)** .
+1. Sélectionnez **Groupes d’accès privilégiés (Préversion)** .
 
-1. Sélectionnez le membre ou le groupe pour lequel vous souhaitez consulter l’historique d’audit.
+1. Sélectionnez le groupe d’accès privilégié pour lequel vous souhaitez consulter l’historique d’audit.
 
-1. Sélectionnez **Mon audit**.
+1. Sous **Activité**, sélectionnez **Mon audit**.
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 

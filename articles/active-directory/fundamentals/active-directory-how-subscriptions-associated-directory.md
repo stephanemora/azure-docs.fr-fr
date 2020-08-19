@@ -2,7 +2,7 @@
 title: Ajouter un abonnement Azure existant à votre locataire - Azure AD
 description: Instructions pour l’ajout d’un abonnement Azure existant à votre locataire Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025336"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825019"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -31,7 +31,7 @@ En cas d’expiration d’un abonnement, vous perdez l’accès aux autres resso
 Tous vos utilisateurs ont un seul répertoire *accueil* pour authentification. Vos utilisateurs peuvent également être les invités d’autres annuaires. Vous pouvez voir les répertoires accueil et invité pour chaque utilisateur dans Azure AD.
 
 > [!Important]
-> Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs possédant des rôles attribués à l’aide du [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
+> Lorsque vous associez un abonnement à un autre répertoire, les utilisateurs possédant des rôles attribués à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
 >
 > Les attributions de stratégie sont également supprimées d’un abonnement lorsque celui-ci est associé à un autre répertoire.
 >
@@ -95,6 +95,6 @@ Après avoir associé un abonnement à un autre annuaire, vous pouvez être amen
 
 - Pour créer un locataire Azure AD, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- Pour en savoir plus sur la façon dont Microsoft Azure contrôle l’accès aux ressources, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- Pour en savoir plus sur la façon dont Microsoft Azure contrôle l’accès aux ressources, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - Pour en apprendre davantage sur l’attribution de rôles dans Azure AD, consultez [Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

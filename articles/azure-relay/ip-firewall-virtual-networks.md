@@ -3,12 +3,12 @@ title: Configurer le pare-feu IP pour l’espace de noms Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu pour autoriser les connexions d’adresses IP spécifiques à des espaces de noms Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533047"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141854"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurer le pare-feu IP pour un espace de noms Azure Relay
 Par défaut, les espaces de noms Azure Relay sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -33,9 +33,8 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
 1. Pour restreindre l’accès à des réseaux et des adresses IP spécifiques, sélectionnez l’option **Réseaux sélectionnés**. Dans la section **Pare-feu**, suivez ces étapes :
     1. Sélectionnez l’option **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms. 
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
-    3. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. 
 
-        ![Pare-feu – Option Tous les réseaux sélectionnée](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
+        ![Option Pare-feu – Tous les réseaux sélectionnée](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
 
 

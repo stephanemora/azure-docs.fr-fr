@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386841"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080692"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -131,6 +131,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 ### <a name="general-limitations"></a>Limitations générales
 
 - Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
+- Une table doit avoir un index cluster pour utiliser la synchronisation des données.
 - Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml.
 - Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).

@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491967"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163966"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -33,34 +33,34 @@ Lorsque vous connectez une source d’événements, votre environnement Azure Ti
 
 > [!IMPORTANT]
 >
-> * Vous pouvez rencontrer une latence initiale élevée lorsque vous connectez une source d’événement à votre environnement Azure Time Series Insights Gen2.
-> La latence de la source d’événement dépend du nombre d’événements actuellement présents dans votre IoT Hub ou votre Event Hub.
-> * Une latence élevée sera impartie après la réception des données de la source d’événements. Si vous rencontrez une latence élevée, soumettez un ticket de support via le portail Azure.
+> - Vous pouvez rencontrer une latence initiale élevée lorsque vous connectez une source d’événement à votre environnement Azure Time Series Insights Gen2.
+> - La latence de la source d’événement dépend du nombre d’événements actuellement présents dans votre IoT Hub ou votre Event Hub.
+> - Une latence élevée sera impartie après la réception des données de la source d’événements. Si vous rencontrez une latence élevée, soumettez un ticket de support via le portail Azure.
 
 ## <a name="streaming-ingestion-best-practices"></a>Meilleures pratiques en matière d’ingestion de diffusion en continu
 
-* Créez toujours un groupe de consommateurs unique pour votre environnement Azure Time Series Insights Gen2 afin de consommer des données de votre source d’événements. La réutilisation des groupes de consommateurs peut entraîner des déconnexions aléatoires et peut entraîner une perte de données.
+- Créez toujours un groupe de consommateurs unique pour votre environnement Azure Time Series Insights Gen2 afin de consommer des données de votre source d’événements. La réutilisation des groupes de consommateurs peut entraîner des déconnexions aléatoires et peut entraîner une perte de données.
 
-* Configurez votre environnement Azure Time Series Insights Gen2 et votre hub IoT et/ou Event Hubs dans la même région Azure. Bien qu’il soit possible de configurer des sources d’événements dans une région distincte, ce scénario n’est pas pris en charge et nous ne pouvons pas garantir une haute disponibilité.
+- Configurez votre environnement Azure Time Series Insights Gen2 et votre hub IoT et/ou Event Hubs dans la même région Azure. Bien qu’il soit possible de configurer une source d’événement dans une région distincte, ce scénario n’est pas pris en charge et nous ne pouvons pas garantir une haute disponibilité.
 
-* N’allez pas au-delà de la [limite du débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement ou de la limite de partition.
+- N’allez pas au-delà de la [limite du débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement ou de la limite de partition.
 
-* Configurez une [alerte](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
+- Configurez une [alerte](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
 
-* Utilisez l’ingestion de streaming uniquement pour des données récentes et en quasi-temps réel. Les données historiques de streaming ne sont pas prises en charge.
+- Utilisez l’ingestion de streaming uniquement pour des données récentes et en quasi-temps réel. Les données historiques de streaming ne sont pas prises en charge.
 
-* Vous devez comprendre la manière dont les propriétés sont placées dans une séquence d’échappement et comment les données JSON [aplaties et stockées.](./concepts-json-flattening-escaping-rules.md)
+- Vous devez comprendre la manière dont les propriétés sont placées dans une séquence d’échappement et comment les données JSON [aplaties et stockées.](./concepts-json-flattening-escaping-rules.md)
 
-* Suivez le principe des privilèges minimum lorsque vous fournissez des chaînes de connexion à la source d’événements. Pour Event Hubs, configurez une stratégie d’accès partagé avec l’*envoi* de revendication uniquement, et pour IoT Hub utilisez l’autorisation *service Connect* uniquement.
+- Suivez le principe des privilèges minimum lorsque vous fournissez des chaînes de connexion à la source d’événements. Pour Event Hubs, configurez une stratégie d’accès partagé avec l’*envoi* de revendication uniquement, et pour IoT Hub utilisez l’autorisation *service Connect* uniquement.
 
 ### <a name="historical-data-ingestion"></a>Ingestion de données historiques
 
 L’utilisation du pipeline de streaming pour importer des données historiques n’est actuellement pas prise en charge dans Azure Time Series Insights Gen2. Si vous devez importer des données passées dans votre environnement, suivez les instructions ci-dessous :
 
-* Ne diffusez pas parallèlement des données historiques et dynamiques. L’ingestion de données dans le désordre entraînera une dégradation des performances de requête.
-* Ingérez les données historiques de façon chronologique pour obtenir des performances optimales.
-* Restez dans les limites du débit d’ingestion ci-dessous.
-* Désactivez le magasin Warm si les données sont antérieures à la période de rétention du magasin Warm.
+- Ne diffusez pas parallèlement des données historiques et dynamiques. L’ingestion de données dans le désordre entraînera une dégradation des performances de requête.
+- Ingérez les données historiques de façon chronologique pour obtenir des performances optimales.
+- Restez dans les limites du débit d’ingestion ci-dessous.
+- Désactivez le magasin Warm si les données sont antérieures à la période de rétention du magasin Warm.
 
 ## <a name="event-source-timestamp"></a>Horodateur de la source de l’événement
 
@@ -82,10 +82,6 @@ Le décalage de fuseau horaire doit être mis en forme de l’une des manières 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Lisez les [Règles de mise à plat et d’échappement JSON](./concepts-json-flattening-escaping-rules.md) pour comprendre comment les événements seront stockés. 
+- Lisez les [Règles de mise à plat et d’échappement JSON](./concepts-json-flattening-escaping-rules.md) pour comprendre comment les événements seront stockés.
 
-* Comprendre les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement
-
-
-
-
+- Comprendre les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement

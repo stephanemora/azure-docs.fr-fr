@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656123"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056463"
 ---
-# <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement.
+# <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement
 
 Dans cet article, vous sélectionnez une option pour facilement et gratuitement le service Speech afin de découvrir les possibilités du service et déterminer s’il convient à vos besoins. Choisissez l’une des deux options suivantes en fonction de votre situation et cas d’utilisation :
 
@@ -96,5 +96,5 @@ Pour basculer d’un abonnement à un autre, par exemple quand votre essai gratu
 Effectuez l’un de nos Démarrages rapides de 10 minutes ou consultez nos exemples de SDK :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [Exemples du SDK Speech](speech-sdk.md#sample-source-code)
+> [Démarrage rapide : Reconnaissance vocale avec le CLI Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx)
+> [Exemples de SDK Speech](speech-sdk.md#sample-source-code)

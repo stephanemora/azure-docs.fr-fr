@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 38a2dd42c010e5b213fd89aa046c7c5b1e1d0a7f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758936"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056650"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
@@ -38,6 +38,7 @@ Le bot de conversation vocal que vous faites dans ce tutoriel suit les étapes s
 1. Le texte reconnu est passé au bot d’écho en tant qu’activité Bot Framework.
 1. Le texte de la réponse est converti en audio par le service TTS (Text-to-Speech), puis il diffusé en continu vers l’application cliente afin d’être lu.
 
+<!-- svg src in User Story 1754106 -->
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "Flux du canal Speech")
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Voici ce dont vous aurez besoin pour suivre ce tutoriel :
 - Un poste de travail Windows 10 avec un micro et des haut-parleurs (ou des écouteurs) qui fonctionnent
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)ou version supérieure, avec la **charge de travail Développement ASP.NET et web**
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) ou version ultérieure
-- Un compte Azure. [Inscrivez-vous gratuitement](https://azure.microsoft.com/free/ai/).
+- Un compte Azure. [Inscrivez-vous gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 - Un compte [GitHub](https://github.com/)
 - [Git pour Windows](https://git-scm.com/download/win)
 
@@ -82,7 +83,6 @@ Si vous souhaitez utiliser une autre région pour ce tutoriel, les facteurs suiv
 
 * Veillez à utiliser une [région Azure prise en charge](regions.md#voice-assistants).
 * Le canal Direct Line Speech utilise le service de conversion de texte par synthèse vocale, qui comprend les options de voix standard et neurale. L’option de voix neurale peut être [limitée à certaines régions Azure](regions.md#standard-and-neural-voices).
-* Les clés d’essai gratuit peuvent être limitées à une certaine région.
 
 Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 

@@ -1,20 +1,23 @@
 ---
 title: Supprimer l’accès à une délégation
 description: Découvrez comment supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services pour Azure Lighthouse.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111726"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167223"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
 Une fois que le groupe de ressources ou l’abonnement d’un client a été délégué à un fournisseur de services pour [Azure Lighthouse](../overview.md), la délégation peut être supprimée si nécessaire. Une fois qu’une délégation est supprimée, l’accès à [la gestion des ressources déléguées Azure Lighthouse](../concepts/azure-delegated-resource-management.md) précédemment accordé aux utilisateurs du locataire du fournisseur de services ne s’appliquera plus.
 
 La suppression d’une délégation peut être effectuée par un utilisateur dans le locataire du client ou dans le locataire du fournisseur de services, tant que l’utilisateur dispose des autorisations appropriées.
+
+> [!TIP]
+> Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.
 
 ## <a name="customers"></a>Clients
 

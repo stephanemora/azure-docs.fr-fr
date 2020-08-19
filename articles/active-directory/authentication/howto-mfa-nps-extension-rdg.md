@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848742"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117020"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -110,6 +110,11 @@ Suivez les étapes dans [Bien démarrer avec l’authentification multifacteur A
 Lorsqu’un compte a été activé pour MFA, vous ne pouvez pas vous connecter aux ressources régies par la stratégie MFA tant que vous n’avez pas correctement configuré un appareil approuvé afin qu’il serve pour le second facteur d’authentification, et qu’il soit authentifié à l’aide de la vérification en deux étapes.
 
 Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](../user-help/multi-factor-authentication-end-user.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
+
+> [!IMPORTANT]
+> Le comportement de connexion pour Remote Desktop Gateway n’offre pas la possibilité de saisir un code de vérification avec Azure Multi-Factor Authentication. Un compte d’utilisateur doit être configuré pour la vérification par téléphone ou l’application Microsoft Authenticator avec des notifications Push.
+>
+> Si l’une de ces deux méthodes d’authentification n’est pas configurée pour un utilisateur, elle ne peut pas terminer le Challenge Azure Multi-Factor Authentication et se connecter à Remote Desktop Gateway.
 
 ## <a name="install-and-configure-nps-extension"></a>Installer et configurer l’extension NPS
 

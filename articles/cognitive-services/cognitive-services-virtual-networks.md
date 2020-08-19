@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148087"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080896"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
-Azure Cognitive Services propose un modèle de sécurité multiniveau. Ce modèle vous permet de sécuriser vos comptes Cognitive Services pour un sous-ensemble spécifique de réseaux. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder au compte. Vous pouvez limiter l’accès à vos ressources avec le filtrage des demandes. Vous pouvez autoriser uniquement les demandes provenant d’adresses IP ou de plages d’adresses IP spécifiées, ou d’une liste de sous-réseaux des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md). Si cette offre vous intéresse, vous devez [demander un accès à la préversion](https://aka.ms/cog-svc-vnet-signup).
+Azure Cognitive Services propose un modèle de sécurité multiniveau. Ce modèle vous permet de sécuriser vos comptes Cognitive Services pour un sous-ensemble spécifique de réseaux. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder au compte. Vous pouvez limiter l’accès à vos ressources avec le filtrage des demandes. Vous pouvez autoriser uniquement les demandes provenant d’adresses IP ou de plages d’adresses IP spécifiées, ou d’une liste de sous-réseaux des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md).
 
 Une application qui accède à une ressource Cognitive Services alors que des règles de réseau sont en vigueur a besoin d’une autorisation. L’autorisation est prise en charge avec des informations d’identification [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) ou avec une clé API valide.
 
 > [!IMPORTANT]
 > L’activation de règles de pare-feu pour votre compte Cognitive Services bloque les demandes entrantes de données par défaut. Pour autoriser l’entrée des demandes, l’une des conditions suivantes doit être remplie :
+
 > * La demande doit provenir d’un service fonctionnant au sein d’un réseau virtuel Azure figurant dans la liste des sous-réseaux autorisés du compte Cognitive Services cible. Le point de terminaison dans les demandes provenant du réseau virtuel doit être défini en tant que [sous-domaine personnalisé](cognitive-services-custom-subdomains.md) de votre compte Cognitive Services.
 > * Ou la demande doit provenir d’une liste d’adresses IP autorisées.
 >
@@ -39,7 +40,7 @@ Les règles de réseau sont appliquées sur tous les protocoles réseau vers Azu
 
 ## <a name="supported-regions-and-service-offerings"></a>Régions et offres de services prises en charge
 
-La prise en charge des réseaux virtuels pour les ressources Cognitive Services répertoriées ci-dessous se limite aux régions Azure *EUAP USA Centre*, *USA Centre Sud*, *USA Est*, *USA Ouest 2*, *Europe Nord*, *Afrique du Sud Nord*, *Europe Ouest*, *Inde Centre* , *Australie Est*, *USA Ouest* et *US Gov Virginie*. Si l’offre de services n’est pas listée ici, elle ne prend pas en charge les réseaux virtuels.
+Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les services Cognitive Services sont disponibles](https://azure.microsoft.com/global-infrastructure/services/). Si le service Cognitive Service n’est pas listé, il ne prend pas actuellement en charge les réseaux virtuels.
 
 > [!div class="checklist"]
 > * [Détecteur d’anomalies](./anomaly-detector/index.yml)
@@ -48,17 +49,16 @@ La prise en charge des réseaux virtuels pour les ressources Cognitive Services 
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Visage](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Analyse de texte](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-
-La prise en charge des réseaux virtuels pour les ressources Cognitive Services répertoriées ci-dessous se limite aux régions Azure *EUAP USA Centre*, *USA Centre Sud*, *USA Est*, *USA Ouest 2*, *Global* et *US Gov Virginie*.
-> [!div class="checklist"]
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Étiquettes de service
-Outre la prise en charge des points de terminaison de service de réseau virtuel pour les services ci-dessus, Cognitive Services prend également en charge une balise de service pour la configuration des règles du réseau sortant. Les services suivants sont inclus dans la balise de service CognitiveServicesManagement.
+
+Cognitive Services prend en charge les balises de service pour la configuration des règles de réseau. Les services répertoriés ci-dessous sont inclus dans la balise de service **CognitiveServicesManagement**.
+
 > [!div class="checklist"]
 > * [Détecteur d’anomalies](./anomaly-detector/index.yml)
 > * [Vision par ordinateur](./computer-vision/index.yml)
@@ -66,7 +66,7 @@ Outre la prise en charge des points de terminaison de service de réseau virtuel
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Visage](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding (LUIS)](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Analyse de texte](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
@@ -330,6 +330,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les ressources Cognitive 
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -491,13 +492,13 @@ Vous pouvez utiliser des [points de terminaison privés](../private-link/private
 
 Les points de terminaison privés pour les ressources Cognitive Services vous permettent de faire ce qui suit :
 
-- Sécuriser votre ressource Cognitive Services en configurant le pare-feu afin de bloquer toutes les connexions sur le point de terminaison public pour le service Cognitive Services.
-- Améliorer la sécurité du réseau virtuel en vous permettant de bloquer l’exfiltration des données à partir du réseau virtuel.
-- Vous connecter de manière sécurisée aux ressources Cognitive Services à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide d’un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de circuits [ExpressRoute](../expressroute/expressroute-locations.md) avec un peering privé.
+* Sécuriser votre ressource Cognitive Services en configurant le pare-feu afin de bloquer toutes les connexions sur le point de terminaison public pour le service Cognitive Services.
+* Améliorer la sécurité du réseau virtuel en vous permettant de bloquer l’exfiltration des données à partir du réseau virtuel.
+* Vous connecter de manière sécurisée aux ressources Cognitive Services à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide d’un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de circuits [ExpressRoute](../expressroute/expressroute-locations.md) avec un peering privé.
 
 ### <a name="conceptual-overview"></a>Vue d'ensemble conceptuelle
 
-Un point de terminaison privé est une interface réseau spéciale pour un service Azure dans votre [réseau virtuel](../virtual-network/virtual-networks-overview.md). Quand vous créez un point de terminaison privé pour votre ressource Cognitive Services, il offre une connectivité sécurisée entre les clients de votre réseau virtuel et votre ressource. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service Cognitive Services utilise une liaison privée sécurisée.
+Un point de terminaison privé est une interface réseau spéciale pour une ressource Azure dans votre [réseau virtuel](../virtual-network/virtual-networks-overview.md). La création d’un point de terminaison privé pour votre ressource Cognitive Services offre une connectivité sécurisée entre les clients de votre réseau virtuel et votre ressource. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service Cognitive Services utilise une liaison privée sécurisée.
 
 Les applications du réseau virtuel peuvent se connecter au service sans interruption sur le point de terminaison privé à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utilisent dans tous les cas. La seule exception est le service Speech qui nécessite un point de terminaison distinct. Consultez la section sur les [Points de terminaison privés avec le service Speech](#private-endpoints-with-the-speech-service). Les points de terminaison privés peuvent être utilisés avec tous les protocoles pris en charge par la ressource Cognitive Services, notamment l’API REST.
 
@@ -509,11 +510,11 @@ Les propriétaires de ressource Cognitive Services peuvent gérer les demandes d
 
 ### <a name="private-endpoints"></a>Instances Private Endpoint
 
-Quand vous créez le point de terminaison privé, vous devez spécifier la ressource Cognitive Services à laquelle il se connecte. Pour plus d’informations sur la création d’un point de terminaison privé, consultez les articles suivants :
+Quand vous créez le point de terminaison privé, vous devez spécifier la ressource Cognitive Services à laquelle il se connecte. Pour plus d’informations sur la création d’un point de terminaison privé, consultez :
 
-- [Créer un point de terminaison privé à l’aide du centre Private Link dans le portail Azure](../private-link/create-private-endpoint-portal.md)
-- [Créer un point de terminaison privé à l’aide d’Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Créer un point de terminaison privé à l’aide du centre Private Link dans le portail Azure](../private-link/create-private-endpoint-portal.md)
+* [Créer un point de terminaison privé à l’aide d’Azure CLI](../private-link/create-private-endpoint-cli.md)
+* [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Connexion à des points de terminaison privés
 
@@ -523,7 +524,7 @@ Nous créons une [zone DNS privée](../dns/private-dns-overview.md) attachée au
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Points de terminaison privés avec le service Speech
 
-Quand vous utilisez des points de terminaison privés avec le service Speech, vous devez utiliser un point de terminaison personnalisé pour appeler l’API du service Speech. Vous ne pouvez pas utiliser le point de terminaison global. Vous devez utiliser un point de terminaison de la forme {account}.{stt|tts|voice|dls}.speech.microsoft.com.
+Quand vous utilisez des points de terminaison privés avec le service Speech, vous devez utiliser un point de terminaison personnalisé pour appeler le service Speech. Vous ne pouvez pas utiliser le point de terminaison global. Le point de terminaison doit suivre ce modèle : `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
 
@@ -531,17 +532,17 @@ Quand vous créez un point de terminaison privé, l’enregistrement de la resso
 
 Quand vous résolvez l’URL du point de terminaison à l’extérieur du réseau virtuel avec le point de terminaison privé, elle correspond au point de terminaison public de la ressource Cognitive Services. En cas de résolution à partir du réseau virtuel hébergeant le point de terminaison privé, l’URL du point de terminaison correspond à l’adresse IP du point de terminaison privé.
 
-Cette approche permet d’accéder à la ressource Cognitive Services avec la même chaîne de connexion pour les clients sur le réseau virtuel hébergeant les points de terminaison privés et les clients en dehors du réseau virtuel.
+Cette approche permet d’accéder à la ressource Cognitive Services avec la même chaîne de connexion pour les clients sur le réseau virtuel hébergeant les points de terminaison privés ainsi que les clients en dehors du réseau virtuel.
 
-Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet (FQDN) du point de terminaison de la ressource Cognitive Services en adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS de manière à déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel.
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet (FQDN) du point de terminaison de la ressource Cognitive Services en adresse IP du point de terminaison privé. Configurez votre serveur DNS de manière à déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel.
 
 > [!TIP]
 > Quand vous utilisez un serveur DNS personnalisé ou local, vous devez configurer votre serveur DNS pour résoudre le nom de la ressource Cognitive Services dans le sous-domaine « privatelink » en adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine « privatelink » à la zone DNS privée du réseau virtuel ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
-- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuration DNS pour les points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Résolution de noms pour des ressources dans les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+* [Configuration DNS pour les points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Tarifs
 

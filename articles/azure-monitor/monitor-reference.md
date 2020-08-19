@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447322"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080862"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -220,7 +220,7 @@ Azure Monitor peut collecter des données à partir de ressources situées en de
 | Ressource | Méthode |
 |:---|:---|
 | Applications | Supervisez les applications web situées en dehors d’Azure à l’aide d’Application Insights. Voir [Présentation d’Application Insights](./app/app-insights-overview.md). |
-| Machines virtuelles | Utilisez l’agent Log Analytics pour collecter des données à partir du système d’exploitation invité des machines virtuelles dans d’autres environnements cloud ou en local. Consultez [Collecter des données de journal avec l’agent Log Analytics](platform/log-analytics-agent.md). |
+| Machines virtuelles | Utilisez les agents pour collecter des données à partir du système d’exploitation invité des machines virtuelles dans d’autres environnements cloud ou en local. Consultez [Vue d’ensemble des agents Azure Monitor](platform/agents-overview.md). |
 | Client d’API REST | Différentes API sont disponibles pour écrire des données dans les métriques et journaux Azure Monitor à partir de n’importe quel client d’API REST. Consultez [Envoyer des données de journal à Azure Monitor à l’aide de l’API Collecte de données HTTP](platform/data-collector-api.md) pour les journaux et [Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST](platform/metrics-store-custom-rest-api.md) pour les métriques. |
 
 

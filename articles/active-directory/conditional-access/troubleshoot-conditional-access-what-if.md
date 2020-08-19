@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737637"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032908"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Résolution des problèmes d’accès conditionnel à l’aide de l’outil What If
 
@@ -67,7 +67,7 @@ De nombreuses organisations créent des stratégies en fonction des emplacements
 
 Pour vérifier qu’une configuration a été correctement effectuée, un administrateur peut utiliser l’outil What If pour imiter l’accès, à partir d’un emplacement qui doit être autorisé et à partir d’un emplacement qui doit être refusé.
 
-![Outil What If présentant les résultats avec « Bloquer l’accès »](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[ ![Outil What If présentant les résultats avec « Bloquer l’accès »](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 Dans ce cas, l’utilisateur ne peut pas accéder à une application cloud lors de son trajet vers la Corée du Nord, car Contoso a bloqué l’accès à partir de cet emplacement.
 

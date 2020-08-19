@@ -1,18 +1,18 @@
 ---
 title: Planification d’un déploiement Azure Files | Microsoft Docs
-description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
+description: Comprendre la planification d’un déploiement Azure Files. Vous pouvez soit directement monter un partage de fichiers Azure, soit mettre en cache un partage de fichiers Azure local avec Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370357"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037165"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 

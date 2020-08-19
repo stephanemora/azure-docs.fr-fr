@@ -7,19 +7,19 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: contperfq1
+ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337209"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136267"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
 *Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
-Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une application Azure IoT Central.
+Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une [application Azure IoT Central](concepts-app-templates.md).
 
 Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilateur connecté qui présente les caractéristiques suivantes :
 
@@ -31,17 +31,21 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 - Fournit une commande pour redémarrer l’appareil
 - Vous donne une vision globale de l’appareil par le biais d’un tableau de bord
 
-À partir de ce modèle d’appareil, un opérateur peut créer et connecter des appareils qui sont des ventilateurs réels. Tous ces ventilateurs ont des mesures, des propriétés et des commandes que les opérateurs utilisent pour les superviser et les gérer. Les opérateurs utilisent les tableaux de bord et les formulaires des appareils pour interagir avec les ventilateurs.
+À partir de ce modèle d’appareil, un opérateur peut créer et connecter des appareils qui sont des ventilateurs réels. Tous ces ventilateurs ont des mesures, des propriétés et des commandes que les opérateurs utilisent pour les superviser et les gérer. Les opérateurs utilisent les [tableaux de bord et les formulaires des appareils](#add-dashboards) pour interagir avec les ventilateurs. Un développeur d’appareils utilise le modèle pour comprendre comment l’appareil interagit avec l’application. Pour en savoir plus, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Seuls les concepteurs et les administrateurs peuvent créer, modifier et supprimer des modèles d’appareils. Tous les utilisateurs peuvent créer des appareils sur la page **Appareils** à partir de modèles d’appareils existants.
 
 Dans une application IoT Central, un modèle d’appareil utilise un modèle de fonctionnalité de l’appareil pour décrire les fonctions d’un appareil. Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
-- Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de capacité d’appareil dans le code de votre appareil.
+- Concevez le modèle d’appareil dans IoT Central, puis [implémentez son modèle de capacité d’appareil dans le code de votre appareil](concepts-telemetry-properties-commands.md).
 - Importez un modèle de capacité d’appareil à partir du [catalogue d’appareils certifiés Azure pour l’IoT](https://aka.ms/iotdevcat). Ensuite, ajoutez des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin.
 - Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 - Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central à l’aide d’une première connexion à l’appareil. IoT Central recherche et importe pour vous le modèle de capacité d’appareil à partir du référentiel public. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin pour le modèle d’appareil.
+
+Vous pouvez également ajouter des modèles d’appareil à une application IoT Central à l’aide de l’[API REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) ou de l’interface [CLI](howto-manage-iot-central-from-cli.md).
+
+Certains [modèles d’application](concepts-app-templates.md) incluent déjà des modèles d’appareil qui sont utiles dans le scénario pris en charge par le modèle d’application. Par exemple, consultez [Architecture de l’analytique en magasin](../retail/store-analytics-architecture.md).
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Créer un modèle d’appareil à partir du catalogue d’appareils
 

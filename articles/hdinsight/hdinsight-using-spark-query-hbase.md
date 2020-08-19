@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087484"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166941"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
-Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL en utilisant Apache Phoenix. Apache fournit également le connecteur Apache Spark HBase. Il constitue une alternative pratique et performante pour interroger et modifier des données stockées par HBase.
+Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL en utilisant Apache Phoenix. Apache fournit également le connecteur Apache Spark HBase. Le connecteur constitue une alternative pratique et efficace pour interroger et modifier des données stockées par HBase.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,11 +27,10 @@ Apache HBase est généralement interrogé soit avec son API de bas niveau (anal
 
 ## <a name="overall-process"></a>Procédure générale
 
-La procédure à suivre pour permettre à votre cluster Spark d’interroger votre cluster HDInsight est la suivante :
+La procédure à suivre pour permettre à votre cluster Spark d’interroger votre cluster HBase est la suivante :
 
 1. Préparer des exemples de données dans HBase.
-2. Obtenir le fichier hbase-site.xml à partir de votre dossier de configuration de cluster HBase (/etc/hbase/conf).
-3. Placer une copie de hbase-site.xml dans votre dossier de configuration Spark 2 (/etc/spark2/conf).
+2. Procurez-vous le fichier hbase-site.xml à partir de votre dossier de configuration de cluster HBase (/etc/HBase/conf), puis placez une copie de hbase-site.xml dans votre dossier de configuration Spark 2 (/etc/spark2/conf). (FACULTATIF : utilisez le script fourni par l’équipe HDInsight pour automatiser ce processus)
 4. Exécuter `spark-shell` en référençant le connecteur HBase Spark par ses coordonnées Maven dans l’option `packages`.
 5. Définir un catalogue qui mappe le schéma de Spark vers HBase.
 6. Interagir avec les données HBase à l’aide des API RDD ou DataFrame.
@@ -76,36 +75,77 @@ Dans cette étape, vous créez et vous remplissez un tableau dans Apache HBase, 
     ```hbase
     exit
     ```
+    
+## <a name="run-scripts-to-set-up-connection-between-clusters"></a>Exécuter des scripts pour configurer la connexion entre les clusters
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Copier hbase-site.xml sur le cluster Spark
+Pour configurer la communication entre les clusters, suivez les étapes ci-dessous pour exécuter deux scripts sur vos clusters. Ces scripts automatisent le processus de copie des fichiers décrit dans la section « Configurer la communication manuellement » ci-dessous. 
 
-Copiez le fichier hbase-site.xml du stockage local vers la racine du stockage par défaut de votre cluster Spark.  Modifiez la commande ci-dessous pour l’adapter à votre configuration.  Ensuite, entrez la commande suivante depuis votre session SSH ouverte dans le cluster HBase :
+* Le script que vous exécutez à partir du cluster HBase charge `hbase-site.xml` et les informations de mappage IP HBase sur le stockage par défaut attaché à votre cluster Spark. 
+* Le script que vous exécutez à partir du cluster Spark configure deux tâches cron pour exécuter régulièrement deux scripts d’assistance :  
+    1.  Tâche cron HBase : télécharger de nouveaux fichiers `hbase-site.xml` et le mappage IP HBase à partir du compte de stockage par défaut Spark vers le nœud local
+    2.  Tâche cron Spark : vérifie si une mise à l’échelle Spark s’est produite et si le cluster est sécurisé. Dans ce cas, modifiez `/etc/hosts` pour inclure le mappage IP HBase stocké localement
 
-| Valeur de la syntaxe | Nouvelle valeur|
-|---|---|
-|[Schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modifiez-la pour l’adapter à votre stockage.  La syntaxe ci-dessous est pour le stockage d’objets blob doté du transfert sécurisé.|
-|`SPARK_STORAGE_CONTAINER`|Remplacez par le nom du conteneur de stockage par défaut utilisé pour le cluster Spark.|
-|`SPARK_STORAGE_ACCOUNT`|Remplacez par le nom du compte de stockage par défaut utilisé pour le cluster Spark.|
+__REMARQUE__ : Avant de continuer, vérifiez que vous avez ajouté le compte de stockage du cluster Spark à votre cluster HBase en tant que compte de stockage secondaire. Assurez-vous que les scripts sont dans l’ordre indiqué ci-dessous.
 
-```bash
-hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
-```
 
-Mettez ensuite fin à votre connexion SSH à votre cluster HBase.
+1. Utilisez une [Action de script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) sur votre cluster HBase pour appliquer les modifications avec les considérations suivantes : 
 
-```bash
-exit
-```
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Placer hbase-site.xml sur votre cluster Spark
+    |Propriété | Valeur |
+    |---|---|
+    |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
+    |Type(s) de nœud|Région|
+    |Paramètres|`-s SECONDARYS_STORAGE_URL`|
+    |Persistant|Oui|
 
-1. Connectez-vous au nœud principal de votre cluster Spark à l’aide de SSH. Modifiez la commande ci-dessous en remplaçant `SPARKCLUSTER` par le nom de votre cluster Spark, puis entrez la commande :
+    * `SECONDARYS_STORAGE_URL` est l’URL du stockage par défaut côté Spark. Exemple de paramètre : `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+
+
+2.  Utilisez une Action de script sur votre cluster Spark pour appliquer les modifications avec les considérations suivantes :
+
+    |Propriété | Valeur |
+    |---|---|
+    |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
+    |Type(s) de nœud|Head, Worker, Zookeeper|
+    |Paramètres|`-s "SPARK-CRON-SCHEDULE"` (facultatif) `-h "HBASE-CRON-SCHEDULE"` (facultatif)|
+    |Persistant|Oui|
+
+
+    * Vous pouvez spécifier la fréquence à laquelle ce cluster vérifie automatiquement si la mise à jour est nécessaire. Par défaut : -s “*/1 * * * *” -h 0 (dans cet exemple, le cron Spark s’exécute toutes les minutes, tandis que le cron HBase ne s’exécute pas)
+    * Étant donné que le cron HBase n’est pas configuré par défaut, vous devez exécuter à nouveau ce script lors de l’exécution de la mise à l’échelle de votre cluster HBase. Si votre cluster HBase est souvent mis à l’échelle, vous pouvez choisir de configurer la tâche cron HBase automatiquement. Par exemple : `-h "*/30 * * * *"` configure le script pour effectuer des vérifications toutes les 30 minutes. Cette opération exécute régulièrement la planification cron HBase pour automatiser le téléchargement des nouvelles informations de HBase sur le compte de stockage commun vers le nœud local.
+    
+    
+
+## <a name="set-up-communication-manually-optional-if-provided-script-in-above-step-fails"></a>Configurer la communication manuellement (facultatif, si le script fourni dans l’étape ci-dessus échoue)
+
+__REMARQUE :__ Ces étapes doivent être effectuées chaque fois que l’un des clusters subit une activité de mise à l’échelle.
+
+1. Copiez le fichier hbase-site.xml du stockage local vers la racine du stockage par défaut de votre cluster Spark.  Modifiez la commande ci-dessous pour l’adapter à votre configuration.  Ensuite, entrez la commande suivante depuis votre session SSH ouverte dans le cluster HBase :
+
+    | Valeur de la syntaxe | Nouvelle valeur|
+    |---|---|
+    |[Schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modifiez-la pour l’adapter à votre stockage.  La syntaxe ci-dessous est pour le stockage d’objets blob doté du transfert sécurisé.|
+    |`SPARK_STORAGE_CONTAINER`|Remplacez par le nom du conteneur de stockage par défaut utilisé pour le cluster Spark.|
+    |`SPARK_STORAGE_ACCOUNT`|Remplacez par le nom du compte de stockage par défaut utilisé pour le cluster Spark.|
+
+    ```bash
+    hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+    ```
+
+2. Mettez ensuite fin à votre connexion SSH à votre cluster HBase.
+
+    ```bash
+    exit
+    ```
+
+
+3. Connectez-vous au nœud principal de votre cluster Spark à l’aide de SSH. Modifiez la commande ci-dessous en remplaçant `SPARKCLUSTER` par le nom de votre cluster Spark, puis entrez la commande :
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Entrez la commande ci-dessous pour copier `hbase-site.xml` du stockage par défaut de votre cluster Spark vers le dossier de configuration Spark 2 sur le stockage local du cluster :
+4. Entrez la commande ci-dessous pour copier `hbase-site.xml` du stockage par défaut de votre cluster Spark vers le dossier de configuration Spark 2 sur le stockage local du cluster :
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf

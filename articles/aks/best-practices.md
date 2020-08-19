@@ -4,12 +4,12 @@ description: Ensemble des meilleures pratiques à destination du développeur et
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77596315"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008778"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications sur Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ En tant qu’opérateur de cluster, travaillez avec les propriétaires d’appli
 * [Meilleures pratiques relatives aux fonctionnalités avancées du planificateur](operator-best-practices-advanced-scheduler.md)
     * Inclut l’utilisation de teints et de tolérances, de sélecteurs de nœud et d’affinité, d’affinité interpod et d’anti-affinité.
 * [Meilleures pratiques relatives à l’authentification et l’autorisation](operator-best-practices-identity.md)
-    * Inclut l’intégration avec Azure Active Directory (à l’aide de contrôles d’accès en fonction du rôle (RBAC)) et les identités de pod.
+    * Inclut l’intégration avec Azure Active Directory, à l’aide du contrôle d’accès en fonction du rôle (RBAC) et des identités de pod.
 
 **Sécurité**
 

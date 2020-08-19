@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533136"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134494"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -177,6 +177,11 @@ Un volume à double protocoles prend en charge les protocoles NFS et SMB.  Lorsq
 
 Pour éviter l’erreur « Autorisation refusée », assurez-vous que Windows Active Directory inclut `pcuser` avant d’accéder au point de montage. Si vous ajoutez `pcuser` après avoir rencontré l’erreur « Autorisation refusée », patientez 24 heures jusqu’à ce que l’entrée du cache s’efface avant de réessayer d’accéder.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Lorsque j’essaie de créer un volume à deux protocoles, pourquoi le processus de création échoue-t-il en raison de l’erreur « Impossible de valider la configuration LDAP, réessayez après avoir corrigé la configuration LDAP » ?  
+
+L’enregistrement du pointeur (PTR) de l’ordinateur hôte AD est peut-être manquant sur le serveur DNS. Vous devez créer une zone de recherche inversée sur le serveur DNS, puis ajouter un enregistrement PTR de l’ordinateur hôte AD dans cette zone de recherche inversée.
+
+Par exemple, supposons que l’adresse IP de l’ordinateur AD est `1.1.1.1`, le nom d’hôte de l’ordinateur AD (trouvé à l’aide de la commande `hostname`) est `AD1` et le nom de domaine est `myDomain.com`.  L’enregistrement PTR ajouté à la zone de recherche inversée doit être `1.1.1.1` -> `AD1.myDomain.com`.
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

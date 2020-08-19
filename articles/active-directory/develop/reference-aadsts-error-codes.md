@@ -12,19 +12,19 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026762"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115099"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
 Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le service d’émission de jeton de sécurité (STS) de Azure Active Directory (Azure AD) ? Lisez ce document pour rechercher les descriptions des erreurs AADSTS, leurs correctifs ainsi que d’autres solutions de contournement.
 
 > [!NOTE]
-> Ces informations sont provisoires et peuvent être modifiées. Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](active-directory-develop-help-support.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.
+> Ces informations sont provisoires et peuvent être modifiées. Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](./developer-support-help-options.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.
 >
 > Cette documentation fournit des conseils aux développeurs et aux administrateurs ; elle ne doit jamais être utilisée par le client lui-même. Les codes d’erreur sont susceptibles d’être modifié à tout moment afin de fournir des messages d’erreur plus granulaires destinés à aider les développeurs lors de la création de leur application. Les applications qui dépendent des numéros de code d’erreur ou de texte seront endommagées au fil du temps.
 
@@ -95,7 +95,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50000 | TokenIssuanceError : il existe un problème avec le service d’inscription. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour résoudre ce problème. |
 | AADSTS50001 | InvalidResource : la ressource est désactivée ou n’existe pas. Vérifiez le code de votre application pour vous assurer que vous avez spécifié l’URL de ressource exacte pour la ressource à laquelle vous essayez d’accéder.  |
 | AADSTS50002 | NotAllowedTenant : la connexion a échoué en raison d’un accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème. |
-| AADSTS50003 | MissingSigningKey : la connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Découvrez les procédures de résolution décrites à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application. |
+| AADSTS50003 | MissingSigningKey : la connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Consultez les résolutions présentées dans [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application. |
 | AADSTS50005 | DevicePolicyError : l’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel. |
 | AADSTS50006 | InvalidSignature : la vérification de la signature a échoué en raison d’une signature non valide. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing : le certificat de chiffrement partenaire est introuvable pour cette application. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème. |
@@ -139,7 +139,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50089 | Échec du jeton de flux. L’authentification a échoué. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe. |
 | AADSTS50097 | DeviceAuthenticationRequired : l’authentification de l’appareil est requise. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized : la signature JWT n’est pas valide. |
-| AADSTS50105 | EntitlementGrantsNotFound : l’utilisateur connecté n’est pas affecté à un rôle pour l’application concernée. Affectez l’utilisateur à l’application. Pour plus d’informations : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
+| AADSTS50105 | EntitlementGrantsNotFound : l’utilisateur connecté n’est pas affecté à un rôle pour l’application concernée. Affectez l’utilisateur à l’application. Pour plus d’informations :[../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri : l’objet de domaine de fédération requis n’existe pas. Contactez l’administrateur du locataire. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat : problème avec l’en-tête JWT. Contactez l’administrateur du locataire. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter : la transformation des revendications contient un paramètre d’entrée non valide. Contactez l’administrateur du locataire pour mettre à jour la stratégie. |
@@ -188,7 +188,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist : l’utilisateur ou l’administrateur n’a pas accepté d’utiliser l’application avec ID X. Envoyez une requête d’autorisation interactive pour cet utilisateur et cette ressource. |
 | AADSTS65004 | UserDeclinedConsent : l’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
-| AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | L’application a besoin d’accéder à un service `(\"{name}\")` auquel votre organisation `\"{organization}\"` n’est pas abonnée ou qu’elle n’a pas activé. Contactez votre administrateur informatique pour examiner la configuration de vos abonnements de service. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant : échec d’authentification. Le jeton d’actualisation n'est pas valide. L’erreur peut être due à l’une des raisons suivantes :<ul><li>L’en-tête de liaison de jeton est vide</li><li>Le hachage de liaison de jeton ne correspond pas</li></ul> |
@@ -250,7 +250,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS90043 | NationalCloudAuthCodeRedirection : la fonctionnalité est désactivée. |
 | AADSTS90051 | InvalidNationalCloudId : l’identificateur de cloud national contient un identificateur de cloud non valide. |
 | AADSTS90055 | TenantThrottlingError : il y a un trop grand nombre de requêtes entrantes. Cette exception est levée pour les locataires bloqués. |
-| AADSTS90056 | BadResourceRequest : pour utiliser le code pour un jeton d’accès, l’application doit envoyer une requête POST au point de terminaison `/token`. En outre, avant cela, vous devez fournir un code d’autorisation et l’envoyer dans la requête POST au point de terminaison `/token`. Consultez cet article pour une vue d’ensemble du flux du code d’autorisation OAuth 2.0 : [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Dirigez l’utilisateur vers le point de terminaison `/authorize`, qui retournera un code d’autorisation. En publiant une requête pour le point de terminaison `/token`, l’utilisateur obtient le jeton d’accès. Ouvrez une session dans le portail Azure et vérifiez **Inscriptions d'applications > Points de terminaison** pour confirmer que les deux points de terminaison ont été configurés correctement. |
+| AADSTS90056 | BadResourceRequest : pour utiliser le code pour un jeton d’accès, l’application doit envoyer une requête POST au point de terminaison `/token`. En outre, avant cela, vous devez fournir un code d’autorisation et l’envoyer dans la requête POST au point de terminaison `/token`. Consultez cet article pour une vue d’ensemble du flux du code d’autorisation OAuth 2.0 : [../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Dirigez l’utilisateur vers le point de terminaison `/authorize`, qui retournera un code d’autorisation. En publiant une requête pour le point de terminaison `/token`, l’utilisateur obtient le jeton d’accès. Ouvrez une session dans le portail Azure et vérifiez **Inscriptions d'applications > Points de terminaison** pour confirmer que les deux points de terminaison ont été configurés correctement. |
 | AADSTS90072 | PassThroughUserMfaError : le compte externe avec lequel l’utilisateur se connecte n’existe pas sur le locataire auquel il s’était connecté ; par conséquent, l’utilisateur ne peut pas remplir les exigences d’authentification multifacteur pour le locataire. Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous puis reconnectez-vous avec un autre compte d’utilisateur Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid : une erreur s’est produite lorsque le service a tenté de traiter un message WS-Federation. Le message n'est pas valide. |
 | AADSTS90082 | OrgIdWsFederationNotSupported : la stratégie d’authentification sélectionnée pour la demande n’est pas prise en charge actuellement. |
@@ -324,4 +324,4 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](active-directory-develop-help-support.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.
+* Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](./developer-support-help-options.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.

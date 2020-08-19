@@ -3,16 +3,16 @@ title: Ressources, rôles et contrôle d’accès dans Azure Application Insight
 description: Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325693"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926499"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
-Vous pouvez contrôler les utilisateurs ayant accès en lecture et mise à jour à vos données dans Azure [Application Insights][start] grâce au [Contrôle d’accès en fonction du rôle dans Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Vous pouvez contrôler les utilisateurs ayant accès en lecture et mise à jour à vos données dans Azure [Application Insights][start] à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Accordez l’accès aux utilisateurs dans le **groupe de ressources ou l’abonnement** auquel appartient votre ressource d’application et non dans la ressource elle-même. Affectez le rôle de **collaborateur de composants Application Insights** . Cela garantit un contrôle d’accès uniforme aux tests et aux alertes Web, ainsi qu’aux ressources de votre application. [Plus d’informations](#access)
@@ -101,7 +101,7 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
 ## <a name="related-content"></a>Contenu connexe
 
-* [Contrôle d’accès en fonction du rôle dans Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Requête PowerShell permettant de déterminer l’appartenance au rôle
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

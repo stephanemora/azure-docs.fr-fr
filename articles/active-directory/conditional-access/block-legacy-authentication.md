@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275477"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032181"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -49,7 +49,7 @@ Azure AD prend en charge plusieurs protocoles d’authentification et d’autori
 - Applications Microsoft Office plus anciennes
 - Les applications utilisant des protocoles de messagerie tels que POP, IMAP et SMTP
 
-l’authentification à un seul facteur (par exemple le nom d’utilisateur et le mot de passe) ne suffit pas de nos jours. Les mots de passe sont insuffisants, car ils sont faciles à deviner et nous (les humains) ne savons pas choisir de bons mots de passe. Les mots de passe sont également vulnérables à diverses attaques comme le hameçonnage et la pulvérisation de mots de passe. L’un des moyens les plus simples pour vous protéger contre les menaces de vol de mot de passe consiste à implémenter l’authentification multifacteur. Avec l’authentification multifacteur, même si une personne malveillante obtient le mot de passe d’un utilisateur, ce seul mot de passe n’est pas suffisant pour s’authentifier et accéder aux données.
+l’authentification à un seul facteur (par exemple le nom d’utilisateur et le mot de passe) ne suffit pas de nos jours. Les mots de passe sont insuffisants, car ils sont faciles à deviner et nous (les humains) ne savons pas choisir de bons mots de passe. Les mots de passe sont également vulnérables à diverses attaques comme le hameçonnage et la pulvérisation de mots de passe. L’un des moyens les plus simples pour vous protéger contre les menaces de vol de mot de passe consiste à implémenter l’authentification multifacteur (MFA). Avec l’authentification multifacteur, même si une personne malveillante obtient le mot de passe d’un utilisateur, ce seul mot de passe n’est pas suffisant pour s’authentifier et accéder aux données.
 
 Comment pouvez-vous empêcher les applications utilisant l’authentification héritée d’accéder aux ressources de votre locataire ? Il est recommandé de les bloquer à l’aide d’une stratégie d’accès conditionnel, tout simplement. Si nécessaire, vous pouvez autoriser uniquement certains utilisateurs et des emplacements réseau spécifiques à utiliser les applications s’appuyant sur l’authentification héritée.
 
@@ -91,46 +91,24 @@ Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effec
 
 Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Implémentez une stratégie d’accès conditionnel réservée aux utilisateurs non affichés dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée.
 
-### <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée 
+## <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée 
 
-Dans une stratégie d’accès conditionnel, vous pouvez définir une condition liée aux applications clientes utilisées pour accéder à vos ressources. Cette condition vous permet de limiter la portée aux applications utilisant l’authentification héritée en sélectionnant **Clients Exchange ActiveSync** et **Autres clients** sous **Applications mobiles et clients de bureau**.
+Il existe deux façon d’utiliser des stratégies d’accès conditionnel pour bloquer l’authentification héritée.
 
-![Autres clients](./media/block-legacy-authentication/01.png)
-
-Pour bloquer l’accès à ces applications, vous devez sélectionner **Bloquer l’accès**.
-
-![Bloquer l’accès](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Sélectionner des utilisateurs et des applications cloud
-
-Pour bloquer l’authentification héritée pour votre organisation, vous seriez peut-être tenté de sélectionner les éléments suivants :
-
-- tous les utilisateurs
-- Toutes les applications cloud
-- Bloquer l’accès
-
-![Attributions](./media/block-legacy-authentication/03.png)
-
-Azure inclut une fonction de sécurité qui vous empêche de créer une telle stratégie, car cette configuration ne respecte pas les [meilleures pratiques](best-practices.md) en matière de stratégies d’accès conditionnel.
+- [Blocage direct de l’authentification héritée](#directly-blocking-legacy-authentication)
+- [Blocage indirect de l’authentification héritée](#indirectly-blocking-legacy-authentication)
  
-![Configuration de stratégie non prise en charge](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Blocage direct de l’authentification héritée
 
-Cette fonction de sécurité est nécessaire, car *bloquer tous les utilisateurs et toutes les applications cloud* pourrait empêcher toute votre organisation de se connecter à votre locataire. Vous devez exclure au moins un utilisateur pour respecter les meilleures pratiques minimales. Vous pouvez également exclure un rôle d’annuaire.
+Le moyen le plus simple de bloquer l’authentification héritée dans toute votre organisation consiste à configurer une stratégie d’accès conditionnel qui s’applique spécifiquement aux clients d’authentification héritée et bloque l’accès. Lorsque vous affectez des utilisateurs et des applications à la stratégie, veillez à exclure les utilisateurs et les comptes de service qui doivent encore se connecter à l’aide de l’authentification héritée. Configurez la condition des applications clientes en sélectionnant **Clients Exchange ActiveSync** et **Autres clients**. Pour bloquer l’accès à ces applications clientes, configurez les contrôles d’accès pour bloquer l’accès.
 
-![Configuration de stratégie non prise en charge](./media/block-legacy-authentication/05.png)
+![Condition des applications clientes configurée pour bloquer l’authentification héritée](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-Vous pouvez contourner cette fonction de sécurité en excluant un utilisateur de votre stratégie. Dans l’idéal, vous devez définir quelques [comptes d’administration pour l’accès en urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md) et les exclure de votre stratégie.
+### <a name="indirectly-blocking-legacy-authentication"></a>Blocage indirect de l’authentification héritée
 
-L’utilisation du [mode rapport uniquement](concept-conditional-access-report-only.md) lors de l’activation de votre stratégie de blocage de l’authentification héritée permet à votre organisation d’analyser l’impact de cette stratégie.
+Même si votre organisation n’est pas prête à bloquer l’authentification héritée au sein de l’ensemble de l’organisation, vous devez vous assurer que les connexions utilisant l’authentification héritée ne contournent pas les stratégies qui requièrent des contrôles d’octroi, tels que l’authentification multifacteur ou les appareils conformes/de jointure hybride Azure AD. Pendant l’authentification, les clients d’authentification héritée ne prennent pas en charge l’envoi d’informations d’état d’authentification multifacteur, de conformité des appareils ou de jointure à Azure AD. Par conséquent, appliquez des stratégies avec des contrôles d’octroi à toutes les applications clientes afin que les connexions basées sur l’authentification héritée qui ne répondent pas aux contrôles d’octroi soient bloquées. Avec la disponibilité générale de la condition des applications clientes en août 2020, les stratégies d’accès conditionnel nouvellement créées s’appliquent à toutes les applications clientes par défaut.
 
-## <a name="policy-deployment"></a>Déploiement de stratégie
-
-Avant de mettre votre stratégie en production, occupez-vous des éléments suivants :
- 
-- **Comptes de service** : identifiez les comptes utilisateurs utilisés comme comptes de service ou par des appareils, tels que des téléphones de salle de conférence. Assurez-vous que ces comptes ont des mots de passe forts et ajoutez-les à un groupe à exclure.
-- **Rapports de connexion** : passez en revue le rapport de connexion et recherchez le trafic provenant d’**autres clients**. Identifiez les éléments les plus utilisés et la raison de leur utilisation. En règle générale, le trafic est généré par les clients Office plus anciens qui n’utilisent pas de méthode d’authentification moderne, ou par certaines applications de messagerie tierces. Établissez un plan pour éliminer l’utilisation de ces applications, ou en cas d’impact faible, prévenez vos utilisateurs qu’ils ne peuvent plus les utiliser.
- 
-Pour plus d’informations, voir [Guide pratique pour déployer une nouvelle stratégie](best-practices.md#how-should-you-deploy-a-new-policy).
+![Configuration par défaut des conditions des applications clientes](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
@@ -141,14 +119,6 @@ La configuration d’une stratégie pour **d’autres clients** bloque l’organ
 L’entrée en vigueur de la stratégie peut prendre jusqu’à 24 heures.
 
 Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la condition **Autre clients**. Toutefois, l’expérience de l’utilisateur final est toujours la même : un accès bloqué.
-
-Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la plateforme de l’appareil et la condition de localisation. Par exemple, si vous souhaitez uniquement bloquer l’authentification héritée des appareils mobiles, définissez la condition des **plateformes d’appareils** en sélectionnant :
-
-- Android
-- iOS
-- Windows Phone
-
-![Configuration de stratégie non prise en charge](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

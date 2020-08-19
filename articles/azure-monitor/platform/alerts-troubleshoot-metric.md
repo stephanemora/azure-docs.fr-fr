@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114895"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -108,9 +108,9 @@ Par défaut, un état est attribué aux alertes de métrique. Par conséquent, a
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Définir une règle d’alerte sur une métrique personnalisée qui n’est pas encore émise
 
-Lors de la création d’une règle d’alerte de métrique, le nom de la métrique est validé par rapport à l’[API de définitions de métriques](/rest/api/monitor/metricdefinitions/list) pour s’assurer qu’elle existe. Dans certains cas, vous pouvez être amené à créer une règle d’alerte sur une métrique personnalisée avant qu’elle soit émise. Par exemple, lors de la création (à l’aide d’un modèle ARM) d’une ressource Application Insights qui émettra une métrique personnalisée, en même temps qu’une règle d’alerte qui surveille cette métrique.
+Lors de la création d’une règle d’alerte de métrique, le nom de la métrique est validé par rapport à l’[API de définitions de métriques](/rest/api/monitor/metricdefinitions/list) pour s’assurer qu’elle existe. Dans certains cas, vous pouvez être amené à créer une règle d’alerte sur une métrique personnalisée avant qu’elle soit émise. Par exemple, lors de la création (à l’aide d’un modèle Resource Manager) d’une ressource Application Insights qui émettra une métrique personnalisée, en même temps qu’une règle d’alerte qui surveille cette métrique.
 
-Pour éviter que le déploiement échoue quand vous tentez de valider les définitions de la métrique personnalisée, vous pouvez utiliser le paramètre *skipMetricValidation* dans la section des critères de la règle d’alerte, qui a pour effet que la validation de la métrique est ignorée. Consultez l’exemple ci-dessous pour savoir comment utiliser ce paramètre dans un modèle ARM (pour des exemples de modèles ARM complets concernant la création de règles d’alerte de métrique, voir [ici]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+Pour éviter que le déploiement échoue quand vous tentez de valider les définitions de la métrique personnalisée, vous pouvez utiliser le paramètre *skipMetricValidation* dans la section des critères de la règle d’alerte, qui a pour effet que la validation de la métrique est ignorée. Consultez l’exemple ci-dessous pour savoir comment utiliser ce paramètre dans un modèle Resource Manager. Pour plus d’informations, consultez les [exemples de modèles Resource Manager complets pour la création de règles d’alerte de métrique](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -129,6 +129,15 @@ Pour éviter que le déploiement échoue quand vous tentez de valider les défin
               ]
         }
 ```
+
+## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exporter le modèle ARM d’une règle d’alerte de métrique via le Portail Azure
+
+L’exportation du modèle ARM d’une règle d’alerte de métrique vous aide à comprendre sa syntaxe et ses propriétés JSON, et elle peut être utilisée pour automatiser les déploiements futurs.
+1. Accédez à la section **Groupes de ressources** dans le portail et sélectionnez le groupe de ressources contenant la règle.
+2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués**.
+3. Dans le filtre **Type**, sélectionnez *microsoft.insights/metricalerts*.
+4. Sélectionnez la règle d’alerte concernée pour afficher ses détails.
+5. Sous **Paramètres**, sélectionnez **Exporter le modèle**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de règles d'alerte de métrique trop bas
 
@@ -247,4 +256,3 @@ Par exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des informations de dépannage générales sur les alertes et les notifications, consultez [Résolution des problèmes relatifs aux alertes Azure Monitor](alerts-troubleshoot.md).
-

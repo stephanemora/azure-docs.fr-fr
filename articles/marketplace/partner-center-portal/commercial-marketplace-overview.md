@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
-description: En savoir plus sur le portail de la Place de marché commerciale dans l’Espace partenaires et sur la manière de répertorier et vendre des offres sur la Place de marché Azure, sur AppSource et par le biais du programme Fournisseur de solutions cloud (CSP).
+description: En savoir plus sur le portail de la Place de marché commerciale Microsoft dans l’Espace partenaires et sur la manière de répertorier et vendre des offres sur la Place de marché Azure, sur AppSource et par le biais du programme Fournisseur de solutions cloud (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047600"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030859"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 

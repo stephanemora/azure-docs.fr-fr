@@ -9,16 +9,16 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a5ee1cc8efead7c29dadaf64adb8e2686a10621
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495072"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168080"
 ---
-# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Azure Time Series Insights Gen1 Insights à l’aide d’un hub d’événements
+# <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Azure Time Series Insights Gen1 Insights à l’aide d’un hub d’événements
 
 Ce tutoriel explique comment créer et configurer un hub d’événements dans Azure Event Hubs. Il traite également de l’exécution d’un exemple d’application pour envoyer (push) des événements dans Azure Time Series Insights à partir d’Event Hubs. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -57,7 +57,7 @@ Ce tutoriel explique comment créer et configurer un hub d’événements dans A
 
 Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextuelles à la télémétrie entrante à l’aide de Time Series Insights (TSM). Dans TSM, vos balises ou vos signaux sont référencés en tant qu’*instances,* et vous pouvez stocker des données contextuelles dans *champs d’instance.* Les données sont jointes au moment de la requête à l'aide d'un **ID de série chronologique**. L’**ID de série chronologique** de l’exemple de projet d’éoliennes que nous utiliserons plus loin dans cet article est `id`. Pour en savoir plus sur le stockage des données dans les champs d’instance, consultez la présentation [Time Series Model](./concepts-model-overview.md).
 
-### <a name="create-a-azure-time-series-insights-event-source"></a>Créer une source d’événement Azure Time Series Insights
+### <a name="create-an-azure-time-series-insights-event-source"></a>Créer une source d’événement Azure Time Series Insights
 
 1. Si vous n'avez créé aucune source d'événement, suivez la procédure de [création d'une source d'événement](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -73,15 +73,15 @@ Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextue
 
     [![Copier la valeur de la chaîne de connexion de la clé primaire](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Atteindre https://tsiclientsample.azurewebsites.net/windFarmGen.html. L’URL crée et exécute des simulations d’éoliennes.
+1. Atteindre <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. L’URL crée et exécute des simulations d’éoliennes.
 1. Dans la zone **Chaîne de connexion du hub d’événements** de la page web, collez la chaîne de connexion que vous avez copiée dans le [champ d’entrée des éoliennes](#push-events-to-windmills-sample).
   
     [![Coller la chaîne de connexion de la clé primaire dans la zone Chaîne de connexion Event Hub](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Sélectionnez **Cliquez pour démarrer**. 
+1. Sélectionnez **Cliquez pour démarrer**.
 
     > [!TIP]
-    > Le simulateur d’éoliennes crée également un fichier JSON que vous pouvez utiliser comme charge utile avec les [API de requête en disponibilité générale Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > Le simulateur d’éoliennes crée également un fichier JSON que vous pouvez utiliser comme charge utile avec les [API de requête en disponibilité générale Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > Le simulateur continuera à envoyer des données jusqu’à ce que l’onglet du navigateur soit fermé.
@@ -203,6 +203,6 @@ Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextue
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Affichez votre environnement](https://insights.timeseries.azure.com) dans l’Explorateur Time Series Insights.
+* [Affichez votre environnement](https://insights.timeseries.azure.com) dans l’Explorateur Time Series Insights.
 
-- En savoir plus sur les [messages de l’appareil IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* En savoir plus sur les [messages de l’appareil IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

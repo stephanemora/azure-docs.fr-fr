@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798067"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166703"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 
@@ -242,20 +242,23 @@ Fournissez les coordonnées que Microsoft doit utiliser en cas de problème avec
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
-#### <a name="store-logos"></a>Stocker des logos
+#### <a name="azure-marketplace-logos"></a>Logos de la Place de marché Azure
 
-Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
+Fournissez des fichiers PNG du logo de votre offre avec les quatre dimensions d’image suivantes :
 
-Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
+- **Petite** (48 &times; 48 pixels)
+- **Moyenne** (90 &times; 90 pixels)
+- **Grande** (216 &times; 216 pixels)
+- **Large** (255 &times; 115 pixels)
 
-- **Petit** (48 x 48)
-- **Moyen** (90 x 90)
-- **Grand** (entre 216 x 216 et 350 x 350)
+Les quatre logos sont obligatoires. Ils sont affichés dans différentes listes de la Place de marché Azure.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 
@@ -288,6 +291,8 @@ Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivant
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
 Vous pouvez proposer différentes options de plan dans la même offre au sein de l’Espace partenaires. Une offre nécessite au moins un plan (précédemment appelé SKU), qui peut varier en termes de public de monétisation, de région Azure, de fonctionnalités ou d’images de machines virtuelles.
+
+Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
 
 Une fois que vous avez créé vos plans, sélectionnez l’onglet **Vue d’ensemble du plan** pour afficher :
 

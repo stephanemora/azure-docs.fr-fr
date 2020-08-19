@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564268"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826209"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Déplacer des ressources d’application logique vers d’autres abonnements, régions ou groupes de ressources Azure
 
@@ -31,7 +31,7 @@ Pour migrer votre application logique ou les ressources associées vers un autre
 
 * Le même abonnement Azure que celui utilisé pour créer l’application logique ou le compte d’intégration que vous souhaitez déplacer
 
-* Autorisations du propriétaire des ressources pour déplacer et configurer les ressources souhaitées. En savoir plus sur le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/built-in-roles.md#owner).
+* Autorisations du propriétaire des ressources pour déplacer et configurer les ressources souhaitées. Apprenez-en plus sur le [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
@@ -94,7 +94,7 @@ Certaines ressources Azure, telles que les ressources de passerelle de données 
 
 Par exemple, pour lier une application logique à un compte d’intégration, les deux ressources doivent exister dans la même région. Dans les scénarios tels que la récupération d’urgence, vous souhaitez généralement que les comptes d’intégration possèdent la même configuration et les mêmes artefacts. Dans d’autres scénarios, vous pouvez avoir besoin de comptes d’intégration avec différentes configurations et artefacts.
 
-Les connecteurs personnalisés dans Azure Logic Apps sont visibles pour les auteurs des connecteurs et les utilisateurs qui ont le même abonnement Azure et le même client Azure Active Directory. Ces connecteurs sont disponibles dans la même région que celle où les applications logiques sont déployées. Pour plus d’informations, consultez [Share a custom connector in your organization](https://docs.microsoft.com/connectors/custom-connectors/share) (Partager un connecteur personnalisé dans votre organisation).
+Les connecteurs personnalisés dans Azure Logic Apps sont visibles pour les auteurs des connecteurs et les utilisateurs qui ont le même abonnement Azure et le même client Azure Active Directory. Ces connecteurs sont disponibles dans la même région que celle où les applications logiques sont déployées. Pour plus d’informations, consultez [Share a custom connector in your organization](/connectors/custom-connectors/share) (Partager un connecteur personnalisé dans votre organisation).
 
 Le modèle obtenu à partir de Visual Studio comprend uniquement les définitions de ressource pour votre application logique et ses connexions. Par conséquent, si votre application logique utilise d’autres ressources, par exemple, un compte d’intégration et des artefacts B2B, tels que des partenaires, des contrats et des schémas, vous devez exporter le modèle de ce compte d’intégration à l’aide du Portail Azure. Ce modèle comprend les définitions de ressource pour le compte d’intégration et les artefacts. Toutefois, le modèle n’est pas entièrement paramétré. Par conséquent, vous devez paramétrer manuellement les valeurs que vous souhaitez utiliser pour le déploiement.
 

@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562444"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080709"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
 > [!NOTE]
-> Le cache local n’est pas pris en charge dans les applications de fonction ni dans les applications App Service en conteneur, telles que dans [Conteneurs Windows](app-service-web-get-started-windows-container.md) ou sur [App Service sur Linux](containers/app-service-linux-intro.md).
+> Le cache local n’est pas pris en charge dans les applications de fonction ni dans les applications App Service en conteneur, telles que dans [Conteneurs Windows](quickstart-custom-container.md?pivots=container-windows) ou sur [App Service sur Linux](overview.md#app-service-on-linux).
 
 
 Le contenu Azure App Service est stocké dans le Stockage Azure et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
@@ -36,7 +36,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Comment le cache local change le comportement d’App Service
 * _D:\home_ pointe vers le cache local, qui est créé sur l’instance de machine virtuelle au démarrage de l’application. _D:\local_ continue de pointer vers le stockage propre à la machine virtuelle temporaire.
-* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local, au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 1 Go par défaut, mais vous pouvez l’augmenter à 2 Go. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de la taille du cache. Si les fichiers copiés dépassent la taille du cache local, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant.
+* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local, au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 1 Go par défaut, mais vous pouvez l’augmenter à 2 Go. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de la taille du cache. Si vous avez augmenté la limite du cache local à 2 Go et que les fichiers copiés dépassent la taille maximale de 2 Go, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant. Si aucune limite n’est définie ou si la limite est définie sur une valeur inférieure à 2 Go et que les fichiers copiés dépassent la limite, le déploiement ou l’échange peut échouer avec une erreur.
 * Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
 * Le [streaming des journaux](troubleshoot-diagnostic-logs.md#stream-logs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.

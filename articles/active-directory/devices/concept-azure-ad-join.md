@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554903"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923728"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -28,7 +28,8 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 | **Public principal** | Approprié pour les organisations utilisant uniquement le cloud et pour les organisations hybrides. |
 |   | S’applique à tous les utilisateurs d’une organisation |
 | **Appartenance de l’appareil** | Organisation |
-| **Systèmes d’exploitation** | Tous les appareils Windows 10 |
+| **Systèmes d’exploitation** | Tous les appareils Windows 10 à l’exception de Windows 10 Famille |
+|   | [Machines virtuelles Windows Server 2019 s’exécutant dans Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core n’est pas pris en charge) |
 | **Approvisionnement** | Libre-service : Windows OOBE ou Paramètres |
 |   | Inscription en bloc |
 |   | Windows Autopilot |
@@ -61,7 +62,7 @@ Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne
 - Vous souhaitez gérer un groupe d’utilisateurs dans Azure AD et non dans un répertoire Active Directory. Par exemple, ce scénario peut concerner les travailleurs saisonniers, les prestataires ou les étudiants.
 - Vous souhaitez fournir des fonctionnalités de jonction aux travailleurs dans des succursales distantes avec une infrastructure locale limitée.
 
-Vous pouvez configurer des appareils joints Azure AD pour les appareils Windows 10.
+Vous pouvez configurer des appareils Azure AD joints pour tous les appareils Windows 10, à l’exception de Windows 10 Famille.
 
 Les appareils joints Azure AD ont pour objectif de simplifier :
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610506"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032966"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Résolution des problèmes de connexion avec l’accès conditionnel
 
@@ -55,11 +55,16 @@ Procédez comme suit pour trouver quelles stratégies d’accès conditionnel on
    1. Les informations de l’onglet **Dépannage et support** peuvent indiquer clairement pourquoi une connexion a échoué, par exemple un appareil ne respectant pas les exigences de conformité.
    1. Pour approfondir vos recherches, explorez la configuration des stratégies en cliquant sur **Nom de la stratégie**. Cliquez sur **Nom de la stratégie** pour afficher l’interface utilisateur de configuration de la stratégie pour la stratégie sélectionnée à des fins de révision et de modification.
    1. **L’utilisateur client** et les **détails sur l’appareil** qui ont été utilisés pour l’évaluation de la stratégie d’accès conditionnel sont également disponibles dans les onglets **Informations de base**, **Emplacement**, **Informations sur l’appareil**, **Détails d’authentification** et **Détails supplémentaires** de l’événement de connexion.
-   1. La sélection des points de suspension à droite de la stratégie permet d’afficher les détails de la stratégie. Les administrateurs peuvent ainsi obtenir des informations supplémentaires sur la raison pour laquelle une stratégie a été correctement appliquée ou non.
+
+### <a name="policy-details"></a>Détails de la stratégie
+
+La sélection des points de suspension à droite de la stratégie dans un événement de connexion permet d’afficher les détails de la stratégie. Les administrateurs peuvent ainsi obtenir des informations supplémentaires sur la raison pour laquelle une stratégie a été correctement appliquée ou non.
 
    ![Événement de connexion - Onglet Accès conditionnel](./media/troubleshoot-conditional-access/image5.png)
 
    ![Détails de la stratégie (préversion)](./media/troubleshoot-conditional-access/policy-details.png)
+
+Le côté gauche fournit les détails collectés lors de la connexion et le côté droit indique si ces détails répondent aux exigences des stratégies d’accès conditionnel appliquées. Les stratégies d’accès conditionnel s’appliquent uniquement lorsque toutes les conditions sont satisfaites ou non configurées.
 
 Si les informations de l’événement ne suffisent pas à comprendre les résultats de la connexion ou à ajuster la stratégie pour obtenir les résultats souhaités, il est possible d’ouvrir un incident de support. Accédez à l’onglet **Dépannage et support** de cet événement de connexion, puis sélectionnez **Créer une demande de support**.
 

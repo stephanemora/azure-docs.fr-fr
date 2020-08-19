@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073353"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055203"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Qu'est-ce qu'Azure SQL Managed Instance ?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Partie intégrante de la famille de produits Azure SQL, Azure SQL Managed Instance est le service de base de données cloud intelligent et évolutif qui combine la plus grande compatibilité SQL Server du moteur de base de données et tous les avantages d’une plateforme en tant que service entièrement gérée et persistante. SQL Managed Instance est presque 100 % compatible avec le moteur de base de données SQL Server (Édition Entreprise) le plus récent et fournit une implémentation de [réseau virtuel (VNet)](../../virtual-network/virtual-networks-overview.md) native traitant les problèmes de sécurité courants ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server existants. SQL Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, SQL Managed Instance conserve toutes les fonctionnalités PaaS (correctifs et mises à jour de versions automatiques, [sauvegardes automatisées](../database/automated-backups-overview.md), [haute disponibilité](../database/high-availability-sla.md)), ce qui réduit considérablement le temps de gestion et le coût total de possession.
+Azure SQL Managed Instance est le service de base de données cloud intelligent et évolutif qui combine la plus grande compatibilité de moteur de base de données SQL Server avec tous les avantages d’une plateforme en tant que service entièrement gérée et persistante. SQL Managed Instance est presque 100 % compatible avec le moteur de base de données SQL Server (Édition Entreprise) le plus récent et fournit une implémentation de [réseau virtuel (VNet)](../../virtual-network/virtual-networks-overview.md) native traitant les problèmes de sécurité courants ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server existants. SQL Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, SQL Managed Instance conserve toutes les fonctionnalités PaaS (correctifs et mises à jour de versions automatiques, [sauvegardes automatisées](../database/automated-backups-overview.md), [haute disponibilité](../database/high-availability-sla.md)), ce qui réduit considérablement le temps de gestion et le coût total de possession.
 
 > [!IMPORTANT]
 > Pour obtenir la liste des régions où SQL Managed Instance est actuellement disponible, consultez [régions prises en charge](resource-limits.md#supported-regions).

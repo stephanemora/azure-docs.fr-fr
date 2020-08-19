@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399503"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167706"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
@@ -39,15 +39,9 @@ La synthèse vocale du service Speech permet à vos applications, outils ou appa
 
 * SSML (Speech Synthesis Markup Language) : langage de balisage basé sur XML, utilisé pour personnaliser les résultats de la reconnaissance vocale. Avec SSML, vous pouvez ajuster la tonalité, ajouter des pauses, améliorer la prononciation, accélérer ou ralentir le débit des paroles, augmenter ou réduire le volume, et attribuer plusieurs voix à un même document. Consultez [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Bien démarrer
+## <a name="get-started"></a>Prise en main
 
-Le service de synthèse vocale est disponible via le [SDK Speech](speech-sdk.md). Plusieurs scénarios courants sont disponibles sous forme de démarrages rapides, dans différentes langues et plateformes :
-
-* [Synthétiser la parole vers un fichier audio](quickstarts/text-to-speech-audio-file.md)
-* [Synthétiser la parole vers un haut-parleur](quickstarts/text-to-speech.md)
-* [Synthétiser de façon asynchrone de l’audio long](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Si vous préférez, le service de synthèse vocale est accessible via [REST](rest-text-to-speech.md).
+Consultez le [démarrage rapide](get-started-text-to-speech.md) pour découvrir la conversion de texte par synthèse vocale. Le service de synthèse vocale est disponible via le [SDK Speech](speech-sdk.md), l’[API REST](rest-text-to-speech.md) et l’interface [CLI Speech](spx-overview.md)
 
 ## <a name="sample-code"></a>Exemple de code
 

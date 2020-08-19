@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050923"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116646"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Appliquer la fonctionnalité Protection de mots de passe Azure AD localement pour Active Directory Domain Services
 
@@ -87,6 +87,9 @@ Les composants locaux de Protection de mots de passe Azure AD fonctionnent comm
 Le déploiement de Protection de mots de passe Azure AD dans une forêt AD DS nécessite l’inscription de cette forêt auprès d’Azure AD. Chaque service proxy déployé doit également être inscrit auprès d’Azure AD. Ces inscriptions de forêt et de proxy sont associées avec un locataire Azure AD spécifique, qui est implicitement identifié par les informations d’identification utilisées lors de l’inscription.
 
 La forêt AD DS et tous les services proxy déployés au sein d’une forêt doivent être inscrits auprès du même locataire. Il n’est pas possible d’avoir une forêt AD DS ou des services proxy au sein de cette forêt inscrits auprès d’autres locataires Azure AD. La configuration erronée d’un déploiement se traduit notamment par l’impossibilité de télécharger des stratégies de mot de passe.
+
+> [!NOTE]
+> Les clients qui disposent de plusieurs locataires Azure AD doivent donc choisir un locataire unique pour inscrire chaque forêt à des fins de protection des mots de passe Azure AD.
 
 ## <a name="download"></a>Téléchargement
 

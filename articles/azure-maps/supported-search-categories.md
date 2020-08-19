@@ -1,6 +1,6 @@
 ---
 title: Catégories de recherche | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir les catégories de recherche prises en charge dans Microsoft Azure Maps.
+description: Découvrez les catégories de recherche prises en charge dans Azure Maps. Affichez tous les codes de catégorie pris en charge et les types de points d’intérêt que chacun représente.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a9e910c38000fc4dbc454b68b752925df9145837
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745982"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037675"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 

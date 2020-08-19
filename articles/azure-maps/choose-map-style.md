@@ -1,6 +1,6 @@
 ---
 title: Modifier le style du contrôle de carte web Azure Maps
-description: Dans cet article, vous découvrirez les fonctionnalités de style du contrôle de carte web Azure Maps
+description: Découvrez comment modifier le style et les options d’une carte. Découvrez comment ajouter un contrôle sélecteur de styles à un mappage dans Azure Maps afin que les utilisateurs puissent basculer entre différents styles.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a4c1629302c72d6f59f7f1fd10dc850d46cea5a7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285789"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036791"
 ---
 # <a name="change-the-style-of-the-map"></a>Changer le style de la carte
 

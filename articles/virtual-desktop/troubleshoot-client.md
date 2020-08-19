@@ -1,19 +1,17 @@
 ---
 title: Détecter un problème de Bureau à distance client dans Windows Virtual Desktop – Azure
 description: Comment résoudre des problèmes lorsque vous configurez des connexions à un client dans un environnement de locataire Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291322"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134477"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Résoudre des problèmes du client Bureau à distance
 
@@ -43,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Essayez de vous connecter avec un autre client, comme le client Bureau à distance pour Windows 7 ou Windows 10, puis vérifiez si vous pouvez ouvrir le client web.
 
-### <a name="opening-another-site-fails"></a>échec de l’ouverture d’un autre site
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Impossible d’ouvrir d’autres sites Web en étant connecté au client Web
 
-Cela est généralement dû à des problèmes de connexion réseau ou à une panne du réseau. Nous vous recommandons de contacter le support réseau.
+Si vous ne pouvez pas ouvrir d’autres sites Web alors que vous êtes connecté au client Web, il peut y avoir des problèmes de connexion réseau ou une panne réseau. Nous vous recommandons de contacter le support réseau.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup ne peut pas résoudre le nom
+### <a name="nslookup-cant-resolve-the-name"></a>Nslookup ne peut pas résoudre le nom
 
-Cela est généralement dû à des problèmes de connexion réseau ou à une panne du réseau. Nous vous recommandons de contacter le support réseau.
+Si nslookup ne peut pas résoudre le nom, il peut y avoir des problèmes de connexion réseau ou une panne réseau. Nous vous recommandons de contacter le support réseau.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Votre client ne peut pas se connecter, mais d’autres clients de votre réseau peuvent se connecter
 
@@ -60,11 +58,13 @@ Si votre navigateur commence à se comporter bizarrement ou cesse de fonctionner
 3. Videz le cache du navigateur. Consultez l’article [Clear browser cache for your browser](https://binged.it/2RKyfdU) (Vider le cache du navigateur).
 4. Ouvrez le navigateur en mode privé.
 
-## <a name="web-client-does-not-show-my-resources"></a>Le client Web n’affiche pas mes ressources
+## <a name="client-doesnt-show-my-resources"></a>Le client n’affiche pas mes ressources
 
-Tout d’abord, vérifiez le compte Azure Active Directory que vous utilisez. Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, déconnectez-vous ou utilisez une fenêtre de navigation privée.
+Tout d’abord, vérifiez le compte Azure Active Directory que vous utilisez. Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
 Si vous utilisez Windows Virtual Desktop (classique), suivez le lien du client web de [cet article](./virtual-desktop-fall-2019/connect-web-2019.md) pour vous connecter à vos ressources.
+
+Si cela ne fonctionne pas, assurez-vous que votre groupe d’applications est associé à un espace de travail.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Le client web cesse de répondre ou se déconnecte
 
@@ -80,8 +80,8 @@ Si le client web ne cesse de demander les informations d’identification, suive
 
 1. Vérifiez que l’URL du client web est correcte.
 2. Vérifiez que les informations d’identification que vous utilisez correspondent à l’environnement Windows Virtual Desktop lié à l’URL.
-3. Effacez les cookies du navigateur. Pour plus de détails, consultez l’article [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer) (Suppression des fichiers de cookie dans Internet Explorer).
-4. Videz le cache du navigateur. Pour plus de détails, consultez l’article [Clear browser cache for your browser](https://binged.it/2RKyfdU) (Vider le cache du navigateur).
+3. Effacez les cookies du navigateur. Pour plus d’informations, voir [Comment faire pour supprimer des fichiers cookie dans Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Videz le cache du navigateur. Pour plus d’informations, voir [Vider le cache du navigateur](https://binged.it/2RKyfdU).
 5. Ouvrez votre navigateur en mode privé.
 
 ## <a name="next-steps"></a>Étapes suivantes

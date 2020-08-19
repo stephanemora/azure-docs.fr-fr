@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727437"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056769"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Créer un cluster privé Azure Red Hat OpenShift 4
 
@@ -23,24 +23,9 @@ Dans cet article, vous allez préparer votre environnement pour créer des clust
 > * Préparer les éléments requis et créer le réseau virtuel et les sous-réseaux nécessaires
 > * Déployer un cluster avec un point de terminaison de serveur d’API privé et un contrôleur d’entrée privé
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.0.75 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.6.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Avant de commencer
-
-### <a name="install-the-az-aro-extension"></a>Installer l’extension « az aro »
-L’extension `az aro` vous permet de créer des clusters Azure Red Hat OpenShift, d’y accéder et de les supprimer directement à partir de la ligne de commande à l’aide d’Azure CLI.
-
-Exécutez la commande suivante pour installer l’extension `az aro`.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Si vous avez déjà installé l’extension, vous pouvez la mettre à jour en exécutant la commande suivante.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
 
 ### <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 
@@ -48,21 +33,6 @@ Vous devez ensuite inscrire le fournisseur de ressources `Microsoft.RedHatOpenSh
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Vérifiez que l’extension est inscrite.
-
-```azurecli-interactive
-az -v
-```
-
-  Vous devez obtenir une sortie similaire à celle ci-dessous.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Récupération d’un secret d’extraction Red Hat (facultatif)

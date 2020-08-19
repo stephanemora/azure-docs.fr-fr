@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 44a2c0c1b4bc9b4e6fc1247497640b261d1d0fa1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387912"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141786"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -90,7 +90,7 @@ Une fois l’approbation obtenue, vous êtes invité à fournir les informations
 
 -  ID de l’espace de travail sur lequel vous souhaitez activer CMK
 
--  URL du coffre de clés : copiez l’Identificateur de clé de la clé jusqu’à la dernière barre oblique :  
+-  URL du coffre de clés : Copiez l’Identificateur de clé de la clé jusqu’à la dernière barre oblique :  
     
 
     ![Identificateur de clé](./media/customer-managed-keys/key-identifier.png)
