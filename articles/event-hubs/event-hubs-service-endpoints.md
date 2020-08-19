@@ -2,15 +2,15 @@
 title: Points de terminaison de service de réseau virtuel - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’ajout d’un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315431"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554071"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Autoriser l'accès à un espace de noms Azure Event Hubs à partir de réseaux virtuels spécifiques 
 
 L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités.
 
@@ -24,15 +24,14 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
 >
 > Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Monitor (paramètre de diagnostic)
 > - Azure Stream Analytics
-> - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
 >
 > Les services Microsoft suivants doivent se trouver sur un réseau virtuel
 > - Azure Web Apps
 > - Azure Functions
+> - Azure Monitor (paramètre de diagnostic)
 
 
 > [!IMPORTANT]
@@ -58,10 +57,19 @@ La règle de réseau virtuel est une association de l’espace de noms Event Hub
 Cette section montre comment utiliser le portail Azure pour ajouter un point de terminaison de service de réseau virtuel. Pour limiter l’accès, vous devez intégrer le point de terminaison de service de réseau virtuel pour cet espace de noms Event Hubs.
 
 1. Accédez à votre **espace de noms Event Hubs** sur le [Portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez l’option **Réseaux**. Si vous sélectionnez l’option **Tous les réseaux**, le hub d’événements accepte les connexions de toutes les adresses IP. Ce paramètre est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
+4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**. 
+
+    > [!NOTE]
+    > L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **standard** ou **dédiés**. 
+
+    Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous ne spécifiez pas de règle de pare-feu IP ou n'ajoutez pas de réseau virtuel sur cette page, l'espace de noms est accessible via n'importe quel réseau, y compris le réseau Internet public (à l'aide de la clé d'accès). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Si vous sélectionnez l'option **Tous les réseaux**, le hub d'événements accepte les connexions de toutes les adresses IP (à l'aide de la clé d'accès). Ce paramètre est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
 
     ![Option Pare-feu – Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Pour restreindre l’accès à des réseaux spécifiques, sélectionnez l’option **Réseaux sélectionnés** au haut de la page.
+1. Pour restreindre l'accès à des réseaux spécifiques, sélectionnez l'option **Réseaux sélectionnés** en haut de la page, si ce n'est déjà fait.
 2. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant** *. Sélectionnez **+ Créer un réseau virtuel** si vous souhaitez créer un réseau virtuel. 
 
     ![ajouter un réseau virtuel existant](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -79,6 +87,8 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 
     ![Enregistrer un réseau](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Pour restreindre l'accès à des adresses ou plages d'adresses IP spécifiques, consultez [Autoriser l'accès à partir d'adresses ou de plages d'adresses IP spécifiques](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 
@@ -86,9 +96,9 @@ Le modèle Resource Manager suivant permet d’ajouter une règle de réseau vir
 
 Paramètres du modèle :
 
-* **namespaceName** : espace de noms Event Hubs.
-* **vnetRuleName** : nom de la règle de réseau virtuel à créer.
-* **virtualNetworkingSubnetId** : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
+* `namespaceName` : espace de noms Event Hubs.
+* `vnetRuleName` : nom de la règle de réseau virtuel à créer.
+* `virtualNetworkingSubnetId` : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
 
 > [!NOTE]
 > Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.

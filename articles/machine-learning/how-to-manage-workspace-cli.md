@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489603"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167638"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,47 @@ Le résultat de cette commande doit ressembler au JSON suivant :
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>Réseau virtuel et point de terminaison privé
+
+> [!IMPORTANT]
+> L’utilisation d’Azure Private Link avec un espace de travail Azure Machine Learning est actuellement en préversion publique. Cette fonctionnalité n’est disponible que dans les régions **USA Est** et **USA Ouest 2**. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Si vous souhaitez restreindre l’accès à votre espace de travail à un réseau virtuel, vous pouvez utiliser les paramètres suivants :
+
+* `--pe-name`: Nom du point de terminaison privé qui est créé.
+* `--pe-auto-approval`: Si les connexions de point de terminaison privé à l’espace de travail doivent être approuvées automatiquement.
+* `--pe-resource-group`: Groupe de ressources dans lequel créer le point de terminaison privé. Doit être le même groupe qui contient le réseau virtuel.
+* `--pe-vnet-name`: Réseau virtuel existant dans lequel créer le point de terminaison privé.
+* `--pe-subnet-name`: Nom du sous-réseau dans lequel créer le point de terminaison privé. La valeur par défaut est `default`.
+
+Pour plus d’informations sur l’utilisation d’un point de terminaison privé et d’un réseau virtuel avec votre espace de travail, consultez [Isolement réseau et confidentialité](how-to-enable-virtual-network.md).
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clé gérée par le client et espace de travail High Business Impact
+
+Par défaut, les métriques et les métadonnées de l’espace de travail sont stockées dans une instance d’Azure Cosmos DB gérée par Microsoft. Les données sont chiffrées avec des clés managées par Microsoft. 
+
+Si vous créez une version __Enterprise__ d’Azure Machine Learning, vous pouvez utiliser l’option fournir votre propre clé. Cela crée l’instance d’Azure Cosmos DB qui stocke les métriques et les métadonnées dans votre abonnement Azure. Utilisez le paramètre `--cmk-keyvault` pour spécifier le coffre Azure Key Vault qui contient la clé, et `--resource-cmk-uri` pour spécifier l’URL de la clé dans le coffre.
+
+> [!IMPORTANT]
+> Avant d’utiliser les paramètres `--cmk-keyvault` et `--resource-cmk-uri`, vous devez d’abord effectuer les actions suivantes :
+>
+> 1. Autorisez l’__application Azure Machine Learning__ (dans la gestion des identités et des accès) avec des autorisations de contributeur pour votre abonnement.
+> 1. Suivez les étapes décrites dans [Configurer les clés gérées par le client](/azure/cosmos-db/how-to-setup-cmk) pour :
+>     * Inscrire le fournisseur Azure Cosmos DB
+>     * Créer et configurer un coffre Azure Key Vault
+>     * Générer une clé
+>
+>     Vous n’avez pas besoin de créer manuellement l’instance d’Azure Cosmos DB, l’une sera créée pour vous lors de la création de l’espace de travail. Cette instance de Azure Cosmos DB sera créée dans un groupe de ressources distinct à l’aide d’un nom basé sur ce modèle : `<your-resource-group-name>_<GUID>`.
+>
+> Vous ne pouvez pas modifier ce paramètre une fois l’espace de travail créé. Si vous supprimez l’Azure Cosmos DB utilisé par votre espace de travail, vous devez également supprimer l’espace de travail qui l’utilise.
+
+Pour limiter les données collectées par Microsoft sur votre espace de travail, utilisez le paramètre `--hbi-workspace`. 
+
+> [!IMPORTANT]
+> Sélectionner High Business Impact ne peut être effectué que lors de la création d’un espace de travail. Vous ne pouvez pas modifier ce paramètre une fois l’espace de travail créé.
+
+Pour plus d’informations sur les clés gérées par le client et sur l’espace de travail High Business Impact, consultez [Sécurité Enterprise pour Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Utiliser les ressources existantes
 

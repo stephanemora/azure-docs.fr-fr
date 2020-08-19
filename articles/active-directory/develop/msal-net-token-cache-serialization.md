@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 4edb0f356dd83ab1aa353e0791f619be497a9d91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890575"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166023"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Sérialisation du cache de jetons dans MSAL.NET
 Une fois qu’un [jeton est acquis](msal-acquire-cache-tokens.md), il est mis en cache par Microsoft Authentication Library (MSAL).  Le code de l’application doit d’abord essayer d’obtenir un jeton à partir du cache, avant de l’acquérir par une autre méthode.  Cet article décrit la sérialisation par défaut et personnalisée du cache de jetons dans MSAL.NET.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Cache de jetons pour une application web (application cliente confidentielle)
 
-Dans les applications ou API web, le cache peut exploiter la session, un cache Redis ou une base de données.
+Dans les applications ou API web, le cache peut exploiter la session, un cache Redis ou une base de données. Conservez un cache de jeton par compte dans les applications web et les API web. 
 
-Dans les applications web et les API web, conservez un cache de jeton par compte.  Pour les applications web, le cache de jeton doit être indexé par ID de compte.  Pour les API web, le compte doit être indexé avec le hachage du jeton utilisé pour appeler l’API. MSAL.NET fournit la sérialisation personnalisée du cache de jeton dans les sous-plateformes .NET Framework et .NET Core. Les événements sont déclenchés lors de l’accès au cache, les applications peuvent choisir de sérialiser ou de désérialiser le cache. Sur les applications clientes confidentielles qui gèrent les utilisateurs (applications web connectant les utilisateurs et appellent des API web, et API web appelant des API Web en aval), il peut y avoir de nombreux utilisateurs et ceux-ci utilisateurs sont traités en parallèle. Pour des raisons de sécurité et de performances, nous vous recommandons de sérialiser un cache par utilisateur. Les événements de sérialisation calculent une clé de cache en fonction de l’identité de l’utilisateur traité et sérialisent/désérialisent un cache de jeton pour cet utilisateur.
+Pour les applications web, le cache de jeton doit être indexé par ID de compte.
+
+Pour les API web, le compte doit être indexé avec le hachage du jeton utilisé pour appeler l’API.
+
+MSAL.NET fournit la sérialisation personnalisée du cache de jeton dans les sous-plateformes .NET Framework et .NET Core. Les événements sont déclenchés lors de l’accès au cache, les applications peuvent choisir de sérialiser ou de désérialiser le cache. Sur les applications clientes confidentielles qui gèrent les utilisateurs (applications web connectant les utilisateurs et appellent des API web, et API web appelant des API Web en aval), il peut y avoir de nombreux utilisateurs et ceux-ci utilisateurs sont traités en parallèle. Pour des raisons de sécurité et de performances, nous vous recommandons de sérialiser un cache par utilisateur. Les événements de sérialisation calculent une clé de cache en fonction de l’identité de l’utilisateur traité et sérialisent/désérialisent un cache de jeton pour cet utilisateur.
 
 La bibliothèque [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) fournit un package NuGet en préversion [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) contenant la sérialisation du cache de jetons :
-
 
 | Méthode d’extension | Espace de noms secondaire Microsoft.Identity.Web | Description  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ La bibliothèque [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-i
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | Le cache de jeton est lié à la session utilisateur. Cette option n’est pas idéale si le jeton d’ID contient de nombreuses revendications dans la mesure où le cookie devient trop volumineux.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Le cache de jeton est un adaptateur par rapport à l’implémentation `IDistributedCache` ASP.NET Core, ce qui vous permet donc de choisir entre un cache de mémoire distribuée, un cache Redis, un cache Ncache distribué ou un cache SQL Server. Pour plus d’informations sur les implémentations `IDistributedCache`, consultez https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache.
 
-Cas simple utilisant le cache en mémoire :
+Voici un exemple d’utilisation du cache en mémoire dans la méthode [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) de la classe [Start-up](/aspnet/core/fundamentals/startup) dans une application ASP.NET Core :
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ Cas simple utilisant le cache en mémoire :
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 Exemples de caches distribués possibles :
 
@@ -323,7 +325,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Leur utilisation est présentée dans le tutoriel [Application web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) au cours de la phase [2-2 Cache de jeton](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
+Leur utilisation est présentée dans le tutoriel [Application web ASP.NET Core](/aspnet/core/tutorials/first-mvc-app/) au cours de la phase [2-2 Cache de jeton](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

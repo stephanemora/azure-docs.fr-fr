@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373468"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167689"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
+
+> [!NOTE]
+> L’Analyse de texte pour le conteneur d’intégrité a récemment été mis à jour. Pour plus d’informations sur les modifications récentes, consultez les [Nouveautés](../whats-new.md). N’oubliez pas d’extraire le conteneur le plus récent pour utiliser les mises à jour listées.
 
 > [!IMPORTANT] 
 > L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, **l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production.** L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Microsoft ne garantit pas que l’Analyse de texte pour l’intégrité ou les ressources fournies dans le cadre de la fonctionnalité sont suffisantes pour des raisons médicales ou répondent aux exigences médicales de toute personne. 
@@ -90,7 +93,7 @@ Azure [Web App pour conteneurs](https://azure.microsoft.com/services/app-service
 > [!NOTE]
 > À l’aide d’Azure Web App, vous obtiendrez automatiquement un domaine sous la forme `<appservice_name>.azurewebsites.net`
 
-Exécutez ce script PowerShell au moyen de la Azure CLI pour créer un Web App pour conteneurs, à l’aide de votre abonnement et de l’image de conteneur sur HTTPS. Attendez la fin du script (environ 20 minutes) avant d’envoyer la première requête.
+Exécutez ce script PowerShell au moyen de la Azure CLI pour créer un Web App pour conteneurs, à l’aide de votre abonnement et de l’image de conteneur sur HTTPS. Attendez la fin du script (environ 25 à 30 minutes) avant d’envoyer la première requête.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -120,7 +123,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 Vous pouvez également utiliser Azure Container Instance (ACI) pour faciliter le déploiement. ACI est une ressource qui vous permet d’exécuter des conteneurs Docker à la demande dans un environnement Azure serverless géré. 
 
-Consultez [Comment utiliser Azure Container Instances](text-analytics-how-to-use-container-instances.md) pour connaître les étapes de déploiement d’une ressource ACI à l’aide du Portail Azure. Vous pouvez également utiliser le script PowerShell ci-dessous avec Azure CLI, ce qui crée une ACI sur votre abonnement à l’aide de l’image conteneur.  Attendez la fin du script (environ 20 minutes) avant d’envoyer la première requête.
+Consultez [Comment utiliser Azure Container Instances](text-analytics-how-to-use-container-instances.md) pour connaître les étapes de déploiement d’une ressource ACI à l’aide du Portail Azure. Vous pouvez également utiliser le script PowerShell ci-dessous avec Azure CLI, ce qui crée une ACI sur votre abonnement à l’aide de l’image conteneur.  Attendez la fin du script (environ 25 à 30 minutes) avant d’envoyer la première requête.  En raison de la limite du nombre maximal de processeurs par ressource ACI, ne sélectionnez pas cette option si vous envisagez de soumettre plus de 5 documents volumineux (environ 5 000 caractères chacun) par requête.
+Pour plus d’informations sur la disponibilité, consultez l’article [Support régional ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability). 
 
 > [!NOTE] 
 > Azure Container Instances n’inclue pas la prise en charge HTTPS pour les domaines intégrés. Si vous avez besoin de HTTPS, vous devez le configurer manuellement, y compris créer un certificat et l’inscription d’un domaine. Vous trouverez des instructions pour effectuer cette opération avec NGINX ci-dessous.
@@ -143,7 +147,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
@@ -228,7 +232,7 @@ Le conteneur fournit des API de point de terminaison de prédiction de requête 
 Utilisez l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé en remplaçant la variable `serverURL` par la valeur appropriée.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -268,8 +272,8 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -282,8 +286,8 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -291,8 +295,8 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -338,50 +342,35 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> Dans certains cas, avec la détection de négation, un terme de négation unique peut traiter plusieurs termes à la fois. La négation d’une entité reconnue est représentée dans la sortie JSON par la valeur booléenne de l’indicateur `isNegated` :
+### <a name="negation-detection-output"></a>Sortie de détection de négation
+
+Fans certains cas, en utilisant la détection de négation, un terme de négation unique peut traiter plusieurs termes à la fois. La négation d’une entité reconnue est représentée dans la sortie JSON par la valeur booléenne de l’indicateur `isNegated` :
 
 ```json
 {
@@ -389,7 +378,7 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -402,6 +391,33 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>Sortie d’extraction de relations
+
+La sortie d’extraction de relations contient des références URI à la *source* de la relation, et sa *cible*. Les entités ayant le rôle de relation de `ENTITY` sont affectées au champ `target`. Les entités ayant le rôle de relation de `ATTRIBUTE` sont affectées au champ `source`. Les relations d’abréviation contiennent des champs `source` et `target` bidirectionnels, et `bidirectional` sera défini sur `true`. 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>Voir aussi

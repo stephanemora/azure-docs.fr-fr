@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797886"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166686"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -242,20 +242,23 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **Contact 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com que l’Espace partenaires utilise.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
-
-Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
+Fournissez des fichiers PNG du logo de votre offre dans les quatre tailles en pixels suivantes :
 
 - **Petit** (48 x 48)
 - **Moyen** (90 x 90)
-- **Grand** (entre 216 x 216 et 350 x 350)
+- **Grand** (216 x 216)
+- **Large** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Les trois logos sont requis et utilisés à différents endroits de la description.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 
@@ -283,7 +286,7 @@ Le public de votre préversion est identifié par des ID (GUID) d’abonnements 
 Ajoutez au moins un ID d’abonnement Azure, soit séparément (jusqu’à 10), soit en chargeant un fichier CSV (jusqu’à 100). En ajoutant ces ID d’abonnement, vous définissez qui peut afficher un aperçu de votre offre avant qu’elle ne soit publiée en ligne. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs de l’offre.
 
 > [!NOTE]
-> Le public pour la préversion n’est pas le même que le public privé. Un public de préversion peut accéder à votre offre _avant_ sa publication sur les places de marché. Il peut voir et valider tous les plans, y compris les plans qui seront disponibles uniquement pour un public privé une fois que votre offre sera entièrement publiée sur la Place de marché. Un public privé (défini dans l’onglet **Tarification et disponibilité** du plan) dispose d’un accès exclusif à un plan particulier.
+> Le public pour la préversion n’est pas le même que le public privé. Un public de préversion peut accéder à votre offre *avant* sa publication sur les places de marché. Il peut voir et valider tous les plans, y compris les plans qui seront disponibles uniquement pour un public privé une fois que votre offre sera entièrement publiée sur la Place de marché. Un public privé (défini dans l’onglet **Tarification et disponibilité** du plan) dispose d’un accès exclusif à un plan particulier.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -313,6 +316,8 @@ La configuration technique définit les détails (ID de locataire et ID d’appl
 
 Cet onglet permet de proposer différentes options de plan dans la même offre. Ces plans (anciennement « références SKU ») peuvent se différencier par le type de plan (modèle de solution ou application managée), la monétisation ou le public. Créez au moins un plan avant de pouvoir référencer votre offre sur la Place de marché.
 
+Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
+
 Une fois votre plan créé, vous verrez dans cet onglet diverses informations le concernant : son nom, son ID, son type, sa disponibilité (public ou privé), l’état actuel de sa publication et les actions autorisées.
 
 Les **Actions** disponibles dans **Vue d’ensemble du plan** varient selon l’état actuel de votre plan et peuvent inclure :
@@ -335,7 +340,7 @@ Sélectionnez le type de plan de votre offre. Un plan **modèle de solution** es
 
 #### <a name="re-use-technical-configuration"></a>Réutiliser la configuration technique
 
-Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, vous pouvez sélectionner l’option pour que **ce plan réutilise les packages d’un autre plan**.  Le cas échéant, vous pourrez sélectionner, parmi tous les autres plans du même type contenus dans cette offre, le plan dont vous voulez réutiliser les packages. 
+Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, vous pouvez sélectionner l’option pour que **ce plan réutilise les packages d’un autre plan**.  Le cas échéant, vous pourrez sélectionner, parmi tous les autres plans du même type contenus dans cette offre, le plan dont vous voulez réutiliser les packages.
 
 >[!Note]
 >Si vous réutilisez les packages d’un autre plan, l’onglet Configuration technique ne s’affichera plus pour ce plan. En effet, tous les paramètres de la configuration technique de l’autre plan, y compris les mises à jour effectuées ultérieurement, seront également appliqués à ce plan.<br><br>Ce paramètre n’est plus modifiable une fois le plan publié.
@@ -416,9 +421,9 @@ Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et
 
 Indiquez le tarif mensuel de ce plan.  Ce tarif s’ajoute aux coûts logiciels de paiement à l’utilisation et aux coûts de l’infrastructure Azure qui sont engendrés par les ressources déployées par cette solution.
 
-En plus du tarif mensuel, vous pouvez fixer des prix pour l’utilisation d’unités non standard assortie d’une [facturation basée sur des mesures](./azure-app-metered-billing.md).  Si vous le souhaitez, vous pouvez définir le tarif mensuel sur zéro et facturer exclusivement via une facturation basée sur des mesures. 
+En plus du tarif mensuel, vous pouvez fixer des prix pour l’utilisation d’unités non standard assortie d’une [facturation basée sur des mesures](./azure-app-metered-billing.md).  Si vous le souhaitez, vous pouvez définir le tarif mensuel sur zéro et facturer exclusivement via une facturation basée sur des mesures.
 
-Les prix fixés en USD (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de l’enregistrement. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. 
+Les prix fixés en USD (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de l’enregistrement. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification.
 
 >[!Note]
 >Vous devez d’abord enregistrer les modifications de vos tarifs pour autoriser l’exportation des données de tarification.
@@ -442,8 +447,7 @@ Si vous rendez le plan privé, entrez un **ID d’abonnement Azure** et sa descr
 >[!Note]
 >Les offres privées ne sont pas prises en charge avec les abonnements Azure souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
 
-
-### <a name="technical-configuration"></a>Configuration technique 
+### <a name="technical-configuration"></a>Configuration technique
 
 Cet onglet vous permet de charger le package de déploiement qui permettra aux clients de déployer votre plan.
 
@@ -501,15 +505,15 @@ Spécifiez un point de terminaison webhook HTTPS pour recevoir des notifications
 
 #### <a name="customize-allowed-customer-actions"></a>Personnaliser les actions des clients autorisées
 
-Sélectionnez cette option pour spécifier les actions que les clients peuvent effectuer sur les ressources managées en plus des actions « `*/read` » autorisées par défaut. 
+Sélectionnez cette option pour spécifier les actions que les clients peuvent effectuer sur les ressources managées en plus des actions « `*/read` » autorisées par défaut.
 
-Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](../../role-based-access-control/deny-assignments.md).  Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
+Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](../../role-based-access-control/deny-assignments.md). Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure international / Cloud Azure Government
 
-Définissez qui doit avoir un accès administrateur à cette application managée dans chaque cloud pris en charge. Les utilisateurs, les groupes ou les applications auxquels vous souhaitez accorder l’autorisation d’accès au groupe de ressources managées sont définis à l’aide d’identités Azure Active Directory (AAD).
+Définissez qui doit avoir un accès administrateur à cette application managée dans chaque cloud pris en charge. Les utilisateurs, les groupes ou les applications auxquels vous souhaitez accorder l’autorisation d’accès au groupe de ressources managées sont définis à l’aide d’identités Azure Active Directory (AD).
 
-**ID de locataire Azure Active Directory** : ID du locataire AAD (également appelé ID d’annuaire) contenant les identités des utilisateurs, des groupes ou des applications auxquels vous souhaitez accorder des autorisations. Cet ID est indiqué dans les [propriétés d’Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) sur le portail Azure.
+**ID de locataire Azure Active Directory** : ID du locataire Azure AD (également appelé ID d’annuaire) contenant les identités des utilisateurs, des groupes ou des applications auxquels vous souhaitez accorder des autorisations. Cet ID est indiqué dans les [propriétés d’Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) sur le portail Azure.
 
 **Autorisations** : ajoutez l’ID d’objet Azure Active Directory de l’utilisateur, du groupe ou de l’application que vous souhaitez autoriser à accéder au groupe de ressources managées. Identifiez l’utilisateur par son ID de principal, que vous trouverez dans le [panneau des utilisateurs Azure Active Directory sur le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -579,9 +583,9 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 Après avoir complété toutes les sections nécessaires de l’offre, sélectionnez **Vérifier et publier** en haut à droite du portail.
 
 Révisez le statut d’achèvement de chaque section de l’offre.
-    - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
-    - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
-    - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
+    - *Non démarrée* : cela signifie que la section n’a pas encore été touchée et doit être complétée.
+    - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
+    - *Complète* : cela signifie que la section est terminée, toutes les données requises ont été renseignées, et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 
 Si vous publiez cette offre pour la première fois, vous pouvez fournir des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 

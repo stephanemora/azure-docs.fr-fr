@@ -1,18 +1,21 @@
 ---
 title: Voir et gérer les clients et les ressources déléguées
-description: En tant que fournisseur de services utilisant Azure Lighthouse, vous pouvez afficher l’ensemble des ressources et abonnements délégués de vos clients en accédant à Mes clients sur le Portail Azure.
-ms.date: 07/06/2020
+description: En tant que fournisseur de services ou entreprise utilisant Azure Lighthouse, vous pouvez afficher l'ensemble de vos ressources et abonnements délégués en accédant à Mes clients sur le portail Azure.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133282"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167196"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Voir et gérer les clients et les ressources déléguées
 
-Les fournisseurs de services qui utilisent [Azure Lighthouse](../overview.md) peuvent consulter la page **Mes clients** du [Portail Azure](https://portal.azure.com) pour connaître les ressources et abonnements délégués des clients. Si nous faisons référence ici aux fournisseurs de services et aux clients, des entreprises gérant plusieurs locataires peuvent suivre le même processus pour consolider leur expérience de gestion.
+Les fournisseurs de services qui utilisent [Azure Lighthouse](../overview.md) peuvent consulter la page **Mes clients** du [Portail Azure](https://portal.azure.com) pour connaître les ressources et abonnements délégués des clients. 
+
+> [!TIP]
+> Si nous faisons référence ici aux fournisseurs de services et aux clients, des [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour consolider leur expérience de gestion.
 
 Pour accéder à la page **Mes clients** du portail Azure, sélectionnez **Tous les services**, puis recherchez et sélectionnez **Mes clients**. Vous pouvez également la trouver en entrant « Mes clients » dans la zone de recherche dans la partie supérieure du portail Azure.
 
@@ -42,7 +45,7 @@ Vous pouvez afficher les informations suivantes de cette page :
 
 ## <a name="view-and-manage-delegations"></a>Afficher et gérer les délégations
 
-Les délégations affichent l’abonnement ou le groupe de ressources délégués, ainsi que les utilisateurs et autorisations qui y ont accès. Pour afficher ces informations, sélectionnez **Délégations** sur le côté gauche de la page **Mes clients**.
+Les délégations affichent l'abonnement ou le groupe de ressources délégué, ainsi que les utilisateurs et autorisations qui y ont accès. Pour afficher ces informations, sélectionnez **Délégations** sur le côté gauche de la page **Mes clients**.
 
 Les filtres en haut de la page vous permettent de trier et de regrouper vos informations d’affectation d’accès ou de filtrer sur des clients, offres ou mots clés spécifiques.
 

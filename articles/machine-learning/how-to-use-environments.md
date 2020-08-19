@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 9464544e8c80ad32269ad27ed3592871d0077713
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544028"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985901"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -320,6 +320,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > Si vous installez des dépendances Python dans votre image Docker et oubliez de définir user_managed_dependencies = True, ces packages n’existent pas dans l’environnement d’exécution, ce qui entraîne des échecs de runtime. Par défaut, Azure Machine Learning génère un environnement Conda avec les dépendances que vous spécifiées, puis effectue l’exécution dans cet environnement au lieu d’utiliser des bibliothèques Python que vous avez installées sur l’image de base.
 
+### <a name="retrieve-image-details"></a>Récupérer les détails de l’image
+
+Pour un environnement inscrit, vous pouvez récupérer les détails de l’image à l’aide du code suivant, où `details` est une instance de [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (kit de développement logiciel (SDK) AzureML Python > = 1.11) et fournit toutes les informations sur l’image d’environnement, comme le fichier dockerfile, le registre et le nom de l’image.
+
+```python
+details = environment.get_image_details()
+```
+
 ## <a name="use-environments-for-training"></a>Utiliser des environnements pour l'apprentissage
 
 Pour soumettre une exécution d'apprentissage, vous devez combiner votre environnement, la [cible de calcul](concept-compute-target.md) et votre script Python d'apprentissage dans la configuration d'une exécution. Cette configuration est un objet wrapper utilisé pour soumettre des exécutions.
@@ -376,12 +384,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### <a name="retrieve-dockerfile-from-a-run"></a>Récupérer le Dockerfile à partir d’une exécution
-
-Utilisez le code suivant pour obtenir le Dockerfile pour une exécution activée par Docker.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>Utiliser des environnements pour le déploiement de services web

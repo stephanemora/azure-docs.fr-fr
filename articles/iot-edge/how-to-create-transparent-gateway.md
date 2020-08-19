@@ -4,19 +4,19 @@ description: Utiliser un appareil Azure IoT Edge en tant que passerelle transpar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782583"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167400"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -93,15 +93,19 @@ Pour les scénarios de production, vous devez générer ces fichiers avec votre 
    * Windows : `Restart-Service iotedge`
    * Linux : `sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Déployer edgeHub sur la passerelle
+## <a name="deploy-edgehub-and-route-messages"></a>Déployer edgeHub et acheminer les messages
 
-À la première installation d’IoT Edge sur un appareil, un seul module système démarre automatiquement : l’agent IoT Edge. Une fois que vous avez créé le premier déploiement d’un appareil, le deuxième module système, le hub IoT Edge, démarre également.
+Les appareils situés en aval envoient des données de télémétrie et des messages à l'appareil de passerelle. Le module IoT Edge Hub est chargé d'acheminer les informations vers d'autres modules ou vers IoT Hub. Pour préparer votre appareil de passerelle à cette fonction, assurez-vous que :
 
-Le hub IoT Edge est chargé de recevoir les messages entrants des appareils en aval et de les acheminer vers la destination suivante. Si le module **edgeHub** ne fonctionne pas sur votre appareil, créez un déploiement initial pour votre appareil. Le déploiement apparaîtra vide, car vous n’ajoutez aucun module, mais il garantit que les deux modules système sont démarrés.
+* Le module IoT Edge Hub est déployé sur l'appareil.
 
-Vous pouvez voir quels modules fonctionnent sur un appareil en vérifiant les détails de l’appareil dans le Portail Azure, en affichant l’état de l’appareil dans Visual Studio ou dans Visual Studio Code, ou en exécutant la commande `iotedge list` sur l’appareil proprement dit.
+  À la première installation d’IoT Edge sur un appareil, un seul module système démarre automatiquement : l’agent IoT Edge. Une fois que vous avez créé le premier déploiement d'un appareil, le deuxième module système, le hub IoT Edge, démarre également. Si le module **edgeHub** ne fonctionne pas sur votre appareil, créez un déploiement pour votre appareil.
 
-Si le module **edgeAgent** fonctionne sans le module **edgeHub**, procédez comme suit :
+* Le module IoT Edge Hub dispose d'itinéraires configurés pour gérer les messages entrants des appareils situés en aval.
+
+  L'appareil de passerelle doit disposer d'un itinéraire pour gérer les messages des appareils situés en aval, faute de quoi ces messages ne seront pas traités. Vous pouvez envoyer les messages aux modules situés sur l'appareil de passerelle ou directement à IoT Hub.
+
+Pour déployer le module IoT Edge Hub et le configurer avec des itinéraires pour gérer les messages entrants provenant d'appareils situés en aval, procédez comme suit :
 
 1. Accédez à votre hub IoT dans le portail Azure.
 
@@ -109,13 +113,27 @@ Si le module **edgeAgent** fonctionne sans le module **edgeHub**, procédez comm
 
 3. Sélectionnez **Définir modules**.
 
-4. Sélectionnez **Suivant : Itinéraires**.
+4. Sur la page **Modules**, vous pouvez ajouter tous les modules que vous souhaitez déployer sur l'appareil de passerelle. Pour les besoins de cet article, nous nous concentrons sur la configuration et le déploiement du module edgeHub, qui n'a pas besoin d'être défini explicitement sur cette page.
 
-5. Sur la page **Itinéraires**, vous devez disposer d’un itinéraire par défaut qui envoie tous les messages, provenant d’un module ou d’un appareil en aval, à IoT Hub. Si ce n’est pas le cas, ajoutez un nouvel itinéraire avec les valeurs suivantes, puis sélectionnez **Vérifier + créer**:
-   * **Nom** : `route`
-   * **Valeur** : `FROM /messages/* INTO $upstream`
+5. Sélectionnez **Suivant : Itinéraires**.
 
-6. Dans la page **Vérifier + créer**, sélectionnez **Créer**.
+6. Sur la page **Itinéraires**, assurez-vous qu'il existe un itinéraire pour gérer les messages provenant d'appareils situés en aval. Par exemple :
+
+   * Un itinéraire qui envoie à IoT Hub tous les messages provenant d'un module ou d'un appareil situé en aval :
+       * **Nom** : `allMessagesToHub`
+       * **Valeur** : `FROM /messages/* INTO $upstream`
+
+   * Un itinéraire qui envoie à IoT Hub tous les messages provenant de tous les appareils en aval :
+      * **Nom** : `allDownstreamToHub`
+      * **Valeur** : `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Cet itinéraire fonctionne car, contrairement aux messages provenant des modules IoT Edge, les messages provenant des appareils situés en aval ne sont pas associés à un ID de module. L'utilisation de la clause **WHERE** de l'itinéraire nous permet de filtrer tous les messages dotés de cette propriété système.
+
+      Pour plus d’informations sur le routage des messages, consultez [Déployer des modules et établir des itinéraires](./module-composition.md#declare-routes).
+
+7. Une fois votre ou vos itinéraires créés, sélectionnez **Vérifier + créer**.
+
+8. Dans la page **Vérifier + créer**, sélectionnez **Créer**.
 
 ## <a name="open-ports-on-gateway-device"></a>Ouvrir des ports sur l’appareil de passerelle
 
@@ -128,25 +146,6 @@ Dans un scénario de passerelle opérationnel, au moins un des protocoles pris e
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="route-messages-from-downstream-devices"></a>Acheminer les messages à partir des appareils en aval
-
-Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils en aval comme les messages envoyés par les modules. Cette fonctionnalité vous permet d’effectuer une analytique dans un module s’exécutant sur la passerelle avant d’envoyer des données vers le cloud.
-
-Actuellement, la façon d’acheminer les messages envoyés par les appareils en aval consiste à les différencier des messages envoyés par les modules. Les messages envoyés par les modules contiennent tous une propriété système appelée **connectionModuleId** mais pas les messages envoyés par les appareils en aval. Vous pouvez utiliser la clause WHERE de l’itinéraire pour exclure tout message contenant cette propriété système.
-
-L’exemple de route ci-dessous envoie des messages d’un appareil en aval à un module nommé `ai_insights`, puis du module `ai_insights` à IoT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Pour plus d’informations sur le routage des messages, consultez [Déployer des modules et établir des itinéraires](./module-composition.md#declare-routes).
 
 ## <a name="enable-extended-offline-operation"></a>Activer des opérations hors connexion étendues
 

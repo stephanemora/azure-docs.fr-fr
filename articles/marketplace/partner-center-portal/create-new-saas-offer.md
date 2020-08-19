@@ -3,18 +3,18 @@ title: Créer une offre SaaS, Place de marché Azure et Microsoft AppSource
 description: Explique comment créer une nouvelle offre Software as a service (SaaS) pour lister ou vendre dans Microsoft AppSource, la Place de marché Azure, ou par le biais du programme de fournisseur de solutions Cloud (CSP) à l’aide du programme de la Place de marché commerciale Microsoft dans Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800334"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166720"
 ---
-# <a name="create-a-saas-offer"></a>Créer une offre SaaS
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la Place de marché commerciale
 
 Pour commencer à créer des offres SaaS (Software as a service) dans la place de marché commerciale, veillez à d’abord [Créer un compte Espace partenaires](./create-account.md), puis ouvrez le [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) et sélectionnez l’onglet **Vue d’ensemble**.
 
@@ -282,16 +282,18 @@ Ce champ est obligatoire.
 #### <a name="files-and-images"></a>Fichiers et images
 
 - **Documents** (obligatoire) : ajoutez des documents marketing connexes à votre offre, au format PDF, au minimum un et au maximum trois documents par offre.
-- **Images** (obligatoire) – Il existe plusieurs lieux où les images du logo de votre offre peuvent apparaître sur les places de marché. Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images. L’ajout d’un logo **Étendu** est facultatif.
+- **Images** - Chargez des images de logo au format PNG :
 
-    Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste ; l’un est facultatif :
+  - **Petite** (48 x 48 pixels, requise)
+  - **Moyenne** (90 x 90 pixels, requise)
+  - **Grande** (216 x 216 pixels, requise)
+  - **Immense** (255 x 115 pixels) (facultative)
 
-    - **Petit** (48 x 48)
-    - **Moyen** (90 x 90)
-    - **Grand** (entre 216 x 216 et 350 x 350)
-    - **Étendu** (255 x 115), *facultatif*
+   Ces trois tailles de logo sont utilisées dans des vitrines différentes :
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   Le petit logo (48 x 48 pixels) s’affiche dans les résultats de recherche de la place de marché Azure et dans la page principale de Microsoft AppSource et les pages de résultats de recherche. 
+   -   Le logo moyen (90 x 90 pixels) s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
+   -   Le grand logo (entre 216 x 216 et 350 x 350 pixels) apparaît sur la page de votre liste d’offres dans la Place de marché Azure et Microsoft AppSource.
 
 - **Captures d’écran** (obligatoire) : ajoutez au maximum cinq captures d’écran illustrant votre offre, dimensionnées à 1280 x 720 pixels. Toutes les images doivent être au format .PNG.
 - **Vidéos** (facultatif) : ajoutez des liens vers des vidéos présentant votre offre. Vous pouvez utiliser des liens de vidéos YouTube et/ou Vimeo, qui seront présentées aux clients en même temps que votre offre. Vous devez également inclure une miniature de la vidéo, au format PNG de 1280 x 720 pixels. Vous pouvez afficher un maximum de quatre vidéos par offre.
@@ -349,6 +351,8 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
 Cette page vous permet de proposer différentes options de plan dans une même offre. Ces plans (parfois appelés références SKU) peuvent différer en termes de version, de monétisation ou de niveaux de service. Vous devez configurer au moins un plan avant de pouvoir vendre votre offre dans la place de marché.
+
+Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
 
 Une fois créé, vous verrez vos noms de plan, ID, modèles de tarification, disponibilité (public ou privé), l’état de publication actuel et les actions disponibles.
 

@@ -3,16 +3,16 @@ title: Créer une offre de module Azure IoT Edge avec l’Espace partenaires dan
 description: Découvrez comment créer, configurer et publier une offre de module IoT Edge dans Place de marché Azure à l’aide d’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 08/07/2020
+ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808709"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167179"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -194,20 +194,23 @@ Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour la**Grande** taille de logo (entre 216 x 216 et 350 x 350 pixels). Le Centre des partenaires l’utilisera pour créer une **Petite** (48 x 48 pixels) et une **Moyenne** taille de logo (90 x 90 pixels). Vous pouvez éventuellement les remplacer par d’autres images.
+Fournissez des fichiers .png du logo de votre offre dans chacune des quatre tailles de pixel suivantes :
 
-Trois tailles de logo sont requises pour une utilisation dans différents emplacements de la liste :
+- **Petit (48 x 48)**
+- **Moyen (90 x 90)**
+- **Grand (216 x 216)**
+- **Large (255 x 115)**
 
-- **Petit** (48 x 48)
-- **Moyen** (90 x 90)
-- **Grand** (entre 216 x 216 et 350 x 350)
+Les quatre logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 
@@ -285,9 +288,11 @@ Ajoutez au moins un ID d’abonnement Azure, soit séparément (jusqu’à 10), 
 
 Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Vue d’ensemble du plan.
 
-### <a name="plan-overview"></a>Vue d’ensemble du plan
+## <a name="plan-overview"></a>Vue d’ensemble du plan
 
 Cet onglet vous permet de proposer différentes options de plan dans la même offre au sein de l’Espace partenaires. Les plans (auparavant appelés « SKU ») peuvent varier selon les clouds disponibles, tels que les clouds mondiaux et les clouds gouvernementaux, et l’image qu’ils référencent. Pour référencer votre offre dans la Place de marché, vous devez configurer au moins un plan.
+
+Vous pouvez créer jusqu’à 100 plans pour chaque offre : jusqu’à 45 peuvent être privés. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](../private-offers.md).
 
 Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan** affiche les informations suivantes :
 
@@ -302,7 +307,7 @@ Les actions disponibles dans Vue d’ensemble du plan varient selon l’état ac
 - **Supprimer le brouillon** : si l’état du plan est Brouillon.
 - **Arrêter la vente du plan** : si l’état du plan est « publié en ligne ».
 
-#### <a name="create-new-plan"></a>Créer un plan
+### <a name="create-new-plan"></a>Créer un plan
 
 Sélectionnez **Créer un plan**. La boîte de dialogue **Nouveau plan** s’affiche.
 
@@ -334,7 +339,7 @@ Cette option est visible uniquement si **Azure Government** est sélectionné so
 
 Les services Azure Government gèrent des données soumises à certaines réglementations et exigences gouvernementales. Par exemple, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 et CJIS. Afin de renseigner les clients sur vos certifications pour ces programmes, vous pouvez fournir jusqu’à 100 liens vers les détails de vos certifications. Il peut s’agir de liens vers vos annonces sur le programme directement ou vers votre propre site web. Ces liens sont visibles uniquement par les clients Azure Government.
 
-## <a name="plan-listing"></a>Liste des plans
+### <a name="plan-listing"></a>Liste des plans
 
 Cet onglet affiche des informations spécifiques pour chaque plan au sein de la même offre.
 
@@ -374,7 +379,7 @@ Voici un exemple de détails du plan dans la Place de marché Azure (les prix r�
 2. Nom du plan
 3. Description du plan
 
-## <a name="availability"></a>Disponibilité
+### <a name="availability"></a>Disponibilité
 
 Si vous souhaitez masquer votre offre publiée afin que les clients ne puissent pas l’explorer, la parcourir ou l’acheter sur la Place de marché, cochez la case **Masquer le plan** sous l’onglet Disponibilité.
 
@@ -453,7 +458,7 @@ Par exemple, si un module prend en charge une fréquence d’actualisation confi
 - Nom 1 : RefreshRate
 - Valeur 1 : 60
 
-**Variables d’environnement par défaut**. Les variables d’environnement fournissent des informations complémentaires à un module, qui aident le processus de configuration. Les variables d’environnement sont créées à l’aide de paires nom/valeur. Chaque nom et valeur de variable d’environnement par défaut doit contenir moins de 512 caractères, et vous pouvez définir jusqu’à cinq paires. Quand un paramètre requis pour une valeur par défaut n’est pas judicieux (par exemple, l’adresse IP du serveur d’un client), vous pouvez ajouter un paramètre comme valeur par défaut.
+**Variables d’environnement par défaut**. Les variables d’environnement fournissent des informations complémentaires à un module, qui aident le processus de configuration. Les variables d’environnement sont créées à l’aide de paires nom/valeur. Chaque nom et valeur de variable d’environnement par défaut doit contenir moins de 512 caractères et vous pouvez définir jusqu’à cinq paires. Quand un paramètre requis pour une valeur par défaut n’est pas judicieux (par exemple, l’adresse IP du serveur d’un client), vous pouvez ajouter un paramètre comme valeur par défaut.
 
 Par exemple, si un module a besoin d’accepter des conditions d’utilisation avant d’être démarré, vous pouvez définir la variable d’environnement suivante :
 

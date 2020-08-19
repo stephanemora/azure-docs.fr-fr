@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3441a540cb00dc9b85de54543484b1723fa4226e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080759"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168029"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
-Ce document explique comment inscrire une application dans Azure Active Directory à l'aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s’authentifier et d’utiliser l’API Azure Time Series Insight associée à un environnement Azure Time Series Insights.
+Ce document explique comment inscrire une application dans Azure Active Directory à l'aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s'authentifier et d'utiliser l'API Azure Time Series Insight associée à un environnement Azure Time Series Insights.
 
 ## <a name="service-principal"></a>Principal du service
 
@@ -46,6 +46,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 > Suivez le principe de **séparation des problèmes** (décrit dans ce scénario ci-dessus) lorsque vous configurez votre stratégie de sécurité Azure Time Series Insights.
 
 > [!NOTE]
+
 > * L'article se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation.
 > * Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
 
@@ -84,7 +85,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet sur la façon d’interroger des données à partir d’un environnement Gen1, consultez [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
+        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
 
    1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Azure Time Series Insights.
 
@@ -115,6 +116,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 > [!IMPORTANT]
 > Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
+
 > * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
@@ -155,7 +157,7 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 | Paramètre de requête facultatif | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
+| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
 | `storeType=<storeType>` | Pour les environnements Gen2 avec le magasin chaud activé, la requête peut être exécutée sur `WarmStore` ou `ColdStore`. Ce paramètre dans la requête définit le magasin sur lequel la requête doit être exécutée. S’il n’est pas défini, la requête est exécutée sur le magasin Cold. Pour interroger le magasin Warm, **storeType** doit être défini sur `WarmStore`. S’il n’est pas défini, la requête est exécutée par rapport au magasin Cold. | Deuxième génération |
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -164,6 +166,6 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 * Pour un exemple de code qui appelle l’API Azure Time Series Insights Gen2, lisez [Interroger des données Gen2 à l’aide de C#](./time-series-insights-update-query-data-csharp.md).
 
-* Pour obtenir des informations de référence sur l’API, lisez la documentation de [référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+* Pour obtenir des informations de référence sur l’API, lisez la documentation de [référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
 
 * Découvrez comment [créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).
