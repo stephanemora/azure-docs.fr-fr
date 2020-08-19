@@ -6,12 +6,12 @@ ms.topic: overview
 description: Découvrez comment Azure Dev Spaces fournit aux équipes une expérience de développement Kubernetes rapide et itérative dans les clusters Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 691845cd888e4d24c1144f2805402a3baf14a86e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ad884d5e054f23269b238b791e250c732d70a9b8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006962"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210636"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Qu’est-ce qu’Azure Dev Spaces ?
 
@@ -42,8 +42,10 @@ Azure Dev Spaces est pris en charge par les clusters AKS dans [certaines régio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur le développement rapide et itératif des équipes avec Azure Dev Spaces à l’aide du [Guide de démarrage rapide sur le développement en équipe][team-development-quickstart].
+Apprenez-en davantage plus sur le fonctionnement d’Azure Dev Spaces.
+
+> [!div class="nextstepaction"]
+> [Fonctionnement d’Azure Dev Spaces](how-dev-spaces-works.md)
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[team-development-quickstart]: quickstart-team-development.md

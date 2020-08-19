@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint HIPAA HITRUST
 description: Étapes de déploiement de l’exemple de blueprint HIPAA HITRUST avec des informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 12/03/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f41827d687beb583ea6402d517e88b8cf69903a0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044836"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211524"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Déployer l’exemple de blueprint HIPAA HITRUST
 
@@ -106,6 +106,8 @@ Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |Déployer l’audit sur des serveurs SQL |Affectation de rôle |Nom du groupe de ressources pour le compte de stockage pour l’audit SQL Server |L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage est créé dans chaque région où est créé un serveur SQL partagé par tous les serveurs de cette région). Important : Pour un bon fonctionnement de l’audit, vous ne devez ni supprimer ni renommer le groupe de ressources ou les comptes de stockage. |
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau |Affectation de rôle |Préfixe du compte de stockage pour les diagnostics du groupe de sécurité réseau |Ce préfixe est combiné à l’emplacement du groupe de sécurité réseau pour former le nom de compte de stockage créé. |
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau |Affectation de rôle |Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister) |Groupe de ressources dans lequel le compte de stockage est créé. Ce groupe de ressources doit déjà exister. |
+|\[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS) |Affectation de rôle |Espace de travail Log Analytics pour Linux VM Scale Sets (VMSS) |Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie. |
+|\[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS) |Affectation de rôle |Espace de travail Log Analytics pour Linux VM Scale Sets (VMSS) |Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

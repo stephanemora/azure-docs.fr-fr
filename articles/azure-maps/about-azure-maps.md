@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6933321ad402104fa5529af2b7fdf38e329e0168
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830931"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212741"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -76,7 +76,7 @@ Pour plus d’informations sur le service, consultez la [Documentation du servic
 
 ### <a name="render-service"></a>Render Service
 
-Le [service Render V2](https://docs.microsoft.com/est/api/maps/renderv2) actuellement en préversion introduit une nouvelle version de l’[API Get Map Tile V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L’API Get Map Tile V2 permet aux clients de demander à Azure Maps des vignettes routières, des vignettes météo ou des vignettes de carte créées à l’aide du Créateur Azure Maps. Il est recommandé d’utiliser la nouvelle API Get Map Tile V2.  
+Le [service Render V2](https://docs.microsoft.com/rest/api/maps/renderv2) actuellement en préversion introduit une nouvelle version de l’[API Get Map Tile V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L’API Get Map Tile V2 permet aux clients de demander à Azure Maps des vignettes routières, des vignettes météo ou des vignettes de carte créées à l’aide du Créateur Azure Maps. Il est recommandé d’utiliser la nouvelle API Get Map Tile V2.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemple de carte provenant du service Render V2":::
 

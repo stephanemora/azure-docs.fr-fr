@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120862"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140800"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Démarrage rapide : Configurer une application cliente pour accéder à une API web
 
@@ -148,7 +148,7 @@ Pour ajouter une clé secrète client
 
 ## <a name="add-permissions-to-access-web-apis"></a>Ajouter des autorisations pour accéder aux API web
 
-L’autorisation [Activer la connexion et lire le profil utilisateur](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) de l’API Graph est sélectionnée par défaut. Vous pouvez choisir parmi [deux types d’autorisations](developer-glossary.md#permissions) pour chaque API web :
+L’autorisation [Activer la connexion et lire le profil utilisateur](/graph/permissions-reference#user-permissions) de l’API Graph est sélectionnée par défaut. Vous pouvez choisir parmi [deux types d’autorisations](developer-glossary.md#permissions) pour chaque API web :
 
 * **Autorisations de l’application**. Votre application cliente doit accéder à l’API web directement en tant que telle, sans contexte utilisateur. Ce type d’autorisation nécessite le consentement de l’administrateur. Cette autorisation n’est pas disponible pour les applications clientes de bureau et mobiles.
 * **Autorisations déléguées**. votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation nécessite le consentement de l'administrateur.
