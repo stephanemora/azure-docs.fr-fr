@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544313"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246068"
 ---
 >[!NOTE]
 >Nous déployons tous les efforts nécessaires pour ajouter d’autres régions. Dès qu’une région est ajoutée, nous la faisons figurer dans cette liste.
@@ -62,7 +62,6 @@ ms.locfileid: "86544313"
 * Centre des États-Unis – US DoD
 * Est des États-Unis – US DoD
 * Gouvernement des États-Unis – Arizona
-* US Gov Iowa
 * Gouvernement des États-Unis – Texas
 * Gouvernement américain - Virginie
 

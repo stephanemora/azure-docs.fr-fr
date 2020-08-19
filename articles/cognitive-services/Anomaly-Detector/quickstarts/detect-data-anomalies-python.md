@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: daee5a921e25dc74d6e869ca3feb6c66d8c4ce7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 38c2b3cdf40f1924a36ffd84d9dc5f9b2f7f319d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851029"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245704"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies et Python
 
@@ -31,7 +31,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
+- Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 - Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Créer une ressource Détecteur d’anomalies"  target="_blank">créez une ressource Détecteur d’anomalies <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Attendez qu’elle se déploie, puis cliquez sur le bouton **Accéder à la ressource**.
     - Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Détecteur d’anomalies. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
@@ -85,7 +85,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Détecter l’état d’anomalie du dernier point de données
 
-1. Créez une méthode appelée `detect_latest()` pour déterminer si le dernier point de données de votre série chronologique est une anomalie. Appelez la méthode `send_request()` ci-dessus avec votre point de terminaison, url, clé d’abonnement et données json. 
+1. Créez une méthode appelée `detect_latest()` pour déterminer si le dernier point de données de votre série chronologique est une anomalie. Appelez la méthode `send_request()` ci-dessus avec votre point de terminaison, url, clé d’abonnement et données json.
 
 2. Appelez `json.dumps()` sur le résultat à mettre en forme, et imprimez-le sur la console.
 

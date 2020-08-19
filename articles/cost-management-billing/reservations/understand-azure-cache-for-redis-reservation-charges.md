@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77529617"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213270"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Comment la remise de réservation s’applique à Azure Cache pour Redis
 
-Quand vous achetez une capacité de réserve Azure Cache pour Redis, la remise de réservation s’applique automatiquement aux instances de cache qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre instance Azure Cache pour Redis. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux. La capacité de réserve est disponible uniquement pour les caches de [niveau Premium](/azure/azure-cache-for-redis/cache-premium-tier-intro).
+Quand vous achetez une capacité de réserve Azure Cache pour Redis, la remise de réservation s’applique automatiquement aux instances de cache qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre instance Azure Cache pour Redis. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux. La capacité de réserve est disponible uniquement pour les caches de [niveau Premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 

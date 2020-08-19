@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: ee897a22ceda4378ea9dba4579d5108a2ddf0b0d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156574"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246485"
 ---
-Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour Go Suivez les étapes suivantes pour installer la bibliothèque et essayer nos exemples de tâches de base. 
+Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour Go Suivez les étapes suivantes pour installer la bibliothèque et essayer nos exemples de tâches de base.
 
 Utilisez la bibliothèque de client Suggestion automatique Bing pour Go pour obtenir des suggestions de recherche basées sur des chaînes de requête partielles.
 
@@ -23,7 +23,7 @@ Utilisez la bibliothèque de client Suggestion automatique Bing pour Go pour obt
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/cognitive-services).
 * La dernière version de [Go](https://golang.org/dl/).
 
 Vous pouvez commencer à utiliser la bibliothèque de client Suggestion automatique Bing en créant une ressource Azure. Choisissez le type de ressource qui vous convient :
@@ -33,12 +33,12 @@ Vous pouvez commencer à utiliser la bibliothèque de client Suggestion automati
 ## <a name="create-environment-variables"></a>Créer des variables d’environnement
 
 >[!NOTE]
-> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: La clé de ressource pour l’authentification de vos requêtes.
-* `AUTOSUGGEST_ENDPOINT`: Le point de terminaison de ressource pour l’envoi de requêtes d’API. Ce que vous obtenez doit ressembler à ceci : `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_ENDPOINT`: Le point de terminaison de ressource pour l’envoi de requêtes d’API. Ce que vous obtenez doit ressembler à ceci : `https://<your-custom-subdomain>.api.cognitive.microsoft.com`
 
 Utilisez les instructions pour votre système d’exploitation.
 <!-- replace the below endpoint and key examples -->
@@ -74,7 +74,7 @@ Après avoir ajouté la variable d’environnement, exécutez `source .bash_prof
 
 ## <a name="create-a-new-go-project"></a>Créer un projet Go
 
-Dans une fenêtre de console (cmd, PowerShell, terminal, bash), créez un espace de travail pour votre projet Go et accédez-y. Votre espace de travail contiendra trois dossiers : 
+Dans une fenêtre de console (cmd, PowerShell, terminal, bash), créez un espace de travail pour votre projet Go et accédez-y. Votre espace de travail contiendra trois dossiers :
 
 * **src** : Ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` s’y trouvent.
 * **pkg** : Ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
@@ -92,7 +92,7 @@ $ cd my-app
 
 ## <a name="install-the-client-library-for-go"></a>Installer la bibliothèque de client pour Go
 
-Ensuite, nous allons installer la bibliothèque de client pour Go : 
+Ensuite, nous allons installer la bibliothèque de client pour Go :
 
 ```bash
 $ go get -u <library-location-or-url>
@@ -154,10 +154,10 @@ Ces exemples de code vous montrent comment effectuer des tâches de base à l’
 
 ### <a name="authenticate-the-client"></a>Authentifier le client
 
-> [!NOTE] 
+> [!NOTE]
 > Ce guide de démarrage rapide part du principe que vous avez [créé une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé Suggestion automatique Bing nommée `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, et une autre pour votre point de terminaison nommée `BING_AUTOSUGGEST_ENDPOINT`.
 
-Dans la fonction `main()`, instanciez un client avec votre point de terminaison et la clé. 
+Dans la fonction `main()`, instanciez un client avec votre point de terminaison et la clé.
 
 ```go
 // Get the context, which is required by the SDK methods.

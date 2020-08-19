@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512501"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257428"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -40,7 +40,7 @@ Ce tutoriel concerne l’intégration d’une paire de modules de sécurité mat
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le service HSM dédié d’Azure n’est pas disponible dans le portail Azure. Par conséquent, toutes les interactions avec le service se font via la ligne de commande ou PowerShell. Ce tutoriel utilise PowerShell dans Azure Cloud Shell. Si vous débutez avec PowerShell, suivez les instructions fournies ici : [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Le service HSM dédié d’Azure n’est pas disponible dans le portail Azure. Par conséquent, toutes les interactions avec le service se font via la ligne de commande ou PowerShell. Ce tutoriel utilise PowerShell dans Azure Cloud Shell. Si vous débutez avec PowerShell, suivez les instructions fournies ici : [Prise en main d’Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Il est supposé que :
 

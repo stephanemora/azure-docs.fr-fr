@@ -3,17 +3,17 @@ title: Check-list des performances et de la scalabilité pour le stockage Table 
 description: Check-list de pratiques validées pour le stockage Table en vue du développement d’applications performantes.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75749554"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236384"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check-list des performances et de la scalabilité pour le stockage Table
 
@@ -192,11 +192,11 @@ Pour plus d’informations sur les codes d’erreur du stockage Azure, consultez
 
 Cette section décrit les paramètres de configuration rapide que vous pouvez utiliser pour améliorer sensiblement les performances du service de Table :
 
-### <a name="use-json"></a>Utilisation de JSON
+### <a name="use-json"></a>Avec JSON
 
 Depuis la version 2013-08-15 du service de stockage, le service de Table prend en charge l’utilisation de JSON plutôt que le format AtomPub XML pour transférer des données de table. L’utilisation du format JSON permet de réduire la taille de la charge utile de quelque 75 % et d’améliorer sensiblement les performances de votre application.
 
-Pour plus d’informations, consultez le billet [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tables Microsoft Azure : Présentation du format JSON) et l’article [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Format de charge utile pour les opérations du service de Table).
+Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service de Table](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### <a name="disable-nagle"></a>Désactiver Nagle
 
@@ -215,7 +215,7 @@ Le mode de représentation et d’interrogation de vos données constitue le pri
 Les tables sont divisées en partitions. Toutes les entités stockées dans une partition partagent la même clé de partition et sont associées à une clé de ligne pour les identifier dans cette partition. Les partitions offrent des avantages, mais elles s’accompagnent également de limites d’extensibilité.
 
 - Avantages : vous pouvez mettre à jour des entités d’une même partition au cours d’une seule transaction atomique par lots pouvant contenir jusqu’à 100 opérations de stockage distinctes (taille totale limite de 4 Mo). En partant du principe que le même nombre d’entités doit être récupéré, vous pouvez également interroger plus efficacement les données d’une seule partition que celles qui couvrent plusieurs partitions (vous trouverez d’autres conseils sur l’interrogation des données de table dans la suite de ce document).
-- Limite d’extensibilité : l’accès aux entités stockées dans une seule partition ne peut pas faire l’objet d’un équilibrage de la charge, car les partitions prennent en charge les transactions atomiques par lots. C’est pourquoi l’objectif de scalabilité d’une partition de table individuelle est inférieur à celui du service de Table dans son ensemble.
+- Limite d’extensibilité : l’accès aux entités stockées dans une seule partition ne peut pas faire l’objet d’un équilibrage de la charge, car les partitions prennent en charge les transactions atomiques par lots. C’est pourquoi l’objectif de scalabilité d’une partition de table individuelle est inférieur à celui du service de Table dans son ensemble.
 
 Compte tenu des caractéristiques des tables et des partitions, il est conseillé d’adopter les principes de conception suivants :
 
@@ -289,6 +289,6 @@ Si vous effectuez des insertions par lot, puis récupérez des plages d’entit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Objectifs de scalabilité et de performances pour le stockage Table](scalability-targets.md)
+- [Objectifs d'extensibilité et de performances du service Stockage Table](scalability-targets.md)
 - [Objectifs d’extensibilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Codes d’état et d’erreur](/rest/api/storageservices/Status-and-Error-Codes2)

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Interroger une prédiction avec un navigateur - LUI
 description: Dans ce guide de démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel dans un navigateur.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769980"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245993"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Démarrage rapide : Interroger un runtime de prédiction avec texte utilisateur
 
@@ -19,7 +19,7 @@ Pour comprendre ce que retourne un point de terminaison de prédiction LUIS, aff
 Pour pouvoir interroger une application publique, voici ce dont vous avez besoin :
 
 * Vos informations de ressource LUIS (Language Understanding) :
-    * **Clé de prédiction**, qui peut être obtenue à partir du [portail LUIS](https://www.luis.ai/). Si vous n’avez pas encore d’abonnement pour créer une clé, vous pouvez vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+    * **Clé de prédiction**, qui peut être obtenue à partir du [portail LUIS](https://www.luis.ai/). Si vous n’avez pas encore d’abonnement pour créer une clé, vous pouvez vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/cognitive-services).
     * **Sous-domaine du point de terminaison de prédiction** : le sous-domaine est également le **nom** de votre ressource LUIS.
 * Un ID d’application LUIS : utilisez l’ID d’application IoT publique `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La requête utilisateur utilisée dans le code du guide de démarrage rapide est propre à cette application.
 

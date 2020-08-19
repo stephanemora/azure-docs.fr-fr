@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a6ae9d8975c36e7ffa8e3eadf880b4685390c5fc
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156652"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246146"
 ---
 Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour .NET Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 
@@ -23,7 +23,7 @@ Utilisez la bibliothèque de client Suggestion automatique Bing pour .NET pour o
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/cognitive-services).
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -31,12 +31,12 @@ Utilisez la bibliothèque de client Suggestion automatique Bing pour .NET pour o
 ## <a name="create-environment-variables"></a>Créer des variables d’environnement
 
 >[!NOTE]
-> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Les points de terminaison pour les ressources créées après le 1er juillet 2019 utilisent le format de sous-domaine personnalisé indiqué ci-dessous. Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 En utilisant votre clé et le point de terminaison de la ressource que vous avez créée, créez deux variables d’environnement pour l’authentification :
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: La clé de ressource pour l’authentification de vos requêtes.
-* `AUTOSUGGEST_ENDPOINT`: Le point de terminaison de ressource pour l’envoi de requêtes d’API. Ce que vous obtenez doit ressembler à ceci : `https://<your-custom-subdomain>.api.cognitive.microsoft.com`. 
+* `AUTOSUGGEST_ENDPOINT`: Le point de terminaison de ressource pour l’envoi de requêtes d’API. Ce que vous obtenez doit ressembler à ceci : `https://<your-custom-subdomain>.api.cognitive.microsoft.com`.
 
 Utilisez les instructions pour votre système d’exploitation.
 <!-- replace the below endpoint and key examples -->
@@ -72,9 +72,9 @@ Après avoir ajouté la variable d’environnement, exécutez `source .bash_prof
 
 ## <a name="create-a-new-c-application"></a>Créer une application C#
 
-Créez une application .NET Core dans votre éditeur ou IDE favori. 
+Créez une application .NET Core dans votre éditeur ou IDE favori.
 
-Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `bing-autosuggest-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs*. 
+Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `bing-autosuggest-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs*.
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -86,7 +86,7 @@ Déplacez vos répertoires vers le dossier d’application nouvellement créé. 
 dotnet build
 ```
 
-La sortie de génération ne doit contenir aucun avertissement ni erreur. 
+La sortie de génération ne doit contenir aucun avertissement ni erreur.
 
 ```console
 ...
