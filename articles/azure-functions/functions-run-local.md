@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449131"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037029"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Par défaut, la version 2.x et les versions ultérieures des outils Core créent les projets d’application de fonctions pour le runtime .NET en tant que [projets de classes C#](functions-dotnet-class-library.md) (.csproj). Ces projets C#, qui peuvent être utilisés avec Visual Studio ou Visual Studio Code, sont compilés pendant les tests et lors de la publication sur Azure. Si vous voulez plutôt créer et utiliser les mêmes fichiers de script C# (.csx) que ceux créés dans la version 1.x et dans le portail, vous devez inclure le paramètre `--csx` quand vous créez et que vous déployez des fonctions.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Inscrire des extensions
+
+À l’exception des déclencheurs HTTP et de minuteur, les liaisons Functions dans les versions 2.x et ultérieures du runtime sont implémentées sous la forme de packages d’extension. Les liaisons HTTP et les déclencheurs de minuteur ne nécessitent pas d’extensions. 
+
+Pour réduire les incompatibilités entre les différents packages d’extension, Functions vous permet de référencer un groupe d’extensions dans votre fichier de projet host.json. Si vous choisissez de ne pas utiliser les packages d’extension, vous devez également installer le kit de développement logiciel (SDK) .NET Core 2. x localement et conserver un fichier extensions.csproj avec votre projet Functions.  
+
+Dans les versions 2.x et ultérieures du runtime Azure Functions, vous devez inscrire explicitement les extensions pour les types de liaisons utilisés dans vos fonctions. Vous pouvez choisir d’installer les extensions de liaison individuellement, ou ajouter une référence de bundle d’extensions au fichier du projet host.json. Les bundles d’extensions suppriment le risque d’avoir des problèmes de compatibilité de packages lors de l’utilisation de plusieurs types de liaisons. C’est la méthode recommandée pour inscrire des extensions de liaison. Les bundles d’extensions éliminent également l’obligation d’installer le kit SDK .NET Core 2.x. 
+
+### <a name="use-extension-bundles"></a>Utiliser les packs d’extensions
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Pour en savoir plus, consultez [Inscrire des extensions de liaison Azure Functions](functions-bindings-register.md#extension-bundles). Vous devez ajouter des packages d’extension au fichier host.json avant d’ajouter des liaisons au fichier function.json.
+
+### <a name="explicitly-install-extensions"></a>Installer des extensions de manière explicite
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -294,7 +310,7 @@ Vous pouvez également spécifier ces options dans la commande en utilisant les 
 | **`--csx`** | (Version 2.x et versions ultérieures.) Génère les mêmes modèles de script C# (.csx) que ceux utilisés dans la version 1.x et dans le portail. |
 | **`--language`**, **`-l`**| Langage de programmation du modèle, tel que C#, F# ou JavaScript. Cette option est requise dans la version 1.x. Dans la version 2.x et les versions ultérieures, n’utilisez pas cette option ou choisissez un langage qui correspond au runtime worker. |
 | **`--name`**, **`-n`** | Nom de la fonction. |
-| **`--template`** , **`-t`** | Utilisez la commande `func templates list` pour afficher la liste complète des modèles disponibles pour chaque langage pris en charge.   |
+| **`--template`**, **`-t`** | Utilisez la commande `func templates list` pour afficher la liste complète des modèles disponibles pour chaque langage pris en charge.   |
 
 
 Par exemple, pour créer un déclencheur HTTP JavaScript dans une seule commande, exécutez :
@@ -461,9 +477,9 @@ Dans la version 1.x, vous pouvez également appeler une fonction directement à
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Contenu inclus. |
-| **`--debug`** , **`-d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
-| **`--timeout`** , **`-t`** | Délai d’attente (en secondes) jusqu’à ce que l’hôte Functions local soit prêt.|
-| **`--file`** , **`-f`** | Nom du fichier à utiliser en tant que contenu.|
+| **`--debug`**, **`-d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
+| **`--timeout`**, **`-t`** | Délai d’attente (en secondes) jusqu’à ce que l’hôte Functions local soit prêt.|
+| **`--file`**, **`-f`** | Nom du fichier à utiliser en tant que contenu.|
 | **`--no-interactive`** | Ne pas demander d’entrée. Utile pour les scénarios d’automatisation.|
 
 Par exemple, pour appeler une fonction déclenchée par HTTP et passer un corps de contenu, exécutez la commande suivante :

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419850"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056310"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -31,21 +31,14 @@ Cette page vous explique comment inclure l’accès JAT dans votre programme de
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **Disponibilité générale**
-- Prix : **Niveau standard**. [En savoir plus sur la tarification](/azure/security-center/security-center-pricing).
-- Rôles et autorisations obligatoires :
-    - Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.
-    - Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
-    - Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.
-- Machines virtuelles prises en charge : 
-    - ✔ Machines virtuelles déployées via Azure Resource Manager.
-    - ✘ Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).
-    - ✘ Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
-- Clouds : 
-    - ✔ Clouds commerciaux
-    - ✔ National/souverain (US Gov, Chine Gov, autres Gov)
-
-
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Disponibilité générale|
+|Prix :|Niveau standard|
+|Machines virtuelles prises en charge :|![Oui](./media/icons/yes-icon.png) Machines virtuelles déployées via Azure Resource Manager.<br>![Non](./media/icons/no-icon.png) Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>![Non](./media/icons/no-icon.png) Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|||
 
 
 ## <a name="enable-jit-vm-access"></a>Activer l’accès JAT aux machines virtuelles <a name="jit-configure"></a>

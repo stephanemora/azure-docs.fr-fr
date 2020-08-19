@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290160"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064789"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
@@ -26,7 +26,7 @@ Key Vault est un système de gestion de clés externe basé sur le cloud. Il fou
 
 ## <a name="benefits"></a>Avantages
 
-Le chiffrement des données pour Azure Database pour PostgreSQL Serveur unique offre les avantages suivants :
+Le chiffrement des données d’Azure Database pour PostgreSQL Serveur unique à l’aide d’une clé gérée par le client offre les avantages suivants :
 
 * L'accès aux données est entièrement contrôlé par vous puisque vous avez la possibilité de retirer la clé et de rendre la base de données inaccessible 
 *    Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d'entreprise
@@ -48,8 +48,8 @@ Les DEK, chiffrées avec les KEK, sont stockées séparément. Seule une entité
 Pour qu'un serveur PostgreSQL utilise les clés gérées par le client stockées dans Key Vault pour le chiffrement de la DEK, un administrateur Key Vault accorde les droits d'accès suivants au serveur :
 
 * **get** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault.
-* **wrapKey** : pour pouvoir chiffrer la clé de chiffrement de données.
-* **unwrapKey** : pour pouvoir déchiffrer la clé de chiffrement de données.
+* **wrapKey** : pour pouvoir chiffrer la clé de chiffrement de données. La clé DEK chiffrée est stockée dans Azure Database pour PostgreSQL.
+* **unwrapKey** : pour pouvoir déchiffrer la clé de chiffrement de données. Azure Database pour PostgreSQL a besoin de la clé DEK déchiffrée pour chiffrer/déchiffrer les données
 
 L'administrateur Key Vault peut également [activer la journalisation des événements d'audit Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) afin qu'ils puissent être audités ultérieurement.
 
@@ -59,16 +59,16 @@ Lorsque le serveur est configuré pour utiliser la clé gérée par le client st
 
 Les exigences suivantes s'appliquent à la configuration de Key Vault :
 
-* Key Vault et Azure Database pour PostgreSQL Serveur unique doivent appartenir au même locataire Azure Active Directory (Azure AD). Les interactions entre un serveur et une instance inter-locataires de Key Vault ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer le chiffrement des données.
+* Key Vault et Azure Database pour PostgreSQL Serveur unique doivent appartenir au même locataire Azure Active Directory (Azure AD). Les interactions entre un serveur et une instance inter-locataires de Key Vault ne sont pas prises en charge. Pour déplacer des ressources Key Vault par la suite, vous devez reconfigurer le chiffrement des données.
 * Activez la fonctionnalité de suppression réversible sur le coffre de clés pour vous protéger de la perte de données en cas de suppression accidentelle d'une clé (ou d'un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si l'utilisateur les récupère ou les purge dans l'intervalle. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure).
-* Accordez l'accès au coffre de clés à Azure Database pour PostgreSQL Serveur unique avec les autorisations get, wrapKey, unwrapKey en utilisant son identité managée unique. Sur le portail Azure, l'identité unique est automatiquement créée lorsque le chiffrement des données est activé sur PostgreSQL Serveur unique. Consultez [Chiffrement des données pour Azure Database pour PostgreSQL Serveur unique à l'aide du portail Azure](howto-data-encryption-portal.md) pour obtenir des instructions détaillées sur l'utilisation du portail Azure.
+* Accordez l'accès au coffre de clés à Azure Database pour PostgreSQL Serveur unique avec les autorisations get, wrapKey, unwrapKey en utilisant son identité managée unique. Sur le portail Azure, l’identité « Service » unique est automatiquement créée lorsque le chiffrement des données est activé sur PostgreSQL Serveur unique. Consultez [Chiffrement des données pour Azure Database pour PostgreSQL Serveur unique à l'aide du portail Azure](howto-data-encryption-portal.md) pour obtenir des instructions détaillées sur l'utilisation du portail Azure.
 
 Les exigences suivantes s'appliquent à la configuration de la clé gérée par le client :
 
 * La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement de données ne peut être qu’asymétrique, RSA 2048.
 * La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d'expiration (si définie) doit correspondre à une date et une heure ultérieures.
 * La clé doit être dans l’état *activé*.
-* Si vous importez une clé existante dans le coffre de clés, veillez à ce qu'elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
+* Si vous [importez une clé existante](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) dans le coffre de clés, veillez à ce qu’elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recommandations
 

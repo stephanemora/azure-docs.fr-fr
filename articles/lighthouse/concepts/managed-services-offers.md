@@ -1,14 +1,14 @@
 ---
 title: Offres de services managés dans la Place de marché Azure
-description: Les offres de services gérés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
+description: Les offres de services gérés vous permettent de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406858"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163320"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 
@@ -18,7 +18,7 @@ Cet article décrit le type d’offre **Services gérés** sur la [Place de marc
 
 Les offres de services gérés simplifient le processus d’intégration des clients pour Azure Lighthouse. Quand un client achète une offre dans la Place de marché Azure, il peut spécifier les abonnements et/ou les groupes de ressources à intégrer.
 
-Après cela, les utilisateurs de votre organisation seront en mesure de travailler sur ces ressources à partir du locataire de votre organisation avec la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), en fonction de l’accès que vous avez défini lors de la création de l’offre. Cette opération s’effectue par le biais d’un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure Active Directory (Azure AD) qui auront accès aux ressources du client, ainsi que les rôles déterminant leur niveau d’accès. En affectant des autorisations à un groupe Azure AD plutôt qu’à une série de comptes d’utilisateur ou d’application individuels, vous pouvez ajouter ou supprimer des utilisateurs lorsque vos besoins d’accès changent.
+Après cela, les utilisateurs de votre organisation seront en mesure de travailler sur ces ressources à partir de votre locataire de gestion avec la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), en fonction de l’accès que vous avez défini lors de la création de l’offre. Cette opération s’effectue par le biais d’un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure Active Directory (Azure AD) qui auront accès aux ressources du client, ainsi que les rôles déterminant leur niveau d’accès. En affectant des autorisations à un groupe Azure AD plutôt qu’à une série de comptes d’utilisateur ou d’application individuels, vous pouvez ajouter ou supprimer des utilisateurs lorsque vos besoins d’accès changent.
 
 ## <a name="public-and-private-offers"></a>Offres publiques et privées
 

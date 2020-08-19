@@ -35,7 +35,7 @@
       href: quick-configure-rules.md
     - name: 4. Superviser vos appareils
       href: quick-monitor-devices.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: Se connecter
       items:
@@ -121,6 +121,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualiser vos données dans Power BI
           href: howto-connect-powerbi.md
+        - name: Configurer et utiliser des chargements de fichiers
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Gérer votre application

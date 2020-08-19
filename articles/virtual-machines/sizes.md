@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 58b1501c9676db414f6bad6c8bd21c6cf79f7d4b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385413"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065469"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tailles des machines virtuelles dans Azure
 
@@ -25,15 +25,13 @@ Cet article décrit les tailles et options disponibles pour les machines virtuel
 | [Optimisé pour le calcul](sizes-compute.md) | F, Fs, Fsv2 | Ratio processeur/mémoire élevé. Convient pour les serveurs web au trafic moyen, les appareils réseau, les processus de traitement par lots et les serveurs d’application. |
 | [Mémoire optimisée](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Ratio mémoire/processeur élevé. Idéal pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.                 |
 | [Optimisé pour le stockage](sizes-storage.md) | Lsv2 | Débit et nombre d’E/S de disque élevés, idéal pour les Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les grandes bases de données transactionnelles.  |
-| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (préversion), NV, NVv3, NVv4 | Machines virtuelles spécialisées, ciblées pour l’affichage de graphiques complexes et le montage vidéo, ainsi que pour la formation et l’inférence de modèles avec apprentissage approfondi. Disponible avec un ou plusieurs GPU. |
+| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (préversion), ND, NDv2 (préversion), NV, NVv3, NVv4 | Machines virtuelles spécialisées, ciblées pour l’affichage de graphiques complexes et le montage vidéo, ainsi que pour la formation et l’inférence de modèles avec apprentissage approfondi. Disponible avec un ou plusieurs GPU. |
 | [Calcul haute performance](sizes-hpc.md) | HB, HBv2, HC,  H | Nos machines virtuelles les plus rapides et dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). |
 
 - Pour plus d’informations sur la tarification des différentes tailles, consultez les pages de tarification pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) ou [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Pour la disponibilité des tailles de machine virtuelle dans les régions Azure, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 - Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-> [!NOTE]
-  > Pour plus d’informations sur la façon dont Azure nomme ses machines virtuelles, consultez : [Conventions de dénomination des tailles de machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+- Pour plus d’informations sur la façon dont Azure nomme ses machines virtuelles, consultez [Conventions de nommage des tailles de machines virtuelles Azure](./vm-naming-conventions.md).
 
 ## <a name="rest-api"></a>API REST
 

@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128724"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534173"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le Portail Microsoft Azure pour accéder aux données d’objet blob et de file d’attente
 
@@ -29,7 +29,7 @@ Selon la façon dont vous souhaitez autoriser l’accès aux données blob ou au
 
 ### <a name="use-the-account-access-key"></a>Utiliser la clé d'accès au compte
 
-Pour accéder aux données d’objet blob et de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle RBAC qui vous est attribué et qui inclut l’action RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle RBAC peut être intégré ou il peut s’agit d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
+Pour accéder aux données d’objet blob et de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
 
 - Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
 - Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
@@ -38,7 +38,7 @@ Pour accéder aux données d’objet blob et de file d’attente avec la clé d�
 Lorsque vous tentez d’accéder aux données d’objet blob et de file d’attente dans le Portail Microsoft Azure, le portail commence par vérifier si un rôle RBAC vous a été attribué avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si un rôle avec cette action vous a été attribué, le portail utilise la clé de compte pour l’accès aux données d’objet blob et de file d’attente. Si un rôle avec cette action ne vous a pas été attribué, le portail tente d’accéder aux données à l’aide de votre compte Azure AD.
 
 > [!NOTE]
-> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action**, pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données d’objet blob et de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action**, pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données d’objet blob et de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Utiliser votre compte Azure AD
 
@@ -47,7 +47,7 @@ Pour accéder aux données d’objet blob ou de file d’attente à partir du Po
 - Le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager vous a été attribué, au moins, limité au niveau du compte de stockage ou à un niveau supérieur. Le rôle **Lecteur** octroie les autorisations les plus restreintes, mais l’utilisation d’un autre rôle Azure Resource Manager accordant l’accès aux ressources de gestion de compte de stockage est également acceptable.
 - Un rôle intégré ou personnalisé qui fournit l’accès aux données d’objet blob ou de file d’attente vous a été attribué.
 
-L’attribution de rôle **Lecteur** ou l’attribution d’un autre rôle Azure Resource Manager est nécessaire pour que l’utilisateur puisse afficher et parcourir les ressources de gestion du compte de stockage dans le Portail Microsoft Azure. Les rôles RBAC qui accordent l’accès aux données d’objet blob ou de file d’attente n’accordent pas d’accès aux ressources de gestion du compte de stockage. Pour accéder aux données d’objet blob ou de file d’attente dans le portail, l’utilisateur a besoin d’autorisations pour parcourir les ressources de compte de stockage. Pour plus d’informations sur cette exigence, consultez [Attribuer le rôle Lecteur pour accéder au portail](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+L’attribution de rôle **Lecteur** ou l’attribution d’un autre rôle Azure Resource Manager est nécessaire pour que l’utilisateur puisse afficher et parcourir les ressources de gestion du compte de stockage dans le Portail Microsoft Azure. Les rôles Azure qui accordent l’accès aux données d’objet blob ou de file d’attente n’accordent pas d’accès aux ressources de gestion du compte de stockage. Pour accéder aux données d’objet blob ou de file d’attente dans le portail, l’utilisateur a besoin d’autorisations pour parcourir les ressources de compte de stockage. Pour plus d’informations sur cette exigence, consultez [Attribuer le rôle Lecteur pour accéder au portail](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 Les rôles intégrés qui prennent en charge les accès à vos données d’objet blob ou de file d’attente sont les suivants :
 
@@ -82,7 +82,7 @@ Si vous vous authentifiez à l’aide de la clé d’accès au compte, vous verr
 
 ![Accès actuel aux données du conteneur avec la clé de compte](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Pour passer à l’utilisation du compte Azure AD, cliquez sur le lien mis en surbrillance dans l’image. Si vous disposez des autorisations appropriées via les rôles RBAC qui vous sont attribués, vous pourrez poursuivre. Toutefois, si vous n’avez pas les autorisations appropriées, vous verrez un message d’erreur semblable à celui-ci :
+Pour passer à l’utilisation du compte Azure AD, cliquez sur le lien mis en surbrillance dans l’image. Si vous disposez des autorisations appropriées via les rôles Azure qui vous sont attribués, vous pourrez poursuivre. Toutefois, si vous n’avez pas les autorisations appropriées, vous verrez un message d’erreur semblable à celui-ci :
 
 ![Erreur affichée si le compte Azure AD ne prend pas en charge l’accès](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498597"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056531"
 ---
 # <a name="blob-versioning-preview"></a>Contrôle de version des objets blob (préversion)
 
@@ -24,6 +24,8 @@ Vous pouvez activer le contrôle de version du stockage d’objets blob (version
 Le contrôle de version des objets blob est activé sur le compte de stockage et s’applique à tous les objets blob du compte de stockage. Une fois que vous avez activé le contrôle de version des objets blob pour un compte de stockage, le stockage Azure gère automatiquement les versions de chaque objet blob dans le compte de stockage.
 
 Microsoft recommande d’utiliser le contrôle de version des objets blob pour gérer les versions précédentes des objets blob afin de bénéficier d’une meilleure protection des données. Dans la mesure du possible, utilisez le contrôle de version des objets blob plutôt que les instantanés d’objets blob pour gérer les versions précédentes. Les instantanés d’objets blob offrent des fonctionnalités similaires en ce qu’ils conservent les versions antérieures des objets blob, mais les instantanés doivent être gérés manuellement par votre application.
+
+Pour savoir comment activer le contrôle de version des objets blob, consultez [Activer et gérer le contrôle de version des objets blob](versioning-enable.md).
 
 > [!IMPORTANT]
 > Le contrôle de version des objets blob ne peut pas vous aider à récupérer après la suppression accidentelle d’un compte ou d’un conteneur de stockage. Pour empêcher toute suppression accidentelle du compte de stockage, configurez un verrou **CannotDelete** verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
@@ -204,7 +206,8 @@ Le contrôle de version des objets blob est disponible en préversion dans les r
 - Est du Canada
 - Centre du Canada
 
-La préversion est destinée uniquement à une utilisation hors production.
+> [!IMPORTANT]
+> La préversion du contrôle de version des blobs est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
 
 La version 2019-10-10 et les versions ultérieures de l’API REST de stockage Azure prennent en charge le contrôle de version des objets blob.
 
@@ -226,7 +229,7 @@ Pour vous inscrire à la préversion du contrôle de version des objets blob, ut
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Pour vous inscrire à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+Pour vous inscrire à l’aide de PowerShell, appelez la commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az-feature-register).
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az-feature-show).
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

@@ -3,15 +3,15 @@ title: Authentifier une application pour accéder aux entités Azure Service Bus
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux entités Azure Service Bus (files d’attente, rubriques, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3f94f17a538fc86615f4ffeb8f351beb99e0cb33
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372346"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064823"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus
-Azure Service Bus prend en charge l’utilisation d’Azure Active Directory (Azure AD) pour autoriser les requêtes d’accès aux entités Service Bus (files d’attente, rubriques, abonnements ou filtres). Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
+Azure Service Bus prend en charge l’utilisation d’Azure Active Directory (Azure AD) pour autoriser les requêtes d’accès aux entités Service Bus (files d’attente, rubriques, abonnements ou filtres). Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité Service Bus, la requête doit être autorisée. Avec Azure AD, l’accès à une ressource est un processus en deux étapes. 
@@ -21,41 +21,41 @@ Quand un principal de sécurité (un utilisateur, un groupe ou une application) 
 
 L’étape d’authentification nécessite qu’une requête d’application contienne un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Function, elle peut utiliser une identité managée pour accéder aux ressources. Pour plus d’informations sur l’authentification des requêtes adressées par une identité managée au service Service Bus, consultez [Authentifier l’accès aux ressources Azure Service Bus avec Azure Active Directory et les identités managées pour les ressources Azure](service-bus-managed-service-identity.md). 
 
-L’étape d’autorisation exige qu’un ou plusieurs rôles RBAC soient attribués au principal de sécurité. Azure Service Bus fournit des rôles RBAC qui englobent des ensembles d’autorisations pour les ressources Service Bus. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Pour plus d’informations sur l’attribution de rôles RBAC dans Azure Service Bus, consultez [Rôles Azure intégrés pour Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
+L’étape d’autorisation exige qu’un ou plusieurs rôles Azure soient attribués au principal de sécurité. Azure Service Bus fournit des rôles Azure qui englobent des ensembles d’autorisations pour les ressources Service Bus. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Pour plus d’informations sur l’attribution de rôles Azure dans Azure Service Bus, consultez [Rôles Azure intégrés pour Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
 
 Les applications natives et applications web qui adressent des requêtes à Service Bus peuvent également autoriser l’accès avec Azure AD. Cet article explique comment demander un jeton d’accès et l’utiliser pour autoriser les demandes de ressources Service Bus. 
 
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Attribution de rôles RBAC pour les droits d’accès
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md). Azure Service Bus définit un ensemble de rôles Azure intégrés qui englobent les ensembles d’autorisations couramment utilisés pour accéder aux entités Service Bus. Il est également possible de définir des rôles personnalisés pour accéder aux données.
+## <a name="assigning-azure-roles-for-access-rights"></a>Attribution de rôles Azure pour les droits d’accès
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais [d’Azure RBAC](../role-based-access-control/overview.md). Azure Service Bus définit un ensemble de rôles Azure intégrés qui englobent les ensembles d’autorisations couramment utilisés pour accéder aux entités Service Bus. Il est également possible de définir des rôles personnalisés pour accéder aux données.
 
-Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources ou de l’espace de noms Service Bus. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources ou de l’espace de noms Service Bus. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Rôles Azure intégrés pour Azure Service Bus
-Pour Azure Service Bus, la gestion des espaces de noms et de toutes les ressources associées via le portail Azure et l’API de gestion des ressources Azure est déjà protégée à l’aide du modèle de *contrôle d’accès en fonction du rôle* (RBAC). Azure fournit les rôles Azure intégrés ci-dessous pour autoriser l’accès à un espace de noms Service Bus :
+Pour Azure Service Bus, la gestion des espaces de noms et de toutes les ressources associées via le Portail Azure et l’API de gestion des ressources Azure est déjà protégée à l’aide du modèle Azure RBAC. Azure fournit les rôles Azure intégrés ci-dessous pour autoriser l’accès à un espace de noms Service Bus :
 
 - [Propriétaire de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) : permet l’accès aux données de l’espace de noms Service Bus et ses entités (files d’attente, rubriques, abonnements et filtres).
 - [Expéditeur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender) : utilisez ce rôle pour autoriser l’accès en envoi à l’espace de noms Service Bus et à ses entités.
 - [Récepteur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver) : utilisez ce rôle pour autoriser l’accès en réception à l’espace de noms Service Bus et à ses entités. 
 
 ## <a name="resource-scope"></a>Étendue des ressources 
-Avant d’attribuer un rôle RBAC à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.
+Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Service Bus, en commençant par la plus petite étendue :
 
-- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles RBAC Service Bus au niveau de l’abonnement. 
+- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. 
 - **Espace de noms Service Bus** : l’attribution de rôle s’étend à toute la topologie de Service Bus sous l’espace de noms et au groupe de consommateurs qui lui est associé.
 - **Groupe de ressources** : l’attribution de rôle s’applique à toutes les ressources Service Bus sous le groupe de ressources.
 - **Abonnement**: l’attribution de rôle s’applique à toutes les ressources Service Bus dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
-> Gardez à l’esprit que les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager. 
+> Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. 
 
 Pour plus d’informations sur la définition des rôles intégrés, consultez [Comprendre les définitions de rôles](../role-based-access-control/role-definitions.md#management-and-data-operations). Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Attribuer des rôles RBAC à l’aide du portail Azure  
-Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide de RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
+Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide d’Azure RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
 
 Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 
@@ -102,7 +102,7 @@ Une fois votre application inscrite, **l’ID (client) d’application** se trou
 
 ![ID de l’application inscrite](./media/authenticate-application/application-id.png)
 
-Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Notez les valeurs de **TenantId** et **ApplicationId**, car vous en aurez besoin pour exécuter l’application.
@@ -150,16 +150,16 @@ Quand vous exécutez l’application console, vous êtes invité à sélectionne
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../role-based-access-control/overview.md).
-- Pour apprendre à attribuer et gérer les rôles RBAC avec Azure PowerShell, Azure CLI ou l’API REST, consultez les articles suivants :
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec l’API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec des modèles Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+- Pour plus d’informations sur Azure RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) ?
+- Pour apprendre à attribuer et gérer les rôles Azure avec Azure PowerShell, Azure CLI ou l’API REST, consultez les articles suivants :
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide de modèles Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
-- [Exemples RBAC pour Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Exemples Azure RBAC pour Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 - [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 - [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

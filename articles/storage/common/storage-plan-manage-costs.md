@@ -1,32 +1,28 @@
 ---
-title: Planifier et gérer les coûts du stockage Azure
-description: Découvrez comment planifier et gérer les coûts du stockage Azure avec l’analyse du coût dans le portail Azure.
+title: Planifier et gérer les coûts du stockage Blob Azure
+description: Découvrez comment planifier et gérer les coûts du stockage Blob Azure avec l’analyse du coût dans le portail Azure.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: aa0b789b31f50c8b1ccf5450700874a02ad4664c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78304360"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760734"
 ---
-# <a name="plan-and-manage-costs-for-azure-storage"></a>Planifier et gérer les coûts du stockage Azure
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du stockage Blob Azure
 
-Cet article explique comment planifier et gérer les coûts du stockage Azure. Vous devez d’abord utiliser la calculatrice de prix Azure pour planifier les coûts de stockage avant d’ajouter des ressources. Quand vous commencez à utiliser des ressources de stockage Azure, utilisez les fonctionnalités de gestion des coûts pour définir des budgets et superviser les coûts. Vous pouvez également passer en revue les coûts prévus et surveiller les tendances des dépenses pour identifier les domaines où vous pourriez agir.
+Cet article explique comment planifier et gérer les coûts du stockage Blob Azure. Tout d’abord, utilisez la calculatrice de prix Azure pour estimer les coûts. Après avoir créé votre compte de stockage, optimisez le compte afin de payer uniquement ce dont vous avez besoin. Utilisez les fonctionnalités de gestion des coûts pour définir des budgets et surveiller les coûts. Vous pouvez également passer en revue les coûts prévus et surveiller les tendances des dépenses pour identifier les domaines où vous pourriez agir.
 
-Gardez à l’esprit que les coûts du stockage Azure ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment planifier et gérer les coûts du stockage Azure. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers. Quand vous êtes familiarisé avec la gestion des coûts du stockage Azure, vous pouvez appliquer des méthodes similaires pour gérer les coûts de tous les services Azure utilisés dans votre abonnement.
+Gardez à l’esprit que les coûts du stockage Blob ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment estimer et gérer les coûts du stockage Blob. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers. Quand vous êtes familiarisé avec la gestion des coûts du stockage Blob, vous pouvez appliquer des méthodes similaires pour gérer les coûts de tous les services Azure utilisés dans votre abonnement.
 
-## <a name="prerequisites"></a>Prérequis
-
-L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../../cost-management-billing/costs/assign-access-acm-data.md).
-
-## <a name="estimate-costs-before-creating-an-azure-storage-account"></a>Estimer les coûts avant de créer un compte de stockage Azure
+## <a name="estimate-costs"></a>Estimer les coûts
 
 Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer un compte de stockage Azure et de commencer à transférer des données vers ce compte.
 
@@ -44,7 +40,37 @@ Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/cal
 
 4. Modifiez les options restantes pour voir leur impact sur votre estimation.
 
-## <a name="use-budgets-and-cost-alerts"></a>Utiliser des budgets et des alertes de coût
+## <a name="optimize-costs"></a>Optimiser les coûts
+
+Envisagez d’utiliser ces options pour réduire les coûts. 
+
+- Réserver de la capacité de stockage
+
+- Organiser les données en niveaux d’accès
+
+- Déplacer automatiquement les données entre les niveaux d’accès
+
+Cette section décrit chaque option plus en détail. 
+
+#### <a name="reserve-storage-capacity"></a>Réserver de la capacité de stockage
+
+Vous pouvez réaliser des économies sur les coûts de stockage pour les données blob grâce à une capacité de réserve Stockage Azure. La capacité de réserve Stockage Azure offre une remise sur la capacité pour les objets blob de blocs et les données Azure Data Lake Storage Gen2 dans les comptes de stockage standard lorsque vous vous engagez à une réservation pour un an ou trois ans. Une réservation offre une quantité fixe de capacité de stockage pour la durée de la réservation. La capacité de réserve Stockage Azure peut réduire de manière significative les coûts de capacité pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. 
+
+Pour en savoir plus, consultez [Optimiser les coûts de stockage d’objets blob avec une capacité réservée](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+
+#### <a name="organize-data-into-access-tiers"></a>Organiser les données en niveaux d’accès
+
+Vous pouvez réduire les coûts en plaçant les données blob dans les niveaux d’accès les plus rentables. Choisissez parmi trois niveaux conçus pour optimiser vos coûts d’utilisation des données. Par exemple, le niveau d’accès *chaud* présente un coût de stockage plus élevé, mais un coût d’accès inférieur. Par conséquent, si vous envisagez d’accéder fréquemment aux données, le niveau d’accès chaud peut être le choix le plus rentable. Si vous prévoyez d’accéder moins fréquemment aux données, le niveau d’accès *froid* ou *archive* pourrait être le mieux adapté, car il augmente le coût d’accès aux données tout en réduisant le coût de stockage des données.    
+
+Pour en savoir plus, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+
+#### <a name="automatically-move-data-between-access-tiers"></a>Déplacer automatiquement les données entre les niveaux d’accès
+
+Utilisez les stratégies de gestion du cycle de vie pour déplacer périodiquement les données entre les niveaux afin d’effectuer le plus d’économies possible. Ces stratégies peuvent déplacer des données vers à l’aide des règles que vous indiquez. Par exemple, vous pouvez créer une règle qui déplace les objets blob vers le niveau Archive si cet objet blob n’a pas été modifié dans les 90 jours. En créant des stratégies qui ajustent le niveau d’accès de vos données, vous pouvez concevoir les options de stockage les moins onéreuses pour vos besoins.
+
+Pour plus d’informations, consultez [Gérer le cycle de vie du service Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+
+## <a name="create-budgets"></a>Créer des budgets
 
 Vous pouvez créer des [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) pour gérer les coûts, et des alertes permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. Ils peuvent cependant avoir des fonctionnalités limitées quant à la gestion des coûts de services Azure individuels comme le coût du stockage Azure. En effet, ils sont conçus pour suivre les coûts à un niveau supérieur.
 
@@ -53,6 +79,9 @@ Vous pouvez créer des [budgets](../../cost-management-billing/costs/tutorial-ac
 À mesure que vous utilisez des ressources Azure avec le stockage Azure, vous générez des coûts. Les coûts unitaires d’utilisation des ressources varient selon les intervalles de temps (secondes, minutes, heures et jours) ou selon l’utilisation d’unités (octets, mégaoctets, etc.). Des coûts sont générés dès que vous commencez à utiliser le stockage Azure. Vous pouvez voir les coûts dans le volet [Analyse du coût](../../cost-management-billing/costs/quick-acm-cost-analysis.md) du portail Azure.
 
 Quand vous utilisez l’analyse du coût, vous pouvez voir les coûts du stockage Azure dans des graphes et des tableaux pour différents intervalles de temps. Par exemple, par jour, par année ou pour le mois en cours ou le mois précédent. Vous pouvez également voir les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues pour des périodes plus longues pour identifier les tendances des dépenses et déterminer où des dépassements ont pu se produire. Par ailleurs, si vous avez créé des budgets, vous pouvez facilement voir à quel moment ils ont été dépassés.
+
+>[!NOTE]
+> L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../../cost-management-billing/costs/assign-access-acm-data.md).
 
 Pour voir les coûts du stockage Azure dans l’analyse du coût :
 
@@ -68,7 +97,7 @@ Pour voir les coûts du stockage Azure dans l’analyse du coût :
 
    ![Superviser les coûts de stockage avec le volet Analyse du coût](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
-Dans l’exemple précédent, vous avez pu voir le coût actuel du service. Les coûts par région Azure (emplacements) et par groupe de ressources sont également présentés.  
+Dans l’exemple précédent, vous avez pu voir le coût actuel du service. Les coûts par région Azure (emplacements) et par groupe de ressources sont également présentés. Vous pouvez également ajouter d’autres filtres (par exemple : un filtre pour afficher les coûts de comptes de stockage spécifiques).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

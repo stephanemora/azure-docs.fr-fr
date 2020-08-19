@@ -4,14 +4,14 @@ description: Obtenez des réponses aux questions fréquemment posées sur l’AP
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449734"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167604"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Forum aux questions sur l’API Cassandra dans Azure Cosmos DB
 
@@ -79,13 +79,13 @@ Les journaux de diagnostic sont expliquées dans l’article [Journalisation des
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La clé primaire est-elle mappée sur le concept de clé de partition d’Azure Cosmos DB ?
 
-Oui. La clé de partition est utilisée pour placer l’entité au bon endroit. Dans Azure Cosmos DB, elle est utilisée pour trouver la bonne partition logique qui est stockée sur une partition physique. Le concept de partitionnement est également expliqué dans l’article [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md). Ce qu’il faut retenir, c’est qu’une partition logique ne doit pas dépasser la limite de 10 Go.
+Oui. La clé de partition est utilisée pour placer l’entité au bon endroit. Dans Azure Cosmos DB, elle est utilisée pour trouver la bonne partition logique qui est stockée sur une partition physique. Le concept de partitionnement est également expliqué dans l’article [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md). Ce qu’il faut retenir, c’est qu’une partition logique ne doit pas dépasser la limite de 20 Go.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Que se passe-t-il lorsque j’obtiens une notification indiquant qu’une partition est saturée ?
 
 Azure Cosmos DB est un système basé sur un contrat de niveau de service (SLA). Il offre une mise à l’échelle illimitée, avec des garanties en matière de latence, de débit, de disponibilité et de cohérence. Cet espace de stockage illimité est basé sur un scale-out horizontal des données utilisant le partitionnement comme concept clé. Le concept de partitionnement est également expliqué dans l’article [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md).
 
-Vous devez respecter la limite de 10 Go sur le nombre d’entités ou d’éléments par partition logique. Pour vous assurer que la mise à l’échelle de votre application fonctionne correctement, nous vous recommandons de ne *pas* créer de partition sensible en stockant toutes les informations dans une seule partition et en interrogeant celle-ci. Cette erreur ne peut se produire qu’en présence d’une asymétrie des données, c’est-à-dire si vous en avez trop pour une clé de partition (plus de 10&nbsp;Go). La répartition des données est visible sur le portail de stockage. Pour corriger cette erreur, recréez la table et choisissez une clé principale granulaire (clé de partition), qui permet une meilleure répartition des données.
+Vous devez respecter la limite de 20 Go sur le nombre d’entités ou d’éléments par partition logique. Pour vous assurer que la mise à l’échelle de votre application fonctionne correctement, nous vous recommandons de ne *pas* créer de partition sensible en stockant toutes les informations dans une seule partition et en interrogeant celle-ci. Cette erreur ne peut se produire qu’en présence d’une asymétrie des données, c’est-à-dire si vous en avez trop pour une clé de partition (plus de 20 Go). La répartition des données est visible sur le portail de stockage. Pour corriger cette erreur, recréez la table et choisissez une clé principale granulaire (clé de partition), qui permet une meilleure répartition des données.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>Puis-je utiliser l’API Cassandra en tant que magasin de valeurs de clé contenant des millions ou milliards de clés de partition ?
 

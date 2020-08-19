@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261394"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551997"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Prise en main du visuel Power BI Azure Maps
 
@@ -35,6 +35,9 @@ Le visuel Azure Maps se connecte au service cloud hébergé dans Azure pour réc
 
 -   Les informations sur la zone sur laquelle la carte est axée sont envoyées à Azure afin de récupérer les images nécessaires au rendu du canevas de la carte (également appelée vignettes de carte). 
 -   Les données des compartiments Emplacement, Latitude et Longitude peuvent être envoyées à Azure pour récupérer les coordonnées de la carte (processus appelé géocodage). 
+-   Les données de télémétrie peuvent être collectées sur l’intégrité du visuel (c.-à-d. les rapports d’incidents), si l’option de télémétrie est activée dans Power BI.
+
+À part les scénarios décrits ci-dessus, aucune autre donnée superposée sur la carte n’est envoyée aux serveurs Azure Maps. Tout le rendu des données se produit localement au sein du client.
 
 Vous, ou votre administrateur, devrez peut-être mettre à jour votre pare-feu pour autoriser l’accès à la plateforme Azure Maps qui utilise l’URL suivante.
 
@@ -159,10 +162,10 @@ La préversion initiale de ce visuel ne prend en charge que les valeurs de latit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le visuel Power BI Azure Maps :
+Découvrez-en plus sur le visuel Power BI Azure Maps :
 
 > [!div class="nextstepaction"]
-> [Comprendre les calques dans le visuel Power BI Azure Maps](power-bi-visual-understanding-layers.md)
+> [Présentation des calques dans le visuel Power BI Azure Maps](power-bi-visual-understanding-layers.md)
 
 > [!div class="nextstepaction"]
 > [Gérer le visuel Azure Maps au sein de votre organisation](power-bi-visual-manage-access.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/06/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5d7f30f26be999ae43ce13aa31fc5393d049529
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533042"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078952"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Changer dynamiquement le niveau de service d’un volume
 
@@ -33,8 +33,7 @@ Le pool de capacité vers lequel vous souhaitez déplacer le volume doit déjà 
 
 * Une fois le volume déplacé vers un autre pool de capacité, vous n’avez plus accès aux journaux d’activité et aux métriques de volume précédent. Le volume commence avec les nouveaux journaux d’activité et les métriques sous le nouveau pool de capacité.
 
-* Si vous déplacez un volume vers un pool de capacité d’un niveau de service supérieur (par exemple, du niveau de service *Standard* au niveau *Premium* ou *Ultra*), vous devez attendre au moins sept jours avant de pouvoir re-déplacer le volume vers un pool de capacité d’un niveau de service inférieur (par exemple, du niveau de service *Ultra* au niveau *Premium* ou *Standard*).  
-Ce délai d’attente ne s’applique pas si vous déplacez le volume vers un pool de capacité offrant le même niveau de service ou un niveau de service inférieur.
+* Si vous déplacez un volume vers un pool de capacité d’un niveau de service supérieur (par exemple, du niveau de service *Standard* au niveau *Premium* ou *Ultra*), vous devez attendre au moins sept jours avant de pouvoir *re-déplacer* le volume vers un pool de capacité d’un niveau de service inférieur (par exemple, du niveau de service *Ultra* au niveau *Premium* ou *Standard*).  
 
 ## <a name="register-the-feature"></a>Inscrire la fonctionnalité
 
@@ -49,7 +48,7 @@ La fonctionnalité de déplacement d’un volume vers un autre pool de capacité
 2. Vérifiez l’état d’inscription de la fonctionnalité : 
 
     > [!NOTE]
-    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes avant de passer à `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

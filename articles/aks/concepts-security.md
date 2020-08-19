@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e5f137808bb5e4c6876206bca7950117edb85aab
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287473"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005667"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -36,7 +36,7 @@ Dans AKS, les composants maîtres Kubernetes font partie du service managé four
 
 Par défaut, le serveur d’API Kubernetes utilise une adresse IP publique avec un nom de domaine complet (FQDN). Vous pouvez limiter l’accès au point de terminaison du serveur d’API à l’aide de [plages d’adresses IP autorisées][authorized-ip-ranges]. Vous pouvez également créer un [cluster entièrement privé][private-clusters] pour limiter l’accès du serveur d’API à votre réseau virtuel.
 
-Vous pouvez contrôler l’accès au serveur d’API avec des contrôles d’accès en fonction du rôle Kubernetes et Azure Active Directory. Pour plus d’informations, consultez [Intégration d’Azure AD à AKS][aks-aad].
+Vous pouvez contrôler l’accès au serveur d’API avec des contrôles d’accès en fonction du rôle (RBAC) Kubernetes et Azure Active Directory. Pour plus d’informations, consultez [Intégration d’Azure AD à AKS][aks-aad].
 
 ## <a name="node-security"></a>Sécurité des nœuds
 

@@ -1,14 +1,14 @@
 ---
 title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535006"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055137"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Pour supprimer un groupe d’administration, les conditions suivantes doivent être remplies :
 
-1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements.
-
-   - Pour déplacer un abonnement ou groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration et des abonnements dans la hiérarchie](#moving-management-groups-and-subscriptions).
+1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements. Pour déplacer un abonnement ou groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration et des abonnements dans la hiérarchie](#moving-management-groups-and-subscriptions).
 
 1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles Azure, voir :  
    [Gérer l’accès et les autorisations avec RBAC](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 L’une des raisons de créer un groupe d’administration est de regrouper des abonnements. Seuls les groupes d’administration et les abonnements peuvent être enfants d’un autre groupe d’administration. Un abonnement déplacé vers un groupe d’administration hérite de toutes les stratégies et de tous les accès utilisateur du groupe d’administration parent.
 
-Lors du déplacement d'un abonnement ou groupe d’administration en tant qu'enfant d’un autre groupe d’administration, trois règles sont à prendre en compte.
+Lors du déplacement d’un abonnement ou groupe d’administration en tant qu’enfant d’un autre groupe d’administration, trois règles sont à prendre en compte.
 
 Pour effectuer le déplacement, vous devez avoir : 
 

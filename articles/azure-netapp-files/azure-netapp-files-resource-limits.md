@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/07/2020
 ms.author: b-juche
-ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0c790d1d8bec972135796533542a5efad6094d7c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147195"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006670"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -33,6 +33,7 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |----------------|---------------------|--------------------------------------|
 |  Nombre de comptes NetApp par région Azure   |  10    |  Oui   |
 |  Nombre de pools de capacités par compte NetApp   |    25     |   Oui   |
+|  Nombre de volumes par compte NetApp   |    500     |   Oui   |
 |  Nombre de volumes par pool de capacités     |    500   |    Oui     |
 |  Nombre d’instantanés par volume       |    255     |    Non        |
 |  Nombre de sous-réseaux délégués à Azure NetApp Files (Microsoft.NetApp/volumes) par réseau virtuel Azure    |   1   |    Non    |

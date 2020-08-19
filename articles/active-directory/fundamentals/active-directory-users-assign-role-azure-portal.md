@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a468b5f43e8b024dd1da6e382049f8cce6de295
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797363"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902352"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur les rôles Azure AD disponibles, consultez [Attri
 
 ## <a name="assign-roles"></a>Attribuer des rôles
 
-Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve dans la page **Rôles affectés** d’un utilisateur. Vous pouvez également disposer du droit d’être promu juste-à-temps dans un rôle avec Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve dans la page **Rôles affectés** d’un utilisateur. Vous pouvez également configurer l’éligibilité de l’utilisateur à disposer du droit d’être promu juste-à-temps dans un rôle avec Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
 > Si vous disposez d’un plan de licences Azure AD Premium P2 et que vous utilisez déjà PIM, toutes les tâches de gestion des rôles sont effectuées dans l’[expérience Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md).

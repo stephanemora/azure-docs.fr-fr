@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900374"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903151"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -53,10 +53,10 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 |   |   |   | Non persistante | Non |
 |   | Adresses IP gérées | Windows actuel | Persistante | Non |
 |   |   |   | Non persistante | Non |
-| Appareils inscrits sur Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Non |
-|   |   |   | Non persistante | Non |
-|   | Adresses IP gérées | Windows actuel | Persistante | Non |
-|   |   |   | Non persistante | Non |
+| Appareils inscrits sur Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Non applicable |
+|   |   |   | Non persistante | Non applicable |
+|   | Adresses IP gérées | Windows actuel | Persistante | Non applicable |
+|   |   |   | Non persistante | Non applicable |
 
 \* Un environnement d’infrastructure d’identité **fédérée** représente un environnement avec un fournisseur d’identité, tel que AD FS ou d’autres IdP tiers.
 
@@ -77,7 +77,7 @@ Si vous comptez sur l’outil de préparation système (sysprep.exe) et utilisez
 
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-Lors du déploiement d’une infrastructure VDI non persistante, les administrateurs informatiques doivent prêter une attention toute particulière à la gestion des appareils obsolètes dans Azure AD. Microsoft recommande aux administrateurs informatiques d’implémenter les instructions ci-dessous. Dans le cas contraire, l’annuaire reçoit un grand nombre d’appareils Azure AD Hybride joints, qui ont été enregistrés depuis la plateforme VDI non persistante.
+La jointure Azure AD Hybride d’une infrastructure VDI non persistante n’est pas prise en charge dans les versions actuelles de Windows. Lors du déploiement d’une infrastructure VDI non persistante Windows de bas niveau, les administrateurs informatiques doivent prêter une attention toute particulière à la gestion des appareils obsolètes dans Azure AD. Microsoft recommande aux administrateurs informatiques d’implémenter les instructions ci-dessous. Dans le cas contraire, l’annuaire reçoit un grand nombre d’appareils Azure AD Hybride joints, qui ont été enregistrés depuis la plateforme VDI non persistante.
 
 - Créez et utilisez un préfixe pour le nom d’affichage de l’ordinateur qui indique le bureau comme étant basé sur VDI.
 - Implémentez la commande suivante dans le cadre du script de fermeture de session. Cette commande déclenche le meilleur appel possible à Azure AD pour supprimer l’appareil.

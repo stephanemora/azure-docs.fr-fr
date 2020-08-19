@@ -3,23 +3,23 @@ title: Simulation de déploiement de modèle (préversion)
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888750"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810069"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
 
-Avant de déployer un modèle Azure Resource Manager (ARM), vous pouvez prévisualiser les changements qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
+Avant de déployer un modèle Azure Resource Manager (modèle ARM), vous pouvez prévisualiser les changements qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
 
 > [!NOTE]
 > L’opération de simulation est disponible en préversion. Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources et d’abonnement.
+Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources, d’abonnement et de niveau locataire.
 
 ## <a name="install-azure-powershell-module"></a>Installer le module Azure PowerShell
 
@@ -125,20 +125,23 @@ Les commandes précédentes retournent un résumé sous forme de texte que vous 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez la commande [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) ou [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez :
 
-* `az deployment group what-if` pour des déploiements de groupes de ressources
-* `az deployment sub what-if` pour des déploiements au niveau de l’abonnement
+* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) pour les déploiements de groupes de ressources
+* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) pour les déploiements au niveau de l’abonnement
+* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) pour les déploiements de groupes de gestion
+* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) pour les déploiements de locataires
 
-Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement. Ajoutez ce commutateur à la commande [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) ou [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement. Ajoutez ce commutateur à :
 
-* `az deployment group create --confirm-with-what-if` ou `-c` pour des déploiements de groupe de ressources
-* `az deployment sub create --confirm-with-what-if` ou `-c` pour des déploiements au niveau de l’abonnement
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Les commandes précédentes retournent un résumé sous forme de texte que vous pouvez inspecter manuellement. Pour obtenir un objet JSON que vous pouvez inspecter par programme pour y détecter des modifications, utilisez :
+Par exemple, utilisez `az deployment group create --confirm-with-what-if` ou `-c` pour des déploiements de groupe de ressources.
 
-* `az deployment group what-if --no-pretty-print` pour des déploiements de groupes de ressources
-* `az deployment sub what-if --no-pretty-print` pour des déploiements au niveau de l’abonnement
+Les commandes précédentes retournent un résumé sous forme de texte que vous pouvez inspecter manuellement. Pour obtenir un objet JSON que vous pouvez inspecter par programme pour y détecter des modifications, utilisez le commutateur `--no-pretty-print`. Par exemple, utilisez `az deployment group what-if --no-pretty-print` pour des déploiements de groupe de ressources.
 
 Si vous souhaitez retourner les résultats sans couleurs, ouvrez votre fichier de [configuration d’Azure CLI](/cli/azure/azure-cli-configuration). Définissez **no_color** sur **Oui**.
 
@@ -147,7 +150,9 @@ Si vous souhaitez retourner les résultats sans couleurs, ouvrez votre fichier d
 Pour l’API REST, utilisez :
 
 * [Déploiements – Simulation](/rest/api/resources/deployments/whatif) pour les déploiements de groupes de ressources
-* [Déploiements – Simulation au niveau de l’étendue d’abonnement](/rest/api/resources/deployments/whatifatsubscriptionscope) pour les déploiements au niveau de l’abonnement
+* [Déploiements – Simulation au niveau de l’étendue d’abonnement](/rest/api/resources/deployments/whatifatsubscriptionscope) pour les déploiements d’abonnements
+* [Déploiements What If au niveau de l’étendue du groupe d’administration](/rest/api/resources/deployments/whatifatmanagementgroupscope) pour les déploiements de groupes d’administration
+* [Déploiements What If au niveau de l’étendue du locataire](/rest/api/resources/deployments/whatifattenantscope) pour les déploiements de locataires.
 
 ## <a name="change-types"></a>Types de modification
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Notez que, en haut de la sortie, les couleurs sont définies pour indiquer le type de modifications.
 
-Au bas de la sortie apparaît la balise indiquant que le propriétaire a été supprimé. Le préfixe d’adresse est passé de 10.0.0.0/16 à 10.0.0.0/15. Le sous-réseau nommé subnet001 a été supprimé. N’oubliez pas que ces modifications n’ont pas été réellement déployées. Vous voyez un aperçu des modifications qui se produiront si vous déployez le modèle.
+Au bas de la sortie apparaît la balise indiquant que le propriétaire a été supprimé. Le préfixe d’adresse est passé de 10.0.0.0/16 à 10.0.0.0/15. Le sous-réseau nommé subnet001 a été supprimé. N’oubliez pas que ces modifications n’ont pas été déployées. Vous voyez un aperçu des modifications qui se produiront si vous déployez le modèle.
 
 Certaines des propriétés répertoriées comme supprimées ne seront pas modifiées. Les propriétés peuvent être incorrectement signalées comme supprimées lorsqu’elles ne sont pas dans le modèle, mais elles sont automatiquement définies comme valeurs par défaut lors du déploiement. Ce résultat est considéré comme du « bruit » dans la réponse de simulation. La ressource déployée finale aura les valeurs définies pour les propriétés. À mesure que l’opération de simulation évolue, ces propriétés sont exclues du résultat.
 

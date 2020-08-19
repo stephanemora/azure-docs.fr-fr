@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Limites de capacité
       href: capacity-limits.md
+    - name: Gestion des coûts pour les labos
+      href: cost-management-guide.md
     - name: Scénarios
       items:
         - name: Utiliser Lab Services pour dispenser des cours
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Gérer les laboratoires dans un compte lab
           href: manage-labs.md
-        - name: Configurer l’arrêt automatique des machines virtuelles
+        - name: Configurer l’arrêt automatique des machines virtuelles pour un compte lab
           href: how-to-configure-lab-accounts.md
         - name: Ajouter un créateur de lab
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Spécifier des informations de support (propriétaire de compte lab)
           href: lab-account-owner-support-information.md
-        - name: Gestion des coûts pour les labos
-          href: cost-management-guide.md
     - name: Créer et configurer des laboratoires de classe (formateur)
       items:
         - name: Créer et gérer des laboratoires de classe
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Activer la connexion Bureau à distance pour Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Activer l’arrêt automatique lors de la déconnexion
+        - name: Configurer l’arrêt automatique des machines virtuelles pour un labo
           href: how-to-enable-shutdown-disconnect.md
         - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
           items:

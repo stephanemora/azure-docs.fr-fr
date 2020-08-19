@@ -3,12 +3,12 @@ title: Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055384"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876306"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 
@@ -21,6 +21,9 @@ Pour sauvegarder une base de données SQL Server sur Azure et la récupérer à 
 1. Créez une stratégie de sauvegarde pour protéger les bases de données SQL Server dans Azure.
 1. Créez des copies de sauvegarde à la demande dans Azure.
 1. Récupérer la base de données à partir d’Azure.
+
+>[!NOTE]
+>DPM 2019 UR2 prend en charge les instances de cluster de basculement (FCI) SQL Server à l’aide des volumes de cluster partagés (Cluster Shared Volumes).
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76773379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102638"
 ---
 ## <a name="register-secrets-or-certificates"></a>Inscrire des secrets ou des certificats
 
@@ -31,12 +31,10 @@ La gestion des informations d’identification du client s’effectue dans la pa
 
 ![Page Certificats et secrets](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- Le secret d’une application (également appelé secret client) est généré par Azure AD lors de l’inscription de l’application de client confidentiel. Cette génération est effectuée via l’option **Nouveau secret client**. À ce stade, vous devez copier la chaîne du secret dans le Presse-papiers pour pouvoir l’utiliser dans votre application, avant de sélectionner **Enregistrer**. Cette chaîne ne s’affichera plus.
+- Vous créez un *clé secrète client* en sélectionnant **Nouvelle clé secrète client** dans l’inscription de l’application sur le Portail Microsoft Azure. Quand vous créez une clé secrète client, vous _devez_ enregistrer la chaîne de la clé secrète avant de quitter le volet **Certificats et clés secrètes**. La chaîne de la clé secrète ne s’affiche plus.
 - Pendant l’inscription de l’application, vous utilisez le bouton **Charger le certificat** pour charger le certificat. Azure AD prend uniquement en charge les certificats qui sont directement inscrits sur l’application et ne suivent pas de chaînes de certificats.
 
 Pour en savoir plus, voir [Démarrage rapide : Configurer une application cliente pour accéder aux API web | Ajouter des informations d’identification à votre application.](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
-
-
 
 ### <a name="register-client-secrets-by-using-powershell"></a>Inscrire des secrets clients avec PowerShell
 

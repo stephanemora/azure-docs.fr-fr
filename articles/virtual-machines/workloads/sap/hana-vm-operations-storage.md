@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074027"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080522"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -321,6 +321,44 @@ Par conséquent, vous pouvez envisager de déployer un débit similaire pour les
 > Vous pouvez redimensionner les volumes Azure NetApp Files de manière dynamique, sans avoir à `unmount` les volumes, à arrêter les machines virtuelles ou à arrêter SAP HANA. Cela permet de répondre aux exigences à la fois attendues et imprévues de votre application en matière de débit.
 
 La documentation sur le déploiement d’une configuration de scale-out de SAP HANA avec un nœud de secours à l’aide de volumes NFS v4.1 hébergés dans ANF est publiée dans [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solution économique avec le stockage Premium Azure
+Jusqu’à présent, la solution de stockage premium Azure décrite dans ce document à la section [Solutions avec stockage Premium et Accélérateur d’écriture Azure pour les machines virtuelles Azure de la série M](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) était destinée aux scénarios de production SAP HANA pris en charge. Les configurations de production prises en charge ont pour caractéristique de séparer les volumes pour les données SAP HANA et de rétablir le journal en deux volumes différents. Une telle séparation est due au fait que les caractéristiques des charges de travail sont différentes sur les volumes. Et qu’avec les configurations de production proposées, des types de mise en cache différents ou même des types de stockage bloc Azure pourraient être nécessaires. Les configurations prises en charge pour la production utilisant la cible de stockage de bloc Azure doivent également conformes au [contrat SLA de machine virtuelle unique pour les Machines virtuelles Microsoft Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  Pour les scénarios hors production, certaines des considérations valables pour les systèmes de production peuvent ne pas s’appliquer à des systèmes hors production de bas de gamme. Par conséquent, les données HANA et le volume du fichier journal peuvent être combinés. Bien qu’une telle approche puisse révéler des comportements non conformes, comme le non-respect de certains KPI de débit ou de latence qui sont nécessaires aux systèmes de production. Le [Stockage SSD Standard Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage) peut constituer un autre moyen de réduire les coûts dans de tels environnements. Bien qu’il s’agisse d’un choix qui invalide le [contrat SLA de machine virtuelle unique pour les Machines virtuelles Microsoft Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Une alternative moins coûteuse pour ces configurations peut ressembler à ceci :
+
+
+| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data et /hana/log<br /> agrégés avec LVM ou MDADM | /hana/shared | /root volume | /usr/sap | comments |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 Gio | 768 Mo/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| E16v3 | 128 Go | 384 Mo/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Type de machine virtuelle non certifié HANA <br /> N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| M32ts | 192 Gio | 500 Mo/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 5 000<sup>2</sup> |
+| E20ds_v4 | 160 Gio | 480 Mo/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| E32v3 | 256 Gio | 768 Mo/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Type de machine virtuelle non certifié HANA <br /> N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| E32ds_v4 | 256 Gio | 768 Mbits/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| M32ls | 256 Gio | 500 Mo/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 5 000<sup>2</sup> |
+| E48ds_v4 | 384 Gio | 1 152 Mo/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| E64v3 | 432 Gio | 1 200 Mo/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| E64ds_v4 | 504 Gio | 1 200 Mo/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
+| M64ls | 512 Go | 1 000 Mo/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M64s | 1 000 Gio | 1 000 Mo/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M64ms | 1 750 Gio | 1 000 Mo/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M128s | 2 000 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M208s_v2 | 2 850 Gio | 1 000 Mo/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M128ms | 3,800 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M416s_v2 | 5 700 Gio | 2 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+
+
+<sup>1</sup> [Accélérateur d’écriture Azure](../../linux/how-to-enable-write-accelerator.md) ne peut pas être utilisé avec les familles de machines virtuelles Ev4 et Ev4 VM. En raison de l’utilisation du stockage Premium Azure, la latence des E/S ne sera pas inférieure à 1 ms
+
+<sup>2</sup> La famille de machines virtuelles prend en charge [Accélérateur d’écriture Azure](../../linux/how-to-enable-write-accelerator.md), mais il est possible que la limite d’IOPS d’Accélérateur d’écriture ait un impact sur les capacités d’IOPS des configurations de disque
+
+Dans le cas de la combinaison du volume de données et du volume de journaux pour SAP HANA, les disques qui créent le volume agrégé par bandes ne doivent pas disposer d’un cache de lecture ou d’un cache en lecture/écriture activé.
+
+Certains types de machines virtuelles répertoriés ne sont pas certifiés par SAP et ne figurent donc pas dans le [répertoire du matériel certifié SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Selon les commentaires des clients, ces types de machine virtuelle non répertoriés étaient utilisés avec succès pour certaines tâches hors production.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

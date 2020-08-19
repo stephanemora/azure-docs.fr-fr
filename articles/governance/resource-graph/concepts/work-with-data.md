@@ -1,14 +1,14 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 03/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681070"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056404"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -63,8 +63,8 @@ Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-previe
 
 ## <a name="paging-results"></a>Résultats de pagination
 
-S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
-La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisateur de l’existence d’enregistrements supplémentaires non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
+S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)
+**QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**. La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisateur de l’existence d’enregistrements supplémentaires non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
 
  **resultTruncated** a pour valeur **true** quand la pagination est désactivée ou qu’elle est impossible en raison de l’absence de colonne `id` ou de l’insuffisance de ressources pour l’exécution d’une requête. Quand la valeur **resultTruncated** est **true**, la propriété **$skipToken** n’est pas définie.
 

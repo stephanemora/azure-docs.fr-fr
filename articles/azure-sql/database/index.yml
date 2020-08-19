@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 05/27/2020
-  ms.openlocfilehash: 79c834ba1b4e120595f032517835aa3d119088d9
-  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+  ms.openlocfilehash: 65ab57b6036ec8a1dd6c47560a37c5e687601ad1
+  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/12/2020
-  ms.locfileid: "88135978"
+  ms.lasthandoff: 08/19/2020
+  ms.locfileid: "88587240"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -27,6 +27,10 @@ landingContent:
       url: single-database-create-quickstart.md
     - text: Configurer le pare-feu
       url: firewall-create-server-level-portal-quickstart.md
+  - linkListType: video
+    links:
+    - text: Vue d’ensemble d’Azure SQL Database
+      url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
   - linkListType: concept
     links:
     - text: Nouveautés
@@ -93,12 +97,22 @@ landingContent:
       url: elastic-pool-scale.md
     - text: Gestion des ressources
       url: elastic-pool-resource-management.md
-- title: Informations de référence
+- title: Découvrir Azure SQL
   linkLists:
   - linkListType: learn
     links:
+    - text: Azure SQL pour les débutants
+      url: https://aka.ms/azuresql4beginners
+    - text: Fondamentaux Azure SQL
+      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+    - text: Ateliers pratiques Azure SQL
+      url: https://aka.ms/asqlworkshop
+    - text: Bootcamp Azure SQL
+      url: https://aka.ms/azuresqlbootcamp
     - text: Ressources SQL éducatives
       url: /sql/sql-server/educational-sql-resources
+- title: Informations de référence
+  linkLists:
   - linkListType: deploy
     links:
     - text: Exemples d’interface de ligne de commande Azure

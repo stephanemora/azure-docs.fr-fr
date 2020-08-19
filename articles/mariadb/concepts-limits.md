@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: fc5557c1b20d87d2f96559e1d41efa4576045f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392775"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032677"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -42,6 +42,7 @@ Lors du déploiement initial, un serveur Azure pour MariaDB contient des tables 
 - Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
 - Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
 - DEFINER : requiert des privilèges de superutilisateur pour créer et est limité. Si vous importez des données à l'aide d'une sauvegarde, supprimez les commandes `CREATE DEFINER` manuellement ou à l'aide de la commande `--skip-definer` lors de l'exécution de mysqldump.
+- Bases de données système : Dans Azure Database for MariaDB, la [base de données système mysql](https://mariadb.com/kb/en/the-mysql-database-tables/) est en lecture seule, car elle est utilisée pour prendre en charge diverses fonctionnalités du service PaaS. Notez que vous ne pouvez rien changer dans la base de données système `mysql`.
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 

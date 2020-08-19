@@ -1,6 +1,6 @@
 ---
 title: Concevoir des tables scalables et performantes dans le stockage Table Azure. | Microsoft Docs
-description: Concevoir des tables scalables et performantes dans le stockage Table Azure.
+description: Découvrez comment concevoir des tables scalables et performantes dans le stockage Table Azure. Examinez les partitions de table, les transactions de groupe d’entités et les considérations relatives à la capacité et au coût.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656909"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824407"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Conception de tables extensibles et performantes
 
@@ -50,7 +50,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -70,7 +70,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Juin</td>
@@ -107,7 +107,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>Email</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -137,7 +137,7 @@ Pour plus d’informations sur les détails internes du service de Table et nota
 ## <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le service de Table, les transactions de groupe d'entités (EGT) constituent l'unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les EGT sont également parfois appelées *transactions par lots*. Les EGT peuvent uniquement fonctionner sur des entités stockées dans la même partition (autrement dit, elles partagent la même clé de partition dans une table donnée). Par conséquent, chaque fois que vous avez besoin d’un comportement transactionnel atomique sur plusieurs entités, vous devez vérifier que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d'entité dans la même table (et partition) au lieu de l'utilisation de plusieurs tables pour différents types d'entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, vérifiez bien que ces EGT ne fonctionnent pas sur des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.
 
-Les EGT représentent également un éventuel compromis à prendre en compte dans votre conception. Autrement dit, l’utilisation de plusieurs partitions augmente la scalabilité de votre application, car Azure a plus d’occasions d’équilibrer la charge des requêtes sur les nœuds. Toutefois, l’utilisation de plusieurs partitions peut limiter la capacité de votre application à effectuer des transactions atomiques et à assurer une cohérence forte pour vos données. Par ailleurs, il s’agit d’objectifs de scalabilité spécifiques au niveau d’une partition qui peuvent limiter le débit de transactions attendu pour un nœud unique. Pour plus d’informations sur les objectifs d’extensibilité pour les comptes de stockage Azure standard, voir [objectifs d’extensibilité pour les comptes de stockage standard](../common/scalability-targets-standard-account.md). Pour plus d’informations sur les objectifs d’extensibilité pour le stockage Table, voir [Objectifs d’extensibilité et de performances pour le stockage Table](scalability-targets.md).
+Les EGT représentent également un éventuel compromis à prendre en compte dans votre conception. Autrement dit, l’utilisation de plusieurs partitions augmente la scalabilité de votre application, car Azure a plus d’occasions d’équilibrer la charge des requêtes sur les nœuds. Toutefois, l’utilisation de plusieurs partitions peut limiter la capacité de votre application à effectuer des transactions atomiques et à assurer une cohérence forte pour vos données. Par ailleurs, il s’agit d’objectifs de scalabilité spécifiques au niveau d’une partition qui peuvent limiter le débit de transactions attendu pour un nœud unique. Pour plus d’informations sur les objectifs d’extensibilité pour les comptes de stockage Azure standard, voir [objectifs d’extensibilité pour les comptes de stockage standard](../common/scalability-targets-standard-account.md). Pour plus d’informations sur les objectifs de scalabilité concernant le service de Table, consultez [Objectifs de scalabilité et de performances pour le stockage de tables](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 

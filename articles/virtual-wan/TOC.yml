@@ -136,6 +136,10 @@
       items:
         - name: Métriques et journaux d’activité
           href: logs-metrics.md
+    - name: Liaison privée
+      items:
+        - name: Configurer une connectivité de liaison privée
+          href: howto-private-link.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

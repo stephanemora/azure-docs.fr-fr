@@ -1,6 +1,6 @@
 ---
 title: Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage | Microsoft Docs
-description: Gérer les conteneurs d’objets blob et les objets blob Azure avec l’Explorateur Stockage
+description: Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage. Créer un conteneur d’objets BLOB, afficher le contenu d’un conteneur d’objets BLOB, supprimer ou copier un conteneur d’objets BLOB, et bien plus encore.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298121"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033612"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage
 
@@ -28,7 +28,7 @@ ms.locfileid: "85298121"
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS.
 Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications. Dans cet article, vous apprenez à vous servir de l’Explorateur Stockage pour utiliser des conteneurs d’objets blob et des objets blob.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 

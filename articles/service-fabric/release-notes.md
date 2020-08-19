@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 118e83016a0c27383a1f138d27397a01f7cd3916
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246620"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826277"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -51,9 +51,9 @@ Nous sommes ravis d’annoncer la prochaine version de Service Fabric. Cette ver
 ### <a name="improve-application-life-cycle-experience"></a>Améliorer l’expérience de cycle de vie des applications
 
 - **[Préversion : demande de vidage](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : Pendant la maintenance planifiée du service, comme les mises à niveau du service ou la désactivation du nœud, vous souhaitez autoriser les services à purger correctement les connexions. Cette fonctionnalité ajoute une durée de délai de fermeture de l’instance dans la configuration du service. Pendant les opérations planifiées, SF supprime l’adresse du service de la découverte, puis attend pendant cette durée avant d’arrêter le service.
-- **[Détection et équilibrage automatiques du sous-cluster](/azure/service-fabric/cluster-resource-manager-subclustering )** : Le sous-clustering se produit quand des services avec des contraintes de placement différentes ont une [métrique de charge](./service-fabric-cluster-resource-manager-metrics.md) commune. Si la charge sur les différents jeux de nœuds diffère considérablement, le Gestionnaire des ressources clusters Service Fabric estime que le cluster est déséquilibré, même s’il a le meilleur équilibre possible en raison des contraintes de placement. Par conséquent, il tente de rééquilibrer le cluster, ce qui peut entraîner des mouvements de service inutiles (puisque le « déséquilibre » ne peut pas être réellement amélioré). À partir de cette version, le Gestionnaire des ressources clusters tentera à présent de détecter automatiquement ces types de configurations et de comprendre quand le déséquilibre peut être résolu par le biais du mouvement et quand, au contraire, il ne doit toucher à rien, car aucune amélioration substantielle ne peut être apportée.  
+- **[Détection et équilibrage automatiques du sous-cluster](./cluster-resource-manager-subclustering.md)** : Le sous-clustering se produit quand des services avec des contraintes de placement différentes ont une [métrique de charge](./service-fabric-cluster-resource-manager-metrics.md) commune. Si la charge sur les différents jeux de nœuds diffère considérablement, le Gestionnaire des ressources clusters Service Fabric estime que le cluster est déséquilibré, même s’il a le meilleur équilibre possible en raison des contraintes de placement. Par conséquent, il tente de rééquilibrer le cluster, ce qui peut entraîner des mouvements de service inutiles (puisque le « déséquilibre » ne peut pas être réellement amélioré). À partir de cette version, le Gestionnaire des ressources clusters tentera à présent de détecter automatiquement ces types de configurations et de comprendre quand le déséquilibre peut être résolu par le biais du mouvement et quand, au contraire, il ne doit toucher à rien, car aucune amélioration substantielle ne peut être apportée.  
 - [**Coût de déplacement différent pour les réplicas secondaires**](./service-fabric-cluster-resource-manager-movement-cost.md) : Nous avons introduit une nouvelle valeur de coût (VeryHigh) de déplacement qui offre une plus grande flexibilité dans certains scénarios pour définir si un coût de déplacement distinct doit être utilisé pour les réplicas secondaires.
-- Mécanisme [**Probe Liveness**](/azure/service-fabric/probes-codepackage ) activé pour les applications en conteneur. Le diagnostic Probe Liveness vous aide à annoncer l’activité de l’application en conteneur et lorsqu’il ne répond pas dans les délais, cela entraîne un redémarrage.
+- Mécanisme [**Probe Liveness**](./probes-codepackage.md) activé pour les applications en conteneur. Le diagnostic Probe Liveness vous aide à annoncer l’activité de l’application en conteneur et lorsqu’il ne répond pas dans les délais, cela entraîne un redémarrage.
 - [**Exécuter jusqu’à achèvement/une fois pour les services**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Améliorations du Magasin d’images
@@ -72,6 +72,8 @@ Nous sommes ravis d’annoncer la prochaine version de Service Fabric. Cette ver
 | Date de publication | Libérer | En savoir plus |
 |---|---|---|
 | 20 avril 2020 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Notes de publication](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
+| 16 juin 2020 | [Microsoft Azure Service Fabric 7.1 First Refresh](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
+| 20 juillet 2020 | [Microsoft Azure Service Fabric 7.1 Second Refresh](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
 
 
 ### <a name="service-fabric-70"></a>Service Fabric 7.0

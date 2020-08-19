@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505174"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135434"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -41,34 +41,24 @@ La vidéo suivante vous guide dans l’acheminement des journaux de plateforme a
 
 
 ## <a name="destinations"></a>Destinations
-
-Il est possible d’envoyer des journaux et métriques de plateforme aux destinations indiquées dans le tableau suivant. Pour plus d’informations sur l’envoi de données à une destination, suivez le lien correspondant dans le tableau suivant.
+Il est possible d’envoyer des journaux et métriques de plateforme aux destinations indiquées dans le tableau suivant. 
 
 | Destination | Description |
 |:---|:---|
-| [Espace de travail Log Analytics](#log-analytics-workspace) | L’envoi de journaux et de métriques vers un espace de travail Log Analytics vous permet de les analyser avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. |
-| [Event Hubs](#event-hub) | L’envoi de journaux et de métriques à Event Hubs vous permet de transmettre en continu des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité. |
-| [Compte Azure Storage](#azure-storage) | L’archivage des journaux et des métriques dans un compte de stockage Azure est utile à des fins d’audit, d’analyse statique ou de sauvegarde. Par rapport aux journaux d’activité Azure Monitor et à l’espace de travail Log Analytics, le stockage Azure est moins onéreux et les journaux peuvent y être conservés indéfiniment. |
+| [Espace de travail Log Analytics](design-logs-deployment.md) | L’envoi de journaux et de métriques vers un espace de travail Log Analytics vous permet de les analyser avec d’autres données de supervision collectées par Azure Monitor à l’aide de requêtes de journal puissantes, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. |
+| [Event Hubs](/azure/event-hubs/) | L’envoi de journaux et de métriques à Event Hubs vous permet de transmettre en continu des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité.  |
+| [Compte Azure Storage](/azure/storage/blobs/) | L’archivage des journaux et des métriques dans un compte de stockage Azure est utile à des fins d’audit, d’analyse statique ou de sauvegarde. Par rapport aux journaux d’activité Azure Monitor et à l’espace de travail Log Analytics, le stockage Azure est moins onéreux et les journaux peuvent y être conservés indéfiniment.  |
 
 
-## <a name="prerequisites"></a>Prérequis
-Les destinations du paramètre de diagnostic doivent être créées avec les autorisations nécessaires. Consultez les sections ci-dessous pour connaître les prérequis pour chaque destination.
+### <a name="destination-requirements"></a>Exigences de destination
 
-### <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
-[Créez un espace de travail](../learn/quick-create-workspace.md) si vous n’en avez pas déjà un. Cet espace de travail ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+Les destinations du paramètre de diagnostic doivent être créées avant les paramètres de diagnostic. Cette destination ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements. Le tableau suivant fournit des exigences uniques pour chaque destination, y compris des restrictions régionales.
 
-### <a name="event-hub"></a>Event Hub
-[Créez un hub d’événements](../../event-hubs/event-hubs-create.md) si vous n’en avez pas déjà un. Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que l’abonnement qui génère des journaux d’activité, à condition que l’utilisateur configurant le paramètre dispose d’un accès RBAC aux deux abonnements, et que ces derniers se trouvent dans le même locataire AAD.
-
-La stratégie d’accès partagé pour l’espace de noms définit les autorisations dont dispose le mécanisme de diffusion en continu. La diffusion en continu vers Event Hubs requiert des autorisations de gestion, d’envoi et d’écoute. Vous pouvez créer ou modifier les stratégies d’accès partagé dans le Portail Microsoft Azure sous l’onglet Configurer pour votre espace de noms Event Hubs. Pour mettre à jour le paramètre de diagnostic afin d’inclure la diffusion en continu, vous devez disposer de l’autorisation ListKey sur la règle d’autorisation Event Hubs. 
-
-
-### <a name="azure-storage"></a>Stockage Azure
-[Créez un compte de stockage Azure](../../storage/common/storage-account-create.md) si vous n’en avez pas déjà un. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
-
-Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données. Si vous archivez également des journaux de diagnostic et des journaux de ressources ensemble, vous pouvez choisir d’utiliser le même compte de stockage pour regrouper toutes vos données d’analyse au même emplacement.
-
-Pour envoyer les données dans l'espace de stockage immuable, définissez la stratégie d'immuabilité du compte de stockage, comme décrit dans [Définir et gérer des stratégies d’immuabilité pour le stockage d'objets blob](../../storage/blobs/storage-blob-immutability-policies-manage.md). Vous devez suivre toutes les étapes décrites dans cet article, y compris l’activation des écritures protégées d'objets blob d'ajout.
+| Destination | Spécifications |
+|:---|:---|
+| Espace de travail Log Analytics | Il n’est pas obligatoire que l’espace de travail réside dans la même région que la ressource supervisée.|
+| Hubs d'événements | La stratégie d’accès partagé pour l’espace de noms définit les autorisations dont dispose le mécanisme de diffusion en continu. La diffusion en continu vers Event Hubs requiert des autorisations de gestion, d’envoi et d’écoute. Pour mettre à jour le paramètre de diagnostic afin d’inclure la diffusion en continu, vous devez disposer de l’autorisation ListKey sur la règle d’autorisation Event Hubs.<br><br>L’espace de noms Event Hub doit se trouver dans la même région que la ressource supervisée si la ressource est régionale. |
+| Compte Azure Storage | Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données. Si vous archivez également des journaux de diagnostic et des journaux de ressources ensemble, vous pouvez choisir d’utiliser le même compte de stockage pour regrouper toutes vos données d’analyse au même emplacement.<br><br>Pour envoyer les données dans l'espace de stockage immuable, définissez la stratégie d'immuabilité du compte de stockage, comme décrit dans [Définir et gérer des stratégies d’immuabilité pour le stockage d'objets blob](../../storage/blobs/storage-blob-immutability-policies-manage.md). Vous devez suivre toutes les étapes décrites dans cet article, y compris l’activation des écritures protégées d'objets blob d'ajout.<br><br>Le compte de stockage doit se trouver dans la même région que la ressource supervisée si la ressource est régionale. |
 
 > [!NOTE]
 > Actuellement, les comptes ADLS Gen2 ne sont pas pris en charge en tant que destination pour les paramètres de diagnostic, même s’ils peuvent être répertoriés comme une option valide dans le portail Azure.
@@ -182,7 +172,7 @@ Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnost
 Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](/rest/api/monitor/), voir [Paramètres de diagnostic](/rest/api/monitor/diagnosticsettings).
 
 ## <a name="create-using-azure-policy"></a>Créer à l’aide d’Azure Policy
-Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Pour plus d’informations, consultez [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](deploy-scale.md).
+Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Pour plus d’informations, consultez [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

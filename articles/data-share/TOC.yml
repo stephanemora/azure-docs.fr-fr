@@ -6,6 +6,11 @@
       href: overview.md
     - name: Magasins de données pris en charge
       href: supported-data-stores.md
+- name: Démarrages rapides
+  items:
+    - name: Créer un partage de données - Modèle ARM
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Tutoriels
   expanded: true
   items:
