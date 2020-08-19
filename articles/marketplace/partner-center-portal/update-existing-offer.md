@@ -1,24 +1,24 @@
 ---
-title: Mettre à jour une offre de Place de marché commerciale existante
-description: Comment mettre à jour une offre de Place de marché commerciale existante, notamment la modification, la suppression d’un brouillon, l’annulation d’une demande de publication, l’arrêt de la vente d’une offre ou d’un plan et la synchronisation des audiences privées.
+title: Mettre à jour une offre de place de marché commerciale existante
+description: Comment mettre à jour une offre de place de marché commerciale existante, notamment la modification, la suppression d’un brouillon, l’annulation d’une demande de publication, l’arrêt de la vente d’une offre ou d’un plan et la synchronisation des audiences privées.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086334"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056140"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la Place de marché commerciale existante
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la place de marché commerciale
 
 Vous pouvez afficher vos offres existantes dans l’onglet **Vue d’ensemble** du [portail de la Place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans l’Espace partenaires.
 
-Pour mettre à jour une offre existante actuellement en direct dans la Place de marché :
+Pour mettre à jour une offre existante actuellement en direct dans la place de marché commerciale  :
 
 1. Sélectionnez le nom de l’offre à mettre à jour. L’état de l’offre peut être répertorié comme suit : **Préversion**, **Activée**, **Publication en cours**, **Brouillon**, **Attention requise** ou **Non disponible** (si vous avez précédemment choisi d’arrêter de vendre l’offre). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
 2. Sélectionnez **Mettre à jour** pour la zone que vous souhaitez mettre à jour dans la carte sur la page de présentation de l’offre ou dans l’élément de menu dans le volet de navigation gauche. Vous souhaitez peut-être mettre à jour la **Configuration de l’offre**, **Propriétés**, **Liste de l’offre**, **Préversion**, **Configuration technique**, **Vue d’ensemble du plan** ou **Test drive**.
@@ -43,7 +43,7 @@ Pour ajouter un plan à une offre existante que vous avez déjà publiée :
 
 1. Avec la page **Vue d’ensemble de l’offre** pour votre offre existante ouverte, allez à la page **Vue d’ensemble du plan** et sélectionnez **Créer un nouveau plan**.
 1. Créez un nouveau plan en suivant les [instructions](./create-new-saas-offer.md#plan-overview) à l’aide du**modèle de tarification des plans existant**.
-1. Sélectionnez**Enregistrer le brouillon** après avoir changer le nom du plan. 
+1. Sélectionnez**Enregistrer le brouillon** après avoir changer le nom du plan.
 1. Sélectionnez **Publier** une fois que vous êtes prêt à publier vos mises à jour. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Mettre à jour un plan au sein d’une offre existante
@@ -56,7 +56,25 @@ Pour apporter des modifications à un plan au sein d’une offre existante que v
 1. Si vous êtes prêt à publier vos mises à jour, sélectionnez **Passer en revue et publier**. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
 1. Envoyez le plan mis à jour pour publication en sélectionnant **Publier**. Nous vous enverrons un e-mail quand une préversion de l’offre mise à jour sera disponible pour examen et approbation.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Comparer les modifications apportées aux offres de la Place de marché
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Offrir un plan d’ordinateur virtuel à un nouveau prix
+
+Après la publication d’un plan d’ordinateur virtuel, son prix ne peut pas être modifié. Pour offrir le même plan à un prix différent, vous devez masquer celui-ci et en créer un nouveau avec le tarif mis à jour. Tout d’abord, masquez le plan avec le prix que vous souhaitez modifier :
+
+1. Avec la page **Vue d’ensemble de l’offre** ouverte pour votre offre existante, choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible à partir de la liste **Vue d’ensemble du plan**, sélectionnez **Voir tous les plans**.
+1. Activez la case à cocher **Masquer le plan**. Enregistrez le brouillon avant de continuer.
+
+Maintenant que vous avez masqué le plan avec l’ancien prix, créez une copie de ce plan avec le tarif mis à jour :
+
+1. Dans l’Espace partenaires, revenez à **Vue d’ensemble du plan**.
+2. Sélectionnez **Créer un plan**. Entrez un **ID de plan** et un **Nom de plan**, puis sélectionnez **Créer**.
+1. Pour réutiliser la configuration technique du plan que vous avez masqué, activez la case à cocher **Réutiliser la configuration technique**. Pour en savoir plus, consultez [Vue d’ensemble du plan](azure-vm-create-offer.md#plan-overview).
+    > [!IMPORTANT]
+    > Si vous sélectionnez **Ce plan réutilise la configuration technique d’un autre plan**, vous ne pourrez pas arrêter la vente du plan parent ultérieurement. N’utilisez pas cette option si vous souhaitez arrêter la vente du plan parent.
+3. Renseignez toutes les sections requises pour le nouveau plan, y compris le nouveau prix.
+1. Sélectionnez **Enregistrer le brouillon**.
+1. Une fois que vous avez terminé toutes les sections requises pour le nouveau plan, sélectionnez **Vérifier et publier**. Cela permet d’envoyer votre offre à des fins de révision et de publication. Lisez [Consulter et publier une offre sur la place de marché commerciale](../review-publish-offer.md) pour plus d’informations.
+
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Comparer les modifications apportées aux offres de la place de marché commerciale
 
 Vous pouvez auditer les modifications apportées à une offre [publiée](#compare-changes-to-published-offer) ou [en préversion](#compare-changes-to-a-preview-offer) avant de les publier en direct en utilisant **Comparer**.
 
@@ -143,15 +161,17 @@ Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le 
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Arrêter la vente d’une offre ou d’un plan
 
+Pour différentes raisons, vous pouvez décider de supprimer votre liste d’offres de la place de marché commerciale Microsoft. La suppression de l’offre permet de s’assurer que les nouveaux clients ne puissent plus acheter ou déployer votre offre, mais elle n’a aucun impact sur les clients existants.
+
 Pour arrêter la vente d’une offre après sa publication, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble de l’offre**.
 
-Quelques heures après que vous aurez confirmé que vous souhaitez arrêter de vendre l’offre, elle ne sera plus visible dans le marketplace, et les nouveaux clients ne pourront pas la télécharger.
+Quelques heures après que vous aurez confirmé que vous souhaitez arrêter de vendre l’offre, elle ne sera plus visible dans la place de marché commerciale, et les nouveaux clients ne pourront pas la télécharger.
 
-Pour arrêter de vendre un plan, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble du plan**. L’option d’arrêt d’un plan est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir d’arrêter la vente d’un seul plan sans influer sur les autres plans au sein de votre offre. Une fois que vous avez confirmé vouloir arrêter la vente du plan, vous devez republier l’offre pour que la modification prenne effet. Une fois l’offre republiée, le plan n’est plus visible dans le marketplace, et aucun nouveau client ne peut le télécharger.
+Pour arrêter de vendre un plan, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble du plan**. L’option d’arrêt d’un plan est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir d’arrêter la vente d’un seul plan sans influer sur les autres plans au sein de votre offre. Une fois que vous avez confirmé vouloir arrêter la vente du plan, vous devez republier l’offre pour que la modification prenne effet. Une fois l’offre republiée, le plan n’est plus visible dans la place de marché commerciale, et aucun nouveau client ne peut le télécharger.
 
 Les clients ayant déjà acquis l’offre ou le plan peuvent continuer à les utiliser. Ils peuvent les télécharger à nouveau, mais ne recevront pas de mises à jour si vous mettez à jour et publiez à nouveau l’offre ou le plan ultérieurement.
 
-Une fois votre demande d’arrêt de la vente de l’offre/du plan effectuée, vous continuez à les voir dans le portail du marketplace commercial sur Espace partenaires avec l’état **Non disponible**.
+Une fois votre demande d’arrêt de la vente de l’offre/du plan effectuée, vous continuez à les voir dans le portail de la place de marché commerciale sur Espace partenaires avec l’état **Non disponible**.
 
 Si vous décidez de répertorier ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre existante](#update-an-existing-offer-in-the-commercial-marketplace). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
 
@@ -172,4 +192,4 @@ Pour mettre à jour et synchroniser l’audience privée pour votre ou vos plans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vérifier l’état de publication de votre offre de Place de marché commerciale](./publishing-status.md)
+- [Vérifier l’état de publication de votre offre de place de marché commerciale](./publishing-status.md)

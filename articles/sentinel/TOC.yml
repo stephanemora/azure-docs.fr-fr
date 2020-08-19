@@ -58,10 +58,10 @@
               href: connect-azure-security-center.md
             - name: Azure Security Center pour IoT
               href: connect-asc-iot.md
+            - name: Pare-feu d’applications web (WAF) Azure
+              href: connect-azure-waf.md
             - name: Serveur de noms de domaine
               href: connect-dns.md
-            - name: Pare-feu d’applications web (WAF) d’Azure
-              href: connect-azure-waf.md
             - name: Pare-feu Windows
               href: connect-windows-firewall.md
             - name: Événements de sécurité Windows

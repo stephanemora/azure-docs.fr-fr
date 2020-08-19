@@ -1,30 +1,30 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 05/26/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133465"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167315"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
 Cet article explique comment, en tant que fournisseur de services, vous pouvez intégrer un client à Azure Lighthouse. Les ressources déléguées du client (abonnements et/ou groupes de ressources) sont alors accessibles et gérables via votre propre locataire Azure Active Directory (Azure AD) en utilisant la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
 
-Vous pouvez répéter ce processus si vous gérez des ressources pour plusieurs clients. Ensuite, lorsqu'un utilisateur autorisé se connecte à votre locataire, il peut être autorisé à accéder aux étendues de location du client pour effectuer des opérations de gestion sans avoir à se connecter individuellement à chaque locataire du client.
-
-Pour suivre votre impact sur les engagements client et recevoir une reconnaissance, associez votre ID Microsoft Partner Network (MPN) à au moins un compte d’utilisateur qui a accès à tous vos abonnements intégrés. Notez que vous devez effectuer cette association dans le locataire de votre fournisseur de services. Par souci de simplicité, nous vous recommandons de créer un compte de principal du service dans votre locataire qui est associé à votre ID MPN et de lui accorder un accès Lecteur pour chaque client que vous intégrez. Pour plus d’informations, consultez [Lier un ID partenaire à vos comptes Azure](../../cost-management-billing/manage/link-partner-id.md). 
-
-> [!NOTE]
-> Les clients peuvent également être intégrés à Azure Lighthouse lorsqu'ils achètent une offre de services gérés (publics ou privés) que vous avez publiée sur la Place de marché Azure. Pour plus d’informations, voir [Publier des offres de services managés sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée sur la Place de marché Azure.
-
-Le processus d’intégration requiert d’exécuter des actions tant dans le locataire du fournisseur de services que dans le locataire du client. Toutes ces étapes sont décrites dans cet article.
-
 > [!TIP]
 > Même si nous faisons ici référence aux fournisseurs de services et aux clients, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour configurer Azure Lighthouse et consolider leur expérience de gestion.
+
+Vous pouvez répéter le processus d’intégration pour plusieurs clients. Lorsqu'un utilisateur disposant des autorisations appropriées se connecte à votre locataire gérant, il peut être autorisé à accéder aux étendues de location du client pour effectuer des opérations de gestion sans avoir à se connecter individuellement à chaque locataire du client.
+
+Pour suivre votre impact sur les engagements client et recevoir une reconnaissance, associez votre ID Microsoft Partner Network (MPN) à au moins un compte d’utilisateur qui a accès à tous vos abonnements intégrés. Vous devez effectuer cette association dans le locataire de votre fournisseur de services. Par souci de simplicité, nous vous recommandons de créer un compte de principal du service dans votre locataire qui est associé à votre ID MPN et de lui accorder un accès Lecteur pour chaque client que vous intégrez. Pour plus d’informations, consultez [Lier un ID partenaire à vos comptes Azure](../../cost-management-billing/manage/link-partner-id.md).
+
+> [!NOTE]
+> Les clients peuvent également être intégrés à Azure Lighthouse lorsqu'ils achètent une offre de service géré (public ou privé) que vous [publiez sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée sur la Place de marché Azure.
+
+Le processus d’intégration requiert d’exécuter des actions tant dans le locataire du fournisseur de services que dans le locataire du client. Toutes ces étapes sont décrites dans cet article.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Collecter les détails du locataire et de l’abonnement
 
@@ -65,9 +65,11 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Définir des rôles et des autorisations
 
-En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d’autorisations que nécessaire pour affecter des [rôles intégrés RBAC (contrôle d’accès basé sur un rôle](../../role-based-access-control/built-in-roles.md) aux utilisateurs de votre locataire.
+En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d’autorisations que nécessaire pour affecter les [rôles intégrés RBAC (contrôle d’accès basé sur un rôle)](../../role-based-access-control/built-in-roles.md) appropriés aux utilisateurs de votre locataire.
 
-Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle, ce qui vous permet d’ajouter ou de supprimer des utilisateurs dans le groupe au lieu d’attribuer directement des autorisations aux utilisateurs. Vous pouvez également attribuer des rôles à un principal de service. Veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour plus de recommandations et d’informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
+Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle. Cela vous donne la possibilité d’ajouter ou de supprimer des utilisateurs individuels dans le groupe qui a accès, afin de ne pas avoir à répéter le processus d’intégration pour apporter des modifications à l’utilisateur. Vous pouvez assigner des rôles à un principal de service, ce qui peut être utile pour les scénarios d’automatisation.
+
+Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour des consignes et des informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
 > Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -86,7 +88,7 @@ Pour définir des autorisations, vous devez connaître les valeurs d’ID pour c
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
@@ -109,12 +111,13 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > Nous vous recommandons d’attribuer le [rôle de suppression de l’affectation d’inscription des services managés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client, afin que les utilisateurs de votre locataire puissent [supprimer l’accès à la délégation](remove-delegation.md) ultérieurement si nécessaire. Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
-Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](../../azure-resource-manager/index.yml) pour votre offre et y inclure les éléments suivants : Le client pourra voir les valeurs **mspOfferName** et **mspOfferDescription** quand il consultera les détails de l’offre dans la page [Fournisseurs de services](view-manage-service-providers.md) du Portail Azure.
+Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](../../azure-resource-manager/index.yml) pour votre offre et y inclure les éléments suivants : Le client pourra voir les valeurs **mspOfferName** et **mspOfferDescription** dans la [page Fournisseurs de services](view-manage-service-providers.md) du Portail Azure.
 
 |Champ  |Définition  |
 |---------|---------|
@@ -196,9 +199,7 @@ La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** a
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Déployer les modèles Azure Resource Manager
 
-Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur dans le locataire du client doit déployer le modèle Azure Resource Manager dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
-
-Comme il s’agit d’un déploiement au niveau de l’abonnement, il ne peut pas être lancé dans le Portail Azure. Le déploiement peut être effectué à l’aide de PowerShell ou d’Azure CLI, comme indiqué ci-dessous.
+Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur dans le locataire du client doit déployer le modèle Azure Resource Manager dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer). Le déploiement peut être effectué à l’aide de PowerShell ou d’Azure CLI, comme indiqué ci-dessous.
 
 > [!IMPORTANT]
 > Ce déploiement au niveau de l’abonnement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
