@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c73e09e241baff7c4719acfd4257f537e27b010a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290157"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236185"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutoriel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="prerequisites"></a>Prérequis
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
@@ -237,7 +237,7 @@ Pour supprimer le groupe de ressources :
 1. Dans le menu de gauche du portail Azure, sélectionnez **Groupes de ressources**.
 2. Dans la page **Groupes de ressources**, recherchez **myResourceGroupAG** dans la liste, puis sélectionnez ce groupe de ressources.
 3. Dans la page **Groupe de ressources**, sélectionnez **Supprimer le groupe de ressources**.
-4. Entrez *myResourceGroupAG* dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
+4. Entrez *myResourceGroupAG* dans **TYPE THE RESOURCE GROUP NAME**, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

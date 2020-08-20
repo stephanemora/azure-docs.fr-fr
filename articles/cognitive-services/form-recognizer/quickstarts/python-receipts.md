@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 329b8d4dfaa7fb2d30757be0519eebba24cf38a8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: a863d8ccc157272ab736201615fb079eaf7f5dbc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876833"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522825"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire des données de reçu à l’aide de l’API REST Form Recognizer avec Python
 
 Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recognizer avec Python pour extraire et identifier des informations pertinentes de reçus aux États-Unis.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 

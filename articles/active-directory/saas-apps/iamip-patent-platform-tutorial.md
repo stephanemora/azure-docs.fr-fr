@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à IamIP Patent Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IamIP Patent Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8d5b4fc1-e8fd-4418-a369-189272fef80d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a2139b7a0f7d51b6c759a98c93c5250666f15a9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190736"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525137"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à IamIP Patent Platform
 
@@ -121,7 +117,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé B.Simon dans
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans la zone **Nom**, entrez **B.Simon**.  
-   1. Dans la zone **Nom d’utilisateur**, entrez \<nom_utilisateur>@\<domaine_de_société>.\<extension>. Par exemple : `B.Simon@contoso.com`.
+   1. Dans la zone **Nom d’utilisateur**, entrez \<username>@\<companydomain>.\<extension>. Par exemple : `B.Simon@contoso.com`.
    1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
    1. Sélectionnez **Create** (Créer).
 
