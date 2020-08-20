@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix NetScaler (authentification par en-tête) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique (SSO) entre Azure Active Directory et Citrix NetScaler à l’aide d’une authentification par en-tête.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b0adc7bf-696d-44c9-a57a-f9e9471b8710
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ea6824975d0cb3f4b909db41188c490bbba6d2
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477943"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540579"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix NetScaler (authentification par en-tête)
 
