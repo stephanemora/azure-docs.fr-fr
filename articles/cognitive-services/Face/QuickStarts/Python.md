@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 4fa0603868f1cc8bb2c879dbac7811ebbe6bf0dd
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d870372f418cb8873f6664d6a501e0abe0ebe374
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875113"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548478"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de Python
 
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azur
 
 ![Image d’un homme et d’une femme avec des rectangles tracés autour de leur visage ainsi que des informations sur leur âge et leur sexe](../images/labelled-faces-python.png)
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer. 
 
 
 ## <a name="prerequisites"></a>Prérequis

@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 954ea8d544baa2538e1b92a9f03b7a48169e7360
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 67632301b534f91c36de837bbfa12f9ec16ed58f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834437"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551350"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Démarrage rapide : Comment créer un classifieur avec Custom Vision
 
 Dans ce guide de démarrage rapide, vous découvrez comment créer un classifieur via le site web Custom Vision. Une fois que vous avez créé un modèle de classifieur, vous pouvez utiliser le service Custom Vision pour la classification d’images.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 

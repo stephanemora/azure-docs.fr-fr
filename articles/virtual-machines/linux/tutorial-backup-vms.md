@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551705"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutoriel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
 
@@ -45,7 +45,7 @@ Créez une sauvegarde quotidienne planifiée dans un coffre Recovery Services :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
-4. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
+4. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
 5. Dans **Coffre Recovery Services**, cliquez sur **Créer** et fournissez le nom du nouveau coffre. Un coffre est créé dans le même groupe de ressources et au même emplacement que la machine virtuelle.
 6. Cliquez sur **Stratégie de sauvegarde**. Pour cet exemple, conservez les valeurs par défaut et cliquez sur **OK**.
 7. Dans le panneau **Activer la sauvegarde**, cliquez sur **Activer la sauvegarde**. Cette opération crée une sauvegarde quotidienne selon la planification par défaut.

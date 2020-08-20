@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834454"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549545"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Démarrage rapide : Créer un détecteur d’objets avec Custom Vision
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment créer un détecteur d’objets par le biais du site web Custom Vision. Une fois que vous avez créé un modèle de détecteur, vous pouvez utiliser le service Custom Vision pour la détection d’objets.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 

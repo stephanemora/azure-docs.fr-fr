@@ -3,12 +3,12 @@ title: Gérer des bases de connaissances – QnA Maker
 description: QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux paramètres et au contenu de la base de connaissances.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756807"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551776"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Créer une base de connaissances et gérer les paramètres
 
@@ -17,7 +17,7 @@ QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux
 ## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
-> * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+> * Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 > * Une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) créée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
 ## <a name="create-a-knowledge-base"></a>Créer une base de connaissances

@@ -3,12 +3,12 @@ title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 06731c97217e3b6a5c498743b83f1d16bab791eb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171072"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548427"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -174,7 +174,7 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
 |Nom|Emplacement|Objectif|
 |--|--|--|
-|Clé de création|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
 |Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
 
 ### <a name="subscription-keys"></a>Clés d’abonnement
