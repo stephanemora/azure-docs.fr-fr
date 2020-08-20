@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75770949"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607105"
 ---
-# <a name="expressroute-overview"></a>Présentation d’ExpressRoute
+# <a name="what-is-azure-expressroute"></a>Qu’est-ce qu’Azure ExpressRoute ?
 ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Office 365.
 
 La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi une meilleure fiabilité, des vitesses supérieures, des latences cohérentes et une plus grande sécurité que les connexions classiques sur Internet. Pour plus d’informations sur la connexion de votre réseau à Microsoft à l’aide d’ExpressRoute, consultez [Modèles de connectivité ExpressRoute](expressroute-connectivity-models.md).

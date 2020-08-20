@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 08/19/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62c4baafdd66465502bf45fe19a111e17a9539ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 474e6c96be810192d3c4e1ada1ab2e0391a5d4f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609069"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606479"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Les identités managées pour ressources Azure fournissent automatiquement aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
+Les identités managées pour ressources Azure fournissent automatiquement aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
 
 Cet article explique comment effectuer les opérations suivantes d’identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell.
 
@@ -47,11 +47,11 @@ Dans cette section, vous allez découvrir comment activer et désactiver l’ide
 Pour créer une machine virtuelle Azure avec l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur de machine virtuelle](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
 1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »).
-    
-    Lorsque vous accédez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [New-AzVMConfig](/powershell/module/az.compute/new-azvm). Veillez à ajouter un paramètre `-AssignIdentity:$SystemAssigned` afin d’approvisionner la machine virtuelle avec l’identité affectée par le système activée, par exemple :
-      
+
+    Lorsque vous accédez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [New-AzVMConfig](/powershell/module/az.compute/new-azvm). Veillez à ajouter un paramètre `-IdentityType SystemAssigned` afin d’approvisionner la machine virtuelle avec l’identité affectée par le système activée, par exemple :
+
     ```powershell
-    $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
+    $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
@@ -69,11 +69,11 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    Connect-AzAccount
    ```
 
-2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de la cmdlet `Get-AzVM`. Ensuite, pour activer une identité managée affectée par le système, utilisez le commutateur `-AssignIdentity` avec l’applet de commande [Update-AzVM](/powershell/module/az.compute/update-azvm) :
+2. Commencez par récupérer les propriétés de la machine virtuelle à l’aide de la cmdlet `Get-AzVM`. Ensuite, pour activer une identité managée affectée par le système, utilisez le commutateur `-IdentityType` avec l’applet de commande [Update-AzVM](/powershell/module/az.compute/update-azvm) :
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
 
 
@@ -90,7 +90,7 @@ Après avoir activé l'identité attribuée par le système sur une machine virt
 
 2. Récupérez et notez le `ObjectID` (comme spécifié dans le champ `Id` des valeurs renvoyées) du principal de service de la machine virtuelle :
 
-   ```powerhshell
+   ```powershell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
@@ -120,8 +120,8 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin de l’identit�
 
 2. Récupérez les propriétés de la machine virtuelle à l’aide de l’applet de commande `Get-AzVM` et définissez le paramètre `-IdentityType` sur `UserAssigned` :
 
-   ```powershell   
-   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
+   ```powershell
+   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
    ```
 
@@ -142,14 +142,14 @@ Dans cette section, vous allez découvrir comment ajouter et supprimer une ident
 
 Pour affecter une identité managée affectée par l’utilisateur à une machine virtuelle, votre compte a besoin de l’affectation de rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) et [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
-1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »). 
-  
+1. Consultez l’un des démarrages rapides de machine virtuelle Azure suivants, en ne complétant que les sections nécessaires (« Se connecter à Azure », « Créer un groupe de ressources », « Créer un groupe de mise en réseau », « Créer la machine virtuelle »).
+
     Quand vous parvenez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Ajoutez les paramètres `-IdentityType UserAssigned` et `-IdentityID` pour approvisionner la machine virtuelle avec une identité affectée par l’utilisateur.  Remplacez `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs.  Par exemple :
-    
-    ```powershell 
+
+    ```powershell
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
-    
+
     - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
@@ -203,7 +203,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 Si votre machine virtuelle dispose d’identités managées affectées tant par le système que par l’utilisateur, vous pouvez supprimer toutes les identités managées affectées par l’utilisateur en choisissant de n’utiliser que l’identité managée affectée par le système.
 
-```powershell 
+```powershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
@@ -212,6 +212,6 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 - [Vue d’ensemble des identités managées pour les ressources Azure](overview.md)
 - Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez :
-  
-  - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
+
+  - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+  - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

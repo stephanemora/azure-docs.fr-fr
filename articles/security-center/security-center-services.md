@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519227"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607123"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -91,7 +91,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 
 | Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
+| Antivirus Microsoft Defender| Windows Server 2016 ou version ultérieure| Non, intégré au système d’exploitation| Oui |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
 | Trend Micro - Deep Security | Gamme Windows Server  | Non | Oui |
 | Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |

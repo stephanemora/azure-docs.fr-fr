@@ -740,7 +740,7 @@
           items:
             - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: CLI
+            - name: Interface de ligne de commande
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -894,6 +894,8 @@
           href: docker-compose-quickstart.md
     - name: Exécuter des applications
       items:
+        - name: Red Hat
+          href: ../workloads/redhat/overview.md
         - name: Cloud Foundry
           href: ../../cloudfoundry/index.yml
         - name: Cassandra

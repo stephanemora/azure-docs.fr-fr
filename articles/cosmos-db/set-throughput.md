@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563199"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605737"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 
 Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit provisionné. Il n’y a pas de limite sur le débit maximum que vous pouvez provisionner sur la base de données ou le conteneur. 
 
-Pour estimer le [débit provisionné minimal](concepts-limits.md#storage-and-throughput) d’une base de données ou d’un conteneur, recherchez la valeur maximale parmi :
+Pour estimer le [débit provisionné minimal](concepts-limits.md#storage-and-database-operations) d’une base de données ou d’un conteneur, recherchez la valeur maximale parmi :
 
 * 400 RU/s 
 * Stockage actuel en Go * 10 RU/s

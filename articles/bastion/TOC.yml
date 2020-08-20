@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos d’Azure Bastion
+    - name: "Qu’est-ce qu’Azure Bastion\_?"
       href: bastion-overview.md
 - name: Démarrages rapides
   items:

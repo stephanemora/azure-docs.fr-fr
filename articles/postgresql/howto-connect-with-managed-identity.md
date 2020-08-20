@@ -6,22 +6,22 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 173633e16648bce262051947ec2bc9c1f61fbb9c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102291"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606778"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Se connecter avec Managed Identity auprès d’Azure Database pour PostgreSQL
 
-Cet article explique comment utiliser une identité affectée par l’utilisateur à une machine virtuelle Azure pour accéder à un serveur Azure Database pour PostgreSQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Cet article explique comment utiliser une identité affectée par l’utilisateur à une machine virtuelle Azure pour accéder à un serveur Azure Database pour PostgreSQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
 
-> [!div class="checklist"]
-> * Accorder à votre machine virtuelle l’accès à un serveur Azure Database pour PostgreSQL
-> * Créer un utilisateur dans la base de données représentant l’identité affectée par l’utilisateur de la machine virtuelle
-> * Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour interroger un serveur Azure Database pour PostgreSQL
-> * Implémenter la récupération de jetons dans un exemple d’application C#
+Vous allez apprendre à effectuer les actions suivantes :
+- Accorder à votre machine virtuelle l’accès à un serveur Azure Database pour PostgreSQL
+- Créer un utilisateur dans la base de données représentant l’identité affectée par l’utilisateur de la machine virtuelle
+- Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour interroger un serveur Azure Database pour PostgreSQL
+- Implémenter la récupération de jetons dans un exemple d’application C#
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120574"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606495"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Se connecter avec Managed Identity à Azure Database pour MySQL
 
-Cet article explique comment utiliser une identité affectée par l’utilisateur à une machine virtuelle Azure pour accéder à un serveur Azure Database pour MySQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Cet article explique comment utiliser une identité affectée par l’utilisateur à une machine virtuelle Azure pour accéder à un serveur Azure Database pour MySQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
 
-> [!div class="checklist"]
-> * Accorder à votre machine virtuelle l’accès à un serveur Azure Database pour MySQL
-> * Créer un utilisateur dans la base de données représentant l’identité affectée par l’utilisateur de la machine virtuelle
-> * Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour interroger un serveur Azure Database pour MySQL
-> * Implémenter la récupération de jetons dans un exemple d’application C#
+Vous allez apprendre à effectuer les actions suivantes :
+
+- Accorder à votre machine virtuelle l’accès à un serveur Azure Database pour MySQL
+- Créer un utilisateur dans la base de données représentant l’identité affectée par l’utilisateur de la machine virtuelle
+- Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour interroger un serveur Azure Database pour MySQL
+- Implémenter la récupération de jetons dans un exemple d’application C#
 
 > [!IMPORTANT]
 > La connexion avec une identité gérée est uniquement disponible pour MySQL 5.7 et versions ultérieures.

@@ -4,8 +4,6 @@
   items:
     - name: Qu’est-ce qu’Azure Load Balancer ?
       href: load-balancer-overview.md
-    - name: Nouveautés
-      href: whats-new.md
 - name: Démarrages rapides
   items:
     - name: Créer un équilibreur de charge public - Portail
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: Concepts
   items:
+    - name: Nouveautés
+      href: whats-new.md
     - name: Components
       href: components.md
     - name: Concepts

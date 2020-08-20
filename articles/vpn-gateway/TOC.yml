@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos de la passerelle VPN
+    - name: "Qu’est-ce qu’une passerelle VPN\_?"
       href: vpn-gateway-about-vpngateways.md
 - name: Tutoriels
   items:
