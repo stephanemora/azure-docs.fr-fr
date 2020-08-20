@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431016"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271156"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -28,7 +28,7 @@ Vous pouvez ajouter des API serverless à Azure Static Web Apps via l’intégra
 - Extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) de Visual Studio Code.
 - [Node.js](https://nodejs.org/download/) pour exécuter l’application API localement
 
-## <a name="create-a-git-repository"></a>Créer un référentiel git
+## <a name="create-a-git-repository"></a>Créer un dépôt Git
 
 Les étapes suivantes montrent comment créer un référentiel et cloner les fichiers sur votre ordinateur.
 

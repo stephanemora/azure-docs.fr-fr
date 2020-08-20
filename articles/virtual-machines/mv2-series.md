@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: f86400f1fb45217133bbd715788986994f5f77cc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f6dc732a512368b007a289c3aaabc3123a696d96
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836256"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505255"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -28,7 +28,7 @@ Migration dynamique : Non pris en charge
 
 Mises à jour avec préservation de la mémoire : Non pris en charge
 
-Accélérateur d’écriture : [Pris en charge](./windows/how-to-enable-write-accelerator.md)
+Accélérateur d’écriture : [Pris en charge](./how-to-enable-write-accelerator.md)
 
 |Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

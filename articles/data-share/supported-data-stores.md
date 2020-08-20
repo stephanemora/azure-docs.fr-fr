@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511902"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258604"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -30,7 +30,7 @@ Le tableau ci-dessous détaille les sources de données prises en charge pour Az
 | Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |Version préliminaire publique | |
 | Azure Synapse Analytics (anciennement Azure SQL DW) |Version préliminaire publique | |
-| Explorateur de données Azure | |Version préliminaire publique |
+| Explorateur de données Azure | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice de prise en charge des magasins de données
 
@@ -62,9 +62,7 @@ Le partage à partir de sources SQL est sujet à des conditions préalables lié
 ## <a name="share-from-azure-data-explorer"></a>Partager depuis Azure Data Explorer
 Azure Data Share prend en charge la possibilité de partager des bases de données sur place à partir de clusters Azure Data Explorer. Le fournisseur de données peut partager au niveau de la base de données ou du cluster. Lorsqu’il est partagé au niveau de la base de données, le consommateur de données est uniquement en mesure d’accéder aux bases de données spécifiques partagées par le fournisseur de données. En cas de partage au niveau du cluster, le consommateur de données peut accéder à toutes les bases de données à partir du cluster du fournisseur, y compris toutes les futures bases de données créées par le fournisseur de données.
 
-Pour accéder aux bases de données partagées, le consommateur de données doit disposer de son propre cluster Azure Data Explorer. Le cluster Azure Data Explorer du consommateur de données doit se trouver dans le même centre de données Azure que le cluster Azure Data Explorer du fournisseur de données. Lorsque la relation de partage est établie, Azure Data Share crée un lien symbolique entre les clusters Azure Data Explorer du fournisseur et ceux du consommateur.
-
-Azure Data Explorer prend en charge deux modes d’ingestion de données : en lot et en continu. Les données reçues en lot dans la base de données partagée s’affichent entre quelques secondes et quelques minutes du côté du consommateur de données. Les données reçues en continu peuvent prendre jusqu’à 24 heures pour apparaître du côté du consommateur de données. 
+Pour accéder aux bases de données partagées, le consommateur de données doit disposer de son propre cluster Azure Data Explorer. Le cluster Azure Data Explorer du consommateur de données doit se trouver dans le même centre de données Azure que le cluster Azure Data Explorer du fournisseur de données. Lorsque la relation de partage est établie, Azure Data Share crée un lien symbolique entre les clusters Azure Data Explorer du fournisseur et ceux du consommateur. Les données ingérées en mode batch dans le cluster Azure Data Explorer source apparaissent dans le cluster cible dans un délai de quelques secondes à quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

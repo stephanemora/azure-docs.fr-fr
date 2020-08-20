@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042319"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509958"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installation de SAP HANA sur des machines virtuelles Azure
 ## <a name="introduction"></a>Introduction
@@ -72,7 +72,7 @@ Au cours de cette phase, vous devez suivre les étapes de déploiement de la ou 
     -  [Note de support SAP n° 2382421 - Optimisation de la configuration réseau au niveau HANA et du système d’exploitation](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Sélectionnez le type de stockage Azure pour SAP HANA. Au cours de cette étape, vous devez choisir la disposition du stockage pour l’installation de SAP HANA. Vous allez utiliser des disques Azure attachés ou des partages Azure NFS natifs. Les types de stockage Azure pris en charge et les combinaisons de différents types de stockage Azure qui peuvent être utilisées, sont documentés dans [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md). Prenez les configurations documentées comme point de départ. Pour les systèmes hors production, vous pouvez être en mesure de configurer des valeurs inférieures de débit ou IOPS. À des fins de production, vous devrez peut-être configurer des valeurs légèrement supérieures de débit et IOPS.
-2. Assurez-vous d’avoir configuré l’[Accélérateur des écritures Azure](../../linux/how-to-enable-write-accelerator.md) pour vos volumes qui contiennent les journaux de restauration par progression ou les journaux de transactions SGBD lorsque vous utilisez des machines virtuelles de série M ou Mv2. Tenez compte des limites de l’Accélérateur des écritures, telles qu’indiquées.
+2. Assurez-vous d’avoir configuré l’[Accélérateur des écritures Azure](../../how-to-enable-write-accelerator.md) pour vos volumes qui contiennent les journaux de restauration par progression ou les journaux de transactions SGBD lorsque vous utilisez des machines virtuelles de série M ou Mv2. Tenez compte des limites de l’Accélérateur des écritures, telles qu’indiquées.
 2. Vérifiez si la [mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est activée sur la ou les machines virtuelles déployées.
 
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507928"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510009"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -187,7 +187,7 @@ Une fois que vous avez une vision claire de vos besoins en E/S, vous pouvez choi
 - Utilisez la compression de données pour réduire les E/S (données et index).
 - Placez les flux de transport Redo, System, Temp et Undo sur des disques de données distincts.
 - Ne placez pas de fichiers d’application sur les disques du système d’exploitation par défaut (/dev/sda). Ces disques sont optimisés pour les démarrages rapides de machine virtuelle et risquent de ne pas fournir de performances optimales pour votre application.
-- Lorsque vous utilisez des machines virtuelles de série M sur le stockage Premium, activez [l’Accélérateur d'écriture](../../linux/how-to-enable-write-accelerator.md) sur le disque des journaux d’activité de rétablissement.
+- Lorsque vous utilisez des machines virtuelles de série M sur le stockage Premium, activez [l’Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) sur le disque des journaux d’activité de rétablissement.
 
 ### <a name="disk-cache-settings"></a>Paramètres de cache des disques
 

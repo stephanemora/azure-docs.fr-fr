@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831054"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505557"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -355,7 +355,7 @@ Le diagramme ci-dessus affiche un cas simple. Comme l’évoque l’article [Él
 
 
 ### <a name="special-for-m-series-vms"></a>Remarque relative aux machines virtuelles de la série M
-Pour une machine virtuelle Azure de la série M, la latence d’écriture dans les journaux de transactions peut être réduite par des facteurs, comparée aux performances de stockage Premium Azure, lors de l’utilisation de l’Accélérateur des écritures Azure. Par conséquent, vous devez déployer l’Accélérateur des écritures Azure pour les disques durs virtuels qui constituent le volume du journal des transactions SQL Server. Les détails peuvent être consultés dans le document [Accélérateur des écritures](../../windows/how-to-enable-write-accelerator.md).
+Pour une machine virtuelle Azure de la série M, la latence d’écriture dans les journaux de transactions peut être réduite par des facteurs, comparée aux performances de stockage Premium Azure, lors de l’utilisation de l’Accélérateur des écritures Azure. Par conséquent, vous devez déployer l’Accélérateur des écritures Azure pour les disques durs virtuels qui constituent le volume du journal des transactions SQL Server. Les détails peuvent être consultés dans le document [Accélérateur des écritures](../../how-to-enable-write-accelerator.md).
   
 
 ### <a name="formatting-the-disks"></a>Formatage des disques

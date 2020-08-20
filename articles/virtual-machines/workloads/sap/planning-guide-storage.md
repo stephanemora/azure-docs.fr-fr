@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825002"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510859"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -84,7 +84,7 @@ Avant d’aborder les détails, nous présentons le résumé et les recommandati
 | Volume du journal de SGBD non HANA n’appartenant aux familles de machines virtuelles M/Mv2 | non pris en charge | restreint adapté (non prod) | convient pour une charge de travail faible à moyenne | recommandé | non pris en charge |
 
 
-<sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../windows/how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression <sup>2</sup> ANF requiert la présence de volumes /hana/data et /hana/log 
+<sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression <sup>2</sup> ANF requiert la présence de volumes /hana/data et /hana/log 
 
 Caractéristiques que vous pouvez attendre des types de stockage différents :
 
@@ -101,7 +101,7 @@ Caractéristiques que vous pouvez attendre des types de stockage différents :
 | Redondance géographique | pas pour les disques managés | pas pour les disques managés | non | non | non |
 
 
-<sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../windows/how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression
+<sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression
 
 <sup>2</sup> Les coûts dépendent des IOPS et du débit approvisionnés
 
@@ -137,7 +137,7 @@ La matrice de capacité pour la charge de travail SAP ressemble à ceci :
 | Fonctionnalité| Commentaire| Remarques/liens | 
 | --- | --- | --- | 
 | Disque dur virtuel de base du système d’exploitation | approprié | tous les systèmes |
-| Disque de données | approprié | tous les systèmes - [spécialement pour SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Disque de données | approprié | tous les systèmes - [spécialement pour SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Répertoire de transport global SAP | YES | [Pris en charge](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | approprié | tous les systèmes |
 | Stockage de sauvegarde | approprié | pour le stockage à court terme des sauvegardes |
@@ -149,12 +149,12 @@ La matrice de capacité pour la charge de travail SAP ressemble à ceci :
 | Maximum d’E/S par seconde par disque | 20 000 [dépendant de la taille du disque](https://azure.microsoft.com/pricing/details/managed-disks/) | Tenez également compte des [limites de machine virtuelle](../../sizes.md) |
 | SLA de débit | YES | - |
 | Débit linéaire par rapport à la capacité | semi-linéaire entre crochets | [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certifié HANA | YES | [spécialement pour SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Certifié HANA | YES | [spécialement pour SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Captures instantanées de disque possibles | YES | - |
-| Captures instantanées de machines virtuelles Sauvegarde Azure possibles | YES | à l’exception des disques mis en cache d’[Accélérateur d’écriture](../../windows/how-to-enable-write-accelerator.md)  |
+| Captures instantanées de machines virtuelles Sauvegarde Azure possibles | YES | à l’exception des disques mis en cache d’[Accélérateur d’écriture](../../how-to-enable-write-accelerator.md)  |
 | Coûts | MEDIUM | - |
 
-Le stockage premium Azure ne remplit pas les KPI de latence du stockage SAP HANA avec les types de cache courants proposés avec le stockage premium Azure. Afin de remplir les KPI de latence de stockage pour les écritures de log SAP HANA, vous devez utiliser la mise en cache d’Accélérateur d'écriture Azure comme décrit dans l'article [Activer l’Accélérateur d’écriture](../../windows/how-to-enable-write-accelerator.md). Accélérateur d’écriture Azure tire parti de tous les autres systèmes SGBD pour l’écriture du journal des transactions et la restauration des écritures de journal. Par conséquent, il est recommandé de l’utiliser dans tous les déploiements de SGBD SAP. Pour SAP HANA, l'utilisation d’Accélérateur d’écriture Azure est obligatoire conjointement avec le Stockage Premium Azure.
+Le stockage premium Azure ne remplit pas les KPI de latence du stockage SAP HANA avec les types de cache courants proposés avec le stockage premium Azure. Afin de remplir les KPI de latence de stockage pour les écritures de log SAP HANA, vous devez utiliser la mise en cache d’Accélérateur d'écriture Azure comme décrit dans l'article [Activer l’Accélérateur d’écriture](../../how-to-enable-write-accelerator.md). Accélérateur d’écriture Azure tire parti de tous les autres systèmes SGBD pour l’écriture du journal des transactions et la restauration des écritures de journal. Par conséquent, il est recommandé de l’utiliser dans tous les déploiements de SGBD SAP. Pour SAP HANA, l'utilisation d’Accélérateur d’écriture Azure est obligatoire conjointement avec le Stockage Premium Azure.
 
 
 

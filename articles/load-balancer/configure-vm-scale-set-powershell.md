@@ -6,16 +6,16 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 858315008434f511e3adc0a91d591d924634fc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 919883025075ca38bcef6c23ac744528e7bd5502
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809501"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510060"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide d’Azure PowerShell
 
-Dans cet article, vous allez découvrir comment configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant. 
+Dans cet article, vous allez découvrir comment configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir comment configurer un groupe de machines
 - Un équilibreur de charge SKU standard existant dans l’abonnement dans lequel le groupe de machines virtuelles identiques sera déployé.
 - Un réseau virtuel Azure pour le groupe de machines virtuelles identiques.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ L’exemple ci-dessous déploie un groupe de machines virtuelles identiques avec
 - Sous-réseau nommé **mySubnet**
 - Groupe de ressources nommé **myResourceGroup**
 
-```azureppowershell-interactive
+```azurepowershell-interactive
 
 $rsg = "myResourceGroup"
 $loc = "East US 2"
@@ -87,4 +87,3 @@ Dans cet article, vous avez déployé un groupe de machines virtuelles identique
 
 - [Qu’est-ce que Azure Load Balancer ?](load-balancer-overview.md)
 - [Que sont les groupes de machines virtuelles identiques ?](../virtual-machine-scale-sets/overview.md)
-                                

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525260"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510893"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP
 
@@ -59,7 +59,7 @@ La taille de la page est généralement de 2 048 Ko. Pour plus d’information
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Recommandations relatives à la structure des machines virtuelles et des disques pour les déploiements SAP ASE
 
-Les applications SAP ASE pour SAP NetWeaver sont prises en charge sur tous les types de machines virtuelles figurant dans [Note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Les types de machines virtuelles classiques utilisés pour les serveurs de base de données SAP ASE de taille moyenne incluent Esv3.  Les bases de données volumineuses de plusieurs téraoctets peuvent tirer parti des types de machines virtuelles de la série M. Les performances d’écriture sur le disque du journal des transactions SAP ASE peuvent être améliorées en activant l’accélérateur d’écriture de la série M. L’accélérateur d’écriture doit être testé soigneusement avec SAP ASE en raison de la façon dont SAP ASE effectue les écritures de journal.  Passez en revue [Note de support SAP n° 2816580](../../windows/how-to-enable-write-accelerator.md) et envisagez d’exécuter un test de performances.  
+Les applications SAP ASE pour SAP NetWeaver sont prises en charge sur tous les types de machines virtuelles figurant dans [Note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Les types de machines virtuelles classiques utilisés pour les serveurs de base de données SAP ASE de taille moyenne incluent Esv3.  Les bases de données volumineuses de plusieurs téraoctets peuvent tirer parti des types de machines virtuelles de la série M. Les performances d’écriture sur le disque du journal des transactions SAP ASE peuvent être améliorées en activant l’accélérateur d’écriture de la série M. L’accélérateur d’écriture doit être testé soigneusement avec SAP ASE en raison de la façon dont SAP ASE effectue les écritures de journal.  Passez en revue [Note de support SAP n° 2816580](../../how-to-enable-write-accelerator.md) et envisagez d’exécuter un test de performances.  
 L’accélérateur d’écriture est conçu pour le disque du journal des transactions uniquement. Le cache au niveau du disque doit être défini sur AUCUN. Ne soyez pas surpris si l’accélérateur d’écriture Azure n’affiche pas les mêmes améliorations qu’avec un autre système de gestion de base de données (SGBD). En fonction de la façon dont SAP ASE écrit dans le journal des transactions, il se peut que l’accélérateur d’écriture Azure produise peu ou pas du tout d’accélération.
 Des disques distincts sont recommandés pour les unités de données et les unités de journaux.  Les bases de données système sybsecurity et `saptools` ne nécessitent pas de disques dédiés et peuvent être placées sur les disques contenant les unités de données et de journaux de la base de données SAP 
 

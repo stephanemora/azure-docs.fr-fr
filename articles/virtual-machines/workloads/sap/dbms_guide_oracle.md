@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504940"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -404,7 +404,7 @@ Si plus d’IOPS sont nécessaires, nous recommandons d’utiliser des pools de 
 
 
 #### <a name="write-accelerator"></a>Accélérateur des écritures
-Pour des machines virtuelles Azure de la série M, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport à Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](../../linux/how-to-enable-write-accelerator.md).
+Pour des machines virtuelles Azure de la série M, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport à Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Sauvegarde/restauration
@@ -498,7 +498,7 @@ Si vous avez besoin de plus d’IOPS, nous recommandons d’utiliser LVM (Logica
 
 
 #### <a name="write-accelerator"></a>Accélérateur des écritures
-Pour des machines virtuelles Azure de la série M, quand vous utilisez l’Accélérateur d’écriture Azure, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport aux performances de Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](../../linux/how-to-enable-write-accelerator.md).
+Pour des machines virtuelles Azure de la série M, quand vous utilisez l’Accélérateur d’écriture Azure, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport aux performances de Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Sauvegarde/restauration

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: d1e11ffcb96bc233604464e90edb7dd42578bf08
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a473085f9c94ca42a75d01b342d60cc33836b096
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132702"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244837"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
 
@@ -30,7 +30,7 @@ Pour plus d’informations, consultez [Évaluations hors connexion](concepts-off
 
 ## <a name="run-an-offline-evaluation"></a>Exécuter une évaluation hors connexion
 
-1. Dans le [portail Azure](https://azure.microsoft.com/free/), recherchez votre ressource Personalizer.
+1. Dans le [portail Azure](https://azure.microsoft.com/free/cognitive-services), recherchez votre ressource Personalizer.
 1. Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.
     ![Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configurez les valeurs suivantes :

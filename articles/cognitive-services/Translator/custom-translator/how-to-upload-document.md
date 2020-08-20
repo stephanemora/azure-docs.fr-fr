@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: aaebf849cc69db7c85d1472f4d71774bc599be11
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8597b3e4ffab44672e88374010fa829211fbc18b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994301"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507313"
 ---
 # <a name="upload-a-document"></a>Charger un document
 
@@ -24,7 +24,7 @@ Avant de charger vos documents, consultez [l’aide relatives à la convention d
 
 ## <a name="how-to-upload-document"></a>Comment charger un document ?
 
-À partir du portail [Custom Translator](https://portal.customtranslator.azure.ai), cliquez sur l’onglet « Documents » pour accéder à la page des documents.
+À partir du portail [Custom Translator](https://portal.customtranslator.azure.ai), cliquez sur l’onglet de « Documents » pour accéder à la page des documents.
 
 ![Lien de chargement de documents](media/how-to/how-to-upload-1.png)
 
@@ -61,11 +61,11 @@ Avant de charger vos documents, consultez [l’aide relatives à la convention d
 
     ![Chargez la boîte de dialogue des documents](media/how-to/how-to-upload-dialog.png)
 
-3.  À ce stade, nous traitons vos documents et tentons d’extraire les phrases. Vous pouvez cliquer sur « Voir la progression du chargement » pour vérifier l’état de vos documents pendant le traitement.
+3.  À ce stade, nous traitons vos documents et tentons d’extraire les phrases. Vous pouvez cliquer sur « Afficher la progression du chargement » pour vérifier l’état de vos documents pendant le traitement.
 
     ![Charger la boîte de dialogue de traitement de documents](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Cette page affiche l’état et les erreurs pour chaque fichier dans votre chargement. Vous pouvez voir l’état après le chargement à tout moment en cliquant sur l’onglet « Historique de chargement ».
+4.  Cette page affiche l’état et les erreurs pour chaque fichier dans votre chargement. Vous pouvez afficher l’état après le chargement à tout moment en cliquant sur l’onglet « Charger l’historique ».
 
     ![Charger la boîte de dialogue de l’historique des documents](media/how-to/how-to-upload-document-history.png)
 
