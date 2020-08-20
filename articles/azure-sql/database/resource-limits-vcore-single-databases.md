@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117033"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566180"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|1229|1229|1229|
+|Taille maximale du journal (Go)|922|922|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|576|640|768|1 024|1 280|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -324,7 +324,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|922|1229|1229|1229|1229|
+|Taille maximale du journal (Go)|922|922|922|1 024|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -488,7 +488,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|15,77|18,14|20,51|25,25|37,94|52,23|131,64|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|922|1229|1229|1229|1229|
+|Taille maximale du journal (Go)|922|922|922|1 024|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075540"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590385"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.
@@ -60,6 +60,10 @@ Les groupes identiques n’entraînent aucun coût supplémentaire. Vous payez u
 Utilisez [Azure Monitor pour machines virtuelles](../azure-monitor/insights/vminsights-overview.md), dont le processus d’intégration est simple et automatise la collecte des données à partir des compteurs importants du processeur, de la mémoire, des disques et des performances réseau sur les machines virtuelles de votre groupe identique. Il comprend également des fonctionnalités de supervision supplémentaires et des visualisations prédéfinies qui vous permettent de vous concentrer sur la disponibilité et les performances de vos groupes identiques.
 
 Activez la supervision de votre [application de groupe de machines virtuelles identiques](../azure-monitor/app/azure-vm-vmss-apps.md) avec Application Insights afin de collecter des informations détaillées sur votre application, notamment les vues de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](../azure-monitor/app/monitor-web-app-availability.md) pour simuler le trafic utilisateur.
+
+## <a name="singapore-data-residency"></a>Résidence des données à Singapour
+
+Dans Azure, la fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique. Pour toutes les autres régions, les données client sont stockées dans Zone géographique. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour commencer, créez votre premier groupe identique de machines virtuelles dans le portail Azure.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340196"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588020"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -115,8 +115,8 @@ Les cultures suivantes ont des versions personnalisées du générateur de jeton
 |--|--|--|
 |Allemand<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ich fahre einen krankenwagen` est transformé en `Ich fahre einen kranken wagen`. Permet de marquer indépendamment `kranken` et `wagen` comme des entités différentes.|
 |Allemand<br>`de-de`|1.0.2|Segmente les mots en les fractionnant sur les espaces.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. `krankenwagen` est donc marqué comme une seule entité. |
-|Néerlandais<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ik ga naar de kleuterschool` est transformé en `Ik ga naar de kleuter school`. Permet de marquer indépendamment `kleuter` et `school` comme des entités différentes.|
-|Néerlandais<br>`de-de`|1.0.1|Segmente les mots en les fractionnant sur les espaces.<br> Si un utilisateur entre `Ik ga naar de kleuterschool` comme énoncé, il reste un jeton unique. `kleuterschool` est donc marqué comme une seule entité. |
+|Néerlandais<br>`nl-nl`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ik ga naar de kleuterschool` est transformé en `Ik ga naar de kleuter school`. Permet de marquer indépendamment `kleuter` et `school` comme des entités différentes.|
+|Néerlandais<br>`nl-nl`|1.0.1|Segmente les mots en les fractionnant sur les espaces.<br> Si un utilisateur entre `Ik ga naar de kleuterschool` comme énoncé, il reste un jeton unique. `kleuterschool` est donc marqué comme une seule entité. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Changer de version du générateur de jetons

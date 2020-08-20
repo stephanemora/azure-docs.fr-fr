@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124304"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589399"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connecter des applications Azure Functions pour le traitement des données
 
@@ -84,7 +84,7 @@ Pour plus d’informations à ce sujet, consultez [*Déboguer localement un déc
 
 L’application de fonction interagit avec Azure Digital Twins à l’aide de la [bibliothèque de client Azure IoT Digital Twins pour .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Pour utiliser le SDK, vous devez inclure les packages suivants dans votre projet :
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity`
+* `Azure.Identity` (version `1.1.1`)
 
 Pour configurer le pipeline du SDK Azure en vue de configurer correctement Azure Functions, vous aurez également besoin des éléments suivants :
 * `Azure.Net.Http`

@@ -1,14 +1,14 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163337"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589739"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -66,9 +66,6 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
-
-> [!NOTE]
-> Vous pouvez également attribuer le rôle intégré Lecteur d’analyse Azure à l’étendue racine à des utilisateurs individuels ou à des groupes d’utilisateurs. Cela peut être utile si vous souhaitez qu’un utilisateur soit en mesure d’[afficher les informations de délégation directement dans le Portail Azure](#view-delegation-changes-in-the-azure-portal). Si vous procédez ainsi, sachez qu’il s’agit d’un niveau d’accès large qui doit être limité au moins d’utilisateurs possible.
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Supprimer l’accès élevé du compte Administrateur général
 
@@ -164,15 +161,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Afficher les modifications de délégation dans le Portail Azure
-
-Les utilisateurs qui ont été affectés au rôle intégré Lecteur d’analyse Azure au niveau de l’étendue racine peuvent afficher les modifications de délégation directement dans le Portail Azure.
-
-1. Accédez à la page **Mes clients**, puis sélectionnez **Journal d’activité** dans le menu de navigation de gauche.
-1. Assurez-vous qu’**Activité du répertoire** est sélectionné dans le filtre près du haut de l’écran.
-
-Une liste des modifications de délégation s’affiche. Vous pouvez sélectionner **Modifier les colonnes** pour afficher ou masquer les éléments **État**, **Catégorie d’événement**, **Heure**, **Horodatage**, **Abonnement**, **Événement initié par**, **Groupe de ressources**, **Type de ressource** et les valeurs des **Ressources**.
 
 > [!TIP]
 > Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.

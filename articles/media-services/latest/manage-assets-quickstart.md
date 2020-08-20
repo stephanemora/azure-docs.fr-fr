@@ -3,12 +3,15 @@ title: Utiliser le portail pour charger, encoder et diffuser en streaming du con
 description: Ce guide de démarrage rapide vous montre comment utiliser le portail pour charger, encoder et diffuser en streaming du contenu avec Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053349"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605661"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 
@@ -28,7 +31,6 @@ Ce guide de démarrage rapide vous montre comment utiliser le portail Azure pour
 
   * [Chargement et stockage cloud](storage-account-concept.md)
   * [Concept des éléments multimédias](assets-concept.md)
-  * [Chargement des actifs multimédias](manage-asset-concept.md)
 * Une fois que vous avez chargé votre fichier de contenu multimédia numérique de haute qualité dans un actif multimédia (actif multimédia d’entrée), vous pouvez le traiter (encoder ou analyser). Le contenu traité passe dans un autre actif multimédia (actif multimédia de sortie). 
     * [Encodez](encoding-concept.md) votre fichier chargé dans des formats pouvant être lus sur une grande variété de navigateurs et d’appareils.
     * [Analysez](analyzing-video-audio-files-concept.md) votre fichier chargé. 
