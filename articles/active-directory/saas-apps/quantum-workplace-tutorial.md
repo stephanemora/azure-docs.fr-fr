@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à Quantum Workplace | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Quantum Workplace.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0c543b6f-17b3-4180-a136-7252824dbf5f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b1ea6aec4a8c8013ac6e87495fc8f0c0dda7d69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67164522"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Tutoriel : Intégration d’Azure Active Directory à Quantum Workplace
 
