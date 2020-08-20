@@ -1,7 +1,7 @@
 ---
 title: Gérer l’authentification
 titleSuffix: Azure Maps
-description: Utilisez le portail Azure pour gérer l’authentification dans Microsoft Azure Maps.
+description: Familiarisez-vous avec l’authentification Azure Maps. Découvrez l’approche qui convient le mieux à ce scénario. Découvrez comment utiliser le portail pour afficher les paramètres d’authentification.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8fc27ea4de7e81f1279f68d2e4a1a7fde1fcf41f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531726"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037335"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 

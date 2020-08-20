@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416849"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872427"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -87,7 +87,7 @@ Une valeur minimale pour le nombre maximal de pods par nœud est appliquée afin
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurer un maximum : clusters existants
 
-Le paramètre maxPod par nœud peut être défini lorsque vous créez un pool de nœuds. Si vous devez augmenter le paramètre maxPod par nœud sur un cluster existant, ajoutez un nouveau pool de nœuds avec le nouveau nombre de maxPod souhaité. Après la migration de vos pods vers le nouveau pool, supprimez le pool plus ancien. Pour supprimer un pool plus ancien dans un cluster, assurez-vous de définir les modes de pool de nœuds comme défini dans le [document de pool du nœud système[system-node-pools].
+Le paramètre maxPod par nœud peut être défini lorsque vous créez un pool de nœuds. Si vous devez augmenter le paramètre maxPod par nœud sur un cluster existant, ajoutez un nouveau pool de nœuds avec le nouveau nombre de maxPod souhaité. Après la migration de vos pods vers le nouveau pool, supprimez le pool plus ancien. Pour supprimer un pool plus ancien dans un cluster, assurez-vous de définir les modes de pool de nœuds comme défini dans le [document de pools de nœuds système][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Paramètres de déploiement
 

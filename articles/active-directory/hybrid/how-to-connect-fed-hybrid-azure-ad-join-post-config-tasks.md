@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807585"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612467"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tâches post-configuration concernant la jonction Azure AD Hybride
 
@@ -87,9 +87,6 @@ Ce programme d’installation crée une tâche planifiée sur le système de l�
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurer la stratégie de groupe pour autoriser l’inscription d’appareil
 
 Pour savoir comment autoriser la jonction Azure AD Hybride pour certains appareils, consultez [Validation contrôlée de la jonction Azure AD Hybride](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> Les paramètres de stratégie de la version 2012 R2 sont accessibles à l’emplacement **Configuration de l’ordinateur > Stratégies > Modèles d’administration > Composants Windows > Workplace Join > Rattacher automatiquement les ordinateurs clients à l’espace de travail**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Configurer la réécriture d’appareil](how-to-connect-device-writeback.md)

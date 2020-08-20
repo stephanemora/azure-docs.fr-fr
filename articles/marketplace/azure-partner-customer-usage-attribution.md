@@ -1,5 +1,5 @@
 ---
-title: Attribution de partenaires de place de marché et d’utilisation de client
+title: Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 description: Obtenir une vue d’ensemble du suivi de l’utilisation de client pour les solutions de la place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,14 +8,14 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065794"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031283"
 ---
-# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution de partenaires de place de marché et d’utilisation de client
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
 L’attribution de l’utilisation de client est une méthode permettant d’associer des ressources Azure exécutées dans des abonnements clients, déployée pour exécuter votre solution avec vous en tant que partenaire. La formation de ces associations dans les systèmes Microsoft internes offre une meilleure visibilité de l’empreinte Azure exécutant vos logiciels. En optant pour cette capacité de suivi, vous vous alignez sur les équipes de vente Microsoft et bénéficiez d’un crédit pour les programmes de partenaires Microsoft.
 
@@ -45,7 +45,7 @@ Un GUID désigne un identificateur de référence unique à 32 chiffres hexadéc
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
-Si vous déployez un produit à l'aide d'un modèle et qu'il est disponible à la fois sur la place de marché Azure et sur GitHub, vous pouvez créer et enregistrer deux GUID distincts :
+Si vous déployez un produit à l’aide d’un modèle et qu’il est disponible à la fois sur la Place de marché Azure et sur GitHub, vous pouvez créer et enregistrer deux GUID distincts :
 
 - Produit A sur la Place de marché Azure
 - Produit A sur GitHub
@@ -61,7 +61,7 @@ Les GUID doivent être inscrits dans l’Espace partenaires pour activer l’att
 Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilisateur et inscrit le GUID dans l’Espace partenaires, les déploiements futurs font l’objet d’un suivi.
 
 > [!NOTE]
-> Si vous publiez votre offre [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) sur la Place de marché Azure via l’Espace partenaires, tout nouveau GUID utilisé dans votre modèle est automatiquement inscrit dans votre profil d’Espace partenaires au moment où le modèle est chargé.  
+> Si vous publiez votre offre [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) sur la Place de marché Azure via l’Espace partenaires, tout nouveau GUID utilisé dans votre modèle est automatiquement inscrit dans votre profil de l’Espace partenaires au moment où le modèle est chargé.  
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 

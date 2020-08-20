@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424254"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078391"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -17,8 +17,7 @@ Cet article vous explique comment personnaliser les [paramètres d’authentific
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
-* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
+* [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](tutorial-auth-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Facebook](configure-authentication-provider-facebook.md)
 * [Comment configurer votre application pour utiliser une connexion Google](configure-authentication-provider-google.md)
@@ -469,8 +468,68 @@ Voici toutes les configuration possibles dans le fichier :
 }
 ```
 
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Épingler votre application à une version spécifique du runtime d’authentification
+
+Lorsque vous activez l’authentification/l’autorisation, l’intergiciel (middleware) de la plateforme est injecté dans votre pipeline de requêtes HTTP, comme décrit dans la [vue d’ensemble des fonctionnalités](overview-authentication-authorization.md#how-it-works). Cet intergiciel (middleware) de plateforme est régulièrement mis à jour avec de nouvelles fonctionnalités et des améliorations dans le cadre des mises à jour de routine de la plateforme. Par défaut, votre application web ou de fonction s’exécutera sur la dernière version de cet intergiciel (middleware) de plateforme. Ces mises à jour automatiques sont toujours à compatibilité descendante. Toutefois, dans les rares cas où cette mise à jour automatique introduit un problème de runtime pour votre application web ou de fonction, vous pouvez revenir temporairement à la version précédente de l’intergiciel (middleware). Cet article explique comment épingler temporairement une application à une version spécifique de l’intergiciel (middleware) d’authentification.
+
+### <a name="automatic-and-manual-version-updates"></a>Mises à jour de versions automatiques et manuelles 
+
+Vous pouvez épingler votre application à une version spécifique de l’intergiciel (middleware) de plateforme en définissant un paramètre `runtimeVersion` pour l’application. Votre application s’exécute toujours sur la version la plus récente, sauf si vous choisissez de la réépingler explicitement à une version spécifique. Plusieurs versions sont prises en charge à la fois. Si vous épinglez votre application à une version non valide qui n’est plus prise en charge, votre application utilisera la version la plus récente à la place. Pour toujours exécuter la version la plus récente, définissez `runtimeVersion` sur ~1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Afficher et mettre à jour la version actuelle du runtime
+
+Vous pouvez modifier la version du runtime utilisée par votre application. La nouvelle version du runtime doit prendre effet après le redémarrage de l’application. 
+
+#### <a name="view-the-current-runtime-version"></a>Afficher la version actuelle du runtime
+
+Vous pouvez afficher la version actuelle de l’intergiciel (middleware) d’authentification de la plateforme à l’aide d’Azure CLI ou via l’un des points de terminaison HTTP de la version intégrés dans votre application.
+
+##### <a name="from-the-azure-cli"></a>Dans Azure CLI
+
+À l’aide d’Azure CLI, affichez la version actuelle de l’intergiciel (middleware) avec la commande [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+Dans ce code, remplacez `<my_app_name>` par le nom de votre application. Remplacez également `<my_resource_group>` par le nom du groupe de ressources de votre application.
+
+Le champ `runtimeVersion` est affiché dans la sortie de l’interface CLI. Il ressemble à l’exemple de sortie suivant, qui a été tronqué pour une meilleure lisibilité : 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>À partir du point de terminaison de version
+
+Vous pouvez également atteindre le point de terminaison /.auth/version sur une application pour afficher la version actuelle de l’intergiciel (middleware) sur laquelle l’application s’exécute. Cela ressemble à l’exemple de sortie suivant :
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Mettre à jour la version actuelle du runtime
+
+À l’aide d’Azure CLI, vous pouvez mettre à jour le paramètre `runtimeVersion` dans l’application avec la commande [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Remplacez `<my_app_name>` par le nom de votre application. Remplacez également `<my_resource_group>` par le nom du groupe de ressources de votre application. Par ailleurs, remplacez `<version>` par une version valide du runtime 1.x ou `~1` pour la version la plus récente. Vous trouverez les notes de publication sur les différentes versions du runtime [ici] (https://github.com/Azure/app-service-announcements) pour déterminer la version sur laquelle épingler.
+
+Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](https://docs.microsoft.com/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) pour vous connecter.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout](tutorial-auth-aad.md)

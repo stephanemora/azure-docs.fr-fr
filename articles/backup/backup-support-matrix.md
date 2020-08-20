@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531878"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922314"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -32,8 +32,8 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Fonctionnalité** | **Détails**
 --- | ---
 **Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
-**Machines dans un coffre** | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
-**Sources de données** | La taille maximale d'une [source de données](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s'applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
+**Machines dans un coffre** | Jusqu’à 2 000 sources de donnée sur toutes les charges de travail (comme les machines virtuelles Azure, les machines virtuelles SQL Server, les serveurs MABS, etc.) peuvent être protégées dans un coffre unique.<br><br>Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
+**Sources de données** | La taille maximale d'une [source de données](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s’applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
 **Sauvegardes dans le coffre** | **Machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/MABS :** Deux fois par jour.<br/><br/> **Machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour.
 **Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région.
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
@@ -85,7 +85,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux :
 
 ## <a name="daylight-saving-time-support"></a>Prise en charge de l’heure d’été
 
-Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Il ne déplace pas l’heure de la sauvegarde vers l’avant ou vers l’arrière. Pour vous assurer que la sauvegarde s’exécute à l’heure souhaitée, modifiez les stratégies de sauvegarde manuellement en fonction des besoins.
+Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Il ne retarde pas et n’avance pas l’heure de la sauvegarde. Pour vous assurer que la sauvegarde s’exécute à l’heure souhaitée, modifiez les stratégies de sauvegarde manuellement en fonction des besoins.
 
 ## <a name="disk-deduplication-support"></a>Prise en charge de la déduplication de disque
 

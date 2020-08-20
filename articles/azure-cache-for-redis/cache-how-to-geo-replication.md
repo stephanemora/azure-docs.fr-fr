@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184971"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003704"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
@@ -24,7 +24,7 @@ La géoréplication fournit un mécanisme permettant de lier deux instances de C
 
 Pour configurer la géoréplication entre deux caches, les conditions préalables suivantes doivent être remplies :
 
-- Les deux caches sont de [niveau Premium](cache-premium-tier-intro.md).
+- Les deux caches sont de [niveau Premium](cache-overview.md#service-tiers).
 - Les deux caches figurent dans le même abonnement Azure.
 - La taille du cache lié secondaire est supérieure ou égale à celle du cache lié principal.
 - Les deux caches sont créés et en cours d'exécution.
@@ -186,5 +186,6 @@ Le basculement automatique entre régions Azure n'est pas pris en charge pour le
 Pour lancer un basculement initié par le client, commencez par dissocier les caches. Puis modifiez votre client Redis pour qu'il utilise le point de terminaison de connexion du cache secondaire (précédemment lié). Une fois les deux caches dissociés, le cache secondaire redevient un cache en lecture-écriture normal, et accepte directement les demandes des clients Redis.
 
 ## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.
 
-En savoir plus sur le [niveau Premium du Cache Azure pour Redis](cache-premium-tier-intro.md).
+* [Niveaux de service Azure Cache pour Redis](cache-overview.md#service-tiers)

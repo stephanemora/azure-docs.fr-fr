@@ -1,6 +1,6 @@
 ---
 title: Concevoir un Stockage Table Azure pour les requêtes | Microsoft Docs
-description: Concevez des tables pour les requêtes dans un Stockage Table Azure.
+description: Concevez des tables pour les requêtes dans un Stockage Table Azure. Choisissez une clé de partition appropriée, optimisez les requêtes et triez les données du service Table.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457647"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926244"
 ---
 # <a name="design-for-querying"></a>Conception pour l'interrogation
 Les solutions de service de Table peuvent lire ou écrire de façon intensive, ou effectuer une combinaison des deux. Cet article décrit les éléments à prendre en compte quand vous concevez votre service de Table pour prendre en charge efficacement les opérations de lecture. En règle générale, une conception qui prend en charge les opérations de lecture de manière efficace le sera également pour des opérations d'écriture. Toutefois, vous devez prendre en compte d’autres éléments quand la conception a pour but de prendre en charge les opérations d’écriture. Ces éléments sont décrits dans l’article [Concevoir pour la modification de données](table-storage-design-for-modification.md).
@@ -81,7 +81,7 @@ Au moment de choisir la valeur de **PartitionKey**, vous devez vous demander com
 ## <a name="optimizing-queries-for-the-table-service"></a>Optimisation des requêtes pour le service de Table
 Le service de Table indexe automatiquement vos entités en utilisant les valeurs de **PartitionKey** et **RowKey** dans un seul index en cluster. Voilà pourquoi les requêtes de pointage sont les plus efficaces. Toutefois, il n’existe aucun autre index que celui de l’index en cluster sur la **PartitionKey** et la **RowKey**.
 
-De nombreuses conceptions doivent répondre aux conditions requises pour permettre la recherche d'entités basée sur plusieurs critères. Par exemple, la localisation des entités relatives aux employés (employee) en fonction de leurs adresses de messagerie électronique, de leur ID employé ou de leur nom. Les modèles décrits dans [Modèles de conception de table](table-storage-design-patterns.md) répondent à ces types de besoin et décrivent les différentes manières de contourner le fait que le service de Table ne fournit pas d’index secondaire :  
+De nombreuses conceptions doivent répondre aux conditions requises pour permettre la recherche d'entités basée sur plusieurs critères. Par exemple, la localisation des entités relatives aux employés (employee) en fonction de leurs adresses e-mail, de leur ID employé ou de leur nom. Les modèles décrits dans [Modèles de conception de table](table-storage-design-patterns.md) répondent à ces types de besoin et décrivent les différentes manières de contourner le fait que le service de Table ne fournit pas d’index secondaire :  
 
 * [Modèle d’index secondaire intra-partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**.  
 * [Modèle d’index secondaire entre les partitions](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de **RowKey** dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**.  

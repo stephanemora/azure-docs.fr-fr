@@ -1,19 +1,17 @@
 ---
 title: Création d’un pool d’hôtes pour un environnement Windows Virtual Desktop – Azure
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292568"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121372"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
@@ -37,13 +35,13 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 > [!div class="mx-imgBorder"]
 > ![Image du portail Azure affichant le message « Créer un compte gratuit »](media/create-new-account.png)
 
-**Cause** : Aucun abonnement n’est actif dans le compte que vous avez utilisé pour vous connecter à Azure, ou le compte n’est pas autorisé à visualiser les abonnements. 
+**Cause** : Aucun abonnement n’est actif dans le compte que vous avez utilisé pour vous connecter à Azure, ou le compte n’est pas autorisé à visualiser les abonnements.
 
 **Correctif** : Connectez-vous à l’abonnement dans lequel vous allez déployer les machines virtuelles hôtes de session avec un compte disposant au moins d’un accès de niveau contributeur.
 
 ### <a name="error-exceeding-quota-limit"></a>Erreur : « Dépassement de la limite de quota »
 
-Si votre opération dépasse la limite de quota, vous pouvez effectuer une des actions suivantes : 
+Si votre opération dépasse la limite de quota, vous pouvez effectuer une des actions suivantes :
 
 - Créez un pool d’hôtes avec les mêmes paramètres, mais avec moins de machines virtuelles et de cœurs de machines virtuelles.
 
@@ -119,9 +117,9 @@ Pour corriger cela, effectuez les actions suivantes :
 Exemple d’erreur brute :
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Exemple d’erreur brute :
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Exemple d’erreur brute :
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
@@ -254,6 +252,12 @@ the VM.\\\"
 **Cause :** Cette erreur découle du fait qu’une route statique, une règle de pare-feu ou un Groupe de sécurité réseau (NSG) bloquent le téléchargement du fichier zip lié au modèle Azure Resource Manager.
 
 **Correctif :** Supprimez la route statique, la règle de pare-feu ou le NSG qui bloquent le téléchargement. Si vous le souhaitez, ouvrez le fichier json du modèle Azure Resource Manager dans un éditeur de texte, recherchez le lien d’accès au fichier zip, puis téléchargez la ressource à un emplacement autorisé.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Erreur : Impossible de supprimer un hôte de session du pool hôte après la suppression de la machine virtuelle
+
+**Cause :** Vous devez supprimer l’hôte de session avant de supprimer la machine virtuelle.
+
+**Correctif :** Mettez l’hôte de session en mode maintenance, déconnectez tous les utilisateurs de l’hôte de session, puis supprimez l’hôte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

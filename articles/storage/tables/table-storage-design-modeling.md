@@ -1,6 +1,6 @@
 ---
 title: Modélisation de relations dans la conception de stockage de table Azure | Microsoft Docs
-description: Découvrez le processus de modélisation quand vous concevez votre solution de stockage de table.
+description: Découvrez le processus de modélisation quand vous concevez votre solution de stockage Table Azure. En savoir plus sur les relations de type un à plusieurs, un à un et héritage.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457566"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036043"
 ---
 # <a name="modeling-relationships"></a>Modélisation des relations
 Cet article décrit le processus de modélisation pour vous aider à concevoir vos solutions de Stockage Table Azure.

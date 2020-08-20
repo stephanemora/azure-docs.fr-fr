@@ -3,12 +3,12 @@ title: Azure Service Bus – Interruption d’entités de messagerie
 description: Cet article explique comment suspendre temporairement et réactiver des entités de message Azure Service Bus (files d’attente, rubriques et abonnements).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038135"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078856"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Interrompre et réactiver des entités de messagerie (désactiver)
 
@@ -18,9 +18,11 @@ Généralement, une entité est interrompue pour des raisons administratives urg
 
 Aussi bien l’utilisateur que le système peuvent effectuer une interruption ou une réactivation. Le système interrompt uniquement les entités pour des raisons administratives graves comme atteindre la limite de dépense de l’abonnement. Les entités désactivées par le système ne peuvent pas être réactivées par l’utilisateur, mais sont restaurées une fois la cause de l’interruption traitée.
 
-Dans le portail, la section **Propriétés** de l’entité respective permet de modifier l’état ; la capture d’écran suivante montre le bouton bascule d’une file d’attente :
+Dans le portail, la section **Vue d’ensemble** de l’entité respective permet de modifier l’état. L’état actuel est affiché sous **État** sous forme de lien hypertexte.
 
-![Capture d’écran de la fonctionnalité Service Bus avec le paramètre Propriétés mis en surbrillance et l’option État de la file d’attente définie sur Active et délimitée en rouge.][1]
+La capture d’écran suivante montre les états disponibles vers lesquels l’entité peut être modifiée via la sélection du lien hypertexte : 
+
+![Capture d’écran de la fonctionnalité Service Bus dans Vue d’ensemble pour modifier l’option d’état de l’entité.][1]
 
 Le portail vous permet uniquement de désactiver complètement les files d’attente. Vous pouvez également désactiver les opérations d’envoi et de réception séparément à l’aide de l’API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) Service Bus dans le Kit de développement logiciel (SDK) .NET Framework ou avec un modèle Azure Resource Manager via Azure CLI ou Azure PowerShell.
 
@@ -55,5 +57,5 @@ Pour plus d’informations sur la messagerie Service Bus, consultez les articles
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe725f3e4571f5b1f646b320e8c669e663c657e0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830007"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004688"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Mise à l’échelle du cache Azure pour Redis
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -26,7 +26,7 @@ Vous pouvez surveiller les mesures suivantes pour déterminer si vous avez besoi
 * Bande passante réseau
 * Utilisation du processeur
 
-Si vous déterminez que votre cache ne répond plus aux besoins de votre application, vous pouvez passer à un niveau de tarification de cache plus important ou plus réduit, adapté à votre application. Pour plus d’informations sur la détermination des niveaux de tarification de cache à utiliser, consultez la section [Quelle offre et quelle taille de cache Azure pour Redis utiliser ?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+Si vous déterminez que votre cache ne répond plus aux besoins de votre application, vous pouvez passer à un niveau de tarification de cache plus important ou plus réduit, adapté à votre application. Pour plus d’informations sur la détermination des niveaux de tarification de cache à utiliser, consultez [Choix du niveau approprié](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Mise à l’échelle d’un cache
 Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Mettre à l’échelle** dans le **menu Ressources**.
