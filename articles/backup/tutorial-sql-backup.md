@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SQL Server sur Azure
 description: Dans ce tutoriel, découvrez comment sauvegarder, dans un coffre Recovery Services de la sauvegarde Azure, une base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513308"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612450"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Sauvegarder une base de données SQL Server dans une machine virtuelle Azure
 
@@ -117,7 +117,7 @@ Configurez la sauvegarde de la façon suivante :
 
    ![Sélectionner Configurer la sauvegarde](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Cliquez sur **Configurer la sauvegarde** : le panneau **Sélectionner les éléments à sauvegarder** apparaît. Cette liste répertorie tous les groupes de disponibilité enregistrés et serveurs SQL autonomes. Développez le chevron situé à gauche de la ligne pour voir toutes les bases de données non protégées de cette instance ou Groupe de disponibilité Always On.  
+2. Sélectionnez **Configurer la sauvegarde** : le volet **Sélectionner les éléments à sauvegarder** apparaît. Cette liste répertorie tous les groupes de disponibilité enregistrés et serveurs SQL autonomes. Développez le chevron situé à gauche de la ligne pour voir toutes les bases de données non protégées de cette instance ou Groupe de disponibilité Always On.  
 
     ![Affichage de toutes les instances SQL Server avec des bases de données autonomes](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,11 +129,11 @@ Configurez la sauvegarde de la façon suivante :
 
      * Vous pouvez aussi activer la protection automatique sur l’ensemble de l’instance ou du groupe de disponibilité Always On en sélectionnant l’option **ACTIVÉ** dans la liste déroulante correspondant à la colonne **PROTECTION AUTOMATIQUE**. La fonctionnalité de protection automatique permet non seulement de protéger toutes les bases de données existantes en une seule étape, mais aussi de protéger automatiquement toutes les nouvelles bases de données qui seront ajoutées à cette instance ou ce groupe de disponibilité par la suite.  
 
-4. Cliquez sur **OK** pour créer le panneau **Stratégie de sauvegarde**.
+4. Sélectionnez **OK** pour créer le volet **Stratégie de sauvegarde**.
 
     ![Activer la protection automatique sur le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Dans **Choisir une stratégie de sauvegarde**, sélectionnez une stratégie, puis cliquez sur **OK**.
+5. Dans **Choisir une stratégie de sauvegarde**, sélectionnez une stratégie, puis **OK**.
 
    * Sélectionner la stratégie par défaut : HourlyLogBackup.
    * Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
@@ -161,8 +161,8 @@ Une stratégie de sauvegarde définit le moment auquel les sauvegardes sont effe
 
 Pour créer une stratégie de sauvegarde :
 
-1. Dans le coffre, cliquez sur **Stratégies de sauvegarde** > **Ajouter**.
-2. Dans le menu **Ajouter**, cliquez sur **SQL Server dans une machine virtuelle Azure** pour définir le type de stratégie.
+1. Dans le coffre, sélectionnez **Stratégies de sauvegarde** > **Ajouter**.
+2. Dans le menu **Ajouter**, sélectionnez **SQL Server dans une machine virtuelle Azure** pour définir le type de stratégie.
 
    ![Choisissez un type de stratégie pour la nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -171,7 +171,7 @@ Pour créer une stratégie de sauvegarde :
 
    * Si vous sélectionnez **quotidienne**, sélectionnez l’heure et le fuseau horaire de début du travail de sauvegarde.
    * Vous devez exécuter une sauvegarde complète, car vous ne pouvez pas désactiver l’option **Sauvegarde complète**.
-   * Cliquez sur **Sauvegarde complète** pour afficher la stratégie.
+   * Sélectionnez **Sauvegarde complète** pour afficher la stratégie.
    * Si vous choisissez des sauvegardes complètes quotidiennes, vous ne pouvez pas créer de sauvegardes différentielles.
    * Si vous choisissez la fréquence **hebdomadaire**, sélectionnez le jour de la semaine, l’heure et le fuseau horaire indiquant le début du travail de sauvegarde.
 
@@ -214,7 +214,7 @@ Pour créer une stratégie de sauvegarde :
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 
 1. Dans le coffre Recovery Services, choisissez Éléments de la sauvegarde.
-2. Cliquez sur « SQL dans Azure VM ».
+2. Sélectionnez « SQL dans la machine virtuelle Azure ».
 3. Cliquez avec le bouton droit sur une base de données et choisissez « Sauvegarder maintenant ».
 4. Choisissez le Type de sauvegarde (Complète/Différentielle/Journal/Copie complète uniquement) et la Compression (Activer/Désactiver)
 5. Sélectionnez OK pour commencer la sauvegarde.

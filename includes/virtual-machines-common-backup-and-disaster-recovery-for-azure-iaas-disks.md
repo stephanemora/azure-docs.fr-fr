@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84124285"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186314"
 ---
 Cet article explique comment planifier la sauvegarde et la récupération d’urgence (DR) de machines virtuelles (VM) IaaS et de disques dans Azure. Ce document couvre les disques managés et non managés.
 
@@ -257,9 +257,6 @@ La principale différence entre le stockage géoredondant et un stockage géored
 S’il s’agit d’une interruption importante, l’équipe Azure peut déclencher un basculement géographique et modifier les entrées DNS principales pour qu’elles pointent vers le stockage secondaire. À ce stade, si vous avez activé le stockage géoredondant ou le stockage géoredondant avec accès en lecture, vous pouvez accéder aux données dans la région utilisée comme région secondaire. En d’autres termes, si votre compte de stockage est un stockage géoredondant et qu’un problème survient, vous pouvez accéder au stockage secondaire uniquement s’il existe un basculement géographique.
 
 Pour plus d’informations, consultez [Que faire en cas de panne du stockage Azure](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->Microsoft contrôle si un basculement se produit. Le basculement n’est pas contrôlé par le compte de stockage. Par conséquent, il n’est pas décidé par les clients individuels. Pour implémenter la récupération d’urgence pour des comptes de stockage ou disques de machine virtuelle spécifiques, vous devez utiliser les techniques décrites précédemment dans cet article.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

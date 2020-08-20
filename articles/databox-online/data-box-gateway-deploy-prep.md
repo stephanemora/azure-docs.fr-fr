@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 553d6f716bbb6e98aa64ef07cb80d2d6cba370b6
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 8a8b53af6e23b2dd0ff011a6bfbf99a1da427063
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561566"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611634"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutoriel : Préparer le déploiement d’Azure Data Box Gateway
 
@@ -138,7 +138,7 @@ Suivez ces étapes dans le [portail Azure](https://portal.azure.com/) pour tél�
 2. Sur la vignette **Télécharger l’image**, sélectionnez l’image d’appareil virtuel correspondant au système d’exploitation sur le serveur hôte utilisé pour provisionner la machine virtuelle. Les fichiers image ont une taille d’environ 5,6 Go.
    
    * [VHD pour Hyper-V sur Windows Server 2012 R2 et versions ultérieures](https://aka.ms/dbe-vhdx-2012)
-   * [VMDK pour VMWare ESXi 6.0, 6.5 ou 6.7](https://aka.ms/dbe-vmdk).
+   * [VMDK pour VMware ESXi 6.0, 6.5 ou 6.7](https://aka.ms/dbe-vmdk).
 
     ![Télécharger l’image d’appareil virtuel Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
