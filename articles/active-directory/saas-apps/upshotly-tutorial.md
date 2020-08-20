@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Upshotly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Upshotly.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9ef54a33-da2d-4ec2-9943-a4fb6aee5e9c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 1/7/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f82b7ce417e79cef29c9e852ca15a8ea1e8d62f2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1dbcd2bd997872820e87c9d8c2e239c4324e9ce6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76266041"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-upshotly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Upshotly
 
