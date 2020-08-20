@@ -2,25 +2,21 @@
 title: 'Didacticiel : Intégration d’Azure Active Directory avec TimeLive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TimeLive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 34123629-4ad5-465c-a4c1-8299f857e720
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a3f1e74b67d30fc5d0b994093f159de0cc833628
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 217a049b589db98b6d28e7a0ef9b8ef64f635349
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088582"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Didacticiel : Intégration d’Azure Active Directory avec TimeLive
 

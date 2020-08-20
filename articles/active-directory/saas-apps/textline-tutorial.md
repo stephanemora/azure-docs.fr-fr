@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Textline | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Textline.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e8b8c880-4fe2-4902-954a-a1c85fd27af4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acaa502c89834eee9844335aa241d8ec173d3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4cee7f32e530a765315a88a370cd940d9a4324d6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093408"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541488"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textline"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Textline
 

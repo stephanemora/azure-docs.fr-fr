@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceChannel | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ServiceChannel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4adc22982c8c7fa7b7a856ded01f88ee548bde93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 55a685222444b99c10b19699560553a510d2a7a4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71121966"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicechannel"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceChannel
 

@@ -2,25 +2,21 @@
 title: 'Didacticiel : Intégration d’Azure Active Directory avec Skillport | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skillport.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cceb0a98cc35a41d1d46b798c9caf08fae2e3748
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090568"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Didacticiel : Intégration d’Azure AD avec Skillport
 
@@ -139,7 +135,7 @@ Pour configurer l’authentification unique Azure Active Directory avec Skillpor
 
 ### <a name="configure-skillport-single-sign-on"></a>Configurer l’authentification unique de Skillport
 
-Pour configurer l’authentification unique côté **Skillport**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL associées copiées dans le portail Azure à l’[équipe du support technique Skillport](https://www.skillsoft.com/contact.asp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Skillport**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL associées copiées dans le portail Azure à l’[équipe du support technique Skillport](https://www.skillsoft.com/about/contact-us). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -194,7 +190,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-skillport-test-user"></a>Créer un utilisateur de test Skillport
 
-Pour créer un utilisateur de test Skillport, vous devez contacter [l’équipe de support Skillport](https://www.skillsoft.com/contact.asp), qui dispose de plusieurs scénarios d’entreprise en fonction des exigences de l’utilisateur final. Ils configureront les éléments après avoir discuté avec les utilisateurs.
+Pour créer un utilisateur de test Skillport, vous devez contacter [l’équipe de support Skillport](https://www.skillsoft.com/about/contact-us), qui dispose de plusieurs scénarios d’entreprise en fonction des exigences de l’utilisateur final. Ils configureront les éléments après avoir discuté avec les utilisateurs.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

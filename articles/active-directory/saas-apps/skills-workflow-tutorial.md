@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Skills Workflow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skills Workflow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4db0c061-7d61-43a9-b1b2-de0f409d116c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99f78b3b6c61e40f3820171d4b69eed104ed20a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c98a361169f489724209ebb39951f6dd543cf01b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79503595"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543004"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skills-workflow"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Skills Workflow
 

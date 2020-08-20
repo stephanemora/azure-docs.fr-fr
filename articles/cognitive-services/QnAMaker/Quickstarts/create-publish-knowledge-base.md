@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer, entraîner et publier une base de connaissa
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340587"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540752"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -17,7 +17,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 ## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
-> * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+> * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 > * Une [ressource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker créée dans le portail Azure. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Créer votre première base de connaissances QnA Maker
