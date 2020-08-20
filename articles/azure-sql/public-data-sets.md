@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 6e38be4a97678ce749e32ca31c0703ed9d786d76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033570"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209540"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -33,7 +33,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 | [Retards de vols d’avion et autres données de transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | « Le statistiques du bureau des transports (BTC) du ministère des transports (DOT) américain suivant la ponctualité des vols intérieurs exploités par de grands transporteurs aériens. Un résumé des informations sur le nombre de vols à l’heure, différés, annulés et déviés est présenté (...) dans des tableaux récapitulatifs publiés sur ce site web. » | Les fichiers sont au format CSV. |
 | [Décès sur les routes - Système de rapport d’analyse des décès (FARS) des États-Unis ](https://www.nhtsa.gov/FARS) | « Le FARS est un recensement à l’échelle nationale fournissant au NHTSA, au Congrès et au public américain des informations annuelles sur les décès liés aux accidents de la route. » | « Créez vos propres données liées aux décès à l’aide du système de requêtes FARS en ligne. Vous pouvez également télécharger toutes les données FARS de 1975 à maintenant sur notre site FTP. » |
 | [Données sur les produits chimiques toxiques – Données de Toxicity ForeCaster (ToxCast&trade;) de l’EPA](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | « Les données de toxicité à haut débit les plus récentes de l’EPA mises à la disposition du public sur des milliers de produits chimiques. Ces données sont générées grâce aux efforts de recherche de ToxCast de l’EPA. » | Les jeux de données sont disponibles dans différents formats, notamment des feuilles de calcul, des paquets R et des fichiers de base de données MySQL. |
-| [Données sur les produits chimiques toxiques - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | « Le NIH Tox21 Data Challenge 2014 est conçu pour aider les chercheurs à comprendre le potentiel des produits chimiques et composés testés via l’initiative Toxicology in the 21st Century pour perturber les voies biologiques de façons qui peuvent entraîner des effets toxiques. » | Les jeux de données sont disponibles aux formats SMILES et SDF. Les données fournissent des « données d’activité d’essai et des structures chimiques sur la collection Tox21 d’environ 10 000 composés (Tox21 10K). » |
+| [Données sur les produits chimiques toxiques - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21) | « Le NIH Tox21 Data Challenge 2014 est conçu pour aider les chercheurs à comprendre le potentiel des produits chimiques et composés testés via l’initiative Toxicology in the 21st Century pour perturber les voies biologiques de façons qui peuvent entraîner des effets toxiques. » | Les jeux de données sont disponibles aux formats SMILES et SDF. Les données fournissent des « données d’activité d’essai et des structures chimiques sur la collection Tox21 d’environ 10 000 composés (Tox21 10K). » |
 | [Données de biotechnologie et de génome du NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Plusieurs jeux de données couvrant les protéines, les génomes et les gènes. | Les jeux de données sont disponibles aux formats texte, XML, BLAST et autres. Une application BLAST est disponible. |
 
 ## <a name="other-statistical-and-scientific-data"></a>Autres données statistiques et scientifiques

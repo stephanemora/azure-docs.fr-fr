@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445644"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235697"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -157,7 +157,7 @@ Les étapes nécessaires pour activer et configurer l’approvisionnement automa
 
 Sinon, suivez ces étapes ci-dessous :
 
-1. [Créez une requête](../develop/howto-app-gallery-listing.md) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
+1. [Créez une requête](../azuread-dev/howto-app-gallery-listing.md) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
 
 1. Utilisez la prise en charge de l’attribution d’utilisateurs générique [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) (Apportez votre propre application avec SCIM) pour l’application. Il s’agit d’une condition nécessaire à Azure AD pour attribuer des utilisateurs à l’application sans connecteur de provisionnement préintégré.
 

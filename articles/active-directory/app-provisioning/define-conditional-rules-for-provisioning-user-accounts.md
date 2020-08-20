@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781954"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235806"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -94,7 +94,7 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
    
    j. **Greater_Than_OR_EQUALS.** La clause renvoie « true » si l’attribut évalué est supérieur ou égal à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
    
-   k. **Includes.** La clause renvoie « true » si l’attribut évalué contient la valeur de chaîne (respecte la casse) comme décrit [ici](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** La clause renvoie « true » si l’attribut évalué contient la valeur de chaîne (respecte la casse) comme décrit [ici](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +130,3 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 * [Notifications d’approvisionnement de comptes](../app-provisioning/user-provisioning.md)
 * [Utiliser SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
-

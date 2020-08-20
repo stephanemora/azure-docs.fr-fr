@@ -1,27 +1,22 @@
 ---
-title: 'Activation du Proxy d’application Azure AD : Historique de publication des versions | Microsoft Docs'
+title: 'Activation du Proxy d’application Azure AD : Historique de publication des versions'
 description: Cet article répertorie toutes les publications du Proxy d’application Azure AD et détaille les nouvelles fonctionnalités ainsi que les problèmes corrigés
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019384"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210860"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Activation du Proxy d’application Azure AD : Historique de publication des versions
 Cet article répertorie les versions et les fonctionnalités du Proxy d’application Azure Active Directory (Azure AD) qui ont été publiées. L’équipe Azure AD met régulièrement à jour le Proxy d’application avec de nouvelles fonctions et fonctionnalités. Les connecteurs du Proxy d’application sont mis à jour automatiquement lorsqu’une nouvelle version est publiée. 
@@ -68,7 +63,7 @@ Télécharger le connecteur de proxy d’application Azure AD |  [Téléchargez 
 7 avril 2020 : publiée pour téléchargement
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
--   Les connecteurs utilisent uniquement TLS 1.2 pour toutes les connexions. Pour plus d’informations, consultez [Prérequis pour le connecteur](application-proxy-add-on-premises-application.md#before-you-begin).
+-   Les connecteurs utilisent uniquement TLS 1.2 pour toutes les connexions. Pour plus d’informations, consultez [Prérequis pour le connecteur](application-proxy-add-on-premises-application.md#prerequisites).
 - Signalisation améliorée entre le connecteur et les services Azure. Cela comprend la prise en charge des sessions fiables pour la communication WCF entre le connecteur et les services Azure et des améliorations de la mise en cache DNS pour les communications WebSocket.
 - Prise en charge de la configuration d’un proxy entre le connecteur et l’application back-end. Pour plus d’informations, consultez [Utiliser des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md).
 

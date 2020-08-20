@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073863"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236741"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -423,7 +423,6 @@ Voici quelques erreurs courantes liées aux échanges :
       ...
     </conditions>
     ```
-- Certaines [règles de restriction IP](app-service-ip-restrictions.md) peuvent empêcher l’opération d’échange d’envoyer des requêtes HTTP à votre application. Les plages d’adresses IPv4 qui commencent par `10.` et `100.` sont internes à votre déploiement. Vous devez les autoriser à se connecter à votre application.
 
 - Après des échanges d’emplacements, l’application peut rencontrer des redémarrages inattendus. En effet, après un échange, la configuration de la liaison du nom d’hôte se désynchronise, ce qui n’entraîne pas de redémarrages. En revanche, certains événements de stockage sous-jacents (comme des basculements de volume de stockage) peuvent détecter ces différences et forcer le redémarrage de tous les processus Worker. Pour minimiser ces types de redémarrages, définissez le [paramètre d’application`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) sur *tous les emplacements*. En revanche, ce paramètre d’application ne fonctionne *pas* avec des applications Windows Communication Foundation (WCF).
 

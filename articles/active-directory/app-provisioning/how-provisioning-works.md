@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445622"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235721"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -44,7 +44,7 @@ Si vous souhaitez demander un connecteur de provisionnement automatique Azure A
 
 Des informations d’identification sont nécessaires pour qu’Azure AD puisse se connecter à l’API de gestion des utilisateurs de l’application. Pour configurer l’attribution automatique d’utilisateurs dans une application, vous devez entrer des informations d’identification valides. Pour connaître les différents types d’informations d’identification et d’exigences d’une application, consultez le tutoriel de l’application. Dans le portail Azure, vous pouvez tester les informations d’identification en demandant à Azure AD de se connecter à l’API de provisionnement de l’application à l’aide des informations d’identification fournies.
 
-Si l’authentification unique basée sur SAML est également configurée pour l’application, la limite de stockage par application interne d’Azure AD est de 1 024 octets. Cette limite comprend l’ensemble des certificats, jetons secrets, informations d’identification et données de configuration qui sont associés à une même instance d’application (également appelée « enregistrement du principal de service » dans Azure AD). Lorsque l’authentification unique basée sur SAML est configurée, le certificat utilisé pour signer les jetons SAML consomme généralement plus de 50 % de l’espace. Les éléments supplémentaires (jetons secrets, URI, adresses e-mail de notification, noms d’utilisateur et mots de passe) que vous entrez pendant la configuration de l’attribution d’utilisateurs peuvent entraîner un dépassement de la limite de stockage. Pour plus d’informations, consultez [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Si l’authentification unique basée sur SAML est également configurée pour l’application, la limite de stockage par application interne d’Azure AD est de 1 024 octets. Cette limite comprend l’ensemble des certificats, jetons secrets, informations d’identification et données de configuration qui sont associés à une même instance d’application (également appelée « enregistrement du principal de service » dans Azure AD). Lorsque l’authentification unique basée sur SAML est configurée, le certificat utilisé pour signer les jetons SAML consomme généralement plus de 50 % de l’espace. Les éléments supplémentaires (jetons secrets, URI, adresses e-mail de notification, noms d’utilisateur et mots de passe) que vous entrez pendant la configuration de l’attribution d’utilisateurs peuvent entraîner un dépassement de la limite de stockage. Pour plus d’informations, consultez [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Mappage d’attributs
 
@@ -54,7 +54,7 @@ Il existe un ensemble préconfiguré d’attributs et de mappages d’attributs 
 
 Lors de la configuration du provisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Vérifiez et configurez la propriété correspondante (**Trouver les objets utilisant cet attribut**) qui est utilisée pour identifier de façon unique et établir une correspondance entre les utilisateurs et groupes des deux systèmes.
 
-Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre organisation. Vous pouvez ainsi modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS](../manage-apps/customize-application-attributes.md).
+Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre organisation. Vous pouvez ainsi modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS](./customize-application-attributes.md).
 
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Pour ces mappages, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Vous pouvez utiliser les filtres d’étendue pour définir les règles basées 
 
 ### <a name="b2b-guest-users"></a>Utilisateurs B2B invités
 
-Il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) Azure AD dans des applications SaaS. Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration](../b2b/configure-saas-apps.md).
+Il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) Azure AD dans des applications SaaS. Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration](../external-identities/configure-saas-apps.md).
 
 Notez que le paramètre userPrincipalName d’un utilisateur invité est souvent stocké en tant que « alias#EXT#@domain.com ». Lorsque userPrincipalName est inclus dans vos mappages d’attributs en tant qu’attribut source, la partie #EXT# est supprimée du userPrincipalName. Si vous avez besoin que la partie #EXT# soit présente, remplacez userPrincipalName par originalUserPrincipalName en tant qu’attribut source. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cycles de provisionnement : cycle initial et cycle incrémentiel
 
-Lorsqu’Azure AD est le système source, le service d’approvisionnement utilise la fonctionnalité [Utilisation des requêtes différentielles pour suivre les modifications apportées aux données de Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) pour surveiller les utilisateurs et groupes. Le service de provisionnement exécute un cycle initial sur le système source et le système cible, qui est suivi de cycles incrémentiels périodiques.
+Lorsqu’Azure AD est le système source, le service d’approvisionnement utilise la fonctionnalité [Utilisation des requêtes différentielles pour suivre les modifications apportées aux données de Microsoft Graph](/graph/delta-query-overview) pour surveiller les utilisateurs et groupes. Le service de provisionnement exécute un cycle initial sur le système source et le système cible, qui est suivi de cycles incrémentiels périodiques.
 
 ### <a name="initial-cycle"></a>Cycle initial
 
@@ -154,11 +154,11 @@ Ces échecs peuvent être résolus en ajustant les valeurs d’attribut de l’u
 
 ### <a name="quarantine"></a>Mise en quarantaine
 
-Si la plupart ou la totalité des appels effectués sur le système cible échouent constamment en raison d’une erreur (des informations d’identification non valides, par exemple), le travail de provisionnement est mis en quarantaine. Cet état est indiqué dans le [rapport de synthèse sur l’approvisionnement](../manage-apps/check-status-user-account-provisioning.md) et via les notifications par e-mail si elles ont été configurées dans le portail Azure.
+Si la plupart ou la totalité des appels effectués sur le système cible échouent constamment en raison d’une erreur (des informations d’identification non valides, par exemple), le travail de provisionnement est mis en quarantaine. Cet état est indiqué dans le [rapport de synthèse sur l’approvisionnement](./check-status-user-account-provisioning.md) et via les notifications par e-mail si elles ont été configurées dans le portail Azure.
 
 Lors de la mise en quarantaine, la fréquence des cycles incrémentiels est progressivement réduite à une fois par jour.
 
-Le travail de provisionnement sort de quarantaine lorsque toutes les erreurs ont été corrigées et que le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé. Pour en savoir plus sur l’état de quarantaine, [cliquez ici](../manage-apps/application-provisioning-quarantine-status.md).
+Le travail de provisionnement sort de quarantaine lorsque toutes les erreurs ont été corrigées et que le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé. Pour en savoir plus sur l’état de quarantaine, [cliquez ici](./application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Durée du provisionnement
 
@@ -166,7 +166,7 @@ Les performances varient selon que votre tâche d’approvisionnement exécute u
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 
-Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Les journaux comprennent toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites lors de chaque opération. Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](../manage-apps/check-status-user-account-provisioning.md).
+Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Les journaux comprennent toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites lors de chaque opération. Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Déprovisionnement
 
@@ -190,8 +190,8 @@ Si vous voyez un attribut IsSoftDeleted dans vos mappages d’attributs, sachez 
 
 [Planifier un déploiement d’attribution automatique d’utilisateurs](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configurer le provisionnement pour une application de galerie](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configurer le provisionnement pour une application de galerie](./configure-automatic-user-provisioning-portal.md)
 
 [Créer un point de terminaison SCIM et configurer le provisionnement lors de la création de votre propre application](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Résoudre les problèmes liés à la configuration et à l’attribution des utilisateurs dans une application](../manage-apps/application-provisioning-config-problem.md)
+[Résoudre les problèmes liés à la configuration et à l’attribution des utilisateurs dans une application](./application-provisioning-config-problem.md)

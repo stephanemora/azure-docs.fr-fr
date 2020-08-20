@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: f3c7420e1f33a7c25e7d3bfdffff14019d0b606a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 48d8b0519ca1b312909f8b48a7fd8a25d0f8b919
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542668"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225816"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Cet article détaille les limites de ressources des bases de données Azure SQL Database qui se trouvent dans un pool élastique suivant le modèle d'achat DTU.
 
-* Pour connaître les limites de ressources du modèle d'achat DTU relatif à Azure SQL Database, consultez [Limites de ressources DTU : Azure SQL Database](resource-limits-vcore-elastic-pools.md).
+* Pour connaître les limites de ressources du modèle d'achat DTU relatif à Azure SQL Database, consultez [Limites de ressources DTU : Azure SQL Database](resource-limits-dtu-single-databases.md).
 * Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : Azure SQL Database](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md).
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool élastique : tailles de stockage et tailles de calcul

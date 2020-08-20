@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782277"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234786"
 ---
 # <a name="no-users-are-being-provisioned"></a>Aucun utilisateur n’est en cours d’approvisionnement 
 >[!NOTE]
@@ -58,7 +58,7 @@ Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux de pro
 - **Un attribut requis manque ou n’est pas indiqué pour un utilisateur.** Lors de la configuration de l’approvisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Cette configuration inclut la définition d’une « propriété correspondante » réservée à l’identification et à la mise en correspondance des utilisateurs/groupes entre les deux systèmes. Pour plus de détails sur ce processus important, consultez [Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md).
 - **Mappage d’attributs pour les groupes :** Approvisionnement du nom du groupe et des détails du groupe, en plus des membres, si la prise en charge est effective pour certaines applications. Vous pouvez activer ou désactiver cette fonctionnalité en activant ou désactivant le **mappage** pour les objets de groupe affichés dans l’onglet **Approvisionnement**. Si les groupes d’approvisionnement sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu’un champ approprié est utilisé pour l’« ID correspondant ». L’ID correspondant peut être le nom d’affichage ou l’alias de messagerie. Le groupe et ses membres ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas renseignée pour un groupe dans Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Approvisionnement des utilisateurs assignés au rôle d’accès par défaut
-Le rôle par défaut sur une application de la galerie est appelé le rôle « accès par défaut ». Historiquement, les utilisateurs assignés à ce rôle ne sont pas approvisionnés et sont marqués comme étant ignorés dans les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) parce qu’ils ont le statut « non autorisés de manière effective ». 
+Le rôle par défaut sur une application de la galerie est appelé le rôle « accès par défaut ». Historiquement, les utilisateurs assignés à ce rôle ne sont pas approvisionnés et sont marqués comme étant ignorés dans les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) parce qu’ils ont le statut « non autorisés de manière effective ». 
 
 **Comportement pour l’approvisionnement des configurations créées après le 16/04/2020 :** Les utilisateurs assignés au rôle d’accès par défaut sont évalués de la même façon que tous les autres rôles. Un utilisateur auquel est attribué l’accès par défaut n’est pas ignoré pour le motif « non autorisé de manière effective ». 
 

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781988"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234837"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
 Cet article décrit les étapes générales de la gestion du provisionnement et du déprovisionnement automatique des comptes d’utilisateur pour les applications qui prennent en charge ces fonctions. *L’approvisionnement de comptes d’utilisateur* consiste à créer, mettre à jour et/ou désactiver des enregistrements de compte d’utilisateur dans le magasin local de profils utilisateur d’une application. La plupart des applications cloud et SaaS stockent le rôle et les autorisations des utilisateurs dans le magasin local de profils utilisateur de l’utilisateur. La présence de ces enregistrements d’utilisateur dans le magasin local de l’utilisateur est *requise* pour l’authentification unique et l’accès aux opérations. Pour en savoir plus sur le provisionnement automatique de comptes d’utilisateur, consultez [Automatiser le provisionnement et le déprovisionnement des utilisateurs dans les applications avec Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) a une galerie contenant des milliers d’applications pr-intégrées pour lesquelles le provisionnement automatique est activé avec Azure AD. Vous devez commencer par trouver le tutoriel de configuration du provisionnement spécifique de votre application dans la [liste des tutoriels sur l’intégration des applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Vous y trouverez probablement des instructions pas à pas pour la configuration de l’application et d’Azure AD afin de créer la connexion de provisionnement.
+> Azure Active Directory (Azure AD) a une galerie contenant des milliers d’applications pr-intégrées pour lesquelles le provisionnement automatique est activé avec Azure AD. Vous devez commencer par trouver le tutoriel de configuration du provisionnement spécifique de votre application dans la [liste des tutoriels sur l’intégration des applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md). Vous y trouverez probablement des instructions pas à pas pour la configuration de l’application et d’Azure AD afin de créer la connexion de provisionnement.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
 
@@ -85,4 +85,4 @@ Si c’est la première fois que l’approvisionnement est activé pour une appl
 
 Changez **État de la configuration** pour **Désactivé** pour suspendre le service d’approvisionnement. Dans cet état, Azure ne crée, met à jour ou supprime aucun objet utilisateur ou groupe dans l’application. Changez de nouveau l’état pour **Activé** et le service reprend où il s’était arrêté.
 
-**Effacer l’état en cours et redémarrer la synchronisation** déclenche un cycle initial. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Effacer l’état en cours et redémarrer la synchronisation** déclenche un cycle initial. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md).

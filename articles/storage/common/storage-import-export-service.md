@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512429"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185381"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -128,6 +128,7 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 |Centre-Nord des États-Unis     |  Sud-Australie Est       | Brésil Sud        | Sud du Royaume-Uni        |
 |États-Unis - partie centrale méridionale     | OuJapon Est        |Centre de la Corée         | Centre de l’Allemagne        |
 |Centre-USA Ouest     |  Japon Est       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
+|Afrique du Sud Ouest   |  Afrique du Sud Nord |
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 

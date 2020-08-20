@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445572"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235689"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -167,7 +167,7 @@ L’intégration de l’approvisionnement entre l’application RH cloud et Acti
 - Agent d’approvisionnement Azure AD Connect
 - Domaine Active Directory
 
-La topologie de déploiement de l’agent d’approvisionnement Azure AD Connect dépend du nombre de locataires de l’application RH cloud et des sous-domaines Active Directory que vous prévoyez d’intégrer. Si vous avez plusieurs domaines Active Directory, cela dépend si les domaines Active Directory sont contigus ou [disjoint](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+La topologie de déploiement de l’agent d’approvisionnement Azure AD Connect dépend du nombre de locataires de l’application RH cloud et des sous-domaines Active Directory que vous prévoyez d’intégrer. Si vous avez plusieurs domaines Active Directory, cela dépend si les domaines Active Directory sont contigus ou [disjoint](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 En fonction de votre décision, choisissez l’un des scénarios de déploiement suivants :
 
@@ -313,7 +313,7 @@ Avec cette expression, si la valeur Municipalité est Dallas, Austin, Seattle ou
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planifier la remise de mot de passe pour de nouveaux comptes d’utilisateur
 
-Lorsque vous lancez le processus Entrants, vous devez définir et remettre un mot de passe temporaire pour les nouveaux comptes d’utilisateur. Grâce à l’approvisionnement d’utilisateurs de l’application RH cloud vers Azure AD, vous pouvez déployer la fonction de [réinitialisation de mot de passe en libre-service](../authentication/quickstart-sspr.md) (SSPR) Azure AD pour l’utilisateur dès le premier jour.
+Lorsque vous lancez le processus Entrants, vous devez définir et remettre un mot de passe temporaire pour les nouveaux comptes d’utilisateur. Grâce à l’approvisionnement d’utilisateurs de l’application RH cloud vers Azure AD, vous pouvez déployer la fonction de [réinitialisation de mot de passe en libre-service](../authentication/tutorial-enable-sspr.md) (SSPR) Azure AD pour l’utilisateur dès le premier jour.
 
 La SSPR est un moyen simple pour les administrateurs informatiques de permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes. Vous pouvez approvisionner l’attribut **Numéro de téléphone** de l’application RH cloud vers Active Directory, puis le synchroniser avec Azure AD. Une fois que l’attribut **Numéro de téléphone mobile** est dans Azure AD, vous pouvez activer SSPR pour le compte de l’utilisateur. Ensuite, le premier jour, le nouvel utilisateur peut utiliser le numéro de téléphone mobile enregistré et vérifié pour l’authentification.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313606"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235534"
 ---
 # <a name="on-demand-provisioning"></a>Approvisionnement à la demande
 L’approvisionnement à la demande vous permet d’approvisionner un utilisateur dans une application en quelques secondes. Entre autres choses, vous pouvez utiliser cette fonctionnalité pour :
@@ -47,9 +47,9 @@ Le service d’approvisionnement tente d’autoriser l’accès à l’applicati
 
 #### <a name="troubleshooting-tips"></a>Conseils de dépannage
 
-* Vérifiez que vous avez fourni à l’application cible des informations d’identification valides, telles que le jeton secret et l’URL du locataire. Les informations d’identification requises varient selon l’application. Pour obtenir des didacticiels de configuration détaillés, consultez la [liste des didacticiels](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Vérifiez que vous avez fourni à l’application cible des informations d’identification valides, telles que le jeton secret et l’URL du locataire. Les informations d’identification requises varient selon l’application. Pour obtenir des didacticiels de configuration détaillés, consultez la [liste des didacticiels](../saas-apps/tutorial-list.md). 
 * Assurez-vous que l’application cible prend en charge le filtrage sur les attributs correspondants définis dans le volet **Mappages d’attributs**. Vous devrez peut-être vérifier la documentation de l’API fournie par le développeur de l’application pour comprendre les filtres pris en charge.
-* Pour les applications SCIM (System for Cross-domain Identity Management), vous pouvez utiliser un outil tel que Postman. Ces outils vous permettent de vous assurer que l’application répond aux demandes d’autorisation comme le service d’approvisionnement de Azure Active Directory (Azure AD) l’attend. Examinez un [exemple de demande](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* Pour les applications SCIM (System for Cross-domain Identity Management), vous pouvez utiliser un outil tel que Postman. Ces outils vous permettent de vous assurer que l’application répond aux demandes d’autorisation comme le service d’approvisionnement de Azure Active Directory (Azure AD) l’attend. Examinez un [exemple de demande](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Étape 2 : Importer l'utilisateur
 
@@ -76,7 +76,7 @@ La section **Afficher les détails** affiche les propriétés de l’utilisateur
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Étape 3 : Déterminer si l'utilisateur se trouve dans l'étendue
 
-Ensuite, le service d’approvisionnement détermine si l’utilisateur se trouve dans l’[étendue](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) pour l’approvisionnement. Le service vérifie des aspects tels que les suivants :
+Ensuite, le service d’approvisionnement détermine si l’utilisateur se trouve dans l’[étendue](./how-provisioning-works.md#scoping) pour l’approvisionnement. Le service vérifie des aspects tels que les suivants :
 
 * si l’utilisateur est affecté à l’application ;
 * si l’étendue est définie sur **Synchroniser les utilisateurs affectés** ou **Synchroniser tous les utilisateurs** ;
@@ -94,8 +94,8 @@ La section **Afficher les détails** affiche les conditions d’étendue qui ont
 
 #### <a name="troubleshooting-tips"></a>Conseils de dépannage
 
-* Assurez-vous que vous avez défini un rôle d’étendue valide. Par exemple, évitez d’utiliser l’opérateur [Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) (Supérieur à) avec une valeur non entière.
-* Si l’utilisateur n’a pas le rôle nécessaire, consultez les [conseils pour l’approvisionnement d’utilisateurs affectés au rôle d’accès par défaut](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Assurez-vous que vous avez défini un rôle d’étendue valide. Par exemple, évitez d’utiliser l’opérateur [Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) (Supérieur à) avec une valeur non entière.
+* Si l’utilisateur n’a pas le rôle nécessaire, consultez les [conseils pour l’approvisionnement d’utilisateurs affectés au rôle d’accès par défaut](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Étape 4 : Faire correspondre l'utilisateur entre la source et la cible
 
@@ -129,7 +129,7 @@ La section **Afficher les détails** affiche les attributs qui ont été modifi�
 
 #### <a name="troubleshooting-tips"></a>Conseils de dépannage
 
-* Les défaillances d’exportation des modifications peuvent varier considérablement. Pour les défaillances courantes, consultez la [documentation sur les journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes).
+* Les défaillances d’exportation des modifications peuvent varier considérablement. Pour les défaillances courantes, consultez la [documentation sur les journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md#error-codes).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
@@ -150,4 +150,4 @@ Il existe actuellement quelques limitations connues de l’approvisionnement à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résolution des problèmes d’approvisionnement](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Résolution des problèmes d’approvisionnement](./application-provisioning-config-problem.md)

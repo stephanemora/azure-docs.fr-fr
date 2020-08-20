@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536213"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192740"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Générateur de recommandations Score Wide and Deep
 
@@ -147,9 +147,6 @@ Le jeu de données noté retourné par le **module Générateur de recommandatio
 
 - La première colonne contient les identificateurs d’utilisateur.
 - Plusieurs colonnes supplémentaires sont générées, en fonction de la valeur que vous avez définie pour **Nombre maximal d’éléments à recommander à un utilisateur**. Chaque colonne contient un élément recommandé (par identificateur). Les recommandations sont classées par affinité utilisateur-élément, l’élément disposant de l’affinité la plus élevée est placé dans la colonne **Élément 1**.
-
-> [!WARNING]
-> Ce jeu de données noté ne peut pas être évalué à l’aide du module [Évaluer le générateur de recommandations](evaluate-recommender.md).
 
 ##  <a name="technical-notes"></a>Notes techniques
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033334"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205935"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -62,9 +62,9 @@ Selon le document [RFC 8252 : sections 8.3](https://tools.ietf.org/html/rfc82
 
 Du point de vue du développement, cela signifie plusieurs choses :
 
-1. N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
-1. Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
-1. D’après la documentation d’aide des RFC, vous ne devez pas utiliser `localhost` dans l’URI de redirection. À la place, utilisez l’adresse IP réelle de bouclage, `127.0.0.1`. Cela empêche votre application d’être bloquée par des pare-feu mal configurés ou des interfaces réseau renommées.
+* N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
+* Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
+* D’après la documentation d’aide des RFC, vous ne devez pas utiliser `localhost` dans l’URI de redirection. À la place, utilisez l’adresse IP réelle de bouclage, `127.0.0.1`. Cela empêche votre application d’être bloquée par des pare-feu mal configurés ou des interfaces réseau renommées.
 
     L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
 

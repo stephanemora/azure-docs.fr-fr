@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Découvrez comment Visual Studio Code et Azure Dev Spaces vous aident à déboguer et à itérer rapidement vos applications Kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307348"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209881"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Fonctionnement de Visual Studio Code avec Azure Dev Spaces
 
@@ -43,19 +43,15 @@ Pour les projets .NET Core, vous devez avoir l’[extension C#][csharp-extension
 
 Une fois que vous lancez votre projet, vous pouvez déboguer vos services Java, Node.js et .NET Core en cours d’exécution dans un espace de développement directement à partir de Visual Studio Code. La configuration de lancement dans le répertoire `.vscode` fournit les informations de débogage supplémentaires pour un service en cours d’exécution avec débogage activé dans un espace de développement. Visual Studio Code se lie également au processus de débogage dans le conteneur en cours d’exécution dans vos espaces de développement, ce qui vous permet de définir des points d’arrêt, inspecter des variables et effectuer d’autres opérations de débogage.
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Utilisez Visual Studio Code avec Azure Dev Spaces
+## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez voir que Visual Studio Code et l’extension Azure Dev Spaces fonctionne avec Azure Dev Spaces dans les démarrages rapides suivants :
+Apprenez-en davantage plus sur le fonctionnement d’Azure Dev Spaces.
 
-* [Itérer et déboguer rapidement avec Visual Studio Code et Java][quickstart-java]
-* [Itérer et déboguer rapidement avec Visual Studio Code et .NET][quickstart-netcore]
-* [Itérer et déboguer rapidement avec Visual Studio Code et Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [Fonctionnement d’Azure Dev Spaces](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

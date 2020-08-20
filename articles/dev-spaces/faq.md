@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Obtenez des réponses aux questions les plus fréquemment posées sur Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 27e834e71f9e5cfdf3d72fb3b221c24edecab4e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 739cfdb4f930d384e180ffd0f3ce2311cd41c70a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258310"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207984"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Forum aux questions sur Azure Dev Spaces
 
@@ -37,9 +37,6 @@ Lorsque vous utilisez votre propre fichier Dockerfile ou graphique Helm, les lim
 * Votre graphique Helm doit prendre en charge la transmission de tout ou partie de la balise d'image en tant que valeur de *values.yaml*.
 * Si vous modifiez quoi que ce soit avec entrée, vous pouvez également mettre à jour votre graphique Helm pour utiliser la solution d'entrée fournie par Azure Dev Spaces.
 * Si vous souhaitez utiliser les [fonctionnalités de routage fournies par Azure Dev Spaces][dev-spaces-routing], tous les services d'un projet individuel doivent tenir dans un seul espace de noms Kubernetes et être déployés sous une dénomination simple, par exemple *service-a*. Dans les graphiques Helm standard, cette mise à jour de la dénomination peut être effectuée en spécifiant une valeur pour la propriété *fullnameOverride*.
-
-Pour comparer votre propre fichier Dockerfile ou graphique Helm à une version existante qui fonctionne avec Azure Dev Spaces, passez en revue les fichiers générés dans le [guide de démarrage rapide][quickstart-cli].
-
 
 ## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Puis-je modifier les fichiers générés par Azure Dev Spaces ?
 
@@ -115,7 +112,6 @@ Dans Visual Studio, il est possible de configurer des solutions .NET Core à des
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [istio]: https://istio.io/
 [linkerd]: https://linkerd.io/
-[quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

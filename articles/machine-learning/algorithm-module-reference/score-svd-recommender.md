@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
-ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/10/2020
+ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455976"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189822"
 ---
 # <a name="score-svd-recommender"></a>Noter le générateur de recommandations SVD
 
@@ -107,9 +107,6 @@ Le jeu de données noté retourné par le module Noter le générateur de recomm
 
 - La première colonne contient les identificateurs d’utilisateur.
 - Plusieurs colonnes supplémentaires sont générées, en fonction de la valeur que vous avez définie pour **Maximum number of items to recommend to a user** (Nombre maximal d’éléments à recommander à un utilisateur). Chaque colonne contient un élément recommandé (par identificateur). Les recommandations sont classées par ordre d’affinité utilisateur-élément. L’élément dont l’affinité est la plus élevée est placé dans la colonne **Élément 1**.
-
-> [!WARNING]
-> Vous ne pouvez pas évaluer ce jeu de données noté à l’aide du module [Évaluer le générateur de recommandations](evaluate-recommender.md).
 
 
 ##  <a name="technical-notes"></a>Notes techniques

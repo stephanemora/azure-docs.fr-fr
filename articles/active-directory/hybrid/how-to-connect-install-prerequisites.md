@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542057"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210916"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -72,7 +72,7 @@ Nous vous recommandons de renforcer votre serveur Azure AD Connect afin de rédu
 - Traitez Azure AD Connect de la même manière qu’un contrôleur de domaine et que d’autres ressources de niveau 0. Pour plus d’informations, consultez [Modèle de niveau d’administration Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Limitez l’accès administrateur au serveur Azure AD Connect aux seuls administrateurs de domaine ou autres groupes de sécurité étroitement contrôlés.
 - Créez un [compte dédié pour tous les membres du personnel disposant d’un accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Les administrateurs ne doivent pas naviguer sur Internet, consulter leur e-mails ni effectuer des tâches de productivité quotidiennes avec des comptes à privilèges élevés.
-- Suivez les instructions fournies dans [Sécurisation de l’accès privilégié](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts). 
+- Suivez les instructions fournies dans [Sécurisation de l’accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Assurez-vous que chaque ordinateur dispose d’un mot de passe d’administrateur local unique. Pour plus d’informations, consultez l’[avis de sécurité Microsoft relatif à une solution de mot de passe administrateur local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps). Une LAPS peut configurer des mots de passe aléatoires uniques sur chaque station de travail et les stocker sur serveur dans Active Directory, protégé par une liste de contrôle d’accès (ACL, access-control list). Seuls les utilisateurs autorisés éligibles peuvent lire ou demander la réinitialisation de ces mots de passe de compte d’administrateur local. Vous pouvez obtenir LAPS afin de l’utiliser pour les stations de travail à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Vous trouverez des conseils supplémentaires sur le fonctionnement d’un environnement avec une LAPS et des stations de travail à accès privilégié (PAW) dans [Normes opérationnelles basées sur le principe de source propre](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implémentez des [stations de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) dédiées pour tous les membres du personnel disposant d’un accès privilégié aux systèmes informatiques de votre organisation. 
 - Suivez ces [instructions supplémentaires](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) pour réduire la surface d’attaque de votre environnement Active Directory.

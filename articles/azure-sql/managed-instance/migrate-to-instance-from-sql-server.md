@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087569"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209489"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -162,7 +162,7 @@ Dans la majorité des cas, la migration d’une base de données vers l’instan
 Comme prérequis, assurez-vous d’avoir effectué les activités suivantes :
 
 - Aligner vos paramètres sur l’instance gérée avec ceux de l’instance SQL Server source en examinant divers paramètres et configurations d’instance, de base de données et de tempdb. Veillez à ne pas changer de paramètres, tels que les niveaux de compatibilité ou le chiffrement, avant d’exécuter la première comparaison de performances, ou acceptez le risque que certaines nouvelles fonctionnalités activées par vous puissent affecter certaines requêtes. Pour réduire les risques liés à la migration, modifiez le niveau de compatibilité de la base de données uniquement après l’analyse des performances.
-- Implémentez les [Conseils et bonnes pratiques en matière de stockage pour le niveau de service Usage général](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), telles que la préallocation de la taille des fichiers en vue d’obtenir les meilleures performances.
+- Implémentez les [Conseils et bonnes pratiques en matière de stockage pour le niveau de service Usage général](https://techcommunity.microsoft.com), telles que la préallocation de la taille des fichiers en vue d’obtenir les meilleures performances.
 - Découvrez les [principales différences d’environnement pouvant entraîner des écarts de performances entre l’instance gérée et SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) et identifiez les risques pouvant avoir une incidence sur les performances.
 - Veillez à conserver les options Magasin des requêtes et Réglage automatique activées sur votre instance gérée. Ces fonctions vous permettent de mesurer les performances des charges de travail, et de corriger automatiquement les problèmes de performances potentiels. Apprenez à utiliser la fonction Magasin des requêtes en tant qu’outil idéal pour obtenir des informations sur les performances des charges de travail, avant et après la modification du niveau de compatibilité des bases de données, comme indiqué dans [Maintenir la stabilité des performances pendant la mise à niveau vers une version plus récente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Dès que vous avez préparé l’environnement qui est comparable autant que possible à votre environnement local, vous pouvez commencer à exécuter votre charge de travail et mesurer les performances. Le processus de mesure doit comporter les mêmes paramètres que ceux que vous avez mesurés [pendant la création des performances de référence de vos mesures de charge de travail sur l’instance SQL Server source](#create-a-performance-baseline).

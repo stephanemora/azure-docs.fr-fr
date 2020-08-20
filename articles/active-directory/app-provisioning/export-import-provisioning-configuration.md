@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781720"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235815"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procédure : Exporter la configuration de provisionnement et restaurer la dernière bonne configuration connue
 
@@ -39,8 +39,8 @@ Pour exporter vos données de configuration :
 
 L’exportation et l’enregistrement de votre configuration vous permettent de restaurer une version précédente de votre configuration. Nous vous recommandons d’exporter votre configuration d’approvisionnement et de l’enregistrer pour une utilisation ultérieure chaque fois que vous apportez une modification à vos mappages d’attributs ou filtres d’étendue. Il vous suffit d’ouvrir le fichier JSON que vous avez téléchargé lors des étapes précédentes, de copier tout le contenu du fichier JSON, de remplacer tout le contenu de la charge utile JSON dans l’éditeur de schéma, puis d’enregistrer. Si un cycle d’approvisionnement est actif, il se terminera et le cycle suivant utilisera le schéma mis à jour. Le cycle suivant sera également un cycle initial, qui réévaluera tous les utilisateurs et groupes en fonction de la nouvelle configuration. Tenez compte de ce qui suit lors de la restauration d’une configuration précédente :
 
-- Les utilisateurs sont réévalués pour déterminer s’ils doivent être dans l’étendue. Si les filtres d’étendue ont changé et qu’un utilisateur n’est plus dans la portée. il est alors désactivé. Même si ce comportement est souhaité dans la plupart des cas, il est possible que vous souhaitiez l’empêcher cela et utiliser la fonctionnalité [ignorer les suppressions d’étendue](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
-- La modification de votre configuration d’approvisionnement redémarre le service et déclenche un [cycle initial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Les utilisateurs sont réévalués pour déterminer s’ils doivent être dans l’étendue. Si les filtres d’étendue ont changé et qu’un utilisateur n’est plus dans la portée. il est alors désactivé. Même si ce comportement est souhaité dans la plupart des cas, il est possible que vous souhaitiez l’empêcher cela et utiliser la fonctionnalité [ignorer les suppressions d’étendue](./skip-out-of-scope-deletions.md). 
+- La modification de votre configuration d’approvisionnement redémarre le service et déclenche un [cycle initial](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exporter et importer votre configuration d’approvisionnement à l’aide de l’API Microsoft Graph
 

@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554346"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235976"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -392,6 +392,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
+> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 > | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -695,6 +696,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
+> | certificates | resource group | 1-260 | Impossibilité d’utiliser :<br>`/` <br><br>Ne peut pas se terminer par un espace ou un point.  | 
 > | serverfarms | resource group | 1-40 | Caractères alphanumériques et traits d’union. |
 > | sites | globale | 2-60 | Contient des caractères alphanumériques et des traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
 > | sites / slots | site | 2-59 | Caractères alphanumériques et traits d’union. |
