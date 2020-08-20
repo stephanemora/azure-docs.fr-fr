@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à Reviewsnap | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reviewsnap.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 6a925752a0e1de09c22350dff6a274a57b117a23
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 354aeca01cb2d5244c68e1691642e4d2b41869dc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092993"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutoriel : Intégration d’Azure Active Directory à Reviewsnap
 
