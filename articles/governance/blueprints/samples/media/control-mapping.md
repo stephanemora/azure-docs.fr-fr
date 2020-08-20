@@ -1,14 +1,14 @@
 ---
 title: Contrôles de l’exemple de blueprint Media
 description: Correspondance des contrôles des exemples de blueprint Media. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 02/24/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201736"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208468"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Media
 
@@ -137,7 +137,7 @@ Les correspondances suivantes concernent les contrôles **Media**. Utilisez le v
 
 ### <a name="cm-514--identify-and-disable-unnecessary-andor-non-secure-functions-ports-protocols-and-services"></a>CM-5.14 - Identifier et désactiver les fonctions, ports, protocoles et services non nécessaires et/ou non sécurisés.
 
-- Les interfaces réseau doivent désactiver le transfert IP.
+- Les interfaces réseau doivent désactiver le transfert IP
 - \[Préversion\] : Le transfert IP doit être désactivé sur votre machine virtuelle.
 
 ### <a name="cm-519--monitor-changes-to-the-security-configuration-settings"></a>CM-5.19 - Surveiller les modifications apportées aux paramètres de configuration de la sécurité.
@@ -236,7 +236,7 @@ Les correspondances suivantes concernent les contrôles **Media**. Utilisez le v
 Vous avez pris connaissance de la correspondance des contrôles de l’exemple de blueprint Media. Continuez avec les articles suivants pour découvrir une vue d’ensemble de cet exemple et pour savoir comment le déployer :
 
 > [!div class="next step action"]
-> [Blueprint Media - Vue d’ensemble](./control-mapping.md)
+> [Blueprint Media - Correspondance des contrôles](./control-mapping.md)
 > [Blueprint Media - Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :

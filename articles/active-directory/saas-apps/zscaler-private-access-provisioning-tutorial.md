@@ -2,25 +2,21 @@
 title: 'Tutoriel : Configurer Zscaler Private Access (ZPA) pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Zscaler Private Access (ZPA).
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: ee9128c3-ff02-4739-8c51-0693d8451742
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064148"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545836"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Private Access (ZPA) pour l’approvisionnement automatique d’utilisateurs
 

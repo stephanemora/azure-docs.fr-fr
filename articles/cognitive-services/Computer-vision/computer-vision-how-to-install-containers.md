@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816146"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545639"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 
@@ -24,7 +24,7 @@ Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans 
 
 Un seul conteneur Docker, *Lire*, est disponible pour Vision par ordinateur. Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’API [Read](concept-recognizing-text.md#read-api).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 

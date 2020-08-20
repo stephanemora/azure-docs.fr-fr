@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Honestly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Honestly.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: aaa7de97-4255-4253-95d0-a983dc61793f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c27a7f4c105b699977f729813fea31b66f7c40b1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bae305489785dc80606705f2c9d59b4eccafb623
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725383"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547118"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-honestly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Honestly
 

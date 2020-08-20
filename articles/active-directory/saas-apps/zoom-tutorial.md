@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zoom | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70743968"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545962"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zoom
 
@@ -87,6 +82,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `<companyname>.zoom.us`
 
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.zoom.us`
+
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Zoom](https://support.zoom.us/hc/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
@@ -138,17 +135,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zoom en tant qu’administrateur.
 
-2. Cliquez sur l’onglet **Single Sign-On** .
+2. Cliquez sur **Single Sign-On**.
 
-    ![Onglet Single Sign-On](./media/zoom-tutorial/ic784700.png "Authentification unique")
+    ![Onglet Single Sign-On](./media/zoom-tutorial/zoom-sso1.png "Authentification unique")
 
-3. Cliquez sur l’onglet **Security Control**, puis accédez aux paramètres **Single Sign-On**.
+3. Cliquez sur l'onglet **Security Control** et accédez aux paramètres **Single Sign-On**.
 
 4. Dans la section Single Sign-On, procédez comme suit :
 
-    ![Section Single Sign-On](./media/zoom-tutorial/ic784701.png "Authentification unique")
+    ![Section Single Sign-On](./media/zoom-tutorial/zoom-sso2.png "Authentification unique")
 
-    a. Dans la zone de texte **URL de la page de connexion** , collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
+    a. Dans la zone de texte **URL de la page de connexion **, collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
 
     b. Pour la valeur d’**URL de la page de déconnexion** valeur, vous devez vous rendre sur le portail Azure et cliquer sur **Azure Active Directory** à gauche, puis accéder à **Inscriptions d’applications**.
 
@@ -162,11 +159,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Bouton Copier le point de terminaison](./media/zoom-tutorial/endpoint1.png)
 
-    e. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate** .
+    e. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez le contenu de celui-ci dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de fournisseur d'identité**.
 
     f. Dans la zone de texte **Émetteur**, collez la valeur **Identificateur Azure AD** que vous avez copiée à partir du portail Azure. 
 
-    g. Cliquez sur **Enregistrer**.
+    g. Cliquez sur **Enregistrer les modifications**.
 
     > [!NOTE]
     > Pour plus d’informations, consultez la documentation de Zoom à l’adresse [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

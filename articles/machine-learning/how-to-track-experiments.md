@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552218"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547322"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Activer la journalisation dans les exécutions de formation Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Vous pouvez journaliser plusieurs types de données, notamment des valeurs scala
 ## <a name="interactive-logging-session"></a>Session de journalisation interactive
 
 Les sessions de journalisation interactives sont généralement utilisées dans les environnements notebook. La méthode [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) démarre une session de journalisation interactive. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérience. La méthode [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) met fin aux sessions et marque l’exécution comme terminée.
-
-L’extrait de code suivant utilise une session de journalisation interactive pour consigner les paramètres de formation et les métriques de performances avec la méthode [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----). Il charge également le modèle formé à un emplacement de sortie spécifié.
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-Pour obtenir un exemple complet de notebook qui utilise la journalisation interactive, consultez [Former un modèle dans un notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
 ## <a name="scriptrunconfig-logs"></a>Journaux ScriptRunConfig
 

@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Convene | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Convene.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2540ac46-1aea-496b-a8c5-575a2690f7db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ac3f22549e29d9bd1c9a18464ffa18ab4ef6063
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a7b1a7fc89e163b7c5405279418f78953c0cf6db
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75560466"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548090"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-convene"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Convene
 

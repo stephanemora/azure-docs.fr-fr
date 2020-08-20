@@ -2,25 +2,21 @@
 title: 'Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et supprimer automatiquement des comptes d’utilisateur dans myPolicies.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: f000896d-a78c-4d20-a79c-74c1f9b4961a
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061356"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548038"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs
 

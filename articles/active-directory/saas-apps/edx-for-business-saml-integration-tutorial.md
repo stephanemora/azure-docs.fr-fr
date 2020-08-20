@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à edX for Business SAML Integration | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et edX for Business SAML Integration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e00001b6-a8af-4547-976a-68d1c41d374c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f396b42e7221863c386ce43cc7350cdbdc338f53
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 1e1ec1dc4d6982194fc10a8701629adba2c8b24c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608708"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544310"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à edX for Business SAML Integration
 

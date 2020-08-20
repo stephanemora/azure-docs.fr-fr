@@ -2,25 +2,21 @@
 title: 'Didacticiel : Intégration d’Azure Active Directory à TargetProcess | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d5b0be147b8aa25e6c737d423eaf4a8a23cde083
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089038"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Didacticiel : Intégration d’Azure AD à TargetProcess
 
@@ -70,7 +66,7 @@ Pour configurer l’intégration de TargetProcess avec Azure AD, vous devez ajo
 
      ![TargetProcess dans la liste des résultats](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l'authentification unique Azure AD auprès de TargetProcess avec un utilisateur de test appelé **Britta Simon**.
 Pour que l'authentification unique fonctionne, une relation entre l'utilisateur Azure AD et l'utilisateur TargetProcess associé doit être établie.
@@ -133,25 +129,27 @@ Pour configurer l'authentification unique Azure AD avec TargetProcess, procéde
 
     ![image](./media/target-process-tutorial/install_extension.png)
 
-2. Après l'ajout de l'extension au navigateur, cliquez sur **Setup TargetProcess** (Configurer TargetProcess) pour être orienté vers l'application TargetProcess. Fournissez ensuite les informations d'identification de l'administrateur pour vous connecter à TargetProcess. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+1. Après l'ajout de l'extension au navigateur, cliquez sur **Setup TargetProcess** (Configurer TargetProcess) pour être orienté vers l'application TargetProcess. Fournissez ensuite les informations d'identification de l'administrateur pour vous connecter à TargetProcess. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+
+    ![Configuration](common/setup-sso.png)
 
     **Si vous souhaitez configurer l'application manuellement, procédez comme suit :**
 
-3. Connectez-vous à votre application TargetProcess en tant qu’administrateur.
+1. Connectez-vous à votre application TargetProcess en tant qu’administrateur.
 
-4. Dans le menu situé en haut, cliquez sur **Setup**.
+1. Dans le menu du haut, cliquez sur **Configuration**.
 
-    ![Programme d’installation](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Installation](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Cliquez sur l’onglet **Settings** (Paramètres).
+1. Cliquez sur l’onglet **Settings** (Paramètres).
 
     ![Paramètres](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Cliquez sur l’onglet **Single Sign-on** (Authentification unique).
+1. Cliquez sur l’onglet **Single Sign-on** (Authentification unique).
 
     ![Cliquer sur Authentification unique](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-7. Dans la boîte de dialogue Paramètres d’authentification unique, procédez comme suit :
+1. Dans la boîte de dialogue Paramètres d’authentification unique, procédez comme suit :
 
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 

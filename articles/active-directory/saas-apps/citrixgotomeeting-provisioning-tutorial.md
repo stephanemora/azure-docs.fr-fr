@@ -2,25 +2,20 @@
 title: 'Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoToMeeting.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544449"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 

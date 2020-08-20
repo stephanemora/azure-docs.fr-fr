@@ -2,25 +2,21 @@
 title: 'Tutoriel : Configurer Smartsheet pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner des comptes d’utilisateur dans Smartsheet.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c23c57e77f69cd7043e09ff5e2809d8329d62da3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925497"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546693"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutoriel : Configurer Smartsheet pour l’attribution automatique d’utilisateurs
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304171"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548333"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 
@@ -82,7 +82,7 @@ Post<br>
 
 |  Nom de la propriété     |  Obligatoire         |  Description |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Type d’autorisation. Utilisez `"client_credentials"`. |
+|  `grant_type`      |  True      |  Type d’autorisation. Utilisez `"client_credentials"`. |
 |  `client_id`       |  True      |  Identificateur du client/de l’application associé à l’application Azure AD. |
 |  `client_secret`   |  True      |  Secret associé à l’application Azure AD. |
 |  `resource`        |  True      |  Ressource cible pour laquelle le jeton est demandé. Utilisez `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`, car l’API SaaS de la Place de marché est toujours la ressource cible dans ce cas. |

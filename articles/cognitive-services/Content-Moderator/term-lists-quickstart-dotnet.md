@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9c64d1a5c4c7ada666b5fe3a8bcc70b39871850
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72935956"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545622"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Vérifier du texte par rapport à une liste de termes personnalisée en C#
 
@@ -32,7 +32,7 @@ Cet article fournit des informations et des exemples de code qui vont vous aider
 - Modifier les informations d’une liste.
 - Actualiser l’index afin que les changements apportés à la liste soient inclus dans une nouvelle analyse.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>S’inscrire aux services Content Moderator
 
