@@ -10,19 +10,19 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407028"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873634"
 ---
-# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière le Pare-feu Azure pour Azure Machine Learning
+# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
-Dans cet article, découvrez comment configurer le Pare-feu Azure pour l’utiliser avec un espace de travail Azure Machine Learning.
+Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public.   Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md)
 
-Le pare-feu Azure peut être utilisé pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Un grand nombre de noms d’hôtes sont utilisés à la fois par l’espace de travail Azure Machine Learning, qui sont décrits dans cet article.
+Même si les informations contenues dans ce document sont basées sur l’utilisation de [Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md), elles devraient également s’appliquer à d’autres produits de pare-feu. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
 
 ## <a name="network-rules"></a>Règles de réseau
 
@@ -31,9 +31,11 @@ Sur votre pare-feu, créez une règle de réseau autorisant le trafic vers et de
 > [!TIP]
 > Lors de l’ajout de la règle de réseau, définissez __Protocole__ sur un protocole quelconque et les ports sur `*`.
 >
-> Pour plus d’informations sur la configuration du pare-feu Azure, consultez [Déployer et configurer le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> Pour plus d’informations sur la configuration du pare-feu Azure, consultez [Déployer et configurer le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Hôtes Microsoft
+
+S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Un grand nombre de noms d’hôtes sont utilisés à la fois par l’espace de travail Azure Machine Learning.
 
 Les hôtes de cette section sont détenus par Microsoft et fournissent les services nécessaires au bon fonctionnement de votre espace de travail.
 
@@ -53,6 +55,8 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Registre de conteneurs Microsoft Container Registry pour les images Docker de base |
+| **your-acr-server-name.azurecr.io** | Nécessaire uniquement si votre Azure Container Registry se trouve derrière le réseau virtuel. Dans cette configuration, un lien privé est créé à partir de l’environnement Microsoft vers l’instance ACR dans votre abonnement. Utilisez le nom du serveur ACR pour votre espace de travail Azure Machine Learning. |
+| **\*.notebooks.azure.net** | Requis par les notebooks dans Azure Machine Learning Studio. |
 
 ## <a name="python-hosts"></a>Hôtes Python
 
@@ -75,7 +79,7 @@ Les hôtes de cette section sont utilisés pour installer les packages R. Ils s
 | ---- | ---- |
 | **cloud.r-project.org** | Utilisé lors de l’installation des packages CRAN. |
 
-Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [[Déployer et configurer le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)]
+* [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md)
 * [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md)

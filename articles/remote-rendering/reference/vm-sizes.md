@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809936"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121610"
 ---
 # <a name="vm-sizes"></a>Tailles de machine virtuelle
 
@@ -76,7 +76,7 @@ Par conséquent, il est possible d’écrire une application qui cible la taille
 
 Il existe deux façons de déterminer le nombre de polygones d’un modèle ou d’une scène qui contribuent à la limite budgétaire de la taille de machine virtuelle `standard` :
 * Du côté conversion du modèle, récupérez le [fichier json de sortie de conversion](../how-tos/conversion/get-information.md) et vérifiez l’entrée `numFaces` dans la [section *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
-* Si votre application traite du contenu dynamique, le nombre de polygones rendus peut être interrogé de manière dynamique pendant l’exécution. Utilisez une [requête d’évaluation des performances](../overview/features/performance-queries.md#performance-assessment-queries) et recherchez le membre `polygonsRendered` dans le struct `FrameStatistics`. Le damier d’arrière-plan apparaît toujours en fondu avec un certain délai, afin de garantir qu’une action utilisateur puisse être effectuée après cette requête asynchrone. L’action utilisateur peut par exemple masquer ou supprimer des instances de modèle.
+* Si votre application traite du contenu dynamique, le nombre de polygones rendus peut être interrogé de manière dynamique pendant l’exécution. Utilisez une [requête d’évaluation des performances](../overview/features/performance-queries.md#performance-assessment-queries) et recherchez le membre `polygonsRendered` dans le struct `FrameStatistics`. Le champ `polygonsRendered` est défini sur `bad` lorsque le convertisseur atteint la limite du polygone. Le damier d’arrière-plan apparaît toujours en fondu avec un certain délai, afin de garantir qu’une action utilisateur puisse être effectuée après cette requête asynchrone. L’action utilisateur peut par exemple masquer ou supprimer des instances de modèle.
 
 ## <a name="pricing"></a>Tarifs
 

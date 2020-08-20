@@ -8,7 +8,7 @@
     - name: Vue d’ensemble et avantages de la Place de marché commerciale
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'Une place de marché, deux vitrines'
+        - name: 'Une place de marché, deux magasins en ligne'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Options et considérations relatives à la publication
           href: ./determine-your-listing-type.md

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503733"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923653"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Mettre à l’échelle le débit Azure Cosmos DB à l’aide du déclencheur de minuteur Azure Functions
 
@@ -23,7 +23,7 @@ Vous pouvez définir le débit via les [modèles Azure Resource Manager](resourc
 
 Pour simplifier le processus de mise à l’échelle d’Azure Cosmos DB selon une planification, nous avons créé un exemple de projet appelé [Planificateur de débit Cosmos Azure](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Ce projet est une application Azure Functions avec deux déclencheurs de minuteur : « ScaleUpTrigger » et « ScaleDownTrigger ». Les déclencheurs exécutent un script PowerShell qui définit le débit sur chaque ressource tel qu’il est défini dans le fichier `resources.json` de chaque déclencheur. ScaleUpTrigger est configuré pour s’exécuter à 8 h UTC et ScaleDownTrigger est configuré pour s’exécuter à 6 h UTC, et ces heures peuvent être facilement mises à jour dans le fichier `function.json` pour chaque déclencheur.
 
-Vous pouvez cloner ce projet localement et le modifier pour spécifier les ressources Azure Cosmos DB à augmenter ou réduire, ainsi que la planification à exécuter. Par la suite, vous pouvez le déployer dans un abonnement Azure et le sécuriser en utilisant Managed Service Identity avec des autorisations de [contrôle d’accès en fonction du rôle](role-based-access-control.md) (RBAC) avec le rôle « Opérateur Azure Cosmos DB » pour définir le débit sur vos comptes Azure Cosmos.
+Vous pouvez cloner ce projet localement et le modifier pour spécifier les ressources Azure Cosmos DB à augmenter ou réduire, ainsi que la planification à exécuter. Par la suite, vous pouvez le déployer dans un abonnement Azure et le sécuriser en utilisant Managed Service Identity avec des autorisations de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](role-based-access-control.md) avec le rôle « Opérateur Azure Cosmos DB » pour définir le débit sur vos comptes Azure Cosmos.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955673"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121440"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je installer une seconde instance SQL Server sur la même machine virtuelle ? Puis-je modifier les fonctionnalités installées de l’instance par défaut ?**
 
-   Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C** . Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine. Notez que certaines fonctionnalités comme la sauvegarde automatisée, la mise à jour corrective automatisée et Azure Key Vault Integration s’exécutent uniquement sur l’instance par défaut ou sur une instance nommée qui a été correctement configurée (voir la question 3). 
+   Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C** . Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine. Notez que certaines fonctionnalités comme la sauvegarde automatisée, la mise à jour corrective automatisée et Azure Key Vault Integration s’exécutent uniquement sur l’instance par défaut ou sur une instance nommée qui a été correctement configurée (voir la question 3). Les clients qui disposent d’une couverture [Software Assurance via Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) ou du modèle de licence **Paiement à l’utilisation** peuvent installer plusieurs instances SQL Server sur la machine virtuelle sans entraîner de frais de licence supplémentaires. Des instances SQL Server supplémentaires risquent de surcharger les ressources système, sauf si elles sont correctement configurées. 
 
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 

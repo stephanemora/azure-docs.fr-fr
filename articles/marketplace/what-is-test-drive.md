@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229446"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121865"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
@@ -44,7 +44,17 @@ Pour plus d’informations sur la configuration de l’une de ces versions d’�
 
 ### <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
-Ce modèle de déploiement contient toutes les ressources Azure constituant votre solution. Les produits adaptés à ce scénario utilisent uniquement des ressources Azure. Il s’agit de la seule option de version d’évaluation pour les offres de machines virtuelles ou d’applications Azure.
+Ce modèle de déploiement contient toutes les ressources Azure constituant votre solution. Les produits adaptés à ce scénario utilisent uniquement des ressources Azure. La version d'évaluation d’Azure Resource Manager est disponible pour ces types d’offre : 
+
+- Applications Azure
+- Dynamics 365 pour Business Central
+- Dynamics 365 for Customer Engagement et PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Machines virtuelles
+
+>[!NOTE]
+>Il s’agit de la seule option de version d’évaluation pour les offres de machines virtuelles et d’applications Azure.
 
 ### <a name="hosted-test-drive"></a>Version d’évaluation hébergée
 

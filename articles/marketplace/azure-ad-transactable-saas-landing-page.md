@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327988"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921264"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS à vendre dans le Marketplace commercial
 
@@ -56,7 +56,7 @@ Pour commencer, suivez les instructions pour l’[inscription d’une nouvelle a
 
 Si vous envisagez d’interroger l’API Microsoft Graph, [configurez votre nouvelle application de manière à accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Lorsque vous sélectionnez les autorisations d’API pour cette application, la valeur par défaut **user.Read** suffit pour collecter des informations de base sur l’acheteur afin de rendre le processus d’intégration lisse et automatique. Ne demandez aucune autorisation d’API nommée **besoin du consentement de l’administrateur**, car cela empêchera tous les utilisateurs non-administrateurs de visiter votre page d’accueil.
 
-Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) d’Azure AD afin que tous les acheteurs envoyés par le marketplace puissent interagir initialement avec la page d’accueil.
+Si vous avez besoin d’autorisations élevées dans le cadre de votre processus d’intégration ou de configuration, envisagez d’utiliser la fonctionnalité de [consentement incrémentiel](https://aka.ms/incremental-consent) d’Azure AD afin que tous les acheteurs envoyés par le marketplace puissent interagir initialement avec la page d’accueil.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Utiliser un exemple de code comme point de départ
 
@@ -90,16 +90,7 @@ Pour authentifier votre application avec les API de traitement SaaS, vous avez b
 
 ### <a name="call-the-resolve-endpoint"></a>Appeler le point de terminaison de résolution
 
-Les API de traitement SaaS implémentent le point de terminaison [résoudre](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription), qui peut être appelé pour confirmer la validité du jeton du marketplace et pour retourner des informations sur l’abonnement, notamment les valeurs indiquées dans ce tableau.
-
-| Valeur | Description |
-| ------------ | ------------- |
-| Id | GUID (Globally Unique Identifier) de cet abonnement. Vous aurez besoin de cette valeur lors des appels ultérieurs aux API de traitement SaaS. |
-| subscriptionName | Nom de l’abonnement qui a été défini lors de l’ajout de l’offre à l’Espace partenaires. |
-| offerId | Identificateur de l’offre spécifique (défini lors de l’ajout de l’offre). |
-| planId | Identificateur du plan spécifique (défini lors de l’ajout de l’offre). |
-| Quantité | Quantité entrée par l’acheteur lors de l’achat. |
-|||
+Les API de traitement SaaS implémentent le point de terminaison [résoudre](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription), qui peut être appelé pour confirmer la validité du jeton du marketplace et pour retourner des informations sur l’abonnement.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Lire les informations des revendications encodées dans le jeton d’ID
 
@@ -140,4 +131,4 @@ La plupart des applications inscrites à Azure AD accordent des autorisations d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une offre SaaS dans le marketplace commercial](./partner-center-portal/create-new-saas-offer.md)
+- [Créer une offre SaaS dans la Place de marché commerciale](./partner-center-portal/create-new-saas-offer.md)

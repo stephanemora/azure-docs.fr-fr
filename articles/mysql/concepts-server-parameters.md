@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963204"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835984"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -19,13 +19,13 @@ Cet article fournit des considérations et des instructions pour la configuratio
 
 ## <a name="what-are-server-parameters"></a>Que sont les paramètres du serveur ? 
 
-Le moteur MySQL fournit de nombreux paramètres et variables de serveur différents qui peuvent être utilisés pour configurer et régler le comportement du moteur. Certains paramètres peuvent être définis dynamiquement pendant l’exécution, tandis que d’autres sont « statiques », ce qui nécessite un redémarrage du serveur pour les appliquer.
+Le moteur MySQL fournit de nombreux paramètres et variables de serveur différents qui peuvent être utilisés pour configurer et régler le comportement du moteur. Certains paramètres peuvent être définis dynamiquement pendant le runtime, tandis que d’autres sont « statiques », ce qui nécessite un redémarrage du serveur pour les appliquer.
 
 Azure Database pour MySQL expose la possibilité de modifier la valeur des différents paramètres du serveur MySQL à l’aide du [Portail Azure](./howto-server-parameters.md), d’[Azure CLI](./howto-configure-server-parameters-using-cli.md)et de [PowerShell](./howto-configure-server-parameters-using-powershell.md) pour répondre aux besoins de votre charge de travail.
 
 ## <a name="configurable-server-parameters"></a>Paramètres de serveur configurables
 
-La liste des paramètres de serveur pris en charge s’allonge en permanence. Utilisez l’onglet Paramètres du serveur du Portail Azure pour afficher la liste complète et configurer les paramètres du serveur.
+La liste des paramètres de serveur pris en charge s’allonge en permanence. Utilisez l’onglet Paramètres du serveur du Portail Azure pour afficher la liste complète et configurer les valeurs des paramètres du serveur.
 
 Reportez-vous aux sections suivantes pour en savoir plus sur les limites des différents paramètres de serveur couramment mis à jour. Les limites sont déterminées par le niveau tarifaire et vCores du serveur.
 
@@ -151,7 +151,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 La création de connexions clientes à MySQL prend du temps et, une fois établies, ces connexions occupent des ressources de base de données, même lorsqu’elles sont inactives. La plupart des applications requièrent de nombreuses connexions à courte durée, ce qui aggrave la situation. Par conséquent, il y a moins de ressources disponibles pour votre charge de travail réelle; ce qui entraîne une diminution des performances. Un regroupement de connexions qui réduit les connexions inactives et réutilise les connexions existantes permet d’éviter cela. Pour en savoir plus sur la configuration de ProxySQL, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 >[!Note]
->ProxySQL est un outil communautaire en open source. Il est pris en charge par Microsoft dans la mesure du possible. Afin d’obtenir un support de production avec des instructions faisant autorité, vous pouvez contacter le [Support produit de ProxySQL](https://proxysql.com/services/support/).
+>ProxySQL est un outil communautaire en open source. Il est pris en charge par Microsoft dans la mesure du possible. Afin d’obtenir un support de production avec une aide faisant autorité, vous pouvez évaluer et contacter le [Support produit de ProxySQL](https://proxysql.com/services/support/).
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
@@ -161,17 +161,17 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|16777216|16384|268435455|
-|Usage général|4|16777216|16384|536870912|
-|Usage général|8|16777216|16384|1073741824|
-|Usage général|16|16777216|16384|2147483648|
-|Usage général|32|16777216|16384|4294967295|
-|Usage général|64|16777216|16384|4294967295|
-|Mémoire optimisée|2|16777216|16384|536870912|
-|Mémoire optimisée|4|16777216|16384|1073741824|
-|Mémoire optimisée|8|16777216|16384|2147483648|
-|Mémoire optimisée|16|16777216|16384|4294967295|
-|Mémoire optimisée|32|16777216|16384|4294967295|
+|Usage général|2|16 777 216|16384|268435455|
+|Usage général|4|16 777 216|16384|536870912|
+|Usage général|8|16 777 216|16384|1073741824|
+|Usage général|16|16 777 216|16384|2147483648|
+|Usage général|32|16 777 216|16384|4294967295|
+|Usage général|64|16 777 216|16384|4294967295|
+|Mémoire optimisée|2|16 777 216|16384|536870912|
+|Mémoire optimisée|4|16 777 216|16384|1073741824|
+|Mémoire optimisée|8|16 777 216|16384|2147483648|
+|Mémoire optimisée|16|16 777 216|16384|4294967295|
+|Mémoire optimisée|32|16 777 216|16384|4294967295|
 
 ### <a name="query_cache_size"></a>query_cache_size
 
@@ -186,7 +186,7 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|0|0|16777216|
+|Usage général|2|0|0|16 777 216|
 |Usage général|4|0|0|33554432|
 |Usage général|8|0|0|67108864|
 |Usage général|16|0|0|134217728|
@@ -198,6 +198,21 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |Mémoire optimisée|16|0|0|134217728|
 |Mémoire optimisée|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+La valeur lower_case_table_name est définie par défaut sur 1, et vous pouvez modifier ce paramètre dans MySQL 5.6 et MySQL 5.7
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) pour en savoir plus sur ce paramètre.
+
+> [!NOTE]
+> Dans MySQL 8.0, la valeur lower_case_table_name est définie sur 1 par défaut et vous ne pouvez pas la modifier.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Si vous recevez une erreur semblable à « Taille de ligne trop grande (> 8126) », vous pouvez désactiver le paramètre **innodb_strict_mode**. Le paramètre de serveur **innodb_strict_mode** n’est pas autorisé à être modifié globalement au niveau du serveur, car si la taille des données de ligne est supérieure à 8 ko, les données seront tronquées sans erreur entraînant une perte de données potentielle. Nous vous recommandons de modifier le schéma pour qu’il corresponde à la limite de taille de page. 
+
+Ce paramètre peut être défini au niveau de la session à l’aide de `init_connect`. Pour définir **innodb_strict_mode** au niveau de la session, reportez-vous à [Définition des paramètres non listés](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) pour en savoir plus sur ce paramètre.
@@ -208,12 +223,12 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
 |Usage général|2|524 288|32 768|4 194 304|
 |Usage général|4|524 288|32 768|8388608|
-|Usage général|8|524 288|32 768|16777216|
+|Usage général|8|524 288|32 768|16 777 216|
 |Usage général|16|524 288|32 768|33554432|
 |Usage général|32|524 288|32 768|33554432|
 |Usage général|64|524 288|32 768|33554432|
 |Mémoire optimisée|2|524 288|32 768|8388608|
-|Mémoire optimisée|4|524 288|32 768|16777216|
+|Mémoire optimisée|4|524 288|32 768|16 777 216|
 |Mémoire optimisée|8|524 288|32 768|33554432|
 |Mémoire optimisée|16|524 288|32 768|33554432|
 |Mémoire optimisée|32|524 288|32 768|33554432|
@@ -226,17 +241,17 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|16777216|1 024|67108864|
-|Usage général|4|16777216|1 024|134217728|
-|Usage général|8|16777216|1 024|268435456|
-|Usage général|16|16777216|1 024|536870912|
-|Usage général|32|16777216|1 024|1073741824|
-|Usage général|64|16777216|1 024|1073741824|
-|Mémoire optimisée|2|16777216|1 024|134217728|
-|Mémoire optimisée|4|16777216|1 024|268435456|
-|Mémoire optimisée|8|16777216|1 024|536870912|
-|Mémoire optimisée|16|16777216|1 024|1073741824|
-|Mémoire optimisée|32|16777216|1 024|1073741824|
+|Usage général|2|16 777 216|1 024|67108864|
+|Usage général|4|16 777 216|1 024|134217728|
+|Usage général|8|16 777 216|1 024|268435456|
+|Usage général|16|16 777 216|1 024|536870912|
+|Usage général|32|16 777 216|1 024|1073741824|
+|Usage général|64|16 777 216|1 024|1073741824|
+|Mémoire optimisée|2|16 777 216|1 024|134217728|
+|Mémoire optimisée|4|16 777 216|1 024|268435456|
+|Mémoire optimisée|8|16 777 216|1 024|536870912|
+|Mémoire optimisée|16|16 777 216|1 024|1073741824|
+|Mémoire optimisée|32|16 777 216|1 024|1073741824|
 
 ### <a name="time_zone"></a>time_zone
 
@@ -258,6 +273,6 @@ Les autres variables non répertoriées ici sont définies sur les valeurs par d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Guide pratique pour [configurer des paramètres serveur avec le portail Azure](./howto-server-parameters.md)
+- Guide pratique pour [configurer des paramètres serveur avec le Portail Azure](./howto-server-parameters.md)
 - Guide pratique pour [configurer des paramètres serveur avec Azure CLI](./howto-configure-server-parameters-using-cli.md)
 - Guide pratique pour [configurer des paramètres serveur avec PowerShell](./howto-configure-server-parameters-using-powershell.md)

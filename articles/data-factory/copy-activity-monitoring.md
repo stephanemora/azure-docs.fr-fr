@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249701"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036366"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 
@@ -56,6 +56,8 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | dataWritten | Volume réel des données écrites/validées sur le récepteur. La taille peut être différente de la taille `dataRead`, car elle indique comment chaque magasin de données stocke les données. | Valeur Int64, en octets |
 | filesRead | Nombre de fichiers lus à partir de la source basée sur des fichiers. | Valeur Int64 (aucune unité) |
 | filesWritten | Nombre de fichiers écrits/validés sur le récepteur basé sur des fichiers. | Valeur Int64 (aucune unité) |
+| filesSkipped | Nombre de fichiers ignorés à partir de la source basée sur des fichiers. | Valeur Int64 (aucune unité) |
+| dataConsistencyVerification | Détails de la vérification de la cohérence des données où vous pouvez voir si vos données copiées ont été vérifiées pour être cohérentes entre les magasins source et de destination. Apprenez-en plus dans [cet article](copy-activity-data-consistency.md#monitoring). | Array |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
 | sinkPeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données récepteur lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
 | rowsRead | Nombre de lignes lues à partir de la source. Cette mesure ne s’applique pas lors de la copie de fichiers en l’absence d’analyse, par exemple, lorsque les jeux de données source et de récepteur sont de type binaire, ou d’un autre type de format avec des paramètres identiques. | Valeur Int64 (aucune unité) |
@@ -71,9 +73,11 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | effectiveIntegrationRuntime | Runtime d’intégration (IR) ou runtimes utilisés pour alimenter l’exécution de l’activité, au format `<IR name> (<region if it's Azure IR>)`. | Texte (chaîne) |
 | usedDataIntegrationUnits | Unités d’intégration de données effectives pendant la copie. | Valeur Int32 |
 | usedParallelCopies | Nombre effectif de parallelCopies pendant la copie. | Valeur Int32 |
-| redirectRowPath | Chemin d’accès au journal des lignes incompatibles ignorées dans le stockage Blob que vous configurez dans la propriété `redirectIncompatibleRowSettings`. Consultez [Tolérance de panne](copy-activity-overview.md#fault-tolerance). | Texte (chaîne) |
+| logPath | Chemin d'accès au journal de session des données ignorées dans le stockage d’objets blob. Consultez [Tolérance de panne](copy-activity-overview.md#fault-tolerance). | Texte (chaîne) |
 | executionDetails | Détails supplémentaires sur les phases de l’activité de copie et les étapes, durées, configurations, etc. correspondantes. Nous vous déconseillons d’analyser cette section, car elle est susceptible de changer. Pour mieux comprendre combien il est important de bien appréhender et résoudre les problèmes de performances de copie, reportez-vous à la section [Surveiller visuellement](#monitor-visually). | Array |
 | perfRecommendation | Copier les conseils sur le réglage des performances Pour plus d’informations, consultez [Conseils sur le réglage des performances](copy-activity-performance-troubleshooting.md#performance-tuning-tips). | Array |
+| billingReference | Consommation de facturation pour l’exécution donnée. Pour plus d’informations, consultez [Superviser la consommation au niveau de l’exécution de l’activité](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Object |
+| durationInQueue | Durée de mise en file d’attente en secondes avant le début de l’exécution de l’activité de copie. | Object |
 
 **Exemple :**
 
@@ -83,6 +87,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -92,6 +97,11 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

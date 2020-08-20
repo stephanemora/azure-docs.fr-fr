@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550985"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055766"
 ---
 # <a name="blob-snapshots"></a>Instantanés d’objet blob
 
@@ -33,7 +33,7 @@ Un instantané d’un objet blob est identique à l’objet blob de base, à la 
 > Tous les instantanés partagent l’URI de l’objet blob de base. La seule distinction entre l’objet blob de base et l’instantané est la valeur **DateTime** ajoutée à la fin.
 >
 
-Un objet blob peut avoir plusieurs instantanés. Les instantanés persistent jusqu’à ce qu’ils soient explicitement supprimés, ce qui signifie qu’un instantané ne peut pas survivre à son blob de base. Vous pouvez énumérer les instantanés associés à l’objet blob de base pour effectuer le suivi de vos instantanés actuels.
+Un objet blob peut avoir plusieurs instantanés. Les instantanés persistent jusqu’à ce qu’ils soient explicitement supprimés, indépendamment ou dans le cadre de l’opération de suppression d’objets BLOB pour l’objet blob de base. Vous pouvez énumérer les instantanés associés à l’objet blob de base pour effectuer le suivi de vos instantanés actuels.
 
 Lorsque vous créez un instantané d’un objet blob, les propriétés système de l’objet blob sont copiées dans l’instantané avec les mêmes valeurs. Les métadonnées de l’objet blob de base sont également copiées dans l’instantané, sauf si vous spécifiez des métadonnées distinctes pour l’instantané lorsque vous le créez. Une fois créé, un instantané peut être lu, copié ou supprimé, mais pas modifié.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206933"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121355"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -88,7 +88,7 @@ La mémoire pour les bases de données serverless est davantage sollicitée que 
 
 #### <a name="cache-reclamation"></a>Récupération du cache
 
-Contrairement aux bases de données de calcul provisionné, la mémoire du cache SQL est sollicitée par une base de données serverless quand l’utilisation du processeur ou du cache actif est faible.  Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.
+Contrairement aux bases de données de calcul provisionné, la mémoire du cache SQL est sollicitée par une base de données serverless quand l’utilisation du processeur ou du cache actif est faible.
 
 - L’utilisation du cache actif est considérée comme faible quand la taille totale des dernières entrées du cache utilisées tombe sous un certain seuil pendant une période donnée.
 - Quand la récupération du cache est déclenchée, la taille de cache cible est réduite de façon incrémentielle à une fraction de sa taille précédente, et la récupération continue uniquement si l’utilisation reste faible.
@@ -96,6 +96,8 @@ Contrairement aux bases de données de calcul provisionné, la mémoire du cache
 - La taille du cache n’est jamais réduite en deçà de la limite de mémoire minimale telle que définie par le nombre minimal de vCores configuré, le cas échéant.
 
 Dans les bases de données de niveaux de calcul serverless et provisionné, des entrées de cache peuvent être supprimées si toute la mémoire disponible est utilisée.
+
+Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir un délai supplémentaire après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan périodiques répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage fantôme n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
 
 #### <a name="cache-hydration"></a>Alimentation du cache
 
@@ -117,7 +119,7 @@ Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automa
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
 - Base de données de synchronisation utilisée dans SQL Data Sync.  Contrairement aux bases de données de synchronisation, les bases de données de hub et de membres prennent en charge la mise en pause automatique.
-- Base de données de travail utilisée dans les travaux élastiques.
+- Base de données de travail utilisée dans les travaux élastiques (préversion).
 
 La mise en pause automatique est temporairement indisponible durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.  Dans ce cas, la mise en pause automatique est réactivée dès que la mise à jour du service est terminée.
 

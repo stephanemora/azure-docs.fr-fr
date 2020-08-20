@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025810"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921212"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Vous pouvez utiliser le Portail Azure pour rechercher des suggestions vous perme
 
 ## <a name="viewing-recommendations"></a>Affichage des recommandations
 
-Pour afficher et appliquer des recommandations en matière de performances, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](../../role-based-access-control/overview.md) adéquates dans Azure. Les autorisations **Lecteur** et **Collaborateur de base de données SQL** sont obligatoires pour afficher les recommandations, et les autorisations **Propriétaire** et **Collaborateur de base de données SQL** sont obligatoires pour exécuter toutes les actions, créer ou supprimer des index et annuler la création d’index.
+Pour afficher et appliquer des recommandations en matière de performances, vous devez disposer des autorisations du [contrôle d’accès basé sur le rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) adéquates dans Azure. Les autorisations **Lecteur** et **Collaborateur de base de données SQL** sont obligatoires pour afficher les recommandations, et les autorisations **Propriétaire** et **Collaborateur de base de données SQL** sont obligatoires pour exécuter toutes les actions, créer ou supprimer des index et annuler la création d’index.
 
 Pour rechercher des suggestions en matière de performances sur le Portail Azure, procédez comme suit :
 
@@ -172,4 +172,4 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 
 * [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md)
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)

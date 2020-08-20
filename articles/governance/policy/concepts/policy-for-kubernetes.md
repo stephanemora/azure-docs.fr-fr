@@ -1,14 +1,14 @@
 ---
 title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373757"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003492"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -130,10 +130,16 @@ Une fois les étapes préalables ci-dessus accomplies, installez le module compl
 
   1. Dans la page principale, sélectionnez le bouton **Activer un module complémentaire**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Activer le module complémentaire Azure Policy pour AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Activer le module complémentaire Azure Policy pour AKS":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Si le bouton **Activer un module complémentaire** est grisé, cela signifie que l’abonnement n’a pas encore été ajouté à la préversion. Si le bouton **Désactiver un module complémentaire** est activé et qu’un avertissement de migration vers le message v2 s’affiche, cela signifie que Gatekeepver v2 est toujours installé et doit être supprimé.
+     > Si le bouton **Activer un module complémentaire** est grisé, cela signifie que l’abonnement n’a pas encore été ajouté à la préversion. Si le bouton **Désactiver un module complémentaire** est activé et qu’un message d’avertissement de migration v2 s’affiche, cela signifie que le module complémentaire v1 est installé et doit être supprimé avant d’attribuer des définitions de stratégie v2. Le module complémentaire v1 _obsolète_ sera automatiquement remplacé par le module complémentaire v2 à compter du 24 août 2020. Les nouvelles versions v2 des définitions de stratégie doivent ensuite être affectées. Pour effectuer la mise à niveau maintenant, procédez comme suit :
+     > 
+     > 1. Vérifiez que le module complémentaire v1 est installé sur votre cluster AKS en visitant la page **stratégies (préversion)** sur votre cluster AKS, et que le cluster AKS affiche le messahe « The current cluster uses Azure Policy add-on v1... » (Le cluster actuel utilise le module complémentaire on Azure Policy v1).
+     > 1. [Supprimez le module complémentaire](#remove-the-add-on-from-aks).
+     > 1. Cliquez sur le bouton **Activer l’extension** pour installer la version v2 du module complémentaire.
+     > 1. [Affecter des versions v2 de vos définitions de stratégie intégrées v1](#assign-a-built-in-policy-definition)
 
 - Azure CLI
 

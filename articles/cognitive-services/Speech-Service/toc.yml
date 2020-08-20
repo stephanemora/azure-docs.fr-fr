@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: Vue d’ensemble
       items:
-        - name: "Qu’est-ce que la reconnaissance vocale en temps réel\_?"
+        - name: "Qu’est-ce que la reconnaissance vocale\_?"
           href: speech-to-text.md
-        - name: "Qu’est-ce que la reconnaissance vocale avec traitement par lots\_?"
-          href: batch-transcription.md
         - name: Bases de la reconnaissance vocale
           href: speech-to-text-basics.md
     - name: Démarrages rapides
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Utiliser la détection automatique de la langue source
           href: how-to-automatic-language-detection.md
+        - name: Utiliser l’API de transcription Batch
+          href: batch-transcription.md
     - name: Tutoriels
       items:
         - name: Améliorer la précision avec des modèles de locataire

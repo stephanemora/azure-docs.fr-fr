@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500590"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425100"
 ---
 L’activation de disques partagés est disponible uniquement pour un sous-ensemble de types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
 
@@ -25,6 +25,8 @@ Quand vous partagez des disques Ultra, ils présentent les limitations suppléme
 
 - Limités à la prise en charge d’Azure Resource Manager ou des kits SDK. 
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+Les disques Ultra partagés sont disponibles dans toutes les régions qui prennent en charge les disques Ultra par défaut, et vous n’avez pas besoin de vous inscrire pour pouvoir les utiliser.
 
 ### <a name="premium-ssds"></a>SSD Premium
 
@@ -38,4 +40,4 @@ Quand vous partagez des disques Ultra, ils présentent les limitations suppléme
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - La prise en charge de Sauvegarde Azure et d’Azure Site Recovery n’est pas encore disponible.
 
-Si vous souhaitez essayer les disques partagés, [inscrivez-vous pour y accéder](https://aka.ms/AzureSharedDiskGASignUp).
+Si vous souhaitez essayer les disques SSD Premium partagés, [inscrivez-vous pour y accéder](https://aka.ms/AzureSharedDiskGASignUp).

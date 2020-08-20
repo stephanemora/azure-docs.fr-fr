@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075076"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005124"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de référence de la sécurité Azure pour Data Lake Analytics
 
@@ -218,7 +218,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Non applicable. Data Lake Analytics ne traite ou ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -256,7 +256,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : Data Lake Analytics n’intègre pas le concept de mots de passe par défaut, car l’authentification est fournie avec Azure Active Directory et sécurisée par les contrôles d’accès en fonction du rôle (RBAC).
+**Conseils** : Data Lake Analytics n’intègre pas le concept de mots de passe par défaut, car l’authentification est fournie avec Azure Active Directory et sécurisée par le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 * [Présentation d’Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 
@@ -791,7 +791,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Data Lake Analytics n’expose aucun secret que le client doit gérer.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -799,7 +799,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Data Lake Analytics ne prend pas en charge les identités managées Azure.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

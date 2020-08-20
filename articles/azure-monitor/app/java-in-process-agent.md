@@ -3,12 +3,12 @@ title: Superviser les applications Java sur tout environnement - Azure Monitor A
 description: Supervision des performances des applications Java s’exécutant dans tout environnement sans instrumenter l’application. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014335"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902080"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights - préversion publique
 
@@ -126,7 +126,21 @@ Notre objectif dans 3.0+ est de vous permettre d’envoyer vos données de tél�
 
 Nous prenons en charge Micrometer, l’API OpenTelemetry et les frameworks de journalisation les plus connus. Application Insights pour Java 3.0 capture automatiquement les données de télémétrie et les met en corrélation avec toutes les données de télémétrie collectées automatiquement.
 
-Pour cette raison, nous n’avons pas l’intention de publier un kit SDK avec Application Insights 3.0 pour le moment.
+### <a name="supported-custom-telemetry"></a>Données de télémétrie personnalisées prises en charge
+
+Le tableau ci-dessous représente les types de données de télémétrie personnalisées actuellement pris en charge que vous pouvez activer pour compléter l’agent Java 3.0. Pour résumer, les métriques personnalisées sont prises en charge via Micrometer, les exceptions et les traces personnalisées peuvent être activées via des frameworks de journalisation, et tout type de données de télémétrie personnalisées est pris en charge par le [Kit de développement logiciel (SDK) Application Insights Java 2.x](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
+|---------------------|------------|---------------------|---------|
+| **Événements personnalisés**   |            |                     |  Oui    |
+| **Métriques personnalisées**  |  Oui       |                     |  Oui    |
+| **Dépendances**    |            |                     |  Oui    |
+| **Exceptions**      |            |  Oui                |  Oui    |
+| **Affichages de pages**      |            |                     |  Oui    |
+| **Demandes**        |            |                     |  Oui    |
+| **Traces**          |            |  Oui                |  Oui    |
+
+Nous n’avons pas l’intention de publier un kit SDK avec Application Insights 3.0 pour le moment.
 
 Application Insights pour Java 3.0 écoute déjà les données de télémétrie envoyées au kit SDK Application Insights pour Java 2.x. Cette fonctionnalité est une partie essentielle de la mise à niveau pour les utilisateurs 2.x existants car elle comble un écart important dans notre prise en charge de la télémétrie personnalisée jusqu’à la disponibilité générale de l’API OpenTelemetry.
 

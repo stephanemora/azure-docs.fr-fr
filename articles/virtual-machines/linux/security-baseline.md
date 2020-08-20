@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 97b2189020beffda32cc70dc66f028bec834eee5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446558"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003251"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
@@ -446,7 +446,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Aide** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure Active Directory pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être évalué régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent. Lorsque vous utilisez des machines virtuelles Azure, vous devez examiner les groupes de sécurité et les utilisateurs locaux pour vous assurer qu’il n’existe pas de comptes inattendus susceptibles de compromettre le système.
+**Conseils** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure Active Directory pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être évalué régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent. Lorsque vous utilisez des machines virtuelles Azure, vous devez examiner les groupes de sécurité et les utilisateurs locaux pour vous assurer qu’il n’existe pas de comptes inattendus susceptibles de compromettre le système.
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
@@ -562,11 +562,11 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Responsabilité** : Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Grâce au contrôle d’accès en fonction du rôle (RBAC), vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI ou d’Azure PowerShell.
+**Aide** : Grâce au contrôle d’accès en fonction du rôle Azure (Azure RBAC), vous pouvez séparer les tâches au sein de votre équipe et n’accorder aux utilisateurs que les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI ou d’Azure PowerShell.
 
-* [Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -920,11 +920,11 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
+**Aide** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Présentation d’Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Comment configurer Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 

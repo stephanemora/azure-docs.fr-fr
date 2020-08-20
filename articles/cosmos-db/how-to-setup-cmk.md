@@ -4,14 +4,14 @@ description: Découvrez comment configurer des clés gérées par le client pour
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027764"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836507"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 
@@ -64,6 +64,8 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Sélectionnez le principal Azure Cosmos DBl":::
 
 1. Sélectionnez **Ajouter** pour ajouter la nouvelle stratégie d’accès.
+
+1. Sélectionnez **Enregistrer** sur l’instance Key Vault pour enregistrer toutes les modifications.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Générer une clé dans Azure Key Vault
 
@@ -228,7 +230,15 @@ La rotation de la clé gérée par le client utilisée par votre compte Azure Co
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Créez une nouvelle version de la clé":::
 
-- Remplacez la clé actuellement utilisée par une toute autre, en mettant à jour la propriété `keyVaultKeyUri` de votre compte. Voici comment procéder dans PowerShell :
+- Remplacez la clé actuellement utilisée par une toute autre, en mettant à jour l’URI de la clé de votre compte. Dans le portail Azure, accédez à votre compte Azure Cosmos, puis sélectionnez **Chiffrement des données** dans le menu de gauche :
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrée du menu Chiffrement des données":::
+
+    Remplacez ensuite l’**URI de la clé** par la nouvelle clé que vous souhaitez utiliser, puis sélectionnez **Enregistrer** :
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Mettre à jour l’URI de la clé":::
+
+    Voici comment obtenir le même résultat dans PowerShell :
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -287,7 +297,11 @@ Actuellement non, mais les clés au niveau du conteneur sont prises en compte.
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Comment puis-je savoir si les clés gérées par le client sont activées sur mon compte Azure Cosmos ?
 
-Vous pouvez extraire par programme les détails de votre compte Azure Cosmos et rechercher la propriété `keyVaultKeyUri`. Reportez-vous aux informations plus haut pour savoir comment procéder dans [PowerShell](#using-powershell) et avec [Azure CLI](#using-azure-cli).
+Dans le portail Azure, accédez à votre compte Azure Cosmos, puis recherchez l’entrée **Chiffrement des données** dans le menu de gauche. Si cette entrée existe, les clés gérées par le client sont activées sur votre compte :
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrée du menu Chiffrement des données":::
+
+Vous pouvez également extraire par programme les détails de votre compte Azure Cosmos et rechercher la propriété `keyVaultKeyUri`. Reportez-vous aux informations plus haut pour savoir comment procéder dans [PowerShell](#using-powershell) et avec [Azure CLI](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Comment les clés gérées par le client influent-elles sur une sauvegarde ?
 

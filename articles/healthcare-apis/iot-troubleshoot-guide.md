@@ -5,49 +5,71 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: conceptual
-ms.date: 08/03/2020
+ms.topic: troubleshooting
+ms.date: 08/07/2020
 ms.author: jasteppe
-ms.openlocfilehash: b404fa5322d3afa8cbf71741382d44dd0433d49c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553680"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053454"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guide de dépannage du Connecteur Azure IoT pour FHIR (préversion)
 
 Cet article décrit la procédure de résolution de messages et conditions d’erreur courants du Connecteur Azure IoT pour FHIR*.  
 
-Vous allez également apprendre à créer des copies des fichiers de mappage JSON du Connecteur Azure IoT pour FHIR à des fins de modification et d’archivage en dehors du portail Azure, ou de fourniture de support technique Azure lors de l’ouverture d’un ticket de support. 
+Vous apprendrez également à créer des copies du connecteur Azure IoT pour le fichier JSON de mappage de conversion FHIR (par exemple : Appareil et FHIR).  
 
-## <a name="error-messages-and-fixes"></a>Messages d’erreur et correctifs
+Vous pouvez utiliser les copies JSON de mappage de conversion pour la modification et l’archivage en dehors du portail Azure.  
 
-|Message   |Condition  |Fix         |
-|----------|-----------|------------|
-|Nom de mappage non valide, le nom de mappage doit être nu appareil ou FHIR|Le type de mappage fourni n’est pas un appareil ou FHIR|Utilisez l’un des deux types de mappages pris en charge (par exemple : appareil ou FHIR)|
-|Régénérer des paramètres de clé non définis|Régénérer une demande de clé|Inclure les paramètres dans la demande de régénération de clé|
-|Atteinte du nombre maximal d’instances de Connecteur IoT* qui peuvent être approvisionnées dans cet abonnement|Le quota d’abonnements du Connecteur Azure IoT pour FHIR est atteint (la valeur par défaut est (2) par abonnement)|Supprimez l’une des instances existantes du Connecteur Azure IoT pour FHIR, utilisez un autre abonnement qui n’a pas atteint le quota d’abonnement ou demandez une augmentation du quota d’abonnement|
-|Le déplacement de ressource n’est pas pris en charge pour l’API Azure compatible avec le Connecteur IoT pour la ressource FHIR|Tentative d’effectuer une opération de déplacement sur une ressource d’API Azure pour FHIR qui a une ou plusieurs instances du Connecteur Azure IoT pour FHIR|Supprimer des instances existantes du Connecteur Azure IoT pour FHIR pour accomplir l’opération de déplacement|
-|Connecteur IoT non approvisionné|Tentative d’utilisation des services enfants (connexions & mappages) lorsque le parent (Connecteur Azure IoT pour FHIR) n’a pas été approvisionné|Approvisionner un Connecteur Azure IoT pour FHIR|
-|La demande n’est pas prise en charge|Une requête d’API spécifique n’est pas prise en charge|Utiliser la requête d’API correcte|
-|Le compte n’existe pas|La tentative d’ajout d’un connecteur Azure IoT pour FHIR et de l’API Azure pour la ressource FHIR n’existe pas|Créer l’API Azure pour la ressource FHIR, puis retenter l’opération|
-|La version de l’API Azure pour la ressource FHIR n’est pas prise en charge pour le Connecteur IoT|Tentative d’utilisation d’un connecteur Azure IoT pour FHIR avec une version incompatible de la ressource API Azure pour FHIR|Créer une nouvelle ressource API Azure pour FHIR (version R4) ou utiliser une ressource API Azure pour FHIR (version R4)
+> [!TIP]
+> Si vous comptez ouvrir un ticket de [support technique Azure](https://azure.microsoft.com/support/create-ticket/) pour le Connecteur Azure IoT pour FHIR, veillez à inclure des copies de votre fichiers JSON de mappage de conversion pour faciliter le processus de résolution des problèmes.
 
-## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-mapping-files"></a>Création de copies du Connecteur Azure IoT pour les fichiers de mappage FHIR (préversion)
-La copie du connecteur Azure IoT pour les fichiers de mappage FHIR peut être utile pour la modification et l’archivage en dehors du site web du portail Azure et pour fournir un support technique Azure lors de l’ouverture d’un ticket de support.
+## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Messages d'erreur et correctifs pour le Connecteur Azure IoT pour FHIR (préversion)
+
+|Message|Affiché|Condition|Fix| 
+|-------|---------|---------|---|
+|Nom de mappage non valide, le nom de mappage doit être nu appareil ou FHIR.|API|Le type de mappage fourni n’est pas un appareil ou FHIR.|Utilisez l’un des deux types de mappages pris en charge (par exemple : appareil ou FHIR).|
+|Échec de la validation. Les informations nécessaires sont manquantes ou non valides.|API et portail Azure|La tentative d’enregistrement d’un mappage de conversion ne dispose pas des informations ou éléments nécessaires.|Ajoutez les informations ou éléments de mappage de conversion manquantes, puis essayez d’enregistrer à nouveau le mappage de conversion.|
+|Régénérez des paramètres de clé non définis.|API|Régénérez une demande de clé.|Incluez les paramètres dans la demande de régénération de clé.|
+|Atteinte du nombre maximal d’instances de Connecteur IoT qui peuvent être approvisionnées dans cet abonnement.|API et portail Azure|Le quota d’abonnements du Connecteur Azure IoT pour FHIR est atteint (la valeur par défaut est (2) par abonnement).|Supprimez l’une des instances existantes du connecteur Azure IoT pour FHIR.  Utilisez un autre abonnement qui n’a pas atteint le quota d’abonnement.  Demandez une augmentation du quota d’abonnement.|
+|Le déplacement de ressource n’est pas pris en charge pour l’API Azure compatible avec le Connecteur IoT pour la ressource FHIR.|API et portail Azure|Tentative d’effectuer une opération de déplacement sur une ressource d’API Azure pour FHIR qui a une ou plusieurs instances du Connecteur Azure IoT pour FHIR.|Supprimez des instances existantes du Connecteur Azure IoT pour FHIR pour effectuer l’opération de déplacement.|
+|Connecteur IoT non approvisionné.|API|Tentative d’utilisation des services enfants (connexions & mappages) lorsque le parent (Connecteur Azure IoT pour FHIR) n’a pas été approvisionné.|Approvisionnez un Connecteur Azure IoT pour FHIR.|
+|La demande n'est pas prise en charge.|API|Une requête d’API spécifique n’est pas prise en charge.|Utilisez la requête d’API correcte.|
+|Le compte n’existe pas.|API|La tentative d’ajout d’un connecteur Azure IoT pour FHIR et de l’API Azure pour la ressource FHIR n’existe pas.|Créez l’API Azure pour la ressource FHIR, puis retentez l’opération.|
+|La version de l’API Azure pour la ressource FHIR n’est pas prise en charge pour le Connecteur IoT.|API|Tentative d’utilisation d’un connecteur Azure IoT pour FHIR avec une version incompatible de la ressource API Azure pour FHIR.|Créez une nouvelle ressource API Azure pour FHIR (version R4) ou utilisez une ressource API Azure pour FHIR (version R4).
+
+##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Pourquoi mes données dans le connecteur Azure IoT pour FHIR (préversion) n’apparaissent pas dans l’API Azure pour FHIR ?
+
+|Problèmes potentiels  |Correctifs            |
+|------------------|-----------------|
+|Les données sont toujours en cours de traitement.|Les données sont transmises en lots à l’API Azure pour FHIR (toutes les 15 minutes environ).  Il est possible que les données soient toujours en cours de traitement et qu’un délai supplémentaire soit nécessaire pour que les données soient conservées dans l’API Azure pour FHIR.|
+|Le fichier JSON de mappage de conversion d’appareil n’a pas été configuré.|Configurez et enregistrez le fichier JSON de mappage de conversion d’appareil conforme.|
+|Le fichier JSON de mappage de conversion FHIR n’a pas été configuré.|Configurez et enregistrez le fichier JSON de mappage de conversion FHIR conforme.|
+|Le message de l’appareil ne contient pas d’expression attendue définie dans le mappage de l’appareil.|Vérifiez les expressions JsonPath définies dans les jetons de correspondance de mappage d’appareil dans le message de l’appareil.|
+|Aucune ressource d’appareil n’a été créée dans l’API Azure pour FHIR (type de résolution : recherche uniquement)*.|Créez une ressource d’appareil valide dans l’API Azure pour FHIR. Vérifiez que la ressource de l’appareil contient un identificateur qui correspond à l’identificateur de l’appareil fourni dans le message entrant.|
+|Une ressource patient n’a pas été créée dans l’API Azure pour FHIR (type de résolution : recherche uniquement)*.|Créez une ressource patient valide dans l’API Azure pour FHIR.|
+|La référence Device.patient n’est pas définie ou n’est pas valide (type de résolution : recherche uniquement)*.|Assurez-vous que la ressource d’appareil contient une référence [valide](https://www.hl7.org/fhir/device-definitions.html#Device.patient) à une ressource patient.| 
+
+*Référence [Démarrage rapide : Déployer le connecteur Azure IoT (préversion) à l’aide du portail Azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) pour obtenir une description fonctionnelle du connecteur Azure IoT pour les types de résolution FHIR (par exemple : Rechercher ou Créer).
+
+## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Création de copies du connecteur Azure IoT pour le fichier JSON de mappage de conversion FHIR (préversion)
+La copie du connecteur Azure IoT pour les fichiers de mappage FHIR peut être utile pour la modification et l’archivage en dehors du site web du portail Azure.
+
+Les copies du fichier de mappage doivent être fournies au support technique Azure lors de l’ouverture d’un ticket de support afin de faciliter le dépannage.
 
 > [!NOTE]
 > JSON est le seul format pris en charge pour les fichiers de mappage d’appareil et FHIR à ce stade.
 
 > [!TIP]
-> En savoir plus sur le Connecteur Azure IoT pour les [fichiers JSON de mappage d’appareil et FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> En savoir plus sur le connecteur Azure IoT pour le [fichier JSON de mappage de conversion d’appareil et FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
 1. Sélectionnez **Connecteur IoT (préversion)** en bas à gauche du tableau de bord des ressources de l’API Azure pour FHIR dans la section **Compléments**.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Connecteur IoT" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
-2. Sélectionnez le **Connecteur** à partir duquel vous allez copier les fichiers de mappage.
+2. Sélectionnez le **« connecteur »** à partir duquel vous allez copier le fichier JSON de mappage de conversion.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connecteur IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
@@ -65,7 +87,7 @@ La copie du connecteur Azure IoT pour les fichiers de mappage FHIR peut être ut
 5. Effectuez une opération de collage (par exemple, sélectionnez Ctrl + v) dans un nouveau fichier à l’intérieur d’un éditeur (par exemple, Visual Studio Code, Bloc-notes), et enregistrez le fichier avec une extension *.json.
 
 > [!TIP]
-> Si vous comptez ouvrir un ticket de [support technique Azure](https://azure.microsoft.com/support/create-ticket/) pour le Connecteur Azure IoT pour FHIR, veillez à inclure des copies de vos fichiers de mappage pour faciliter le processus de résolution des problèmes.
+> Si vous comptez ouvrir un ticket de [support technique Azure](https://azure.microsoft.com/support/create-ticket/) pour le Connecteur Azure IoT pour FHIR, veillez à inclure des copies de votre fichiers JSON de mappage de conversion pour faciliter le processus de résolution des problèmes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

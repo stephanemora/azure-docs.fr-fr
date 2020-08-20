@@ -10,10 +10,12 @@
       href: overview-iot-central-developer.md
     - name: Mises à jour récentes
       items:
+        - name: "Fonctionnalités nouvelles et mises à jour - Juillet\_2020"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
         - name: "Fonctionnalités nouvelles et mises à jour - Juin\_2020"
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
         - name: "Mises à jour de la documentation et de l’interface utilisateur - Juin\_2020"
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
         - name: "Mises à jour des travaux et des métriques de mai\_2020"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
         - name: "Mises à jour des tableaux de bord de mai\_2020"

@@ -1,23 +1,18 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
-description: Cet article fournit une présentation détaillée de l’agent Azure Arc pour serveurs disponible qui prend en charge la surveillance de machines virtuelles hébergées dans un environnement hybride.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.date: 07/09/2020
+description: Cet article fournit une présentation détaillée de l’agent Azure Arc pour serveurs (préversion) disponible qui prend en charge la surveillance de machines virtuelles hébergées dans un environnement hybride.
+ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242948"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121831"
 ---
-# <a name="overview-of-azure-arc-for-servers-agent"></a>Présentation de l’agent Azure Arc pour serveurs
+# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Présentation de l’agent Azure Arc pour serveurs (préversion)
 
-L’agent Connected Machine d’Azure Arc pour serveurs vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
+L’agent Connected Machine d’Azure Arc pour serveurs (préversion) vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
 ## <a name="agent-component-details"></a>Détails du composant Agent
 
@@ -43,113 +38,7 @@ Vous pouvez télécharger le package de l’agent Azure Connected Machine pour W
 
 * Le package de l’agent pour Linux est distribué à partir du [dépôt de packages](https://packages.microsoft.com/) de Microsoft à l’aide du format de package préféré pour la distribution (.RPM ou .DEB).
 
->[!NOTE]
->Pendant cette préversion, un seul package a été publié, qui convient pour Ubuntu 16.04 ou 18.04.
-
 L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau vers la dernière version de façon manuelle ou automatique selon vos besoins. Vous pourrez trouver plus d’informations [ici](manage-agent.md).
-
-## <a name="windows-agent-installation-details"></a>Détails de l’installation de l’agent Windows
-
-Vous pouvez installer l’agent Connected Machine pour Windows à l’aide de l’une des trois méthodes suivantes :
-
-* En double-cliquant sur le fichier `AzureConnectedMachineAgent.msi`.
-* Manuellement en exécutant le package Windows Installer `AzureConnectedMachineAgent.msi` à partir de l’interpréteur de commandes.
-* À partir d’une session PowerShell à l’aide d’une méthode de script.
-
-Une fois l’agent Connected Machine pour Windows installé, les modifications de configuration système suivantes sont appliquées.
-
-* Les dossiers d’installation suivants sont créés lors de la configuration.
-
-    |Dossier |Description |
-    |-------|------------|
-    |%ProgramFiles%\AzureConnectedMachineAgent |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
-    |%ProgramData%\AzureConnectedMachineAgent |Contient les fichiers de configuration de l’agent.|
-    |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contient les jetons acquis.|
-    |%ProgramData%\AzureConnectedMachineAgent\Config |Contient le fichier de configuration de l’agent `agentconfig.json` qui enregistre ses informations d’inscription auprès du service.|
-    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Chemin d’installation contenant les fichiers de l’agent Guest Configuration. |
-    |%ProgramData%\GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Les extensions sont téléchargées à partir d’Azure et copiées ici.|
-
-* Les services Windows suivants sont créés sur la machine cible lors de l’installation de l’agent.
-
-    |Nom du service |Nom complet |Nom du processus |Description |
-    |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
-    |DscService |Service de configuration d’invité |dsc_service.exe |Il s’agit de la base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
-
-* Les variables d’environnement suivantes sont créées lors de l’installation de l’agent.
-
-    |Nom |Valeur par défaut |Description |
-    |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
-    |IMDS_ENDPOINT |http://localhost:40342 ||
-
-* Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.
-
-    |Journal |Description |
-    |----|------------|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Enregistre les détails du service des agents (HIMDS) et l’interaction avec Azure.|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contient la sortie des commandes de l’outil azcmagent, lorsque l’argument détaillé (-v) est utilisé.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Enregistre les détails de l’activité du service DSC,<br> en particulier, la connectivité entre le service HIMDS et Azure Policy.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Enregistre les détails relatifs à la télémétrie du service DSC et à la journalisation détaillée.|
-    |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Enregistre les détails concernant le composant de l’agent Extension.|
-    |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Enregistre les détails de l’extension installée.|
-
-* Le groupe de sécurité local **Applications d’extension de l’agent hybride** est créé.
-
-* Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
-
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
-    * %ProgramData%\AzureConnectedMachineAgent et sous-répertoires
-    * %ProgramData%\GuestConfig
-
-## <a name="linux-agent-installation-details"></a>Détails de l’installation de l’agent Linux
-
-L’agent Connected Machine pour Linux est fourni dans le format de package par défaut pour la distribution (. RPM ou. DEB) qui est hébergée dans le [dépôt de packages](https://packages.microsoft.com/) de Microsoft. L’agent est installé et configuré avec le groupe de scripts d’interpréteur de commandes [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
-
-Une fois l’agent Connected Machine pour Linux installé, les modifications de configuration système suivantes sont appliquées.
-
-* Les dossiers d’installation suivants sont créés lors de la configuration.
-
-    |Dossier |Description |
-    |-------|------------|
-    |/var/opt/azcmagent/ |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
-    |/opt/azcmagent/ |
-    |/opt/GC_Ext | Chemin d’installation contenant les fichiers de l’agent Guest Configuration.|
-    |/opt/DSC/ |
-    |/var/opt/azcmagent/tokens |Contient les jetons acquis.|
-    |/var/lib/GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|
-    |/opt/GC_Ext/downloads|Les extensions sont téléchargées à partir d’Azure et copiées ici.|
-
-* Les démons suivants sont créés sur la machine cible lors de l’installation de l’agent.
-
-    |Nom du service |Nom complet |Nom du processus |Description |
-    |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
-    |dscd.service |Service de configuration d’invité |/opt/DSC/dsc_linux_service |Il s’agit de la base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
-
-* Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.
-
-    |Journal |Description |
-    |----|------------|
-    |/var/opt/azcmagent/log/himds.log |Enregistre les détails du service des agents (HIMDS) et l’interaction avec Azure.|
-    |/var/opt/azcmagent/log/azcmagent.log |Contient la sortie des commandes de l’outil azcmagent, lorsque l’argument détaillé (-v) est utilisé.|
-    |/opt/logs/dsc.log |Enregistre les détails de l’activité du service DSC,<br> en particulier, la connectivité entre le service himds et Azure Policy.|
-    |/opt/logs/dsc.telemetry.txt |Enregistre les détails relatifs à la télémétrie du service DSC et à la journalisation détaillée.|
-    |/var/lib/GuestConfig/ext_mgr_logs |Enregistre les détails concernant le composant de l’agent Extension.|
-    |/var/log/GuestConfig/extension_logs|Enregistre les détails de l’extension installée.|
-
-* Les variables d’environnement suivantes sont créées lors de l’installation de l’agent. Les variables suivantes sont définies dans `/lib/systemd/system.conf.d/azcmagent.conf`.
-
-    |Nom |Valeur par défaut |Description |
-    |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
-    |IMDS_ENDPOINT |http://localhost:40342 ||
-
-* Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
-
-    * /var/opt/azcmagent
-    * /opt/logs
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -176,9 +65,9 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
-Avant de configurer vos machines avec Azure Arc pour serveurs (préversion), vous devez passer en revue les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) Azure Resource Manager pour planifier le nombre de machines à connecter.
+Avant de configurer vos machines avec Azure Arc pour serveurs (préversion), passez en revue les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) Azure Resource Manager pour planifier le nombre de machines à connecter.
 
-## <a name="tls-12-protocol"></a>Protocole TLS 1.2
+### <a name="transport-layer-security-12-protocol"></a>Protocole Transport Layer Security 1.2
 
 Pour garantir la sécurité des données en transit vers Azure, nous vous encourageons vivement à configurer la machine de manière à utiliser le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.
 
@@ -251,6 +140,111 @@ Selon vos besoins, plusieurs méthodes vous permettent de connecter des machines
 | de manière interactive, | Installer manuellement l’agent sur une seule machine ou un petit nombre de machines en suivant les étapes décrites dans [Connecter des machines à partir du portail Azure](onboard-portal.md).<br> À partir du portail Azure, vous pouvez générer un script et l’exécuter sur la machine pour automatiser les étapes d’installation et de configuration de l’agent.|
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions indiquées dans [Connecter des machines à l’aide d’un principal de service](onboard-service-principal.md).<br> Cette méthode crée un principal de service pour connecter des machines de manière non interactive.|
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions de la méthode [Utilisation de Windows PowerShell DSC](onboard-dsc.md).<br> Cette méthode utilise un principal de service pour connecter des machines de manière non interactive à PowerShell DSC. |
+
+## <a name="connected-machine-agent-technical-overview"></a>Présentation technique de l’agent Machine connectée
+
+### <a name="windows-agent-installation-details"></a>Détails de l’installation de l’agent Windows
+
+Vous pouvez installer l’agent Connected Machine pour Windows à l’aide de l’une des trois méthodes suivantes :
+
+* En double-cliquant sur le fichier `AzureConnectedMachineAgent.msi`.
+* Manuellement en exécutant le package Windows Installer `AzureConnectedMachineAgent.msi` à partir de l’interpréteur de commandes.
+* À partir d’une session PowerShell à l’aide d’une méthode de script.
+
+Une fois l’agent Connected Machine pour Windows installé, les modifications de configuration système suivantes sont appliquées.
+
+* Les dossiers d’installation suivants sont créés lors de la configuration.
+
+    |Dossier |Description |
+    |-------|------------|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
+    |%ProgramData%\AzureConnectedMachineAgent |Contient les fichiers de configuration de l’agent.|
+    |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contient les jetons acquis.|
+    |%ProgramData%\AzureConnectedMachineAgent\Config |Contient le fichier de configuration de l’agent `agentconfig.json` qui enregistre ses informations d’inscription auprès du service.|
+    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Chemin d’installation contenant les fichiers de l’agent Guest Configuration. |
+    |%ProgramData%\GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|
+    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Les extensions sont téléchargées à partir d’Azure et copiées ici.|
+
+* Les services Windows suivants sont créés sur la machine cible lors de l’installation de l’agent.
+
+    |Nom du service |Nom complet |Nom du processus |Description |
+    |-------------|-------------|-------------|------------|
+    |himds |Azure Hybrid Instance Metadata Service |himds.exe |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
+    |DscService |Service de configuration d’invité |dsc_service.exe |La base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
+
+* Les variables d’environnement suivantes sont créées lors de l’installation de l’agent.
+
+    |Nom |Valeur par défaut |Description |
+    |-----|--------------|------------|
+    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+    |IMDS_ENDPOINT |http://localhost:40342 ||
+
+* Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.
+
+    |Journal |Description |
+    |----|------------|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Enregistre les détails du service des agents (HIMDS) et l’interaction avec Azure.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contient la sortie des commandes de l’outil azcmagent, lorsque l’argument détaillé (-v) est utilisé.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Enregistre les détails de l’activité du service DSC,<br> en particulier, la connectivité entre le service HIMDS et Azure Policy.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Enregistre les détails relatifs à la télémétrie du service DSC et à la journalisation détaillée.|
+    |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Enregistre les détails concernant le composant de l’agent Extension.|
+    |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Enregistre les détails de l’extension installée.|
+
+* Le groupe de sécurité local **Applications d’extension de l’agent hybride** est créé.
+
+* Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
+
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * %ProgramData%\AzureConnectedMachineAgent et sous-répertoires
+    * %ProgramData%\GuestConfig
+
+### <a name="linux-agent-installation-details"></a>Détails de l’installation de l’agent Linux
+
+L’agent Connected Machine pour Linux est fourni dans le format de package par défaut pour la distribution (. RPM ou. DEB) qui est hébergée dans le [dépôt de packages](https://packages.microsoft.com/) de Microsoft. L’agent est installé et configuré avec le groupe de scripts d’interpréteur de commandes [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Une fois l’agent Connected Machine pour Linux installé, les modifications de configuration système suivantes sont appliquées.
+
+* Les dossiers d’installation suivants sont créés lors de la configuration.
+
+    |Dossier |Description |
+    |-------|------------|
+    |/var/opt/azcmagent/ |Chemin d’installation par défaut contenant les fichiers de support de l’agent.|
+    |/opt/azcmagent/ |
+    |/opt/GC_Ext | Chemin d’installation contenant les fichiers de l’agent Guest Configuration.|
+    |/opt/DSC/ |
+    |/var/opt/azcmagent/tokens |Contient les jetons acquis.|
+    |/var/lib/GuestConfig |Contient les stratégies (appliquées) à partir d’Azure.|
+    |/opt/GC_Ext/downloads|Les extensions sont téléchargées à partir d’Azure et copiées ici.|
+
+* Les démons suivants sont créés sur la machine cible lors de l’installation de l’agent.
+
+    |Nom du service |Nom complet |Nom du processus |Description |
+    |-------------|-------------|-------------|------------|
+    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
+    |dscd.service |Service de configuration d’invité |/opt/DSC/dsc_linux_service |Il s’agit de la base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
+
+* Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.
+
+    |Journal |Description |
+    |----|------------|
+    |/var/opt/azcmagent/log/himds.log |Enregistre les détails du service des agents (HIMDS) et l’interaction avec Azure.|
+    |/var/opt/azcmagent/log/azcmagent.log |Contient la sortie des commandes de l’outil azcmagent, lorsque l’argument détaillé (-v) est utilisé.|
+    |/opt/logs/dsc.log |Enregistre les détails de l’activité du service DSC,<br> en particulier, la connectivité entre le service himds et Azure Policy.|
+    |/opt/logs/dsc.telemetry.txt |Enregistre les détails relatifs à la télémétrie du service DSC et à la journalisation détaillée.|
+    |/var/lib/GuestConfig/ext_mgr_logs |Enregistre les détails concernant le composant de l’agent Extension.|
+    |/var/log/GuestConfig/extension_logs|Enregistre les détails de l’extension installée.|
+
+* Les variables d’environnement suivantes sont créées lors de l’installation de l’agent. Les variables suivantes sont définies dans `/lib/systemd/system.conf.d/azcmagent.conf`.
+
+    |Nom |Valeur par défaut |Description |
+    |-----|--------------|------------|
+    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+    |IMDS_ENDPOINT |http://localhost:40342 ||
+
+* Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
+
+    * /var/opt/azcmagent
+    * /opt/logs
 
 ## <a name="next-steps"></a>Étapes suivantes
 

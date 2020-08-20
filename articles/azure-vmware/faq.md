@@ -4,12 +4,12 @@ description: Apporte des réponses à des questions récurrentes à propos de la
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112683"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872325"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Forum aux questions sur la préversion de la solution VMware Azure (AVS)
 
@@ -25,7 +25,7 @@ Tandis que les entreprises mettent en œuvre des stratégies de modernisation in
 
 **Où la solution AVS est-elle disponible aujourd’hui ?**
 
-Durant la période de préversion, elle est disponible dans la région USA Est en Amérique du Nord et à Amsterdam en Europe de l’Ouest.
+Le service est régulièrement ajouté à de nouvelles régions. Pour en savoir plus, consultez les [dernières informations de disponibilité du service](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware). 
 
 **Des charges de travail exécutées dans une instance AVS peuvent-elles utiliser des services Azure ou s’intégrer avec ceux-ci ?**
 
@@ -45,7 +45,7 @@ Les intégrations et cas d’usage spécifiques peuvent être évalués individu
 
 **Puis-je migrer des machines virtuelles vSphere à partir d’environnements locaux vers des clouds privés AVS ?**
 
-Oui. Vous pouvez utiliser une migration de machine virtuelle et vMotion pour déplacer des machines virtuelles vers un cloud privé si les configurations requises standard croisées de vCenter et de [vMotion] [https://kb.vmware.com/s/article/210695 ] sont réunies.
+Oui. Vous pouvez utiliser une migration de machine virtuelle et vMotion pour déplacer des machines virtuelles vers un cloud privé si les configurations requises standard croisées de vCenter et de [vMotion](https://kb.vmware.com/s/article/210695) sont réunies.
 
 **Une version spécifique de vSphere est-elle requise dans des environnements locaux ?**
 
@@ -85,15 +85,15 @@ Les serveurs disposent de 576 Go de RAM.
 
 **Quelle est la capacité de stockage de chaque hôte ?**
 
-Chaque hôte ESXi est doté de deux groupes de disques VSAN d’une capacité de 15,2 To, et d’un cache NVMe de 3,2 To (1,6 To dans chaque groupe de disques).
+Chaque hôte ESXi est doté de deux groupes de disques vSAN d’une capacité de 15,2 To, et d’un cache NVMe de 3,2 To (1,6 To dans chaque groupe de disques).
 
 **Quelle est la quantité de bande passante réseau disponible dans chaque hôte ESXi ?**
 
-Les hôtes ESXi prennent en charge une bande passante de connectivité jusqu’à 25 Gbit/s.
+Chaque hôte ESXi dans AVS est configuré avec quatre cartes réseau 25 Gbit/s, deux cartes réseau étant configurées pour le trafic système ESXi, et deux cartes réseau pour le trafic de la charge de travail. 
 
-**Les données stockées dans les magasins de données VSAN sont-elles chiffrées au repos ?**
+**Les données stockées dans les magasins de données vSAN sont-elles chiffrées au repos ?**
 
-Oui, toutes les données VSAN sont chiffrées par défaut à l’aide de clés stockées dans Azure Key Vault.
+Oui, toutes les données vSAN sont chiffrées par défaut à l’aide de clés stockées dans Azure Key Vault.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hôtes, clusters et clouds privés
 
@@ -137,7 +137,7 @@ Non, vous n’êtes pas obligé d’utiliser NSX localement.
 
 **Quelle est la planification de mise à niveau et de mise à jour des logiciels VMware dans un cloud privé ?**
 
-Les mises à niveau de l’offre logicielle groupée de Cloud privé sont effectuées de façon à conserver une version unique de l’offre logicielle groupée la plus récente de VMware. Les versions des logiciels de cloud privé peuvent différer des versions les plus récentes des composants logiciels individuels (ESXi, NSX-T, vCenter, VSAN).
+Les mises à niveau de l’offre logicielle groupée de Cloud privé sont effectuées de façon à conserver une version unique de l’offre logicielle groupée la plus récente de VMware. Les versions des logiciels de cloud privé peuvent différer des versions les plus récentes des composants logiciels individuels (ESXi, NSX-T, vCenter, vSAN).
 
 **À quelle fréquence la pile logicielle du cloud privé sera-t-elle mise à jour ?**
 
@@ -201,7 +201,7 @@ Pour toute question générale concernant la tarification, consultez la page de 
 
 **Qui assure le support d’AVS ?**
 
-Le support d’AVS est fourni par Microsoft. Veuillez noter que, conformément à nos directives concernant les préversions, nous assurons un support pendant les heures d’ouverture, du lundi au vendredi de 9 h à 17 h PST. Pour ouvrir un ticket de support, suivez [ce lien](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Le support d’AVS est fourni par Microsoft. Notez que, conformément à nos directives concernant les préversions, nous assurons un support pendant les heures d’ouverture, du lundi au vendredi de 9 h à 17 h PST. Pour ouvrir un ticket de support, suivez [ce lien](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 **De quels comptes ai-je besoin pour créer un cloud privé AVS ?**
 
@@ -216,7 +216,7 @@ Pour demander une augmentation de quota, [envoyez une demande de support](..\azu
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Pour d’autres façons d’inscrire un fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Pour d’autres façons d’inscrire un fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. Sur votre Portail Azure, créez une **Nouvelle demande de support** sous **Aide + Support** et indiquez les informations suivantes pour le ticket :
    - **Type de problème :** Techniques

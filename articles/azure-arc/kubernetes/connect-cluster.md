@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Connecter un cluster Kubernetes à extension Azure Arc avec Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050087"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080488"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connecter un cluster Kubernetes à extension Azure Arc (préversion)
 
@@ -91,7 +91,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## <a name="create-a-resource-group"></a>Création d’un groupe de ressources
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Utilisez un groupe de ressources pour stocker les métadonnées pour votre cluster.
 
@@ -172,6 +172,41 @@ Vous pouvez également afficher cette ressource dans le [Portail Azure](https://
 > [!NOTE]
 > Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc activé dans le portail Azure.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Se connecter à l’aide d’un serveur proxy sortant
+
+Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les agents Kubernetes activés pour Arc doivent acheminer leurs demandes via le serveur proxy sortant. La configuration suivante vous permet d’effectuer cette opération :
+
+1. Vérifiez la version de l’extension `connectedk8s` installée sur votre ordinateur en exécutant la commande suivante :
+
+    ```bash
+    az -v
+    ```
+
+    Vous avez besoin de l’extension `connectedk8s` version > = 0.2.3 pour configurer des agents avec un proxy sortant. Si vous disposez d’une version < 0.2.3 sur votre ordinateur, suivez les [étapes de mise à jour](#before-you-begin) pour obtenir la dernière version de l’extension sur votre ordinateur.
+
+2. Définissez les variables d’environnement nécessaires pour Azure CLI :
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Exécutez la commande connect avec les paramètres de proxy spécifiés :
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. La spécification de excludedCIDR sous --proxy-skip-range est importante pour garantir que la communication dans le cluster n’est pas interrompue pour les agents.
+> 2. La spécification de proxy ci-dessus est actuellement appliquée uniquement pour les agents Arc et non pour les pods de flux utilisés dans sourceControlConfiguration. L’équipe Kubernetes avec Arc travaille activement sur cette fonctionnalité, qui sera bientôt disponible.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Agents Azure Arc pour Kubernetes
+
 Un Kubernetes à extension Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`. Vous pouvez afficher ces déploiements et pods ici :
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Agents Azure Arc pour Kubernetes
 
 Un Kubernetes à extension Azure Arc se compose de quelques agents (opérateurs) qui s’exécutent dans votre cluster déployé dans l’espace de noms `azure-arc`.
 

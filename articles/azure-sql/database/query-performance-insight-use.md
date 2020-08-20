@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042881"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926397"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.
 
 ## <a name="permissions"></a>Autorisations
 
-Vous avez besoin des autorisations de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) suivantes pour utiliser Query Performance Insight :
+Vous avez besoin des autorisations du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) suivantes pour utiliser Query Performance Insight :
 
 * Les autorisations **Lecteur**, **Propriétaire**, **Contributeur**, **Contributeur de base de données SQL** ou **Contributeur SQL Server** sont obligatoire pour voir les requêtes et graphiques consommant le plus de ressources.
 * Les autorisations **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher le texte de requête.

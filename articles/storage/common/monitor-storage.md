@@ -1,6 +1,6 @@
 ---
 title: Surveiller le Stockage Azure | Microsoft Docs
-description: Découvrez comment surveiller les performances et la disponibilité du stockage Azure.
+description: Découvrez comment surveiller les performances et la disponibilité du stockage Azure. Surveillez les données Stockage Azure, obtenez plus de détails sur la configuration, et analysez les métriques et les données de journal.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182710"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836664"
 ---
 # <a name="monitor-azure-storage"></a>Surveiller le Stockage Azure
 
@@ -86,9 +86,9 @@ Vous devez également spécifier les catégories d’opérations pour lesquelles
 
 | Category | Description |
 |:---|:---|
-| StorageRead | Opérations de lecture sur les objets blob |
-| StorageWrite | Opérations d’écriture sur les objets blob |
-| StorageDelete | Opérations de suppression sur les objets blob |
+| StorageRead | Opérations de lecture sur des objets. |
+| StorageWrite | Opérations d’écriture sur des objets. |
+| StorageDelete | Opérations de suppression sur des objets. |
 
 ## <a name="analyze-metric-data"></a>Analyser les données de métriques
 

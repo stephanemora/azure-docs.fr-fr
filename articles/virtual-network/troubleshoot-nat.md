@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688279"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836103"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Résoudre les problèmes de connectivité du service NAT de réseau virtuel Azure
 
@@ -195,6 +195,14 @@ Le [NAT de réseau virtuel](nat-overview.md) remplace la connectivité sortante 
 Il n’est pas nécessaire de redémarrer une machine virtuelle en configurant un sous-réseau pour une ressource de passerelle NAT.  Cependant, si la machine est redémarrée, l’état de la connexion est vidé.  De ce fait, toutes les connexions se mettent à utiliser la ou les adresses IP de la ressource de passerelle NAT.  Il s’agit toutefois d’un effet secondaire du redémarrage de la machine virtuelle et non d’un signe indiquant qu’un redémarrage est nécessaire.
 
 Si vous rencontrez toujours des problèmes, ouvrez un dossier de support pour les résoudre.
+
+### <a name="connection-setup-time"></a>Temps de configuration de connexion
+
+Étant donné que les règles de trafic sortant dans Load Balancer attribuent statiquement des pools de ports SNAT à des machines virtuelles spécifiques, la création de flux sortants est plus rapide que l’utilisation d’un NAT de réseau virtuel. Par conséquent, lorsque vous effectuez la transition à partir de règles de trafic sortant du Load Balancer, vous pouvez constater une latence accrue lors de la création d’une nouvelle connexion sortante. Comme expliqué précédemment, pour optimiser les performances de votre application, vous devez utiliser des flux de longue durée (par exemple, des connexions TCP réutilisées).
+
+_**Solution :**_
+
+Si vous êtes surtout intéressé par la latence de configuration minimale des connexions, utilisez les règles de trafic sortant dans Load Balancer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

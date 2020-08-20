@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 61e8c56e75e82bc28ddb2abf231d9a5e919691b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535229"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134579"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -36,6 +36,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 ## <a name="considerations"></a>Considérations
 
 * Veillez à respecter la [configuration requise pour les connexions Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Assurez-vous que le client NFS est à jour et qu’il exécute les dernières mises à jour du système d’exploitation.
 
 ## <a name="create-a-dual-protocol-volume"></a>Créer un volume à deux protocoles
@@ -75,9 +76,9 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Si vous souhaitez appliquer une stratégie de capture instantanée existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie de capture instantanée dans le menu déroulant. 
+    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 
-        Pour plus d’informations sur la création d’une stratégie de capture instantanée, consultez [Gérer les stratégies de capture instantanée](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Afficher la sélection avancée](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
