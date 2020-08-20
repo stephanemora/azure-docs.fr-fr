@@ -2,22 +2,21 @@
 title: Répertorier les groupes de connecteurs Proxy d’application Azure AD pour les applications
 description: Exemple PowerShell qui répertorie tous les groupes de connecteurs de proxy d'application Azure Active Directory (Azure AD) auxquels les applications ont été attribuées.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f381d64e06d8b7abf67b08297baa616397cc439
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6e5be900dc37928351886d22b7586ce5ae77cd
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019435"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506891"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Obtenir toutes les applications de proxy d'application et répertorier par groupe de connecteurs
 

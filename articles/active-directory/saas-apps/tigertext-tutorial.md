@@ -2,25 +2,21 @@
 title: 'Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TigerText Secure Messenger.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 03f1e128-5bcb-4e49-b6a3-fe22eedc6d5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: ea3bda1dd51a7c3a2e5e3f8b669d7138898f1595
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9dff60767e923bad1322b689acd98e69eb9c2ac6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088674"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger
 
@@ -148,7 +144,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<votre_domaine_d’entreprise>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com**.
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 

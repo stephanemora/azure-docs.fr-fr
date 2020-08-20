@@ -2,22 +2,21 @@
 title: Exemple PowerShell - Répertorier tous les groupes de connecteurs de proxy d’application
 description: Exemple PowerShell qui répertorie tous les connecteurs et groupes de connecteurs de proxy d’application Azure Active Directory (Azure AD) dans votre répertoire.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53af7f3f9049edc23ed4226f43e7fe67398c29f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7d665ddf7b1902275eebd74bcbf148426ac6ddd
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475639"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506866"
 ---
 # <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>Récupérer tous les connecteurs et groupes de connecteurs dans le répertoire
 

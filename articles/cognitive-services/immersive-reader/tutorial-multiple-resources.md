@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1abd1052c33346d949809d7c35a99ef97bde2c03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407198"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516280"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutoriel : Intégrer plusieurs ressources Lecteur immersif
 
@@ -25,7 +25,7 @@ Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur 
 > * Créer plusieurs ressources Lecteur immersif dans un groupe de ressources existant
 > * Lancer le Lecteur immersif avec plusieurs ressources
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
