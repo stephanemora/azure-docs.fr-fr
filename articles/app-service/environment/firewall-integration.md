@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e5c909dfebf9c2073ac1809e0a1b7dcbcc7a297
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073749"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874195"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -61,7 +61,7 @@ Les étapes pour verrouiller les sorties de votre environnement ASE existant ave
    
    ![Ajouter une règle d’application][1]
    
-1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Adresses IP, entrez un nom, sélectionnez **N’importe lequel**, définissez les adresses sources et de destination sur *, et définissez les ports sur 123. Cette règle permet au système de synchroniser l’horloge à l’aide de NTP. Créez une autre règle de la même manière en définissant cette fois le port 12000 pour faciliter l’identification des éventuels problèmes système. 
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Adresses IP, entrez un nom, sélectionnez **N’importe lequel** comme protocole, définissez les adresses source et de destination sur *, et définissez les ports sur 123. Cette règle permet au système de synchroniser l’horloge à l’aide de NTP. Créez une autre règle de la même manière en définissant cette fois le port 12000 pour faciliter l’identification des éventuels problèmes système. 
 
    ![Ajouter une règle de réseau NTP][3]
    

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087862"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056514"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -142,11 +142,11 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
 **Niveau 1.1 :** la commande CREATE TABLE vous permet de spécifier un schéma fort. Le moteur Stream Analytics vérifie que les données sont conformes à ce schéma. Avec ce modèle, la commande peut filtrer des événements avec des valeurs NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Désactivation de l’hyperonyme automatique pour les chaînes DateHeure au format JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Désactiver la conversion automatique des chaînes datetime en type DateTime à l’entrée pour JSON
 
-**Niveau 1.0 :** l’analyseur JSON upcastait automatiquement en type DateTime les valeurs de chaîne contenant des informations de type date/heure/fuseau horaire et les convertissait au format UTC. Ce comportement entraînait la perte des informations relatives au fuseau horaire.
+**Niveau 1.0 :** L’analyseur JSON convertit automatiquement les valeurs de chaîne contenant des informations de date/heure/zone en type DATETIME à l’entrée, de sorte que la valeur perd immédiatement ses informations de mise en forme d’origine et de fuseau horaire. Dans la mesure où cette opération est effectuée à l’entrée, même si ce champ n’a pas été utilisé dans la requête, il est converti en DateTime UTC.
 
-**Niveau 1.1 :** il n’existe plus aucun upcast automatique des valeurs de chaîne avec des informations de date/heure/fuseau horaire en type DateTime. Les informations relatives au fuseau horaire sont donc conservées.
+**Niveau 1.1 :** Il n’y a pas de conversion automatique des valeurs de chaîne contenant des informations de date/heure/zone en type DATETIME. Par conséquent, les informations de fuseau horaire et la mise en forme d’origine sont conservées. Toutefois, si le champ NVARCHAR(MAX) est utilisé dans la requête dans le cadre d’une expression DATETIME (fonction DATEADD, par exemple), il est converti en type DATETIME pour effectuer le calcul et il perd sa forme d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

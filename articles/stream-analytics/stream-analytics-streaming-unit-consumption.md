@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704180"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903559"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -27,7 +27,7 @@ La métrique de pourcentage d’utilisation des unités de streaming, comprise e
 
 2. Dans la liste des ressources, recherchez le travail Stream Analytics que vous souhaitez mettre à l’échelle, puis ouvrez-le. 
 
-3. Dans la page du travail, sous le titre **Configurer**, sélectionnez **Mettre à l’échelle**. 
+3. Dans la page du travail, sous le titre **Configurer**, sélectionnez **Mettre à l’échelle**. Le nombre par défaut d’unités SU est 3 lors de la création d’un travail.
 
     ![Configuration d’un travail Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
     
@@ -47,7 +47,7 @@ Le choix du nombre d’unités de streaming requises pour un travail particulier
 
 En règle générale, la meilleure pratique consiste à démarrer avec 6 unités de streaming pour les requêtes qui n’utilisent pas **PARTITION BY**. Déterminez ensuite la configuration idéale en utilisant une méthode d’essai et d’erreur où vous modifiez le nombre d’unités de streaming, une fois que vous avez transmis le volume représentatif de données et examiné la métrique % d’utilisation de SU. Le nombre maximal d’unités de streaming qui peut être utilisé par un travail Stream Analytics varie selon le nombre d’étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape. Pour obtenir plus d’informations sur les limites à respecter, cliquez [ici](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Pour plus d’informations sur le choix du nombre adapté d’unités de streaming, consultez cette page : [Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](stream-analytics-scale-jobs.md)
+Pour plus d’informations sur le choix du nombre adapté d’unités de streaming, consultez cette page : [Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure dispose d’un quota pouvant atteindre 500 unités de streaming pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](https://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
@@ -66,7 +66,7 @@ Lorsque vous comparez l’utilisation sur une période donnée, utilisez les [m�
 L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 
 
 Le concept de fenêtre temporelle apparaît dans plusieurs éléments de requête Stream Analytics :
-1. Agrégats fenêtrés : GROUP BY de fenêtres de Bascule, Récurrente et Glissante
+1. Agrégats fenêtrés : GROUP BY fenêtres de Bascule, Récurrente et Glissante
 
 2. Jointures temporelles : JOIN à la fonction DATEDIFF
 
@@ -111,7 +111,7 @@ Le nombre d’événements sans correspondance de la jointure affecte la consomm
 
 Dans cet exemple, il est possible qu’un grand nombre de publicités s’affichent et que quelques personnes cliquent dessus ; cette configuration est requise pour conserver l’ensemble des événements dans la fenêtre de temps. La consommation de mémoire est proportionnelle à la taille de la fenêtre et au taux d’événements. 
 
-Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (ID dans ce cas) et effectuez un scale-out de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
+Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (ID dans ce cas) et augmentez la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
 
    ```sql
    SELECT clicks.id
@@ -123,14 +123,14 @@ Pour corriger ce problème, envoyez des événements à Event Hub avec un partit
 Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant la taille de l’état dans la fenêtre de jointure. 
 
 ## <a name="temporal-analytic-functions"></a>Fonctions analytiques temporelles
-La mémoire consommée (taille de l’état) d’une fonction analytique temporelle est proportionnelle au taux d’événements multiplié par la durée. La mémoire consommée par les fonctions analytiques n’est pas proportionnelle à la taille de la fenêtre, mais plutôt le nombre de partitions dans chaque fenêtre de temps.
+La mémoire consommée (taille de l’état) d’une fonction analytique temporelle est proportionnelle au taux d’événements multiplié par la durée.La mémoire consommée par les fonctions analytiques n’est pas proportionnelle à la taille de la fenêtre, mais plutôt le nombre de partitions dans chaque fenêtre de temps.
 
-La solution est similaire à celle de la jointure temporelle. Vous pouvez effectuer un scale-out de la requête à l’aide de **PARTITION BY**. 
+La solution est similaire à celle de la jointure temporelle. Vous pouvez augmenter la taille des instances de la requête à l’aide de **PARTITION BY**. 
 
 ## <a name="out-of-order-buffer"></a>Mémoire tampon d’événements en désordre 
 L’utilisateur peut configurer la taille de la mémoire tampon d’événements en désordre dans le volet de configuration Ordre des événements. La mémoire tampon est utilisée pour contenir des entrées pendant la durée d’affichage de la fenêtre et les réorganiser. La taille de la mémoire tampon est proportionnelle à la vitesse d’entrée des événements multipliée par la taille de la fenêtre d’événements en désordre. La taille de fenêtre par défaut est égale à 0. 
 
-Pour corriger le dépassement de capacité de la mémoire tampon, effectuez un scale-out de la requête à l’aide de **PARTITION BY**. Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant le nombre d’événements dans chaque mémoire tampon de réorganisation. 
+Pour corriger le dépassement de capacité de la mémoire tampon, augmenter la taille des instances de la requête à l’aide de **PARTITION BY**. Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant le nombre d’événements dans chaque mémoire tampon de réorganisation. 
 
 ## <a name="input-partition-count"></a>Nombre de partitions d’entrée 
 Chaque partition d’entrée d’une entrée de travail a une mémoire tampon. Plus le nombre de partitions d’entrée est élevé, plus le travail consomme de ressources. Pour chaque unité de streaming, Azure Stream Analytics peut traiter environ 1 Mo/s d’entrée. Par conséquent, vous pouvez optimiser en faisant correspondre le nombre d’unités de streaming Stream Analytics avec le nombre de partitions dans votre Concentrateur d’événements. 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037067"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903185"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Résoudre les problèmes liés aux sorties Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Cet article décrit les problèmes courants liés aux connexions de sortie Azure
 1. Vérifiez la connectivité aux sorties à l’aide du bouton **Tester la connexion** pour chaque sortie.
 1. Consultez les [Métriques de surveillance](stream-analytics-monitoring.md) dans l’onglet **Surveiller**. Comme les valeurs sont agrégées, les métriques sont différées de quelques minutes.
 
-   * Si la valeur **Événements d’entrée** est supérieure à zéro, le travail peut lire les données d’entrée. Si la valeur **Événements d’entrée** n’est pas supérieure à zéro, il y a un problème avec l’entrée du travail. Pour plus d’informations, consultez [Résoudre les problèmes liés aux connexions d’entrée](stream-analytics-troubleshoot-input.md).
+   * Si la valeur **Événements d’entrée** est supérieure à zéro, le travail peut lire les données d’entrée. Si la valeur **Événements d’entrée** n’est pas supérieure à zéro, il y a un problème avec l’entrée du travail. Pour plus d’informations, consultez [Résoudre les problèmes liés aux connexions d’entrée](stream-analytics-troubleshoot-input.md). Si votre travail a une entrée de données de référence, appliquez le fractionnement par nom logique lorsque vous examinez la métrique **Événements d’entrée**. S’il n’existe aucun événement d’entrée provenant de vos données de référence, cela signifie probablement que cette source d’entrée n’a pas été configurée correctement pour extraire le jeu de données de référence approprié.
    * Si la valeur **Erreurs de conversion de données** est supérieure à zéro et est en augmentation, consultez [Erreurs de données Azure Stream Analytics](data-errors.md) pour obtenir des informations détaillées sur les erreurs de conversion de données.
    * Si la valeur **Erreurs d’exécution** est supérieure à zéro, votre travail reçoit des données, mais génère des erreurs pendant le traitement de la requête. Pour trouver les erreurs, accédez aux [journaux d’audit](../azure-resource-manager/management/view-activity-logs.md), puis filtrez sur l’état **Échec**.
    * Si la valeur **Événements d’entrée** est supérieure à zéro et que la valeur **Événements de sortie** est égale à zéro, l’une des instructions suivantes a l’état true :

@@ -1,19 +1,17 @@
 ---
 title: Problèmes de diagnostic de Windows Virtual Desktop – Azure
 description: Comment utiliser la fonctionnalité de diagnostic de Windows Virtual Desktop pour diagnostiquer des problèmes.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1e3d8eb9cb40d46ae0624be9d37fd199accd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288752"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121406"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identifier et diagnostiquer les problèmes liés à Windows Virtual Desktop
 
@@ -62,6 +60,14 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 |8|ConnectionBroken|La connexion entre le client et passerelle ou serveur a été interrompue. Aucune action n’est nécessaire, sauf si cela se produit de manière inattendue.|
 |14|UnexpectedNetworkDisconnect|La connexion au réseau a été perdue. Demandez à l’utilisateur de se reconnecter.|
 |24|ReverseConnectFailed|La machine virtuelle hôte n’a aucune une ligne directe vers la passerelle Bureau à distance. Vérifiez que l’adresse IP de la passerelle peut être résolue.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Erreur : Impossible d’ajouter des affectations d’utilisateurs à un groupe d’applications
+
+Après l’affectation d’un utilisateur à un groupe d’applications, le portail Azure affiche un avertissement indiquant « Fin de session » ou « Problèmes d’authentification - Extension Microsoft_Azure_WVD ». La page d’affectation n’est alors pas chargée, et ensuite, les pages cessent de se charger dans le portail Azure (par exemple, Azure Monitor, Log Analytics, Service Health, etc.).
+
+**Cause :** Il y a un problème avec la stratégie d’accès conditionnel. Le portail Azure tente d’obtenir un jeton pour Microsoft Graph, qui dépend de SharePoint Online. Le client dispose d’une stratégie d’accès conditionnel appelée « Microsoft Office 365 Data Storage Terms of Use », qui oblige les utilisateurs à accepter les conditions d’utilisation pour accéder au stockage des données. Toutefois, les utilisateurs ne se sont pas encore connectés, donc le portail Azure ne peut pas récupérer le jeton.
+
+**Correctif :** Avant de se connecter au portail Azure, l’administrateur doit d’abord se connecter à SharePoint et accepter les conditions d’utilisation. Ensuite, il devrait être en mesure de se connecter au portail Azure normalement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Voir l’état des tâches Azure Import/Export | Microsoft Docs
-description: Découvrez comment voir l’état des tâches d’importation/exportation et des lecteurs utilisés.
+description: Découvrez comment voir l’état des tâches d’importation/exportation Azure et des lecteurs utilisés. Comprendre les facteurs qui affectent le temps nécessaire au traitement d’un travail.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514130"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923609"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 

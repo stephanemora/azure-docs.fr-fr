@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: b2c846298fecdc771dd5d9831a558b99c74b2737
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461066"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135740"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 
@@ -27,6 +27,8 @@ ms.locfileid: "87461066"
 > * [SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [Fournisseur de ressources REST](/rest/api
@@ -47,6 +49,9 @@ ms.locfileid: "87461066"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* Ajout de la compatibilité du magasin de baux avec le [SDK V3](sql-api-sdk-dotnet-standard.md) qui active les chemins de migration à chaud. Une application peut migrer vers le kit SDK V3 et migrer à nouveau vers la bibliothèque du processeur Modifier le flux sans perdre aucun état.
 
 ### <a name="231"></a><a name="2.3.1"/>2.3.1
 * Correction du cas où le motif de clôture `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` était envoyé à `FeedProcessing.IChangeFeedObserver.CloseAsync` si la partition était introuvable ou si le réplica cible n’était pas à jour avec la session de lecture. Désormais, les motifs de clôture `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` et `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` sont utilisées dans ces cas-là.
@@ -191,6 +196,7 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |11 août 2020 |--- |
 | [2.3.1](#2.3.1) |30 juillet 2020 |--- |
 | [2.3.0](#2.3.0) |2 avril 2020 |--- |
 | [2.2.8](#2.2.8) |28 octobre 2019 |--- |

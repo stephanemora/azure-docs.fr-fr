@@ -1,17 +1,17 @@
 ---
 title: Continuité de l’activité - Azure Database pour PostgreSQL - Serveur unique
-description: Cet article décrit la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géo-restauration) quand vous utilisez Azure Database pour PostgreSQL.
+description: Cet article décrit la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géo-restauration, réplicas) quand vous utilisez Azure Database pour PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245302"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031198"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -28,14 +28,16 @@ Le tableau suivant compare l’ERT et le RPO pour les fonctionnalités disponibl
 | Limite de restauration dans le temps à partir de la sauvegarde | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention |
 | Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
-> [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Utilisez le [verrouillage des ressources Azure](../azure-resource-manager/management/lock-resources.md) pour éviter la suppression accidentelle de votre serveur.
+Vous pouvez également envisager d’utiliser des [réplicas en lecture](concepts-read-replicas.md).
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 
 Vous pouvez vous servir des sauvegardes du service pour récupérer un serveur à la suite de plusieurs événements d’interruption. Un utilisateur peut supprimer par inadvertance des données, une table importante, voire une base de données tout entière. Une application peut accidentellement remplacer des données correctes par des données incorrectes en raison d’une défaillance d’application, etc.
 
 Vous pouvez procéder à une **restauration à un point dans le temps** afin de créer une copie de votre serveur à un point dans le temps valide connu. Ce moment donné doit se situer dans la période de rétention de sauvegarde que vous avez configurée pour votre serveur. Une fois les données restaurées sur le nouveau serveur, vous pouvez remplacer le serveur d’origine par le serveur nouvellement restauré ou copier les données nécessaires du serveur restauré sur le serveur d’origine.
+
+> [!IMPORTANT]
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Utilisez le [verrouillage des ressources Azure](../azure-resource-manager/management/lock-resources.md) pour éviter la suppression accidentelle de votre serveur.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Récupérer après une panne du centre de données Azure
 

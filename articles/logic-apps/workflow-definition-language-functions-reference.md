@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: 45ff681bdf0260b6e3c12f7e644d102a49206c9f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/06/2020
+ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288910"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875453"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1276,7 +1276,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1318,8 +1318,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
-| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1361,7 +1361,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -2699,10 +2699,9 @@ Et retournent les résultats suivants :
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Retourne la position de départ ou la valeur d’index de la dernière occurrence d’une sous-chaîne.
-Cette fonction ne respecte pas la casse, et les index commencent par 0.
+Retourne la position de départ ou la valeur d’index de la dernière occurrence d’une sous-chaîne. Cette fonction ne respecte pas la casse, et les index commencent par 0.
 
-```
+```json
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2710,22 +2709,38 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Oui | String | Chaîne comportant la sous-chaîne à rechercher |
 | <*searchText*> | Oui | String | Sous-chaîne à rechercher |
-|||||
+|||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | Retourne la position de départ ou la valeur d’index de la dernière occurrence de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. |
-||||
+| <*ending-index-value*> | Integer | Retourne la position de départ ou la valeur d’index de la dernière occurrence de la sous-chaîne spécifiée. |
+|||
 
-*Exemple*
+Si la valeur de la chaîne ou de la sous-chaîne est vide, le comportement suivant se produit :
 
-Cet exemple recherche la valeur d’index de départ de la dernière occurrence de la sous-chaîne « world » dans la chaîne « hello world » :
+* Si la valeur de la chaîne est vide, `-1` est retourné :
 
+* Si les valeurs de la chaîne et de la sous-chaîne sont vides, `0` est retourné.
+
+* Si seule la valeur de la sous-chaîne est vide, la plus grande des deux valeurs suivantes est retournée :
+
+  * `0`
+
+  * Longueur de la chaîne, moins 1.
+
+*Exemples*
+
+Cet exemple recherche la valeur d’index de départ de la dernière occurrence de la sous-chaîne `world` dans la chaîne `hello world hello world`. Le résultat retourné est `18` :
+
+```json
+lastIndexOf('hello world hello world', 'world')
 ```
-lastIndexOf('hello world', 'world')
-```
 
-Et retourne ce résultat : `6`
+Cet exemple ne contient pas le paramètre de sous-chaîne et retourne une valeur de `22`, car la valeur de la chaîne d’entrée (`23`) moins 1 est supérieure à 0.
+
+```json
+lastIndexOf('hello world hello world', '')
+```
 
 <a name="length"></a>
 

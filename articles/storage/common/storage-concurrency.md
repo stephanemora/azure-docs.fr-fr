@@ -1,7 +1,7 @@
 ---
 title: Gérer l'accès concurrentiel
 titleSuffix: Azure Storage
-description: Découvrez comment gérer l’accès concurrentiel pour les services Blob, File d’attente, Table et Fichier.
+description: Découvrez comment gérer l’accès concurrentiel dans Stockage Azure pour les services Blob, File d’attente, Table et Fichier. Comprendre les trois principales stratégies d’accès concurrentiel aux données utilisées.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504285"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030382"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
@@ -197,9 +197,9 @@ Les opérations de conteneurs suivantes peuvent utiliser des baux dans le cadre 
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-* [Spécification des en-têtes conditionnels pour les opérations du service BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Spécification des en-têtes conditionnels pour les opérations du service blob](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Louer à bail un objet blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Bail Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Gestion de l’accès concurrentiel dans le stockage Table
 
@@ -268,7 +268,7 @@ Le service de File d'attente ne prend pas en charge l'accès concurrentiel optim
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-* [API REST du service de File d’attente](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [API REST du service File d’attente](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-azure-files"></a>Gestion de l’accès concurrentiel dans Azure Files

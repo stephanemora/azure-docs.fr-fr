@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298954"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837038"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
 Ce document décrit la version 3.0 et les versions ultérieures de l’extension de diagnostic Linux.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](../linux/classic/diagnostic-extension-v2.md).
+> Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduction
 
@@ -67,8 +67,8 @@ Distributions et versions prises en charge :
 
 ### <a name="prerequisites"></a>Prérequis
 
-* **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
-* **Azure CLI**. [Configurez l’environnement Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
+* **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](./update-linux-agent.md) pour le mettre à jour.
+* **Azure CLI**. [Configurez l’environnement Azure CLI](/cli/azure/install-azure-cli) sur votre machine.
 * La commande wget, si vous ne l’avez pas encore : Exécutez `sudo apt-get install wget`.
 * Un abonnement Azure et un compte de stockage existants sont utilisés pour stocker les données.
 
@@ -243,7 +243,7 @@ Si vous avez créé une signature SAS valable jusqu’au 1er janvier 2018 à min
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Pour plus d’informations sur la génération et l’extraction d’informations de jetons SAS pour les Event Hubs, consultez [cette page web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Pour plus d’informations sur la génération et l’extraction d’informations de jetons SAS pour les Event Hubs, consultez [cette page web](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>Récepteur JsonBlob
 
@@ -580,7 +580,7 @@ En supposant que vos paramètres protégés sont dans le fichier ProtectedSettin
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-Cette commande suppose que vous utilisez le mode Azure Resource Manager (ARM) d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique (ASM), passez au mode « asm » (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande. Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](https://docs.microsoft.com/azure/xplat-cli-connect).
+La commande suppose que vous utilisez le mode Azure Resource Manager d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique (ASM), passez au mode « asm » (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande. Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Cette capture instantanée d’une session de l’Explorateur de stockage Micros
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
-Consultez la [documentation EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) appropriée pour savoir comment consommer des messages publiés sur un point de terminaison EventHubs.
+Consultez la [documentation EventHubs](../../event-hubs/event-hubs-about.md) appropriée pour savoir comment consommer des messages publiés sur un point de terminaison EventHubs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Créez des alertes de métrique dans [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) pour les métriques que vous collectez.
-* Créez [des graphiques de surveillance](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vos métriques.
+* Créez des alertes de métrique dans [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) pour les métriques que vous collectez.
+* Créez [des graphiques de surveillance](../../azure-monitor/platform/data-platform.md) pour vos métriques.
 * Découvrez comment [créer un groupe de machines virtuelles identiques](../linux/tutorial-create-vmss.md) en utilisant vos métriques pour contrôler la mise à l’échelle automatique.

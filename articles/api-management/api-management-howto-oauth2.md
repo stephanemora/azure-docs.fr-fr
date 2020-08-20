@@ -1,7 +1,7 @@
 ---
 title: Autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API
 titleSuffix: Azure API Management
-description: Apprenez à autoriser les utilisateurs à l'aide d'OAuth 2.0 dans Gestion des API.
+description: Apprenez à autoriser les utilisateurs à l'aide d'OAuth 2.0 dans Gestion des API. OAuth 2.0 sécurise l’API afin que les utilisateurs puissent accéder uniquement aux ressources pour lesquelles ils disposent d’autorisations.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499781"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902256"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 

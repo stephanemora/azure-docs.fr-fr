@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes d’Azure File Sync | Microsoft Docs
-description: Découvrez comment résoudre les problèmes courants avec Azure File Sync.
+description: Résolvez les problèmes courants d’un déploiement sur Azure File Sync, que vous pouvez utiliser pour transformer Windows Server en un cache rapide de votre partage de fichiers Azure.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232376"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056259"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -47,7 +47,7 @@ Après la création d’un point de terminaison de serveur sur Windows Server 2
 lettre_lecteur :\ n’est pas accessible.  
 Le paramètre est incorrect.
 
-Pour résoudre ce problème, installez les dernières mises à jour pour Windows Server 2012 R2, puis redémarrez le serveur.
+Pour résoudre ce problème, installez [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) et redémarrez le serveur. Si cette mise à jour ne s’installe pas car une mise à jour ultérieure est déjà installée, accédez à Windows Update, installez les dernières mises à jour pour Windows Server 2012 R2 et redémarrez le serveur.
 
 <a id="server-registration-missing-subscriptions"></a>**L’inscription du serveur ne répertorie pas tous les abonnements Azure**  
 Lors de l’inscription d’un serveur à l’aide de ServerRegistration.exe, des abonnements sont manquants dans la liste déroulante Abonnement Azure.
@@ -338,7 +338,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Impossible de synchroniser le fichier, car le nombre maximal de fichiers conflictuels a été atteint. Azure File Sync prend en charge 100 fichiers conflictuels par fichier. Pour en savoir plus sur les conflits de fichiers, consultez la [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) d’Azure File Sync. | Pour résoudre ce problème, réduisez le nombre de fichiers conflictuels. Le fichier est synchronisé une fois que le nombre de fichiers conflictuels est inférieur à 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestion des caractères non pris en charge
-Si le script PowerShell **FileSyncErrorsReport.ps1** montre des défaillances dues à des caractères non pris en charge (code d’erreur 0x8007007b ou 0x80c80255), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-cmdlet) peut servir à identifier les caractères qui ne sont pas pris en charge.
+Si le script PowerShell **FileSyncErrorsReport.ps1** montre des erreurs de synchronisation par élément dues à des caractères non pris en charge (code d’erreur 0x8007007b ou 0x80c80255), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-cmdlet) peut servir à identifier les caractères qui ne sont pas pris en charge. Si votre jeu de données contient plusieurs fichiers avec des caractères non valides, utilisez le script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) pour renommer les fichiers qui contiennent des caractères non pris en charge.
 
 Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync ne prend pas en charge.
 

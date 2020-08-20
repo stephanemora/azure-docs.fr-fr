@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530168"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004176"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
 
@@ -50,7 +50,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
 1. Ouvrez l’application en mode page unique que vous avez créée dans le tutoriel [Envoyer des notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs](ios-sdk-get-started.md).
 
    > [!NOTE]
-   > Cette section suppose que vous avez configuré votre projet avec un nom d’organisation vide. Si ce n’est pas le cas, vous devez ajouter le nom de votre organisation à tous les noms de classe.
+   > Cette section suppose que vous avez configuré votre projet avec un nom d’organisation vide. Si ce n’est pas le cas, ajoutez le nom de votre organisation à tous les noms de classe.
 
 2. Dans le fichier `Main.storyboard`, ajoutez les composants indiqués dans la capture d’écran de la bibliothèque d’objets.
 
@@ -66,7 +66,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
 
      Certains composants ont été ajoutés au tutoriel [Envoyer des notifications Push à des applications iOS avec Azure Notification Hubs](ios-sdk-get-started.md).
 
-3. Faites glisser les composants de l’affichage vers `ViewController.h` en maintenant la touche **Ctrl** enfoncée, puis ajoutez ces nouvelles sorties.
+3. Faites glisser les composants de l’affichage vers `ViewController.h` en maintenant la touche **Ctrl** enfoncée, puis ajoutez ces nouvelles sorties :
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. Dans `ViewController.h`, ajoutez le code `#define` suivant après vos instructions d’importation. Remplacez l’espace réservé `<Enter Your Backend Endpoint>` par l’URL de destination que vous avez utilisée pour déployer votre serveur principal d’application dans la section précédente. Par exemple : `http://your_backend.azurewebsites.net`.
+4. Dans `ViewController.h`, ajoutez le code `#define` suivant après vos instructions d’importation. Remplacez l’espace réservé `<Your backend endpoint>` par l’URL de destination que vous avez utilisée pour déployer votre serveur principal d’application dans la section précédente. Par exemple, `http://your_backend.azurewebsites.net`:
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. Dans votre projet, créez une classe Cocoa Touch nommée `RegisterClient` pour communiquer avec le serveur principal ASP.NET que vous avez créé. Créez la classe en héritant de `NSObject`. Ajoutez ensuite le code suivant dans `RegisterClient.h`.
+5. Dans votre projet, créez une classe Cocoa Touch nommée `RegisterClient` pour communiquer avec le serveur principal ASP.NET que vous avez créé. Créez la classe en héritant de `NSObject`. Ajoutez ensuite le code suivant dans `RegisterClient.h` :
 
     ```objc
     @interface RegisterClient : NSObject
@@ -494,7 +494,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au tutoriel suivant : 
+Dans ce tutoriel, vous avez appris à envoyer des notifications Push à des utilisateurs spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications basées sur l’emplacement, passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 >[Notifications Push en fonction de la localisation](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

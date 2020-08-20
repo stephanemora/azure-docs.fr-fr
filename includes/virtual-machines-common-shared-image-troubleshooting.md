@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226416"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010951"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage s’active avec le commutateur `--debug` dans l’interface CLI et le commutateur `-Debug` dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -76,7 +76,7 @@ Causes possibles :
 
 *L’utilisateur qui tente de créer une machine virtuelle ou un groupe de machines virtuelles identiques n’a pas d’accès en lecture à la version d’image.*
 
-Contactez le propriétaire de l’abonnement et demandez-lui d’accorder l’accès en lecture à la version d’image ou aux ressources parentes (comme la galerie d’images partagées ou la définition d’image) à travers le [contrôle d'accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Contactez le propriétaire de l’abonnement et demandez-lui d’accorder l’accès en lecture à la version d’image ou aux ressources parentes (comme la galerie d’images partagées ou la définition d’image) à travers le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *Version d’image introuvable.*
 
@@ -88,7 +88,7 @@ Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 
-Le partage des ressources de galerie d’images partagées, de définition d’image et de version d’image entre abonnements est activé à l’aide du [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Le partage des ressources de galerie d’images partagées, de définition d’image et de version d’image entre abonnements est activé à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## <a name="replication-is-slow"></a>La réplication est lente
 
@@ -97,6 +97,3 @@ Utilisez l’indicateur **--expand ReplicationStatus** pour vérifier si la rép
 ## <a name="azure-limits-and-quotas"></a>Limites et quotas Azure 
 
 [Les limites et quotas Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) s’appliquent à toutes les ressources de galerie d’images partagées, définition d’image et version d’image. Vérifiez que vous êtes dans les limites de vos abonnements. 
-
-
-

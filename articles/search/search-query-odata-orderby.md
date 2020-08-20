@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 333e48ff963ec42dd2ee00956fa046a5a038c099
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903780"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Syntaxe OData $orderby dans Recherche cognitive Azure
 
@@ -50,7 +50,9 @@ Un diagramme de syntaxe interactif est également disponible :
 > [!NOTE]
 > Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
-Chaque clause possède des critères de tri, éventuellement suivis d’un ordre de tri (`asc` pour l’ordre croissant ou `desc` pour l’ordre décroissant). Si vous ne spécifiez pas d’ordre, la valeur par défaut est croissant. Le critère de tri peut être le trajet d’un champ `sortable`, ou un appel à pour les fonctions [`geo.distance`](search-query-odata-geo-spatial-functions.md) ou [`search.score`](search-query-odata-search-score-function.md).
+Chaque clause possède des critères de tri, éventuellement suivis d’un ordre de tri (`asc` pour l’ordre croissant ou `desc` pour l’ordre décroissant). Si vous ne spécifiez pas d’ordre, la valeur par défaut est croissant. Si le champ contient des valeurs Null, celles-ci s’affichent en premier si le tri est `asc` et en dernier si le tri est `desc`.
+
+Le critère de tri peut être le trajet d’un champ `sortable`, ou un appel à pour les fonctions [`geo.distance`](search-query-odata-geo-spatial-functions.md) ou [`search.score`](search-query-odata-search-score-function.md).
 
 Si plusieurs documents ont les mêmes critères de tri et que la fonction `search.score` n’est pas utilisée (par exemple si vous triez sur un champ numérique `Rating` et que trois documents ont une évaluation de 4), les regroupements sont effectués par score des documents en ordre décroissant. Quand les scores des documents sont identiques (par exemple quand aucune requête de recherche en texte intégral n’est spécifiée dans la demande), l’ordre relatif des documents regroupés est indéterminé.
 
@@ -88,7 +90,7 @@ Trier les hôtels par ordre décroissant sur search.score et l’évaluation, pu
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md)
+- [Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure](search-pagination-page-layout.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

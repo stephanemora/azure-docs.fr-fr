@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224704"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921926"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -66,7 +66,7 @@ La consolidation des ressources d’accès et la suppression des points de termi
 ### <a name="providing-security-for-azure-remote-management"></a>Mesures de sécurité pour la gestion à distance Azure
 Azure propose divers mécanismes de sécurité aux administrateurs responsables de services cloud et de machines virtuelles Azure. Ces mécanismes sont les suivants :
 
-* Authentification et [contrôle d’accès en fonction du rôle](../../role-based-access-control/role-assignments-portal.md).
+* Authentification et [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Surveillance, journalisation et audit.
 * Certificats et communications chiffrées.
 * Portail de gestion Web.

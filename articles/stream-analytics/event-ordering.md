@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044564"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901689"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuration de stratégies de classement des événements pour Azure Stream Analytics
 
@@ -75,6 +75,11 @@ Quand plusieurs partitions du même flux d’entrée sont combinées, la toléra
 Ce message vous informe qu’au moins une partition de votre entrée est vide et que votre sortie sera retardée de la durée correspondant au seuil d’arrivée tardive. Pour pallier ce problème, suivez l’une ou l’autre de ces recommandations :  
 1. Vérifiez que toutes les partitions de votre hub d’événements/hub IoT reçoit une entrée. 
 2. Utilisez une clause Partition by PartitionID dans votre requête. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Pourquoi est-ce que je vois un délai de 5 secondes même lorsque ma stratégie d’arrivée tardive est définie sur 0 ?
+Cela se produit lorsqu’il existe une partition d’entrée qui n’a jamais reçu d’entrée. Vous pouvez vérifier les métriques d’entrée par partition pour valider ce comportement. 
+
+Quand une partition n’a pas de données pendant une durée supérieure au seuil d’arrivée tardive configuré, Stream Analytics avance l’horodatage de l’application, comme expliqué dans la section Considérations relatives à l’organisation des événements. Cela nécessite une estimation de l’heure d’arrivée. Si la partition n’a jamais eu de données, Stream Analytics estime l’heure d’arrivée comme suit : *heure locale - 5 secondes*. Par conséquent, ces partitions qui n’ont jamais eu de données peuvent afficher un délai en filigrane de 5 secondes.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Considérations relatives à la gestion du temps](stream-analytics-time-handling.md)

@@ -1,6 +1,6 @@
 ---
 title: Afficher les métriques d’utilisation de l’API Azure Maps | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à afficher les métriques pour vos appels de l’API Microsoft Azure Maps dans le portail Azure.
+description: Découvrez comment afficher les métriques d’utilisation de l’API Azure Maps, comme le nombre total de demandes, le nombre total d’erreurs et la disponibilité. Découvrez comment filtrer les données et fractionner les résultats.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57fb699a7225a53af1f093520855e8e2ef132f42
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130730"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036485"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Afficher les métriques d’utilisation de l’API Azure Maps
 
@@ -42,7 +42,7 @@ Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez �
 
       ![Volet des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Ensuite, vous pouvez sélectionner l’*Intervalle de temps* en cliquant sur **Dernières 24 heures (automatique)** . Par défaut, l’intervalle de temps est défini sur 24 heures. Après avoir cliqué, vous voyez tous les intervalles de temps sélectionnables. Vous pouvez sélectionner la *Granularité temporelle*, ainsi que choisir d’afficher l’heure *locale* ou *GMT* dans la même liste déroulante. Cliquez sur **Appliquer**.
+5. Ensuite, vous pouvez sélectionner l’*Intervalle de temps* en cliquant sur **Dernières 24 heures (automatique)**. Par défaut, l’intervalle de temps est défini sur 24 heures. Après avoir cliqué, vous voyez tous les intervalles de temps sélectionnables. Vous pouvez sélectionner la *Granularité temporelle*, ainsi que choisir d’afficher l’heure *locale* ou *GMT* dans la même liste déroulante. Cliquez sur **Appliquer**.
 
     ![Intervalle de temps des métriques d’Azure Maps](media/how-to-view-api-usage/time-range.png)
 

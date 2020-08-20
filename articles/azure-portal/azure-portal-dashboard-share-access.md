@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131699"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923881"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 
-Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d'autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d'accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure. Attribuez un rôle à un utilisateur ou à un groupe d'utilisateurs. Ce rôle détermine si ces utilisateurs peuvent consulter ou modifier le tableau de bord publié.
+Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d'autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Attribuez un rôle à un utilisateur ou à un groupe d'utilisateurs. Ce rôle détermine si ces utilisateurs peuvent consulter ou modifier le tableau de bord publié.
 
 Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure. Ceux-ci constituent des éléments gérables de votre abonnement et sont contenus dans un groupe de ressources. En termes de contrôle d’accès, les tableaux de bord sont traités de la même manière que les autres ressources, telles qu’une machine virtuelle ou un compte de stockage.
 

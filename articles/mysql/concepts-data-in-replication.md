@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533230"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031215"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -29,6 +29,11 @@ Pour les scénarios de migration, utilisez [Azure Database Migration Service](ht
 
 ### <a name="data-not-replicated"></a>Données non répliquées
 La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) située sur le serveur maître n'est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur maître ne sont pas répliquées. Si vous créez un compte sur le serveur maître et que ce compte a besoin d'accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez le [manuel MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+
+### <a name="filtering"></a>Filtrage
+Pour ignorer la réplication des tables à partir de votre serveur maître (hébergé localement, dans des machines virtuelles ou un service de base de données hébergé par d’autres fournisseurs cloud), le paramètre `replicate_wild_ignore_table` est pris en charge. Si vous le souhaitez, mettez à jour ce paramètre sur le serveur de réplication hébergé dans Azure à l’aide du [portail Azure](howto-server-parameters.md) ou [d’Azure CLI](howto-configure-server-parameters-using-cli.md).
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) pour en savoir plus sur ce paramètre.
 
 ### <a name="requirements"></a>Spécifications
 - La version du serveur maître doit être au moins MySQL version 5.6. 

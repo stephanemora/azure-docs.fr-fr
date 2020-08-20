@@ -1,6 +1,6 @@
 ---
 title: Gérer les événements cartographiques | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à créer une carte SDK web interactive avec des événements cartographiques à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
+description: Découvrez les événements qui sont déclenchés lorsque les utilisateurs interagissent avec des cartes. Affichez une liste de tous les événements cartographiques pris en charge. Découvrez comment utiliser le kit SDK web Azure Maps pour gérer les événements.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 667ab684ef4a453d210af36c0221d350b25c9829
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282889"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036440"
 ---
 # <a name="interact-with-the-map"></a>Interagir avec la carte
 

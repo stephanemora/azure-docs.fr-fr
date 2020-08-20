@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Préparation et sécurité de l’entreprise
       items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
         - name: Sécurité et gouvernance en entreprise
           items:
             - name: Vue d’ensemble de la sécurité en entreprise

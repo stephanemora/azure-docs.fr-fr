@@ -1,18 +1,18 @@
 ---
 title: 'Créez une passerelle VPN Azure basée sur des routes : Interface de ligne de commande'
-description: Apprenez rapidement à créer une passerelle VPN à l’aide de l’interface de ligne de commande (CLI).
+description: Créez rapidement une passerelle VPN Azure basée sur des itinéraires à l’aide d’Azure CLI, pour une connexion VPN à un réseau local ou pour connecter des réseaux virtuels.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f451ace7ec3f032dc7752829d12a0a3598811b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987701"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036111"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 

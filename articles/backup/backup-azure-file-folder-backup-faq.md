@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) – FAQ
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514065"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874620"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Foire aux questions : agent Microsoft Azure Recovery Services (MARS)
 
@@ -20,9 +20,19 @@ Cet article répond aux questions courantes sur la sauvegarde de données à l�
 
 Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière version de l’agent MARS utilisé lors de la sauvegarde de machines Windows Server et System Center DPM, et du serveur de Sauvegarde Microsoft Azure.
 
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Où puis-je télécharger le fichier des informations d’identification du coffre ?
+
+Dans le portail Azure, accédez à **Propriétés** pour votre coffre. Sous **Informations d’identification de la sauvegarde**, cochez la case **La dernière version de l’agent Recovery Services est déjà utilisée**. Sélectionnez **Télécharger**.
+
+![Télécharger les informations d’identification](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+
 ### <a name="how-long-are-vault-credentials-valid"></a>Combien de temps les informations d’identification restent-elles valides ?
 
 Les informations d’identification du coffre expirent au bout de 10 jours. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>Quels sont les caractères autorisés pour la phrase secrète ?
+
+La phrase secrète doit utiliser des caractères du jeu de caractères ASCII, avec des [valeurs ASCII inférieures ou égales à 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?
 

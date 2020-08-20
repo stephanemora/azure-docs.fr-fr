@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655749"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136029"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
@@ -155,7 +155,7 @@ La réponse contient la clé d’authentification de ce runtime d’intégration
 #### <a name="create-another-data-factory"></a>Créer une autre fabrique de données
 
 > [!NOTE]  
-> Cette étape est facultative. Si vous disposez déjà de la fabrique de données avec laquelle vous souhaitez procéder au partage, ignorez cette étape.
+> Cette étape est facultative. Si vous disposez déjà de la fabrique de données avec laquelle vous souhaitez procéder au partage, ignorez cette étape. Mais pour ajouter ou supprimer des attributions de rôles à d’autres fabriques de données, vous devez disposer des autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, comme [Administrateur de l’accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

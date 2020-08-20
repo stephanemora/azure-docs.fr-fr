@@ -1,6 +1,6 @@
 ---
 title: Utilisation de l'interface CLI HDFS avec Azure Data Lake Storage Gen2
-description: Présentation de l'interface CLI HDFS pour Data Lake Storage Gen2
+description: Utilisez l’interface CLI du système de fichiers distribué Hadoop (HDFS) pour Azure Data Lake Storage Gen2. Créez un conteneur, obtenez une liste de fichiers ou de répertoires, et bien plus encore.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109448"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836307"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 

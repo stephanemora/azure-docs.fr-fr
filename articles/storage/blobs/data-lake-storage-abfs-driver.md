@@ -1,6 +1,6 @@
 ---
 title: Pilote Azure Blob File System pour Azure Data Lake Storage Gen2
-description: Pilote ABFS pour Hadoop FileSystem
+description: 'En savoir plus sur le pilote ABFS (Azure Blob File System) : un pilote de stockage Azure dédié pour Hadoop. Accédez aux données dans Azure Data Lake Storage Gen2 à l’aide de ce pilote.'
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75970273"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836358"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote ABFS (Azure Blob File System) : pilote de stockage Azure dédié pour Hadoop
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 En interne, le pilote ABFS traduit la ou les ressources spécifiées dans l’URI en fichiers et répertoires, puis effectue des appels à l’API REST Azure Data Lake Storage avec ces références.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Le pilote ABFS prend en charge deux types d’authentification. L’application Hadoop peut donc accéder de manière sécurisée aux ressources contenues dans un compte compatible avec Azure Data Lake Storage Gen2. Vous trouverez des informations complètes sur les schémas d’authentification disponibles dans le [guide de sécurité de Stockage Azure](security-recommendations.md). Il s'agit de :
 

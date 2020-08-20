@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445286"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076895"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -29,22 +29,37 @@ Les tableaux suivants permettent de comparer rapidement les agents Azure Monitor
 
 ### <a name="windows-agents"></a>Agents Windows
 
-| | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dépendance<br>agent |
-|:---|:---|:---|:---|
-| **Environnements pris en charge** | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | 
-| **Exigences liées à l’agent**  | None | None | Requiert l’agent Log Analytics |
-| **Données collectées** | Journaux des événements<br>Événements ETW<br>Performances<br>Journaux basés sur des fichiers<br>Journaux d’activité IIS<br>Journaux d’application .NET<br>Vidages sur incident<br>Journaux de diagnostics de l’agent | Journaux des événements<br>Performances<IIS logs><br>Journaux basés sur des fichiers<br>Insights et solutions<br>Autres services | Détails et dépendances du processus<br>Métriques de connexion réseau |
-| **Données envoyées à** | Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Journaux Azure Monitor | Journaux Azure Monitor |
+| | Agent Azure Monitor (préversion) | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dépendance<br>agent |
+|:---|:---|:---|:---|:---|
+| **Environnements pris en charge** | Azure<br>Autre cloud<br>Local | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | 
+| **Exigences liées à l’agent**  | None | None | None | Requiert l’agent Log Analytics |
+| **Données collectées** | Journaux des événements<br>Performances | Journaux des événements<br>Événements ETW<br>Performances<br>Journaux basés sur des fichiers<br>Journaux d’activité IIS<br>Journaux d’application .NET<br>Vidages sur incident<br>Journaux de diagnostics de l’agent | Journaux des événements<br>Performances<IIS logs><br>Journaux basés sur des fichiers<br>Insights et solutions<br>Autres services | Détails et dépendances du processus<br>Métriques de connexion réseau |
+| **Données envoyées à** | Journaux Azure Monitor<br>Métriques Azure Monitor<br>Stockage Azure<br>Event Hub | Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Journaux Azure Monitor | Journaux Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agents Linux
 
-| | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dépendance<br>agent |
-|:---|:---|:---|:---|:---|
-| **Environnements pris en charge** | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local |
-| **Exigences liées à l’agent**  | None | None | None | Requiert l’agent Log Analytics |
-| **Données collectées** | syslog<br>Performances | Performances | syslog<br>Performances| Détails et dépendances du processus<br>Métriques de connexion réseau |
-| **Données envoyées à** | Stockage Azure<br>Event Hub | Métriques Azure Monitor | Journaux Azure Monitor | Journaux Azure Monitor |
+| | Agent Azure Monitor (préversion) | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dépendance<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| **Environnements pris en charge** | Azure | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local |
+| **Exigences liées à l’agent**  | None | None | None | None | Requiert l’agent Log Analytics |
+| **Données collectées** | syslog<br>Performances | syslog<br>Performances | Performances | syslog<br>Performances| Détails et dépendances du processus<br>Métriques de connexion réseau |
+| **Données envoyées à** | Journaux Azure Monitor<br>Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Stockage Azure<br>Event Hub | Métriques Azure Monitor | Journaux Azure Monitor | Journaux Azure Monitor |
+
+## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (préversion)
+[L’agent Azure Monitor](azure-monitor-agent-overview.md) est actuellement en préversion et remplacera l’agent Log Analytics, extension Diagnostics, et l’agent Telegraf pour les machines virtuelles Windows et Linux. Il peut envoyer des données aux Journaux Azure Monitor et aux Métriques Azure Monitor, et utilise des [règles de collecte de données (DCR)](data-collection-rule-overview.md) qui offrent une méthode plus scalable pour la configuration de la collecte de données et des destinations pour chaque agent.
+
+Utilisez l’agent Azure Monitor si vous avez besoin de faire ce qui suit :
+
+- Collecter les journaux et les métriques d’invité à partir de n’importe quelle machine virtuelle dans Azure, dans d’autres clouds ou en local. (Azure uniquement en préversion.)
+- Envoyer des données aux Journaux Azure Monitor et aux Métriques Azure Monitor à des fins d’analyse avec Azure Monitor. 
+- Envoyer des données à Stockage Azure à des fins d’archivage.
+- Envoyer les données à des outils tiers à l’aide d’[Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-intro.md) ou d’[Azure Sentinel](../../sentinel/overview.md). (Non disponible en préversion.)
+
+Les limites de l’agent Azure Monitor sont les suivantes :
+
+- Actuellement disponible en préversion publique. Consultez [Limites actuelles](azure-monitor-agent-overview.md#current-limitations) pour obtenir la liste des limites de la préversion publique.
 
 ## <a name="log-analytics-agent"></a>Agent Log Analytics
 

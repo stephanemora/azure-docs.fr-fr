@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367399"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835899"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -195,7 +195,7 @@ Les organisations qui n’ajoutent pas de couche supplémentaire de protection d
 
 ## <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle
 
-Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le [contrôle d’accès basé sur un rôle (RBAC)](/azure/role-based-access-control/overview) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
+Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](/azure/role-based-access-control/overview) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
 Désigner des groupes ou des rôles individuels avec des fonctions spécifiques dans Azure aide à éviter une confusion pouvant entraîner des erreurs humaines et d’automatisation qui sont à l’origine de risques de sécurité. Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données.
 

@@ -1,6 +1,6 @@
 ---
 title: Couverture du rendu | Microsoft Azure Maps
-description: Dans cet article, découvrez les régions avec une couverture de rendu Microsoft Azure Maps, ainsi que leur niveau de détails de rendu.
+description: Découvrez si Azure Maps effectue le rendu de différentes régions avec des données détaillées ou simplifiées. Découvrez le niveau utilisé pour les cartes vignette-raster et vignette-vecteur dans ces régions.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127908"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030926"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 
@@ -278,7 +278,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |
 | Monténégro                | ✓ | ✓ |
-| Pays-bas               | ✓ | ✓ |
+| Pays-Bas               | ✓ | ✓ |
 | Norvège                    | ✓ | ✓ |
 | Pologne                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
@@ -295,7 +295,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Suisse               | ✓ | ✓ |
 | Turquie                    | ✓ | ✓ |
 | Ukraine                   | ✓ | ✓ |
-| United Kingdom            | ✓ | ✓ |
+| Royaume-Uni            | ✓ | ✓ |
 | État de la Cité du Vatican              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes

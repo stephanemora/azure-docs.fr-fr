@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361487"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926176"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 
@@ -68,7 +68,7 @@ Les utilisateurs Excel peuvent se connecter à un serveur en utilisant un compte
 
 ![Contrôle des accès dans le portail Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md). 
+Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Rôles de bases de données
 
@@ -81,4 +81,4 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Gérer les administrateurs de serveur](analysis-services-server-admins.md)  
-[Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)  
+[Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)  

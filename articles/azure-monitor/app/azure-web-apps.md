@@ -2,14 +2,14 @@
 title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373162"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079686"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -396,6 +396,12 @@ Si vous utilisez APPINSIGHTS_JAVASCRIPT_ENABLED = true là où du contenu est en
 Cela est dû au fait que le paramètre d’application APPINSIGHTS_JAVASCRIPT_ENABLED est défini sur true alors qu’il y a du contenu encodé en même temps. Ce scénario n’est pas pris en charge actuellement. La solution de contournement consiste à supprimer APPINSIGHTS_JAVASCRIPT_ENABLED de vos paramètres d’application. Malheureusement, cela signifie que si l’instrumentation JavaScript côté client/navigateur est toujours requise, des références manuelles au SDK sont nécessaires pour vos pages web. Suivez les [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) pour activer l’instrumentation manuelle avec le SDK JavaScript.
 
 Pour avoir les toutes dernières informations sur l’extension/agent Application Insights, consultez les [notes de publication](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Le site web par défaut déployé avec Web Apps ne prend pas en charge le monitoring automatique côté client
+
+Quand vous créez une application web avec le runtime `ASP.NET` ou `.NET Core` dans Azure App Services, elle déploie une seule page HTML statique en tant que site web de démarrage. La page web statique charge également un composant web managé .NET dans IIS. Cela permet de tester le monitoring côté serveur sans code, mais ne prend pas en charge le monitoring automatique côté client.
+
+Si vous souhaitez tester le monitoring côté client et côté serveur sans code pour ASP.NET ou ASP.NET Core dans une application web Azure App Services, nous vous recommandons de suivre les guides officiels pour [la création d’une application web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) et [la création d’une application web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md), puis d’utiliser les instructions de l’article en cours pour activer le monitoring.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
 

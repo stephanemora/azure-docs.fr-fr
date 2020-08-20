@@ -4,18 +4,18 @@ description: Découvrez comment configurer et modifier la stratégie d’indexat
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/11/2020
 ms.author: tisande
-ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760819"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077592"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
-Dans Azure Cosmos DB, chaque conteneur est doté d’une stratégie d’indexation qui détermine la façon dont les éléments du conteneur doivent être indexés. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés indexe toutes les propriétés de chaque élément, mettant en œuvre des index de plage pour les chaînes ou les nombres et des index spatiaux pour les objets GeoJSON de type Point. Ceci vous permet d’obtenir des performances de requête élevées sans avoir à réfléchir à l’indexation et à la gestion des index dès le départ.
+Dans Azure Cosmos DB, chaque conteneur est doté d’une stratégie d’indexation qui détermine la façon dont les éléments du conteneur doivent être indexés. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés indexe chaque propriété de chaque élément et applique des index de plage pour les chaînes ou les nombres. Ceci vous permet d’obtenir des performances de requête élevées sans avoir à réfléchir à l’indexation et à la gestion des index dès le départ.
 
 Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété*.
 

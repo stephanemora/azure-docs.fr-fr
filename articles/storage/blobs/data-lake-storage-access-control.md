@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du contrôle d’accès dans Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Comprendre le fonctionnement du contrôle d’accès dans Azure Data Lake Storage Gen2
+description: Comprendre le fonctionnement du contrôle d’accès dans Azure Data Lake Storage Gen2. Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les listes ACL de type POSIX sont pris en charge.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543297"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030484"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 

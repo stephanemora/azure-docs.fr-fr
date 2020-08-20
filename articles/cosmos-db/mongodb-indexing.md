@@ -1,20 +1,20 @@
 ---
 title: Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
-description: Cet article présente une vue d’ensemble des fonctionnalités d’indexation d’Azure Cosmos DB à l’aide de l’API MongoDB.
+description: Cet article présente une vue d’ensemble des fonctionnalités d’indexation d’Azure Cosmos DB à l’aide de l’API Azure Cosmos DB pour MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761159"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030501"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez c
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Index composés (serveur MongoDB version 3.6)
 
-L’API d’Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole Wire filaire 3.6. Vous pouvez ajouter jusqu’à huit champs dans un index composé. Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois. Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé.
+L’API d’Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole Wire filaire 3.6. Vous pouvez ajouter jusqu’à huit champs dans un index composé. **Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois.** Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé.
 
 La commande suivante crée un index composé sur les champs `name` et `age` :
 
@@ -57,6 +57,9 @@ L’index composé précédent peut également être utilisé pour un tri effica
 Toutefois, la séquence des chemins dans l’index composé doit correspondre exactement à la requête. Voici un exemple de requête nécessitant un index composé supplémentaire :
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> Vous ne pouvez pas créer d’index composés sur des tableaux ou des propriétés imbriqués.
 
 ### <a name="multikey-indexes"></a>Index multiclés
 
@@ -315,7 +318,7 @@ Les détails de la progression de l’index affichent le pourcentage de progress
    }
    ```
 
-### <a name="background-index-updates"></a>Mises à jour d’index en arrière-plan
+## <a name="background-index-updates"></a>Mises à jour d’index en arrière-plan
 
 Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan**, les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
 

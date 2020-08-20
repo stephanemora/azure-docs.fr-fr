@@ -3,12 +3,12 @@ title: Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 description: Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdbe874baf45d9858acbf891af3c0aae4bd0c2d2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032593"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036723"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 
@@ -23,6 +23,9 @@ Utilisez la matrice suivante pour MABS v3 UR1 :
 * Installation de MABS : ordinateur/emplacement où vous souhaitez installer MABS.
 
 * Protection et récupération : listez les informations détaillées sur les charges de travail, telles que le conteneur de stockage pris en charge ou le déploiement pris en charge.
+
+>[!NOTE]
+>La prise en charge de l’agent de protection 32 bits est déconseillée avec MABS v3 UR1. Consultez [Dépréciation de l’agent de protection 32 bits](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
 
 ## <a name="protection-support-matrix"></a>Matrice de prise en charge de la protection
 

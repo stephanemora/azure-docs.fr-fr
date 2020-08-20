@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292836"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924578"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
 
@@ -98,7 +98,7 @@ Il existe trois modèles multilocataires principaux :
 En configurant les abonnements du client comme décrit dans cet article, vous pouvez démarrer rapidement l’activation des clients dans un des modèles d’architecture mutualisée pertinents. Plus d’informations sur les différents modèles d’architecture mutualisée et l’activation locale des contrôles d’accès, consultez [cette page](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Découvrez plus en détail](site-recovery-role-based-linked-access-control.md) le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery.
+- En savoir plus sur le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](site-recovery-role-based-linked-access-control.md) pour gérer les déploiements Azure Site Recovery.
 - Découvrez plus en détail [l’architecture](vmware-azure-architecture.md) de la réplication VMware sur Azure.
 - [Passez en revue le tutoriel](vmware-azure-tutorial.md) pour répliquer des machines virtuelles VMware sur Azure.
 Apprenez-en davantage sur les [environnements mutualisés](vmware-azure-multi-tenant-overview.md) pour répliquer des machines virtuelles VMware sur Azure.

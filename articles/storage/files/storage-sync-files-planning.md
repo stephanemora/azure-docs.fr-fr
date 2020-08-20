@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030661"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553105"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -376,7 +377,7 @@ Si vous préférez utiliser une solution de sauvegarde locale, les sauvegardes d
 > La restauration complète peut engendrer des résultats inattendus et n’est pas prise en charge actuellement.
 
 > [!Note]  
-> Grâce à la version 9 de l’agent Azure File Sync, les captures instantanées VSS (notamment l’onglet Versions précédentes) sont à présent prises en charge sur les volumes avec hiérarchisation cloud activée. Toutefois, vous devez activer la compatibilité des versions précédentes via PowerShell. [Découvrez comment](storage-files-deployment-guide.md).
+> Grâce à la version 9 de l’agent Azure File Sync, les captures instantanées VSS (notamment l’onglet Versions précédentes) sont à présent prises en charge sur les volumes avec hiérarchisation cloud activée. Toutefois, vous devez activer la compatibilité des versions précédentes via PowerShell. [Découvrez comment](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

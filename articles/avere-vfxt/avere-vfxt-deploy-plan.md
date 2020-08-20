@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754395"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922674"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
@@ -166,7 +166,7 @@ Quand vous créez le cluster, vous pouvez choisir s’il faut créer une adresse
 
 ## <a name="vm-access-roles"></a>Rôles d’accès de machine virtuelle
 
-Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) pour autoriser les machines virtuelles de cluster à effectuer certaines tâches. Par exemple, le contrôleur de cluster doit être autorisé à créer et configurer les machines virtuelles de nœud de cluster. Les nœuds de cluster doivent pouvoir affecter ou réaffecter des adresses IP à d’autres nœuds de cluster.
+Azure utilise le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/index.yml) pour autoriser les machines virtuelles de cluster à effectuer certaines tâches. Par exemple, le contrôleur de cluster doit être autorisé à créer et configurer les machines virtuelles de nœud de cluster. Les nœuds de cluster doivent pouvoir affecter ou réaffecter des adresses IP à d’autres nœuds de cluster.
 
 Deux rôles Azure intégrés sont utilisés pour les machines virtuelles Avere vFXT :
 

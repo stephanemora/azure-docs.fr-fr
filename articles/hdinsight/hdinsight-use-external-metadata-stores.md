@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085903"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873090"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -38,10 +38,10 @@ Par défaut, HDInsight crée un metastore avec chaque type de cluster. Vous pouv
 
 * Vous ne pouvez pas partager le metastore par défaut avec d’autres clusters.
 
-* Le metastore par défaut utilise la base de données Azure SQL Database de base, qui présente une limite de cinq DTU (unités de transaction de base de données).
-Ce metastore par défaut est généralement utilisé pour les charges de travail relativement simples. Ces charges de travail n’ont pas besoin de plusieurs clusters et ne nécessitent pas la conservation des métadonnées au-delà du cycle de vie du cluster.
+* Le metastore par défaut est recommandé uniquement pour les charges de travail simples. Ces charges de travail n’ont pas besoin de plusieurs clusters et ne nécessitent pas la conservation des métadonnées au-delà du cycle de vie du cluster.
 
-* Pour les charges de travail de production, nous vous recommandons de migrer vers un metastore externe. Pour plus d’informations, consultez la section ci-dessous.
+> [!IMPORTANT]
+> Le metastore par défaut fournit une Azure SQL Database avec une **limite de 5 DTU de niveau De base (sans mise à niveau possible)**  ! Adapté aux tests de base. Pour les charges de travail de production ou volumineuses, nous vous recommandons de migrer vers un metastore externe.
 
 ## <a name="custom-metastore"></a>Metastore personnalisé
 
@@ -81,9 +81,8 @@ Vous pouvez pointer votre cluster vers une instance Azure SQL Database précéde
 
 ## <a name="hive-metastore-guidelines"></a>Instructions pour le metastore Hive
 
-* Utilisez un metastore personnalisé aussi souvent que possible, afin de mieux séparer les ressources de calcul (votre cluster en cours d’exécution) et les métadonnées (stockées dans le metastore).
-
-* Commencez avec un niveau S2, qui fournit 50 DTU et 250 Go de stockage. Si vous voyez un goulot d’étranglement, vous pouvez mettre à l’échelle la base de données.
+> [!NOTE]
+> Utilisez un metastore personnalisé aussi souvent que possible, afin de mieux séparer les ressources de calcul (votre cluster en cours d’exécution) et les métadonnées (stockées dans le metastore). Commencez avec le niveau S2, qui fournit 50 DTU et 250 Go de stockage. Si vous voyez un goulot d’étranglement, vous pouvez mettre à l’échelle la base de données.
 
 * Si vous prévoyez d’utiliser plusieurs clusters HDInsight pour accéder aux données distinctes, utilisez une base de données distincte pour le metastore sur chaque cluster. Si vous partagez un metastore sur plusieurs clusters HDInsight, cela signifie que les clusters utilisent les mêmes métadonnées et fichiers de données utilisateur sous-jacentes.
 

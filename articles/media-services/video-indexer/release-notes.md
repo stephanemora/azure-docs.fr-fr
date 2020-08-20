@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325063"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837307"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -29,6 +29,40 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="july-2020"></a>Juillet 2020
+
+### <a name="ga-for-multi-language-identification"></a>Disponibilité générale pour l’identification multilingue
+
+L’identification multilingue passe du mode Préversion au mode Disponibilité générale et est prête pour une utilisation en production.
+
+Ce passage du mode Préversion au mode Disponibilité générale n'a aucun impact sur les prix.
+
+### <a name="video-indexer-website-improvements"></a>Améliorations du site web Video Indexer
+
+#### <a name="adjustments-in-the-video-gallery"></a>Réglages dans la galerie de vidéos
+
+Une nouvelle barre de recherche pour la recherche d’insights avec des fonctionnalités de filtrage supplémentaires a été ajoutée. Les résultats de la recherche ont également été améliorés.
+
+Nouvelle vue liste avec possibilité de trier et de gérer des archives vidéo avec plusieurs fichiers.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Nouveau panneau pour faciliter la sélection et la configuration
+
+Un panneau latéral pour faciliter la sélection et la configuration utilisateur a été ajouté, ce qui permet de créer et de partager un compte, et de définir la configuration, simplement et rapidement.
+
+Le panneau latéral est également utilisé pour les préférences utilisateur et l’aide.
+
+## <a name="june-2020"></a>Juin 2020
+
+### <a name="search-by-topics"></a>Rechercher par sujets
+
+Vous pouvez maintenant utiliser l'API de recherche pour rechercher des vidéos traitant de sujets spécifiques (API uniquement).
+
+Les sujets sont ajoutés dans le cadre du `textScope` (paramètre facultatif). Pour plus d'informations, consultez [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos).  
+
+### <a name="labels-enhancement"></a>Amélioration des étiquettes
+
+Le créateur d'étiquettes a été mis à niveau et comporte désormais davantage d'étiquettes visuelles identifiables.
 
 ## <a name="may-2020"></a>Mai 2020
 

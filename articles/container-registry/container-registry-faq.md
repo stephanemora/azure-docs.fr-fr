@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247028"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836392"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -254,7 +254,9 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Comment activer l’accès par tirage (pull) anonyme ?
 
-La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Si vous avez [des ressources de jeton ou de mappage d’étendue (utilisateur)](https://aka.ms/acr/repo-permissions) dans votre registre, supprimez-les avant de déclencher un ticket de support (les mappages d’étendue système peuvent être ignorés). Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostics et contrôles d’intégrité

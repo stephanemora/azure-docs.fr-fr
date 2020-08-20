@@ -8,24 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371122"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121848"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
 
-## <a name="july-2020"></a>Juillet 2020
+## <a name="august-2020"></a>Août 2020
+
+### <a name="general-api-updates"></a>Mises à jour générales de l’API
+
+* Version de modèle `2020-07-01` pour les points de terminaison v3 `/keyphrases`, `/pii` et `/languages`, qui ajoute ce qui suit :
+    * Des [catégories d’entités](named-entity-types.md?tabs=personal) supplémentaires spécifiques à un gouvernement ou un pays pour la Reconnaissance d’entité nommée.
+* Une erreur HTTP 400 est désormais retournée pour les demandes d’API v3 qui dépassent les [limites de données](concepts/data-limits.md) publiées. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Analyse de texte pour le conteneur d’intégrité - Mises à jour du mois d’août
+
+Les mises à jour suivantes sont spécifiques à la version du mois d’août de l’Analyse de texte pour le conteneur d’intégrité uniquement.
+
+* Nouvelle version de modèle pour l’Analyse de texte pour l’intégrité : `2020-07-24`
+* Nouvelle URL pour l’envoi de demandes Analyse de texte pour l’intégrité : `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+Les propriétés suivantes de la réponse JSON ont changé :
+
+* `type` a été renommé en `category` 
+* `score` a été renommé en `confidenceScore`
+* Les entités dans le champ `category` de la sortie JSON sont maintenant en casse Pascal. Les entités suivantes ont été renommées :
+    * `EXAMINATION_RELATION` a été renommé en `RelationalOperator`.
+    * `EXAMINATION_UNIT` a été renommé en `MeasurementUnit`.
+    * `EXAMINATION_VALUE` a été renommé en `MeasurementValue`.
+    * `ROUTE_OR_MODE` a été renommé en `MedicationRoute`.
+    * L’entité relationnelle `ROUTE_OR_MODE_OF_MEDICATION` a été renommée en `RouteOfMedication`.
+
+Les entités suivantes ont été ajoutées :
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Extraction de relations
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’Analyse de texte pour le conteneur d’intégrité](how-tos/text-analytics-for-health.md)
+
+## <a name="july-2020"></a>Juillet 2020 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Analyse de texte pour le conteneur d’intégrité – Préversion publique contrôlée
 
-L’Analyse de texte pour le conteneur d’intégrité est désormais en préversion publique contrôlée, ce qui vous permet d’extraire des informations à partir de texte en anglais non structuré dans des documents cliniques tels que les formulaires d’admission des patients, les notes du médecin, les documents de recherche et les bilans de sortie d’hospitalisation. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour le conteneur d’intégrité. 
+L’Analyse de texte pour le conteneur d’intégrité est désormais en préversion publique contrôlée, ce qui vous permet d’extraire des informations à partir de texte en anglais non structuré dans des documents cliniques tels que les formulaires d’admission des patients, les notes du médecin, les documents de recherche et les bilans de sortie d’hospitalisation. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour le conteneur d’intégrité.
 
 Le conteneur offre les fonctionnalités suivantes :
 
@@ -33,10 +75,6 @@ Le conteneur offre les fonctionnalités suivantes :
 * Extraction des relations
 * Liaison d’entités
 * Négation
-
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur l’Analyse de texte pour le conteneur d’intégrité](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Mai 2020
 

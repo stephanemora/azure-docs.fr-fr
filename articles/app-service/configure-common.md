@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389771"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077371"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -33,13 +33,13 @@ Les développeurs ASP.NET et ASP.NET Core définissent les paramètres de l'appl
 
 De la même façon, d'autres piles de langage récupèrent les paramètres de l'application en tant que variables d'environnement lors de l'exécution. Pour les étapes spécifiques à la pile de langage, voir :
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Conteneurs personnalisés](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.JS](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Conteneurs personnalisés](configure-custom-container.md#configure-environment-variables)
 
 Une fois stockés, les paramètres d’application sont toujours chiffrés (chiffrement au repos).
 
@@ -104,13 +104,13 @@ Lors de l'exécution, les chaînes de connexion sont disponibles en tant que var
 
 Par exemple, une chaîne de connexion MySql nommée *connectionstring1* est accessible comme variable d’environnement `MYSQLCONNSTR_connectionString1`. Pour les étapes spécifiques à la pile de langage, voir :
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Conteneurs personnalisés](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.JS](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Conteneurs personnalisés](configure-custom-container.md#configure-environment-variables)
 
 Une fois stockées, les chaînes de connexion sont toujours chiffrées (chiffrement au repos).
 
@@ -176,7 +176,7 @@ Ici, vous pouvez configurer quelques paramètres communs pour l'application. Cer
     > [!NOTE]
     > Les navigateurs les plus récents prennent en charge le protocole HTTP/2 sur TLS uniquement, alors que le trafic non chiffré continue d’utiliser HTTP/1.1. Pour vous assurer que les navigateurs clients se connectent à votre application avec le protocole HTTP/2, sécurisez votre nom DNS personnalisé. Pour plus d’informations, consultez [Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service](configure-ssl-bindings.md).
     - **Affinité ARR** : Dans un déploiement multi-instance, assurez-vous que le client est routé vers la même instance pendant toute la session. Vous pouvez définir cette option sur **Off** (Désactivée) pour les applications sans état.
-- **Débogage** : Activez le débogage à distance pour les applications [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) ou [Node.js](containers/configure-language-nodejs.md#debug-remotely). Cette option se désactive automatiquement au bout de 48 heures.
+- **Débogage** : Activez le débogage à distance pour les applications [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) ou [Node.js](configure-language-nodejs.md#debug-remotely). Cette option se désactive automatiquement au bout de 48 heures.
 - **Certificats clients entrants** : demander des certificats clients dans une [authentification mutuelle](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Configurer les documents par défaut
@@ -215,7 +215,7 @@ Pour configurer des applications et des répertoires virtuels, spécifiez chaque
 
 ### <a name="containerized-apps"></a>Applications conteneurisées
 
-Vous pouvez [ajouter du stockage personnalisé pour votre application conteneurisée](containers/how-to-serve-content-from-azure-storage.md). Les applications conteneurisées comprennent toutes les applications Linux ainsi que les conteneurs personnalisés Windows et Linux fonctionnant sur App Service. Cliquez sur **Nouveau montage de stockage Azure** et configurez votre stockage personnalisé comme suit :
+Vous pouvez [ajouter du stockage personnalisé pour votre application conteneurisée](configure-connect-to-azure-storage.md). Les applications conteneurisées comprennent toutes les applications Linux ainsi que les conteneurs personnalisés Windows et Linux fonctionnant sur App Service. Cliquez sur **Nouveau montage de stockage Azure** et configurez votre stockage personnalisé comme suit :
 
 - **Name** : Le nom d’affichage.
 - **Options de configuration** : **De base** ou **Avancé**.
@@ -228,22 +228,22 @@ Vous pouvez [ajouter du stockage personnalisé pour votre application conteneuri
 - **Clé d’accès** : Pour une configuration avancée, la clé d'accès.
 - **Chemin de montage**  : Le chemin absolu dans votre conteneur pour monter le stockage personnalisé.
 
-Pour plus d’informations, voir [Distribuer du contenu issu du Stockage Azure dans App Service sur Linux](containers/how-to-serve-content-from-azure-storage.md).
+Pour plus d’informations, consultez [Accéder à Stockage Azure en tant que partage réseau à partir d’un conteneur dans App Service](configure-connect-to-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Configurer les paramètres de la pile de langage
 
 Pour les applications Linux, voir :
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.JS](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.JS](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>Configurer des conteneurs personnalisés
 
-Voir [Exécuter un conteneur Linux personnalisé dans Azure App Service](containers/configure-custom-container.md)
+Voir [Exécuter un conteneur Linux personnalisé dans Azure App Service](configure-custom-container.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

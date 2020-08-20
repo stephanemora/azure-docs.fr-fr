@@ -6,32 +6,32 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498121"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007078"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
-Il existe différentes façons d'authentifier, de contrôler/autoriser l'accès et de sécuriser les clusters Kubernetes. Avec les contrôles d’accès en fonction du rôle (RBAC) Kubernetes, vous pouvez accorder aux utilisateurs ou aux groupes l’accès aux seules ressources dont ils ont besoin. À l’aide d’Azure Kubernetes Service (AKS), vous pouvez améliorer la structure de sécurité et des autorisations en utilisant Azure Active Directory et Azure RBAC. Ces approches vous aident à sécuriser l’accès à votre cluster et fournissent uniquement les autorisations minimales requises aux développeurs et aux opérateurs.
+Il existe différentes façons d'authentifier, de contrôler/autoriser l'accès et de sécuriser les clusters Kubernetes. Avec le contrôle d’accès en fonction du rôle (RBAC) Kubernetes, vous pouvez accorder aux utilisateurs ou aux groupes l’accès aux seules ressources dont ils ont besoin. À l’aide d’Azure Kubernetes Service (AKS), vous pouvez améliorer la structure de sécurité et des autorisations en utilisant Azure Active Directory et Azure RBAC. Ces approches vous aident à sécuriser l’accès à votre cluster et fournissent uniquement les autorisations minimales requises aux développeurs et aux opérateurs.
 
 Cet article présente les principaux concepts vous permettant de vous authentifier et d’affecter des autorisations dans AKS :
 
-- [Contrôles d’accès en fonction du rôle (RBAC) Kubernetes](#kubernetes-role-based-access-controls-rbac)
+- [Contrôle d’accès en fonction du rôle Kubernetes (RBAC)](#kubernetes-role-based-access-control-rbac)
   - [Rôles et ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings et ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Comptes de service Kubernetes](#kubernetes-service-accounts)
 - [Intégration d’Azure Active Directory](#azure-active-directory-integration)
-- [Azure RBAC](#azure-role-based-access-controls-rbac)
+- [Azure RBAC](#azure-role-based-access-control-azure-rbac)
   - [Azure RBAC pour autoriser l’accès à la ressource AKS](#azure-rbac-to-authorize-access-to-the-aks-resource)
   - [Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-controls-rbac"></a>Contrôles d’accès en fonction du rôle (RBAC) Kubernetes
+## <a name="kubernetes-role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle Kubernetes (RBAC)
 
-Afin de fournir un filtrage granulaire des actions que les utilisateurs peuvent effectuer, Kubernetes recourt aux contrôles d’accès en fonction du rôle (RBAC). Ce mécanisme de contrôle vous permet d’affecter à des utilisateurs ou à des groupes d’utilisateurs, l’autorisation d’accomplir des opérations, telles que la création ou la modification de ressources, ou encore l’affichage de journaux d’activité à partir de charges de travail d’applications en cours d’exécution. La portée de ces autorisations peut être limitée à un seul espace de noms, ou accordée à l’ensemble du cluster AKS. Avec le contrôle RBAC de Kubernetes, vous créez des *rôles* pour définir des autorisations, puis affectez ces rôles aux utilisateurs avec les *liaisons de rôle*.
+Afin de fournir un filtrage granulaire des actions que les utilisateurs peuvent effectuer, Kubernetes recourt au contrôle d’accès en fonction du rôle (RBAC). Ce mécanisme de contrôle vous permet d’affecter à des utilisateurs ou à des groupes d’utilisateurs, l’autorisation d’accomplir des opérations, telles que la création ou la modification de ressources, ou encore l’affichage de journaux d’activité à partir de charges de travail d’applications en cours d’exécution. La portée de ces autorisations peut être limitée à un seul espace de noms, ou accordée à l’ensemble du cluster AKS. Avec le contrôle RBAC de Kubernetes, vous créez des *rôles* pour définir des autorisations, puis affectez ces rôles aux utilisateurs avec les *liaisons de rôle*.
 
 Pour plus d’informations, consultez [Utilisation de l’autorisation RBAC][kubernetes-rbac].
 
@@ -95,7 +95,7 @@ Comme indiqué dans le graphique ci-dessus, le serveur API appelle le serveur we
  
 **Découvrez comment intégrer AKS à AAD [ici](managed-aad.md).**
 
-## <a name="azure-role-based-access-controls-rbac"></a>Contrôles d’accès en fonction du rôle (RBAC) Azure
+## <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
 Le contrôle RBAC Azure est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui propose une gestion affinée des accès des ressources Azure.
 
@@ -107,7 +107,7 @@ Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès e
 
 Il existe deux niveaux d’accès nécessaires pour pleinement utiliser un cluster AKS : 
 1. [Accédez à la ressource AKS dans votre abonnement Azure](#azure-rbac-to-authorize-access-to-the-aks-resource). Ce niveau d’accès vous permet de contrôler les opérations de mise à l’échelle ou de mise à niveau de votre cluster à l’aide des API AKS, ainsi que d’extraire votre kubeconfig.
-2. Accédez à l’API Kubernetes. Ce niveau d’accès est contrôlé par le [RBAC Kubernetes](#kubernetes-role-based-access-controls-rbac) (traditionnellement) ou par l’[intégration du RBAC Azure à AKS pour l’autorisation Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
+2. Accédez à l’API Kubernetes. Ce niveau d’accès est contrôlé par le [RBAC Kubernetes](#kubernetes-role-based-access-control-rbac) (traditionnellement) ou par l’[intégration du RBAC Azure à AKS pour l’autorisation Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC pour autoriser l’accès à la ressource AKS
 

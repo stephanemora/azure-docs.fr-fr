@@ -1,19 +1,19 @@
 ---
 title: Choisir le bon niveau tarifaire pour Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir les différents niveaux tarifaires proposés par Microsoft Azure Maps.
+description: En savoir plus sur les niveaux tarifaires de Azure Maps. Découvrez les fonctionnalités proposées aux niveaux et les principales considérations à prendre en compte pour le choix d’un niveau tarifaire.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 359c2270f3de269adae13ce976cedeb4248935d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285762"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163983"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Choix du bon niveau tarifaire dans Azure Maps
 
@@ -47,6 +47,7 @@ Si les principales API géospatiales répondent aux besoins de votre service, ch
 | Données Azure Maps (préversion)                |                     | ✓        |
 | Mobilité (préversion)                       |                     | ✓        |
 | Météo (préversion)                        |✓                    |✓        |
+|  Créateur (préversion)                         |                   |✓        |
 
 Prenez en compte ces autres points :
 

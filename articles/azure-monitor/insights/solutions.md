@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325999"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135525"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 
-Les solutions de supervision tirent parti des services Azure pour fournir analyse supplémentaire du fonctionnement d’une application ou d’un service en particuliers. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation. Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation.
+Les solutions de monitoring dans Azure Monitor fournissent une analyse du fonctionnement d’une application ou d’un service Azure spécifique. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation. Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation.
 
 ## <a name="use-monitoring-solutions"></a>Utiliser des solutions de supervision
 
-Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette de chacune des solutions installées dans l’espace de travail.
+La page **Vue d’ensemble** des solutions dans Azure Monitor affiche un titre pour chaque solution installée dans un espace de travail Log Analytics. Pour ouvrir cette page, accédez à **Azure Monitor** dans le [portail Azure](https://ms.portal.azure.com). Dans le menu **Insights**, sélectionnez **Plus** pour ouvrir **Hub Insights**, puis cliquez sur **Espaces de travail log Analytics**.
 
-1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Surveiller**.
-1. Sous le menu **Insights**, sélectionnez **Plus**.
-1. Utilisez les zones de liste déroulante en haut de l’écran pour modifier l’espace de travail ou l’intervalle de temps utilisé pour les vignettes.
-1. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.
+[![Hub Insights](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Vue d’ensemble](media/solutions/overview.png)
+
+Utilisez les zones de liste déroulante en haut de l’écran pour modifier l’espace de travail ou l’intervalle de temps utilisé pour les vignettes. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.
+
+[![Vue d’ensemble](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Les solutions de monitoring peuvent contenir plusieurs types de ressources Azure, que vous pouvez visualiser comme n’importe quelle autre ressource. Par exemple, les requêtes de journal incluses dans la solution apparaissent sous **Requêtes de solutions** dans [Explorateur de requêtes](../log-query/get-started-portal.md#load-queries). Vous pouvez les utiliser lorsque vous effectuez une analyse ad hoc avec des [requêtes de journal](../log-query/log-query-overview.md).
 
@@ -192,7 +192,6 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Accédez à la [liste des solutions de monitoring de Microsoft](/azure/azure-monitor/monitor-reference).
+* Accédez à la [liste des solutions de monitoring de Microsoft](../monitor-reference.md).
 * Apprenez à [créer des requêtes](../log-query/log-query-overview.md) pour analyser les données collectées par les solutions de monitoring.
 * Consultez toutes les [commandes Azure CLI pour Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
-

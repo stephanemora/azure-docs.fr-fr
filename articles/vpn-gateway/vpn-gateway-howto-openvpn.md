@@ -1,18 +1,18 @@
 ---
 title: 'Configuration d’OpenVPN sur la passerelle VPN Azure : PowerShell'
-description: Étapes de configuration d’OpenVPN pour la passerelle VPN Azure
+description: Découvrez comment utiliser PowerShell pour activer le protocole OpenVPN sur la passerelle VPN Azure pour un environnement de point à site.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: de8d03467b5e44df1b9069c6db31d496785ff32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c13d14ad2d06cbc43d80c05258bdbd3303da4838
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983847"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036825"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurer OpenVPN pour la passerelle VPN Azure de point à site
 

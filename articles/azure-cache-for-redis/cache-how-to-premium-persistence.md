@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245274"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004810"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Comment configurer la persistance des données pour un Cache Redis Azure Premium
 Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article décrit comment configurer la persistance dans une instance Premium de Cache Redis Azure.
-
-Pour plus d’informations sur les autres fonctionnalités du cache Premium, consultez [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>Qu’est-ce que la persistance des données ?
 La [persistance Redis](https://redis.io/topics/persistence) vous permet de conserver les données stockées dans Redis. Vous pouvez également prendre des instantanés et sauvegarder les données que vous pouvez charger en cas de défaillance matérielle. Il s’agit d’un avantage substantiel par rapport au niveau De base ou Standard, où toutes les données sont stockées en mémoire et il existe un risque de perte de données en cas de défaillance des nœuds de cache. 
@@ -179,9 +177,9 @@ Après une réécriture, deux jeux de fichiers AOF se trouvent dans le stockage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
+En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.
 
-* [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)
+* [Niveaux de service Premium Azure Cache pour Redis](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

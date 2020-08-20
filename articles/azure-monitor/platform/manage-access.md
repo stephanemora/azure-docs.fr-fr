@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489450"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925632"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -102,7 +102,7 @@ Pour configurer le mode d’accès dans un modèle Azure Resource Manager, défi
 
 ## <a name="manage-access-using-workspace-permissions"></a>Gérer l’accès à l’aide d’autorisations au niveau de l’espace de travail
 
-Chaque espace de travail peut être associé à plusieurs comptes et chaque compte peut également avoir accès à plusieurs espaces de travail. L’accès est géré via de l’[accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md).
+Chaque espace de travail peut être associé à plusieurs comptes et chaque compte peut également avoir accès à plusieurs espaces de travail. L’accès est géré à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 Les activités suivantes nécessitent également des autorisations Azure :
 

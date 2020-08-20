@@ -1,6 +1,6 @@
 ---
 title: Introduction de la sécurité Azure | Microsoft Docs
-description: Découvrez Azure Security, ses services et son fonctionnement.
+description: Initiez-vous à Azure Security, à ses services et à son fonctionnement en lisant cette vue d’ensemble.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371394"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835933"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -142,7 +142,7 @@ Dans Diagnostic d’application, vous pouvez afficher les événements regroupé
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du stockage Azure et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md), comme Contributeur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
+Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle Azure approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md), comme Contributeur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 Une [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
@@ -336,7 +336,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 
 -   [L’authentification basée sur le jeton](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) permet l’authentification via Azure Active Directory.
 
--   Le [contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) vous permet d’accorder un accès en fonction du rôle de l’utilisateur. Vous pouvez ainsi donner facilement aux utilisateurs uniquement le niveau d’accès dont ils ont besoin pour effectuer leurs tâches. Vous pouvez personnaliser le contrôle RBAC en fonction du modèle d’entreprise et de la tolérance au risque de votre organisation.
+-   Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) vous permet d’accorder un accès en fonction du rôle de l’utilisateur. Vous pouvez ainsi donner facilement aux utilisateurs uniquement le niveau d’accès dont ils ont besoin pour effectuer leurs tâches. Vous pouvez personnaliser le contrôle RBAC en fonction du modèle d’entreprise et de la tolérance au risque de votre organisation.
 
 -   La [gestion d’identité intégrée (identité hybride)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) vous permet de gérer le contrôle d’accès des utilisateurs dans plusieurs plateformes cloud et centres de données internes, en créant une identité de l’utilisateur unique pour l’authentification et l’autorisation sur toutes les ressources.
 

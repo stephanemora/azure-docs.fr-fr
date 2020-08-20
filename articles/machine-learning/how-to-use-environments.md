@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985901"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167145"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,6 +248,9 @@ build.wait_for_completion(show_output=True)
 ```
 
 Il est utile de commencer par créer des images localement à l’aide de la méthode [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-). Après quoi, la définition du paramètre facultatif `pushImageToWorkspaceAcr = True` enverra (push) l’image obtenue dans le registre de conteneurs de l’espace de travail Azure ML. 
+
+> [!WARNING]
+>  La modification de l’ordre des dépendances ou des canaux dans un environnement entraîne un nouvel environnement et nécessite une nouvelle génération d’image.
 
 ## <a name="enable-docker"></a>Activer Docker
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 01/10/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742162"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005800"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licences requises pour utiliser Privileged Identity Management
 
@@ -32,19 +32,19 @@ Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## <a name="how-many-licenses-must-you-have"></a>De combien de licences avez-vous besoin ?
+## <a name="licenses-you-must-have"></a>Licences que vous devez avoir
 
 Assurez-vous que votre répertoire comporte au moins autant de licences Azure AD Premium P2 que d’employés effectuant les tâches suivantes :
 
-- Utilisateurs désignés comme étant éligibles pour les rôles Azure Active Directory gérés à l’aide de PIM
+- Utilisateurs désignés comme étant éligibles pour les rôles Azure AD ou Azure managés à l’aide de PIM
+- Utilisateurs désignés comme membres éligibles ou propriétaires de groupes d’accès privilégié
 - Utilisateurs en mesure d’approuver ou de refuser des demandes d’activation dans PIM
-- Utilisateurs affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
 - Utilisateurs affectés à une révision d’accès
 - Utilisateurs qui effectuent des révisions d’accès
 
 Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches suivantes :
 
-- Aucune licence n’est requise pour les utilisateurs disposant des rôles d’administrateur général ou d’administrateur de rôle privilégié qui configurent PIM, des stratégies et les révisions d’accès et reçoivent des alertes.
+- Aucune licence n’est requise pour les utilisateurs qui configurent PIM, configurent des stratégies, reçoivent des alertes et configurent des révisions d’accès.
 
 Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
@@ -58,7 +58,7 @@ Voici quelques exemples de scénarios de licence pour vous permettre de détermi
 | Graphic Design Institute a 25 administrateurs dont 14 sont gérés via PIM. L’activation de rôle nécessite une approbation et trois utilisateurs différents dans l’organisation peuvent approuver les activations. | 14 licences pour les rôles admissibles + 3 approbateurs | 17 |
 | Contoso a 50 administrateurs dont 42 sont gérés via PIM. L’activation de rôle nécessite une approbation et cinq utilisateurs différents dans l’organisation peuvent approuver les activations. Contoso effectue également des révisions mensuelles des utilisateurs affectés aux rôles Administrateur et les réviseurs sont les gestionnaires des utilisateurs dont six ne sont pas des rôles Administrateur gérés par PIM. | 42 licences pour les rôles admissibles + 5 approbateurs + 6 réviseurs | 53 |
 
-## <a name="what-happens-when-a-license-expires"></a>Que se passe-t-il quand une licence expire ?
+## <a name="when-a-license-expires"></a>Quand une licence expire
 
 Si une licence Azure AD Premium P2, une licence EMS E5 ou une licence d’essai expire, les fonctionnalités Privileged Identity Management ne sont plus disponibles dans votre annuaire :
 
@@ -72,4 +72,4 @@ Si une licence Azure AD Premium P2, une licence EMS E5 ou une licence d’essa
 
 - [Déployer Privileged Identity Management](pim-deployment-plan.md)
 - [Commencer à utiliser Privileged Identity Management](pim-getting-started.md)
-- [Rôles non gérables dans Privileged Identity Management](pim-roles.md)
+- [Rôles que vous ne pouvez pas gérer dans Privileged Identity Management](pim-roles.md)

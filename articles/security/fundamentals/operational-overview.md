@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’Azure Operational Security | Microsoft Docs
-description: Cet article fournit une vue d’ensemble de la sécurité opérationnelle Azure.
+description: En savoir plus sur Azure Operational Security dans cette vue d’ensemble. Operational Security fait référence aux services, contrôles et fonctionnalités de protection des ressources.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674229"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925309"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -68,7 +68,7 @@ Azure AD inclut également une suite complète de [fonctionnalités de gestion d
 - [Gestion des mots de passe en libre-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestion des groupes en libre service](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestion des comptes privilégiés](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview)
+- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview)
 - [Surveillance de l’utilisation des applications](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Audit détaillé](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Surveillance et alerte de sécurité](/azure/operations-management-suite/oms-security-responding-alerts)
@@ -87,7 +87,7 @@ Avec Azure Active Directory, toutes les applications que vous publiez pour vos p
 - Validation du chiffrement des disques.
 - Attaques réseau.
 
-Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](/azure/role-based-access-control/role-assignments-portal). Le contrôle RBAC fournit des [rôles intégrés](../../role-based-access-control/built-in-roles.md) qui peuvent être attribués à des utilisateurs, des groupes et des services dans Azure.
+Security Center utilise le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). Le contrôle RBAC fournit des [rôles intégrés](../../role-based-access-control/built-in-roles.md) qui peuvent être attribués à des utilisateurs, des groupes et des services dans Azure.
 
 Security Center évalue la configuration de vos ressources pour identifier les vulnérabilités et les problèmes de sécurité. Dans Security Center, vous ne voyez les informations concernant une ressource que si vous avez reçu le rôle propriétaire, collaborateur ou lecteur pour l’abonnement ou le groupe auquel appartient la ressource.
 

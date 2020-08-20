@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/09/2020
+ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484157"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036587"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -23,9 +23,9 @@ Cet article fournit des informations sur les mises à jour **les plus récentes*
 
 Azure HDInsight est l’un des services les plus populaires parmi les clients d’entreprise pour l’analytique open source sur Azure.
 
-## <a name="release-date-07302020"></a>Date de publication : 30/07/2020
+## <a name="release-date-08092020"></a>Date de publication : 09/08/2020
 
-Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours pour que la version release soit active dans votre région.
+Cette version s’applique uniquement à HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours pour que la version release soit active dans votre région.
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 ### <a name="support-for-sparkcruise"></a>Prise en charge de SparkCruise
@@ -64,6 +64,11 @@ Les JIRA ci-dessous sont portés pour Hive :
 * [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
 * [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
 * [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+Les JIRA ci-dessous sont portés pour HBase :
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ## <a name="component-version-change"></a>Changement de la version des composants
 Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

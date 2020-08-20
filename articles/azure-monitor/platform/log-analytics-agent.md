@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446542"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121525"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 L’agent Azure Log Analytics a été développé pour une gestion complète des machines virtuelles dans tous les clouds, des machines locales et de celles surveillées par [Operations Manager](/system-center/scom/). Les agents Windows et Linux envoient des données collectées à partir de différentes sources à votre espace de travail Log Analytics dans Azure Monitor, ainsi que des journaux d’activité ou mesures uniques tels que définis dans une solution de supervision. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [Azure Monitor pour machines virtuelles](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) et [Azure Automation](../../automation/automation-intro.md).
@@ -122,11 +122,19 @@ Cette section fournit des détails sur les distributions Linux prises en charge.
  - Ubuntu, Debian : `apt-get install -y python2`
  - SUSE : `zypper install -y python2`
 
-L’exécutable python2 doit être affecté de l’alias « python » à l’aide de la commande suivante :
+L’exécutable python2 doit être affecté de l’alias *python* à l’aide de la procédure suivante :
 
-```
-alternatives --set python `which python2`
-```
+1. Exécutez la commande suivante pour afficher tout alias python actuel, le cas échéant. Si c’est le cas, prenez note de la priorité de l’étape suivante.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Exécutez la commande suivante : Remplacez *\<priority\>* par un nombre supérieur à la priorité de la liaison existante, ou 1 si aucune liaison n’existe actuellement.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>Distributions prises en charge
 
@@ -166,7 +174,7 @@ Pour garantir la sécurité des données en transit vers les journaux d’activi
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Conditions de prise en charge de la signature de code SHA-2 pour Windows
-À compter du 17 août 2020, l’agent Windows utilisera exclusivement la signature SHA-2. Ce changement aura un impact sur les clients qui utilisent l’agent Log Analytics sur un système d’exploitation hérité dans le cadre d’un service Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). Le client n’aura rien à faire à moins que l’agent s’exécute sur une version héritée du système d’exploitation (Windows 7, Windows Server 2008 R2 et Windows Server 2008). Les clients utilisant une version héritée du système d’exploitation sont tenus d’effectuer les actions suivantes sur leurs ordinateurs avant le 17 août 2020. À défaut, leurs agents cesseront d’envoyer les données à leurs espaces de travail Log Analytics :
+À compter du 2 novembre 2020, l’agent Windows utilisera exclusivement la signature SHA-2. Ce changement aura un impact sur les clients qui utilisent l’agent Log Analytics sur un système d’exploitation hérité dans le cadre d’un service Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). Le client n’aura rien à faire à moins que l’agent s’exécute sur une version héritée du système d’exploitation (Windows 7, Windows Server 2008 R2 et Windows Server 2008). Les clients utilisant une version héritée du système d’exploitation sont tenus d’effectuer les actions suivantes sur leurs ordinateurs avant le 2 novembre 2020. À défaut, leurs agents cesseront d’envoyer les données à leurs espaces de travail Log Analytics :
 
 1. Installer le dernier Service Pack du système d’exploitation. Les versions de Service Pack nécessaires sont les suivantes :
     - Windows 7 SP1
@@ -194,7 +202,7 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |*.blob.core.windows.net |Port 443 |Règle de trafic sortant|Oui |
 |\* .azure-automation.net |Port 443 |Règle de trafic sortant|Oui |
 
-Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser des runbooks et des solutions de gestion dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

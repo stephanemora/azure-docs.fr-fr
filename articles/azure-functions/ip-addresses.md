@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656785"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874076"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -49,12 +49,13 @@ Il existe un autre moyen de trouver les adresses IP sortantes, avec [Cloud Shell
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> Lorsqu’une application de fonction qui s’exécute sur le [Plan de consommation](functions-scale.md#consumption-plan) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. Lors de l’exécution sur le Plan de consommation, il se peut que vous ayez besoin de placer l’ensemble du centre de données en liste verte.
+> Lorsqu’une application de fonction qui s’exécute sur le [Plan de consommation](functions-scale.md#consumption-plan) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. Lors de l’exécution sur le Plan de consommation, il se peut que vous ayez besoin d’ajouter l’ensemble du centre de données sur une liste verte.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Adresses IP sortantes du centre de données
 
-Si vous souhaitez mettre sur liste verte les adresses IP sortantes utilisées par vos applications de fonction, vous pouvez également mettre sur liste verte le centre de données des applications de fonction (région Azure). Vous pouvez [télécharger un fichier JSON qui liste les adresses IP de tous les centres de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Recherchez ensuite le fragment JSON qui s’applique à la région dans laquelle s’exécute votre application de fonction.
+Si vous devez mettre sur liste verte les adresses IP sortantes utilisées par vos applications de fonction, vous pouvez également mettre sur liste verte le centre de données des applications de fonction (région Azure). Vous pouvez [télécharger un fichier JSON qui liste les adresses IP de tous les centres de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Recherchez ensuite le fragment JSON qui s’applique à la région dans laquelle s’exécute votre application de fonction.
 
 Par exemple, le fragment JSON Europe Ouest peut se présenter ainsi :
 

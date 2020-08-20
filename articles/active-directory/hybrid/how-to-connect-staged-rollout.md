@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460607"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053218"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -84,7 +84,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
 
-- Quand des utilisateurs sont sélectionnés pour le lancement intermédiaire, la stratégie d’expiration de mot de passe est définie sur 90 jours sans option de personnalisation. 
+- Lorsque les utilisateurs sont dans Lancement intermédiaire, quand EnforceCloudPasswordPolicyForPasswordSyncedUsers est activé, la stratégie d’expiration du mot de passe est définie sur 90 jours sans option pour la personnaliser. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire

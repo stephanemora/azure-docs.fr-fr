@@ -1,18 +1,18 @@
 ---
 title: Configurer des clients OpenVPN sur la passerelle VPN Azure | Microsoft Docs
-description: Étapes de configuration de clients OpenVPN pour la passerelle VPN Azure
+description: Découvrez comment configurer OpenVPN pour la passerelle VPN Azure pour les clients des systèmes d’exploitation Windows, Linux et Mac.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: bdddf097265e7af688175688b6f3214413a90fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92447a541726c1c11b7b10d6d52cf91cfc07f945
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984089"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036859"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure
 

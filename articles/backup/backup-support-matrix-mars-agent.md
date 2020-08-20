@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538647"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872410"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -54,7 +54,7 @@ Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en a
 
 L’agent MARS doit avoir accès à ces URL :
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.MicrosoftAzure.com
 - *.MicrosoftOnline.com
@@ -69,7 +69,7 @@ L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protoc
 
 ### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
-Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur le Peering privé n’est pas prise en charge.
+Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.
 
 Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
 
@@ -79,7 +79,7 @@ Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants�
 - `.microsoftonline.com`
 - `.windows.net`
 
-Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
+Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 
 - Azure Active Directory (12076:5060)
 - Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
@@ -89,6 +89,16 @@ Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../exp
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
+
+### <a name="private-endpoint-support"></a>Prise en charge d'un point de terminaison privé
+
+Vous pouvez désormais utiliser des points de terminaison privés pour sauvegarder en toute sécurité les données des serveurs vers votre coffre Recovery Services. Dans la mesure où Azure Active Directory ne prend actuellement pas en charge les points de terminaison privés, l’accès sortant doit être attribué aux adresses IP et aux noms de domaine complets requis pour Azure Active Directory séparément.
+
+Lorsque vous utilisez l’agent MARS pour sauvegarder vos ressources locales, assurez-vous que votre réseau local (contenant vos ressources à sauvegarder) est homologué avec le réseau virtuel Azure qui contient un point de terminaison privé pour le coffre. Vous pouvez ensuite continuer à installer l’agent MARS et configurer la sauvegarde. Toutefois, vous devez vous assurer que toutes les communications pour la sauvegarde s’effectuent uniquement par le biais du réseau homologué.
+
+Si vous supprimez des points de terminaison privés pour le coffre après l’enregistrement d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
+
+En savoir plus sur les [points de terminaison privés pour Sauvegarde Azure](private-endpoints.md).
 
 ### <a name="throttling-support"></a>Prise en charge de la limitation
 
@@ -116,7 +126,7 @@ Windows 8.1 (Entreprise, Professionnel)| Oui |Non | Vérifier la version serveu
 Windows 8 (Entreprise, Professionnel) | Oui | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows Server 2016 (Standard, Datacenter, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Oui | Oui |- .NET 4.5 <br> \- Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2012 (Standard, Datacenter, Foundation) | Oui | Oui |- .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Oui | Non | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 
@@ -145,7 +155,7 @@ Sauvegarde Azure limite la taille des sources de données (fichier ou dossier) p
 **Système d’exploitation** | **Limite de taille**
 --- | ---
 Windows Server 2012 ou version ultérieure |54 400 Go
-Windows Server 2008 R2 SP1 |1 700 Go
+Windows Server 2008 R2 SP1 |1 700 Go
 Windows Server 2008 SP2| 1 700 Go
 Windows 8 ou version ultérieure| 54 400 Go
 Windows 7| 1 700 Go
