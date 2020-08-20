@@ -3,23 +3,19 @@ title: 'Tutoriel : Configurer la réécriture Workday dans Azure Active Directo
 description: Découvrir comment configurer la réécriture des attributs d’Azure AD à Workday
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215867b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 1d76fb96676ad49ce28ff4ef0d6c4fbc84636638
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026470"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88526828"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutoriel : Configurer la réécriture des attributs d’Azure AD à Workday
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour réécrire des attributs d’Azure AD à Workday. L’application de provisionnement Workday Writeback prend en charge l’affectation de valeurs sur les attributs Workday suivants :

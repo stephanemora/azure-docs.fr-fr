@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Certent Equity Management | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Certent Equity Management.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 08f1452b-3947-48f1-a1a1-58ebe6ebf1cd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85e25601b4b591896c5d43f0df7209d4ea01893
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c194ad67673ac342280b01ce2654e36efa869fc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75659608"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-certent-equity-management"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Certent Equity Management
 
